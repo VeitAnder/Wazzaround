@@ -1,0 +1,16 @@
+<div class="downloadlink">
+
+    <a ng-click="downloadrevision()" ng-right-click="contextmenu">
+      {{filename}}
+    </a>
+
+    <div class="contextmenu" style="position:absolute;" ng-show="showcontextmenu">
+      <div class="contextmenu-content">
+        <a class="contextmenudownloadlink" ng-click="downloadrevision()" style="display:block;">
+          <span></span>
+          Datei herunterladen
+        </a>
+      </div>
+    </div>
+
+</div>

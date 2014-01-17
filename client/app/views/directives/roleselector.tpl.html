@@ -1,0 +1,23 @@
+<div class="roleselector">
+  <div class="role_tags edit">
+    <a class="role_tag"
+       ng-class="{selected : editRoleElement.selected}"
+       ng-click="selectRole(editRoleElement)"
+       ng-repeat="editRoleElement in roleselectionlist">{{editRoleElement.role}}
+    </a>
+  </div>
+
+  <div class="form-inline role_add">
+    <input type="text" name="role" id="role" placeholder="neue Rolle hinzufügen"
+           ng-model="newrole">
+
+    <a class="add" ng-click="addRole()">
+      <span>hinzufügen</span>
+    </a>
+  </div>
+  <div>
+    <div ng-show="states.addroleerror === 'exists'" class="alert alert-error">Die Rolle "{{newrole}}" existiert bereits</div>
+    <div ng-show="states.addroleerror === 'empty' && !states.pristineform" class="alert alert-error">Bitte geben Sie eine Rolle ein oder wählen Sie eine aus</div>
+  </div>
+
+</div>

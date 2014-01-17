@@ -1,0 +1,191 @@
+<h2 style="font-family:'Helvetica Neue',Helvetica,sans-serif; font-weight:200; font-size: 35px; line-height: 42px; color:#949c9e;">
+  Plan für Sie – aus dem Projekt „{{projectname}}“!</h2>
+
+<p style="font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 14px; line-height: 19px; color:#5f6a6d;">
+  <b>
+    {{#if user.profile.firstName}}
+    {{user.profile.firstName}} {{user.profile.lastName}} ({{ user.email }})
+    {{else}}
+    {{ user.email }}
+    {{/if}}
+  </b>
+  schickt Ihnen aus dem Projekt <b>„{{projectname}}“</b> den
+  Plan <b>„{{plan.name}}“</b>!</p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left" valign="top" style="font-family:'Helvetica Neue',Helvetica,sans-serif; font-weight:200; font-size:28px; line-height:33px; background-color:#28373C; color:#FFFFFF; padding:25px 25px 10px 25px;
+    -moz-border-radius:12px 12px 0 0;border-radius:12px 12px 0 0;-webkit-border-radius:12px 12px 0 0;-ms-border-radius:12px 12px 0 0;-o-border-radius:12px 12px 0 0;">
+      {{plan.name}}
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" style="background-color:#FFFFFF; padding:25px;
+    -moz-border-radius:0 0 12px 12px;border-radius:0 0 12px 12px;-webkit-border-radius:0 0 12px 12px;-ms-border-radius:0 0 12px 12px;-o-border-radius:0 0 12px 12px;">
+
+      <table border="0" cellpadding="25" cellspacing="0" width="100%" style="border:solid 4px #dfe1e2;
+      -moz-border-radius:8px;border-radius:8px;-webkit-border-radius:8px;-ms-border-radius:8px;-o-border-radius:8px;">
+        <tr>
+          <td>
+
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tr>
+                <td width="30" align="left" valign="top" rowspan="2"
+                    style="padding-right: 10px; border-right:1px solid #dfe1e2;">
+                  <div style="text-align:center; padding:3px 8px; background-color:#259DB5; color:#FFFFFF;
+        -moz-border-radius:8px;border-radius:8px;-webkit-border-radius:8px;-ms-border-radius:8px;-o-border-radius:8px;">
+                    <span
+                        style="font-family:'Helvetica Neue',Helvetica,sans-serif; font-weight:200; font-size: 12px; line-height: 14px; color:#FFFFFF;">INDEX</span>
+                    <br>
+
+                    <span
+                        style="font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 30px; line-height: 30px; color:#FFFFFF; text-transform: uppercase;"><b>{{revision.index}}</b></span>
+                  </div>
+                </td>
+                <td align="left" valign="top" style="padding-left: 10px;">
+
+                  {{#if revision.pdf_file.filename}}
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: dotted 1px #cacdce">
+                    <tr>
+                      <td align="left" valign="top">
+
+                        <a href="{{downloadlinks.pdf}}" style="text-decoration: none; border:2px solid #D3206D; padding:0px 5px 0px 0px; font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 12px; line-height: 14px; background-color:#FFFFFF; color:#D3206D;
+                        -moz-border-radius:4px;border-radius:4px;-webkit-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;">
+                          <span style="text-align:center; padding:0px 5px; font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 12px; line-height: 14px; background-color:#D3206D; color:#FFFFFF; text-transform: uppercase;">
+                            <b>{{filetypeending revision.pdf_file}}</b></span>&nbsp;DOWNLOAD</a>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left" valign="top" style="padding-top: 5px;">
+                        <a style="color:#259DB5; font-weight:bold; text-decoration:underline; -ms-word-break: break-all; word-break: break-all; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto;"
+                           href="{{downloadlinks.pdf}}">{{filename revision.pdf_file}}
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                  {{else}}
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: dotted 1px #cacdce">
+                    <tr>
+                      <td align="left" valign="top">
+
+                        <span style="text-decoration: none; border:2px solid #cacdce; padding:0px 5px 0px 0px; font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 12px; line-height: 14px; background-color:#FFFFFF; color:#cacdce;
+                        -moz-border-radius:4px;border-radius:4px;-webkit-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;">
+                          <span style="text-align:center; padding:0px 5px; font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 12px; line-height: 14px; background-color:#cacdce; color:#FFFFFF;">
+                            <b>Druck-Datei</b></span>&nbsp;FEHLT</span>
+
+                      </td>
+                    </tr>
+                  </table>
+                  {{/if}}
+                </td>
+              </tr>
+              <tr>
+                <td align="left" valign="top" style="padding-left: 10px;">
+
+                  {{#if revision.dwg_file.filename}}
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                      <td align="left" valign="top">
+
+                        <a href="{{downloadlinks.dwg}}" style="text-decoration: none; border:2px solid #C29508; padding:0px 5px 0px 0px; font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 12px; line-height: 14px; background-color:#FFFFFF; color:#C29508;
+                        -moz-border-radius:4px;border-radius:4px;-webkit-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;">
+                          <span style="text-align:center; padding:0px 5px; font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 12px; line-height: 14px; background-color:#C29508; color:#FFFFFF;  text-transform: uppercase;">
+                            <b>{{filetypeending revision.dwg_file}}</b></span>&nbsp;DOWNLOAD</a>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left" valign="top" style="padding-top: 5px;">
+                        <a style="color:#259DB5; font-weight:bold; text-decoration:underline; -ms-word-break: break-all; word-break: break-all; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto;"
+                           href="{{downloadlinks.dwg}}">{{filename revision.dwg_file}}
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                  {{else}}
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                      <td align="left" valign="top">
+
+                        <span style="text-decoration: none; border:2px solid #cacdce; padding:0px 5px 0px 0px; font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 12px; line-height: 14px; background-color:#FFFFFF; color:#cacdce;
+                        -moz-border-radius:4px;border-radius:4px;-webkit-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;">
+                          <span style="text-align:center; padding:0px 5px; font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 12px; line-height: 14px; background-color:#cacdce; color:#FFFFFF;">
+                            <b>CAD-Datei</b></span>&nbsp;FEHLT</span>
+
+                      </td>
+                    </tr>
+                  </table>
+                  {{/if}}
+                </td>
+              </tr>
+            </table>
+
+            <p>
+              <span style="text-align:center; padding:2px 5px; margin-right: 5px; font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 12px; line-height: 14px; background-color:#e87f4b; color:#FFFFFF;
+                  -moz-border-radius:4px;border-radius:4px;-webkit-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;">Revision #{{revision.revisionindex}}</span>
+            </p>
+
+            <p style="font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 18px; line-height: 19px; color:#28373C;">
+              am
+              <b>{{dateFormat revision.created format="Do MMMM YYYY"}} um {{dateFormat revision.created format="H:mm" }} Uhr </b>
+              <br> von
+              <b>
+                {{#if revision.createdby.profile.firstName }}
+                {{revision.createdby.profile.firstName}} {{revision.createdby.profile.lastName}}
+                ({{revision.createdby.email}})
+                {{else}}
+                {{#if revision.createdby.profile.lastName }}
+                {{revision.createdby.profile.firstName}} {{revision.createdby.profile.lastName}}
+                ({{revision.createdby.email}})
+                {{else}}
+                {{revision.createdby.email}}
+                {{/if}}
+                {{/if}}
+              </b> hochgeladen.
+            </p>
+
+            {{#if revision.comment }}
+            <p style="margin-bottom:0; font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 14px; line-height: 19px; color:#28373C;">
+              <b>Kommentar:</b> {{revision.comment}}
+            </p>
+            {{/if}}
+
+          </td>
+        </tr>
+      </table>
+
+      {{#if isnotsilent}}
+
+      <p style="font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 14px; line-height: 19px; color:#5f6a6d;">
+        <a style="color:#259DB5; text-decoration:underline;"
+           href="{{host}}projects/{{plan.projectid}}/plans/{{plan._id}}/">Gesamte Planhistorie anzeigen
+        </a>
+      </p>
+
+      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family:'Helvetica Neue',Helvetica,sans-serif; font-size:14px; line-height:19px; padding:15px; background-color:#E1550F; color:#FFFFFF;
+    -moz-border-radius:4px;border-radius:4px;-webkit-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;">
+        <tr>
+          <td>
+            <img src="{{host}}static/img/email/planfred-exclamation_email.png"
+                 alt="Planfred exclamation mark" border="0"
+                 style="border:0px none #FFFFFF; border-color:#FFFFFF; border-style:none; border-width: 0px; width: 30px; height: 55px; margin: 0; padding: 0 15px 0 0;"
+                 width="30" height="55">
+          </td>
+          <td style="font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 14px; line-height: 19px; color:#FFFFFF;">
+            Um sicher zu gehen, dass es von diesem Plan keine neuere Revision gibt, klicken Sie auf folgenden Link und
+            überprüfen die aktuelle Revisionsnummer:
+            <b>
+              <a href="{{host}}projects/{{plan.projectid}}/plans/{{plan._id}}/"
+                 style="color:#FFFFFF; text-decoration:underline;">Link zur Planhistorie
+              </a>
+            </b>
+          </td>
+        </tr>
+      </table>
+
+      {{/if}}
+
+    </td>
+  </tr>
+</table>

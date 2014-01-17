@@ -1,0 +1,2061 @@
+@import "_2_helpers";
+
+// FONT-SIZE
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+@mixin font-size_small {
+  font-size: $fs*$font-size_small_factor;
+  line-height: $fs*$line-height_factor*$font-size_small_factor;
+}
+@mixin font-size_smallest {
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.small {
+  @include font-size_small;
+}
+
+.smallest {
+  @include font-size_smallest;
+}
+
+@mixin linkbreak{
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+// TEXTFORMAT & CONTENT MIXINS
+// ###########################################################################################################################
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+@mixin p {
+  padding-bottom: $fs;
+  &:last-child{
+    padding-bottom: 0;
+  }
+}
+
+p {
+  @include p;
+}
+
+strong, b {
+  font-weight: $font-weight_bold;
+}
+
+@mixin h1 {
+  font-size: $fs*$font-size_h1_factor;
+  line-height: $fs*$font-size_h1_factor*$line-height_headline-factor;
+  margin: $fs*$font-size_h1_factor 0;
+  color: $color_h1;
+  @include webfont_01;
+}
+
+h1 {
+  @include h1;
+}
+
+@mixin h2 {
+  font-size: $fs*$font-size_h2_factor;
+  line-height: $fs*$font-size_h2_factor*$line-height_headline-factor;
+  margin: $fs*$font-size_h2_factor 0;
+  color: $color_h2;
+  @include webfont_01;
+}
+
+h2 {
+  @include h2;
+}
+
+@mixin h3 {
+  font-size: $fs*$font-size_h3_factor;
+  line-height: $fs*$font-size_h3_factor*$line-height_headline-factor;
+  margin: $fs*$font-size_h3_factor 0;
+  color: $color_h3;
+  @include sysfont_01;
+  font-weight: $font-weight_light;
+}
+
+h3 {
+  @include h3;
+}
+
+@mixin h4 {
+  font-size: $fs*$font-size_h4_factor;
+  line-height: $fs*$font-size_h4_factor*$line-height_headline-factor;
+  line-height: $fs*$font-size_h4_factor*$line-height_headline-factor;
+  margin: $fs*$font-size_h4_factor 0;
+  color: $color_h4;
+  @include webfont_01;
+}
+
+h4 {
+  @include h4;
+}
+
+@mixin h5 {
+  font-size: $fs*$font-size_h5_factor;
+  line-height: $fs*$font-size_h5_factor*$line-height_headline-factor;
+  margin: $fs*$font-size_h5_factor 0;
+  color: $color_h5;
+  @include webfont_01;
+}
+
+h5 {
+  @include h5;
+}
+
+@mixin h6 {
+  font-size: $fs*$font-size_h6_factor;
+  line-height: $fs*$font-size_h6_factor*$line-height_factor;
+  margin: $fs*$font-size_h6_factor 0;
+  color: $color_h6;
+  @include webfont_01;
+}
+
+h6 {
+  @include h6;
+}
+
+
+.align-left{
+  text-align: left;
+}
+
+.align-right{
+  text-align: right;
+}
+
+.align-center{
+  text-align: center;
+}
+
+
+@mixin inline_hl{
+  .inline_hl{
+  &.h6{
+    @include h6;
+    margin: 0;
+  }
+  }
+}
+
+@include inline_hl;
+
+@mixin input_noedit{
+  display: block;
+  font-size: $fs*$font-size_h5_factor;
+  line-height: $fs*$font-size_h5_factor*$line-height_headline-factor;
+  @include text-shadow_2px;
+  font-weight: $font-weight_bold;
+  color: $color_text;
+}
+
+.input_noedit{
+  @include input_noedit;
+}
+
+
+@mixin input_label{
+  display: block;
+  @include font-size_small;
+  margin-right: 5px;
+  color: $color_13;
+  vertical-align: bottom;
+  margin-bottom: 5px;
+}
+
+
+.input_label, label{
+  @include input_label;
+}
+
+@mixin label {
+  display: inline-block;
+  width: auto;
+  padding: 1px 4px;
+  @include border-radius($border-radius_small);
+  @include font-size_small;
+  font-weight: $font-weight_bold;
+  @include text-shadow_-1px;
+  text-align: center;
+  &.unauthorized{
+    background-color: $color_12;
+  }
+  &.filepdf, &.filedwg{
+    text-transform: uppercase;
+  }
+}
+
+@mixin label_tag{
+  display: inline-block;
+  padding: 2px 6px;
+  @include border-radius($border-radius_small);
+  text-align: center;
+}
+
+@mixin label_large {
+  padding: 3px 15px;
+  font-size: $fs*$font-size_h3_factor;
+  line-height: $fs*$font-size_h3_factor;
+  @include border-radius($border-radius);
+  @include text-shadow_-2px;
+}
+
+
+@mixin label_link{
+  @include border-all($color_button_border);
+  @include user-select(none);
+  @include border-radius($border-radius_small);
+  padding: 1px 4px 1px 0;
+  background-color: $color_white;
+  text-decoration: none;
+  @include font-size_small;
+  text-transform: uppercase;
+  .label{
+    @include label;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: $color_15;
+    color: $color_white;
+    @include border-radius(0);
+
+  }
+}
+
+@mixin index {
+  @include label;
+  @include box-sizing(border-box);
+  color: $color_white;
+  background-color: $color_05;
+  text-transform: uppercase;
+  min-width: 17px;
+}
+
+@mixin index_large {
+  @include index;
+  @include label_large;
+}
+
+@mixin index_large_text {
+  @include index_large;
+  padding: 3px 8px;
+  float: left;
+  .index_txt {
+    @include font-size_small;
+    font-weight: normal;
+    display: block;
+  }
+  index_nr {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+}
+
+
+@mixin alert {
+  @include label;
+  font-weight: normal;
+  @include box-sizing(border-box);
+  padding: 5px 10px;
+  margin: 5px 0 10px;
+  @include text-shadow_highlight;
+  @include box-shadow_2px;
+  text-align: left;
+  white-space: normal;
+  background-color: $color_alert_background;
+  color: $color_alert_text;
+  h1,h2,h3,h4,h5,h6{
+    color: $color_alert_text;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+  b{
+    font-weight: $font-weight_bold;
+  }
+  h4{
+    @include seperator(bottom, $color_notification_text);
+    margin-bottom: $fs*$font-size_h4_factor*$line-height_headline-factor*0.5;
+  }
+
+
+
+  &.alert-error{
+    background-color: $color_error_background;
+    color: $color_error_text;
+  }
+  &.alert-info{
+    background-color: $color_info_background;
+    color: $color_info_text;
+  }
+  &.alert-upload{
+    background-color: $color_upload_background;
+    color: $color_upload_text;
+  }
+  &.alert-success{
+    background-color: $color_success_background;
+    color: $color_success_text;
+  }
+  &.alert-large{
+    margin: $fs 0;
+    font-size: $fs;
+    line-height: $fs*$line-height_factor;
+    padding: 10px 15px;
+  }
+  &.alert-small{
+    font-size: 10px;
+    padding: 2px 6px;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  &.alert-block{
+    display:block;
+    text-align: center;
+    p,h1,h2,h3,h4,h5,h6{
+      text-align: left;
+    }
+  }
+
+}
+
+.alert{
+  @include alert;
+}
+
+.alert-norecipienterror   {
+  margin:30px;
+}
+
+
+@mixin timestamp{
+  text-transform: uppercase;
+  font-weight: $font-weight_bold;
+  color: $color_25;
+}
+
+.timestamp{
+  @include timestamp;
+}
+
+@mixin projecttitle_class {
+  position: relative;
+  top: 9px;
+  display: inline-block;
+  @include webfont_01;
+  @include text-shadow_2px;
+  font-size: $fs*$font-size_h1_factor;
+  line-height: $fs*$font-size_h1_factor*$line-height_headline-factor;
+  margin: 0;
+  a {
+    @include a_no_underline_class;
+    color: $color_13;
+    &:hover {
+      color: $color_13;
+    }
+  }
+}
+
+@mixin files {
+
+  .filedwg {
+    &.label{
+      @include label;
+      background-color: $color_dwg;
+      color: $color_white;
+    }
+    &.label_link{
+      @include label_link;
+      color: $color_dwg;
+      border-color: $color_dwg;
+      &:hover{
+        background-color: $color_dwg;
+        color: $color_white;
+      }
+      .label{
+        background-color: $color_dwg;
+      }
+      &.disabled{
+        color: $color_12;
+        border-color: $color_12;
+        .label{
+          background-color: $color_12;
+        }
+        &:hover{
+          background-color: $color_white;
+        }
+      }
+    }
+  }
+  .filepdf {
+    &.label{
+      @include label;
+      background-color: $color_pdf;
+      color: $color_white;
+    }
+    &.label_link{
+      @include label_link;
+      color: $color_pdf;
+      border-color: $color_pdf;
+      &:hover{
+        background-color: $color_pdf;
+        color: $color_white;
+      }
+     .label{
+        background-color: $color_pdf;
+      }
+      &.disabled{
+        color: $color_12;
+        border-color: $color_12;
+        .label{
+          background-color: $color_12;
+        }
+        &:hover{
+          background-color: $color_white;
+        }
+      }
+    }
+  }
+}
+
+// .files
+
+// LINKS
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+@mixin a {
+  color: $color_link;
+  text-decoration: underline;
+  &:link, &:focus, &:active, &:visited {
+    color: $color_link;
+  }
+  &:hover {
+    color: $color_link_hover;
+    text-decoration: none;
+  }
+}
+
+//@mixin a_textlink
+
+a {
+  @include a;
+}
+
+@mixin a_no_underline_class {
+  text-decoration: none;
+}
+
+@mixin a_unauthorized{
+  color: $color_12;
+  text-decoration: line-through;
+  cursor: auto!important;
+  span{
+    background-color: $color_12;
+  }
+  &:hover{
+    color: $color_12;
+    text-decoration: line-through;
+    span{
+      background-color: $color_12;
+    }
+  }
+}
+
+a.unauthorized{
+  @include a_unauthorized;
+}
+
+// BUTTON LINK
+// ###########################################################################################################################
+
+@mixin a_buttonlink_darkblue_class {
+  @include user-select(none);
+  border: none;
+  padding: ($fs*0.25) ($fs*1.0);
+  @include box-shadow_2px;
+  @include border(top, $color_button_border);
+  @include border-radius($border-radius_small);
+  @include gradient_darkblue;
+  @include webfont_01;
+  color: $color_button_text;
+  text-decoration: none;
+  font-size: 16px;
+  @include text-shadow(rgba($color_black, 0.5) 0 -1px 0);
+
+  &:hover {
+    color: $color_button_text_hover;
+    border-color: $color_button_border_hover;
+    @include gradient_darkblue_hover;
+    cursor: pointer;
+  }
+  &:active {
+    background: $color_15_l5;
+  }
+
+  &[disabled="disabled"], &.disabled {
+    opacity: 0.5;
+    &:hover {
+      cursor: default;
+    }
+    &:active {
+      @include gradient_blue_hover;
+    }
+  }
+
+}
+
+//@mixin a_buttonlink_darkblue_class
+
+@mixin a_buttonlink_orange_class {
+  @include a_buttonlink_darkblue_class;
+  @include border(top, $color_23);
+  @include gradient_orange;
+  @include text-shadow(rgba($color_black, 0.15) 0 -1px 0);
+  &:hover {
+    @include border(top, $color_23_l5);
+    @include gradient_orange_hover;
+  }
+  &:active {
+    background: $color_25_l5;
+  }
+}
+
+@mixin a_buttonlink_grey_class {
+  @include a_buttonlink_darkblue_class;
+  @include border(top, $color_10);
+  @include gradient_grey;
+  @include text-shadow(rgba($color_black, 0.15) 0 -1px 0);
+  &:hover {
+    @include border(top, $color_03);
+    @include gradient_blue;
+  }
+  &:active {
+    background: $color_05;
+  }
+}
+
+@mixin a_buttonlink_blue_class {
+  @include a_buttonlink_darkblue_class;
+  @include border(top, $color_03);
+  @include gradient_blue;
+  @include text-shadow(rgba($color_black, 0.15) 0 -1px 0);
+  &:hover {
+    @include border(top, $color_03_l5);
+    @include gradient_blue_hover;
+  }
+  &:active {
+    background: $color_05_l5;
+  }
+}
+
+@mixin a_buttonlink_pdf_class {
+  @include a_buttonlink_darkblue_class;
+  @include border(top, $color_pdf_50);
+  @include gradient_pdf;
+  @include text-shadow(rgba($color_black, 0.15) 0 -1px 0);
+  &:hover {
+    @include border(top, $color_pdf_50_l5);
+    @include gradient_pdf_hover;
+  }
+  &:active {
+    background: $color_pdf_l5;
+  }
+}
+
+@mixin a_buttonlink_dwg_class {
+  @include a_buttonlink_darkblue_class;
+  @include border(top, $color_dwg_50);
+  @include gradient_dwg;
+  @include text-shadow(rgba($color_black, 0.15) 0 -1px 0);
+  &:hover {
+    @include border(top, $color_dwg_50_l5);
+    @include gradient_dwg_hover;
+  }
+  &:active {
+    background: $color_dwg_l5;
+  }
+}
+
+
+@mixin button_big_orange{
+  @include a_buttonlink_orange_class;
+  padding: ($fs*0.75) ($fs*1.5);
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+@mixin button_big_darkblue{
+  @include a_buttonlink_darkblue_class;
+  padding: ($fs*0.75) ($fs*1.5);
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+@mixin button_big_blue{
+  @include a_buttonlink_blue_class;
+  padding: ($fs*0.75) ($fs*1.5);
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+
+
+@mixin iconwrap_left {
+  display: inline-block;
+  @include sprite_icons(-146px, -44px, no-repeat);
+  padding-left: 10px;
+}
+
+@mixin a_link_bg_blue {
+  @include a_no_underline_class;
+  @include border-radius($border-radius_small);
+  @include font-size_small;
+  font-weight: $font-weight_bold;
+  display: block;
+  background: $color_04;
+  color: $color_white;
+  white-space: nowrap;
+  padding: 4px 8px;
+  &:hover {
+    background-color: $color_04_l5;
+  }
+}
+
+@mixin a_link_icon_neg{
+  position: relative;
+  top: -8px;
+  @include a_no_underline_class;
+  @include webfont_01;
+  font-size: 16px;
+  white-space: nowrap;
+
+  span {
+    @include button_icon_large;
+    background-color: $color_white;
+    margin-left: 2px;
+    @include sprite_icons(-93px, -166px, no-repeat);
+  }
+  &:hover {
+    color: $color_01;
+    span {
+      background-color: $color_01;
+    }
+  }
+}
+
+@mixin a_link_neg{
+  @include a_no_underline_class;
+  color: $color_white;
+  &:hover {
+    color: $color_01;
+  }
+}
+
+@mixin caret{
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  @include border(top, $color_15);
+  @include border(left, transparent);
+  @include border(right, transparent);
+  border-width: 4px;
+  content: "";
+}
+
+
+@mixin a_link_caret_down{
+  @include a_no_underline_class;
+  @include user-select(none);
+  color: $color_link;
+  .caret{
+    margin-left: 5px;
+    margin-top: 6px;
+    border-top-color: $color_link;
+  }
+  &:hover{
+    color: $color_link_hover;
+    .caret{
+      border-top-color: $color_link_hover;
+    }
+  }
+}
+
+@mixin a_link_caret_up{
+  @include a_no_underline_class;
+  @include user-select(none);
+  color: $color_link;
+  .caret{
+    margin-left: 5px;
+    margin-top: 2px;
+    border-top-color: transparent;
+    border-bottom: 4px $color_link solid;
+  }
+  &:hover{
+    color: $color_link_hover;
+    .caret{
+      border-bottom-color: $color_link_hover;
+    }
+  }
+}
+
+
+@mixin a_link_caret_down_neg{
+  @include a_link_caret_down;
+  @include a_link_neg;
+  .caret{
+    border-top-color: $color_white;
+  }
+  &:hover{
+    .caret{
+      border-top-color: $color_01;
+    }
+  }
+}
+
+@mixin a_link_caret_up_neg{
+  @include a_link_caret_up;
+  @include a_link_neg;
+  .caret{
+    border-bottom: 4px $color_white solid;
+  }
+  &:hover{
+    .caret{
+      border-bottom-color: $color_01;
+    }
+  }
+}
+
+@mixin toggle_caret_neg{
+  &.active{
+    a{
+      @include a_link_caret_up_neg;
+    }
+  }
+  &.inactive{
+    a{
+      @include a_link_caret_down_neg;
+    }
+  }
+}
+
+@mixin toggle_caret{
+  &.active{
+    a{
+      @include a_link_caret_up;
+    }
+  }
+  &.inactive{
+    a{
+      @include a_link_caret_down;
+    }
+  }
+}
+
+// BUTTON LIST GROUP
+// ###########################################################################################################################
+
+@mixin buttonlist_group {
+  padding: 8px;
+  background-color: $color_04;
+  color: $color_white;
+  @include seperator(bottom, $color_03);
+  &:hover {
+    background-color: $color_04_l5;
+  }
+}
+
+.buttonlist_group {
+  @include buttonlist_group;
+}
+
+@mixin buttonlist_group_first {
+  @include buttonlist_group;
+  @include border-top-left-radius($border-radius_small);
+  @include border-top-right-radius($border-radius_small);
+}
+
+@mixin buttonlist_group_last {
+  @include buttonlist_group;
+  @include border-bottom-left-radius($border-radius_small);
+  @include border-bottom-right-radius($border-radius_small);
+}
+
+@mixin icon {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: $color_13;
+  @include border-radius(10px);
+  @include sprite_icons(5px, -145px, no-repeat);
+}
+
+@mixin icon_large {
+  @include icon;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  @include border-radius(15px);
+}
+
+@mixin icon_small {
+  @include icon;
+  top: 3px;
+  width: 14px;
+  height: 14px;
+  @include border-radius(7px);
+}
+
+@mixin button_icon {
+  @include icon;
+  &:hover {
+    background-color: $color_13_l5;
+  }
+}
+
+@mixin button_icon_large {
+  @include icon_large;
+  &:hover {
+    background-color: $color_13_l5;
+  }
+}
+
+@mixin button_icon_small {
+  @include icon_small;
+  &:hover {
+    background-color: $color_13_l5;
+  }
+}
+
+@mixin button_icon_delete {
+  @include button_icon;
+  @include sprite_icons(5px, -145px, no-repeat);
+  &:hover {
+    background-color: $color_55;
+  }
+  span {
+    display: none;
+  }
+}
+
+@mixin button_icon_add {
+  @include button_icon;
+  @include sprite_icons(-70px, -145px, no-repeat);
+  &:hover {
+    background-color: $color_45;
+  }
+  span {
+    display: none;
+  }
+}
+
+@mixin button_icon_small_delete{
+  @include button_icon_small;
+  @include sprite_icons(3px, -197px, no-repeat);
+  &:hover {
+    background-color: $color_55;
+  }
+  span {
+    display: none;
+  }
+}
+
+@mixin buttonbar {
+  @include box-sizing(border-box);
+  @include pie-clearfix;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  text-align: right;
+  @include seperator(top, $color_02);
+  text-align: right;
+
+  @include user-select(none);
+
+  button, .button {
+    @include a_buttonlink_blue_class;
+  }
+  .text_link, .confirm, .cancel, .edit {
+    margin-left: 5px;
+  }
+  .text_icon_close {
+    @include webfont_01;
+    @include a_no_underline_class;
+    color: $color_text;
+    span {
+      @include icon;
+      margin-left: $fs*0.25;
+    }
+  }
+  &.align-left{
+    text-align: left;
+  }
+  &.align-center{
+    text-align: center;
+  }
+}
+
+
+
+
+
+
+@mixin buttonbar_small {
+  @include buttonbar;
+  padding: 5px;
+  .text_icon_close {
+    span {
+      @include icon_small;
+    }
+  }
+}
+
+
+@mixin text_link_bottom{
+  margin-left: 5px;
+  vertical-align: bottom;
+}
+
+// FORM ELEMENTS
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+@mixin textformat_form {
+  @include sysfont_01;
+  font-size: $fs;
+  line-height: $fs*$line-height_factor;
+  color: $color_input_text;
+  vertical-align: middle;
+}
+
+@mixin fieldformat_form {
+  display: block;
+  @include box-sizing(border-box);
+  padding: $fs*0.50;
+  @include textformat_form;
+  @include border-radius($border-radius_small);
+  background-color: $color_input_background;
+  @include border-all($color_input_border);
+  outline-style: none!important;
+}
+
+@mixin checkbox_rounded_big{
+  @include box-sizing(border-box);
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  @include border-all($color_12_d10);
+  @include box-shadow_2px-inset;
+  @include border-radius(10px);
+  border-width: 2px;
+  background-color: $color_white;
+}
+@mixin checkbox_rounded_big_selected{
+  border-color: $color_white;
+  @include sprite_icons(-22px, -147px, no-repeat);
+  background-color: $color_13;
+  @include box-shadow(none);
+}
+
+// font-size + padding + border
+$input_height: $fs + (2*$fs*0.50) + (2*$border-width);
+
+input, textarea, select {
+  @include fieldformat_form;
+  .form-inline &{
+    display: inline-block;
+  }
+}
+
+input, textarea{
+  @include box-shadow(rgba($color_black, 0.07) 0px 2px 0 inset);
+  @include animation_all;
+  @include input-placeholder($color_form_placeholder);
+  outline: 0;
+  height: $input_height;
+
+  outline: thin dotted \9;
+  /* IE6-9 */
+
+
+  &:hover{
+    border-color: $color_input_border_hover;
+  }
+
+  &:focus{
+    border-color: $color_input_border_active;
+    @include box-shadow(rgba($color_black, 0.075) 0px 1px 1px inset, rgba($color_input_border_active, 0.5) 0px 0px 8px);
+  }
+}
+
+textarea, input[type=checkbox]{
+  height: auto;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  *margin-top: 0;
+  /* IE7 */
+
+  margin-top: 1px \9;
+  /* IE8-9 */
+
+  line-height: normal;
+  padding: 0;
+}
+
+.radio,
+.checkbox {
+  display: block;
+  min-height: 20px;
+  padding-left: 20px;
+  cursor: pointer;
+  color: $color_text;
+  font-size: $fs;
+  line-height: $fs*$line-height_factor;
+  input{
+    cursor: pointer;
+  }
+  &.inline{
+    display: inline-block;
+    padding-top: 5px;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  &.disabled{
+    cursor: auto;
+  }
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  float: left;
+  margin-left: -20px;
+}
+
+
+
+select,
+input[type="file"] {
+  height: $input_height;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+
+  line-height: $fs*$line-height_factor;
+}
+
+select[multiple],
+select[size] {
+  height: auto;
+}
+select:focus,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+
+// BUTTON (INPUT, BUTTON)
+// ###########################################################################################################################
+
+input.button, input[type = submit], input[type = button], button {
+  @include a_buttonlink_blue_class;
+}
+
+
+@mixin tabs_body {
+  @include box-sizing(border-box);
+  padding: 20px;
+  min-height: 100px;
+
+  .tabs {
+    @include border(bottom, $color_12);
+    .tab {
+      display: inline-block;
+      margin-right: 3px;
+      @include border-top-left-radius($border-radius_small);
+      @include border-top-right-radius($border-radius_small);
+      background-color: $color_white;
+      font-weight: $font-weight_bold;
+      a {
+        @include a_no_underline_class;
+        display: block;
+        padding: 10px 20px 6px 20px;
+        @include border(bottom, $color_11);
+        border-width: 4px;
+      }
+      &.active {
+        margin-bottom: -1px;
+        @include border-all($color_12);
+        border-bottom: none;
+        a {
+          padding-bottom: 11px;
+          border-bottom: none;
+          color: $color_13;
+          &:hover {
+            color: $color_13;
+          }
+        }
+      }
+      //.tab .active
+    }
+    //.tab
+  }
+//.tabs
+
+  .tab_content {
+    overflow: hidden;
+    @include border(left, $color_12);
+    padding: 20px;
+  }
+//.tab_content
+}
+
+//.tabs_body
+
+.tabs_body {
+  @include tabs_body;
+}
+
+@mixin tag_group {
+  overflow: hidden;
+  margin-bottom: 10px;
+  .tag, .tag_add {
+    @include box-sizing(border-box);
+    @include hovercursor;
+    float: left;
+    margin: 0 5px 5px 0;
+    padding: 4px 8px;
+    @include border-radius($border-radius_small);
+    @include border-all($color_12);
+    background-color: $color_white;
+    @include font-size_small;
+    color: $color_15;
+    &:hover {
+      color: $color_05;
+    }
+    &.ui_state_selected {
+      color: $color_white;
+      background-color: $color_13;
+      border-color: $color_13;
+
+      &:hover {
+        background-color: $color_13_l5;
+      }
+    }
+    //.tag .ui_state_selected
+
+    &.selectable-no {
+      opacity: 0.5;
+      &:hover {
+        color: $color_15;
+        cursor: default;
+      }
+
+      &.ui_state_selected {
+        background-color: $color_13;
+        &:hover {
+          background-color: $color_13;
+          color: $color_white;
+        }
+      }
+    }
+
+  }
+//.tag
+  .tag_add {
+    padding: 4px;
+    .icon_add {
+      display: block;
+      width: $fs*$line-height_factor*$font-size_small_factor;
+      height: $fs*$line-height_factor*$font-size_small_factor;
+      @include sprite_icons(-47px, -147px, no-repeat);
+    }
+    &:hover {
+      .icon_add {
+        @include sprite_icons(-72px, -147px, no-repeat);
+      }
+    }
+    //.tag_add :hover
+  }
+//.tag_add
+}
+
+//mixin tag_group
+
+.tag_group {
+  @include tag_group;
+}
+
+// DIV-TABLE ELEMENTS
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+@mixin divtable_header {
+  @include user-select(none);
+  @include box-sizing(border-box);
+  @include pie-clearfix;
+  clear: both;
+  background-color: $color_15;
+  @include border-radius($border-radius_small);
+  font-weight: $font-weight_bold;
+  color: $color_white;
+  @include text-shadow(rgba($color_black, 0.25) 0 -1px 0);
+
+  &.sortable{
+    :hover{
+      cursor: pointer;
+      background-color: $color_15_l5;
+    }
+    .active{
+      color: $color_05;
+      background-color: $color_15_d5;
+    }
+  }
+  .cell {
+    @include box-sizing(border-box);
+    @include ellipsis(no-wrap);
+    float: left;
+    padding: 10px 5px;
+    @include border(left, $color_14);
+    &.first {
+      @include border-left-radius($border-radius_small);
+      border: none;
+      padding-left: 10px;
+    }
+    &.last {
+      @include border-right-radius($border-radius_small);
+      padding-right: 10px;
+    }
+    &.right{
+      text-align: right;
+    }
+
+  }
+}
+
+@mixin divtable_header_small {
+  @include divtable_header;
+  background-color: $color_35;
+
+  .cell {
+    border-color: $color_white;
+    padding: 5px (5px * 0.5);
+  }
+}
+
+@mixin divtable_cell {
+  @include box-sizing(border-box);
+  @include ellipsis(no-wrap);
+  float: left;
+  vertical-align: middle;
+  min-height: 100%;
+  padding: 10px 5px;
+
+  &.first {
+    padding-left: 10px;
+  }
+  &.last {
+    padding-right: 10px;
+  }
+  &.right{
+    text-align: right;
+  }
+}
+
+@mixin divtable_cell_small {
+  @include divtable_cell;
+  padding: 5px 2.5px;
+
+  &.first {
+    padding-left: 5px;
+  }
+  &.last {
+    padding-right: 5px;
+  }
+}
+
+@mixin divtable_row {
+  @include box-sizing(border-box);
+  @include pie-clearfix;
+  @include border(bottom, $color_01);
+
+  .cell {
+    @include divtable_cell;
+  }
+  .cell_wrap{
+    @include box-sizing(border-box);
+    white-space: normal;
+  }
+}
+
+@mixin divtable_row_small {
+  @include divtable_row;
+
+  div {
+    @include divtable_cell_small;
+  }
+}
+
+@mixin divtable_row_blocks{
+  @include divtable_row;
+  @include border-radius($border-radius_small);
+  @include box-shadow_2px;
+  margin-top: 7px;
+  border: 0;
+//reset
+  background-color: $color_white;
+
+  .lt-ie9 &{
+    overflow: hidden;
+  }
+
+
+  .cell{
+    @include border(left, $color_01);
+    &.first{
+      border: none;
+      @include border-left-radius($border-radius_small);
+    }
+    &.last{
+      @include border-right-radius($border-radius_small);
+    }
+  }
+
+  .even {
+    background-color: $color_00;
+    &.last{
+      @include border-right-radius($border-radius_small);
+    }
+  }
+  .enable_hover &{
+    @include hovercursor;
+    &:hover {
+      @include box-shadow_hover;
+      @include gradient_lightblue;
+      .cell{
+        border-color: $color_02;
+        background-color: transparent;
+        &.first{
+          border: none;
+        }
+      }
+      .even {
+      }
+    }
+  }
+}
+
+@mixin striperows {
+  &:nth-child(even) {
+    background-color: $color_01;
+    border: none;
+  }
+  &:nth-child(odd) {
+    background-color: $color_white;
+    border: none;
+    &:last-child {
+      @include border(bottom, $color_01);
+    }
+  }
+}
+
+@mixin striperows2 {
+  &:nth-child(odd) {
+    background-color: $color_01;
+    @include border-radius($border-radius_small);
+    border: none;
+  }
+  &:nth-child(even) {
+    border: none;
+    &:last-child {
+      @include border(bottom, $color_01);
+    }
+  }
+}
+
+@mixin table_5050_padding_25 {
+  width: 100%;
+  @include padding_25;
+  @include box-sizing(border-box);
+  display: table;
+  margin: 0;
+
+  .table_cell {
+    display: table-cell;
+    width: 50%;
+    vertical-align: top;
+    &.left {
+      padding-right: 25px;
+    }
+    &.right {
+      padding-left: 25px;
+      @include border(left, $color_11);
+      border-width: 1px;
+    }
+  }
+}
+
+@mixin table_innerpadding_10{
+  display: table;
+  margin: 0;
+  padding: 0;
+  .table_row{
+    display: table-row;
+  }
+  .table_cell{
+    display: table-cell;
+    width: auto;
+    vertical-align: top;
+    padding: 0 10px;
+    &.first{
+      padding-left: 0;
+    }
+    &.last{
+      padding-right: 0;
+    }
+  }
+}
+@mixin table_innerpadding_5{
+  @include table_innerpadding_10;
+  .table_cell{
+    padding: 0 5px;
+  }
+}
+
+/*
+ * Class for pages in the style of the login page
+ * used for pages in the login process and post login state
+ */
+
+@mixin radio-items{
+  @include border-radius($border-radius_small);
+  overflow: hidden;
+  .item{
+    display: block;
+    @include box-sizing(border-box);
+    padding: 10px 5px;
+    background-color: $color_11;
+    @include border(top, $color_white);
+    @include hovercursor;
+    &:first-child{
+      border: none;
+    }
+
+    .radio-item{
+      @include checkbox_rounded_big;
+      margin: 0 5px;
+      vertical-align: top;
+    }
+
+
+    &:hover {
+      color: $color_15;
+      .radio-item{
+        border-color: $color_13_d5;
+      }
+    }
+    &.selected{
+      color: $color_white;
+      background-color: $color_13;
+      @include box-shadow_2px-inset;
+      cursor: auto;
+      .radio-item{
+        @include checkbox_rounded_big_selected;
+      }
+    }
+  }
+}
+
+.radio-items-noedit{
+  .item{
+    color: $color_12;
+    @include text-shadow(none);
+  }
+  .selected{
+    color: $color_text;
+    @include text-shadow_2px;
+  }
+}
+
+.radio-items{
+  @include radio-items;
+}
+
+
+@mixin loginpages_class {
+  @include box-sizing(border-box);
+  margin: 50px auto;
+  padding: 30px;
+  width: 680px;
+  background: url(#{$img_path}login_v2px_bg.gif) repeat-y 200px 0;
+  background-color: $color_10;
+  @include border-radius($border-radius_large);
+  @include box-shadow(rgba($color_black, 0.15) 0 4px 0);
+
+  .innerwrap {
+    min-height: 225px;
+    padding-left: 200px;
+    @include logo_planfred(0,0,no-repeat);
+  }
+
+  h1 {
+    font-size: $fs*$font-size_h2_factor;
+    line-height: $fs*$font-size_h2_factor*$line-height_headline-factor;
+    margin: 0 0 $fs*$font-size_h2_factor 0;
+  }
+
+  h3{
+    font-size: $fs*$font-size_h4_factor;
+    line-height: $fs*$font-size_h4_factor*$line-height_headline-factor;
+    margin: $fs*$font-size_h4_factor 0 $fs*$font-size_h4_factor*0.5 0;
+  }
+
+  h5 {
+    color: $color_h1;
+  }
+
+  h1,h2,h3,h4,h5,h6{
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+
+  .buttonbar{
+    @include buttonbar;
+    padding: 10px 0 0 0;
+    margin-top: $fs;
+    @include seperator(top, $color_seperator_grey);
+  }
+  .radio-items, .radio-items-noedit{
+    margin-bottom: $fs;
+  }
+}
+
+//loginpages_class
+
+
+@mixin list_seperator_class {
+  @include seperator(top, $color_seperator_grey);
+  padding: 7px 0;
+}
+
+@mixin linklist_seperator_class {
+  li{
+    @include seperator(bottom, $color_seperator_grey);
+    padding: 0;
+    &:first-child{
+      @include seperator(top, $color_seperator_grey);
+    }
+    a {
+      display: block;
+      padding: 7px 0 7px 0;
+    }
+  }
+}
+
+@mixin print {
+  color: $color_black !important;
+  background: transparent !important;
+  @include text-shadow(none);
+  @include box-shadow(none);
+}
+
+@mixin print_font-size{
+  font-size: 8pt !important;
+  line-height: 9.6pt !important;
+}
+
+@mixin printplanlist {
+  background: transparent;
+  .buildversion, .navbar, .uploadmanager, .tabnav, .headerbar, .projecttitle_label{
+    display: none!important;
+  }
+  .page {
+    margin: 0;
+    padding: 0;
+  }
+  .projectsheetwrap_left, .projectsheetwrap_right, .projectsheet, .contentlisting {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, .planlists table tr td.index span {
+    @include print;
+  }
+
+  .group{
+    @include border(bottom, $color_black);
+    border-width: 2px;
+  }
+
+  .projecttitle {
+    clear: both;
+    @include print;
+    h1{
+      @include print;
+    }
+    .edit{
+      display: none;
+    }
+  }
+  .projectsheet:before{
+    width: 600px;
+    height: 140px;
+    float: right;
+    content: url('#{$img_path}logo_print.png');
+    zoom: 0.33;
+    padding-top: 50px;
+    margin-top: 50px;
+  }
+  .result {
+    @include print;
+    padding: 0;
+  }
+
+  button, form {
+    display: none;
+  }
+
+  .planlistingheader{
+    @include print;
+    @include print_font-size;
+    background: transparent;
+
+    .cell{
+      @include border(bottom, $color_black);
+      @include border(top, $color_black);
+      border-color: $color_black;
+      border-width: 2px;
+      background: transparent;
+      padding: 5px;
+      &.first{
+        @include border(bottom, $color_black);
+        @include border(top, $color_black);
+        border-color: $color_black;
+        border-width: 2px;
+        @include border-radius(0);
+        padding-left: 0;
+      }
+      &.last{
+        @include border-radius(0);
+        padding-right: 0;
+      }
+    }
+  }
+  .planlistitem{
+    @include print;
+    @include print_font-size;
+    @include border(bottom, $color_black);
+    @include border-radius(0);
+    margin: 0;
+    height: 50px;
+    .cell{
+      background: transparent;
+      padding: 5px;
+      border-color: $color_black_50;
+      white-space: normal;
+      overflow: auto;
+      &.first{
+        padding-left: 0;
+      }
+      &.last{
+        padding-right: 0;
+      }
+      .label, .role_tag{
+        @include border-all($color_black);
+        @include print;
+        @include print_font-size;
+        &.disabled{
+          border-color: $color_black_50;
+          color: $color_black_50;
+        }
+      }
+    }
+
+    .index_cell{
+      .index{
+        @include border-all($color_black);
+        @include print;
+        @include print_font-size;
+      }
+    }
+
+    .planlistitem_activity{
+      border-top-color: $color_black_15;
+    }
+    .participants_revision_sent, .participants_revision_downloaded, .inline_hl.h6{
+      @include print;
+      @include print_font-size;
+      color: $color_black_25!important;
+    }
+  }//.planlistitem
+}
+
+@mixin messages{
+  @include box-shadow_2px;
+  @include border-radius($border-radius_large);
+  @include font-size_small;
+  display: inline-block;
+  background-color: $color_notification_background;
+  color: $color_notification_text;
+  padding: 15px 20px 15px 20px;
+  font-weight: $font-weight_bold;
+  .close {
+    @include button_icon;
+    @include sprite_icons(5px, -145px, no-repeat);
+    margin-left: 10px;
+    span {
+      display: none;
+    }
+  }
+}
+
+@mixin notificationbar {
+  .notificationbar {
+    display: none;
+
+    @include box-sizing(border-box);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    text-align: center;
+    .messages {
+      @include messages;
+      @include border-top-radius(0);
+      padding-top: 10px;
+    }
+    //.messages
+  }
+//.notificationbar
+
+// @TODO
+// .notificationbar_static class to be removed when going 100% JS App
+  .notificationbar_static {
+    display: none;
+  }
+}
+
+//@mixin messages
+
+@include notificationbar;
+
+
+@mixin communication-element{
+  position: relative;
+  @include border-radius($border-radius_large);
+  @include box-shadow_4px;
+  background-color: $color_notification_background;
+  padding: 15px 30px;
+  margin: $fs*2.0 25px;
+  &.first{
+    margin-top: 0;
+    @include border-top-radius(0);
+  }
+
+  h1,h2,h3,h4,h5,h6,p{
+    color: $color_notification_text;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+  h4{
+    @include seperator(bottom, $color_notification_text);
+    margin-bottom: $fs*$font-size_h4_factor*$line-height_headline-factor*0.5;
+  }
+
+  &.communication-element-narrow{
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  &.communication-element-alert{
+    background-color: $color_error_background;
+    color: $color_error_text;
+    h1,h2,h3,h4,h5,h6,p{
+      color: $color_error_text;
+      border-color: $color_error_text;
+    }
+  }
+  .close{
+    @include box-sizing(border-box);
+    @include icon_large;
+    position: absolute;
+    z-index: 1;
+    top: -15px;
+    right: -15px;
+    float: right;
+    background-color: $color_14;
+    @include border-all($color_white);
+    border-width: 2px;
+    @include sprite_icons(8px, -142px, no-repeat);
+    @include box-shadow_2px;
+    &:hover {
+      background-color: $color_13;
+    }
+    span {
+      display: none;
+    }
+  }
+}
+
+.communication-element{
+  @include communication-element;
+}
+
+
+@mixin plan_detail_planname_input{
+  @include box-sizing(border-box);
+  width: 50%;
+  background: none;
+  @include h3;
+  margin: 0;
+  padding: 0;
+  color: $color_white;
+  border-style: dashed;
+}
+
+@mixin itemlist_detail{
+  background-color: $color_white;
+  @include box-shadow_4px;
+  @include border-radius($border-radius_large);
+  .detail_header {
+    @include border-top-radius($border-radius_large);
+    @include padding_25_first;
+    background-color: $color_15;
+  &.edit_detail_header{
+    background-color: $color_12;
+    padding-top: 9px;
+    label{
+      color: $color_14;
+    }
+  }
+    .alert{
+      margin: 10px 0 0 0;
+    }
+    .name, .plancontent, .email {
+      @include h3;
+      line-height: ($font-size_h3_factor*$fs*$line-height_headline-factor) + 3px;
+      color: $color_white;
+      margin: 0;
+    }
+    .name{
+      font-weight: $font-weight_bold;
+    }
+    .email{
+      margin-right: 5px;
+      font-weight: $font-weight_bold;
+    }
+    .input_wrap{
+      display: inline-block;
+      vertical-align: top;
+      input {
+        width: 100%;
+      }
+    }
+
+    input {
+      display: inline-block;
+      @include box-sizing(border-box);
+      @include h3;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin: 0;
+      height: auto;
+      &:focus{
+        border-color: $color_05;
+      }
+    }
+  }
+  .detail_body{
+    @include padding_25;
+
+    .detail_body_innerwrap {
+      width: 100%;
+      @include border-all($color_11);
+      border-width: 4px;
+      @include border-radius($border-radius);
+      @include box-sizing(border-box);
+    }
+  }
+  .buttonbar{
+    @include buttonbar;
+    padding: 15px 25px;
+  }
+}
+
+@mixin phases{
+  .phases{
+    @include border-radius($border-radius_small);
+    overflow: hidden;
+    .phase{
+      @include user-select(none);
+      @include divtable_cell;
+      outline: 1px solid $color_white;
+      width: (100%)/3; // 6 Phases 2 rows!
+      height: 40px;
+      background-color: $color_11;
+      line-height: 20px;
+      color: $color_14;
+      vertical-align: top;
+      .checkbox_phase{
+        @include checkbox_rounded_big;
+        margin: 0 5px;
+        vertical-align: top;
+      }
+
+      &.first, &:first-child{
+      }
+      &.last, &:last-child{
+      }
+
+
+      @include hovercursor;
+
+      &:hover {
+        color: $color_15;
+        .checkbox_phase{
+          border-color: $color_13_d5;
+        }
+      }
+      &.selected {
+        color: $color_white;
+        background-color: $color_13;
+        @include box-shadow_2px-inset;
+
+        .checkbox_phase{
+          @include checkbox_rounded_big_selected;
+        }
+
+        &:hover {
+          cursor: auto;
+        }
+      }
+      //.selected
+    }
+    //.phase
+
+    &.phases_filter{
+      .phase{
+        @include gradient_lightblue2;
+        width: (100% - 17)/3;
+        height: 40px;
+        outline-color: $color_05;
+        &.selectall{
+          width: 17%;
+          height: 80px;
+          line-height: 60px;
+          font-weight: $font-weight_bold;
+        }
+        &:first-child, &.first, &:last-child, &.last {
+          @include border-radius(0);
+        }
+
+        .name {
+        }
+        .numberoftaggedplans {
+          background-color: $color_white;
+          margin: 0 3px 0 5px;
+          padding: 3px 4px;
+          @include border-radius($border-radius_small);
+          @include box-shadow_1px-inset;
+          position: relative;
+          top: -2px;
+          font-size: 10px;
+          color: $color_05;
+          font-weight: $font-weight_bold;
+        }
+
+        &.selected{
+          @include gradient_tag_selected;
+          @include box-shadow(rgba($color_black,0.25) 0px 2px 0 inset);
+          .numberoftaggedplans{
+            background-color: $color_02;
+          }
+        }
+      }
+    }
+  }
+//.phases
+
+}//@mixin phases
+
+@include phases;
+
+@mixin role_tag{
+  @include label;
+  font-weight: normal;
+  background-color: $color_14;
+  color: $color_white;
+  @include box-sizing(border-box);
+}
+
+@mixin role_tags{
+  .role_tag {
+    @include label_tag;
+    @include a_no_underline_class;
+    @include user-select(none);
+    margin: 0 5px 5px 0;
+  }
+}
+
+.role_tags{
+  @include role_tags;
+}
+
+
+@mixin roleselector{
+  .role_tags {
+    .role_tag {
+      background-color: $color_14;
+      color: $color_white;
+    }
+  &.edit {
+    .role_tag{
+      color: $color_05;
+      @include gradient_tag_lightblue;
+
+      &:hover {
+        @include gradient_tag_lightblue_hover;
+      }
+      &.selected {
+        color: $color_white;
+        @include gradient_tag_selected;
+        @include box-shadow(rgba($color_black, 0.25) 0px 2px 0 inset);
+        &:hover {
+          background-color: $color_04;
+        }
+      }
+    }
+  }
+  }
+  .role_add {
+    margin: $fs*0.5 0 $fs 0;
+    .add {
+      @include button_icon_add;
+    }
+  }
+}
+
+@include roleselector;
+
+.block{
+  display: block;
+}

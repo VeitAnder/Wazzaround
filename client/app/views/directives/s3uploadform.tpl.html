@@ -1,0 +1,74 @@
+<div class="s3fineuploader {{filetype}}">
+
+  <div data-ng-switch="filename.error">
+    <div ng-switch-when="forbidden" class="alert alert-error">
+      Der Dateiname darf keine Sonderzeichen (;,/?:@&=+$) enthalten!
+    </div>
+    <div ng-switch-when="other" class="alert alert-error">
+      Der Dateiname enthält nicht erlaubte Sonderzeichen.
+    </div>
+  </div>
+
+  <div class="upload dropzone" ng-class="{completed: uploadcompleted, uploaderror: uploaderror}">
+
+    <div class="uploadform"
+         ng-hide="uploadinprogress || uploadcompleted || uploaderror"
+        >
+
+      <span class="button_fileinput">
+        <span class="button_text" ng-show="filetype === 'pdf'">Druck-Datei (PDF, …) auswählen</span>
+        <span class="button_text" ng-show="filetype === 'dwg'">CAD-Datei (DWG, …) auswählen</span>
+      </span>
+      <span class="dragover_help">oder einfach hierher ziehen!</span>
+
+    </div>
+
+    <div class="upload_progressbar"
+         ng-show="uploadinprogress"
+         ng-class="{inprogress: uploadinprogress}"
+        >
+      <div class="upload_progressbar_animatedbar" ng-style="progresscss"></div>
+
+      <div class="upload_filename">
+        <span spinner spinnercolor="#000000" spinnertext=""> </span>
+        <span>{{s3uploadservice.filename}}</span>
+        <span class="upload_filename_text" ng-hide="uploadsaving">wird hochgeladen …</span>
+        <span class="upload_filename_text" ng-show="uploadsaving">wird gespeichert …</span>
+      </div>
+
+      <div class="progressvalue" ng-hide="uploadsaving">{{uploadprogressmessage}}</div>
+      <a ng-click="cancel()" class="delete">
+        <span>cancel</span>
+      </a>
+    </div>
+
+    <div class="upload_completed"
+         ng-show="uploadcompleted"
+        >
+      <div class="upload_filename">
+        {{s3uploadservice.filename}} <span class="upload_filename_text">erfolgreich hochgeladen!</span>
+      </div>
+
+      <a ng-click="cancel()" class="delete">
+        <span>cancel</span>
+      </a>
+
+    </div>
+
+    <div class="upload_error"
+         ng-show="uploaderror"
+        >
+      <div class="alert alert-error">
+        Der Upload von {{s3uploadservice.filename}} ist fehlgeschlagen!
+        <br>
+        <a ng-click="cancel()" class="delete">
+          <span>Die Datei erneut hochladen</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

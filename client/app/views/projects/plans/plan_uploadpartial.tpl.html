@@ -1,0 +1,29 @@
+<div class="table uploadnewrevision_content">
+  <div class="table_cell left">
+
+    <div class="index_input">
+      <label>
+        <span class="index">
+          <span class="index_txt">Index</span>
+          <input type="text" name="index" ng-model="revision.index" maxlength="2" required/>
+        </span>
+        <span ng-if="submitted.it === true && valFormNewRevision.index.$error.required" class="alert">
+          Bitte tragen Sie einen Planindex ein
+        </span>
+      </label>
+    </div>
+
+    <div class="comment_input">
+      <label>Kommentar zur Revision:</label>
+      <textarea name="comment" ng-model="revision.comment" rows="3"></textarea>
+    </div>
+  </div>
+
+  <div class="table_cell right">
+    <div fileuploadcheck>
+    </div>
+  </div>
+
+</div>
+
+

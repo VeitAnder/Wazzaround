@@ -1,0 +1,126 @@
+<div ng-controller="AccountPaymentEditCtrl">
+
+  <div data-ng-include="'account/account_tabnav.tpl.html'"></div>
+
+  <div class="nav-tab-body accountdata" ng-hide="states.edit">
+
+    <h5>Rechnungsadresse</h5>
+
+    <p>
+      <span class="input_label">Firmenname:</span>
+      <span class="input_noedit">Meine Architektur GmbH</span>
+    </p>
+
+    <p>
+      <span class="input_label">Adresse:</span>
+      <span class="input_noedit">Hauptstraße 1</span>
+    </p>
+
+    <p>
+      <span class="input_label">Ort/Stadt:</span>
+      <span class="input_noedit">1234 Entenhausen</span>
+    </p>
+    <span class="divider"></span>
+
+    <h5>Rechnungszusätze</h5>
+
+    <p>
+      <span class="input_label">UID-Nummer:</span>
+      <span class="input_noedit">0815 5528 558</span>
+    </p>
+    <span class="divider"></span>
+
+    <h5>Rechnungsintervall</h5>
+
+    <div class="radio-items-noedit">
+      <span class="input_noedit item selected">jährliche Rechnung</span>
+      <span class="input_noedit item">monatliche Rechnung</span>
+    </div>
+
+    <span class="divider"></span>
+
+    <h5>Produktauswahl</h5>
+
+    <div class="radio-items-noedit">
+      <span class="input_noedit item">5 GB Speicherpatz für €19 pro Monat</span>
+      <span class="input_noedit item selected">30 GB Speicherpatz für €59 pro Monat</span>
+      <span class="input_noedit item">100 GB Speicherpatz für €199 pro Monat</span>
+    </div>
+
+    <span class="divider"></span>
+
+    <a class="edit" ng-click="edit()">Zahlungsinformationen ändern</a>
+
+  </div>
+
+  <div class="nav-tab-body accountdata" ng-show="states.edit">
+
+    <form name="valForm"
+          novalidate
+          ui-keyup="{27: 'cancel()'}">
+
+      <h5>Rechnungsadresse</h5>
+
+      <p>
+        <label>Firmenname:</label>
+        <input type="text" name="companyname" ng-model="user.profile.companyname" required>
+        <span ng-show="showError('companyname', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+      </p>
+
+      <p>
+        <label>Adresse:</label>
+        <input type="text" name="companyaddress" ng-model="user.profile.companyaddress" required>
+        <span ng-show="showError('companyaddress', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+      </p>
+
+      <p>
+        <label>Ort/Stadt:</label>
+        <input type="text" name="companycity" ng-model="user.profile.companycity" required>
+        <span ng-show="showError('companycity', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+      </p>
+      <span class="divider"></span>
+
+      <p>
+        <label>Land:</label>
+        <input type="text" name="country" ng-model="user.profile.country" required>
+        <span ng-show="showError('country', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+      </p>
+      <span class="divider"></span>
+
+
+      <h5>Rechnungszusätze</h5>
+
+      <p>
+        <label>UID-Nummer:</label>
+        <input type="text" name="companyuid" ng-model="user.profile.companyuid">
+      </p>
+      <span class="divider"></span>
+
+      <h5>Rechnungsintervall</h5>
+
+      <div class="radio-items">
+        <span class="item selected"><span class="radio-item"></span><strong>jährliche Rechnung</strong> <br>(12 Monate nutzen - nur 11 Monate bezahlen)</span>
+        <span class="item"><span class="radio-item"></span><strong>monatliche Rechnung</strong></span>
+      </div>
+
+      <span class="divider"></span>
+
+      <h5>Produktauswahl</h5>
+
+      <div class="radio-items">
+        <span class="item"><span class="radio-item"></span>5 GB Speicherpatz für €19 pro Monat</span>
+        <span class="item selected"><span class="radio-item"></span>30 GB Speicherpatz für €59 pro Monat</span>
+        <span class="item"><span class="radio-item"></span>100 GB Speicherpatz für €199 pro Monat</span>
+      </div>
+
+      <div class="buttonbar">
+        <a ng-click="save()" class="button" ng-class="{disabled: !isFormValid()}">
+          speichern
+        </a>
+        <a class="cancel" data-ng-click="cancel()">abbrechen</a>
+      </div>
+
+    </form>
+
+  </div>
+</div>

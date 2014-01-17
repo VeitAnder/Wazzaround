@@ -1,0 +1,67 @@
+<div class="projectsheetwrap_left">
+  <div class="projectsheetwrap_right">
+    <div class="projectsheet">
+
+      <div class="projecttitle_new" ng-hide="states.error">
+        <form name="valForm"
+              novalidate
+              ui-keyup="{27: 'cancel()'}">
+
+          <div class="projecttitle">
+            <span class="projecttitle_label">Mein Projekt:</span>
+            <input type="text" name="title" ng-model="newproject.title" placeholder="Projekttitel eingeben" required>
+            <span ng-show="showError('title', 'required')" class="alert">Bitte geben Sie einen Projekttitel ein.</span>
+          </div>
+
+          <div class="role">
+            <div class="input_label">Meine Rolle im Projekt:</div>
+            <div roleselector rolesinproject="rolesinproject" participantroles="participantroles" onselect="onRoleSelect(selectionresults)" multiselect="false"></div>
+            <span class="alert" ng-show="states.submitted && states.noroleselected">Bitte wählen Sie Ihre Rolle im Projekt aus oder fügen Sie eine für Sie passende Rolle hinzu</span>
+          </div>
+
+          <div class="buttonbar">
+
+            <a class="submit button button-spinner"
+               ng-class="{disabled: !isProjectFormValid() || states.requestInProgress}"
+               ng-click="saveProject()"
+                >
+              <div ng-hide="states.requestInProgress">Neues Projekt anlegen</div>
+              <div class="spinner-wrap" ng-show="states.requestInProgress">
+                <div spinner spinnertext="Projekt wird angelegt …" spinnercolor="#ffffff"></div>
+              </div>
+            </a>
+
+            <a class="cancel"
+               data-ng-click="cancel()"
+               ng-hide="states.requestInProgress"
+                >
+              abbrechen
+            </a>
+          </div>
+
+
+        </form>
+      </div>
+
+      <div class="alert alert-error alert-large" data-ng-show="states.error">
+        Es ist ein Fehler aufgetreten. Das Projekt konnte womöglich nicht angelegt werden.
+        <br>
+        Bitte überprüfen Sie Ihre <a class="cancel" data-ng-click="cancel()"> Projektliste </a>. Falls das von Ihnen angelegte Projekt nicht in der Projektliste aufscheint versuchen Sie es bitte erneut das gewünschte Projekt anzulegen.
+      </div>
+
+      <!--<div ng-show="showStartTrailPeriodMsg">-->
+        <!--<div class="communication-element communication-element-narrow">-->
+          <!--<h4>Ihr erstes eigenes Projekt!</h4>-->
+
+          <!--<p>Sobald Sie Ihr erstes Projekt anlegen, beginnt die <strong>-->
+            <!--<nobr>2-monatige</nobr>-->
+            <!--Testphase.</strong> Falls Sie ab sofort den vollen Planfred-Support nützen wollen, können Sie in Ihrem-->
+            <!--<a href="/#/account">Benutzerkonto</a> jederzeit auf eines der Planfred-Modelle umsteigen.-->
+          <!--</p>-->
+        <!--</div>-->
+
+      <!--</div>-->
+
+    </div>
+  </div>
+</div>

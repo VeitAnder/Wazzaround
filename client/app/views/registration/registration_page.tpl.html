@@ -1,0 +1,86 @@
+<div class="page" ng-show="!isAuthenticated">
+  <div class="authpage">
+    <div class="innerwrap">
+
+      <div ng-hide="onsuccessfullregistration">
+        <form name="valForm"
+              novalidate
+              class="registrationform"
+              ui-keyup="{27: 'cancel()'}">
+
+          <h1>Kostenlose Registrierung</h1>
+
+          <p>
+            <label>E-Mail:</label>
+            <input type="email" name="email" ng-model="user.email" required unique-email-for-login-account>
+            <span ng-show="showError('email', 'email')" class="alert alert-error">Bitte geben Sie eine gültige E-Mail Adresse ein.</span>
+            <span ng-show="showError('email', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+            <span ng-show="showError('email', 'uniqueEmail')" class="alert alert-error">Diese E-Mail Adresse ist bereits vergeben.</span>
+          </p>
+          <span class="divider"></span>
+
+          <p>
+            <label>Firma:</label>
+            <input type="text" name="company" ng-model="user.profile.company" required>
+            <span ng-show="showError('company', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+          </p>
+          <span class="divider"></span>
+
+          <p>
+            <label>Vorname:</label>
+            <input type="text" name="firstName" ng-model="user.profile.firstName" required>
+            <span ng-show="showError('firstName', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+          </p>
+          <p>
+            <label>Nachname:</label>
+            <input type="text" name="lastName" ng-model="user.profile.lastName" required>
+            <span ng-show="showError('lastName', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+
+          </p>
+          <span class="divider"></span>
+
+          <p>
+            <label>Passwort:</label>
+            <input type="password" name="password" ng-model="user.password" required>
+            <span ng-show="showError('password', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+
+          </p>
+          <p>
+            <label>Passwort wiederholen:</label>
+            <input type="password" name="passwordRepeat" ng-model="password" required
+                   validate-equals="user.password">
+            <span ng-show="showError('passwordRepeat', 'equal')" class="alert alert-error">Die Passwörter stimmen nicht überein.</span>
+            <span ng-show="showError('passwordRepeat', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+          </p>
+          <div class="buttonbar">
+            <button ng-click="send()"
+                    ng-class="{disabled: valForm.$invalid}"
+                >kostenlos registrieren
+            </button>
+            <a class="cancel" ng-click="cancel()">abbrechen</a>
+          </div>
+
+        </form>
+      </div>
+
+      <div ng-show="onsuccessfullregistration">
+        <h1>Registrierung</h1>
+
+        <p class="alert">In Kürze erhalten Sie eine Nachricht auf {{user.email}} um die Registrierung zu bestätigen.</p>
+
+        <div class="buttonbar">
+          <a ng-click="gotoLogin()">zurück zum Login</a>
+        </div>
+      </div>
+
+      <div ng-show="onfailedregistration">
+        <h1>Registrierung</h1>
+
+        <p class="alert alert-error">Es ist ein Fehler aufgetreten. Bitte versuchen Sie es ewtas später noch einmal oder
+          kontaktieren Sie unseren Support (<a href="mailto:'support@planfred.com'">support@planfred.com</a>).</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>

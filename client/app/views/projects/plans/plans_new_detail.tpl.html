@@ -1,0 +1,74 @@
+<div class="new_plan_detail" ng-controller="PlansNewCtrl">
+
+  <div class="new_plan_form_wrap">
+    <form name="valFormNewRevision"
+          novalidate
+          class="new_plan_form"
+          ui-keyup="{27: 'cancel()'}">
+
+      <!--Planname-->
+      <div class="detail_header edit_detail_header">
+        <div class="input_wrap">
+          <label for="plannummer">Plannummer:</label>
+          <input type="text" name="name" ng-model="plan.name" placeholder="Plannummer" title="Plannummer" id="plannummer" required/>
+          <span ng-show="submitted.it && valFormNewRevision.name.$error.required" class="alert">
+            Bitte tragen Sie eine Plannummer ein
+          </span>
+        </div>
+
+        <div class="input_wrap last">
+          <label for="planinhalt">Planinhalt:</label>
+          <input type="text" name="content" ng-model="plan.content" placeholder="Planinhalt" title="Planinhalt" id="planinhalt" required/>
+          <span ng-show="submitted.it && valFormNewRevision.content.$error.required" class="alert">
+            Bitte tragen Sie einen Plantitel ein
+          </span>
+        </div>
+      </div>
+
+      <!--Planname Ende-->
+
+      <!--phases-->
+      <div class="phases_wrap">
+        <div class="phases">
+          <span class="phase" ng-repeat="phasetag in currentproject.phasetags.at" ng-click="setPhaseTagIndex($index)"
+                ng-class="{selected: whichPhaseTag.idx == {{$index}}}"><span class="checkbox_phase"></span>{{phasetag.label}}
+          </span>
+          <span ng-show="submitted.it && whichPhaseTag.idx === undefined" class="alert">
+            Bitte wählen Sie eine Planphase aus
+          </span>
+        </div>
+
+      </div>
+
+      <div class="new_plan_upload_wrap">
+        <div class="new_plan_upload" data-ng-include="'projects/plans/plan_uploadpartial.tpl.html'"></div>
+      </div>
+
+      <div class="buttonbar">
+
+        <a class="submit button button-spinner"
+           ui-keypress="{13:'saveplan.requestInProgress || save(valFormNewRevision.$valid);'}"
+           ng-click="saveplan.requestInProgress || save(valFormNewRevision.$valid);"
+           ng-class="{disabled: valFormNewRevision.$invalid || !fileuploadcheck.uploaded || whichPhaseTag.idx === undefined || saveplan.requestInProgress}"
+            >
+
+          <div ng-hide="saveplan.requestInProgress">Plan speichern</div>
+          <div class="spinner-wrap" ng-show="saveplan.requestInProgress">
+            <div spinner spinnertext="Plan wird gespeichert …" spinnercolor="#ffffff"></div>
+          </div>
+        </a>
+
+        <a class="text_link"
+           data-ng-click="navigateToPlanList()"
+           ng-hide="saveplan.requestInProgress"
+            >
+          abbrechen
+        </a>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

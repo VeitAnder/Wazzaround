@@ -1,0 +1,17 @@
+<div class="headerbar">
+  <div class="textsearch">
+    <form method="get">
+      <label for="id_q">Suche:</label>
+      <input type="text" name="q" id="id_q" ng-model="query.searchText" required />
+      <a class="delete" ng-click="query.searchText = '' "><span>Suchfeld löschen</span></a>
+    </form>
+  </div>
+  <div class="searchhits">
+    {{ (activities | filter: query.searchText).length }} Treffer
+  </div>
+</div>
+<div class="activities">
+  <div class="result">
+    <div data-ng-include="'projects/activities/_activities_list.tpl.html'"></div>
+  </div>
+</div>

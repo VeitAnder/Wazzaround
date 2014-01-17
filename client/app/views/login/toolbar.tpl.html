@@ -1,0 +1,20 @@
+<ul class="nav pull-right">
+  <li ng-show="currentUser">
+    <a href="/#/account">
+      <span>Benutzerkonto </span>
+      <span>({{userInfo().email}})</span>
+      <!--<div fullname user="userInfo()" donotlink="true" alwaysshowemail="false"></div>-->
+    </a>
+  </li>
+  <li class="divider-vertical"></li>
+  <li class="btn_logout" ng-show="isAuthenticated()">
+    <form class="navbar-form">
+      <button class="btn" ng-click="logout()">Log out</button>
+    </form>
+  </li>
+  <li class="btn_logout" ng-hide="isAuthenticated()">
+    <form class="navbar-form">
+      <button class="btn" ng-click="login()">Log in</button>
+    </form>
+  </li>
+</ul>

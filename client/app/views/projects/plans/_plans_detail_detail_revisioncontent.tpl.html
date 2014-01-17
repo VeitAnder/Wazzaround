@@ -1,0 +1,144 @@
+<div class="table_cell left">
+
+  <div class="table indexfiles">
+    <div class="table_cell first">
+      <div class="index">
+        <span class="index_txt">Index</span>
+        <span class="index_nr">{{revision.index}}</span>
+      </div>
+    </div>
+
+    <div class="table_cell last files">
+
+      <div ng-show="isFileInRevision(revision, 'pdf')" class="file pdf">
+        <a class="filepdf label_link" ng-click="downloadRevision(revision, 'pdf', true)">
+          <span class="label">{{revision.pdf_file.filename | filetypeending}}</span> Download
+        </a>
+
+        <div downloadlink downloadrevision="downloadRevision(revision, 'pdf', true)" type="pdf" update="true" filename="{{revision.pdf_file.filename}}" planid="{{plan._id}}"></div>
+      </div>
+
+      <div ng-hide="isFileInRevision(revision, 'pdf')" class="file pdf">
+        <a class="filepdf label_link disabled">
+          <span class="label">Druck-Datei</span> fehlt
+        </a>
+      </div>
+
+      <div ng-show="isFileInRevision(revision, 'dwg')" class="file dwg">
+        <a class="filedwg label_link" ng-click="downloadRevision(revision, 'dwg', true)">
+          <span class="label">{{revision.dwg_file.filename | filetypeending}}</span> Download
+        </a>
+
+        <div downloadlink downloadrevision="downloadRevision(revision, 'dwg', true)" type="dwg" update="true" filename="{{revision.dwg_file.filename}}" planid="{{plan._id}}"></div>
+      </div>
+
+      <div ng-hide="isFileInRevision(revision, 'dwg')" class="file dwg">
+        <a class="filedwg label_link disabled">
+          <span class="label">CAD-Datei</span> fehlt
+        </a>
+      </div>
+
+    </div>
+    <!--<div class="table_cell last files"> end-->
+
+  </div>
+
+  <span class="comment">Kommentar: {{revision.comment}}</span>
+</div>
+
+<div class="table_cell right">
+
+  <div class="revision_index">
+    <span class="index">Revision #{{revision.revisionindex}} | </span>
+    <span class="date">{{revision.created | momentjs:{format: 'DD. MMMM YYYY, H:mm'} }}</span>
+  </div>
+
+  <div class="revision_created">
+    <span class="created"> {{revision.created | fromNow }} </span>
+    <span class="creater">von
+      <div fullname user="revision.createdby"></div>
+      hochgeladen.
+    </span>
+  </div>
+
+  <div class="participants_revision_sent">
+
+    <!--SENT PLURAL-->
+    <span ng-show="allRecipients[revision._id].num > 1">an
+      <a ng-click="participant_revisions_sentlist_show = !participant_revisions_sentlist_show">{{allRecipients[revision._id].num}} Personen</a>
+      versendet.
+    </span>
+
+    <!--SENT SINGULAR-->
+    <span ng-show="allRecipients[revision._id].num == 1">an
+      <a ng-click="participant_revisions_sentlist_show = !participant_revisions_sentlist_show">{{allRecipients[revision._id].num}} Person</a>
+      versendet.
+    </span>
+
+    <!--KEIN VERSENDEN ERFOLGT -->
+    <span ng-show="allRecipients[revision._id].num < 1">
+      wurde noch an keine Person versendet.
+    </span>
+
+    <!-- AKTUELLE REVISION VERSENDET AN -->
+    <div class="participants_revision_content" ng-show="participant_revisions_sentlist_show">
+      <div class="participant_revision" ng-repeat="recipient in revision.activitylog.sendRevision.users">
+        <div class="infotext first">
+          an
+          <div fullname user="recipient" project="currentproject"></div>
+
+        </div>
+        <div class="date last">{{recipient.date | fromNow}}</div>
+      </div>
+
+      <div class="buttonbar">
+        <a class="text_icon_close" ng-click="participant_revisions_sentlist_show = false">schließen
+          <span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="participants_revision_downloaded">
+
+      <!--DOWNLOAD PLURAL-->
+      <span ng-show="allDownloads[revision._id].num > 1">von
+        <a ng-click="participant_revisions_dowloadlist_show = !participant_revisions_dowloadlist_show">{{allDownloads[revision._id].num}} Personen</a>
+        heruntergeladen.
+      </span>
+
+      <!--DOWNLOAD SINGULAR-->
+      <span ng-show="allDownloads[revision._id].num == 1">von
+        <a ng-click="participant_revisions_dowloadlist_show = !participant_revisions_dowloadlist_show">{{allDownloads[revision._id].num}} Person</a>
+        heruntergeladen.
+      </span>
+
+      <!--KEIN DOWNLOAD-->
+      <span ng-show="allDownloads[revision._id].num < 1">
+        wurde noch von keiner Person heruntergeladen.
+      </span>
+
+      <!-- DOWNLOADS DER AKTUELLEN REVISION -->
+      <div class="participants_revision_content" ng-show="participant_revisions_dowloadlist_show">
+        <div class="participant_revision"
+             ng-repeat="downloader in revision.activitylog.downloadRevision.users">
+
+          <div class="infotext first">
+            <span class="filepdf" ng-show="downloader.action === 'getplanrevisionpdf' ">{{revision.pdf_file.filename | filetypeending}}</span>
+            <span class="filedwg" ng-show="downloader.action === 'getplanrevisiondwg' ">{{revision.dwg_file.filename | filetypeending}}</span>
+            <span class="user">
+              von
+              <div fullname user="downloader.user"></div>
+
+            </span>
+          </div>
+          <div class="date last">{{downloader.date | fromNow}}</div>
+        </div>
+        <div class="buttonbar">
+          <a class="text_icon_close" ng-click="participant_revisions_dowloadlist_show = false">schließen
+            <span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

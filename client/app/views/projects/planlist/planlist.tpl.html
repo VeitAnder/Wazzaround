@@ -1,0 +1,145 @@
+<div class="headerbar">
+
+  <!--<div class="planlist_showactivity" ng-hide="bkshowactivitytoggle">-->
+  <!--<a class="showinfo" ng-click="bkshowactivitytoggle = !bkshowactivitytoggle;">-->
+  <!--<span></span>-->
+  <!--Aktivitäten einblenden-->
+  <!--</a>-->
+  <!--</div>-->
+  <!--<div class="planlist_showactivity" ng-show="bkshowactivitytoggle">-->
+  <!--<a class="showinfo" ng-click="bkshowactivitytoggle = !bkshowactivitytoggle;">-->
+  <!--<span></span>-->
+  <!--Aktivitäten ausblenden-->
+  <!--</a>-->
+  <!--</div>-->
+
+  <!--<div class="textsearch">-->
+  <!--<form method="get">-->
+  <!--<label for="id_q">Suche:</label>-->
+  <!--<input type="text" name="q" id="id_q" ng-model="query.searchText" required/>-->
+  <!--<a class="delete" ng-click="query.searchText = '' ">-->
+  <!--<span>Suchfeld löschen</span>-->
+  <!--</a>-->
+  <!--</form>-->
+  <!--</div>-->
+  <!--<div class="searchhits">-->
+  <!--{{ (activities | filter: query.searchText).length }} Treffer-->
+  <!--</div>-->
+
+  <div class="filter_area planlisting role">
+    <div class="role_tags edit">
+      <a class="role_tag" ng-class="{selected : filter.roles[0] === ''}" ng-click="filter.roles[0] = ''">Alle anzeigen
+      </a>
+      <a class="role_tag" ng-class="{selected : filter.roles[0] === roleElement.role}"
+         ng-click="filter.roles[0] = roleElement.role"
+         ng-repeat="roleElement in currentproject.roles">{{roleElement.role}}
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div class="result">
+  <button class="button_planlist_print" onClick="window.print()">Planliste drucken</button>
+  <h3 class="planlist_date">
+    <span ng-hide="!filter.roles[0] || filter.roles[0].length === 0"><strong>{{filter.roles[0]}}</strong>-</span>Planliste
+  </h3>
+
+  <p>vom {{planlistdata.datenow | momentjs:{format: 'DD. MMMM YYYY, H:mm'} }} Uhr</p>
+
+  <div ng-show="filtered.length === 0" class="planlistingmessagebox">
+    <p>Es sind keine Pläne vorhanden.</p>
+  </div>
+
+  <div ng-hide="filtered.length === 0">
+    <div class="planlistingheader">
+      <div class="planname cell first">Plannummer</div>
+      <div class="index_cell cell">Index</div>
+      <div class="plancontent cell">Planinhalt</div>
+      <div class="phase cell">Planphase</div>
+      <div class="files cell">Dateien</div>
+      <div class="uploader cell">von</div>
+      <div class="modified cell last">aktualisiert</div>
+    </div>
+
+    <div class="planlist">
+
+      <div ng-repeat="plan in filtered = (sortedPlans | filter: byRole)">
+
+        <!-- grouping how to: http://stackoverflow.com/questions/15889246/how-to-separate-groups-in-ng-repeat-->
+        <div ng-switch on="$first || plan.phasetag != sortedPlans[$index-1].phasetag">
+          <h4 ng-switch-when="true" class="group">{{currentproject.phasetags.at[plan.phasetag].plural}}</h4>
+        </div>
+
+        <div class="planlistitem plan">
+          <div class="planname cell first">{{plan.name}}</div>
+          <div class="index_cell cell even">
+            <span class="index">{{plan.getGetLatestRevision().index}}</span>
+          </div>
+          <div class="plancontent cell">{{plan.content}}</div>
+          <div class="phase cell even">{{currentproject.phasetags.at[plan.phasetag].label}}</div>
+          <div class="files cell">
+
+            <span class="file">
+              <span ng-show="plan.getGetLatestRevision().pdf_file.filename" class="filepdf label" >{{plan.getGetLatestRevision().pdf_file.filename | filetypeending}}</span>
+              <span ng-show="plan.getGetLatestRevision().pdf_file.filename">{{plan.getGetLatestRevision().pdf_file.filename}}</span>
+
+              <span ng-show="!plan.getGetLatestRevision().pdf_file.filename" class="filepdf label_link disabled">
+                <span class="label">Druck-Datei</span> fehlt
+              </span>
+
+            </span>
+
+            <span class="file">
+              <span ng-show="plan.getGetLatestRevision().dwg_file.filename" class="filedwg label">{{plan.getGetLatestRevision().dwg_file.filename | filetypeending}}</span>
+              <span ng-show="plan.getGetLatestRevision().dwg_file.filename">{{plan.getGetLatestRevision().dwg_file.filename}}</span>
+
+              <span ng-show="!plan.getGetLatestRevision().dwg_file.filename" class="filedwg label_link disabled">
+                <span class="label">CAD-Datei</span> fehlt
+              </span>
+
+            </span>
+          </div>
+
+          <div class="uploader cell even">
+            <div class="uploader_name">
+              <span ng-show="plan.getGetLatestRevision().createdby.profile.company">
+                {{plan.getGetLatestRevision().createdby.profile.company}}
+              </span>
+              <span ng-hide="plan.getGetLatestRevision().createdby.profile.company">
+                {{plan.getGetLatestRevision().createdby.email}}
+              </span>
+            </div>
+            <div class="role_tag" ng-repeat="roleElement in plan.getGetLatestRevision().creator_roles">{{roleElement.role}}</div>
+          </div>
+
+          <!--<div class="uploader cell even">-->
+          <!--<span ng-show="plan.getGetLatestRevision().createdby.profile.company">-->
+          <!--{{plan.getGetLatestRevision().createdby.profile.company}}-->
+          <!--</span>-->
+          <!--<span ng-hide="plan.getGetLatestRevision().createdby.profile.company">-->
+          <!--{{plan.getGetLatestRevision().createdby.email}}-->
+          <!--</span>-->
+          <!--</div>-->
+          <div class="modified cell last">{{plan.modified | momentjs:{format: 'DD.MM.YYYY'} }}<br/>{{plan.modified | momentjs:{format: 'H:mm'} }} Uhr
+          </div>
+        </div>
+      </div>
+
+      <!--<div class="planlistitem_activity" ng-show="bkshowactivitytoggle">-->
+      <!--<div class="participants_revision_sent cell first">-->
+      <!--<span class="inline_hl h6">Versendet an:</span>-->
+      <!--bk@anorak.io, ms@anorak.io, dd@medienagentur.com, klausi@damn.it-->
+      <!--</div>-->
+      <!--<div class="participants_revision_downloaded cell last">-->
+      <!--<span class="inline_hl h6">Heruntergeladen von:</span>-->
+      <!--bk@anorak.io, ms@anorak.io, dd@medienagentur.com, klausi@damn.it-->
+      <!--</div>-->
+      <!--</div>-->
+
+    </div>
+  </div>
+
+</div>
+
+</div>

@@ -1,0 +1,59 @@
+<div class="page" ng-show="!isAuthenticated">
+  <div class="authpage">
+    <div class="innerwrap">
+
+      <form class="loginform" name="loginform" novalidate autocomplete="on"
+            action="{{actionurl}}" method="post" target="_self">
+
+        <h1>Login</h1>
+
+        <div ng-show="state.confirmed">
+          <p class="alert alert-success">Ihr Benutzerkonto wurde erfolgreich aktiviert.</p>
+        </div>
+
+        <div ng-show="state.alreadyconfirmed">
+          <p class="alert">Ihr Benutzerkonto ist bereits aktiviert worden.</p>
+        </div>
+
+        <div data-ng-switch="state.autherrortype">
+          <div ng-switch-when="invalidcredentials" class="alert alert-error">
+            Bitte überprüfen Sie E-Mail und Passwort.
+          </div>
+          <div ng-switch-when="userupdateerror" class="alert alert-error">
+            Es gab einen Fehler beim Login.
+          </div>
+          <div ng-switch-when="loginerror" class="alert alert-error">
+            Es gab einen Fehler beim Login.
+          </div>
+          <div ng-switch-when="usernotloggedin" class="alert alert-error">
+            Sie sind nicht eingeloggt.
+          </div>
+          <div ng-switch-when="sessionExpired" class="alert alert-error">
+            Bitte loggen Sie sich ein.<br>
+            ( Entweder ist Ihre Session abgelaufen, oder Sie waren noch nicht angemeldet. )
+          </div>
+        </div>
+
+        <p>
+          <label>E-Mail</label>
+          <input name="username" type="email" ng-model="user.email" required autofocus class="input-block-level">
+        </p>
+        <p>
+          <label>Passwort</label>
+          <input name="password" id="password" type="password" ng-model="user.password" required class="input-block-level">
+          <a class="forgottenpasswordlink" ng-click="forgotPassword()">Passwort vergessen?</a>
+        </p>
+
+        <button type="submit">Anmelden</button>
+
+      </form>
+
+      <div class="buttonbar">
+        <a ng-click="register()">Jetzt kostenlos registrieren</a>
+      </div>
+
+    </div>
+  </div>
+  <div class="communication-element" ng-include="'communication.tpl.html'"></div>
+
+</div>

@@ -1,0 +1,21 @@
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+node_modules
+npm-debug.log
+
+# to ensure that config_productionserver.js doesn't get committed, we use a pre-commit hook (/pre-commit.sh)
+config_productionserver.js
+
+# ignore clientapp
+clientapp/

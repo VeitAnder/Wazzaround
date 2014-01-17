@@ -1,0 +1,92 @@
+<center>
+  <!--hint: only content inside of .emailwrap will be included in the email, don't add anything outside of email body-->
+  <!--email body start  -->
+
+  <table border="0" cellpadding="20" cellspacing="0" height="100%" width="100%">
+    <tr>
+      <td align="center" valign="top">
+        <!-- // BEGIN CONTAINER -->
+        <table border="0" cellpadding="0" cellspacing="0" width="600">
+          <tr>
+            <td align="center" valign="top">
+              <!-- // BEGIN HEADER -->
+              <table border="0" cellpadding="15px" cellspacing="0" width="600">
+                <tr>
+                  <td align="right">
+                    <h1 style="text-align:right; padding-bottom:20px;">
+                      <a href="http://www.planfred.com" style="color: #259DB5;">
+                        <img src="{{host}}static/img/email/planfred-logo_email.png"
+                             alt="Planfred Logo – Pläne immer aktuell!" border="0"
+                             style="border:0px none #FFFFFF; border-color:#FFFFFF; border-style:none; border-width: 0px; width: 300px; height: 66px; margin: 0; padding: 0;"
+                             width="300" height="66">
+                      </a>
+                    </h1>
+                  </td>
+                </tr>
+              </table>
+              <!-- END HEADER \\ -->
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="top">
+              <!-- // BEGIN BODY -->
+              <table border="0" cellpadding="25" cellspacing="0" width="600" id="templateBody" bgcolor="#ECEEEE";
+              style="-moz-border-radius:12px;border-radius:12px;-webkit-border-radius:12px;-ms-border-radius:12px;-o-border-radius:12px;
+              -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 0; -moz-box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 0; box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 0;">
+                <tr>
+                  <td align="left" valign="top">
+
+                    {{#if template.resetpassword}}
+                      {{> resetpassword }}
+                    {{/if}}
+
+                    {{#if template.projectinvitation}}
+                      {{> projectinvitation}}
+                    {{/if}}
+
+                    {{#if template.accountactivationtoken}}
+                      {{> accountactivationtoken}}
+                    {{/if}}
+
+                    {{#if template.plansent}}
+                      {{> plansent}}
+                    {{/if}}
+
+                    {{#if template.supportmail}}
+                      {{> supportmail}}
+                    {{/if}}
+
+                    {{#if template.usercopysupportmail}}
+                      {{> usercopysupportmail}}
+                    {{/if}}
+
+                    {{#if template.mailbounce}}
+                      {{> mailbounce}}
+                    {{/if}}
+
+                  </td>
+                </tr>
+              </table>
+              <!-- END BODY \\ -->
+
+              <!-- FOOTER \\ -->
+              <table border="0" cellpadding="0" cellspacing="0" width="600">
+                <tr>
+                  <td align="center" valign="top" style="padding-top: 20px;">
+                    <p style="font-family:'Helvetica Neue',Helvetica,sans-serif; font-size: 11px; line-height: 15px; color:#5f6a6d;">Planfred – Das einfache Online-Tool für den organisierten Planaustausch. <a style="color:#259DB5; text-decoration:underline;" href="http://www.planfred.com">www.planfred.com</a>.</p>
+                  </td>
+                </tr>
+              </table>
+              <!-- FOOTER \\ -->
+
+            </td>
+          </tr>
+        </table>
+        <!-- END CONTAINER \\ -->
+      </td>
+    </tr>
+  </table>
+
+  <!--email body end-->
+</center>
+

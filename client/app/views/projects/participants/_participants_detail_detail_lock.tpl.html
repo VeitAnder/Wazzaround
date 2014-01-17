@@ -1,0 +1,16 @@
+
+<div class="participant_state_block" ng-hide="participant.enabled">
+  <a class="participant_lock locked" ng-click="enable()" ng-class="{unauthorized : !isUserAllowedToEditParticipant || !isUserAllowedToDisableUser}">
+    <span class="button">Beteiligten aktivieren</span>
+    <span class="icon_lock"></span>
+    gesperrt
+  </a>
+</div>
+
+<div class="participant_state_block" ng-show="participant.enabled">
+  <a class="participant_lock" ng-click="disable()" ng-class="{unauthorized : !isUserAllowedToEditParticipant || !isUserAllowedToDisableUser}">
+    <span class="button">Beteiligten sperren</span>
+    <span class="icon_lock"></span>
+  </a>
+</div>
+

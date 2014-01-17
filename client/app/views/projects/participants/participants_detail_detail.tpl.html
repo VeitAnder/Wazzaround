@@ -1,0 +1,210 @@
+<div class="participant_detail">
+
+<!--Participantname-->
+<div class="detail_header">
+  <span class="name" ng-show="participant.user.profile.firstName || participant.user.profile.lastName">{{participant.user.email}} ({{participant.user.profile.firstName}} {{participant.user.profile.lastName}})</span>
+  <span class="name" ng-hide="participant.user.profile.firstName || participant.user.profile.lastName">{{participant.user.email}}</span>
+</div>
+
+<!--Participantname Ende-->
+
+<div class="participant_info detail_body">
+
+  <div ng-hide="isUserAllowedToEditParticipant">
+    <p class="alert alert-large">
+      Sie sind nicht berechtigt Beteiligte zu bearbeiten.
+    </p>
+  </div>
+
+  <div class="detail_body_innerwrap">
+    <div class="table detail_body_content">
+      <div class="table_cell left">
+
+        <div ng-controller="ParticipantsDetailEditNameCtrl">
+
+          <div ng-hide="state.showeditform">
+
+            <div class="input_toggle">
+              <span class="input_label">Name:</span>
+              <span class="input_noedit" ng-click="edit()">{{participant.firstname}} {{participant.lastname}}</span>
+            </div>
+            <div class="buttonbar">
+              <a class="edit" ng-click="edit()" ng-class="{unauthorized : !isUserAllowedToEditParticipant}">Name
+                ändern
+              </a>
+            </div>
+
+          </div>
+
+          <form name="valForm"
+                ng-show="state.showeditform"
+                novalidate
+                ui-keyup="{27: 'cancel()'}">
+
+            <div class="input_toggle">
+              <p>
+                <label for="firstname">Vorname:</label>
+                <input type="text" ng-model="participant.firstname" name="firstname" id="firstname" placeholder="Vorname eingeben">
+              </p>
+              <p>
+                <label for="lastname">Nachname:</label>
+                <input type="text" ng-model="participant.lastname" name="lastname" id="lastname" placeholder="Nachname eingeben">
+              </p>
+            </div>
+
+            <div class="buttonbar">
+              <button class="confirm"
+                      ui-keypress="{13:'updateName()'}"
+                      ng-click="updateName()"
+                      ng-disabled="valForm.$invalid">
+                speichern
+              </button>
+              <a class="cancel" ng-click="cancel()">abbrechen</a>
+
+            </div>
+
+          </form>
+
+        </div>
+
+        <div ng-controller="ParticipantsDetailEditCompanyCtrl">
+
+          <div ng-hide="state.showeditform">
+
+            <div class="input_toggle">
+              <span class="input_label">Firma:</span>
+              <span class="input_noedit" ng-click="edit()">{{participant.company}}</span>
+            </div>
+            <div class="buttonbar">
+              <a class="edit" ng-click="edit()" ng-class="{unauthorized : !isUserAllowedToEditParticipant}">Firma
+                ändern
+              </a>
+            </div>
+          </div>
+
+          <form name="valForm"
+                ng-show="state.showeditform"
+                novalidate
+                ui-keyup="{27: 'cancel()'}">
+
+            <div class="input_toggle">
+              <label for="company">Firma:</label>
+              <input type="text" name="company" id="company" ng-model="participant.company" placeholder="Firma eingeben" required/>
+            </div>
+            <div class="buttonbar">
+              <button class="confirm"
+                      ui-keypress="{13:'updateCompany()'}"
+                      ng-click="updateCompany()"
+                      ng-disabled="valForm.$invalid">
+                speichern
+              </button>
+              <a class="cancel" ng-click="cancel()">abbrechen</a>
+            </div>
+
+          </form>
+
+        </div>
+
+        <div ng-controller="ParticipantsDetailEditRoleCtrl">
+
+          <!--@TODO replace ng-switch with ng-show and ng-hide-->
+
+          <div ng-switch="state.showeditform">
+
+            <div class="role show" ng-switch-when="false">
+              <span class="input_label">Rolle:</span>
+
+              <div class="role_tags">
+                <span class="role_tag"
+                      ng-repeat="role in participant.roles">{{role.role}}</span>
+              </div>
+
+              <div class="buttonbar">
+                <a class="edit" ng-click="edit()" ng-class="{unauthorized : !isUserAllowedToEditParticipant}">Rolle ändern
+                </a>
+              </div>
+            </div>
+
+            <div class="role" ng-switch-when="true">
+              <span class="input_label">Rolle:</span>
+
+              <!--<div roleselector roleselectionlist="roleselectionlist" onselect="updateRoleList()" multiselect="false"></div>-->
+              <div roleselector rolesinproject="rolesinproject" participantroles="participantroles" onselect="onRoleSelect(selectionresults)" multiselect="false"></div>
+
+              <div class="buttonbar">
+                <button class="confirm"
+                        ng-click="updateRole()">
+                  speichern
+                </button>
+                <a class="cancel" ng-click="cancel()">abbrechen</a>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="table_cell right">
+        <div class="participant_loggedin" ng-show="participant.user.alreadyloggedin">
+          <span class="time">{{participant.user.lastlogindate | fromNow}}</span>
+          mit der E-Mail Adresse
+          <a href="mailto:{{participant.user.email}}">{{participant.user.email}}</a>
+          zuletzt eingeloggt.
+        </div>
+
+        <div class="participant_loggedin" ng-hide="participant.user.alreadyloggedin">
+          <a href="mailto:{{participant.user.email}}">{{participant.user.email}}</a>
+          hat sich noch nie in Planfred eingeloggt.
+        </div>
+
+        <div data-ng-controller="ParticipantsDetailEditEnabledStatusCtrl">
+
+          <div ng-switch="participant.permission">
+
+            <div class="participant_state_block owner" ng-switch-when="owner">
+              <h4><span class="icon_state"></span>Projekteigentümer</h4>
+            </div>
+
+            <div ng-switch-when="admin">
+              <div ng-include="'projects/participants/_participants_detail_detail_lock.tpl.html'"></div>
+              <div class="alert" ng-show="!isUserAllowedToDisableUser && isUserAllowedToEditParticipant">
+                Sie können sich nicht selbst aus dem Projekt entfernen.
+              </div>
+            </div>
+
+            <div ng-switch-default>
+              <div ng-include="'projects/participants/_participants_detail_detail_lock.tpl.html'"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="user_activity">
+
+  <div ng-if="show.activities">
+    <h4>Aktivitäten von
+      <span class="name" ng-show="participant.user.profile.firstName || participant.user.profile.lastName">{{participant.user.email}} ({{participant.user.profile.firstName}} {{participant.user.profile.lastName}})</span>
+      <span class="name" ng-hide="participant.user.profile.firstName || participant.user.profile.lastName">{{participant.user.email}}</span>
+    </h4>
+
+    <div data-ng-include="'projects/activities/_activities_list.tpl.html'"></div>
+  </div>
+
+  <div ng-if="!show.activities"><h4>Derzeit gibt es noch keine Aktivitäten dieses Benutzers.</h4></div>
+
+</div>
+
+<div class="buttonbar align-left">
+  <a ng-click="navigateToParticipantsList()">
+    zurück zur Beteiligtenliste
+  </a>
+</div>
+
+</div>

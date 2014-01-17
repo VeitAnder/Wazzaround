@@ -1,0 +1,194 @@
+/*
+ IE - if console is not defined, handle it to not block execution in IE <= 9
+ */
+// make it safe to use console.log always
+// http://www.jquery4u.com/snippets/safe-console-log/
+(function (a) {
+  "use strict";
+  function b() {
+  }
+
+  for (var c = "assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn".split(","), d; !!(d = c.pop());) {
+    a[d] = a[d] || b;
+  }
+})
+  ((function () {
+    "use strict";
+    try {
+      console.log();
+      return window.console;
+    } catch (a) {
+      return (window.console = {});
+    }
+  })());
+
+angular.module('anorakApp', ['ngRoute', 'login', 'ui.keypress', 'registration', 'momentjs', 'projectowner',
+  'mongolabResource', 'resources.users', 'resources.activities', 'resources.projects', 'resources.plans',
+  'services.authentication',
+  'services.i18nNotifications',
+  'services.httpRequestTracker',
+  'services.filenameValidation',
+  'directives.s3uploadform', 'directives.customvalidation', 'directives.fullname', 'directives.spinner', 'directives.downloadlink',
+  'templates.app', 'resources.userregistrations', 'forgotpassword', 'services.supportbar', 'directives.roleselector', 'services.s3uploadservice', 'services.fileuploadcheck', 'filename']);
+
+angular.module('anorakApp').constant('I18NMESSAGES', {
+  'errors.route.changeError': 'Route change error',
+  'crud.user.save.success': "A user with id '{{id}}' was saved successfully.",
+  'crud.user.remove.success': "A user with id '{{id}}' was removed successfully.",
+  'crud.user.save.error': "Something went wrong when saving a user...",
+  'crud.project.save.success': "A project with id '{{id}}' was saved successfully.",
+  'crud.project.remove.success': "A project with id '{{id}}' was removed successfully.",
+  'crud.project.save.error': "Something went wrong when saving a project...",
+  'login.error.notAuthorized': "You do not have the necessary access permissions.  Do you want to login as someone else?",
+  'login.error.notAuthenticated': "You must be logged in to access this part of the application."
+});
+
+angular.module('anorakApp')
+  .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
+    'use strict';
+
+    $locationProvider.html5Mode((function () {
+      return !!(window.history && history.pushState);
+    }()));
+
+    //if no route specified, go to default route
+    $routeProvider
+      .when('/account/password', {
+        templateUrl: 'account/password/password_page.tpl.html',
+        controller: 'PasswordCtrl',
+        resolve: {
+          resolveprojectscollection: function (Projects) {
+            return Projects.resolveProjectsList();
+          }
+        }
+      })
+      .otherwise({
+        redirectTo: '/login'
+      });
+
+    $sceDelegateProvider.resourceUrlWhitelist([
+      // Allow same origin resource loads.
+      'self',
+      // Allow loading from our assets domain.  Notice the difference between * and **.
+      'http://localhost:3000/**',
+      'http://localhost:9000/**',
+      'http://osx.local:3000/**',
+      'http://osx.local:9000/**',
+      'http://0.0.0.0:9000/**',
+      'http://0.0.0.0:3000/**',
+      'http://127.0.0.1:9000/**',
+      'http://127.0.0.1:3000/**'
+    ]);
+
+    // The blacklist overrides the whitelist so the open redirect here is blocked.
+//    $sceDelegateProvider.resourceUrlBlacklist(
+//      [
+//        'http://myapp.example.com/clickThru**'
+//      ]
+//    );
+
+    // Allows XHR Requests to other domains and includes cookies
+    $httpProvider.defaults.withCredentials = true;
+
+  })
+  .run(function ($rootScope, currentUser, $location, $route, AuthenticationService, errorreporting, $window, $log, debug) {
+    "use strict";
+
+    debug("application run called");
+    $rootScope.debug = debug;
+
+    $rootScope.$on('$routeChangeStart', function (event, next, current) {
+
+      // no trailing slash
+      // regexpr literals
+      // all subroutes of registration and login are also public because regex will test true
+      var routesThatDontRequireAuth = [/\/registration/, /\/login/];
+
+      AuthenticationService.requestCurrentUser()
+        .then(function (user) {
+          if (!user.isAuthenticated()) {
+            var ispublicroute = false;
+
+            //if not a public route -> redirect to /login
+            angular.forEach(routesThatDontRequireAuth, function (value, key) {
+              if (value.test($location.path())) {
+                ispublicroute = true;
+              }
+            });
+
+            if (!ispublicroute) {
+              $location.search('redirect', $window.location.pathname);
+              $location.path('/login');
+            }
+
+          } else {
+            //redirect /login to /projects if currentUser.isAuthenticated()
+            if (/\/login/.test($location.path())) {
+              $location.path('/projects');
+            }
+          }
+
+        })
+        .catch(function (err) {
+          // @TODO show error in UI
+          $log("AthenticationService - Error when requesting current user: ", err);
+        });
+
+    });
+
+  });
+
+// @TODO check logging if it is neccessary to start via DI?
+// DO not remove logging from DI list!
+angular.module('anorakApp')
+  .controller('AppCtrl', function ($scope, i18nNotifications, currentUser, supportbar, $window, $timeout) {
+    'use strict';
+
+    $scope.notifications = i18nNotifications;
+
+    $scope.currentUser = currentUser;
+
+    $scope.removeNotification = function (notification) {
+      i18nNotifications.remove(notification);
+    };
+
+    $scope.$on('$routeChangeError', function (event, current, previous, rejection) {
+      i18nNotifications.pushForCurrentRoute('Die von Ihnen aufgerufene Webadresse konnte nicht gefunden werden oder Sie haben nicht die Berechtigung darauf zuzugreifen.');
+    });
+
+    $scope.isSupportBarOpen = function () {
+      return supportbar.isSupportBarOpen();
+    };
+
+    $scope.openSupportBar = function () {
+      supportbar.open();
+    };
+
+    $scope.goToTop = function () {
+      $window.scroll(0, 0);
+    };
+
+    // show go to top button on page bottom
+    $scope.gototop = {
+      show: false
+    };
+
+    $scope.showGoToTop = function () {
+      $window.onscroll = function () {
+        if ($window.scrollY > 50) {
+          $scope.gototop.show = true;
+          $timeout(function () {
+            $scope.$apply();
+          });
+
+        } else {
+          $scope.gototop.show = false;
+          $timeout(function () {
+            $scope.$apply();
+          });
+        }
+      };
+      return $scope.gototop.show;
+    };
+
+  });

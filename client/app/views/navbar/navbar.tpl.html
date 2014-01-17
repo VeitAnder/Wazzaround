@@ -1,0 +1,16 @@
+<div class="tabnav" ng-controller="NavBarCtrl">
+  <ul>
+    <li ng-class="{active: navbaractivetab=='plans'}">
+      <a href="/#/projects/{{projectid}}/plans/">Pläne</a>
+    </li>
+    <li class="participants" ng-class="{active: navbaractivetab=='participants'}">
+      <a href="/#/projects/{{projectid}}/participants/">Beteiligte</a>
+    </li>
+    <li class="activities" ng-class="{active: navbaractivetab=='activities'}">
+      <a href="/#/projects/{{projectid}}/activities/">Aktivitäten</a>
+    </li>
+    <li class="planlists" ng-class="{active: navbaractivetab=='planlist'}">
+      <a href="/#/projects/{{projectid}}/planlist/">Planliste</a>
+    </li>
+  </ul>
+</div>

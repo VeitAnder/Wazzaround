@@ -1,0 +1,35 @@
+<div class="projectspage">
+  <div class="innerwrap">
+    <h1>Projekte</h1>
+
+      <h3 ng-show="myfilteredprojects.length > 0">Meine Projekte</h3>
+      <ul>
+        <li ng-repeat="project in myfilteredprojects = (projects | isprojectowner) | orderBy:'title' ">
+          <a href="/#/projects/{{project.$id()}}/plans/">
+            <span class="projecttitle_list">{{project.title}}</span>
+            <div ng-if="project.lastrevisionupload">
+              <span class="timestamp smallest">{{project.lastrevisionupload | fromNow }} aktualisiert</span>
+            </div>
+          </a>
+
+        </li>
+      </ul>
+
+      <h3 ng-show="filteredprojects.length > 0">Projektbeteiligungen</h3>
+      <ul>
+        <li ng-repeat="project in filteredprojects = (projects | isnotprojectowner) | orderBy:'title' ">
+          <a href="/#/projects/{{project.$id()}}/plans/">
+            <span class="projecttitle_list">{{project.title}}</span>
+            <div ng-if="project.lastrevisionupload">
+              <span class="timestamp smallest">{{project.lastrevisionupload | fromNow }} aktualisiert</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <a class="linkbutton new" href="/#/projects/new/">Neues Projekt</a>
+
+
+  </div>
+</div>
+<div class="communication-element" ng-include="'communication.tpl.html'"></div>

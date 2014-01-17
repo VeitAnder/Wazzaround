@@ -1,0 +1,79 @@
+<div data-ng-controller="AccountEditCtrl">
+
+<div data-ng-include="'account/account_tabnav.tpl.html'"></div>
+
+  <div class="nav-tab-body accountdata" ng-hide="accountstates.edit">
+
+    <p>
+      <span class="input_label">E-Mail Adresse:</span>
+      <span class="input_noedit">{{user.email}}</span>
+    </p>
+    <span class="divider"></span>
+    <p>
+      <span class="input_label">Name:</span>
+      <span class="input_noedit">{{user.profile.firstName}} {{user.profile.lastName}}</span>
+    </p>
+    <span class="divider"></span>
+    <p>
+      <span class="input_label">Firma:</span>
+      <span class="input_noedit">{{user.profile.company}}</span>
+    </p>
+    <span class="divider"></span>
+
+    <a class="edit" ng-click="edit()">Benutzerdaten ändern</a>
+    <a class="editpassword" href="/#/account/password">Passwort ändern</a>
+
+  </div>
+
+  <div class="nav-tab-body accountdata" ng-show="accountstates.edit">
+
+    <form name="valForm"
+          novalidate
+          class="registrationform"
+          ui-keyup="{27: 'cancel()'}">
+      <p>
+        <span class="input_label">E-Mail Adresse:</span>
+        <span class="input_noedit">{{user.email}}</span>
+        <span class="alert">Die E-Mail Adresse kann nicht geändert werden!</span>
+      </p>
+      <span class="divider"></span>
+      <p>
+        <label>Vorname:</label>
+        <input type="text" name="firstName" ng-model="user.profile.firstName" required>
+        <span ng-show="showError('firstName', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+      </p>
+      <p>
+        <label>Nachname:</label>
+        <input type="text" name="lastName" ng-model="user.profile.lastName" required>
+        <span ng-show="showError('lastName', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+      </p>
+      <span class="divider"></span>
+      <p>
+        <label>Firma:</label>
+        <input type="text" name="company" ng-model="user.profile.company" required>
+        <span ng-show="showError('company', 'required')" class="alert">Bitte füllen Sie dieses Feld aus.</span>
+      </p>
+
+      <div class="buttonbar">
+        <button ng-click="saveaccount.requestInProgress || save()" ng-disabled="saveaccount.requestInProgress || !canSave()">
+          speichern
+        </button>
+        <a class="cancel" data-ng-click="cancel()">abbrechen</a>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="nav-tab-body" ng-show="accountstates.onerror">
+    <p class="alert alert-error">Es ist ein Fehler aufgetreten! Die Daten konnten nicht gespeichert werden.</p>
+  </div>
+
+  <div class="buttonbar">
+    <a href="/#/projects/" class="text_icon_close">schließen
+      <span></span>
+    </a>
+  </div>
+
+</div>
+
+</div>

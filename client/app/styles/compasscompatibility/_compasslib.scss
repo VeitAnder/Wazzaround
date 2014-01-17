@@ -1,0 +1,311 @@
+
+
+$experimental-support-for-webkit: true;
+$experimental-support-for-khtml: true;
+$experimental-support-for-mozilla: true;
+$experimental-support-for-microsoft: true;
+$experimental-support-for-opera: true;
+
+@mixin experimental($property, $value, $moz: $experimental-support-for-mozilla, $webkit: $experimental-support-for-webkit, $o: $experimental-support-for-opera, $ms: $experimental-support-for-microsoft, $khtml: $experimental-support-for-khtml, $official: true) {
+  @if $webkit and $experimental-support-for-webkit {
+    -webkit-#{$property}: $value;
+  }
+  @if $khtml and $experimental-support-for-khtml {
+    -khtml-#{$property}: $value;
+  }
+  @if $moz and $experimental-support-for-mozilla {
+    -moz-#{$property}: $value;
+  }
+  @if $ms and $experimental-support-for-microsoft {
+    -ms-#{$property}: $value;
+  }
+  @if $o and $experimental-support-for-opera {
+    -o-#{$property}: $value;
+  }
+  @if $official {
+    #{$property}: $value;
+  }
+}
+
+@mixin ellipsis($no-wrap: true) {
+  @if $no-wrap {
+    white-space: nowrap;
+  }
+  overflow: hidden;
+  @include experimental(text-overflow, ellipsis, not -moz, not -webkit, -o, -ms, not -khtml, official);
+}
+
+
+
+
+$default-border-radius: 5px !default;
+
+// Round all corners by a specific amount, defaults to value of `$default-border-radius`.
+//
+// When two values are passed, the first is the horizontal radius
+// and the second is the vertical radius.
+//
+// Note: webkit does not support shorthand syntax for several corners at once.
+// So in the case where you pass several values only the first will be passed to webkit.
+//
+// Examples:
+//
+//     .simple   { @include border-radius(4px, 4px); }
+//     .compound { @include border-radius(2px 5px, 3px 6px); }
+//     .crazy    { @include border-radius(1px 3px 5px 7px, 2px 4px 6px 8px)}
+//
+// Which generates:
+//
+//    .simple {
+//      -webkit-border-radius: 4px 4px;
+//      -moz-border-radius: 4px / 4px;
+//      -khtml-border-radius: 4px / 4px;
+//      border-radius: 4px / 4px; }
+//
+//    .compound {
+//      -webkit-border-radius: 2px 3px;
+//      -moz-border-radius: 2px 5px / 3px 6px;
+//      -khtml-border-radius: 2px 5px / 3px 6px;
+//      border-radius: 2px 5px / 3px 6px; }
+//
+//    .crazy {
+//      -webkit-border-radius: 1px 2px;
+//      -moz-border-radius: 1px 3px 5px 7px / 2px 4px 6px 8px;
+//      -khtml-border-radius: 1px 3px 5px 7px / 2px 4px 6px 8px;
+//      border-radius: 1px 3px 5px 7px / 2px 4px 6px 8px; }
+
+@mixin border-radius($radius: $default-border-radius, $vertical-radius: false) {
+
+  @if $vertical-radius {
+    // Webkit doesn't understand the official shorthand syntax for specifying
+    // a vertical radius unless so in case there's several we only take the first.
+    @include experimental(border-radius, first-value-of($radius) first-value-of($vertical-radius),
+      not -moz,
+      -webkit,
+      not -o,
+      not -ms,
+      not -khtml,
+      not official
+    );
+    @include experimental("border-radius", $radius unquote("/") $vertical-radius,
+      -moz,
+      not -webkit,
+      not -o,
+      not -ms,
+      -khtml,
+      official
+    );
+  }
+  @else {
+    @include experimental(border-radius, $radius);
+  }
+}
+
+// Round radius at position by amount.
+//
+// * legal values for `$vert`: `top`, `bottom`
+// * legal values for `$horz`: `left`, `right`
+
+@mixin border-corner-radius($vert, $horz, $radius: $default-border-radius) {
+  // Support for mozilla's syntax for specifying a corner
+  @include experimental("border-radius-#{$vert}#{$horz}", $radius,
+    -moz,
+    not -webkit,
+    not -o,
+    not -ms,
+    not -khtml,
+    not official
+  );
+  @include experimental("border-#{$vert}-#{$horz}-radius", $radius,
+    not -moz,
+    -webkit,
+    not -o,
+    not -ms,
+    -khtml,
+    official
+  );
+
+}
+
+// Round top-left corner only
+
+@mixin border-top-left-radius($radius: $default-border-radius) {
+  @include border-corner-radius(top, left, $radius); }
+
+// Round top-right corner only
+
+@mixin border-top-right-radius($radius: $default-border-radius) {
+  @include border-corner-radius(top, right, $radius); }
+
+// Round bottom-left corner only
+
+@mixin border-bottom-left-radius($radius: $default-border-radius) {
+  @include border-corner-radius(bottom, left, $radius); }
+
+// Round bottom-right corner only
+
+@mixin border-bottom-right-radius($radius: $default-border-radius) {
+  @include border-corner-radius(bottom, right, $radius); }
+
+// Round both top corners by amount
+@mixin border-top-radius($radius: $default-border-radius) {
+  @include border-top-left-radius($radius);
+  @include border-top-right-radius($radius); }
+
+// Round both right corners by amount
+@mixin border-right-radius($radius: $default-border-radius) {
+  @include border-top-right-radius($radius);
+  @include border-bottom-right-radius($radius); }
+
+// Round both bottom corners by amount
+@mixin border-bottom-radius($radius: $default-border-radius) {
+  @include border-bottom-left-radius($radius);
+  @include border-bottom-right-radius($radius); }
+
+// Round both left corners by amount
+@mixin border-left-radius($radius: $default-border-radius) {
+  @include border-top-left-radius($radius);
+  @include border-bottom-left-radius($radius); }
+
+
+
+
+// These defaults make the arguments optional for this mixin
+// If you like, set different defaults in your project
+
+$default-text-shadow-color:    #aaa !default;
+$default-text-shadow-h-offset: 0px  !default;
+$default-text-shadow-v-offset: 0px  !default;
+$default-text-shadow-blur:     1px  !default;
+$default-text-shadow-spread:   false  !default;
+
+// Provides cross-browser text shadows when one or more shadows are needed.
+// Each shadow argument should adhere to the standard css3 syntax for the
+// text-shadow property.
+//
+// Note: if any shadow has a spread parameter, this will cause the mixin
+// to emit the shadow declaration twice, first without the spread,
+// then with the spread included. This allows you to progressively
+// enhance the browsers that do support the spread parameter.
+@mixin text-shadow(
+$shadow-1 : default,
+$shadow-2 : false,
+$shadow-3 : false,
+$shadow-4 : false,
+$shadow-5 : false,
+$shadow-6 : false,
+$shadow-7 : false,
+$shadow-8 : false,
+$shadow-9 : false,
+$shadow-10: false
+) {
+  @if $shadow-1 == default {
+    $shadow-1: compact($default-text-shadow-h-offset $default-text-shadow-v-offset $default-text-shadow-blur $default-text-shadow-spread $default-text-shadow-color);
+  }
+  $shadows-without-spread: join((),(),comma);
+  $shadows: join((),(),comma);
+  $has-spread: false;
+  @each $shadow in compact($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5,
+    $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10) {
+    @if length($shadow) > 4 {
+      $has-spread: true;
+      $shadows-without-spread: append($shadows-without-spread, nth($shadow,1) nth($shadow,2) nth($shadow,3) nth($shadow,5));
+      $shadows: append($shadows, $shadow);
+    } else {
+    $shadows-without-spread: append($shadows-without-spread, $shadow);
+    $shadows: append($shadows, $shadow);
+  }
+  }
+  @if $has-spread {
+    text-shadow: $shadows-without-spread;
+  }
+  text-shadow: $shadows;
+}
+
+// Provides a single cross-browser CSS text shadow.
+//
+// Provides sensible defaults for the color, horizontal offset, vertical offset, blur, and spread
+// according to the configuration defaults above.
+@mixin single-text-shadow(
+$hoff: false,
+$voff: false,
+$blur: false,
+$spread: false,
+$color: false
+) {
+  // A lot of people think the color comes first. It doesn't.
+  @if type-of($hoff) == color {
+    $temp-color: $hoff;
+    $hoff: $voff;
+    $voff: $blur;
+    $blur: $spread;
+    $spread: $color;
+    $color: $temp-color;
+  }
+  // Can't rely on default assignment with multiple supported argument orders.
+  $hoff:   if($hoff,   $hoff,   $default-text-shadow-h-offset);
+  $voff:   if($voff,   $voff,   $default-text-shadow-v-offset);
+  $blur:   if($blur,   $blur,   $default-text-shadow-blur    );
+  $spread: if($spread, $spread, $default-text-shadow-spread  );
+  $color:  if($color,  $color,  $default-text-shadow-color   );
+  // We don't need experimental support for this property.
+  @if $color == none or $hoff == none {
+    @include text-shadow(none);
+  } @else {
+    @include text-shadow(compact($hoff $voff $blur $spread $color));
+  }
+}
+
+
+@mixin pie-clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  //  display:block;
+}
+
+
+// The default value is `padding-box` -- the box model used by modern browsers.
+//
+// If you wish to do so, you can override the default constant with `border-box`
+//
+// To override to the default border-box model, use this code:
+//     $default-background-clip: border-box
+
+$default-background-clip: padding-box !default;
+
+// Clip the background (image and color) at the edge of the padding or border.
+//
+// Legal Values:
+//
+//   * padding-box
+//   * border-box
+//   * text
+
+@mixin background-clip($clip: $default-background-clip) {
+  // webkit and mozilla use the deprecated short [border | padding]
+  $clip: unquote($clip);
+  $deprecated: $clip;
+  @if $clip == padding-box { $deprecated: padding; }
+  @if $clip == border-box { $deprecated: border; }
+  // Support for webkit and mozilla's use of the deprecated short form
+  @include experimental(background-clip, $deprecated,
+    -moz,
+    -webkit,
+    not -o,
+    not -ms,
+    not -khtml,
+    not official
+  );
+  @include experimental(background-clip, $clip,
+    not -moz,
+    not -webkit,
+    not -o,
+    not -ms,
+    -khtml,
+    official
+  );
+}
+

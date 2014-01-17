@@ -1,0 +1,186 @@
+<div class="headerbar">
+
+  <div class="phases phases_filter">
+
+    <div class="phase selectall" ng-class="{selected: whichPhaseTag.idx == currentproject.phasetags.at.length}"
+         ng-click="whichPhaseTag.idx = currentproject.phasetags.at.length" ng-init="getNumberOfPlans()">
+      <span class="numberoftaggedplans">{{numOfPlans.all}}</span>
+      <span class="name">Alle Pläne</span>
+    </div>
+    <div class="phase" ng-repeat="tag in currentproject.phasetags.at" ng-click="setPhaseTagIdx($index)"
+         ng-class="{selected: whichPhaseTag.idx == {{$index}} }" ng-init="getNumberOfPlansForPhasetag($index)">
+      <span class="numberoftaggedplans">{{numOfPlans[$index]}}</span>
+      <span class="name">{{tag.plural}}</span>
+    </div>
+  </div>
+
+  <div class="textsearch">
+    <form method="get">
+      <label for="id_q">Suche:</label>
+      <input type="text" name="q" id="id_q" ng-model="query.searchText" required/>
+      <a class="delete" ng-click="query.searchText = '' ">
+        <span>Suchfeld löschen</span>
+      </a>
+    </form>
+  </div>
+
+  <div class="filter_area role">
+    <div class="role_tags edit">
+      <a class="role_tag" ng-class="{selected : filter.roles[0] === ''}" ng-click="filter.roles[0] = ''">Alle anzeigen</a>
+
+      <a class="role_tag" ng-class="{selected : filter.roles[0] === roleElement.role}" ng-click="filter.roles[0] = roleElement.role"
+         ng-repeat="roleElement in currentproject.roles">{{roleElement.role}}</a>
+    </div>
+  </div>
+
+  <div class="searchhits">
+    {{filtered.length}} Treffer
+  </div>
+
+</div>
+
+<div class="result">
+
+  <button class="button_new_plan" ng-click="navtonewplan.requestInProgress || navigateToNewPlan()">Neuen Plan anlegen</button>
+
+  <div ng-if="currentproject.lastrevisionupload">
+    <div class="timestamp_plan">
+      <span class="text">… letzte Änderung</span> {{currentproject.lastrevisionupload | fromNow }}
+    </div>
+  </div>
+
+  <div class="planlistingheader sortable" ng-hide="filtered == 0">
+
+    <div class="planname cell first"
+         ng-class="{active: orderField == 'name', desc: orderField == 'name' && orderReverse}"
+         ng-click="setOrderField('name')">
+      Plannummer
+    </div>
+    <div class="index_cell cell"
+         ng-class="{active: orderField == 'index', desc: orderField == 'index' && orderReverse}"
+         ng-click="setOrderField('index')">
+      Index
+    </div>
+    <div class="plancontent cell"
+         ng-class="{active: orderField == 'content', desc: orderField == 'content' && orderReverse}"
+         ng-click="setOrderField('content')">
+      Planinhalt
+    </div>
+    <div class="phase cell"
+         ng-class="{active: orderField == 'phase', desc: orderField == 'phase' && orderReverse}"
+         ng-click="setOrderField('phase')">
+      Planungsphase
+    </div>
+    <div class="file_pdf cell"
+         ng-class="{active: orderField == 'files_pdf', desc: orderField == 'files_pdf' && orderReverse}"
+         ng-click="setOrderField('files_pdf')">
+      Druck
+    </div>
+    <div class="file_dwg cell"
+         ng-class="{active: orderField == 'files_dwg', desc: orderField == 'files_dwg' && orderReverse}"
+         ng-click="setOrderField('files_dwg')">
+      CAD
+    </div>
+
+    <div class="uploader cell"
+         ng-class="{active: orderField == 'by', desc: orderField == 'by' && orderReverse}"
+         ng-click="setOrderField('by')">
+      von
+    </div>
+    <div class="modified cell last"
+         ng-class="{active: orderField == 'update', desc: orderField == 'update' && orderReverse}"
+         ng-click="setOrderField('update')">
+      aktualisiert
+    </div>
+
+  </div>
+
+  <div class="planlistingmessagebox no-plans" ng-show="filtered.length === 0">
+    <!-- A query, no phasetag filter, no role filter -->
+    <div ng-if="query.searchText.length > 0 && whichPhaseTag.idx === currentproject.phasetags.at.length && filter.roles[0].length === 0">
+      <p>Mit dem Suchbegriff „{{query.searchText}}“ konnten keine Pläne gefunden werden.</p>
+    </div>
+    <!-- A query, no phasetag filter, a role filter -->
+    <div ng-if="query.searchText.length > 0 && whichPhaseTag.idx === currentproject.phasetags.at.length && filter.roles[0].length > 0">
+      <p>Mit dem Suchbegriff „{{query.searchText}}“ und der Rolle „{{filter.roles[0]}}“ konnten keine Pläne gefunden werden.</p>
+    </div>
+    <!-- A query, a phasetag filter, no role filter -->
+    <div ng-if="query.searchText.length > 0 && whichPhaseTag.idx < currentproject.phasetags.at.length && filter.roles[0].length === 0">
+      <p>Mit dem Suchbegriff „{{query.searchText}}“ unter „{{currentproject.phasetags.at[whichPhaseTag.idx].plural}}“ konnten keine Pläne gefunden werden.</p>
+    </div>
+    <!-- A query, a phasetag filter, a role filter -->
+    <div ng-if="query.searchText.length > 0 && whichPhaseTag.idx < currentproject.phasetags.at.length && filter.roles[0].length > 0">
+      <p>Mit dem Suchbegriff „{{query.searchText}}“ unter „{{currentproject.phasetags.at[whichPhaseTag.idx].plural}}“ und der Rolle „{{filter.roles[0]}}“ konnten keine Pläne gefunden werde</p>
+    </div>
+
+    <!-- No query, no phasetag filter, no role filter -->
+    <div ng-if="(!query.searchText || query.searchText.length === 0) && whichPhaseTag.idx === currentproject.phasetags.at.length && filter.roles[0].length === 0">
+      <p>Es sind noch keine Pläne vorhanden</p>
+    </div>
+    <!-- No query, no phasetag filter, a role filter -->
+    <div ng-if="(!query.searchText || query.searchText.length === 0) && whichPhaseTag.idx === currentproject.phasetags.at.length && filter.roles[0].length > 0">
+      <p>Für die Rolle „{{filter.roles[0]}}“ sind noch keine Pläne vorhanden.</p>
+    </div>
+    <!-- No query, a phasetag filter, no role filter -->
+    <div ng-if="(!query.searchText || query.searchText.length === 0) && whichPhaseTag.idx < currentproject.phasetags.at.length && filter.roles[0].length === 0">
+      <p>Unter „{{currentproject.phasetags.at[whichPhaseTag.idx].plural}}“ sind noch keine Pläne vorhanden.</p>
+    </div>
+    <!-- No query, a phasetag filter, a role filter -->
+    <div ng-if="(!query.searchText || query.searchText.length === 0) && whichPhaseTag.idx < currentproject.phasetags.at.length && filter.roles[0].length > 0">
+      <p>Unter „{{currentproject.phasetags.at[whichPhaseTag.idx].plural}}“ sind für die Rolle „{{filter.roles[0]}}“ noch keine Pläne vorhanden.</p>
+    </div>
+  </div>
+
+  <div class="planslisting enable_hover">
+    <div
+        ng-repeat="plan in filtered = (plans | filter: byPhaseTag | filter: queryPlans:query | filter: byRole | orderBy:orderByField:orderReverse)">
+
+      <div class="plan" ng-click="navigateToPlanDetail(plan.$id())">
+        <div class="planname cell first">{{plan.name}}</div>
+        <div class="index_cell cell even">
+          <span class="index">{{plan.getGetLatestRevision().index}}</span>
+        </div>
+        <div class="plancontent cell">{{plan.content}}</div>
+        <div class="phase cell even">{{currentproject.phasetags.at[plan.phasetag].label}}</div>
+        <div class="files cell">
+          <span class="file">
+
+            <span ng-show="plan.getGetLatestRevision().pdf_file.filename" class="filepdf label">{{plan.getGetLatestRevision().pdf_file.filename | filetypeending }}</span>
+            <span ng-show="plan.getGetLatestRevision().pdf_file.filename">{{plan.getGetLatestRevision().pdf_file.filename}}</span>
+
+            <span ng-show="!plan.getGetLatestRevision().pdf_file.filename" class="filepdf label_link disabled">
+              <span class="label">Druck</span> fehlt
+            </span>
+
+          </span>
+
+          <span class="file">
+            <span ng-show="plan.getGetLatestRevision().dwg_file.filename" class="filedwg label">{{plan.getGetLatestRevision().dwg_file.filename | filetypeending }}</span>
+            <span ng-show="plan.getGetLatestRevision().dwg_file.filename">{{plan.getGetLatestRevision().dwg_file.filename}}</span>
+
+            <span ng-show="!plan.getGetLatestRevision().dwg_file.filename" class="filedwg label_link disabled">
+              <span class="label">CAD</span> fehlt
+            </span>
+
+          </span>
+        </div>
+        <div class="uploader cell even">
+          <div class="uploader_name">
+            <span ng-show="plan.getGetLatestRevision().createdby.profile.company">
+              {{plan.getGetLatestRevision().createdby.profile.company}}
+            </span>
+            <span ng-hide="plan.getGetLatestRevision().createdby.profile.company">
+              {{plan.getGetLatestRevision().createdby.email}}
+            </span>
+          </div>
+          <div class="role_tag" ng-repeat="roleElement in plan.getGetLatestRevision().creator_roles">{{roleElement.role}}</div>
+        </div>
+        <div class="modified cell last"> {{plan.modified | fromNow }}</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ng-switch="planview_switch" end    -->

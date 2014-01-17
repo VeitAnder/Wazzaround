@@ -1,0 +1,12 @@
+<div ng-class="{active : uploaded}">
+
+  <div s3uploadform
+       filetype="pdf"
+  ></div>
+
+  <div s3uploadform
+       filetype="dwg"
+  ></div>
+
+  <span class="alert" ng-show="!pristine && !uploaded && !uploadinprogress">Bitte laden Sie mindestens eine Datei hoch!</span>
+</div>

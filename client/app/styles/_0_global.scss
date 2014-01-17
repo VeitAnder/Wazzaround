@@ -1,0 +1,175 @@
+// import the good parts of the great compass framework
+@import './compasscompatibility/_reset';
+@include global-reset;
+@import './compasscompatibility/_compasslib';
+
+// we use bourbon now
+@import '../bower_components/bourbon/app/assets/stylesheets/_bourbon';
+
+// F O N T S
+// ############################################################################################################################
+// ############################################################################################################################
+// ############################################################################################################################
+
+$sysfont_01: 'Helvetica Neue', Helvetica, sans-serif;
+$sysfont_02: 'Georgia', 'Times New Roman', serif;
+
+$webfont_01: graublauslab-semibolditalic-webfont;
+// filename in 'webfontkit'
+
+// F O N T   S I Z E S
+// ############################################################################################################################
+// ############################################################################################################################
+
+$fs: 14px;
+// Font-size
+$font-size_small_factor: 0.857;
+$line-height_factor: 1.4;
+$line-height_headline-factor: 1.2;
+
+$font-weight_bold: 600;
+$font-weight_light: 200;
+
+// Headline factor ( e.g. $fs*$font-size_h1_factor / $fs*$font-size_h1_factor*$line-height_factor )
+$font-size_h1_factor: 3.000; // 42px
+$font-size_h2_factor: 2.500; // 35px
+$font-size_h3_factor: 2.000; // 28px
+$font-size_h4_factor: 1.500; // 21px
+$font-size_h5_factor: 1.250; // 17.5px
+$font-size_h6_factor: 1.000; // 14px
+
+// S E P E R A T O R S   &   B O R D E R S
+// ############################################################################################################################
+// ############################################################################################################################
+
+$seperator-style: dotted;
+$seperator-width: 1px;
+
+$border-style: solid;
+$border-width: 1px;
+
+$border-radius_small: 4px;
+$border-radius: 8px;
+$border-radius_large: 12px;
+
+$image_border_padding: 0;
+//has to match styles.content.imgtext.borderThick in constants_customized.txt
+$image_border_width: $border-width;
+$image_border_style: solid;
+
+
+// T R A N S I T I O N S
+// ############################################################################################################################
+// ############################################################################################################################
+
+$transition-duration: 0.20s;
+$transition-function: ease-in-out;
+
+$from: 0 -325px;
+$to: 55px -325px;
+
+@-webkit-keyframes progress {
+  from {
+    background-position: $from
+  }
+  to {
+    background-position: $to
+  }
+}
+
+@-moz-keyframes progress {
+  from {
+    background-position: $from
+  }
+  to {
+    background-position: $to
+  }
+}
+
+@-ms-keyframes progress {
+  from {
+    background-position: $from
+  }
+  to {
+    background-position: $to
+  }
+}
+
+@-keyframes progress {
+   from { background-position: $from }
+   to   { background-position: $to }
+}
+
+// SPRITES
+// ############################################################################################################################
+// ############################################################################################################################
+// ############################################################################################################################
+
+$sprite_icons: '../img/sprite_icons';
+$sprite_mobile-icons: '../img/sprite_mobile-icons';
+
+$logo_planfred: '../img/logo_planfred';
+
+$img_path: '../img/';
+
+
+
+// Media Queries - respond-to mixin
+// do not use media queries directly, only via respond-to mixin
+// ############################################################################################################################
+// ############################################################################################################################
+
+//width break points
+$break-small: 768px;
+$break-large: 1200px;
+
+//height break points
+$break-high-screen: 900px;
+$break-low-screen: 600px;
+
+@mixin respond-to($media) {
+  @if $media == small-screen {
+    @media only screen and (max-width: $break-small -1) {
+      @content;
+    }
+  }
+  @else if $media == medium-screen {
+    @media only screen and (min-width: $break-small) and (max-width: $break-large - 1) {
+      @content;
+    }
+  }
+  @else if $media == large-screen {
+    @media only screen and (min-width: $break-large) {
+      @content;
+    }
+  }
+
+
+  //high-screen break
+  @else if $media == high-screen {
+    @media only screen and (min-height: $break-high-screen) {
+      @content;
+    }
+  }
+  //medium-height break
+  @else if $media == medium-height-screen {
+    @media only screen and (min-height: $break-low-screen + 1) and (max-height: $break-high-screen - 1)  {
+      @content;
+    }
+  }
+  //low-height break
+  @else if $media == low-screen {
+    @media only screen and (max-height: $break-low-screen) {
+      @content;
+    }
+  }
+  @else if $media == high-density-screen {
+    @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+      @content;
+    }
+  }
+
+}
+
+
+

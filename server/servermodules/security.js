@@ -1,0 +1,49 @@
+var express = require('express');
+
+// allow Cross Origin Requests for development on localhost
+// yeoman grunt serve runs on port 9000, planfred REST API on port 3000
+var allowCors = function (app) {
+  app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+
+    if ('OPTIONS' === req.method) {
+      res.send(200);
+    } else {
+      next();
+    }
+  });
+};
+
+var switchToHTTPS = function (app) {
+  // always fall back to production settings when relying on unreliable process.env.NODE_ENV  !
+  app.use(function (req, res, next) {
+    var schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
+    if (schema === 'https') {
+      next();
+    } else {
+      res.redirect('https://' + req.headers.host + req.url);
+    }
+  });
+};
+
+var useCSRFProtection = function (app) {
+  var csrfValue = function (req) {
+
+    var token = (req.body && req.body._csrf) || (req.query && req.query._csrf) || (req.headers['x-csrf-token']) || (req.headers['x-xsrf-token']) || (req.cookies['XSRF-TOKEN']);
+    return token;
+  };
+  app.use(express.csrf({value: csrfValue}));                  // XSRF protection via express filter - http://expressjs.com/api.html#csrf
+  app.use(function (req, res, next) {
+    res.cookie('XSRF-TOKEN', req.csrfToken());
+    next();
+  });
+};
+
+module.exports = {
+  "allowCors": allowCors,
+  "switchToHTTPS": switchToHTTPS,
+  "useCSRFProtection": useCSRFProtection
+};
