@@ -22,7 +22,7 @@
     }
   })());
 
-angular.module('anorakApp', ['ngRoute', 'login', 'ui.keypress', 'registration', 'momentjs', 'projectowner',
+angular.module('anorakApp', ['ngRoute', 'google-maps', 'login', 'ui.keypress', 'registration', 'momentjs', 'projectowner',
   'mongolabResource', 'resources.users', 'resources.activities', 'resources.projects', 'resources.plans',
   'services.authentication',
   'services.i18nNotifications',
@@ -53,17 +53,12 @@ angular.module('anorakApp')
 
     //if no route specified, go to default route
     $routeProvider
-      .when('/account/password', {
-        templateUrl: 'account/password/password_page.tpl.html',
-        controller: 'PasswordCtrl',
-        resolve: {
-          resolveprojectscollection: function (Projects) {
-            return Projects.resolveProjectsList();
-          }
-        }
+      .when('/', {
+        templateUrl: 'views/index.html',
+        controller: 'indexCtrl'
       })
       .otherwise({
-        redirectTo: '/login'
+        redirectTo: '/'
       });
 
     $sceDelegateProvider.resourceUrlWhitelist([
@@ -91,7 +86,7 @@ angular.module('anorakApp')
     $httpProvider.defaults.withCredentials = true;
 
   })
-  .run(function ($rootScope, currentUser, $location, $route, AuthenticationService, errorreporting, $window, $log, debug) {
+  .run(function ($rootScope, $log, debug) {
     "use strict";
 
     debug("application run called");
@@ -102,37 +97,37 @@ angular.module('anorakApp')
       // no trailing slash
       // regexpr literals
       // all subroutes of registration and login are also public because regex will test true
-      var routesThatDontRequireAuth = [/\/registration/, /\/login/];
+//      var routesThatDontRequireAuth = [/\/registration/, /\/login/, /\//];
 
-      AuthenticationService.requestCurrentUser()
-        .then(function (user) {
-          if (!user.isAuthenticated()) {
-            var ispublicroute = false;
-
-            //if not a public route -> redirect to /login
-            angular.forEach(routesThatDontRequireAuth, function (value, key) {
-              if (value.test($location.path())) {
-                ispublicroute = true;
-              }
-            });
-
-            if (!ispublicroute) {
-              $location.search('redirect', $window.location.pathname);
-              $location.path('/login');
-            }
-
-          } else {
-            //redirect /login to /projects if currentUser.isAuthenticated()
-            if (/\/login/.test($location.path())) {
-              $location.path('/projects');
-            }
-          }
-
-        })
-        .catch(function (err) {
-          // @TODO show error in UI
-          $log("AthenticationService - Error when requesting current user: ", err);
-        });
+//      AuthenticationService.requestCurrentUser()
+//        .then(function (user) {
+//          if (!user.isAuthenticated()) {
+//            var ispublicroute = false;
+//
+//            //if not a public route -> redirect to /login
+//            angular.forEach(routesThatDontRequireAuth, function (value, key) {
+//              if (value.test($location.path())) {
+//                ispublicroute = true;
+//              }
+//            });
+//
+//            if (!ispublicroute) {
+//              $location.search('redirect', $window.location.pathname);
+//              $location.path('/login');
+//            }
+//
+//          } else {
+//            //redirect /login to /projects if currentUser.isAuthenticated()
+//            if (/\/login/.test($location.path())) {
+//              $location.path('/projects');
+//            }
+//          }
+//
+//        })
+//        .catch(function (err) {
+//          // @TODO show error in UI
+//          $log("AthenticationService - Error when requesting current user: ", err);
+//        });
 
     });
 
@@ -141,54 +136,7 @@ angular.module('anorakApp')
 // @TODO check logging if it is neccessary to start via DI?
 // DO not remove logging from DI list!
 angular.module('anorakApp')
-  .controller('AppCtrl', function ($scope, i18nNotifications, currentUser, supportbar, $window, $timeout) {
+  .controller('AppCtrl', function () {
     'use strict';
-
-    $scope.notifications = i18nNotifications;
-
-    $scope.currentUser = currentUser;
-
-    $scope.removeNotification = function (notification) {
-      i18nNotifications.remove(notification);
-    };
-
-    $scope.$on('$routeChangeError', function (event, current, previous, rejection) {
-      i18nNotifications.pushForCurrentRoute('Die von Ihnen aufgerufene Webadresse konnte nicht gefunden werden oder Sie haben nicht die Berechtigung darauf zuzugreifen.');
-    });
-
-    $scope.isSupportBarOpen = function () {
-      return supportbar.isSupportBarOpen();
-    };
-
-    $scope.openSupportBar = function () {
-      supportbar.open();
-    };
-
-    $scope.goToTop = function () {
-      $window.scroll(0, 0);
-    };
-
-    // show go to top button on page bottom
-    $scope.gototop = {
-      show: false
-    };
-
-    $scope.showGoToTop = function () {
-      $window.onscroll = function () {
-        if ($window.scrollY > 50) {
-          $scope.gototop.show = true;
-          $timeout(function () {
-            $scope.$apply();
-          });
-
-        } else {
-          $scope.gototop.show = false;
-          $timeout(function () {
-            $scope.$apply();
-          });
-        }
-      };
-      return $scope.gototop.show;
-    };
 
   });

@@ -1,4 +1,4 @@
-angular.module('templates.app', ['account/account.tpl.html', 'account/account_basepagetemplate.tpl.html', 'account/account_payment.tpl.html', 'account/account_tabnav.tpl.html', 'account/password/password_page.tpl.html', 'communication.tpl.html', 'directives/downloadlink.tpl.html', 'directives/fileuploadcheck.tpl.html', 'directives/fullname.tpl.html', 'directives/roleselector.tpl.html', 'directives/s3uploadform.tpl.html', 'header.tpl.html', 'login/accessdenied.tpl.html', 'login/login_page.tpl.html', 'login/modalloginform.tpl.html', 'login/toolbar.tpl.html', 'navbar/navbar.tpl.html', 'notifications.tpl.html', 'projects/activities/_activities_list.tpl.html', 'projects/activities/activities.tpl.html', 'projects/participants/_participants_detail_detail_lock.tpl.html', 'projects/participants/participants_detail_detail.tpl.html', 'projects/participants/participants_detail_page.tpl.html', 'projects/participants/participants_list_page.tpl.html', 'projects/participants/participants_new_detail.tpl.html', 'projects/participants/participants_new_page.tpl.html', 'projects/planlist/planlist.tpl.html', 'projects/plans/_plans_detail_detail_revisioncontent.tpl.html', 'projects/plans/plan_uploadpartial.tpl.html', 'projects/plans/plans_detail_detail.tpl.html', 'projects/plans/plans_detail_page.tpl.html', 'projects/plans/plans_list_page.tpl.html', 'projects/plans/plans_new_detail.tpl.html', 'projects/plans/plans_new_page.tpl.html', 'projects/projects_basepagetemplate.tpl.html', 'projects/projects_list.tpl.html', 'projects/projects_new.tpl.html', 'projecttitle/projecttitle.tpl.html', 'registration/forgotpassword/forgotpassword_page.tpl.html', 'registration/registration_page.tpl.html']);
+angular.module('templates.app', ['account/account.tpl.html', 'account/account_basepagetemplate.tpl.html', 'account/account_payment.tpl.html', 'account/account_tabnav.tpl.html', 'account/password/password_page.tpl.html', 'directives/downloadlink.tpl.html', 'directives/fileuploadcheck.tpl.html', 'directives/fullname.tpl.html', 'directives/roleselector.tpl.html', 'directives/s3uploadform.tpl.html', 'header.tpl.html', 'login/accessdenied.tpl.html', 'login/login_page.tpl.html', 'login/modalloginform.tpl.html', 'login/toolbar.tpl.html', 'navbar/navbar.tpl.html', 'projects/activities/_activities_list.tpl.html', 'projects/activities/activities.tpl.html', 'projects/participants/_participants_detail_detail_lock.tpl.html', 'projects/participants/participants_detail_detail.tpl.html', 'projects/participants/participants_detail_page.tpl.html', 'projects/participants/participants_list_page.tpl.html', 'projects/participants/participants_new_detail.tpl.html', 'projects/participants/participants_new_page.tpl.html', 'projects/planlist/planlist.tpl.html', 'projects/plans/_plans_detail_detail_revisioncontent.tpl.html', 'projects/plans/plan_uploadpartial.tpl.html', 'projects/plans/plans_detail_detail.tpl.html', 'projects/plans/plans_detail_page.tpl.html', 'projects/plans/plans_list_page.tpl.html', 'projects/plans/plans_new_detail.tpl.html', 'projects/plans/plans_new_page.tpl.html', 'projects/projects_basepagetemplate.tpl.html', 'projects/projects_list.tpl.html', 'projects/projects_new.tpl.html', 'projecttitle/projecttitle.tpl.html', 'registration/forgotpassword/forgotpassword_page.tpl.html', 'registration/registration_page.tpl.html']);
 
 angular.module("account/account.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.tpl.html",
@@ -301,17 +301,6 @@ angular.module("account/password/password_page.tpl.html", []).run(["$templateCac
     "  </div>\n" +
     "</div>\n" +
     "</div>");
-}]);
-
-angular.module("communication.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("communication.tpl.html",
-    "<div class=\"communication-element-innerwrap\">\n" +
-    "  <h4>Planfred Beta</h4>\n" +
-    "  <p class=\"small\">Planfred ist in der Beta-Testphase.\n" +
-    "    <strong>Wir freuen uns auf Ihre Rückmeldungen und Anregungen, welche Sie uns über den in der App integrierten Hilfe-Service unkompliziert mitteilen können.<br>Bei dringenden Problemen können Sie uns auch gerne jederzeit telefonisch kontaktieren.</strong>\n" +
-    "    Unsere frühen Tester können als kleines Dankeschön mit Planfred noch bis mindestens <strong>Februar 2014 garantiert kostenlos</strong> arbeiten!</p>\n" +
-    "</div>\n" +
-    "");
 }]);
 
 angular.module("directives/downloadlink.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -750,15 +739,6 @@ angular.module("navbar/navbar.tpl.html", []).run(["$templateCache", function($te
     "    </li>\n" +
     "  </ul>\n" +
     "</div>");
-}]);
-
-angular.module("notifications.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("notifications.tpl.html",
-    "<div ng-class=\"['alert', 'alert-'+notification.type]\" ng-repeat=\"notification in notifications.getCurrent()\">\n" +
-    "    <button class=\"close\" ng-click=\"removeNotification(notification)\">schließen</button>\n" +
-    "    {{notification.message}}\n" +
-    "</div>\n" +
-    "");
 }]);
 
 angular.module("projects/activities/_activities_list.tpl.html", []).run(["$templateCache", function($templateCache) {

@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
 
-  <title>Planfred - Das einfache Online-Tool für den organisierten Planaustausch!</title>
+  <title>reActure - find your activity</title>
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -20,8 +20,8 @@
 
   <base href="/"/>
 
-  <meta name="apple-mobile-web-app-title" content="Planfred App">
-  <meta name="application-name" content="Planfred App">
+  <meta name="apple-mobile-web-app-title" content="reActure App">
+  <meta name="application-name" content="reActure App">
   <meta name="viewport" content="width=device-width">
 
 </head>
@@ -45,29 +45,8 @@
 </script>
 <!--SVG check end-->
 
-
-<div class="navbar" ng-include="'header.tpl.html'"></div>
-
 <div class="page">
-
-  <div class="communication-element communication-element-alert first" ng-show="currentUser.isGoodwillMode()">
-    <h4>Sie haben das Ende Ihrer 2-monatigen Testphase erreicht.</h4>
-    <p>Falls Sie Planfred weiterhin einsetzen möchten, hinterlegen Sie bitte im <a href="/#/account/payment">Benutzerkonto</a> Ihre Zahlungsinformationen oder <a ng-click="openSupportBar()">setzten Sie sich mit uns in Verbindung</a>.</p>
-  </div>
-
-  <div class="buildversion" style="color: darkgrey; padding:10px 0 5px 10px;">
-    Build Version: <%= pkg.version %> | <%= grunt.template.today("dddd, mmmm dS, yyyy, H:MM:ss") %>
-  </div>
-
-  <div ng-include="'notifications.tpl.html'" class="container-fluid" ng-show="notifications.getCurrent().length"></div>
-
   <div ng-view class="container-fluid"></div>
-
-  <div class="gototop" ng-click="goToTop()" ng-show="showGoToTop()">
-    <span class="gototop_text">nach oben</span>
-    <b class="caret"></b>
-  </div>
-
 </div>
 
 <!--Browser warnings start-->
@@ -113,6 +92,9 @@
 <script src="/bower_components/json3/lib/json3.min.js"></script>
 <![endif]-->
 
+<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+
+
 <!-- build:js /scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -125,6 +107,8 @@
 <script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/spinjs/spin.js"></script>
 <script src="bower_components/angular-ui-utils/keypress.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -177,6 +161,7 @@
 <script src="/scripts/directives/loginToolbar.js"></script>
 <script src="/scripts/controllers/Header.js"></script>
 <script src="/scripts/services/debug.js"></script>
+<script src="scripts/controllers/index.js"></script>
 <!-- endbuild -->
 
 
