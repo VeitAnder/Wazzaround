@@ -735,6 +735,10 @@ hr {
   font-weight: 400;
   src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v7/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff'); }
 
+.outline {
+  outline: 1px solid blue;
+  outline-offset: -1px; }
+
 .debug {
   border: 2px solid #00ff00;
   color: #00ff00;
@@ -1278,6 +1282,8 @@ p.inline-screen-sm {
     -webkit-overflow-scrolling: touch; } }
 
 header {
+  outline: 1px solid blue;
+  outline-offset: -1px;
   color: #5a6a6f;
   background-color: #FFF; }
   header a {
@@ -1289,6 +1295,8 @@ header {
   background-color: #FFF; }
 
 .main {
+  outline: 1px solid blue;
+  outline-offset: -1px;
   color: #5a6a6f;
   background-color: #FFF;
   overflow: hidden; }
@@ -1301,6 +1309,8 @@ header {
   background-color: #FFF; }
 
 .footer {
+  outline: 1px solid blue;
+  outline-offset: -1px;
   font-size: 12px;
   line-height: 16.8px;
   color: #5a6a6f;
@@ -1601,8 +1611,7 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
     padding-bottom: 16.8px; }
 
 body {
-  position: relative;
-  padding-top: 50px; }
+  position: relative; }
 
 header {
   position: fixed;
@@ -3181,4 +3190,23 @@ body {
 @media print { }
 
 .angular-google-map-container {
-  height: 400px; }
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.map-wrap {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0;
+  margin: 0; }
+
+.nopadding {
+  margin: 0; }
+
+.nomargin {
+  margin: 0; }

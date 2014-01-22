@@ -4,7 +4,7 @@ var logger = require('../lib/logger.js');
 
 ////////////////////////////////////////////////////////
 // Setup Mongoose DB Connection
-var connectToDatabase = function (successcallback) {
+var connectToDatabase = function () {
   var mongooseconfig = {
     db: {
       native_parser: false // native parser causes compile time troubles and is not faster than the JS implementation
@@ -28,7 +28,6 @@ var connectToDatabase = function (successcallback) {
   });
   db.on('open', function callback() {
     logger.info("mongoose connection is open!");
-    successcallback();
   });
   db.on('reconnected', function () {
     logger.warn('MongoDB reconnected!');

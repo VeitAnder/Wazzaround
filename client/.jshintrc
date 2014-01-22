@@ -94,6 +94,7 @@
     "require": true,
     "UAParser": true,
     "escape": true,
-    "unescape":true
+    "unescape":true,
+    "debug": true
   }
 }

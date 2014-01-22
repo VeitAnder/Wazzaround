@@ -15,6 +15,9 @@
     //render nothing
   } 
 }//mixin outline
+.outline{
+  @include outline;
+}
 
 // lib.debug
 @mixin debug{
