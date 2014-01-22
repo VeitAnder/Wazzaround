@@ -1,0 +1,1210 @@
+@import "_2_helpers";
+
+// TEXTFORMAT & CONTENT MIXINS
+// ###########################################################################################################################
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+@mixin p{
+  padding-bottom: $fs;
+}
+
+p{
+  @include p;
+}
+
+@mixin h1{
+  font-size:      $fs*$font-size_h1_factor;
+  line-height:    $fs*$font-size_h1_factor*$line-height_headline-factor;
+  margin:         $fs*$font-size_h1_factor 0;
+  color:          $color_main_h1;
+  @include webfont_02;
+  @include text-shadow_4px;
+}
+
+h1{
+  @include h1;
+}
+
+@mixin h2{
+  font-size:      $fs*$font-size_h2_factor;
+  line-height:    $fs*$font-size_h2_factor;
+  margin:         $fs*$font-size_h2_factor 0;
+  color:          $color_main_h2;
+  @include webfont_02;
+  @include text-shadow_2px;
+  &.large{
+    font-size: 45px;
+    line-height: 45px;
+    color: $color_15_75;
+  }
+}
+
+h2{
+  @include h2;
+}
+
+@mixin h3{
+  font-size:      $fs*$font-size_h3_factor;
+  line-height:    $fs*$font-size_h3_factor*$line-height_headline-factor;
+  margin:         $fs*$font-size_h3_factor 0;
+  color:          $color_main_h3;
+  @include webfont_02;
+}
+
+h3{
+  @include h3;
+}
+
+@mixin h4{
+  font-size:      $fs*$font-size_h4_factor;
+  line-height:    $fs*$font-size_h4_factor;
+  margin:         $fs*$font-size_h4_factor 0;
+  color:          $color_main_h4;
+  @include webfont_02;
+}
+
+h4{
+  @include h4;
+}
+
+@mixin h5{
+  font-size:      $fs*$font-size_h5_factor;
+  line-height:    $fs*$font-size_h5_factor;
+  margin:         $fs*$font-size_h5_factor 0;
+  color:          $color_main_h5;
+  @include webfont_02;
+}
+
+h5{
+  @include h5;
+}
+
+@mixin h6{
+  font-size:      $fs*$font-size_h6_factor;
+  line-height:    $fs*$font-size_h6_factor*$line-height_factor;
+  margin:         $fs*$font-size_h6_factor 0;
+  color:          $color_main_h6;
+  @include webfont_03;
+  font-weight: $font-weight_bold;
+}
+
+h6{
+  @include h6;
+}
+
+h1,h2,h3,h4,h5,h6{
+  &.first{
+    margin-top: 0;
+  }
+}
+@include respond-to(screen-nocols){
+  h1.first{margin-top: $fs*$font-size_h1_factor;}
+  h2.first{margin-top: $fs*$font-size_h2_factor;}
+  h3.first{margin-top: $fs*$font-size_h3_factor;}
+  h4.first{margin-top: $fs*$font-size_h4_factor;}
+  h5.first{margin-top: $fs*$font-size_h5_factor;}
+  h6.first{margin-top: $fs*$font-size_h6_factor;}
+}
+
+
+// LINKS
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+
+@mixin a{
+  color: $color_main_link;
+  text-decoration: underline;
+  &:link,&:focus,&:active,&:visited{
+    color: $color_main_link;
+  }
+  &:hover{
+    color: $color_main_link_hover;
+    text-decoration: none;
+  }
+}//@mixin a_textlink
+
+a{
+  @include a;
+}
+
+
+// ICON LINK
+// ###########################################################################################################################
+
+@mixin link-icon-left{
+  padding: 0 0 0 $fs*2.0;
+  @include sprite_icons(0,0, no-repeat);
+}
+
+@mixin link-icon-right{
+  padding: 0 $fs*2.0 0 0;
+}
+
+a.link-int{
+  @include link-icon-left;
+  background-position: -275px -149px;
+}
+  
+a.link-ext {
+  @include link-icon-left;
+  background-position: -275px -174px;
+}
+
+a.link-mail{
+  @include link-icon-left;
+}
+
+a.link-download{
+  @include link-icon-left;
+}
+
+
+// BUTTON
+// ###########################################################################################################################
+
+
+.btn {
+  //@include user-select(none);
+  background-color: transparent;
+  display: inline-block;
+  border: none;
+  padding: ($fs*0.25) ($fs*1.0);
+  @include box-shadow_2px;
+  @include border(top, $color_button_border);
+  @include border-radius($border-radius_small);
+  @include gradient_blue;
+  @include webfont_01;
+  color: $color_button_text;
+  text-decoration: none;
+  font-size: 16px;
+  @include text-shadow(rgba($color_black, 0.15) 0 -1px 0);
+  span{
+    color: $color_button_text;
+  }
+
+  &:hover {
+    color: $color_button_text_hover;
+    border-color: $color_button_border_hover;
+    @include gradient_blue_hover;
+    cursor: pointer;
+  }
+  &:active {
+    background: $color_button_background;
+  }
+
+  &[disabled="disabled"], &.disabled {
+    opacity: 0.5;
+    &:hover {
+      cursor: default;
+    }
+    &:active {
+      @include gradient_blue_hover;
+    }
+  }
+}
+
+.btn-orange {
+  border-color: $color_25_50;
+  @include gradient_orange;
+  &:hover {
+    border-color: $color_25_50_l5;
+    @include gradient_orange_hover;
+  }
+  &:active {
+    background: $color_25;
+  }
+}
+
+.btn-grey {
+  border-color: $color_15_25;
+  @include gradient_grey;
+  &:hover {
+    border-color: $color_15_25_l5;
+    @include gradient_grey_hover;
+  }
+  &:active {
+    background: $color_15_50;
+  }
+}
+
+.btn-darkgrey {
+  border-color: $color_15_50;
+  @include gradient_darkgrey;
+  &:hover {
+    border-color: $color_15_50_l5;
+    @include gradient_darkgrey_hover;
+  }
+  &:active {
+    background: $color_15;
+  }
+}
+
+.btn-large{
+  padding: ($fs*0.75) ($fs*2.0);
+  font-size: 25px;
+  @include webfont_02;
+  @include border-radius($border-radius);
+}
+
+.btn-small{
+  padding: ($fs*0.15) ($fs*0.75);
+  font-size: 14px;
+}
+
+
+
+// TEXTFORMAT BASICS
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+@mixin textformat_basic{
+  
+  cite, blockquote{
+    font-style: italic
+  }
+  
+  blockquote{
+    margin-left: $bu*2.0;
+    padding-bottom: $fs;
+    
+    blockquote{
+      margin-top: $fs;
+      padding-bottom: 0;
+    }
+  }
+  
+  strong, b{
+    font-weight: bold;
+  }
+  i{
+    font-style: italic;
+  }
+
+  em{
+    color: $color_25;
+  }
+  
+  pre, code{
+    font-family: monospace;
+  }
+  
+  acronym, abbr{
+    letter-spacing:.07em;
+    border-bottom: 1px dotted $color_main_border;
+    cursor: help;
+  }
+  
+  sup, sub{
+    font-size: 0.7em;
+    height: 0;
+    line-height: 1;
+    vertical-align: baseline;
+    _vertical-align: bottom;
+    position: relative;
+  }
+   
+  sup{
+    bottom: 1.0ex;
+  }
+   
+  sub{
+    top: 0.5ex;
+  }
+  
+  // UNORDERED LIST
+  // ---------------------------------------------------------------------------------------------------------------------------
+  
+  ul, ol, dl{
+    margin: 0;
+  }
+  
+  li{
+  }
+  
+  ul{
+    margin: 0 0 $fs*2 0;
+    padding: 0;
+    
+    li{
+      margin: 0 0 $fs*0.5 0;
+      padding: 0 0 0 $fs*1.0;
+      @include sprite_icons(-275px, -793px, no-repeat);
+      list-style: none;
+  
+      ul{
+        margin: $fs*0.3 0;
+  
+        li{
+          @include sprite_icons(-250px, -821px, no-repeat);
+        
+          ul{
+            margin: $fs*0.5 0;
+    
+            li{
+              @include sprite_icons(-225px, -846px, no-repeat);
+  
+              ul{
+                margin: $fs*0.7 0;
+        
+                li{
+                  margin: 0;
+                }// li 4
+              }// ul 4
+            }// li 3
+          }// ul 3
+        }// li 2
+      }// ul 2
+    }// li 1
+  }// ul 1
+  
+  // ORDERED LIST
+  // ---------------------------------------------------------------------------------------------------------------------------
+  
+  ol{
+    margin: 0 0 $fs*2.0 0;
+    list-style: decimal;
+    
+    li{
+      margin: 0 0 $fs*0.5 $fs*1.5;
+      padding: 0;
+     
+      ol{
+        margin: $fs*0.5 0;
+        list-style: lower-latin;
+        
+        li{
+        }// li 2
+      }// ol 2
+    }// li 1
+
+    ul{
+      margin: 0 0 $fs*2 0;
+      padding: 0;
+  
+      li{
+        margin: 0 0 $fs*0.5 $fs*2.0;
+        padding: 0 0 0 $fs*1.0;
+        @include sprite_icons(-250px, -519px, no-repeat);
+        list-style: none;
+      }// li 2
+    }// ul 2
+  }// ol 1
+  
+  // DEFINITION TERMS
+  // ---------------------------------------------------------------------------------------------------------------------------
+  
+  dl{
+    margin: 0 0 $fs*2.0 0;
+    
+    dt {
+      @include h6;
+    }
+    dd {
+      margin: 0 0 $fs*0.5 $fs*2;
+    }
+  }// dl
+
+}//mixin textformat_basics
+@include textformat_basic;
+
+
+
+
+// TEXTFORMAT FLOW
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+@mixin textformat_flow{
+
+  // headline succeeds headline
+  h1 + h2, h1 + h3, h1 + h4, h1 + h5, h1 + h6,
+  h2 + h2, h2 + h3, h2 + h4, h2 + h5, h2 + h6,
+  h3 + h2, h3 + h3, h3 + h4, h3 + h5, h3 + h6,
+  h4 + h2, h4 + h3, h4 + h4, h4 + h5, h4 + h6,
+  h5 + h2, h5 + h3, h5 + h4, h5 + h5, h5 + h6,
+  h6 + h2, h6 + h3, h6 + h4, h6 + h5, h6 + h6,
+  
+  //first Headline in div container
+  .section_frame h1:first-child, 
+  .section_frame h2:first-child, 
+  .section_frame h3:first-child, 
+  .section_frame h4:first-child, 
+  .section_frame h5:first-child, 
+  .section_frame h6:first-child,
+  
+  //first Headline in csc-default element container
+  .csc-default h1:first-child, 
+  .csc-default h2:first-child, 
+  .csc-default h3:first-child, 
+  .csc-default h4:first-child, 
+  .csc-default h5:first-child, 
+  .csc-default h6:first-child,
+  
+  //other T3 default elements
+  .csc-firstHeader, .pageheadline, .currentpageheader {
+    margin-top: 0;
+  }
+
+  p:last-child, ul:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    @include respond-to(screen-nocols){
+      padding-bottom: $fs;
+    }
+  }
+  
+  .boxelement + *  {
+    padding-top: $fs;
+  }
+
+}//mixin textformat_flow
+@include textformat_flow;
+
+
+// RTE CLASSES
+// ###########################################################################################################################
+
+@mixin rte_classes{
+  .smalltext {
+    @include font-size_small;
+  }
+  
+  p.boxelement{
+    padding: $fs;
+    @include border_all($color_main_border);
+    @include border-radius(#{$border-radius_large});
+    background: $color_main_innerwrap_background_highlight;
+  }
+
+  p.preface{
+    font-weight: $font-weight_bold;
+  }
+  
+  ul.linklist{
+    @include seperator(bottom, $color_nav2_level02_border);
+    li{
+      @include seperator(top, $color_nav2_level02_border);
+      padding-left: 0 !important;
+      margin: 0 !important;
+      background-image: none !important;
+      overflow: hidden;
+      a, a:link, a:visited{
+        display: block;
+        padding: ($fs*0.5) ($bu*1.0);
+      &:hover{
+        color: $color_main_link;
+        background-color: $color_main_innerwrap_background_hover;
+      }
+      }// a
+    }// li
+  }// ul.linklist
+  
+  h1.nomargin, h2.nomargin, h3.nomargin, h4.nomargin, h5.nomargin, h6.nomargin{
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+}//@mixin rte_classes
+@include rte_classes;
+
+
+.align-right{
+  text-align: right;
+
+  @include respond-to(screen-nocols){
+    text-align: left;
+  }
+}
+
+.align-left{
+  text-align: left;
+}
+
+.align-center{
+  text-align: center;
+}
+
+.footnote{
+  @include font-size_small;
+  color: $color_15_50;
+  font-weight: $font-weight_bold;
+  @include seperator(top, $color_15_50);
+  padding-top: $fs*0.5;
+  margin-top: $fs;
+}
+
+.img-center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin label {
+  display: inline-block;
+  width: auto;
+  padding: 1px 4px;
+  @include border-radius($border-radius_small);
+  @include font-size_small;
+  font-weight: $font-weight_bold;
+  @include text-shadow_-1px;
+  text-align: center;
+  &.disabled{
+    background-color: $color_12;
+  }
+}
+
+@mixin alert {
+  @include label;
+  @include box-sizing(border-box);
+  padding: 5px 10px;
+  margin: 5px 0 10px;
+  @include text-shadow_highlight;
+  @include box-shadow_2px;
+  text-align: left;
+  white-space: normal;
+  background-color: $color_alert_background;
+  color: $color_alert_text;
+
+
+  &.alert-error{
+    background-color: $color_error_background;
+    color: $color_error_text;
+  }
+  &.alert-info{
+    background-color: $color_info_background;
+    color: $color_info_text;
+  }
+  &.alert-upload{
+    background-color: $color_upload_background;
+    color: $color_upload_text;
+  }
+  &.alert-success{
+    background-color: $color_success_background;
+    color: $color_success_text;
+  }
+  &.alert-large{
+    margin: $fs 0;
+    font-size: $fs;
+    line-height: $fs*$line-height_factor;
+    padding: 10px 15px;
+  }
+  &.alert-small{
+    font-size: 10px;
+    padding: 2px 6px;
+    margin: 0;
+    text-transform: uppercase;
+  }
+}
+
+.alert{
+  @include alert;
+}
+
+
+
+
+
+@include respond-to(screen-sm){
+  .inline-screen-sm{
+    display: inline;
+    &:after{
+      content:",";
+    }
+  }
+
+  p.inline-screen-sm + p{
+    display: inline;
+  }
+  p.inline-screen-sm + p + p{
+    padding-top: $fs;
+  }
+}
+
+p.inline-screen-sm{
+  padding-bottom: 0;
+}
+
+.img-responsive-offset{
+  @include respond-to(screen-nocols){
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.col2-img-right{
+  @include respond-to(screen-nocols){
+    img{margin-top: 30px;}
+  }
+}
+
+.col1-img{
+  img{
+    margin-bottom: $fs;
+  }
+}
+
+.table-responsive{
+  @include respond-to(screen-nocols){
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    border: 1px solid #ddd;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+// T-MENU / NAVIGATIONS
+// ###########################################################################################################################
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+// mixins that apply directly to TypoScript-Objects
+// vertical/horizontal nav-list class
+
+@mixin tmenu_class{
+  @include pie-clearfix;
+
+  ul{
+    @include ul-reset;
+  
+    li{
+      @include li-reset;    
+      a{
+        display: block;
+        overflow: hidden;
+
+        span{
+          @include box-sizing(border-box);
+          margin: 0;
+          padding: 0;
+          display: block;
+        }
+        &:hover{
+          cursor:pointer;
+        }
+      }
+      //second level
+      ul{
+        @include ul-reset;
+        li{
+          @include li-reset;
+          
+          //third level
+          ul{
+            @include ul-reset;
+            li{
+              @include li-reset;
+            }
+          }//ul
+        }
+      }//ul
+    }//li
+    
+    //current page selected
+    .current{
+      a{
+        &:hover{
+          cursor: default;
+        }
+      }
+    }
+    .currentandsub{
+      //removes double borders at bottom
+      border-bottom: none;
+      a{
+        &:hover{
+          cursor: default;
+        }
+      }
+      li {
+        a{
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
+    }
+        
+    //only active in the navigation tree, not the current page (e.g. for highlighting the tree path in the navigation)
+    .active{
+      a{
+      }
+    }
+    .activeandsub{
+      a{
+      }
+    }
+    .hassub{
+      a{
+
+      }
+    }
+  }//ul
+}//mixin tmenu_class
+
+
+@mixin tmenu_mobile{
+  margin: 0;
+  padding: 0;
+
+  ul{
+    @include ul-reset;
+    li{
+      @include li-reset;
+      a{
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -moz-binding: url( 'bindings.xml#ellipsis' );
+
+        span{
+          display: block;
+          margin: 0;
+          padding: 0;
+        }// span
+      }// a
+    }// li 1
+  }// ul 1
+}//.tmenu_mobile
+
+
+
+// TEMPLATES & LAYOUT
+// ###########################################################################################################################
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+
+// PAGE LAYOUT
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+
+// HEADER / MAIN / FOOTER
+// ###########################################################################################################################
+
+// HEADER
+// ---------------------------------------------------------------------------------------------------------------------------
+header {
+  @include outline;
+  color: $color_header_text;
+  background-color: $color_header_background;
+  a{
+    color: $color_header_link;
+  &:hover{
+    color: $color_header_link_hover;
+  }
+  }//a
+}//header
+
+.header_innerwrap{
+  background-color: $color_header_innerwrap_background;
+}//.header_innerwrap
+
+
+// MAIN
+// ---------------------------------------------------------------------------------------------------------------------------
+.main {
+  @include outline;
+  @include pie-clearfix;
+  color: $color_main_text;
+  background-color: $color_main_background;
+  overflow: hidden;
+}//.main
+
+.main_innerwrap{
+  background-color: $color_main_innerwrap_background;
+}//.main_innerwrap
+
+
+// FOOTER
+// ---------------------------------------------------------------------------------------------------------------------------
+.footer {
+  @include outline;
+  @include pie-clearfix;
+  @include font-size_small;
+  color: $color_footer_text;
+  background-color: $color_footer_background;
+  a, a:link, a:focus, a:active{
+    color: $color_footer_link;
+  &:hover{
+    color: $color_footer_link_hover;
+  }
+  }//a
+}//footer
+
+.footer_innerwrap{
+  background-color: $color_footer_innerwrap_background;
+}//.footer_innerwrap
+
+
+
+// SPECIAL ELEMENTS
+// ###########################################################################################################################
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+
+// skiplinks for accessibillity
+@mixin skiplinks(){
+  // hidden navigation elements (skiplinks)
+  // http://www.yaml.de/en/documentation/basics/skip-links.html
+  .skip, .hideme{
+    position: absolute;
+    top: -1000em;
+    left: -1000em;
+    height: 1px;
+    width: 1px;
+  }
+  
+  .skip:focus, .skip:active {
+    position: static;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: auto;
+  }
+}
+@include skiplinks;
+
+
+//add-to-home-screen
+//http://cubiq.org/add-to-home-screen
+@mixin add-to-home-screen{
+  /**
+   *
+   * Main container
+   *
+   */
+  #addToHomeScreen {
+    z-index:9999;
+    -webkit-user-select:none;
+    -webkit-box-sizing:border-box;
+    width:240px;
+    font-size:15px;
+    padding:12px 14px;
+    text-align:left;
+    font-family:helvetica;
+    background-image:-webkit-gradient(linear,0 0,0 100%,color-stop(0,#fff),color-stop(0.02,#eee),color-stop(0.98,#ccc),color-stop(1,#a3a3a3));
+    border:1px solid #505050;
+    -webkit-border-radius:8px;
+    -webkit-background-clip:padding-box;
+    color:#333;
+    text-shadow:0 1px 0 rgba(255,255,255,0.75);
+    line-height:130%;
+    -webkit-box-shadow:0 0 4px rgba(0,0,0,0.5);
+  }
+  
+  #addToHomeScreen.addToHomeIpad {
+    width:268px;
+    font-size:18px;
+    padding:14px;
+  }
+  
+  /**
+   *
+   * The 'wide' class is added when the popup contains the touch icon
+   *
+   */
+  #addToHomeScreen.addToHomeWide {
+    width:296px;
+  }
+  
+  #addToHomeScreen.addToHomeIpad.addToHomeWide {
+    width:320px;
+    font-size:18px;
+    padding:14px;
+  }
+  
+  /**
+   *
+   * The balloon arrow
+   *
+   */
+  #addToHomeScreen .addToHomeArrow {
+    position:absolute;
+    background-image:-webkit-gradient(linear,0 0,100% 100%,color-stop(0,rgba(204,204,204,0)),color-stop(0.4,rgba(204,204,204,0)),color-stop(0.4,#ccc));
+    border-width:0 1px 1px 0;
+    border-style:solid;
+    border-color:#505050;
+    width:16px; height:16px;
+    -webkit-transform:rotateZ(45deg);
+    bottom:-9px; left:50%;
+    margin-left:-8px;
+    -webkit-box-shadow:inset -1px -1px 0 #a9a9a9;
+    -webkit-border-bottom-right-radius:2px;
+  }
+  
+  
+  /**
+   *
+   * The balloon arrow for iPad
+   *
+   */
+  #addToHomeScreen.addToHomeIpad .addToHomeArrow {
+    -webkit-transform:rotateZ(-135deg);
+    background-image:-webkit-gradient(linear,0 0,100% 100%,color-stop(0,rgba(238,238,238,0)),color-stop(0.4,rgba(238,238,238,0)),color-stop(0.4,#eee));
+    -webkit-box-shadow:inset -1px -1px 0 #fff;
+    top:-9px; bottom:auto; left:50%;
+  }
+  
+  
+  /**
+   *
+   * Close button
+   *
+   */
+  #addToHomeScreen .addToHomeClose {
+    -webkit-box-sizing:border-box;
+    position:absolute;
+    right:4px;
+    top:4px;
+    width:18px;
+    height:18px; line-height:14px;
+    text-align:center;
+    text-indent:1px;
+    -webkit-border-radius:9px;
+    background:rgba(0,0,0,0.12);
+    color:#707070;
+    -webkit-box-shadow:0 1px 0 #fff;
+    font-size:16px;
+  }
+  
+  
+  /**
+   *
+   * The '+' icon, displayed only on iOS < 4.2
+   *
+   */
+  #addToHomeScreen .addToHomePlus {
+    font-weight:bold;
+    font-size:1.3em;
+  }
+  
+  
+  /**
+   *
+   * The 'share' icon, displayed only on iOS >= 4.2
+   *
+   */
+  #addToHomeScreen .addToHomeShare {
+    display:inline-block;
+    width:18px;
+    height:15px;
+    background-repeat:no-repeat;
+    background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAQAAABDj1eZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUdJREFUKFNtkLtLw1AYxS/qJLhXVKr2ZRulUNtiqgSb3CziICI6ucTFVYcOnaQOFRwUnNTRwUWXgpP/QdHNUEQUHGxofYBTlRs83iZNjKTncOGe7/vx3QchXUWn6FL3jhfKUdCCr5zuifV5oDiHQM+c+CIhiiCSWNu08iq9oHXKLAiqrgR4UXqlOEYZt++ExEL0wW7+OW0G10muLv9gmqfe5FAWKmTMYQYiFL7PYwyLOD8lSjNh2gdnPzMII4QUBxc4OothbAF7GCBKQ0YbSWyPQsIhqvetS+y0ygGMo/KFZfviDvR4AhwgZU9dGYnA0J/6ndc15i3ouYIMcVVUcEXIoOxCeRCfwP8sXBSdjtpUv/1QW+K16kCCIUC4id9Fa0JtkluwVkSfqPL6RwfSDA0aNlx7k/bWgViB7bMS2/1vk5sdsZLN/ALSuL3tylO4RAAAAABJRU5ErkJggg==);
+    background-size:18px 15px;
+    text-indent:-9999em;
+    overflow:hidden;
+  }
+  
+  
+  /**
+   *
+   * The touch icon (if available)
+   *
+   */
+  #addToHomeScreen .addToHomeTouchIcon {
+    display:block;
+    float:left;
+    -webkit-border-radius:6px;
+    -webkit-box-shadow:0 1px 3px rgba(0,0,0,0.5),
+      inset 0 0 2px rgba(255,255,255,0.9);
+    background-repeat:no-repeat;
+    width:57px; height:57px;
+    -webkit-background-size:57px 57px;
+    margin:0 12px 0 0;
+    border:1px solid #333;
+    -webkit-background-clip:padding-box;
+  }
+  
+  
+  /**
+   *
+   * The 'share' icon for retina display
+   *
+   */
+  @media all and (-webkit-min-device-pixel-ratio: 2) {
+    #addToHomeScreen .addToHomeShare {
+      background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAeCAQAAADu6HTYAAADPElEQVR4Xq3TX2gcRRzA8e/M7mVv2+TSNpc/TZtrY6jUGqgaSAmEChKLrYK0YH0RFC2CSCkEfCghiKU04J8qNigq6os+iQV98MHWFwVBrQQRWs21lBw5cw3NNb1/udu72RGG5Y77IzXW77D7sAwf5scyYoL6BGXSDKFZwaGpLvIUaeoCkvX1MmsM0Ny6oRSQYOLuIS+YZOpfQdqslpUxcZrzTVAz4qPwW2O3CeIwC/RSzeY6Ow1QhUrkr+YOWfEKDkEP8Rij7CHKJmrFSDHBdwGEE5wiGChPN+PnT8VdRtEIl1d4gRj/1EVe5ZSBKGh8iqQpo/Fo5+3C/gz0MYg4zgwbqday1/Q4B8BGQ45d/Hi54lakCrU5obOcidJpu1+Lg9whjabyaOYLnrIBFFaRD+xe2ybMDWY66GmP/WA9cGfGp0CWhy0wkMN8inepFiH2rV1j0NQSNQbFLRQnS8/8YSDBBpadfv4CYDub2fmeHDNAsL1MBWUel0iA+Xik6eHcyvD3vAMSU1TGuA/YRS+dD7ovCQN43GKRFCU20Kd3V/avDVVyAZ5niTEuLA5/zBGWg9EEEhfJKN200Tat8CmRAQb9+wv7soPlHt2tQorsz1uPbr0HTY4sJwrH47zJZwABBAKLMBoQXepwgTwdHCo+fXMkQ4lrxEmQ5AaXipPqDY9V2vn09tgvTPI71EEGYxM+/uMJLJ4svpgaWGKOi/xKgmqLSUGSUd5f2vIVJ/CgBaTIUsZ7ZBsn0+NzfMOXLFCXQyTcybN6ep5ZZgUOHn7jpfUpsZshdugPGf+E5zjbyHTSRyQ8xfRPPM/s63RHeuknSoT22mjmmnAOIMkUZ6D1xSfPPAfd1WFKM3sO2CMaHx8M1NjnXKHaAGGkOW0C02WeYHUz4qMtx+w5gUDS8NckYe5lHsMYwCZEPyEEmjLDZFmAS7CDviMdxyTkMNVBKEmYLvbiQQBIBBbCQG04bGQvFWz6CfsCQLWCigILFwcfkGYBiOpbYuOizTAyYyDdCtrGaRG1LCkIgMYEFhI0WqQZoSlbGRyHKe4qOx7iv2bVQW9dp4dlM/x6kmwnWQcd/Q3FCqwTEiT5s+6D5v/pb0SSHyg7uhMWAAAAAElFTkSuQmCC);
+    }
+  }
+  
+  
+}//add-to-home-screen
+@include add-to-home-screen;
+
+
+// FORM ELEMENTS
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+@mixin textformat_form {
+  @include webfont_03;
+  font-size: $fs;
+  line-height: $fs*$line-height_factor;
+  color: $color_input_text;
+  vertical-align: middle;
+}
+
+@mixin fieldformat_form {
+  display: block;
+  @include box-sizing(border-box);
+  padding: $fs*0.75;
+  @include textformat_form;
+  @include border-radius($border-radius_small);
+  background-color: $color_input_background;
+  @include border_all($color_input_border);
+  outline-style: none!important;
+}
+
+@mixin checkbox_rounded_big{
+  @include box-sizing(border-box);
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  @include border-all($color_12_d10);
+  @include box-shadow_2px-inset;
+  @include border-radius(10px);
+  border-width: 2px;
+  background-color: $color_white;
+}
+@mixin checkbox_rounend_big_selected{
+  border-color: $color_white;
+  @include sprite_icons(-22px, -147px, no-repeat);
+  background-color: $color_13;
+  @include box-shadow(none);
+}
+
+// font-size + padding + border
+$input_height: $fs + (2*$fs*0.75) + (2*$border-width);
+
+input, textarea, select {
+  @include fieldformat_form;
+  .form-inline &{
+    display: inline-block;
+  }
+}
+
+input, textarea{
+  @include box-shadow(rgba($color_black, 0.07) 0px 2px 0 inset);
+  @include animation_all;
+  @include input-placeholder($color_form_placeholder);
+  outline: 0;
+  height: $input_height;
+
+  outline: thin dotted \9;
+  /* IE6-9 */
+
+
+  &:hover{
+    border-color: $color_input_border_hover;
+  }
+
+  &:focus{
+    border-color: $color_input_border_active;
+    @include box-shadow(rgba($color_black, 0.075) 0px 1px 1px inset, rgba($color_input_border_active, 0.5) 0px 0px 8px);
+  }
+}
+
+textarea, input[type=checkbox]{
+  height: auto;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  *margin-top: 0;
+  /* IE7 */
+
+  margin-top: 1px \9;
+  /* IE8-9 */
+
+  line-height: normal;
+  padding: 0;
+}
+
+.radio,
+.checkbox {
+  display: block;
+  min-height: 20px;
+  padding-left: 20px;
+  cursor: pointer;
+  color: $color_text;
+  font-size: $fs;
+  line-height: $fs*$line-height_factor;
+  input{
+    cursor: pointer;
+  }
+  &.inline{
+    display: inline-block;
+    padding-top: 5px;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  &.disabled{
+    cursor: auto;
+  }
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  float: left;
+  margin-left: -20px;
+}
+
+
+select,
+input[type="file"] {
+  height: $input_height;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+
+  line-height: $fs*$line-height_factor;
+}
+
+select[multiple],
+select[size] {
+  height: auto;
+}
+select:focus,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.form-block{
+  input, textarea{
+    width: 100%;
+  }
+}
+
+.form-group{
+  padding: 10px 0;
+}
+
+@mixin input_label{
+  display: block;
+  @include font-size_small;
+  margin-right: 5px;
+  color: $color_input_text;
+  vertical-align: bottom;
+  margin-bottom: 5px;
+  font-weight: $font-weight_bold;
+}
+
+.input_label, label{
+  @include input_label;
+}

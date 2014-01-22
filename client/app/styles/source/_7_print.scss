@@ -1,0 +1,13 @@
+@import "_6_mobile";
+
+@mixin print{
+
+}// mixin print
+
+body.print{
+  @include print;
+}
+@media print{
+  @include print; 
+}
+

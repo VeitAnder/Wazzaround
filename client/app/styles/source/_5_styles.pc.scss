@@ -1,0 +1,74 @@
+@import "_4_mixins_customized";
+
+html {
+  // Prevent Firefox Scrollbar Jump - http://davidwalsh.name/css-enhancements-user-experience
+  overflow-y: scroll;
+}//html
+
+
+body{
+  position: relative; 
+  background: $color_background;
+  @include webfont_03;
+  font-size: $fs;
+  line-height: $fs*$line-height_factor;
+  color: $color_text;
+  
+  //fix ios automatic font sizing
+  //checkout http://stackoverflow.com/questions/6210788/how-to-avoid-ios-automatic-font-size-adjustment
+  -webkit-text-size-adjust: 100%;
+
+}//body
+
+.page{
+  min-width: $min-width-xxs;
+}
+
+
+//for printing
+@page{
+  margin: 1.0cm 1.0cm 1.0cm 2.0cm;
+}
+
+/*
+ * IE8 patches
+ */
+.lt-ie9 {
+  input[type = file]{
+    border: 2px solid $color_input_border;
+    padding: $fs*0.25 $fs*0.50;
+  }
+
+  .container {
+    width: 970px !important;
+  }
+  header{
+    min-width: 970px !important;
+    height: 52px;
+    border-bottom: 2px solid #F3F5F5;
+  }
+  .col-sm-12, .col-sm-11, .col-sm-10, .col-sm-9, .col-sm-8, .col-sm-7, .col-sm-6, .col-sm-5, .col-sm-4, .col-sm-3, .col-sm-2, .col-sm-1{
+    float: left;
+  }
+  .col-sm-7{
+    width: 58.33333%;
+  }
+  .col-sm-5{
+    width: 41.66667%;
+  }
+  .col-sm-6{
+    width: 50%;
+  }
+  .col-sm-4{
+    width: 33.33333%;
+  }
+
+
+}//.ie-lt9
+
+/*
+ * IE7 patches
+ */
+.ie-lt8 {
+
+}//.ie-lt8

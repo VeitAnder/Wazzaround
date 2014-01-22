@@ -1,0 +1,192 @@
+// welcome to the party bootsrap
+@import "_bootstrap";
+// bourbon sass mixins library
+@import '../../bower_components/bourbon/app/assets/stylesheets/_bourbon';
+// import the good parts of the great compass framework for backward compatibility reasons
+@import './compasscompatibility/_compasslib';
+
+
+/*
+ * aio_feedit
+ * z-index space:
+ * 10000 - 11000
+ * 
+ * normal styles z-index
+ * 0-10000
+ */
+
+$baseurl: "planfred.com";
+
+$outline: false; //outine block level elements
+
+
+
+
+// C O N S T A N T S
+// ############################################################################################################################
+// ############################################################################################################################
+// ############################################################################################################################
+
+$bu: 10px; //Base unit
+
+
+// F O N T   S I Z E S
+// ############################################################################################################################
+// ############################################################################################################################
+
+$fs: 14px;  // Font-size
+$font-size_small_factor: 0.857; // = 12px
+$font-size_large_factor: 1.143; // = 16px
+$font-weight_extrabold: 800;
+$font-weight_bold: 600;
+$font-weight_light: 200;
+$line-height_factor: 1.4;
+$line-height_headline-factor: 1.2;
+
+// Headline factor ( e.g. $fs*$font-size_h1_factor / $fs*$font-size_h1_factor*$line-height_factor )
+$font-size_h1_factor: 4.000; // = 56px
+$font-size_h2_factor: 2.500; // = 35px
+$font-size_h3_factor: 2.000; // = 28px
+$font-size_h4_factor: 1.500; // = 21px
+$font-size_h5_factor: 1.500; // = 21px
+$font-size_h6_factor: 1.000; // = 14px
+
+
+// MOBILE FONT SIZES
+// ############################################################################################################################
+$fs_mobile: 12px;
+
+
+// S E P E R A T O R S   &   B O R D E R S
+// ############################################################################################################################
+// ############################################################################################################################
+
+$seperator-style: dotted;
+$seperator-width: 1px;
+
+$border-style: solid;
+$border-width: 1px;
+
+$border-radius_small: 3px;
+$border-radius      : 6px;
+$border-radius_large: 9px;
+
+$image_border_padding: 0;
+$image_border_width: $border-width;
+$image_border_style: solid;
+
+
+
+
+// T R A N S I T I O N S
+// ############################################################################################################################
+// ############################################################################################################################
+
+$transition-duration : 0.15s;
+$transition-function : ease-in-out;
+
+$animation           : true; // 'true' or 'false'
+
+
+// B E H A V I O U R S
+// ############################################################################################################################
+// ############################################################################################################################
+
+$hd               : true;// 'true' or 'false'
+
+
+// T E M P L A T E
+// ############################################################################################################################
+// ############################################################################################################################
+// ############################################################################################################################
+
+$pagewidth: 940px; // = Content Width
+
+$pagepadding: 0; // Pageblock Padding Left/right -> pagepadding*2 + pagewidth dürfen maximal 1000 px gross sein
+
+$pagetype: fullwidth; // 'page' or 'fullwidth'
+
+//$pagemargin defines top/bottom margin of .page container
+$pagemargin: 0px; 
+@if $pagetype == page{
+  $pagemargin: 30px; // is only needed for $pagetype: page;
+}
+
+
+$pagelayout-colspace: 20px;
+
+$subcolspacing: 20px;
+
+$min-width-xxs: 300px;
+
+
+
+// F O N T S
+// ############################################################################################################################
+// ############################################################################################################################
+// ############################################################################################################################
+
+$sysfont_01: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$sysfont_02: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$webfont_01: graublauslab-semibolditalic-webfont;   // filename in 'fonts'
+$webfont_02: graublauslab-bolditalic-webfont; // filename in 'fonts'
+
+//@import url('http://fonts.googleapis.com/css?family=Open+Sans');
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v7/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+
+
+
+
+// I M A G E S   &   D E S I G N
+// ############################################################################################################################
+// ############################################################################################################################
+// ############################################################################################################################
+
+
+// LOGO
+// ############################################################################################################################
+// ############################################################################################################################
+
+$width_logo  : 250px;
+$height_logo : 56px;
+
+// SPRITES
+// ############################################################################################################################
+// ############################################################################################################################
+
+$sprite_icons: '/images/sprite_icons';
+$sprite_mobile-icons: '/images/sprite_mobile-icons';
+$sprite_logo_mobile: '/images/logo_planfred';
+
+//mixin with svg/png support decision
+@mixin sprite_icons($x, $y, $repeat) {
+  background-position: $x $y;
+  background-repeat: $repeat;
+  .svg & {
+    background-image: url('#{$sprite_icons}.svg');
+  }
+  .no-svg & {
+    background-image: url('#{$sprite_icons}.png');
+  }
+}
+
+@mixin sprite_mobile-icons($x, $y, $repeat) {
+  .svg & {
+    background-image: url('#{$sprite_mobile-icons}.svg');
+  }
+  .no-svg & {
+    background-image: url('#{$sprite_mobile-icons}.png');
+  }
+  background-position: $x $y;
+  background-repeat: $repeat;
+}
+
+
+$img_path: '/images/';
+
