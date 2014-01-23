@@ -744,23 +744,76 @@ $filter-category-arrow-width: 65px;
       background-color: $color_grey;
       &:hover{
         background-color: $color_grey_l5;
-        &.filter-category-sports{
-          .filter-category-arrow{
-            background-color: $color_red_l5;
-          }
-
-        }
       }
       p{
         color: $color_grey_15;
-      }
-      .filter-category-arrow{
-        background-color: $color_red;
       }
     }
     .filter-category-body{
       border-color: $color_grey;
     }
+
+// CATEGORY SPORTS
+
+    &.filter-category-sports{
+      .filter-category-arrow{
+        background-color: $color_sports;
+      }
+      .filter-category-header:hover{
+        .filter-category-arrow{
+          background-color: $color_sports_l5;
+        }
+      }
+      .filter-category-sub.selected{
+        .checkbox{
+          background-color: $color_sports;
+        }
+      }
+    }
+
+// CATEGORY SPORTS end
+
+// CATEGORY CULTURE
+
+    &.filter-category-culture{
+      .filter-category-arrow{
+        background-color: $color_culture;
+      }
+      .filter-category-header:hover{
+        .filter-category-arrow{
+          background-color: $color_culture_l5;
+        }
+      }
+      .filter-category-sub.selected{
+        .checkbox{
+          background-color: $color_culture;
+        }
+      }
+    }
+
+// CATEGORY CULTURE end
+
+// CATEGORY WELLNESS
+
+    &.filter-category-wellness{
+      .filter-category-arrow{
+        background-color: $color_wellness;
+      }
+      .filter-category-header:hover{
+        .filter-category-arrow{
+          background-color: $color_wellness_l5;
+        }
+      }
+      .filter-category-sub.selected{
+        .checkbox{
+          background-color: $color_wellness;
+        }
+      }
+    }
+
+// CATEGORY WELLNESS end
+
+
   }
   &.open{
     .filter-category-header{
@@ -842,10 +895,7 @@ $filter-category-arrow-width: 65px;
       @include cursor;
     }
     &.selected{
-      color: $color_red;
-      .checkbox{
-        background-color: $color_red;
-      }
+      color: $color_grey;
     }
   }
 

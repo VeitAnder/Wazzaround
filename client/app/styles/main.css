@@ -2409,14 +2409,28 @@ footer {
     background-color: #666; }
     .filter-category.active .filter-category-header:hover {
       background-color: #737373; }
-      .filter-category.active .filter-category-header:hover.filter-category-sports .filter-category-arrow {
-        background-color: #df401c; }
     .filter-category.active .filter-category-header p {
       color: #e8e8e8; }
-    .filter-category.active .filter-category-header .filter-category-arrow {
-      background-color: #C83C19; }
   .filter-category.active .filter-category-body {
     border-color: #666; }
+  .filter-category.active.filter-category-sports .filter-category-arrow {
+    background-color: #C83C19; }
+  .filter-category.active.filter-category-sports .filter-category-header:hover .filter-category-arrow {
+    background-color: #df401c; }
+  .filter-category.active.filter-category-sports .filter-category-sub.selected .checkbox {
+    background-color: #C83C19; }
+  .filter-category.active.filter-category-culture .filter-category-arrow {
+    background-color: #1970C8; }
+  .filter-category.active.filter-category-culture .filter-category-header:hover .filter-category-arrow {
+    background-color: #1c7ddf; }
+  .filter-category.active.filter-category-culture .filter-category-sub.selected .checkbox {
+    background-color: #1970C8; }
+  .filter-category.active.filter-category-wellness .filter-category-arrow {
+    background-color: #bc913d; }
+  .filter-category.active.filter-category-wellness .filter-category-header:hover .filter-category-arrow {
+    background-color: #c59b4d; }
+  .filter-category.active.filter-category-wellness .filter-category-sub.selected .checkbox {
+    background-color: #bc913d; }
   .filter-category.open .filter-category-header {
     -webkit-border-radius-bottomleft: 0;
     -khtml-border-radius-bottomleft: 0;
@@ -2599,9 +2613,7 @@ footer {
     .filter-category .filter-category-sub:hover:hover {
       cursor: pointer; }
     .filter-category .filter-category-sub.selected {
-      color: #C83C19; }
-      .filter-category .filter-category-sub.selected .checkbox {
-        background-color: #C83C19; }
+      color: #666; }
 
 .filter-toggle {
   border: solid 1px #b3b3b3;
