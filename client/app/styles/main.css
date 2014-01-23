@@ -730,10 +730,10 @@ hr {
  * 0-10000
  */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v7/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff'); }
+  src: local('Lato Regular'), local('Lato-Regular'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff'); }
 
 .outline {
   outline: 1px solid blue;
@@ -778,7 +778,7 @@ h1 {
   margin: 70px 0;
   color: #85C900;
   font-weight: 200;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 h2 {
   font-size: 50px;
@@ -786,21 +786,21 @@ h2 {
   margin: 50px 0;
   color: #b3b3b3;
   font-weight: 100;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 h3 {
   font-size: 36px;
   line-height: 43.2px;
   margin: 36px 0;
   color: #85C900;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 h4 {
   font-size: 24px;
   line-height: 24px;
   margin: 24px 0;
   color: #b3b3b3;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: normal; }
 
 h5 {
@@ -808,14 +808,14 @@ h5 {
   line-height: 20px;
   margin: 20px 0;
   color: #85C900;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 h6 {
   font-size: 16px;
   line-height: 22.4px;
   margin: 16px 0;
   color: #b3b3b3;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 h1.first, h2.first, h3.first, h4.first, h5.first, h6.first {
   margin-top: 0; }
@@ -897,7 +897,7 @@ a.link-download {
   background-color: #85C900;
   background-image: -webkit-linear-gradient(top, #85c900 0%, #71ab00 100%);
   background-image: linear-gradient(to bottom, #85c900 0%, #71ab00 100%);
-  font-family: embeded-webfont_01, 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: embeded-webfont_01, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   letter-spacing: -0.03em;
   color: #FFF;
   text-decoration: none;
@@ -965,7 +965,7 @@ a.link-download {
 .btn-large {
   padding: 12px 32px;
   font-size: 25px;
-  font-family: embeded-webfont_01, 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: embeded-webfont_01, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   letter-spacing: -0.03em;
   -webkit-border-radius: 6px;
   -khtml-border-radius: 6px;
@@ -1089,7 +1089,7 @@ dl {
     line-height: 22.4px;
     margin: 16px 0;
     color: #b3b3b3;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
   dl dd {
     margin: 0 0 8px 32px; }
 
@@ -1490,7 +1490,7 @@ input, textarea, select {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 12px;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 22.4px;
   color: #666;
@@ -2656,7 +2656,7 @@ html {
 
 body {
   position: relative;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: #FFF;
   font-size: 16px;
   line-height: 22.4px;
