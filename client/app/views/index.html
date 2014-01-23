@@ -4,10 +4,11 @@
   <li>{{activity.name}}</li>
 </div>
 
-
 <div class="section section-map">
   <div class="controlpanel">
-    <h1 id="logo"><span>reActure – Find your activity</span></h1>
+    <h1 id="logo">
+      <span>reActure – Find your activity</span>
+    </h1>
     <h2>What's around me?</h2>
 
     <div class="filter">
@@ -15,18 +16,21 @@
       <div class="filter-category open active">
         <div class="filter-category-header">
           <h4>Sports & Activities</h4>
+
           <p>Main Features</p>
+
           <div class="filter-category-arrow">
-            <span>arrow</span>
+            <span></span>
           </div>
         </div>
         <div class="filter-category-body">
 
           <div
-              ng-repeat="activity in filteredactivities = (activities | filter: onlySports)"
-              >
+          ng-repeat="activity in filteredactivities = (activities | filter: onlySports)"
+          >
             <div class="filter-category-sub">
-              <span class="checkbox inline"></span> Sports 001
+              <span class="checkbox inline"></span>
+              Sports 001
             </div>
           </div>
 
@@ -38,29 +42,31 @@
           <h4>Culture</h4>
 
           <p>Our Guides and Tours</p>
+
           <div class="filter-category-arrow">
-            <span>arrow</span>
+            <span></span>
           </div>
         </div>
       </div>
 
-      <div class="filter-category">
+      <div class="filter-category open">
         <div class="filter-category-header">
           <h4>Wellness & Relax</h4>
+
           <p>Massages, relaxtion</p>
+
           <div class="filter-category-arrow">
-            <span>arrow</span>
+            <span></span>
           </div>
         </div>
-      </div>
-
         <div class="filter-category-body">
 
           <div
-              ng-repeat="activity in filteredactivities = (activities | filter: onlyCulture)"
-              >
+          ng-repeat="activity in filteredactivities = (activities | filter: onlyCulture)"
+          >
             <div class="filter-category-sub">
-              <span class="checkbox inline"></span> Sports 001
+              <span class="checkbox inline"></span>
+              Sports 001
             </div>
           </div>
 
@@ -68,19 +74,33 @@
 
       </div>
 
+      <div class="filter-category">
+        <div class="filter-category-header">
+          <h4>Wellness & Relax</h4>
+
+          <p>Massages, relaxtion</p>
+
+          <div class="filter-category-arrow">
+            <span></span>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
   </div>
+
   <div class="map-wrap" windowheight>
     <google-map center='map.center' zoom='map.zoom' draggable='true'>
 
       <div ng-repeat="activity in activities">
         <marker
-            coords='activity'
-            click='markerClickHandler(activity)'
-            options='markerOptions'
-            icon='map.markericon'
-            >
+        coords='activity'
+        click='markerClickHandler(activity)'
+        options='markerOptions'
+        icon='map.markericon'
+        >
         </marker>
 
         <!--<window-->
@@ -92,7 +112,6 @@
         <!--</window>-->
 
       </div>
-
 
       <window show="map.templatedInfoWindow.show" coords="map.templatedInfoWindow.coords"
               options="map.templatedInfoWindow.options"
@@ -109,6 +128,7 @@
     <div class="row">
       <div class="col-sm-3">
         <h2 class="no-margin-top">Services</h2>
+
         <p>Left Column</p>
       </div>
       <div class="col-sm-9">
