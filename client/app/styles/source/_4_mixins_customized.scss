@@ -738,29 +738,24 @@ $filter-category-arrow-width: 65px;
   background-color: $color_white;
   margin-bottom: 10px;
   @include border-radius($border-radius);
-  &:hover{
-    border-color: $color_grey_50_l5;
-    .filter-category-header{
-      background-color: $color_grey_50_l5;
-      .active &{
-        background-color: $color_grey_l5;
-      }
-    }
-    &.active{
-      .filter-category-header{
-        background-color: $color_grey_l5;
-      }
-    }
-  }
   &.active{
     .filter-category-header{
       background-color: $color_grey;
+      &:hover{
+        background-color: $color_grey_l5;
+        .filter-category-arrow{
+          background-color: $color_red_l5;
+        }
+      }
       p{
         color: $color_grey_15;
       }
+      .filter-category-arrow{
+        background-color: $color_red;
+      }
     }
-    .filter-category-arrow{
-      background-color: $color_red;
+    .filter-category-body{
+      border-color: $color_grey;
     }
   }
   &.open{
@@ -769,6 +764,9 @@ $filter-category-arrow-width: 65px;
     }
     .filter-category-arrow{
       @include border-bottom-right-radius(0);
+      span{
+        @include transform(rotate(90deg));
+      }
     }
     &.active{
       .filter-category-arrow{
@@ -801,8 +799,17 @@ $filter-category-arrow-width: 65px;
       height: 100%;
       @include border-right-radius($border-radius);
       span{
-
+        display: block;
+        margin-top: 20px;
+        margin-left: 19px;
+        width: 25px;
+        height: 25px;
+        @include sprite_icons(7px, -50px, no-repeat);
       }
+    }
+    &:hover{
+      background-color: $color_grey_50_l5;
+      @include cursor;
     }
   }
   .filter-category-body{

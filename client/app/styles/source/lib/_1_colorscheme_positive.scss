@@ -91,6 +91,7 @@ $color_red: #C83C19; //full tone red
 $color_red_15: #f7d9d9; //15%
 $color_red_75: #d54040; //75%
 
+$color_red_l5: lighten($color_red, 5%);
 
 
 // COLOR-NAMESPACING

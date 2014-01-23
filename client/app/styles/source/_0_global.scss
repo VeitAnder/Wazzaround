@@ -161,8 +161,8 @@ $height_logo : 56px;
 // ############################################################################################################################
 // ############################################################################################################################
 
-$sprite_icons: '/images/sprite_icons';
-$sprite_mobile-icons: '/images/sprite_mobile-icons';
+$sprite_icons: '/img/sprite_icons';
+$sprite_mobile-icons: '/img/sprite_mobile-icons';
 
 //mixin with svg/png support decision
 @mixin sprite_icons($x, $y, $repeat) {
