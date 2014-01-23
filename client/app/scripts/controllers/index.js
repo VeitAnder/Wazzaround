@@ -27,11 +27,6 @@ angular.module('anorakApp')
           message: 'passed in from the opener'
         }
       },
-      clickedMarker: {
-        title: 'You clicked here',
-        latitude: null,
-        longitude: null
-      },
       events: {
         click: function (mapModel, eventName, originalEventArgs) {
           // 'this' is the directive's scope
