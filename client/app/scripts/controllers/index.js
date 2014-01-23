@@ -19,9 +19,8 @@ angular.module('anorakApp')
     };
 
     $scope.toggleFilter = function (category) {
-
+      $scope.states[category].open = !$scope.states[category].open;
     };
-
 
     $scope.map = {
       center: {
@@ -134,36 +133,31 @@ angular.module('anorakApp')
     };
 
     $scope.allSelected = function () {
-      if (_.where($scope.activities, { 'hidden': true }).length > 0){
+      if (_.where($scope.activities, { 'hidden': true }).length > 0) {
         return false;
-      }else {
+      } else {
         return true;
       }
     };
 
     $scope.noneSelected = function () {
-      if (_.where($scope.activities, { 'hidden': false }).length > 0){
+      if (_.where($scope.activities, { 'hidden': false }).length > 0) {
         return false;
-      }else {
+      } else {
         return true;
       }
     };
 
     $scope.getMarkerIcon = function (activity) {
-      return "img/mapicons/marker-"+ activity.category + ".svg";
+      return "img/mapicons/marker-" + activity.category + ".svg";
     };
 
-
-
     $scope.areItemsInThisCategorySelected = function (category) {
-      if (_.where($scope.activities, { 'hidden': false, 'category': category }).length > 0){
+      if (_.where($scope.activities, { 'hidden': false, 'category': category }).length > 0) {
         return true;
-      }else {
+      } else {
         return false;
       }
     };
-
-
-
 
   });

@@ -9,10 +9,12 @@
     <div class="filter">
       <span class="input_label">Please choose:</span>
 
-      <div class="filter-category filter-category-sports open"
-           data-ng-class="{active: areItemsInThisCategorySelected('sports')}"
+      <div class="filter-category filter-category-sports"
+           data-ng-class="{active: areItemsInThisCategorySelected('sports'), open: states.sports.open }"
           >
-        <div class="filter-category-header">
+        <div class="filter-category-header"
+            data-ng-click="toggleFilter('sports')"
+            >
           <h4>Sports & Activities</h4>
 
           <p>Main Features</p>
@@ -21,7 +23,9 @@
             <span></span>
           </div>
         </div>
-        <div class="filter-category-body">
+        <div class="filter-category-body"
+            data-ng-show="states.sports.open"
+            >
 
           <div
               ng-repeat="activity in filteredactivities = (activities | filter: onlySports)"
@@ -38,10 +42,12 @@
         </div>
       </div>
 
-      <div class="filter-category filter-category-culture open "
-           data-ng-class="{active: areItemsInThisCategorySelected('culture')}"
+      <div class="filter-category filter-category-culture"
+           data-ng-class="{active: areItemsInThisCategorySelected('culture'), open: states.culture.open}"
           >
-        <div class="filter-category-header">
+        <div class="filter-category-header"
+             data-ng-click="toggleFilter('culture')"
+            >
           <h4>Culture</h4>
 
           <p>Our Guides and Tours</p>
@@ -51,7 +57,9 @@
             <span></span>
           </div>
         </div>
-        <div class="filter-category-body">
+        <div class="filter-category-body"
+             data-ng-show="states.culture.open"
+            >
 
           <div
               ng-repeat="activity in filteredactivities = (activities | filter: onlyCulture)"
@@ -68,10 +76,12 @@
         </div>
       </div>
 
-      <div class="filter-category filter-category-wellness open"
-          data-ng-class="{active: areItemsInThisCategorySelected('wellness')}"
+      <div class="filter-category filter-category-wellness"
+          data-ng-class="{active: areItemsInThisCategorySelected('wellness'), open: states.wellness.open}"
           >
-        <div class="filter-category-header">
+        <div class="filter-category-header"
+             data-ng-click="toggleFilter('wellness')"
+            >
           <h4>Wellness & Relax</h4>
 
           <p>Massages, relaxtion</p>
@@ -80,7 +90,9 @@
             <span></span>
           </div>
         </div>
-        <div class="filter-category-body">
+        <div class="filter-category-body"
+             data-ng-show="states.wellness.open"
+            >
 
           <div
               ng-repeat="activity in filteredactivities = (activities | filter: onlyWellness)"
