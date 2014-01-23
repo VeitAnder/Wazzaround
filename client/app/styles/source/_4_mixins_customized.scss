@@ -819,4 +819,15 @@ $filter-category-arrow-width: 65px;
     border-top: none;
     @include border-bottom-radius($border-radius);
   }
+
+
+  .filter-category-sub{
+    &:hover{
+      cursor: pointer;
+    }
+    &.selected{
+      background-color:#aaaaaa;
+    }
+  }
+
 }
