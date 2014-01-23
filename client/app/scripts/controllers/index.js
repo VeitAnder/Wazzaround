@@ -102,4 +102,16 @@ angular.module('anorakApp')
       item.hidden = !item.hidden;
     };
 
+    $scope.selectAllCategories = function () {
+      angular.forEach($scope.activities, function (activity) {
+        activity.hidden = false;
+      });
+    };
+
+    $scope.deSelectAllCategories = function () {
+      angular.forEach($scope.activities, function (activity) {
+        activity.hidden = true;
+      });
+    };
+
   });

@@ -92,8 +92,12 @@
       </div>
 
       <div class="filter-toggle">
-        <div class="filter-toggle-show active">Show all</div>
-        <div class="filter-toggle-hide">Hide all</div>
+        <div class="filter-toggle-show active"
+             data-ng-click="selectAllCategories()"
+            >Show all</div>
+        <div class="filter-toggle-hide"
+             data-ng-click="deSelectAllCategories()"
+            >Hide all</div>
       </div>
 
     </div>
