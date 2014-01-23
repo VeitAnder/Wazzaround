@@ -732,25 +732,28 @@ footer{
   position: relative;
   z-index: 100;
   margin-right: -(75px + $bu*2.0);
-  @include border_all($color_grey);
+  @include border_all($color_grey_50);
   border-width: 2px;
   @include border-radius($border-radius);
   background-color: $color_white;
   margin-bottom: 10px;
   .filter-category-header{
-    background-color: $color_grey;
-    padding: $bu;
+    background-color: $color_grey_50;
+    padding: $bu/1.5 $bu;
+    &:hover{
+      background-color: $color_grey_75;
+    }
     h4{
       margin: 0;
       color: $color_white;
     }
     p{
       margin: 0;
-      color: $color_grey_25;
+      color: $color_grey_15;
       padding: 0;
     }
   }
   .filter-category-body{
-    padding: $bu;
+    padding: $bu/1.5 $bu;
   }
 }

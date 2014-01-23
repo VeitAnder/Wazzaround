@@ -57,6 +57,7 @@ h3{
   margin:         $fs*$font-size_h4_factor 0;
   color:          $color_main_h4;
   @include sysfont_01;
+  font-weight:    normal;
 }
 
 h4{
