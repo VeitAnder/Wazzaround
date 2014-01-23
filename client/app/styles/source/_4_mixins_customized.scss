@@ -738,6 +738,7 @@ $filter-category-arrow-width: 65px;
   background-color: $color_white;
   margin-bottom: 10px;
   @include border-radius($border-radius);
+  @include user-select(none);
   &.active{
     .filter-category-header{
       background-color: $color_grey;
@@ -821,12 +822,49 @@ $filter-category-arrow-width: 65px;
   }
 
   .filter-category-sub{
+    display: inline-block;
+    color: $color_grey_50;
+    .checkbox{
+      @include box-sizing(border-box);
+      min-height: 0;
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      @include sprite_icons(-47px, 3px, no-repeat);
+      background-color: $color_grey_25;
+      @include border-radius($border-radius_small);
+      vertical-align: -2px;
+    }
     &:hover{
       @include cursor;
     }
     &.selected{
       color: $color_red;
+      .checkbox{
+        background-color: $color_red;
+      }
     }
   }
 
+}
+
+.filter-toggle{
+  @include border_all($color_grey_50);
+  border-width: 2px;
+  overflow: hidden;
+  @include border-radius($border-radius);
+  .filter-toggle-show, .filter-toggle-hide{
+    float: left;
+    @include box-sizing(border-box);
+    padding: 5px 10px;
+    width: 50%;
+    text-align: center;
+    @include cursor;
+    @include user-select(none);
+    &.active{
+      color: $color_white;
+      background-color: $color_green;
+      cursor: default;
+    }
+  }
 }
