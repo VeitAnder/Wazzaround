@@ -7,16 +7,16 @@ angular.module('anorakApp')
     debug("resolvedactivities", resolvedactivities);
     $scope.map = {
       center: {
-        latitude: 33,
-        longitude: 33
+        latitude: 44.93077975622578,
+        longitude: 7.998046875
       },
-      zoom: 5,
+      zoom: 10,
       markers: $scope.activities,
       markericon: "img/mapicons/plane.png",
       templatedInfoWindow: {
         coords: {
-          latitude: 33,
-          longitude: 33
+          latitude: 44.93077975622578,
+          longitude: 7.998046875
         },
         options: {
           disableAutoPan: true
@@ -98,7 +98,6 @@ angular.module('anorakApp')
     };
 
     $scope.toggleItemSelection = function (item) {
-      debug("item select toggle on: ", item);
       item.hidden = !item.hidden;
     };
 
