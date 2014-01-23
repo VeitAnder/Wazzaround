@@ -107,11 +107,30 @@ angular.module('anorakApp')
         activity.hidden = false;
       });
     };
+    // start by selecting all
+    $scope.selectAllCategories();
 
     $scope.deSelectAllCategories = function () {
       angular.forEach($scope.activities, function (activity) {
         activity.hidden = true;
       });
     };
+
+    $scope.allSelected = function () {
+      if (_.where($scope.activities, { 'hidden': true }).length > 0){
+        return false;
+      }else {
+        return true;
+      }
+    };
+
+    $scope.noneSelected = function () {
+      if (_.where($scope.activities, { 'hidden': false }).length > 0){
+        return false;
+      }else {
+        return true;
+      }
+    };
+
 
   });
