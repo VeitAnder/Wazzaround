@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="36px" height="63px" viewBox="0 0 36 63" enable-background="new 0 0 36 63" xml:space="preserve">
-<g>
-	
-		<image overflow="visible" enable-background="new    " width="14" height="4" xlink:href="87E9D97E40CC6361.png"  transform="matrix(1 0 0 1 11.0005 59)">
-	</image>
-	<circle fill="#1C28C4" cx="18" cy="18" r="18"/>
-	<polygon fill="#1C30C4" points="1.578,25.443 18,61.359 34.422,25.443 	"/>
-	<circle fill="#FFFFFF" cx="18" cy="18" r="13.08"/>
-</g>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
+<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="36px" height="63px" viewBox="0 0 36 63" xml:space="preserve">
+<image width="14" height="4" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAECAYAAAC+0w63AAAACXBIWXMAAAsSAAALEgHS3X78AAAA
+GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACNJREFUeNpiZMAEDQzYAYo4Ix6F
+eAETA5mAkYDzcIEGgAADADQfAoYl/0iRAAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 11 59)">
+</image>
+<path fill="#BC913D" d="M36,17.778c0-9.939-8.06-17.889-18-17.889S0,7.783,0,17.723C0,20.381,0.591,23,1.625,25H1.578L18,60.916
+	L34.422,25h-0.047C35.409,23,36,20.436,36,17.778z"/>
+<circle fill="#FFFFFF" cx="18" cy="18" r="13.08"/>
 </svg>

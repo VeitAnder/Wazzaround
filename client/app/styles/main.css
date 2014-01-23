@@ -2596,24 +2596,28 @@ footer {
       width: 16px;
       height: 16px;
       padding: 0;
-      background-position: -47px 3px;
-      background-repeat: no-repeat;
-      background-color: #d9d9d9;
+      background-color: #FFF;
+      border: solid 1px #d9d9d9;
       -webkit-border-radius: 3px;
       -khtml-border-radius: 3px;
       -moz-border-radius: 3px;
       -ms-border-radius: 3px;
       -o-border-radius: 3px;
       border-radius: 3px;
+      border-width: 2px;
       vertical-align: -2px; }
-      .svg .filter-category .filter-category-sub .checkbox {
-        background-image: url('/img/sprite_icons.svg'); }
-      .no-svg .filter-category .filter-category-sub .checkbox {
-        background-image: url('/img/sprite_icons.png'); }
     .filter-category .filter-category-sub:hover:hover {
       cursor: pointer; }
     .filter-category .filter-category-sub.selected {
       color: #666; }
+      .filter-category .filter-category-sub.selected .checkbox {
+        border: none;
+        background-position: -47px 3px;
+        background-repeat: no-repeat; }
+        .svg .filter-category .filter-category-sub.selected .checkbox {
+          background-image: url('/img/sprite_icons.svg'); }
+        .no-svg .filter-category .filter-category-sub.selected .checkbox {
+          background-image: url('/img/sprite_icons.png'); }
 
 .filter-toggle {
   border: solid 1px #b3b3b3;

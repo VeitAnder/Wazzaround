@@ -886,9 +886,10 @@ $filter-category-arrow-width: 65px;
       width: 16px;
       height: 16px;
       padding: 0;
-      @include sprite_icons(-47px, 3px, no-repeat);
-      background-color: $color_grey_25;
+      background-color: $color_white;
+      @include border_all($color_grey_25);
       @include border-radius($border-radius_small);
+      border-width: 2px;
       vertical-align: -2px;
     }
     &:hover{
@@ -896,6 +897,10 @@ $filter-category-arrow-width: 65px;
     }
     &.selected{
       color: $color_grey;
+      .checkbox{
+        border: none;
+        @include sprite_icons(-47px, 3px, no-repeat);
+      }
     }
   }
 
