@@ -744,8 +744,11 @@ $filter-category-arrow-width: 65px;
       background-color: $color_grey;
       &:hover{
         background-color: $color_grey_l5;
-        .filter-category-arrow{
-          background-color: $color_red_l5;
+        &.filter-category-sports{
+          .filter-category-arrow{
+            background-color: $color_red_l5;
+          }
+
         }
       }
       p{
@@ -861,6 +864,12 @@ $filter-category-arrow-width: 65px;
     text-align: center;
     @include cursor;
     @include user-select(none);
+    @include border(left, $color_grey_50);
+
+    &:first-child{
+      border-left: none;
+    }
+
     &.active{
       color: $color_white;
       background-color: $color_green;

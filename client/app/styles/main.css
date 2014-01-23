@@ -2409,7 +2409,7 @@ footer {
     background-color: #666; }
     .filter-category.active .filter-category-header:hover {
       background-color: #737373; }
-      .filter-category.active .filter-category-header:hover .filter-category-arrow {
+      .filter-category.active .filter-category-header:hover.filter-category-sports .filter-category-arrow {
         background-color: #df401c; }
     .filter-category.active .filter-category-header p {
       color: #e8e8e8; }
@@ -2624,9 +2624,12 @@ footer {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none; }
+    user-select: none;
+    border-left: solid 1px #b3b3b3; }
     .filter-toggle .filter-toggle-show:hover, .filter-toggle .filter-toggle-hide:hover {
       cursor: pointer; }
+    .filter-toggle .filter-toggle-show:first-child, .filter-toggle .filter-toggle-hide:first-child {
+      border-left: none; }
     .filter-toggle .filter-toggle-show.active, .filter-toggle .filter-toggle-hide.active {
       color: #FFF;
       background-color: #85C900;
