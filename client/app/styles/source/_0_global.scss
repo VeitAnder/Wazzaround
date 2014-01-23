@@ -15,7 +15,7 @@
  * 0-10000
  */
 
-$baseurl: "planfred.com";
+$baseurl: "reacture.com";
 
 $outline: true; //outine block level elements
 
@@ -126,12 +126,6 @@ $min-width-xxs: 300px;
 // ############################################################################################################################
 // ############################################################################################################################
 
-$sysfont_01: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$sysfont_02: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-$webfont_01: graublauslab-semibolditalic-webfont;   // filename in 'fonts'
-$webfont_02: graublauslab-bolditalic-webfont; // filename in 'fonts'
-
 //@import url('http://fonts.googleapis.com/css?family=Open+Sans');
 @font-face {
   font-family: 'Open Sans';
@@ -139,6 +133,12 @@ $webfont_02: graublauslab-bolditalic-webfont; // filename in 'fonts'
   font-weight: 400;
   src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v7/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
 }
+
+
+$sysfont_01: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$webfont_01: chunkfive-webfont;   // filename in 'fonts'
+
 
 
 
@@ -162,7 +162,6 @@ $height_logo : 56px;
 
 $sprite_icons: '/images/sprite_icons';
 $sprite_mobile-icons: '/images/sprite_mobile-icons';
-$sprite_logo_mobile: '/images/logo_planfred';
 
 //mixin with svg/png support decision
 @mixin sprite_icons($x, $y, $repeat) {

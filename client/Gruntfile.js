@@ -39,7 +39,7 @@ module.exports = function (grunt) {
           tasks: ['newer:jshint:test', 'karma']
         },
         sass: {
-          files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+          files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
           tasks: ['sass:server']
         },
         gruntfile: {

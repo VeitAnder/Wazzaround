@@ -24,88 +24,72 @@ $color_black_25: lighten($color_black, 75%);
 $color_black_15: lighten($color_black, 85%);
 
 
-$color_05: #009EB7; //full tone 3 (LIGHT BLUE)
-$color_05_75: #00b6ca; // 75%
-$color_05_50: #70cfdb; // 50%
-$color_05_25: #bfe7ed; // 25%
-$color_05_15: #D7F0F5; // 15%
-$color_05_05: #F2FAFB; // 5%
-$color_05_k15: #00869c; // +15% black
+$color_green: #85C900;
+$color_green_75: #a4d740; // 75%
+$color_green_50: #c2e480; // 50%
+$color_green_25: #e0f1bf; // 25%
+$color_green_15: #edf7d9; // 15%
+$color_green_05: #f9fcf2; // 5%
+$color_green_k15: #71ab00; // +15% black
 
-$color_05_l5: lighten($color_05, 5%);
-$color_05_75_l5: lighten($color_05_75, 5%);
-$color_05_50_l5: lighten($color_05_50, 5%);
-$color_05_15_l5: lighten($color_05_15, 5%);
-$color_05_25_l5: lighten($color_05_25, 5%);
-$color_05_05_l5: lighten($color_05_05, 5%);
-$color_05_k15_l5: lighten($color_05_k15, 5%);
+$color_green_l5: lighten($color_green, 5%);
+$color_green_75_l5: lighten($color_green_75, 5%);
+$color_green_50_l5: lighten($color_green_50, 5%);
+$color_green_15_l5: lighten($color_green_15, 5%);
+$color_green_25_l5: lighten($color_green_25, 5%);
+$color_green_05_l5: lighten($color_green_05, 5%);
+$color_green_k15_l5: lighten($color_green_k15, 5%);
 
-$color_00: lighten($color_05, 50%);
-$color_01: lighten($color_05, 40%);
-$color_02: lighten($color_05, 30%);
-$color_03: lighten($color_05, 20%);
-$color_04: lighten($color_05, 10%);
-$color_06: darken($color_05, 10%);
-$color_07: darken($color_05, 20%);
-$color_08: darken($color_05, 30%);
-$color_09: darken($color_05, 40%);
-
-
-$color_15: #1C363B; //full tone 1 (DARK GREY)
-$color_15_75: #5a6a6f; // 75%
-$color_15_50: #939da0; // 50%
-$color_15_15: #DFE2E3; // 15%
-$color_15_25: #c6cdce; // 25%
-$color_15_05: #F3F5F5; // 5%
-$color_15_k15: #182e32; //+15% black
-
-$color_15_l5: lighten($color_15, 5%);
-$color_15_75_l5: lighten($color_15_75, 5%);
-$color_15_50_l5: lighten($color_15_50, 5%);
-$color_15_15_l5: lighten($color_15_15, 5%);
-$color_15_25_l5: lighten($color_15_25, 5%);
-$color_15_05_l5: lighten($color_15_05, 5%);
-$color_15_k15_l5: lighten($color_15_k15, 5%);
-
-$color_11: lighten($color_15, 45%);
-$color_12: lighten($color_15, 30%);
-$color_13: lighten($color_15, 20%);
-$color_14: lighten($color_15, 10%);
-$color_16: darken($color_15, 10%);
-$color_17: darken($color_15, 20%);
-$color_18: darken($color_15, 30%);
-$color_19: darken($color_15, 40%);
+$color_00: lighten($color_green, 50%);
+$color_01: lighten($color_green, 40%);
+$color_02: lighten($color_green, 30%);
+$color_03: lighten($color_green, 20%);
+$color_04: lighten($color_green, 10%);
+$color_06: darken($color_green, 10%);
+$color_07: darken($color_green, 20%);
+$color_08: darken($color_green, 30%);
+$color_09: darken($color_green, 40%);
 
 
-$color_25: #FF5400; //full tone 2 (ORANGE)
-$color_25_75: #ff8046; // 75%
-$color_25_50: #ffac86; // 50%
-$color_25_25: #FFD4BF; // 25%
-$color_25_15: #FFE6DC; // 15%
-$color_25_05: #FFF6F2; // 5%
+$color_grey: #666;
+$color_grey_75: #8c8c8c; // 75%
+$color_grey_50: #b3b3b3; // 50%
+$color_grey_25: #d9d9d9; // 25%
+$color_grey_15: #e8e8e8; // 15%
+$color_grey_05: #f7f7f7; // 5%
+$color_grey_k15: #575757; //+15% black
 
-$color_25_l5: lighten($color_25, 5%);
-$color_25_75_l5: lighten($color_25_75, 5%);
-$color_25_50_l5: lighten($color_25_50, 5%);
-$color_25_15_l5: lighten($color_25_15, 5%);
-$color_25_05_l5: lighten($color_25_05, 5%);
+$color_grey_l5: lighten($color_grey, 5%);
+$color_grey_75_l5: lighten($color_grey_75, 5%);
+$color_grey_50_l5: lighten($color_grey_50, 5%);
+$color_grey_15_l5: lighten($color_grey_15, 5%);
+$color_grey_25_l5: lighten($color_grey_25, 5%);
+$color_grey_05_l5: lighten($color_grey_05, 5%);
+$color_grey_k15_l5: lighten($color_grey_k15, 5%);
 
-$color_21: lighten($color_25, 40%);
-$color_22: lighten($color_25, 30%);
-$color_23: lighten($color_25, 20%);
-$color_24: lighten($color_25, 10%);
-$color_26: darken($color_25, 10%);
-$color_27: darken($color_25, 20%);
-$color_28: darken($color_25, 30%);
-$color_29: darken($color_25, 40%);
+$color_11: lighten($color_grey, 45%);
+$color_12: lighten($color_grey, 30%);
+$color_13: lighten($color_grey, 20%);
+$color_14: lighten($color_grey, 10%);
+$color_16: darken($color_grey, 10%);
+$color_17: darken($color_grey, 20%);
+$color_18: darken($color_grey, 30%);
+$color_19: darken($color_grey, 40%);
 
-$color_45: #32B432; //full tone green
-$color_45_15: #e0f4e0;//15%
-$color_45_75: #65c765;//75%
 
-$color_55: #c70000; //full tone red
-$color_55_15: #f7d9d9; //15%
-$color_55_75: #d54040; //75%
+$color_11: lighten($color_grey, 40%);
+$color_12: lighten($color_grey, 30%);
+$color_13: lighten($color_grey, 20%);
+$color_14: lighten($color_grey, 10%);
+$color_16: darken($color_grey, 10%);
+$color_17: darken($color_grey, 20%);
+$color_18: darken($color_grey, 30%);
+$color_19: darken($color_grey, 40%);
+
+
+$color_red: #c70000; //full tone red
+$color_red_15: #f7d9d9; //15%
+$color_red_75: #d54040; //75%
 
 
 
@@ -118,24 +102,24 @@ $color_55_75: #d54040; //75%
 // ############################################################################################################################
 
 $color_background: $color_white; //=$color_footer_anorak_background
-$color_text: $color_15_75;
+$color_text: $color_grey;
 
-$color_link: $color_05;
-$color_link_hover: $color_05_75;
+$color_link: $color_green;
+$color_link_hover: $color_green_75;
 
 $color_notification_background: #ffffb1;
 $color_notification_text: #7e7e56;
 
 $color_alert_background: $color_notification_background;
 $color_alert_text: $color_notification_text;
-$color_error_background: $color_55_15;
-$color_error_text: $color_55_75;
-$color_info_background: $color_05_15;
-$color_info_text: $color_05_75;
-$color_upload_background: $color_25_15;
-$color_upload_text: $color_25_75;
-$color_success_background: $color_45_15;
-$color_success_text: $color_45_75;
+$color_error_background: $color_red_15;
+$color_error_text: $color_red_75;
+$color_info_background: $color_green_15;
+$color_info_text: $color_green_75;
+$color_upload_background: $color_grey_15;
+$color_upload_text: $color_grey_75;
+$color_success_background: $color_green_15;
+$color_success_text: $color_green_75;
 
 
 
@@ -146,14 +130,14 @@ $color_header_background: $color_white;
 
 $color_header_innerwrap_background: $color_header_background;
 
-$color_header_border: $color_05;
-$color_header_border_hover: $color_05_75;
+$color_header_border: $color_green;
+$color_header_border_hover: $color_green_75;
 
 $color_header_text: $color_text;
 
 $color_header_link: $color_link;
 $color_header_link_hover: $color_link_hover;
-$color_header_link_active: $color_05;
+$color_header_link_active: $color_green;
 
 
 // MAIN COLORS
@@ -173,13 +157,13 @@ $color_main_border_hover: $color_04;
 $color_main_seperator: $color_03;
 
 $color_main_text: $color_text;
-$color_main_text_highlight: $color_15;
-$color_main_h1: $color_15_75;
-$color_main_h2: $color_25;
-$color_main_h3: $color_15_75;
-$color_main_h4: $color_15_75;
-$color_main_h5: $color_15_75;
-$color_main_h6: $color_25;
+$color_main_text_highlight: $color_grey;
+$color_main_h1: $color_green;
+$color_main_h2: $color_grey_50;
+$color_main_h3: $color_green;
+$color_main_h4: $color_grey_50;
+$color_main_h5: $color_green;
+$color_main_h6: $color_grey_50;
 
 $color_main_link: $color_link;
 $color_main_link_hover: $color_link_hover;
@@ -193,17 +177,17 @@ $color_main_image_background: $color_white;
 // FOOTER COLORS
 // ############################################################################################################################
 
-$color_footer_background: $color_15_15;
+$color_footer_background: $color_grey_15;
 $color_footer_innerwrap_background: transparent;
 
-$color_footer_border: $color_15_25;
+$color_footer_border: $color_grey_25;
 
-$color_footer_text: $color_15_75;
+$color_footer_text: $color_grey_75;
 
-$color_footer_link: $color_15_75;
-$color_footer_link_hover: $color_15_75;
-$color_footer_link_active: $color_15_75;
-$color_footer_link_active_hover: $color_15_75;
+$color_footer_link: $color_grey_75;
+$color_footer_link_hover: $color_grey_75;
+$color_footer_link_active: $color_grey_75;
+$color_footer_link_active_hover: $color_grey_75;
 
 
 
@@ -211,29 +195,29 @@ $color_footer_link_active_hover: $color_15_75;
 // ############################################################################################################################
 
 $color_nav1_background: $color_white;
-$color_nav1_background_hover: $color_15_05;
+$color_nav1_background_hover: $color_grey_05;
 $color_nav1_background_active: $color_nav1_background;
 
-$color_nav1_text: $color_15_75;
+$color_nav1_text: $color_grey_75;
 
-$color_nav1_link: $color_15_75;
+$color_nav1_link: $color_grey_75;
 $color_nav1_link_hover: $color_nav1_link;
-$color_nav1_link_active: $color_05;
-$color_nav1_link_active_hover: $color_05;
+$color_nav1_link_active: $color_green;
+$color_nav1_link_active_hover: $color_green;
 
 //.submenu
 $color_nav2_link: $color_white;
 $color_nav2_background: $color_main_innerwrap_background_highlight;
 $color_nav2_level01_background: $color_nav2_background;
 $color_nav2_level01_background_hover: $color_white;
-$color_nav2_level01_background_active: $color_25;
+$color_nav2_level01_background_active: $color_grey;
 $color_nav2_level01_link_current: $color_white;
 $color_nav2_level01_link_active: $color_white;
-$color_nav2_level01_border: $color_05;
+$color_nav2_level01_border: $color_green;
 $color_nav2_level01_link: $color_09;
 $color_nav2_level01_link_hover: $color_07;
 
-$color_nav2_level02_border: $color_05;
+$color_nav2_level02_border: $color_green;
 $color_nav2_level02_link: $color_nav2_level01_link;
 $color_nav2_level02_link_hover: $color_nav2_level01_link_hover;
 $color_nav2_level02_link_active: $color_nav2_level01_link_active;
@@ -241,7 +225,7 @@ $color_nav2_level02_background: $color_nav2_level01_background;
 $color_nav2_level02_background_hover: $color_nav2_level01_background_hover;
 $color_nav2_level02_background_active: $color_nav2_level01_background_active;
 
-$color_nav2_level03_border: $color_05;
+$color_nav2_level03_border: $color_green;
 $color_nav2_level03_background: $color_nav2_level02_background;
 $color_nav2_level03_background_active: $color_nav2_level02_background_active;
 
@@ -262,51 +246,51 @@ $color_slider_button_background_active: red;
 $color_input_background: $color_white;
 $color_input_background_active: $color_white;
 
-$color_input_border: $color_15_50;
-$color_input_border_hover: $color_15_50_l5;
-$color_input_border_active: $color_05;
+$color_input_border: $color_grey_50;
+$color_input_border_hover: $color_grey_50_l5;
+$color_input_border_active: $color_green;
 $color_input_text: $color_text;
-$color_input_text_inactive: $color_15_50;
+$color_input_text_inactive: $color_grey_50;
 
 $color_button_text: $color_white;
-$color_button_background: $color_05_k15;
-$color_button_border: $color_05_50;
+$color_button_background: $color_green_k15;
+$color_button_border: $color_green_50;
 $color_button_text_hover: $color_button_text;
-$color_button_background_hover: $color_05_k15_l5;
-$color_button_border_hover: $color_05_50_l5;
+$color_button_background_hover: $color_green_k15_l5;
+$color_button_border_hover: $color_green_50_l5;
 
 $color_form_background: $color_02;
 $color_form_text: $color_08;
 $color_form_seperator: $color_06;
-$color_form_placeholder: $color_15_25;
-$color_form_label: $color_15_50;
+$color_form_placeholder: $color_grey_25;
+$color_form_label: $color_grey_50;
 
 
 // SITEMAP COLORS
 // ############################################################################################################################
 
-$color_sitemap_level01_background: $color_05;
-$color_sitemap_level01_background_hover: $color_15;
-$color_sitemap_level01_border: $color_05;
-$color_sitemap_level01_border_hover: $color_15;
+$color_sitemap_level01_background: $color_green;
+$color_sitemap_level01_background_hover: $color_grey;
+$color_sitemap_level01_border: $color_green;
+$color_sitemap_level01_border_hover: $color_grey;
 $color_sitemap_level01_text: $color_white;
 $color_sitemap_level01_text_hover: $color_white;
 
 $color_sitemap_level02_background: $color_white;
 $color_sitemap_level02_background_hover: $color_02;
-$color_sitemap_level02_border: $color_05;
+$color_sitemap_level02_border: $color_green;
 $color_sitemap_level02_text: $color_07;
-$color_sitemap_level02_text_hover: $color_25;
+$color_sitemap_level02_text_hover: $color_grey;
 
 $color_sitemap_level03_background: $color_white;
 $color_sitemap_level03_background_hover: $color_01;
 $color_sitemap_level03_background_hover2: $color_01;
-$color_sitemap_level03_border: $color_05;
+$color_sitemap_level03_border: $color_green;
 $color_sitemap_level03_text: $color_08;
 $color_sitemap_level03_text_hover: $color_08;
-$color_sitemap_level03_text_hover2: $color_15;
+$color_sitemap_level03_text_hover2: $color_grey;
 
-$color_sitemap_level04_background: $color_05;
+$color_sitemap_level04_background: $color_green;
 $color_sitemap_level04_border: $color_sitemap_level02_border;
 $color_sitemap_level04_text: $color_01;
 
@@ -322,10 +306,10 @@ $color_sitemap_level04_text: $color_01;
 
 // MOBILE HEADER
 
-$color_mobileheader_background: $color_25;
-$color_mobileheader_background_shadow: $color_27;
+$color_mobileheader_background: $color_grey;
+$color_mobileheader_background_shadow: $color_17;
 
-$color_mobileheader_border: $color_25_75;
+$color_mobileheader_border: $color_grey_75;
 
 $color_mobileheader_link: $color_white;
 
