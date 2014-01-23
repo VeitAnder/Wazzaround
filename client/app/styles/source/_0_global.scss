@@ -15,7 +15,7 @@
  * 0-10000
  */
 
-$baseurl: "planfred.com";
+$baseurl: "reacture.com";
 
 $outline: true; //outine block level elements
 
@@ -27,29 +27,30 @@ $outline: true; //outine block level elements
 // ############################################################################################################################
 // ############################################################################################################################
 
-$bu: 10px; //Base unit
+$bu: 15px; //Base unit
 
 
 // F O N T   S I Z E S
 // ############################################################################################################################
 // ############################################################################################################################
 
-$fs: 14px;  // Font-size
-$font-size_small_factor: 0.857; // = 12px
-$font-size_large_factor: 1.143; // = 16px
+$fs: 16px;  // Font-size
+$font-size_small_factor: 0.75; // = 12px
+$font-size_large_factor: 1.25; // = 20px
 $font-weight_extrabold: 800;
 $font-weight_bold: 600;
 $font-weight_light: 200;
+$font-weight_thin: 100;
 $line-height_factor: 1.4;
 $line-height_headline-factor: 1.2;
 
 // Headline factor ( e.g. $fs*$font-size_h1_factor / $fs*$font-size_h1_factor*$line-height_factor )
-$font-size_h1_factor: 4.000; // = 56px
-$font-size_h2_factor: 2.500; // = 35px
-$font-size_h3_factor: 2.000; // = 28px
-$font-size_h4_factor: 1.500; // = 21px
-$font-size_h5_factor: 1.500; // = 21px
-$font-size_h6_factor: 1.000; // = 14px
+$font-size_h1_factor: 4.375; // = 70px
+$font-size_h2_factor: 3.125; // = 50px
+$font-size_h3_factor: 2.250; // = 36px
+$font-size_h4_factor: 1.500; // = 24px
+$font-size_h5_factor: 1.250; // = 20px
+$font-size_h6_factor: 1.000; // = 16px
 
 
 // MOBILE FONT SIZES
@@ -126,12 +127,6 @@ $min-width-xxs: 300px;
 // ############################################################################################################################
 // ############################################################################################################################
 
-$sysfont_01: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$sysfont_02: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-$webfont_01: graublauslab-semibolditalic-webfont;   // filename in 'fonts'
-$webfont_02: graublauslab-bolditalic-webfont; // filename in 'fonts'
-
 //@import url('http://fonts.googleapis.com/css?family=Open+Sans');
 @font-face {
   font-family: 'Open Sans';
@@ -139,6 +134,12 @@ $webfont_02: graublauslab-bolditalic-webfont; // filename in 'fonts'
   font-weight: 400;
   src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v7/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
 }
+
+
+$sysfont_01: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$webfont_01: chunkfive-webfont;   // filename in 'fonts'
+
 
 
 
@@ -162,7 +163,6 @@ $height_logo : 56px;
 
 $sprite_icons: '/images/sprite_icons';
 $sprite_mobile-icons: '/images/sprite_mobile-icons';
-$sprite_logo_mobile: '/images/logo_planfred';
 
 //mixin with svg/png support decision
 @mixin sprite_icons($x, $y, $repeat) {
@@ -188,5 +188,5 @@ $sprite_logo_mobile: '/images/logo_planfred';
 }
 
 
-$img_path: '/images/';
+$img_path: '/img/';
 

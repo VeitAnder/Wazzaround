@@ -4,19 +4,53 @@
   <li>{{activity.name}}</li>
 </div>
 
-<div class="row nomargin nopadding">
-  <div class="col-sm-3">
-    <p>This is the / view.</p>
 
-    <div class="col-sm-3 outline" style="position:absolute; width:150%; z-index:1; height:500px; background-color:red;">
-      <p>This is the / view.</p>
-    </div>
-    <div class="col-sm-9 outline">
-      asdfsdf
-    </div>
+<div class="section section-map">
+  <div class="controlpanel">
+    <h1 id="logo"><span>reActure – Find your activity</span></h1>
+    <h2>What's around me?</h2>
+
+    <div class="filter">
+      <span class="input_label">Please choose:</span>
+      <div class="filter-category open">
+        <div class="filter-category-header">
+          <h4>Sports & Activities</h4>
+          <p>Main Features</p>
+        </div>
+        <div class="filter-category-body">
+          <div class="filter-category-sub">
+            <span class="checkbox inline"></span> Sports 001
+          </div>
+          <div class="filter-category-sub">
+            <span class="checkbox inline"></span> Sports 002
+          </div>
+          <div class="filter-category-sub">
+            <span class="checkbox inline"></span> Sports 003
+          </div>
+          <div class="filter-category-sub">
+            <span class="checkbox inline"></span> Sports 004
+          </div>
+          <div class="filter-category-sub">
+            <span class="checkbox inline"></span> Sports 005
+          </div>
+          <div class="filter-category-sub">
+            <span class="checkbox inline"></span> Sports 006
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-category">
+        <div class="filter-category-header">
+          <h4>Culture</h4>
+          <p>Our Guides and Tours</p>
+        </div>
+      </div>
+
+
+      </div>
 
   </div>
-  <div class="col-sm-9 outline nopadding map-wrap" windowheight>
+  <div class="map-wrap" windowheight>
     <google-map center='map.center' zoom='map.zoom' draggable='true'>
 
       <div ng-repeat="activity in activities">
@@ -29,11 +63,11 @@
         </marker>
 
         <!--<window-->
-            <!--show='true'-->
-            <!--coords='activity'-->
-            <!--click='windowClickHandler(activity)'-->
-            <!--options='windowOptions'-->
-            <!-->-->
+        <!--show='true'-->
+        <!--coords='activity'-->
+        <!--click='windowClickHandler(activity)'-->
+        <!--options='windowOptions'-->
+        <!-->-->
         <!--</window>-->
 
       </div>
@@ -46,5 +80,19 @@
       </window>
 
     </google-map>
+  </div>
+</div>
+
+<div class="section section-grey">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <h2 class="no-margin-top">Services</h2>
+        <p>Left Column</p>
+      </div>
+      <div class="col-sm-9">
+        Right Column
+      </div>
+    </div>
   </div>
 </div>

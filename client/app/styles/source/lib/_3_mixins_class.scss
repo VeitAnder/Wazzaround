@@ -18,8 +18,8 @@ p{
   line-height:    $fs*$font-size_h1_factor*$line-height_headline-factor;
   margin:         $fs*$font-size_h1_factor 0;
   color:          $color_main_h1;
-  @include webfont_02;
-  @include text-shadow_4px;
+  font-weight:    $font-weight_light;
+  @include sysfont_01;
 }
 
 h1{
@@ -31,13 +31,8 @@ h1{
   line-height:    $fs*$font-size_h2_factor;
   margin:         $fs*$font-size_h2_factor 0;
   color:          $color_main_h2;
-  @include webfont_02;
-  @include text-shadow_2px;
-  &.large{
-    font-size: 45px;
-    line-height: 45px;
-    color: $color_15_75;
-  }
+  font-weight:    $font-weight_thin;
+  @include sysfont_01;
 }
 
 h2{
@@ -49,7 +44,7 @@ h2{
   line-height:    $fs*$font-size_h3_factor*$line-height_headline-factor;
   margin:         $fs*$font-size_h3_factor 0;
   color:          $color_main_h3;
-  @include webfont_02;
+  @include sysfont_01;
 }
 
 h3{
@@ -61,7 +56,7 @@ h3{
   line-height:    $fs*$font-size_h4_factor;
   margin:         $fs*$font-size_h4_factor 0;
   color:          $color_main_h4;
-  @include webfont_02;
+  @include sysfont_01;
 }
 
 h4{
@@ -73,7 +68,7 @@ h4{
   line-height:    $fs*$font-size_h5_factor;
   margin:         $fs*$font-size_h5_factor 0;
   color:          $color_main_h5;
-  @include webfont_02;
+  @include sysfont_01;
 }
 
 h5{
@@ -85,8 +80,7 @@ h5{
   line-height:    $fs*$font-size_h6_factor*$line-height_factor;
   margin:         $fs*$font-size_h6_factor 0;
   color:          $color_main_h6;
-  @include webfont_03;
-  font-weight: $font-weight_bold;
+  @include sysfont_01;
 }
 
 h6{
@@ -206,45 +200,45 @@ a.link-download{
 }
 
 .btn-orange {
-  border-color: $color_25_50;
+  border-color: $color_grey_50;
   @include gradient_orange;
   &:hover {
-    border-color: $color_25_50_l5;
+    border-color: $color_grey_50_l5;
     @include gradient_orange_hover;
   }
   &:active {
-    background: $color_25;
+    background: $color_grey;
   }
 }
 
 .btn-grey {
-  border-color: $color_15_25;
+  border-color: $color_grey_25;
   @include gradient_grey;
   &:hover {
-    border-color: $color_15_25_l5;
+    border-color: $color_grey_25_l5;
     @include gradient_grey_hover;
   }
   &:active {
-    background: $color_15_50;
+    background: $color_grey_50;
   }
 }
 
 .btn-darkgrey {
-  border-color: $color_15_50;
+  border-color: $color_grey_50;
   @include gradient_darkgrey;
   &:hover {
-    border-color: $color_15_50_l5;
+    border-color: $color_grey_50_l5;
     @include gradient_darkgrey_hover;
   }
   &:active {
-    background: $color_15;
+    background: $color_grey;
   }
 }
 
 .btn-large{
   padding: ($fs*0.75) ($fs*2.0);
   font-size: 25px;
-  @include webfont_02;
+  @include webfont_01;
   @include border-radius($border-radius);
 }
 
@@ -283,7 +277,7 @@ a.link-download{
   }
 
   em{
-    color: $color_25;
+    color: $color_grey;
   }
   
   pre, code{
@@ -528,9 +522,9 @@ a.link-download{
 
 .footnote{
   @include font-size_small;
-  color: $color_15_50;
+  color: $color_grey_50;
   font-weight: $font-weight_bold;
-  @include seperator(top, $color_15_50);
+  @include seperator(top, $color_grey_50);
   padding-top: $fs*0.5;
   margin-top: $fs;
 }
@@ -785,6 +779,22 @@ p.inline-screen-sm{
 // PAGE LAYOUT
 // ###########################################################################################################################
 // ###########################################################################################################################
+
+.section{
+  padding-top: $bu*2.0;
+  padding-bottom: $bu*2.0;
+  @include seperator(top, $color_main_seperator);
+  @include seperator(bottom, $color_main_seperator);
+  &.section-grey{
+    border: none;
+    background-color: $color_grey;
+    color: $color_white;
+  }
+  &.section-map{
+    border: none;
+    padding: 0;
+  }
+}
 
 
 // HEADER / MAIN / FOOTER
@@ -1047,7 +1057,7 @@ header {
 // ###########################################################################################################################
 
 @mixin textformat_form {
-  @include webfont_03;
+  @include sysfont_01;
   font-size: $fs;
   line-height: $fs*$line-height_factor;
   color: $color_input_text;
