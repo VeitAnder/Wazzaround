@@ -42,11 +42,30 @@ var publicRestApi = function (app) {
 // Retrieve the current user
   app.get('/' + config.api.apiversion + 'current-user', security.sendCurrentUser);
 
-
-
   app.get('/' + config.api.apiversion + 'activities', activities.findAll);
-};
 
+//  app.get('/' + config.api.apiversion + 'svg', function (req, res, next) {
+//
+//    var svg = '<?xml version="1.0" encoding="utf-8"?>';
+//    svg += '<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->   ';
+//    svg += '     <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">  ';
+//    svg += '          <svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"   ';
+//    svg += '         x="0px" y="0px" width="36px" height="63px" viewBox="0 0 36 63" xml:space="preserve">  ';
+//    svg += '           <g> ';
+//
+//    svg += '              <image width="14" height="4" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAECAYAAAC+0w63AAAACXBIWXMAAAsSAAALEgHS3X78AAAA ';
+//    svg += 'GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACNJREFUeNpiYcAEDQzYAYo4Ix6F ';
+//    svg += 'eAEzEDuQq/EAGZobAAIMAG6vA0yGXFwsAAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 11 59)">  ';
+//    svg += '              </image> ';
+//    svg += '             <circle fill="#C83C19" cx="18" cy="18" r="18"/>  ';
+//    svg += '            <polygon fill="#C83C19" points="1.578,25.443 18,61.359 34.422,25.443"/>  ';
+//    svg += '           <circle fill="#FFFFFF" cx="18" cy="18" r="13.08"/>  ';
+//    svg += '        </g> ';
+//    svg += '      </svg> ';
+//
+//    res.send(svg);
+//  });
+};
 
 var RestApiAuthentication = function (app) {
   app.all('/' + config.api.apiversion + '*', function (req, res, next) {

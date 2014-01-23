@@ -5,6 +5,24 @@ angular.module('anorakApp')
     $scope.activities = resolvedactivities;
 
     debug("resolvedactivities", resolvedactivities);
+
+    $scope.states = {
+      sports: {
+        open: true
+      },
+      culture: {
+        open: true
+      },
+      wellness: {
+        open: true
+      }
+    };
+
+    $scope.toggleFilter = function (category) {
+
+    };
+
+
     $scope.map = {
       center: {
         latitude: 44.93077975622578,
@@ -12,7 +30,7 @@ angular.module('anorakApp')
       },
       zoom: 10,
       markers: $scope.activities,
-      markericon: "img/mapicons/plane.png",
+      markericon: "img/mapicons/marker-sports.svg",
       templatedInfoWindow: {
         coords: {
           latitude: 44.93077975622578,
@@ -130,6 +148,22 @@ angular.module('anorakApp')
         return true;
       }
     };
+
+    $scope.getMarkerIcon = function (activity) {
+      return "img/mapicons/marker-"+ activity.category + ".svg";
+    };
+
+
+
+    $scope.areItemsInThisCategorySelected = function (category) {
+      if (_.where($scope.activities, { 'hidden': false, 'category': category }).length > 0){
+        return true;
+      }else {
+        return false;
+      }
+    };
+
+
 
 
   });
