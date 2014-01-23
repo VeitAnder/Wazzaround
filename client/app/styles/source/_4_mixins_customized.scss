@@ -728,32 +728,88 @@ footer{
 }//.sitemap
 
 
+$filter-category-arrow-width: 65px;
+
+
 .filter-category{
   position: relative;
   z-index: 100;
-  margin-right: -(75px + $bu*2.0);
-  @include border_all($color_grey_50);
-  border-width: 2px;
-  @include border-radius($border-radius);
+  margin-right: -($filter-category-arrow-width + $bu*2.0);
   background-color: $color_white;
   margin-bottom: 10px;
+  @include border-radius($border-radius);
+  &:hover{
+    border-color: $color_grey_50_l5;
+    .filter-category-header{
+      background-color: $color_grey_50_l5;
+      .active &{
+        background-color: $color_grey_l5;
+      }
+    }
+    &.active{
+      .filter-category-header{
+        background-color: $color_grey_l5;
+      }
+    }
+  }
+  &.active{
+    .filter-category-header{
+      background-color: $color_grey;
+      p{
+        color: $color_grey_15;
+      }
+    }
+    .filter-category-arrow{
+      background-color: $color_red;
+    }
+  }
+  &.open{
+    .filter-category-header{
+      @include border-bottom-radius(0);
+    }
+    .filter-category-arrow{
+      @include border-bottom-right-radius(0);
+    }
+    &.active{
+      .filter-category-arrow{
+        @include border-bottom-right-radius(0);
+      }
+    }
+  }
   .filter-category-header{
+    position: relative;
+    @include box-sizing(border-box);
     background-color: $color_grey_50;
     padding: $bu/1.5 $bu;
-    &:hover{
-      background-color: $color_grey_75;
-    }
+    padding-right: $filter-category-arrow-width + $bu;
+    min-height: $filter-category-arrow-width;
+    @include border-radius($border-radius);
     h4{
       margin: 0;
       color: $color_white;
     }
     p{
       margin: 0;
-      color: $color_grey_15;
+      color: $color_grey;
       padding: 0;
+    }
+    .filter-category-arrow{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: $filter-category-arrow-width;
+      height: 100%;
+      @include border-right-radius($border-radius);
+      span{
+
+      }
     }
   }
   .filter-category-body{
     padding: $bu/1.5 $bu;
+    @include border_all($color_grey_50);
+    border-width: 2px;
+    border-top: none;
+    @include border-bottom-radius($border-radius);
   }
 }

@@ -1203,8 +1203,8 @@ h1.nomargin, h2.nomargin, h3.nomargin, h4.nomargin, h5.nomargin, h6.nomargin {
   .alert.disabled {
     background-color: #b3b3b3; }
   .alert.alert-error {
-    background-color: #f7d9d9;
-    color: #d54040; }
+    background-color: #666;
+    color: #d9d9d9; }
   .alert.alert-info {
     background-color: #edf7d9;
     color: #a4d740; }
@@ -2392,31 +2392,161 @@ footer {
 .filter-category {
   position: relative;
   z-index: 100;
-  margin-right: -105px;
-  border: solid 1px #b3b3b3;
-  border-width: 2px;
+  margin-right: -95px;
+  background-color: #FFF;
+  margin-bottom: 10px;
   -webkit-border-radius: 6px;
   -khtml-border-radius: 6px;
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
-  border-radius: 6px;
-  background-color: #FFF;
-  margin-bottom: 10px; }
+  border-radius: 6px; }
+  .filter-category:hover {
+    border-color: #c0c0c0; }
+    .filter-category:hover .filter-category-header {
+      background-color: #c0c0c0; }
+      .active .filter-category:hover .filter-category-header {
+        background-color: #737373; }
+    .filter-category:hover.active .filter-category-header {
+      background-color: #737373; }
+  .filter-category.active .filter-category-header {
+    background-color: #666; }
+    .filter-category.active .filter-category-header p {
+      color: #e8e8e8; }
+  .filter-category.active .filter-category-arrow {
+    background-color: #C83C19; }
+  .filter-category.open .filter-category-header {
+    -webkit-border-radius-bottomleft: 0;
+    -khtml-border-radius-bottomleft: 0;
+    -moz-border-radius-bottomleft: 0;
+    -ms-border-radius-bottomleft: 0;
+    -o-border-radius-bottomleft: 0;
+    border-radius-bottomleft: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -khtml-border-bottom-left-radius: 0;
+    -moz-border-bottom-left-radius: 0;
+    -ms-border-bottom-left-radius: 0;
+    -o-border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+    -webkit-border-radius-bottomright: 0;
+    -khtml-border-radius-bottomright: 0;
+    -moz-border-radius-bottomright: 0;
+    -ms-border-radius-bottomright: 0;
+    -o-border-radius-bottomright: 0;
+    border-radius-bottomright: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -khtml-border-bottom-right-radius: 0;
+    -moz-border-bottom-right-radius: 0;
+    -ms-border-bottom-right-radius: 0;
+    -o-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0; }
+  .filter-category.open .filter-category-arrow {
+    -webkit-border-radius-bottomright: 0;
+    -khtml-border-radius-bottomright: 0;
+    -moz-border-radius-bottomright: 0;
+    -ms-border-radius-bottomright: 0;
+    -o-border-radius-bottomright: 0;
+    border-radius-bottomright: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -khtml-border-bottom-right-radius: 0;
+    -moz-border-bottom-right-radius: 0;
+    -ms-border-bottom-right-radius: 0;
+    -o-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0; }
+  .filter-category.open.active .filter-category-arrow {
+    -webkit-border-radius-bottomright: 0;
+    -khtml-border-radius-bottomright: 0;
+    -moz-border-radius-bottomright: 0;
+    -ms-border-radius-bottomright: 0;
+    -o-border-radius-bottomright: 0;
+    border-radius-bottomright: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -khtml-border-bottom-right-radius: 0;
+    -moz-border-bottom-right-radius: 0;
+    -ms-border-bottom-right-radius: 0;
+    -o-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0; }
   .filter-category .filter-category-header {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     background-color: #b3b3b3;
-    padding: 10px 15px; }
-    .filter-category .filter-category-header:hover {
-      background-color: #8c8c8c; }
+    padding: 10px 15px;
+    padding-right: 80px;
+    min-height: 65px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px; }
     .filter-category .filter-category-header h4 {
       margin: 0;
       color: #FFF; }
     .filter-category .filter-category-header p {
       margin: 0;
-      color: #e8e8e8;
+      color: #666;
       padding: 0; }
+    .filter-category .filter-category-header .filter-category-arrow {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 65px;
+      height: 100%;
+      -webkit-border-radius-topright: 6px;
+      -khtml-border-radius-topright: 6px;
+      -moz-border-radius-topright: 6px;
+      -ms-border-radius-topright: 6px;
+      -o-border-radius-topright: 6px;
+      border-radius-topright: 6px;
+      -webkit-border-top-right-radius: 6px;
+      -khtml-border-top-right-radius: 6px;
+      -moz-border-top-right-radius: 6px;
+      -ms-border-top-right-radius: 6px;
+      -o-border-top-right-radius: 6px;
+      border-top-right-radius: 6px;
+      -webkit-border-radius-bottomright: 6px;
+      -khtml-border-radius-bottomright: 6px;
+      -moz-border-radius-bottomright: 6px;
+      -ms-border-radius-bottomright: 6px;
+      -o-border-radius-bottomright: 6px;
+      border-radius-bottomright: 6px;
+      -webkit-border-bottom-right-radius: 6px;
+      -khtml-border-bottom-right-radius: 6px;
+      -moz-border-bottom-right-radius: 6px;
+      -ms-border-bottom-right-radius: 6px;
+      -o-border-bottom-right-radius: 6px;
+      border-bottom-right-radius: 6px; }
   .filter-category .filter-category-body {
-    padding: 10px 15px; }
+    padding: 10px 15px;
+    border: solid 1px #b3b3b3;
+    border-width: 2px;
+    border-top: none;
+    -webkit-border-radius-bottomleft: 6px;
+    -khtml-border-radius-bottomleft: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    -ms-border-radius-bottomleft: 6px;
+    -o-border-radius-bottomleft: 6px;
+    border-radius-bottomleft: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -khtml-border-bottom-left-radius: 6px;
+    -moz-border-bottom-left-radius: 6px;
+    -ms-border-bottom-left-radius: 6px;
+    -o-border-bottom-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    -webkit-border-radius-bottomright: 6px;
+    -khtml-border-radius-bottomright: 6px;
+    -moz-border-radius-bottomright: 6px;
+    -ms-border-radius-bottomright: 6px;
+    -o-border-radius-bottomright: 6px;
+    border-radius-bottomright: 6px;
+    -webkit-border-bottom-right-radius: 6px;
+    -khtml-border-bottom-right-radius: 6px;
+    -moz-border-bottom-right-radius: 6px;
+    -ms-border-bottom-right-radius: 6px;
+    -o-border-bottom-right-radius: 6px;
+    border-bottom-right-radius: 6px; }
 
 html {
   overflow-y: scroll; }
