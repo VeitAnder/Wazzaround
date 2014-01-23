@@ -50,9 +50,8 @@ angular.module('anorakApp')
 
 
 
-    // filter plans by phasetag
+    // filter activities
     $scope.onlySports = function (activity) {
-      debug("activity", activity);
       if (activity.category === "sports") {
         return true;
       } else {
@@ -60,10 +59,16 @@ angular.module('anorakApp')
       }
     };
 
-    // filter plans by phasetag
     $scope.onlyCulture = function (activity) {
-      debug("activity", activity);
       if (activity.category === "culture") {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    $scope.onlyWellness = function (activity) {
+      if (activity.category === "wellness") {
         return true;
       } else {
         return false;

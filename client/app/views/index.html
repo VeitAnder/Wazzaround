@@ -9,10 +9,12 @@
     <h1 id="logo">
       <span>reActure – Find your activity</span>
     </h1>
+
     <h2>What's around me?</h2>
 
     <div class="filter">
       <span class="input_label">Please choose:</span>
+
       <div class="filter-category open active">
         <div class="filter-category-header">
           <h4>Sports & Activities</h4>
@@ -26,18 +28,18 @@
         <div class="filter-category-body">
 
           <div
-          ng-repeat="activity in filteredactivities = (activities | filter: onlySports)"
-          >
+              ng-repeat="activity in filteredactivities = (activities | filter: onlySports)"
+              >
             <div class="filter-category-sub">
               <span class="checkbox inline"></span>
-              Sports 001
+              {{activity.name}}
             </div>
           </div>
 
         </div>
       </div>
 
-      <div class="filter-category active">
+      <div class="filter-category open active">
         <div class="filter-category-header">
           <h4>Culture</h4>
 
@@ -47,9 +49,21 @@
             <span></span>
           </div>
         </div>
+        <div class="filter-category-body">
+
+          <div
+              ng-repeat="activity in filteredactivities = (activities | filter: onlyCulture)"
+              >
+            <div class="filter-category-sub">
+              <span class="checkbox inline"></span>
+              {{activity.name}}
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <div class="filter-category open">
+      <div class="filter-category open active">
         <div class="filter-category-header">
           <h4>Wellness & Relax</h4>
 
@@ -62,29 +76,15 @@
         <div class="filter-category-body">
 
           <div
-          ng-repeat="activity in filteredactivities = (activities | filter: onlyCulture)"
-          >
+              ng-repeat="activity in filteredactivities = (activities | filter: onlyWellness)"
+              >
             <div class="filter-category-sub">
               <span class="checkbox inline"></span>
-              Sports 001
+              {{activity.name}}
             </div>
           </div>
 
         </div>
-
-      </div>
-
-      <div class="filter-category">
-        <div class="filter-category-header">
-          <h4>Wellness & Relax</h4>
-
-          <p>Massages, relaxtion</p>
-
-          <div class="filter-category-arrow">
-            <span></span>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -96,11 +96,11 @@
 
       <div ng-repeat="activity in activities">
         <marker
-        coords='activity'
-        click='markerClickHandler(activity)'
-        options='markerOptions'
-        icon='map.markericon'
-        >
+            coords='activity'
+            click='markerClickHandler(activity)'
+            options='markerOptions'
+            icon='map.markericon'
+            >
         </marker>
 
         <!--<window-->
