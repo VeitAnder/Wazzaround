@@ -47,7 +47,8 @@
     "bower": "~1.2.8",
     "yo": "~1.1.2",
     "generator-angular": "~0.7.1",
-    "grunt-favicons": "~0.6.0"
+    "grunt-favicons": "~0.6.0",
+    "grunt-shell-spawn": "~0.3.0"
   },
   "engines": {
     "node": ">=0.8.0"
