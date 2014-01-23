@@ -1,3 +1,9 @@
+<a data-ng-click="changelist()">changelist</a>
+
+<div ng-repeat="activity in activities">
+  <li>{{activity.name}}</li>
+</div>
+
 
 <div class="section section-map">
   <div class="controlpanel">
@@ -45,7 +51,35 @@
 
   </div>
   <div class="map-wrap" windowheight>
-    <google-map center='map.center' zoom='map.zoom' draggable='true' ></google-map>
+    <google-map center='map.center' zoom='map.zoom' draggable='true'>
+
+      <div ng-repeat="activity in activities">
+        <marker
+            coords='activity'
+            click='markerClickHandler(activity)'
+            options='markerOptions'
+            icon='map.markericon'
+            >
+        </marker>
+
+        <!--<window-->
+        <!--show='true'-->
+        <!--coords='activity'-->
+        <!--click='windowClickHandler(activity)'-->
+        <!--options='windowOptions'-->
+        <!-->-->
+        <!--</window>-->
+
+      </div>
+
+
+      <window show="map.templatedInfoWindow.show" coords="map.templatedInfoWindow.coords"
+              options="map.templatedInfoWindow.options"
+              templateUrl="map.templatedInfoWindow.templateUrl"
+              templateParameter="map.templatedInfoWindow.templateParameter">
+      </window>
+
+    </google-map>
   </div>
 </div>
 
