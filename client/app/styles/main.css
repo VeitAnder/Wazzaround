@@ -849,9 +849,9 @@ a.link-int {
   background-repeat: no-repeat;
   background-position: -275px -149px; }
   .svg a.link-int {
-    background-image: url('/images/sprite_icons.svg'); }
+    background-image: url('/img/sprite_icons.svg'); }
   .no-svg a.link-int {
-    background-image: url('/images/sprite_icons.png'); }
+    background-image: url('/img/sprite_icons.png'); }
 
 a.link-ext {
   padding: 0 0 0 32px;
@@ -859,27 +859,27 @@ a.link-ext {
   background-repeat: no-repeat;
   background-position: -275px -174px; }
   .svg a.link-ext {
-    background-image: url('/images/sprite_icons.svg'); }
+    background-image: url('/img/sprite_icons.svg'); }
   .no-svg a.link-ext {
-    background-image: url('/images/sprite_icons.png'); }
+    background-image: url('/img/sprite_icons.png'); }
 
 a.link-mail {
   padding: 0 0 0 32px;
   background-position: 0 0;
   background-repeat: no-repeat; }
   .svg a.link-mail {
-    background-image: url('/images/sprite_icons.svg'); }
+    background-image: url('/img/sprite_icons.svg'); }
   .no-svg a.link-mail {
-    background-image: url('/images/sprite_icons.png'); }
+    background-image: url('/img/sprite_icons.png'); }
 
 a.link-download {
   padding: 0 0 0 32px;
   background-position: 0 0;
   background-repeat: no-repeat; }
   .svg a.link-download {
-    background-image: url('/images/sprite_icons.svg'); }
+    background-image: url('/img/sprite_icons.svg'); }
   .no-svg a.link-download {
-    background-image: url('/images/sprite_icons.png'); }
+    background-image: url('/img/sprite_icons.png'); }
 
 .btn {
   background-color: transparent;
@@ -1033,27 +1033,27 @@ ul {
     background-repeat: no-repeat;
     list-style: none; }
     .svg ul li {
-      background-image: url('/images/sprite_icons.svg'); }
+      background-image: url('/img/sprite_icons.svg'); }
     .no-svg ul li {
-      background-image: url('/images/sprite_icons.png'); }
+      background-image: url('/img/sprite_icons.png'); }
     ul li ul {
       margin: 4.8px 0; }
       ul li ul li {
         background-position: -250px -821px;
         background-repeat: no-repeat; }
         .svg ul li ul li {
-          background-image: url('/images/sprite_icons.svg'); }
+          background-image: url('/img/sprite_icons.svg'); }
         .no-svg ul li ul li {
-          background-image: url('/images/sprite_icons.png'); }
+          background-image: url('/img/sprite_icons.png'); }
         ul li ul li ul {
           margin: 8px 0; }
           ul li ul li ul li {
             background-position: -225px -846px;
             background-repeat: no-repeat; }
             .svg ul li ul li ul li {
-              background-image: url('/images/sprite_icons.svg'); }
+              background-image: url('/img/sprite_icons.svg'); }
             .no-svg ul li ul li ul li {
-              background-image: url('/images/sprite_icons.png'); }
+              background-image: url('/img/sprite_icons.png'); }
             ul li ul li ul li ul {
               margin: 11.2px 0; }
               ul li ul li ul li ul li {
@@ -1078,9 +1078,9 @@ ol {
       background-repeat: no-repeat;
       list-style: none; }
       .svg ol ul li {
-        background-image: url('/images/sprite_icons.svg'); }
+        background-image: url('/img/sprite_icons.svg'); }
       .no-svg ol ul li {
-        background-image: url('/images/sprite_icons.png'); }
+        background-image: url('/img/sprite_icons.png'); }
 
 dl {
   margin: 0 0 32px 0; }
@@ -1686,9 +1686,9 @@ footer {
   background-position: -200px -51px;
   background-repeat: no-repeat; }
   .svg .social-icon {
-    background-image: url('/images/sprite_icons.svg'); }
+    background-image: url('/img/sprite_icons.svg'); }
   .no-svg .social-icon {
-    background-image: url('/images/sprite_icons.png'); }
+    background-image: url('/img/sprite_icons.png'); }
   .social-icon span {
     display: none; }
 
@@ -1846,9 +1846,9 @@ footer {
       background-position: -275px -151px;
       background-repeat: no-repeat; }
       .svg .nav-inpage ul li a {
-        background-image: url('/images/sprite_icons.svg'); }
+        background-image: url('/img/sprite_icons.svg'); }
       .no-svg .nav-inpage ul li a {
-        background-image: url('/images/sprite_icons.png'); }
+        background-image: url('/img/sprite_icons.png'); }
       .nav-inpage ul li a span {
         padding-left: 28px; }
     .nav-inpage ul li.active {
@@ -1903,9 +1903,9 @@ footer {
     background-position: -244px -19px;
     background-repeat: no-repeat; }
     .svg .nav-toggle-btn a {
-      background-image: url('/images/sprite_icons.svg'); }
+      background-image: url('/img/sprite_icons.svg'); }
     .no-svg .nav-toggle-btn a {
-      background-image: url('/images/sprite_icons.png'); }
+      background-image: url('/img/sprite_icons.png'); }
     .nav-toggle-btn a:hover {
       background-color: #c0c0c0; }
     .nav-toggle-btn a span {
@@ -2401,20 +2401,18 @@ footer {
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   border-radius: 6px; }
-  .filter-category:hover {
-    border-color: #c0c0c0; }
-    .filter-category:hover .filter-category-header {
-      background-color: #c0c0c0; }
-      .active .filter-category:hover .filter-category-header {
-        background-color: #737373; }
-    .filter-category:hover.active .filter-category-header {
-      background-color: #737373; }
   .filter-category.active .filter-category-header {
     background-color: #666; }
+    .filter-category.active .filter-category-header:hover {
+      background-color: #737373; }
+      .filter-category.active .filter-category-header:hover .filter-category-arrow {
+        background-color: #df401c; }
     .filter-category.active .filter-category-header p {
       color: #e8e8e8; }
-  .filter-category.active .filter-category-arrow {
-    background-color: #C83C19; }
+    .filter-category.active .filter-category-header .filter-category-arrow {
+      background-color: #C83C19; }
+  .filter-category.active .filter-category-body {
+    border-color: #666; }
   .filter-category.open .filter-category-header {
     -webkit-border-radius-bottomleft: 0;
     -khtml-border-radius-bottomleft: 0;
@@ -2453,6 +2451,12 @@ footer {
     -ms-border-bottom-right-radius: 0;
     -o-border-bottom-right-radius: 0;
     border-bottom-right-radius: 0; }
+    .filter-category.open .filter-category-arrow span {
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      transform: rotate(90deg); }
   .filter-category.open.active .filter-category-arrow {
     -webkit-border-radius-bottomright: 0;
     -khtml-border-radius-bottomright: 0;
@@ -2518,6 +2522,22 @@ footer {
       -ms-border-bottom-right-radius: 6px;
       -o-border-bottom-right-radius: 6px;
       border-bottom-right-radius: 6px; }
+      .filter-category .filter-category-header .filter-category-arrow span {
+        display: block;
+        margin-top: 20px;
+        margin-left: 19px;
+        width: 25px;
+        height: 25px;
+        background-position: 7px -50px;
+        background-repeat: no-repeat; }
+        .svg .filter-category .filter-category-header .filter-category-arrow span {
+          background-image: url('/img/sprite_icons.svg'); }
+        .no-svg .filter-category .filter-category-header .filter-category-arrow span {
+          background-image: url('/img/sprite_icons.png'); }
+    .filter-category .filter-category-header:hover {
+      background-color: #c0c0c0; }
+      .filter-category .filter-category-header:hover:hover {
+        cursor: pointer; }
   .filter-category .filter-category-body {
     padding: 10px 15px;
     border: solid 1px #b3b3b3;
@@ -2547,10 +2567,10 @@ footer {
     -ms-border-bottom-right-radius: 6px;
     -o-border-bottom-right-radius: 6px;
     border-bottom-right-radius: 6px; }
-  .filter-category .filter-category-sub:hover {
+  .filter-category .filter-category-sub:hover:hover {
     cursor: pointer; }
   .filter-category .filter-category-sub.selected {
-    background-color: #aaaaaa; }
+    color: #C83C19; }
 
 html {
   overflow-y: scroll; }
@@ -2628,9 +2648,9 @@ body {
     font-weight: 600;
     text-shadow: rgba(0, 0, 0, 0.5) 0 -1px 0; }
     .svg .mobilesidebarnav_togglebutton span {
-      background-image: url('/images/sprite_mobile-icons.svg'); }
+      background-image: url('/img/sprite_mobile-icons.svg'); }
     .no-svg .mobilesidebarnav_togglebutton span {
-      background-image: url('/images/sprite_mobile-icons.png'); }
+      background-image: url('/img/sprite_mobile-icons.png'); }
   .mobilesidebarnav_togglebutton span {
     padding: 10px 0 10px 25px; }
   .mobilesidebarnav_togglebutton span {
@@ -2652,9 +2672,9 @@ body {
     font-weight: 600;
     text-shadow: rgba(0, 0, 0, 0.5) 0 -1px 0; }
     .svg .mobilecontact_togglebutton span {
-      background-image: url('/images/sprite_mobile-icons.svg'); }
+      background-image: url('/img/sprite_mobile-icons.svg'); }
     .no-svg .mobilecontact_togglebutton span {
-      background-image: url('/images/sprite_mobile-icons.png'); }
+      background-image: url('/img/sprite_mobile-icons.png'); }
   .mobilecontact_togglebutton span {
     padding: 10px 0 10px 25px; }
   .mobilecontact_togglebutton span {
@@ -2676,9 +2696,9 @@ body {
     font-weight: 600;
     text-shadow: rgba(0, 0, 0, 0.5) 0 -1px 0; }
     .svg .mobilelanguagemenu_togglebutton span {
-      background-image: url('/images/sprite_mobile-icons.svg'); }
+      background-image: url('/img/sprite_mobile-icons.svg'); }
     .no-svg .mobilelanguagemenu_togglebutton span {
-      background-image: url('/images/sprite_mobile-icons.png'); }
+      background-image: url('/img/sprite_mobile-icons.png'); }
   .mobilelanguagemenu_togglebutton span {
     padding: 10px 25px 10px 0; }
   .mobilelanguagemenu_togglebutton span {
@@ -2734,23 +2754,23 @@ body {
       background-position: right top;
       background-repeat: no-repeat; }
       .svg .mobileheader_content_contact .buttons .map a {
-        background-image: url('/images/sprite_mobile-icons.svg'); }
+        background-image: url('/img/sprite_mobile-icons.svg'); }
       .no-svg .mobileheader_content_contact .buttons .map a {
-        background-image: url('/images/sprite_mobile-icons.png'); }
+        background-image: url('/img/sprite_mobile-icons.png'); }
     .mobileheader_content_contact .buttons .email a {
       background-position: center -50px;
       background-repeat: no-repeat; }
       .svg .mobileheader_content_contact .buttons .email a {
-        background-image: url('/images/sprite_mobile-icons.svg'); }
+        background-image: url('/img/sprite_mobile-icons.svg'); }
       .no-svg .mobileheader_content_contact .buttons .email a {
-        background-image: url('/images/sprite_mobile-icons.png'); }
+        background-image: url('/img/sprite_mobile-icons.png'); }
     .mobileheader_content_contact .buttons .phone a {
       background-position: left -100px;
       background-repeat: no-repeat; }
       .svg .mobileheader_content_contact .buttons .phone a {
-        background-image: url('/images/sprite_mobile-icons.svg'); }
+        background-image: url('/img/sprite_mobile-icons.svg'); }
       .no-svg .mobileheader_content_contact .buttons .phone a {
-        background-image: url('/images/sprite_mobile-icons.png'); }
+        background-image: url('/img/sprite_mobile-icons.png'); }
 
 .mobileheader_content_language {
   display: none;
@@ -2781,9 +2801,9 @@ body {
     padding: 15px;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 0; }
   .svg .mobileheader_content_language {
-    background-image: url('/images/sprite_mobile-icons.svg'); }
+    background-image: url('/img/sprite_mobile-icons.svg'); }
   .no-svg .mobileheader_content_language {
-    background-image: url('/images/sprite_mobile-icons.png'); }
+    background-image: url('/img/sprite_mobile-icons.png'); }
 
 .mobilesidebarnav .mobilesidebarnav_innerwrap {
   box-shadow: rgba(0, 0, 0, 0.5) -10px 0px 15px -10px inset; }
