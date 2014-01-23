@@ -820,13 +820,12 @@ $filter-category-arrow-width: 65px;
     @include border-bottom-radius($border-radius);
   }
 
-
   .filter-category-sub{
     &:hover{
-      cursor: pointer;
+      @include cursor;
     }
     &.selected{
-      background-color:#aaaaaa;
+      color: $color_red;
     }
   }
 

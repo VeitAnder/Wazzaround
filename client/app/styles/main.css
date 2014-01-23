@@ -2567,10 +2567,10 @@ footer {
     -ms-border-bottom-right-radius: 6px;
     -o-border-bottom-right-radius: 6px;
     border-bottom-right-radius: 6px; }
-  .filter-category .filter-category-sub:hover {
+  .filter-category .filter-category-sub:hover:hover {
     cursor: pointer; }
   .filter-category .filter-category-sub.selected {
-    background-color: #aaaaaa; }
+    color: #C83C19; }
 
 html {
   overflow-y: scroll; }
