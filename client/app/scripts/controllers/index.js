@@ -4,6 +4,7 @@ angular.module('anorakApp')
   .controller('indexCtrl', function ($scope, resolvedactivities) {
     $scope.activities = resolvedactivities;
 
+    debug("resolvedactivities", resolvedactivities);
     $scope.map = {
       center: {
         latitude: 33,
@@ -44,5 +45,31 @@ angular.module('anorakApp')
     $scope.changelist = function () {
       $scope.activities.pop();
     };
+
+
+
+
+
+    // filter plans by phasetag
+    $scope.onlySports = function (activity) {
+      debug("activity", activity);
+      if (activity.category === "sports") {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    // filter plans by phasetag
+    $scope.onlyCulture = function (activity) {
+      debug("activity", activity);
+      if (activity.category === "culture") {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+
 
   });

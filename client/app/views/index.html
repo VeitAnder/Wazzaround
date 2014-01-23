@@ -21,30 +21,22 @@
           </div>
         </div>
         <div class="filter-category-body">
-          <div class="filter-category-sub">
-            <span class="checkbox inline"></span> Sports 001
+
+          <div
+              ng-repeat="activity in filteredactivities = (activities | filter: onlySports)"
+              >
+            <div class="filter-category-sub">
+              <span class="checkbox inline"></span> Sports 001
+            </div>
           </div>
-          <div class="filter-category-sub">
-            <span class="checkbox inline"></span> Sports 002
-          </div>
-          <div class="filter-category-sub">
-            <span class="checkbox inline"></span> Sports 003
-          </div>
-          <div class="filter-category-sub">
-            <span class="checkbox inline"></span> Sports 004
-          </div>
-          <div class="filter-category-sub">
-            <span class="checkbox inline"></span> Sports 005
-          </div>
-          <div class="filter-category-sub">
-            <span class="checkbox inline"></span> Sports 006
-          </div>
+
         </div>
       </div>
 
       <div class="filter-category active">
         <div class="filter-category-header">
           <h4>Culture</h4>
+
           <p>Our Guides and Tours</p>
           <div class="filter-category-arrow">
             <span>arrow</span>
@@ -62,8 +54,21 @@
         </div>
       </div>
 
+        <div class="filter-category-body">
+
+          <div
+              ng-repeat="activity in filteredactivities = (activities | filter: onlyCulture)"
+              >
+            <div class="filter-category-sub">
+              <span class="checkbox inline"></span> Sports 001
+            </div>
+          </div>
+
+        </div>
 
       </div>
+
+    </div>
 
   </div>
   <div class="map-wrap" windowheight>
