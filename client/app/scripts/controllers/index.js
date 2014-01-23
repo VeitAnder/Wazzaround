@@ -10,7 +10,7 @@ angular.module('anorakApp')
         latitude: 33,
         longitude: 33
       },
-      zoom: 8,
+      zoom: 5,
       markers: $scope.activities,
       markericon: "img/mapicons/plane.png",
       templatedInfoWindow: {
@@ -18,13 +18,40 @@ angular.module('anorakApp')
           latitude: 33,
           longitude: 33
         },
-        options:{
-          disableAutoPan:true
+        options: {
+          disableAutoPan: true
         },
         show: true,
         templateUrl: 'views/map/templatedinfowindow.html',
         templateParameter: {
           message: 'passed in from the opener'
+        }
+      },
+      clickedMarker: {
+        title: 'You clicked here',
+        latitude: null,
+        longitude: null
+      },
+      events: {
+        click: function (mapModel, eventName, originalEventArgs) {
+          // 'this' is the directive's scope
+          debug("user defined event: " + eventName, mapModel, originalEventArgs);
+
+          var e = originalEventArgs[0];
+
+          if (!$scope.map.clickedMarker) {
+            $scope.map.clickedMarker = {
+              title: 'You clicked here',
+              latitude: e.latLng.lat(),
+              longitude: e.latLng.lng()
+            };
+          }
+          else {
+            $scope.map.clickedMarker.latitude = e.latLng.lat();
+            $scope.map.clickedMarker.longitude = e.latLng.lng();
+          }
+
+          $scope.$apply();
         }
       }
     };
@@ -41,14 +68,6 @@ angular.module('anorakApp')
     $scope.windowOptions = {
       "content": '<div>hello you!</div>'
     };
-
-    $scope.changelist = function () {
-      $scope.activities.pop();
-    };
-
-
-
-
 
     // filter activities
     $scope.onlySports = function (activity) {
@@ -75,6 +94,17 @@ angular.module('anorakApp')
       }
     };
 
+    $scope.onlySelected = function (activity) {
+      if (activity.hidden) {
+        return false;
+      } else {
+        return true;
+      }
+    };
 
+    $scope.toggleItemSelection = function (item) {
+      debug("item select toggle on: ", item);
+      item.hidden = !item.hidden;
+    };
 
   });

@@ -1,9 +1,3 @@
-<a data-ng-click="changelist()">changelist</a>
-
-<div ng-repeat="activity in activities">
-  <li>{{activity.name}}</li>
-</div>
-
 <div class="section section-map">
   <div class="controlpanel">
     <h1 id="logo">
@@ -30,7 +24,10 @@
           <div
               ng-repeat="activity in filteredactivities = (activities | filter: onlySports)"
               >
-            <div class="filter-category-sub">
+            <div class="filter-category-sub"
+                ng-class="{selected: !activity.hidden}"
+                ng-click="toggleItemSelection(activity)"
+                >
               <span class="checkbox inline"></span>
               {{activity.name}}
             </div>
@@ -45,7 +42,8 @@
 
           <p>Our Guides and Tours</p>
 
-          <div class="filter-category-arrow">
+          <div class="filter-category-arrow"
+               ng-click="toggleItemSelection(activity)">
             <span></span>
           </div>
         </div>
@@ -54,7 +52,10 @@
           <div
               ng-repeat="activity in filteredactivities = (activities | filter: onlyCulture)"
               >
-            <div class="filter-category-sub">
+            <div class="filter-category-sub"
+                 ng-class="{selected: !activity.hidden}"
+                 ng-click="toggleItemSelection(activity)"
+                >
               <span class="checkbox inline"></span>
               {{activity.name}}
             </div>
@@ -78,7 +79,10 @@
           <div
               ng-repeat="activity in filteredactivities = (activities | filter: onlyWellness)"
               >
-            <div class="filter-category-sub">
+            <div class="filter-category-sub"
+                 ng-class="{selected: !activity.hidden}"
+                 ng-click="toggleItemSelection(activity)"
+                >
               <span class="checkbox inline"></span>
               {{activity.name}}
             </div>
@@ -91,10 +95,28 @@
 
   </div>
 
-  <div class="map-wrap" windowheight>
-    <google-map center='map.center' zoom='map.zoom' draggable='true'>
 
-      <div ng-repeat="activity in activities">
+  <div>
+    Map-Debug: <br/>
+    {{ map.zoom }}
+    You clicked here: <br/>
+    {{ map.clickedMarker.longitude }}
+    {{ map.clickedMarker.latitude }}
+  </div>
+
+
+  <div class="map-wrap"
+       windowheight
+      >
+    <google-map
+        center='map.center'
+        zoom='map.zoom'
+        draggable='true'
+        >
+
+      <div
+          ng-repeat="activity in activities | filter:onlySelected"
+          >
         <marker
             coords='activity'
             click='markerClickHandler(activity)'
@@ -102,22 +124,13 @@
             icon='map.markericon'
             >
         </marker>
-
-        <!--<window-->
-        <!--show='true'-->
-        <!--coords='activity'-->
-        <!--click='windowClickHandler(activity)'-->
-        <!--options='windowOptions'-->
-        <!-->-->
-        <!--</window>-->
-
       </div>
 
-      <window show="map.templatedInfoWindow.show" coords="map.templatedInfoWindow.coords"
-              options="map.templatedInfoWindow.options"
-              templateUrl="map.templatedInfoWindow.templateUrl"
-              templateParameter="map.templatedInfoWindow.templateParameter">
-      </window>
+      <!--<window show="map.templatedInfoWindow.show" coords="map.templatedInfoWindow.coords"-->
+              <!--options="map.templatedInfoWindow.options"-->
+              <!--templateUrl="map.templatedInfoWindow.templateUrl"-->
+              <!--templateParameter="map.templatedInfoWindow.templateParameter">-->
+      <!--</window>-->
 
     </google-map>
   </div>
