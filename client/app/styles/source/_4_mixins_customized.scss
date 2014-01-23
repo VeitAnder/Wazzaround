@@ -46,11 +46,16 @@ footer{
   @include box-sizing(border-box);
 }
 
-.map-wrap{
+.controlpanel{
   @include box-sizing(border-box);
+  padding: $bu*2.0;
+  width: 350px;
+  float: left;
+}
+
+.map-wrap{
+  position: relative;
   overflow: hidden;
-  padding: 0;
-  margin: 0;
 }
 
 
@@ -62,12 +67,13 @@ footer{
 
 
 #logo{
+  margin: $fs*1.5 0;
   span{
     display: none;
   }
-  width: 178px;
-  height: 296px;
-  @include sprite_icons(0,0,no-repeat);
+  width: 243px;
+  height: 96px;
+  background: url(#{$img_path}reacture_logo.svg) no-repeat 0 0;
 }
 
 
@@ -81,6 +87,12 @@ footer{
 }
 .no-padding-bottom{
   padding-bottom: 0;
+}
+.no-margin-top{
+  margin-top: 0;
+}
+.no-padding-top{
+  padding-top: 0;
 }
 
 
@@ -716,14 +728,29 @@ footer{
 }//.sitemap
 
 
-
-// FULLSCREEN GRID
-// ###########################################################################################################################
-// ###########################################################################################################################
-
-.row{
-  &.fullscreen{
-    margin-left: 0;
-    margin-right: 0;
+.filter-category{
+  position: relative;
+  z-index: 100;
+  margin-right: -(75px + $bu*2.0);
+  @include border_all($color_grey);
+  border-width: 2px;
+  @include border-radius($border-radius);
+  background-color: $color_white;
+  margin-bottom: 10px;
+  .filter-category-header{
+    background-color: $color_grey;
+    padding: $bu;
+    h4{
+      margin: 0;
+      color: $color_white;
+    }
+    p{
+      margin: 0;
+      color: $color_grey_25;
+      padding: 0;
+    }
+  }
+  .filter-category-body{
+    padding: $bu;
   }
 }

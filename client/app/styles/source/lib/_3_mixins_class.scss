@@ -18,7 +18,7 @@ p{
   line-height:    $fs*$font-size_h1_factor*$line-height_headline-factor;
   margin:         $fs*$font-size_h1_factor 0;
   color:          $color_main_h1;
-  font-weight:    200;
+  font-weight:    $font-weight_light;
   @include sysfont_01;
 }
 
@@ -31,7 +31,7 @@ h1{
   line-height:    $fs*$font-size_h2_factor;
   margin:         $fs*$font-size_h2_factor 0;
   color:          $color_main_h2;
-  font-weight:    200;
+  font-weight:    $font-weight_thin;
   @include sysfont_01;
 }
 
@@ -779,6 +779,22 @@ p.inline-screen-sm{
 // PAGE LAYOUT
 // ###########################################################################################################################
 // ###########################################################################################################################
+
+.section{
+  padding-top: $bu*2.0;
+  padding-bottom: $bu*2.0;
+  @include seperator(top, $color_main_seperator);
+  @include seperator(bottom, $color_main_seperator);
+  &.section-grey{
+    border: none;
+    background-color: $color_grey;
+    color: $color_white;
+  }
+  &.section-map{
+    border: none;
+    padding: 0;
+  }
+}
 
 
 // HEADER / MAIN / FOOTER
