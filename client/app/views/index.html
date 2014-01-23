@@ -1,21 +1,50 @@
+<a data-ng-click="changelist()">changelist</a>
 
+<div ng-repeat="activity in activities">
+  <li>{{activity.name}}</li>
+</div>
 
 <div class="row nomargin nopadding">
   <div class="col-sm-3">
     <p>This is the / view.</p>
 
-
-      <div class="col-sm-3 outline" style="position:absolute; width:150%; z-index:1; height:500px; background-color:red;">
-        <p>This is the / view.</p>
-      </div>
-      <div class="col-sm-9 outline">
-        asdfsdf
-      </div>
-
-
+    <div class="col-sm-3 outline" style="position:absolute; width:150%; z-index:1; height:500px; background-color:red;">
+      <p>This is the / view.</p>
+    </div>
+    <div class="col-sm-9 outline">
+      asdfsdf
+    </div>
 
   </div>
   <div class="col-sm-9 outline nopadding map-wrap" windowheight>
-    <google-map center='map.center' zoom='map.zoom' draggable='true' ></google-map>
+    <google-map center='map.center' zoom='map.zoom' draggable='true'>
+
+      <div ng-repeat="activity in activities">
+        <marker
+            coords='activity'
+            click='markerClickHandler(activity)'
+            options='markerOptions'
+            icon='map.markericon'
+            >
+        </marker>
+
+        <!--<window-->
+            <!--show='true'-->
+            <!--coords='activity'-->
+            <!--click='windowClickHandler(activity)'-->
+            <!--options='windowOptions'-->
+            <!-->-->
+        <!--</window>-->
+
+      </div>
+
+
+      <window show="map.templatedInfoWindow.show" coords="map.templatedInfoWindow.coords"
+              options="map.templatedInfoWindow.options"
+              templateUrl="map.templatedInfoWindow.templateUrl"
+              templateParameter="map.templatedInfoWindow.templateParameter">
+      </window>
+
+    </google-map>
   </div>
 </div>

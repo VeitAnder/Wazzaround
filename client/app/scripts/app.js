@@ -55,7 +55,13 @@ angular.module('anorakApp')
     $routeProvider
       .when('/', {
         templateUrl: 'views/index.html',
-        controller: 'indexCtrl'
+        controller: 'indexCtrl',
+        resolve: {
+          resolvedactivities: ['Activities',
+            function (Activities) {
+              return Activities.all();
+            }]
+        }
       })
       .otherwise({
         redirectTo: '/'

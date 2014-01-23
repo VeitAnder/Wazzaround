@@ -41,20 +41,12 @@ var publicRestApi = function (app) {
   app.post('/' + config.api.apiversion + 'logout', security.logout);
 // Retrieve the current user
   app.get('/' + config.api.apiversion + 'current-user', security.sendCurrentUser);
+
+
+
+  app.get('/' + config.api.apiversion + 'activities', activities.findAll);
 };
-//
-//var manifest = function (app) {
-//
-//////////////////////////////////////////////////////////
-//// REST API - require authenticated user or accesstoken
-//// Filter every unauthorized access to /api/v1/*
-//  if (testHelper.mode === testHelper.loginMode) {
-//    // mock passport request user login
-//    app.all('/' + config.api.apiversion + '*', function (req, res, next) {
-//      req.user = testHelper.testUser;
-//      next();
-//    });
-//  }
+
 
 var RestApiAuthentication = function (app) {
   app.all('/' + config.api.apiversion + '*', function (req, res, next) {
@@ -84,7 +76,7 @@ var privateRestApi = function (app) {
   app.post('/' + config.api.apiversion + 'users/mail/support/', mail.sendSupportMail);
 
 // projects
-  app.get('/' + config.api.apiversion + 'projects/', projects.findAll);
+
   app.get('/' + config.api.apiversion + 'projects/new/', projects.newprojectmodel); // get new project model - not stored yet
   app.get('/' + config.api.apiversion + 'projects/:id', projects.findById);
   app.get('/' + config.api.apiversion + 'projects/:id/plans/', plans.findAll);
@@ -113,11 +105,6 @@ var privateRestApi = function (app) {
   app.get('/' + config.api.apiversion + 'plans/:id/revisions/:revisionid/dwg/', plans.getplanrevisiondwg);
   app.put('/' + config.api.apiversion + 'plans/:id/phase', plans.updatePhase);
   app.post('/' + config.api.apiversion + 'plans/mail/', mail.sendPlan);
-
-// activities
-  app.get('/' + config.api.apiversion + 'activities/', activities.findAll);  //projectid, action and participantid can be passed as query parameter
-  app.get('/' + config.api.apiversion + 'activities/revisiondownloads/', activities.getDownloadsOfPlanRevisions);  // query-params: planid=
-  app.get('/' + config.api.apiversion + 'activities/revisionsent/', activities.getSentOfPlanRevisions);  // query-params: planid=
 
 // Handle all S3 URL signing for fineuploader
   app.post('/' + config.api.apiversion + 's3/s3handler', s3fineuploader.s3handler);
