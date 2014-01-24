@@ -188,17 +188,17 @@ $color_main_image_background: $color_white;
 // FOOTER COLORS
 // ############################################################################################################################
 
-$color_footer_background: $color_grey_15;
+$color_footer_background: $color_grey;
 $color_footer_innerwrap_background: transparent;
 
-$color_footer_border: $color_grey_25;
+$color_footer_border: $color_grey_75;
 
-$color_footer_text: $color_grey_75;
+$color_footer_text: $color_grey_50;
 
-$color_footer_link: $color_grey_75;
-$color_footer_link_hover: $color_grey_75;
-$color_footer_link_active: $color_grey_75;
-$color_footer_link_active_hover: $color_grey_75;
+$color_footer_link: $color_grey_50;
+$color_footer_link_hover: $color_grey_25;
+$color_footer_link_active: $color_footer_link;
+$color_footer_link_active_hover: $color_footer_link_hover;
 
 
 
