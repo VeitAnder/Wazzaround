@@ -2556,7 +2556,7 @@ footer {
       background-color: #c0c0c0; }
       .filter-category .filter-category-header:hover:hover {
         cursor: pointer; }
-  .filter-category .filter-category-body {
+  .filter-category .filter-category-body .innerwrap {
     padding: 10px 15px;
     border: solid 1px #b3b3b3;
     border-width: 2px;
@@ -2650,6 +2650,21 @@ footer {
       color: #FFF;
       background-color: #85C900;
       cursor: default; }
+  .filter-category-body .filter-toggle {
+    border: none;
+    -webkit-border-radius: 0;
+    -khtml-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    border-left: solid 1px #b3b3b3;
+    border-right: solid 1px #b3b3b3;
+    border-width: 2px;
+    border-bottom: solid 1px #b3b3b3; }
+    .filter-category-body .filter-toggle .filter-toggle-show.active, .filter-category-body .filter-toggle .filter-toggle-hide.active {
+      background-color: #d9d9d9;
+      color: #666; }
 
 html {
   overflow-y: scroll; }

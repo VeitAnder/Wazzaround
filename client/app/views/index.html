@@ -11,46 +11,60 @@
 
       <div class="filter-category filter-category-sports"
            data-ng-class="{active: areItemsInThisCategorySelected('sports'), open: states.sports.open }"
-          >
+      >
         <div class="filter-category-header"
-            data-ng-click="toggleFilter('sports')"
-            >
+             data-ng-click="toggleFilter('sports')"
+        >
           <h4>Sports & Activities</h4>
 
-          <p>Main Features</p>
+          <p>0 of 2</p>
 
           <div class="filter-category-arrow">
             <span></span>
           </div>
         </div>
         <div class="filter-category-body"
-            data-ng-show="states.sports.open"
-            >
+             data-ng-show="states.sports.open"
+        >
 
-          <div
-              ng-repeat="activity in filteredactivities = (activities | filter: onlySports)"
-              >
-            <div class="filter-category-sub"
-                ng-class="{selected: !activity.hidden}"
-                ng-click="toggleItemSelection(activity)"
-                >
-              <span class="checkbox inline"></span>
-              {{activity.name}}
+          <div class="filter-toggle">
+            <div class="filter-toggle-show"
+                 data-ng-class="{active: allSelected()}"
+                 data-ng-click="selectAllCategories()"
+            >Show all
+            </div>
+            <div class="filter-toggle-hide"
+                 data-ng-class="{active: noneSelected()}"
+                 data-ng-click="deSelectAllCategories()"
+            >Hide all
             </div>
           </div>
 
+          <div class="innerwrap">
+            <div
+            ng-repeat="activity in filteredactivities = (activities | filter: onlySports)"
+            >
+              <div class="filter-category-sub"
+                   ng-class="{selected: !activity.hidden}"
+                   ng-click="toggleItemSelection(activity)"
+              >
+                <span class="checkbox inline"></span>
+                {{activity.name}}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="filter-category filter-category-culture"
            data-ng-class="{active: areItemsInThisCategorySelected('culture'), open: states.culture.open}"
-          >
+      >
         <div class="filter-category-header"
              data-ng-click="toggleFilter('culture')"
-            >
+        >
           <h4>Culture</h4>
 
-          <p>Our Guides and Tours</p>
+          <p>1 of 1</p>
 
           <div class="filter-category-arrow"
                ng-click="toggleItemSelection(activity)">
@@ -59,32 +73,46 @@
         </div>
         <div class="filter-category-body"
              data-ng-show="states.culture.open"
-            >
+        >
 
-          <div
-              ng-repeat="activity in filteredactivities = (activities | filter: onlyCulture)"
-              >
-            <div class="filter-category-sub"
-                 ng-class="{selected: !activity.hidden}"
-                 ng-click="toggleItemSelection(activity)"
-                >
-              <span class="checkbox inline"></span>
-              {{activity.name}}
+          <div class="filter-toggle">
+            <div class="filter-toggle-show"
+                 data-ng-class="{active: allSelected()}"
+                 data-ng-click="selectAllCategories()"
+            >Show all
+            </div>
+            <div class="filter-toggle-hide"
+                 data-ng-class="{active: noneSelected()}"
+                 data-ng-click="deSelectAllCategories()"
+            >Hide all
             </div>
           </div>
 
+          <div class="innerwrap">
+            <div
+            ng-repeat="activity in filteredactivities = (activities | filter: onlyCulture)"
+            >
+              <div class="filter-category-sub"
+                   ng-class="{selected: !activity.hidden}"
+                   ng-click="toggleItemSelection(activity)"
+              >
+                <span class="checkbox inline"></span>
+                {{activity.name}}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="filter-category filter-category-wellness"
-          data-ng-class="{active: areItemsInThisCategorySelected('wellness'), open: states.wellness.open}"
-          >
+           data-ng-class="{active: areItemsInThisCategorySelected('wellness'), open: states.wellness.open}"
+      >
         <div class="filter-category-header"
              data-ng-click="toggleFilter('wellness')"
-            >
+        >
           <h4>Wellness & Relax</h4>
 
-          <p>Massages, relaxtion</p>
+          <p>2 of 2</p>
 
           <div class="filter-category-arrow">
             <span></span>
@@ -92,20 +120,34 @@
         </div>
         <div class="filter-category-body"
              data-ng-show="states.wellness.open"
-            >
+        >
 
-          <div
-              ng-repeat="activity in filteredactivities = (activities | filter: onlyWellness)"
-              >
-            <div class="filter-category-sub"
-                 ng-class="{selected: !activity.hidden}"
-                 ng-click="toggleItemSelection(activity)"
-                >
-              <span class="checkbox inline"></span>
-              {{activity.name}}
+          <div class="filter-toggle">
+            <div class="filter-toggle-show"
+                 data-ng-class="{active: allSelected()}"
+                 data-ng-click="selectAllCategories()"
+            >Show all
+            </div>
+            <div class="filter-toggle-hide"
+                 data-ng-class="{active: noneSelected()}"
+                 data-ng-click="deSelectAllCategories()"
+            >Hide all
             </div>
           </div>
 
+          <div class="innerwrap">
+            <div
+            ng-repeat="activity in filteredactivities = (activities | filter: onlyWellness)"
+            >
+              <div class="filter-category-sub"
+                   ng-class="{selected: !activity.hidden}"
+                   ng-click="toggleItemSelection(activity)"
+              >
+                <span class="checkbox inline"></span>
+                {{activity.name}}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -113,53 +155,53 @@
         <div class="filter-toggle-show"
              data-ng-class="{active: allSelected()}"
              data-ng-click="selectAllCategories()"
-            >Show all</div>
+        >Show all activities
+        </div>
         <div class="filter-toggle-hide"
              data-ng-class="{active: noneSelected()}"
              data-ng-click="deSelectAllCategories()"
-            >Hide all</div>
+        >Hide all activities
+        </div>
       </div>
 
     </div>
 
+    <div style="margin-top: 50px; color:#CCC;">
+      <strong>Map-Debug:</strong> <br/>
+      <u>Map ZOOM:</u> {{ map.zoom }}<br/>
+      <u>You clicked here:</u><br/>
+      "longitude": {{ map.clickedMarker.longitude }}<br/>
+      "latitude": {{ map.clickedMarker.latitude }}
+    </div>
+
   </div>
-
-
-  <div>
-    Map-Debug: <br/>
-    {{ map.zoom }}
-    You clicked here: <br/>
-    "longitude": {{ map.clickedMarker.longitude }},
-    "latitude": {{ map.clickedMarker.latitude }}
-  </div>
-
 
   <div class="map-wrap"
        windowheight
-      >
+  >
     <google-map
-        center='map.center'
-        zoom='map.zoom'
-        draggable='true'
-        events='map.events'
-        >
+    center='map.center'
+    zoom='map.zoom'
+    draggable='true'
+    events='map.events'
+    >
 
       <div
-          ng-repeat="activity in activities | filter:onlySelected"
-          >
+      ng-repeat="activity in activities | filter:onlySelected"
+      >
         <marker
-            coords='activity'
-            click='markerClickHandler(activity)'
-            options='markerOptions'
-            icon='getMarkerIcon(activity)'
-            >
+        coords='activity'
+        click='markerClickHandler(activity)'
+        options='markerOptions'
+        icon='getMarkerIcon(activity)'
+        >
         </marker>
       </div>
 
       <!--<window show="map.templatedInfoWindow.show" coords="map.templatedInfoWindow.coords"-->
-              <!--options="map.templatedInfoWindow.options"-->
-              <!--templateUrl="map.templatedInfoWindow.templateUrl"-->
-              <!--templateParameter="map.templatedInfoWindow.templateParameter">-->
+      <!--options="map.templatedInfoWindow.options"-->
+      <!--templateUrl="map.templatedInfoWindow.templateUrl"-->
+      <!--templateParameter="map.templatedInfoWindow.templateParameter">-->
       <!--</window>-->
 
     </google-map>

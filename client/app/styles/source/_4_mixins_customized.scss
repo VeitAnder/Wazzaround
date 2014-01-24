@@ -870,11 +870,13 @@ $filter-category-arrow-width: 65px;
     }
   }
   .filter-category-body{
-    padding: $bu/1.5 $bu;
-    @include border_all($color_grey_50);
-    border-width: 2px;
-    border-top: none;
-    @include border-bottom-radius($border-radius);
+    .innerwrap{
+      padding: $bu/1.5 $bu;
+      @include border_all($color_grey_50);
+      border-width: 2px;
+      border-top: none;
+      @include border-bottom-radius($border-radius);
+    }
   }
 
   .filter-category-sub{
@@ -929,6 +931,21 @@ $filter-category-arrow-width: 65px;
       color: $color_white;
       background-color: $color_green;
       cursor: default;
+    }
+  }
+
+  .filter-category-body &{
+    border: none;
+    @include border-radius(0);
+    @include border(left, $color_grey_50);
+    @include border(right, $color_grey_50);
+    border-width: 2px;
+    @include border(bottom, $color_grey_50);
+    .filter-toggle-show, .filter-toggle-hide{
+      &.active{
+        background-color: $color_grey_25;
+        color: $color_grey;
+      }
     }
   }
 }
