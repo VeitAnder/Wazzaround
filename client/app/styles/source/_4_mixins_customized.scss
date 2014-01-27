@@ -1107,7 +1107,9 @@ $filter-category-arrow-width: 65px;
 
 
 .nav-footer{
+  background-color: $color_white;
   @include box-sizing(border-box);
+  @include seperator(top, $color_footer_border);
   width: 350px;
   float: left;
   clear: both;
@@ -1122,10 +1124,18 @@ $filter-category-arrow-width: 65px;
   @include box-sizing(border-box);
   display: inline-block;
   float: left;
-  @include border(left, $color_footer_border);
+  @include seperator(left, $color_grey_50);
+  background-color: $color_grey_75;
   padding: $bu;
   h4{
     margin: 0;
+  }
+  a, a:link{
+    color: $color_grey_25;
+    text-decoration: none;
+    &:hover{
+      color: $color_white;
+    }
   }
 
   .footer-startpage &{

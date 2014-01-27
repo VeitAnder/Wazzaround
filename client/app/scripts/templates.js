@@ -3067,7 +3067,7 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "          <p>The season lasts from march to september. <br/> You can book this venue right here!</p>\n" +
     "\n" +
     "          <p class=\"align-right\">\n" +
-    "            <a href=\"http://www.paypal.com\" target=\"_blank\" class=\"btn\">Book</a>\n" +
+    "            <a href=\"http://www.paypal.com\" target=\"_blank\" class=\"btn\">Book now</a>\n" +
     "          </p>\n" +
     "        </div>\n" +
     "      </window>\n" +
@@ -3083,8 +3083,8 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "<div class=\"footer footer-startpage\">\n" +
     "  <div class=\"nav-footer\"><a href=\"#/legalnotes/\">Contact & Impressum</a></div>\n" +
     "  <div class=\"teaser-section teaser-section-2\">\n" +
-    "    <div class=\"teaser-block\"><h4><a href=\"#/why/\">Why reActure?</a></h4></div>\n" +
-    "    <div class=\"teaser-block\"><h4><a href=\"#/workwithus/\">Work with us!</a></h4></div>\n" +
+    "    <div class=\"teaser-block align-right\"><h4><a href=\"#/why/\">Why reActure?</a></h4></div>\n" +
+    "    <div class=\"teaser-block align-right\"><h4><a href=\"#/workwithus/\">Work with us!</a></h4></div>\n" +
     "  </div>\n" +
     "</div>");
 }]);

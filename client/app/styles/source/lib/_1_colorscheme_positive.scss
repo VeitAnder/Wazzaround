@@ -154,7 +154,7 @@ $color_header_link_active: $color_green;
 // MAIN COLORS
 // ############################################################################################################################
 
-$color_main_background: $color_white;
+$color_main_background: $color_background;
 
 $color_main_innerwrap_background: $color_main_background;
 $color_main_innerwrap_background_hover: $color_02;
@@ -188,15 +188,15 @@ $color_main_image_background: $color_white;
 // FOOTER COLORS
 // ############################################################################################################################
 
-$color_footer_background: $color_grey;
+$color_footer_background: $color_white;
 $color_footer_innerwrap_background: transparent;
 
-$color_footer_border: $color_grey_75;
+$color_footer_border: $color_grey_25;
 
 $color_footer_text: $color_grey_50;
 
 $color_footer_link: $color_grey_50;
-$color_footer_link_hover: $color_grey_25;
+$color_footer_link_hover: $color_grey_75;
 $color_footer_link_active: $color_footer_link;
 $color_footer_link_active_hover: $color_footer_link_hover;
 
@@ -263,9 +263,9 @@ $color_input_border_active: $color_green;
 $color_input_text: $color_text;
 $color_input_text_inactive: $color_grey_50;
 
-$color_button_text: $color_grey_75;
+$color_button_text: $color_green;
 $color_button_background: $color_white;
-$color_button_border: $color_grey_75;
+$color_button_border: $color_green;
 $color_button_text_hover: $color_white;
 $color_button_background_hover: $color_green;
 $color_button_border_hover: $color_green;
