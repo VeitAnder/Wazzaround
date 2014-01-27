@@ -42,11 +42,12 @@
           </div>
         </div>
 
-        <div class="innerwrap">
+        <div
+            class="innerwrap div-table"
+            >
 
           <div
               ng-repeat="activity in filteredactivitiessports = (activities | filter: onlySports)"
-              class="div-table"
               >
 
             <div data-ng-if="$index % 2 === 0" class="div-tablerow">

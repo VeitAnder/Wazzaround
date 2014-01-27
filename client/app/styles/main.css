@@ -2566,7 +2566,8 @@ footer {
     -o-border-bottom-right-radius: 6px;
     border-bottom-right-radius: 6px; }
   .filter-category .filter-category-sub {
-    color: #b3b3b3; }
+    color: #b3b3b3;
+    padding-left: 23px; }
     .filter-category .filter-category-sub .checkbox {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -2584,7 +2585,9 @@ footer {
       -o-border-radius: 3px;
       border-radius: 3px;
       border-width: 2px;
-      vertical-align: -2px; }
+      vertical-align: -2px;
+      margin-left: -23px;
+      margin-right: 3px; }
     .filter-category .filter-category-sub:hover {
       color: #666; }
       .filter-category .filter-category-sub:hover:hover {
