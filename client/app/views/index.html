@@ -43,17 +43,18 @@
         </div>
 
         <div
-            class="innerwrap div-table"
+            class="innerwrap"
             >
 
           <div
+              class="div-row"
               ng-repeat="activity in filteredactivitiessports = (activities | filter: onlySports)"
               >
 
-            <div data-ng-if="$index % 2 === 0" class="div-tablerow">
+            <div data-ng-if="$index % 2 === 0">
               <div
                   data-ng-if="filteredactivitiessports[$index+0]"
-                  class="filter-category-sub div-tablecell"
+                  class="filter-category-sub div-cell"
                   ng-class="{selected: !filteredactivitiessports[$index+0].hidden}"
                   ng-click="toggleItemSelection(filteredactivitiessports[$index+0])"
                   >
@@ -62,7 +63,7 @@
               </div>
 
               <div
-                  class="filter-category-sub div-tablecell"
+                  class="filter-category-sub div-cell"
                   data-ng-if="filteredactivitiessports[$index+1]"
                   ng-class="{selected: !filteredactivitiessports[$index+1].hidden}"
                   ng-click="toggleItemSelection(filteredactivitiessports[$index+1])"

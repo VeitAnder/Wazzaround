@@ -905,7 +905,8 @@ $filter-category-arrow-width: 65px;
         color: $color_grey_75;
       }
     }
-  &.div-tablecell{
+  &.div-cell{
+    width: 50%;
     padding-right: 15px;
     &:last-child{
       padding-right: 0;
@@ -967,6 +968,14 @@ $filter-category-arrow-width: 65px;
 }
 
 
+.div-row{
+  overflow: hidden;
+}
+
+.div-cell{
+  display: inline;
+  float: left;
+}
 
 .div-table{
   display: table;

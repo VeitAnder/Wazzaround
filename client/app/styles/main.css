@@ -2604,11 +2604,12 @@ footer {
           background-image: url('/img/sprite_icons.png'); }
       .filter-category .filter-category-sub.selected:hover {
         color: #8c8c8c; }
-    .filter-category .filter-category-sub.div-tablecell {
+    .filter-category .filter-category-sub.div-cell {
+      width: 50%;
       padding-right: 15px;
       padding-top: 2px;
       padding-bottom: 3px; }
-      .filter-category .filter-category-sub.div-tablecell:last-child {
+      .filter-category .filter-category-sub.div-cell:last-child {
         padding-right: 0; }
 
 .filter-toggle {
@@ -2663,6 +2664,13 @@ footer {
       .filter-category-body .filter-toggle .filter-toggle-show.active, .filter-category-body .filter-toggle .filter-toggle-hide.active {
         background-color: #d9d9d9;
         color: #666; }
+
+.div-row {
+  overflow: hidden; }
+
+.div-cell {
+  display: inline;
+  float: left; }
 
 .div-table {
   display: table;
