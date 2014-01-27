@@ -65,17 +65,17 @@ footer{
 
   // setting the height is necessary to avoid a bug of angularmap on route change
   // when switching back from another route, height is initialized with 0
-//  height:1500px;
-//
-//  @include respond-to(high-screen){
-//    height:2000px;
-//  }
-//  @include respond-to(medium-height-screen){
-//    height:1250px;
-//  }
-//  @include respond-to(low-screen){
-//    height:600px;
-//  }
+  height:1500px;
+
+  @include respond-to(high-screen){
+    height:2000px;
+  }
+  @include respond-to(medium-height-screen){
+    height:1250px;
+  }
+  @include respond-to(low-screen){
+    height:600px;
+  }
 }
 
 .marker-labels {
