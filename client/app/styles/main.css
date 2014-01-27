@@ -1643,7 +1643,8 @@ footer {
     font-size: 16px;
     line-height: 22.4px;
     margin: 0;
-    font-weight: normal; }
+    font-weight: normal;
+    clear: left; }
   .window-category-sports h4 {
     color: #666;
     margin-top: 0;
@@ -1662,6 +1663,21 @@ footer {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
+  .window-category-sports img {
+    float: left;
+    margin: 0 15px 16px 0;
+    border: solid 1px #b3b3b3;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    border-width: 7px;
+    padding: 3px;
+    width: 150px;
+    height: auto;
+    background-color: #8c8c8c; }
   .window-category-sports h4 .icon {
     border-color: #C83C19; }
 
@@ -1674,7 +1690,8 @@ footer {
     font-size: 16px;
     line-height: 22.4px;
     margin: 0;
-    font-weight: normal; }
+    font-weight: normal;
+    clear: left; }
   .window-category-culture h4 {
     color: #666;
     margin-top: 0;
@@ -1693,6 +1710,21 @@ footer {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
+  .window-category-culture img {
+    float: left;
+    margin: 0 15px 16px 0;
+    border: solid 1px #b3b3b3;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    border-width: 7px;
+    padding: 3px;
+    width: 150px;
+    height: auto;
+    background-color: #8c8c8c; }
   .window-category-culture h4 .icon {
     border-color: #1970C8; }
 
@@ -1705,7 +1737,8 @@ footer {
     font-size: 16px;
     line-height: 22.4px;
     margin: 0;
-    font-weight: normal; }
+    font-weight: normal;
+    clear: left; }
   .window-category-wellness h4 {
     color: #666;
     margin-top: 0;
@@ -1724,6 +1757,21 @@ footer {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
+  .window-category-wellness img {
+    float: left;
+    margin: 0 15px 16px 0;
+    border: solid 1px #b3b3b3;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    border-width: 7px;
+    padding: 3px;
+    width: 150px;
+    height: auto;
+    background-color: #8c8c8c; }
   .window-category-wellness h4 .icon {
     border-color: #bc913d; }
 
