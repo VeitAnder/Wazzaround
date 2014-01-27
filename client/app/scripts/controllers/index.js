@@ -9,18 +9,25 @@ angular.module('anorakApp')
 
     $scope.states = {
       sports: {
-        open: true
+        open: false
       },
       culture: {
-        open: true
+        open: false
       },
       wellness: {
-        open: true
+        open: false
       }
     };
 
     $scope.toggleFilter = function (category) {
-      $scope.states[category].open = !$scope.states[category].open;
+      if ($scope.states[category].open) {
+        $scope.states[category].open = false;
+      } else {
+        angular.forEach($scope.states, function (item) {
+          item.open = false;
+        });
+        $scope.states[category].open = true;
+      }
     };
 
     $scope.map = {
