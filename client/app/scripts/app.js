@@ -63,6 +63,18 @@ angular.module('anorakApp')
             }]
         }
       })
+      .when('/legalnotes', {
+        templateUrl: 'views/legalnotes.html',
+        controller: 'LegalnotesCtrl'
+      })
+      .when('/why', {
+        templateUrl: 'views/why.html',
+        controller: 'WhyCtrl'
+      })
+      .when('/workwithus', {
+        templateUrl: 'views/workwithus.html',
+        controller: 'WorkwithusCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
