@@ -3060,9 +3060,11 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "            >\n" +
     "          <h4><span class=\"icon\"></span>{{m.name}}</h4>\n" +
     "\n" +
-    "          <h6>This is an info window at {{ m.latitude | number:4 }}, {{ m.longitude | number:4 }}!</h6>\n" +
+    "          <img src=\"/img/mapicons/piemont.jpg\" width=\"100\" alt=\"\"/>\n" +
+    "          \n" +
+    "          <h6>Offered by: Piemont Travel Office</h6>\n" +
     "\n" +
-    "          <p>My marker will stay open when the window is popped up!</p>\n" +
+    "          <p>The season lasts from march to september. You can book this venue right here!</p>\n" +
     "\n" +
     "          <p class=\"align-right\">\n" +
     "            <a href=\"http://www.paypal.com\" target=\"_blank\" class=\"btn\">Book</a>\n" +
