@@ -153,4 +153,26 @@ angular.module('anorakApp')
       }
     };
 
+    $scope.selectAllFromCategory = function (category) {
+      angular.forEach(_.where($scope.activities, { 'category': category }), function (activity) {
+        activity.hidden = false;
+      });
+    };
+
+    $scope.deSelectAllFromCategory = function (category) {
+      angular.forEach(_.where($scope.activities, { 'category': category }), function (activity) {
+        activity.hidden = true;
+      });
+    };
+
+
+    $scope.numberOfSelectedFromCategory = function (category) {
+      return _.where($scope.activities, { 'category': category , 'hidden' : false}).length;
+    };
+
+    $scope.totalNumberOfCategory = function (category) {
+      return _.where($scope.activities, { 'category': category}).length;
+    };
+
+
   });
