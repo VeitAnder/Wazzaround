@@ -1,4 +1,4 @@
-angular.module('templates.app', ['account/account.tpl.html', 'account/account_basepagetemplate.tpl.html', 'account/account_payment.tpl.html', 'account/account_tabnav.tpl.html', 'account/password/password_page.tpl.html', 'directives/downloadlink.tpl.html', 'directives/fileuploadcheck.tpl.html', 'directives/fullname.tpl.html', 'directives/roleselector.tpl.html', 'directives/s3uploadform.tpl.html', 'header.tpl.html', 'login/accessdenied.tpl.html', 'login/login_page.tpl.html', 'login/modalloginform.tpl.html', 'login/toolbar.tpl.html', 'navbar/navbar.tpl.html', 'projects/activities/_activities_list.tpl.html', 'projects/activities/activities.tpl.html', 'projects/participants/_participants_detail_detail_lock.tpl.html', 'projects/participants/participants_detail_detail.tpl.html', 'projects/participants/participants_detail_page.tpl.html', 'projects/participants/participants_list_page.tpl.html', 'projects/participants/participants_new_detail.tpl.html', 'projects/participants/participants_new_page.tpl.html', 'projects/planlist/planlist.tpl.html', 'projects/plans/_plans_detail_detail_revisioncontent.tpl.html', 'projects/plans/plan_uploadpartial.tpl.html', 'projects/plans/plans_detail_detail.tpl.html', 'projects/plans/plans_detail_page.tpl.html', 'projects/plans/plans_list_page.tpl.html', 'projects/plans/plans_new_detail.tpl.html', 'projects/plans/plans_new_page.tpl.html', 'projects/projects_basepagetemplate.tpl.html', 'projects/projects_list.tpl.html', 'projects/projects_new.tpl.html', 'projecttitle/projecttitle.tpl.html', 'registration/forgotpassword/forgotpassword_page.tpl.html', 'registration/registration_page.tpl.html']);
+angular.module('templates.app', ['account/account.tpl.html', 'account/account_basepagetemplate.tpl.html', 'account/account_payment.tpl.html', 'account/account_tabnav.tpl.html', 'account/password/password_page.tpl.html', 'directives/downloadlink.tpl.html', 'directives/fileuploadcheck.tpl.html', 'directives/fullname.tpl.html', 'directives/roleselector.tpl.html', 'directives/s3uploadform.tpl.html', 'header.tpl.html', 'login/accessdenied.tpl.html', 'login/login_page.tpl.html', 'login/modalloginform.tpl.html', 'login/toolbar.tpl.html', 'navbar/navbar.tpl.html', 'projects/activities/_activities_list.tpl.html', 'projects/activities/activities.tpl.html', 'projects/participants/_participants_detail_detail_lock.tpl.html', 'projects/participants/participants_detail_detail.tpl.html', 'projects/participants/participants_detail_page.tpl.html', 'projects/participants/participants_list_page.tpl.html', 'projects/participants/participants_new_detail.tpl.html', 'projects/participants/participants_new_page.tpl.html', 'projects/planlist/planlist.tpl.html', 'projects/plans/_plans_detail_detail_revisioncontent.tpl.html', 'projects/plans/plan_uploadpartial.tpl.html', 'projects/plans/plans_detail_detail.tpl.html', 'projects/plans/plans_detail_page.tpl.html', 'projects/plans/plans_list_page.tpl.html', 'projects/plans/plans_new_detail.tpl.html', 'projects/plans/plans_new_page.tpl.html', 'projects/projects_basepagetemplate.tpl.html', 'projects/projects_list.tpl.html', 'projects/projects_new.tpl.html', 'projecttitle/projecttitle.tpl.html', 'registration/forgotpassword/forgotpassword_page.tpl.html', 'registration/registration_page.tpl.html', 'index.html', 'legalnotes.html', 'logo.html', 'map/templatedinfowindow.html', 'why.html', 'workwithus.html']);
 
 angular.module("account/account.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.tpl.html",
@@ -2789,4 +2789,296 @@ angular.module("registration/registration_page.tpl.html", []).run(["$templateCac
     "  </div>\n" +
     "\n" +
     "</div>");
+}]);
+
+angular.module("index.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("index.html",
+    "<div class=\"section section-map\">\n" +
+    "<div class=\"controlpanel\">\n" +
+    "  <div data-ng-include=\"'views/logo.html'\"></div>\n" +
+    "  <h2>What's around me?</h2>\n" +
+    "\n" +
+    "  <div class=\"filter\">\n" +
+    "    <span class=\"input_label\">Please choose:</span>\n" +
+    "\n" +
+    "    <div class=\"filter-category filter-category-sports\"\n" +
+    "         data-ng-class=\"{active: areItemsInThisCategorySelected('sports'), open: states.sports.open }\"\n" +
+    "        >\n" +
+    "      <div class=\"filter-category-header\"\n" +
+    "           data-ng-click=\"toggleFilter('sports')\"\n" +
+    "          >\n" +
+    "        <h4>Sports & Activities</h4>\n" +
+    "\n" +
+    "        <p>0 of 2</p>\n" +
+    "\n" +
+    "        <div class=\"filter-category-arrow\">\n" +
+    "          <span></span>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <div class=\"filter-category-body\"\n" +
+    "           data-ng-show=\"states.sports.open\"\n" +
+    "          >\n" +
+    "\n" +
+    "        <div class=\"filter-toggle\">\n" +
+    "          <div class=\"filter-toggle-show\"\n" +
+    "               data-ng-class=\"{active: allSelected()}\"\n" +
+    "               data-ng-click=\"selectAllCategories()\"\n" +
+    "              >\n" +
+    "            Select all\n" +
+    "          </div>\n" +
+    "          <div class=\"filter-toggle-hide\"\n" +
+    "               data-ng-class=\"{active: noneSelected()}\"\n" +
+    "               data-ng-click=\"deSelectAllCategories()\"\n" +
+    "              >\n" +
+    "            Deselect all\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div\n" +
+    "            class=\"innerwrap\"\n" +
+    "            >\n" +
+    "\n" +
+    "          <div\n" +
+    "              class=\"div-row\"\n" +
+    "              ng-repeat=\"activity in filteredactivitiessports = (activities | filter: onlySports)\"\n" +
+    "              >\n" +
+    "\n" +
+    "            <div data-ng-if=\"$index % 2 === 0\">\n" +
+    "              <div\n" +
+    "                  data-ng-if=\"filteredactivitiessports[$index+0]\"\n" +
+    "                  class=\"filter-category-sub div-cell\"\n" +
+    "                  ng-class=\"{selected: !filteredactivitiessports[$index+0].hidden}\"\n" +
+    "                  ng-click=\"toggleItemSelection(filteredactivitiessports[$index+0])\"\n" +
+    "                  >\n" +
+    "                <span class=\"checkbox inline\"></span>\n" +
+    "                {{filteredactivitiessports[$index+0].name}}\n" +
+    "              </div>\n" +
+    "\n" +
+    "              <div\n" +
+    "                  class=\"filter-category-sub div-cell\"\n" +
+    "                  data-ng-if=\"filteredactivitiessports[$index+1]\"\n" +
+    "                  ng-class=\"{selected: !filteredactivitiessports[$index+1].hidden}\"\n" +
+    "                  ng-click=\"toggleItemSelection(filteredactivitiessports[$index+1])\"\n" +
+    "                  >\n" +
+    "                <span class=\"checkbox inline\"></span>\n" +
+    "                {{filteredactivitiessports[$index+1].name}}\n" +
+    "              </div>\n" +
+    "\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"filter-category filter-category-culture\"\n" +
+    "       data-ng-class=\"{active: areItemsInThisCategorySelected('culture'), open: states.culture.open}\"\n" +
+    "      >\n" +
+    "    <div class=\"filter-category-header\"\n" +
+    "         data-ng-click=\"toggleFilter('culture')\"\n" +
+    "        >\n" +
+    "      <h4>Culture</h4>\n" +
+    "\n" +
+    "      <p>1 of 1</p>\n" +
+    "\n" +
+    "      <div class=\"filter-category-arrow\"\n" +
+    "           ng-click=\"toggleItemSelection(activity)\">\n" +
+    "        <span></span>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"filter-category-body\"\n" +
+    "         data-ng-show=\"states.culture.open\"\n" +
+    "        >\n" +
+    "\n" +
+    "      <div class=\"filter-toggle\">\n" +
+    "        <div class=\"filter-toggle-show\"\n" +
+    "             data-ng-class=\"{active: allSelected()}\"\n" +
+    "             data-ng-click=\"selectAllCategories()\"\n" +
+    "            >\n" +
+    "          Select all\n" +
+    "        </div>\n" +
+    "        <div class=\"filter-toggle-hide\"\n" +
+    "             data-ng-class=\"{active: noneSelected()}\"\n" +
+    "             data-ng-click=\"deSelectAllCategories()\"\n" +
+    "            >\n" +
+    "          Deselect all\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <div class=\"innerwrap\">\n" +
+    "        <div\n" +
+    "            ng-repeat=\"activity in filteredactivitiesculture = (activities | filter: onlyCulture)\"\n" +
+    "            >\n" +
+    "          <div class=\"filter-category-sub\"\n" +
+    "               ng-class=\"{selected: !activity.hidden}\"\n" +
+    "               ng-click=\"toggleItemSelection(activity)\"\n" +
+    "              >\n" +
+    "            <span class=\"checkbox inline\"></span>\n" +
+    "            {{activity.name}}\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"filter-category filter-category-wellness\"\n" +
+    "       data-ng-class=\"{active: areItemsInThisCategorySelected('wellness'), open: states.wellness.open}\"\n" +
+    "      >\n" +
+    "    <div class=\"filter-category-header\"\n" +
+    "         data-ng-click=\"toggleFilter('wellness')\"\n" +
+    "        >\n" +
+    "      <h4>Wellness & Relax</h4>\n" +
+    "\n" +
+    "      <p>2 of 2</p>\n" +
+    "\n" +
+    "      <div class=\"filter-category-arrow\">\n" +
+    "        <span></span>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"filter-category-body\"\n" +
+    "         data-ng-show=\"states.wellness.open\"\n" +
+    "        >\n" +
+    "\n" +
+    "      <div class=\"filter-toggle\">\n" +
+    "        <div class=\"filter-toggle-show\"\n" +
+    "             data-ng-class=\"{active: allSelected()}\"\n" +
+    "             data-ng-click=\"selectAllCategories()\"\n" +
+    "            >\n" +
+    "          Select all\n" +
+    "        </div>\n" +
+    "        <div class=\"filter-toggle-hide\"\n" +
+    "             data-ng-class=\"{active: noneSelected()}\"\n" +
+    "             data-ng-click=\"deSelectAllCategories()\"\n" +
+    "            >\n" +
+    "          Deselect all\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <div class=\"innerwrap\">\n" +
+    "        <div\n" +
+    "            ng-repeat=\"activity in filteredactivitieswellness = (activities | filter: onlyWellness)\"\n" +
+    "            >\n" +
+    "          <div class=\"filter-category-sub\"\n" +
+    "               ng-class=\"{selected: !activity.hidden}\"\n" +
+    "               ng-click=\"toggleItemSelection(activity)\"\n" +
+    "              >\n" +
+    "            <span class=\"checkbox inline\"></span>\n" +
+    "            {{activity.name}}\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"filter-toggle\">\n" +
+    "    <div class=\"filter-toggle-show\"\n" +
+    "         data-ng-class=\"{active: allSelected()}\"\n" +
+    "         data-ng-click=\"selectAllCategories()\"\n" +
+    "        >Show all activities\n" +
+    "    </div>\n" +
+    "    <div class=\"filter-toggle-hide\"\n" +
+    "         data-ng-class=\"{active: noneSelected()}\"\n" +
+    "         data-ng-click=\"deSelectAllCategories()\"\n" +
+    "        >Hide all activities\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "\n" +
+    "</div>\n" +
+    "\n" +
+    "<div style=\"position: absolute; z-index: 10000; top: 50px; right: 50px; background-color: rgba(0, 0, 0, 0.5); color:#CCC; padding: 15px;\">\n" +
+    "  <strong>Map-Debug:</strong> <br/>\n" +
+    "  <u>Map ZOOM:</u> {{ map.zoom }}<br/>\n" +
+    "  <u>You clicked here:</u><br/>\n" +
+    "  \"longitude\": {{ map.clickedMarker.longitude }}<br/>\n" +
+    "  \"latitude\": {{ map.clickedMarker.latitude }}\n" +
+    "</div>\n" +
+    "\n" +
+    "</div>\n" +
+    "\n" +
+    "<div class=\"map-wrap\"\n" +
+    "     windowheight\n" +
+    "    >\n" +
+    "  <google-map\n" +
+    "      center='map.center'\n" +
+    "      zoom='map.zoom'\n" +
+    "      draggable='true'\n" +
+    "      events='map.events'\n" +
+    "      >\n" +
+    "\n" +
+    "    <marker\n" +
+    "        ng-repeat=\"m in activities | filter:onlySelected\"\n" +
+    "        coords='m'\n" +
+    "        click='onMarkerClicked(m)'\n" +
+    "        options='markerOptions'\n" +
+    "        icon='getMarkerIcon(m)'\n" +
+    "        >\n" +
+    "      <window\n" +
+    "          show=\"m.showWindow\"\n" +
+    "          closeClick=\"m.closeClick()\"\n" +
+    "          >\n" +
+    "        <div\n" +
+    "            class=\"window-category-{{m.category}}\"\n" +
+    "            >\n" +
+    "          <h2>{{m.name}}</h2>\n" +
+    "\n" +
+    "          <p>This is an info window at {{ m.latitude | number:4 }}, {{ m.longitude | number:4 }}!</p>\n" +
+    "\n" +
+    "          <p>My marker will stay open when the window is popped up!</p>\n" +
+    "\n" +
+    "          <a href=\"http://www.paypal.com\" target=\"_blank\">Buchen</a>\n" +
+    "        </div>\n" +
+    "      </window>\n" +
+    "      <marker-label content=\"m.name\" anchor=\"22 0\"\n" +
+    "                    class=\"marker-labels marker-label-category-{{m.category}}\"\n" +
+    "          />\n" +
+    "    </marker>\n" +
+    "\n" +
+    "  </google-map>\n" +
+    "</div>\n" +
+    "</div>\n" +
+    "\n" +
+    "<div class=\"footer footer-startpage\">\n" +
+    "  <div class=\"nav-footer\"><a href=\"#/legalnotes/\">Contact & Impressum</a></div>\n" +
+    "  <div class=\"teaser-section teaser-section-2\">\n" +
+    "    <div class=\"teaser-block\"><h4><a href=\"#/why/\">Why reActure?</a></h4></div>\n" +
+    "    <div class=\"teaser-block\"><h4><a href=\"#/workwithus/\">Work with us!</a></h4></div>\n" +
+    "  </div>\n" +
+    "</div>");
+}]);
+
+angular.module("legalnotes.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("legalnotes.html",
+    "<div data-ng-include=\"'views/logo.html'\"></div>\n" +
+    "\n" +
+    "<p>This is the legalnotes view.</p>\n" +
+    "");
+}]);
+
+angular.module("logo.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("logo.html",
+    "<a href=\"/#/\" id=\"logo\">\n" +
+    "  <span>reActure – Find your activity</span>\n" +
+    "</a>");
+}]);
+
+angular.module("map/templatedinfowindow.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("map/templatedinfowindow.html",
+    "<p>This is the map/templatedinfowindow view.</p>\n" +
+    "");
+}]);
+
+angular.module("why.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("why.html",
+    "<div data-ng-include=\"'views/logo.html'\"></div>\n" +
+    "\n" +
+    "<p>This is the why view.</p>\n" +
+    "");
+}]);
+
+angular.module("workwithus.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("workwithus.html",
+    "<div data-ng-include=\"'views/logo.html'\"></div>\n" +
+    "<p>This is the workwithus view.</p>\n" +
+    "");
 }]);

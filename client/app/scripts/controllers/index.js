@@ -73,14 +73,6 @@ angular.module('anorakApp')
       marker.showWindow = true;
     };
 
-    $scope.markerOptions = {
-      "animation": "DROP"
-    };
-
-    $scope.windowOptions = {
-      "content": '<div>hello you!</div>'
-    };
-
     // filter activities
     $scope.onlySports = function (activity) {
       if (activity.category === "sports") {

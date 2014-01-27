@@ -1638,6 +1638,7 @@ footer {
   white-space: nowrap; }
 
 #logo {
+  display: block;
   margin: 24px 0;
   width: 243px;
   height: 96px;

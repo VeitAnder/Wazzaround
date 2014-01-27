@@ -46,7 +46,7 @@ module.exports = function (grunt) {
           files: ['Gruntfile.js']
         },
         templates: {
-          files: ['<%= yeoman.app %>/views/**/{,*/}*.tpl.html'],
+          files: ['<%= yeoman.app %>/views/**/{,*/}*.tpl.html', '<%= yeoman.app %>/views/**/{,*/}*.html'],
           tasks: ['html2js']
         },
         livereload: {
@@ -380,7 +380,7 @@ module.exports = function (grunt) {
           options: {
             base: '<%= yeoman.app %>/views/'
           },
-          src: ['<%= yeoman.app %>/views/**/*.tpl.html'],
+          src: ['<%= yeoman.app %>/views/**/*.tpl.html','<%= yeoman.app %>/views/**/*.html'],
           dest: '<%= yeoman.app %>/scripts/templates.js',
           module: 'templates.app'
         }

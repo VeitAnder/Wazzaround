@@ -1,9 +1,6 @@
 <div class="section section-map">
 <div class="controlpanel">
-  <h1 id="logo">
-    <span>reActure – Find your activity</span>
-  </h1>
-
+  <div data-ng-include="'views/logo.html'"></div>
   <h2>What's around me?</h2>
 
   <div class="filter">
@@ -221,7 +218,10 @@
         options='markerOptions'
         icon='getMarkerIcon(m)'
         >
-      <window show="m.showWindow" closeClick="m.closeClick()">
+      <window
+          show="m.showWindow"
+          closeClick="m.closeClick()"
+          >
         <div
             class="window-category-{{m.category}}"
             >
@@ -229,8 +229,9 @@
 
           <p>This is an info window at {{ m.latitude | number:4 }}, {{ m.longitude | number:4 }}!</p>
 
-          <p class="muted">My marker will stay open when the window is popped up!</p>
+          <p>My marker will stay open when the window is popped up!</p>
 
+          <a href="http://www.paypal.com" target="_blank">Buchen</a>
         </div>
       </window>
       <marker-label content="m.name" anchor="22 0"
