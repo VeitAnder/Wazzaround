@@ -3064,7 +3064,7 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "          \n" +
     "          <h6>Offered by: Piemont Travel Office</h6>\n" +
     "\n" +
-    "          <p>The season lasts from march to september. You can book this venue right here!</p>\n" +
+    "          <p>The season lasts from march to september. <br/> You can book this venue right here!</p>\n" +
     "\n" +
     "          <p class=\"align-right\">\n" +
     "            <a href=\"http://www.paypal.com\" target=\"_blank\" class=\"btn\">Book</a>\n" +
