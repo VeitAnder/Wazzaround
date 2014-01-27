@@ -935,14 +935,31 @@ $filter-category-arrow-width: 65px;
     @include border(left, $color_grey_50);
     @include border(right, $color_grey_50);
     border-width: 2px;
-    @include border(bottom, $color_grey_50);
+    @include border(bottom, $color_grey_25);
     .filter-toggle-show, .filter-toggle-hide{
+      border-color: $color_grey_25;
       &.active{
         background-color: $color_grey_25;
         color: $color_grey;
       }
     }
   }
+}
+
+
+
+.div-table{
+  display: table;
+  width: 100%;
+}
+
+.div-tablerow{
+  display: table-row;
+}
+
+.div-tablecell{
+  display: table-cell;
+  width: 50%;
 }
 
 

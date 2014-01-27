@@ -2641,10 +2641,23 @@ footer {
     border-left: solid 1px #b3b3b3;
     border-right: solid 1px #b3b3b3;
     border-width: 2px;
-    border-bottom: solid 1px #b3b3b3; }
-    .filter-category-body .filter-toggle .filter-toggle-show.active, .filter-category-body .filter-toggle .filter-toggle-hide.active {
-      background-color: #d9d9d9;
-      color: #666; }
+    border-bottom: solid 1px #d9d9d9; }
+    .filter-category-body .filter-toggle .filter-toggle-show, .filter-category-body .filter-toggle .filter-toggle-hide {
+      border-color: #d9d9d9; }
+      .filter-category-body .filter-toggle .filter-toggle-show.active, .filter-category-body .filter-toggle .filter-toggle-hide.active {
+        background-color: #d9d9d9;
+        color: #666; }
+
+.div-table {
+  display: table;
+  width: 100%; }
+
+.div-tablerow {
+  display: table-row; }
+
+.div-tablecell {
+  display: table-cell;
+  width: 50%; }
 
 .nav-footer {
   -webkit-box-sizing: border-box;
