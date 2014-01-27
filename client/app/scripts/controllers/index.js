@@ -29,7 +29,7 @@ angular.module('anorakApp')
       },
       zoom: 10,
       markers: $scope.activities,
-      markericon: "img/mapicons/marker-sports.svg",
+      markericon: "/img/mapicons/marker-sports.svg",
       templatedInfoWindow: {
         coords: {
           latitude: 44.93077975622578,
@@ -149,7 +149,7 @@ angular.module('anorakApp')
     };
 
     $scope.getMarkerIcon = function (activity) {
-      return "img/mapicons/marker-" + activity.category + ".svg";
+      return "/img/mapicons/marker-" + activity.category + ".svg";
     };
 
     $scope.areItemsInThisCategorySelected = function (category) {

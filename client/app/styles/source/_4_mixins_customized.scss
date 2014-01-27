@@ -26,11 +26,6 @@ header{
 footer{
   position: relative;
   min-width: $min-width-xxs;
-  @include font-size_small;
-  text-align: center;
-  background-color: $color_grey_15;
-  padding: 60px 30px;
-  margin-top: $fs*4.0;
   p{
     padding-bottom: 0;
   }
@@ -870,11 +865,13 @@ $filter-category-arrow-width: 65px;
     }
   }
   .filter-category-body{
-    padding: $bu/1.5 $bu;
-    @include border_all($color_grey_50);
-    border-width: 2px;
-    border-top: none;
-    @include border-bottom-radius($border-radius);
+    .innerwrap{
+      padding: $bu/1.5 $bu;
+      @include border_all($color_grey_50);
+      border-width: 2px;
+      border-top: none;
+      @include border-bottom-radius($border-radius);
+    }
   }
 
   .filter-category-sub{
@@ -930,5 +927,53 @@ $filter-category-arrow-width: 65px;
       background-color: $color_green;
       cursor: default;
     }
+  }
+
+  .filter-category-body &{
+    border: none;
+    @include border-radius(0);
+    @include border(left, $color_grey_50);
+    @include border(right, $color_grey_50);
+    border-width: 2px;
+    @include border(bottom, $color_grey_50);
+    .filter-toggle-show, .filter-toggle-hide{
+      &.active{
+        background-color: $color_grey_25;
+        color: $color_grey;
+      }
+    }
+  }
+}
+
+
+
+.nav-footer{
+  @include box-sizing(border-box);
+  width: 350px;
+  float: left;
+  clear: both;
+  padding: $bu;
+}
+
+.teaser-section{
+  overflow: hidden;
+}
+
+.teaser-block{
+  @include box-sizing(border-box);
+  display: inline-block;
+  float: left;
+  @include border(left, $color_footer_border);
+  padding: $bu;
+  h4{
+    margin: 0;
+  }
+
+  .footer-startpage &{
+    height: $footer-startpage-height;
+  }
+
+  .teaser-section-2 &{
+    width: 50%;
   }
 }

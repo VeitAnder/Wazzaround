@@ -839,8 +839,7 @@ header {
 // ---------------------------------------------------------------------------------------------------------------------------
 .footer {
   @include outline;
-  @include pie-clearfix;
-  @include font-size_small;
+  @include clearfix;
   color: $color_footer_text;
   background-color: $color_footer_background;
   a, a:link, a:focus, a:active{
@@ -849,11 +848,11 @@ header {
     color: $color_footer_link_hover;
   }
   }//a
-}//footer
 
-.footer_innerwrap{
-  background-color: $color_footer_innerwrap_background;
-}//.footer_innerwrap
+  &.footer-startpage{
+    height: $footer-startpage-height;
+  }
+}//footer
 
 
 
