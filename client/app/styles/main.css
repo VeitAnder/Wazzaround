@@ -1590,7 +1590,9 @@ footer {
 
 .map-wrap {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  display: block;
+  height: 100%; }
 
 .marker-labels {
   padding: 2px 4px;

@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedactivities) {
+  .controller('indexCtrl', function ($scope, resolvedactivities, $window) {
     $scope.activities = resolvedactivities;
 
     debug("resolvedactivities", resolvedactivities);
+    $scope.windowheight = ($window.innerHeight - 100) + "px";
 
     $scope.states = {
       sports: {
@@ -151,5 +152,27 @@ angular.module('anorakApp')
         return false;
       }
     };
+
+    $scope.selectAllFromCategory = function (category) {
+      angular.forEach(_.where($scope.activities, { 'category': category }), function (activity) {
+        activity.hidden = false;
+      });
+    };
+
+    $scope.deSelectAllFromCategory = function (category) {
+      angular.forEach(_.where($scope.activities, { 'category': category }), function (activity) {
+        activity.hidden = true;
+      });
+    };
+
+
+    $scope.numberOfSelectedFromCategory = function (category) {
+      return _.where($scope.activities, { 'category': category , 'hidden' : false}).length;
+    };
+
+    $scope.totalNumberOfCategory = function (category) {
+      return _.where($scope.activities, { 'category': category}).length;
+    };
+
 
   });

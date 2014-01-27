@@ -1,193 +1,230 @@
 <div class="section section-map">
 <div class="controlpanel">
-  <div data-ng-include="'views/logo.html'"></div>
-  <h2>What's around me?</h2>
+<div data-ng-include="'views/logo.html'"></div>
+<h2>What's around me?</h2>
 
-  <div class="filter">
-    <span class="input_label">Please choose:</span>
+<div class="filter">
+  <span class="input_label">Please choose:</span>
 
-    <div class="filter-category filter-category-sports"
-         data-ng-class="{active: areItemsInThisCategorySelected('sports'), open: states.sports.open }"
-        >
-      <div class="filter-category-header"
-           data-ng-click="toggleFilter('sports')"
-          >
-        <h4>Sports & Activities</h4>
-
-        <p>0 of 2</p>
-
-        <div class="filter-category-arrow">
-          <span></span>
-        </div>
-      </div>
-      <div class="filter-category-body"
-           data-ng-show="states.sports.open"
-          >
-
-        <div class="filter-toggle">
-          <div class="filter-toggle-show"
-               data-ng-class="{active: allSelected()}"
-               data-ng-click="selectAllCategories()"
-              >
-            Select all
-          </div>
-          <div class="filter-toggle-hide"
-               data-ng-class="{active: noneSelected()}"
-               data-ng-click="deSelectAllCategories()"
-              >
-            Deselect all
-          </div>
-        </div>
-
-        <div
-            class="innerwrap"
-            >
-
-          <div
-              class="div-row"
-              ng-repeat="activity in filteredactivitiessports = (activities | filter: onlySports)"
-              >
-
-            <div data-ng-if="$index % 2 === 0">
-              <div
-                  data-ng-if="filteredactivitiessports[$index+0]"
-                  class="filter-category-sub div-cell"
-                  ng-class="{selected: !filteredactivitiessports[$index+0].hidden}"
-                  ng-click="toggleItemSelection(filteredactivitiessports[$index+0])"
-                  >
-                <span class="checkbox inline"></span>
-                {{filteredactivitiessports[$index+0].name}}
-              </div>
-
-              <div
-                  class="filter-category-sub div-cell"
-                  data-ng-if="filteredactivitiessports[$index+1]"
-                  ng-class="{selected: !filteredactivitiessports[$index+1].hidden}"
-                  ng-click="toggleItemSelection(filteredactivitiessports[$index+1])"
-                  >
-                <span class="checkbox inline"></span>
-                {{filteredactivitiessports[$index+1].name}}
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="filter-category filter-category-culture"
-       data-ng-class="{active: areItemsInThisCategorySelected('culture'), open: states.culture.open}"
+  <div class="filter-category filter-category-sports"
+       data-ng-class="{active: areItemsInThisCategorySelected('sports'), open: states.sports.open }"
       >
     <div class="filter-category-header"
-         data-ng-click="toggleFilter('culture')"
+         data-ng-click="toggleFilter('sports')"
         >
-      <h4>Culture</h4>
+      <h4>Sports & Activities</h4>
 
-      <p>1 of 1</p>
-
-      <div class="filter-category-arrow"
-           ng-click="toggleItemSelection(activity)">
-        <span></span>
-      </div>
-    </div>
-    <div class="filter-category-body"
-         data-ng-show="states.culture.open"
-        >
-
-      <div class="filter-toggle">
-        <div class="filter-toggle-show"
-             data-ng-class="{active: allSelected()}"
-             data-ng-click="selectAllCategories()"
-            >
-          Select all
-        </div>
-        <div class="filter-toggle-hide"
-             data-ng-class="{active: noneSelected()}"
-             data-ng-click="deSelectAllCategories()"
-            >
-          Deselect all
-        </div>
-      </div>
-
-      <div class="innerwrap">
-        <div
-            ng-repeat="activity in filteredactivitiesculture = (activities | filter: onlyCulture)"
-            >
-          <div class="filter-category-sub"
-               ng-class="{selected: !activity.hidden}"
-               ng-click="toggleItemSelection(activity)"
-              >
-            <span class="checkbox inline"></span>
-            {{activity.name}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="filter-category filter-category-wellness"
-       data-ng-class="{active: areItemsInThisCategorySelected('wellness'), open: states.wellness.open}"
-      >
-    <div class="filter-category-header"
-         data-ng-click="toggleFilter('wellness')"
-        >
-      <h4>Wellness & Relax</h4>
-
-      <p>2 of 2</p>
+      <p>{{numberOfSelectedFromCategory('sports')}} of {{totalNumberOfCategory('sports')}}</p>
 
       <div class="filter-category-arrow">
         <span></span>
       </div>
     </div>
     <div class="filter-category-body"
-         data-ng-show="states.wellness.open"
+         data-ng-show="states.sports.open"
         >
 
       <div class="filter-toggle">
         <div class="filter-toggle-show"
              data-ng-class="{active: allSelected()}"
-             data-ng-click="selectAllCategories()"
+             data-ng-click="selectAllFromCategory('sports')"
             >
           Select all
         </div>
         <div class="filter-toggle-hide"
              data-ng-class="{active: noneSelected()}"
-             data-ng-click="deSelectAllCategories()"
+             data-ng-click="deSelectAllFromCategory('sports')"
             >
           Deselect all
         </div>
       </div>
 
-      <div class="innerwrap">
+      <div
+          class="innerwrap"
+          >
+
         <div
-            ng-repeat="activity in filteredactivitieswellness = (activities | filter: onlyWellness)"
+            class="div-row"
+            ng-repeat="activity in filteredactivitiessports = (activities | filter: onlySports)"
             >
-          <div class="filter-category-sub"
-               ng-class="{selected: !activity.hidden}"
-               ng-click="toggleItemSelection(activity)"
-              >
-            <span class="checkbox inline"></span>
-            {{activity.name}}
+
+          <div data-ng-if="$index % 2 === 0">
+            <div
+                data-ng-if="filteredactivitiessports[$index+0]"
+                class="filter-category-sub div-cell"
+                ng-class="{selected: !filteredactivitiessports[$index+0].hidden}"
+                ng-click="toggleItemSelection(filteredactivitiessports[$index+0])"
+                >
+              <span class="checkbox inline"></span>
+              {{filteredactivitiessports[$index+0].name}}
+            </div>
+
+            <div
+                class="filter-category-sub div-cell"
+                data-ng-if="filteredactivitiessports[$index+1]"
+                ng-class="{selected: !filteredactivitiessports[$index+1].hidden}"
+                ng-click="toggleItemSelection(filteredactivitiessports[$index+1])"
+                >
+              <span class="checkbox inline"></span>
+              {{filteredactivitiessports[$index+1].name}}
+            </div>
+
           </div>
+
         </div>
+
       </div>
     </div>
   </div>
+</div>
 
-  <div class="filter-toggle">
-    <div class="filter-toggle-show"
-         data-ng-class="{active: allSelected()}"
-         data-ng-click="selectAllCategories()"
-        >Show all activities
-    </div>
-    <div class="filter-toggle-hide"
-         data-ng-class="{active: noneSelected()}"
-         data-ng-click="deSelectAllCategories()"
-        >Hide all activities
+<div class="filter-category filter-category-culture"
+     data-ng-class="{active: areItemsInThisCategorySelected('culture'), open: states.culture.open}"
+    >
+  <div class="filter-category-header"
+       data-ng-click="toggleFilter('culture')"
+      >
+    <h4>Culture</h4>
+
+    <p>{{numberOfSelectedFromCategory('culture')}} of {{totalNumberOfCategory('culture')}}</p>
+
+    <div class="filter-category-arrow"
+         ng-click="toggleItemSelection(activity)">
+      <span></span>
     </div>
   </div>
+  <div class="filter-category-body"
+       data-ng-show="states.culture.open"
+      >
+
+    <div class="filter-toggle">
+      <div class="filter-toggle-show"
+           data-ng-class="{active: allSelected()}"
+           data-ng-click="selectAllFromCategory('culture')"
+          >
+        Select all
+      </div>
+      <div class="filter-toggle-hide"
+           data-ng-class="{active: noneSelected()}"
+           data-ng-click="deSelectAllFromCategory('culture')"
+          >
+        Deselect all
+      </div>
+    </div>
+
+    <div class="innerwrap">
+      <div
+          class="div-row"
+          ng-repeat="activity in filteredactivitiesculture = (activities | filter: onlyCulture)"
+          >
+
+        <div data-ng-if="$index % 2 === 0">
+          <div
+              data-ng-if="filteredactivitiesculture[$index+0]"
+              class="filter-category-sub div-cell"
+              ng-class="{selected: !filteredactivitiesculture[$index+0].hidden}"
+              ng-click="toggleItemSelection(filteredactivitiesculture[$index+0])"
+              >
+            <span class="checkbox inline"></span>
+            {{filteredactivitiesculture[$index+0].name}}
+          </div>
+
+          <div
+              class="filter-category-sub div-cell"
+              data-ng-if="filteredactivitiesculture[$index+1]"
+              ng-class="{selected: !filteredactivitiesculture[$index+1].hidden}"
+              ng-click="toggleItemSelection(filteredactivitiesculture[$index+1])"
+              >
+            <span class="checkbox inline"></span>
+            {{filteredactivitiesculture[$index+1].name}}
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="filter-category filter-category-wellness"
+     data-ng-class="{active: areItemsInThisCategorySelected('wellness'), open: states.wellness.open}"
+    >
+  <div class="filter-category-header"
+       data-ng-click="toggleFilter('wellness')"
+      >
+    <h4>Wellness & Relax</h4>
+
+    <p>{{numberOfSelectedFromCategory('wellness')}} of {{totalNumberOfCategory('wellness')}}</p>
+
+    <div class="filter-category-arrow">
+      <span></span>
+    </div>
+  </div>
+  <div class="filter-category-body"
+       data-ng-show="states.wellness.open"
+      >
+
+    <div class="filter-toggle">
+      <div class="filter-toggle-show"
+           data-ng-class="{active: allSelected()}"
+           data-ng-click="selectAllFromCategory('wellness')"
+          >
+        Select all
+      </div>
+      <div class="filter-toggle-hide"
+           data-ng-class="{active: noneSelected()}"
+           data-ng-click="deSelectAllFromCategory('wellness')"
+          >
+        Deselect all
+      </div>
+    </div>
+
+    <div class="innerwrap">
+      <div
+          class="div-row"
+          ng-repeat="activity in filteredactivitieswellness = (activities | filter: onlyWellness)"
+          >
+
+        <div data-ng-if="$index % 2 === 0">
+          <div
+              data-ng-if="filteredactivitieswellness[$index+0]"
+              class="filter-category-sub div-cell"
+              ng-class="{selected: !filteredactivitieswellness[$index+0].hidden}"
+              ng-click="toggleItemSelection(filteredactivitieswellness[$index+0])"
+              >
+            <span class="checkbox inline"></span>
+            {{filteredactivitieswellness[$index+0].name}}
+          </div>
+
+          <div
+              class="filter-category-sub div-cell"
+              data-ng-if="filteredactivitieswellness[$index+1]"
+              ng-class="{selected: !filteredactivitieswellness[$index+1].hidden}"
+              ng-click="toggleItemSelection(filteredactivitieswellness[$index+1])"
+              >
+            <span class="checkbox inline"></span>
+            {{filteredactivitieswellness[$index+1].name}}
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="filter-toggle">
+  <div class="filter-toggle-show"
+       data-ng-class="{active: allSelected()}"
+       data-ng-click="selectAllCategories()"
+      >Show all activities
+  </div>
+  <div class="filter-toggle-hide"
+       data-ng-class="{active: noneSelected()}"
+       data-ng-click="deSelectAllCategories()"
+      >Hide all activities
+  </div>
+</div>
 
 </div>
 
@@ -201,8 +238,9 @@
 
 </div>
 
-<div class="map-wrap"
-     windowheight
+<div
+    class="map-wrap"
+    windowheight
     >
   <google-map
       center='map.center'
