@@ -114,6 +114,7 @@ footer{
     line-height: $fs*$line-height_factor;
     margin: 0;
     font-weight: normal;
+    clear: left;
   }
   h4{
     color: $color_grey;
@@ -129,6 +130,17 @@ footer{
       border-width: 3px;
       margin-right: 5px;
     }
+  }
+  img{
+    float: left;
+    margin: 0 $bu $fs 0;
+    @include border_all($color_grey_50);
+    @include border-radius($border-radius);
+    border-width: 7px;
+    padding: 3px;
+    width: 150px;
+    height: auto;
+    background-color: $color_grey;
   }
 }
 
