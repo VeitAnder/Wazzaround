@@ -2566,7 +2566,6 @@ footer {
     -o-border-bottom-right-radius: 6px;
     border-bottom-right-radius: 6px; }
   .filter-category .filter-category-sub {
-    display: inline-block;
     color: #b3b3b3; }
     .filter-category .filter-category-sub .checkbox {
       -webkit-box-sizing: border-box;
@@ -2586,8 +2585,10 @@ footer {
       border-radius: 3px;
       border-width: 2px;
       vertical-align: -2px; }
-    .filter-category .filter-category-sub:hover:hover {
-      cursor: pointer; }
+    .filter-category .filter-category-sub:hover {
+      color: #666; }
+      .filter-category .filter-category-sub:hover:hover {
+        cursor: pointer; }
     .filter-category .filter-category-sub.selected {
       color: #666; }
       .filter-category .filter-category-sub.selected .checkbox {
@@ -2598,6 +2599,14 @@ footer {
           background-image: url('/img/sprite_icons.svg'); }
         .no-svg .filter-category .filter-category-sub.selected .checkbox {
           background-image: url('/img/sprite_icons.png'); }
+      .filter-category .filter-category-sub.selected:hover {
+        color: #8c8c8c; }
+    .filter-category .filter-category-sub.div-tablecell {
+      padding-right: 15px;
+      padding-top: 2px;
+      padding-bottom: 3px; }
+      .filter-category .filter-category-sub.div-tablecell:last-child {
+        padding-right: 0; }
 
 .filter-toggle {
   border: solid 1px #b3b3b3;
@@ -2630,6 +2639,10 @@ footer {
       color: #FFF;
       background-color: #85C900;
       cursor: default; }
+      .filter-toggle .filter-toggle-show.active:hover, .filter-toggle .filter-toggle-hide.active:hover {
+        color: #FFF; }
+    .filter-toggle .filter-toggle-show:hover, .filter-toggle .filter-toggle-hide:hover {
+      color: #b3b3b3; }
   .filter-category-body .filter-toggle {
     border: none;
     -webkit-border-radius: 0;
