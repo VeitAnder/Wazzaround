@@ -14,7 +14,7 @@ angular.module('anorakApp')
         APIUrl: $window.location.protocol + "//" + $window.location.hostname + "/api/v1/",
         debug: false
       };
-    } else if ($window.location.hostname === "reactureappdev-10669.onmodulus.net") {
+    } else if ($window.location.hostname === "reactureappdev-10669.onmodulus.net" || $window.location.hostname === "reacture.anorak.io") {
       // development server
       hostconfig = {
         AmazonS3Config: {
