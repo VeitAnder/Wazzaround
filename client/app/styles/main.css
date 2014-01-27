@@ -2771,6 +2771,7 @@ footer {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  border-top: dotted 1px #d9d9d9;
   width: 350px;
   float: left;
   clear: both;
@@ -2785,12 +2786,16 @@ footer {
   box-sizing: border-box;
   display: inline-block;
   float: left;
-  border-left: solid 1px #d9d9d9;
+  border-left: dotted 1px #b3b3b3;
+  background-color: #8c8c8c;
   padding: 15px; }
   .teaser-block h4 {
     margin: 0; }
-  .teaser-block a {
+  .teaser-block a, .teaser-block a:link {
+    color: #d9d9d9;
     text-decoration: none; }
+    .teaser-block a:hover, .teaser-block a:link:hover {
+      color: #FFF; }
   .footer-startpage .teaser-block {
     height: 100px; }
   .teaser-section-2 .teaser-block {
