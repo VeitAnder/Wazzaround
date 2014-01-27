@@ -883,6 +883,7 @@ $filter-category-arrow-width: 65px;
 
   .filter-category-sub{
     color: $color_grey_50;
+    padding-left: 23px;
     .checkbox{
       @include box-sizing(border-box);
       min-height: 0;
@@ -894,6 +895,8 @@ $filter-category-arrow-width: 65px;
       @include border-radius($border-radius_small);
       border-width: 2px;
       vertical-align: -2px;
+      margin-left: -23px;
+      margin-right: 3px;
     }
     &:hover{
       color: $color_grey;
@@ -909,7 +912,8 @@ $filter-category-arrow-width: 65px;
         color: $color_grey_75;
       }
     }
-  &.div-tablecell{
+  &.div-cell{
+    width: 50%;
     padding-right: 15px;
     &:last-child{
       padding-right: 0;
@@ -971,6 +975,14 @@ $filter-category-arrow-width: 65px;
 }
 
 
+.div-row{
+  overflow: hidden;
+}
+
+.div-cell{
+  display: inline;
+  float: left;
+}
 
 .div-table{
   display: table;
