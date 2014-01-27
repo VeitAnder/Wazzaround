@@ -25,10 +25,11 @@ angular.module('anorakApp')
 
     $scope.map = {
       center: {
-        latitude: 44.93077975622578,
-        longitude: 7.998046875
+        "longitude": 8.01177978515625,
+        "latitude": 45.12199086176226
+
       },
-      zoom: 10,
+      zoom: 9,
       markers: $scope.activities,
       markericon: "/img/mapicons/marker-sports.svg",
       templatedInfoWindow: {
@@ -165,14 +166,12 @@ angular.module('anorakApp')
       });
     };
 
-
     $scope.numberOfSelectedFromCategory = function (category) {
-      return _.where($scope.activities, { 'category': category , 'hidden' : false}).length;
+      return _.where($scope.activities, { 'category': category, 'hidden': false}).length;
     };
 
     $scope.totalNumberOfCategory = function (category) {
       return _.where($scope.activities, { 'category': category}).length;
     };
-
 
   });
