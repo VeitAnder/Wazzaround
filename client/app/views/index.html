@@ -212,23 +212,22 @@
       events='map.events'
       >
 
-    <div
-        ng-repeat="activity in activities | filter:onlySelected"
+    <marker
+        ng-repeat="m in activities | filter:onlySelected"
+        coords='m'
+        click='onMarkerClicked(m)'
+        options='markerOptions'
+        icon='getMarkerIcon(m)'
         >
-      <marker
-          coords='activity'
-          click='markerClickHandler(activity)'
-          options='markerOptions'
-          icon='getMarkerIcon(activity)'
-          >
-      </marker>
-    </div>
+      <window show="m.showWindow" closeClick="m.closeClick()">
+        <h2>{{m.name}}</h2>
 
-    <!--<window show="map.templatedInfoWindow.show" coords="map.templatedInfoWindow.coords"-->
-    <!--options="map.templatedInfoWindow.options"-->
-    <!--templateUrl="map.templatedInfoWindow.templateUrl"-->
-    <!--templateParameter="map.templatedInfoWindow.templateParameter">-->
-    <!--</window>-->
+        <p>This is an info window at {{ m.latitude | number:4 }}, {{ m.longitude | number:4 }}!</p>
+
+        <p class="muted">My marker will stay open when the window is popped up!</p>
+      </window>
+      <marker-label content="m.name" anchor="22 0" class="marker-labels"/>
+    </marker>
 
   </google-map>
 </div>

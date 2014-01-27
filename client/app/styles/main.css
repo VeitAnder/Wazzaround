@@ -1631,6 +1631,12 @@ footer {
   position: relative;
   overflow: hidden; }
 
+.marker-labels {
+  color: red;
+  background-color: white;
+  font-size: 10px;
+  white-space: nowrap; }
+
 #logo {
   margin: 24px 0;
   width: 243px;

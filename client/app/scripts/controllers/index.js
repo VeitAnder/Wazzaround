@@ -68,7 +68,7 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.markerClickHandler = function (marker) {
+    $scope.onMarkerClicked = function (marker) {
       debug("Marker: lat: " + marker.latitude + ", lon: " + marker.longitude + " clicked!!");
       marker.showWindow = true;
     };
