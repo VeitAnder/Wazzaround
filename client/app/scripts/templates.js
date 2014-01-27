@@ -3021,13 +3021,15 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "        <div\n" +
     "            class=\"window-category-{{m.category}}\"\n" +
     "            >\n" +
-    "          <h2>{{m.name}}</h2>\n" +
+    "          <h4><span class=\"icon\"></span>{{m.name}}</h4>\n" +
     "\n" +
-    "          <p>This is an info window at {{ m.latitude | number:4 }}, {{ m.longitude | number:4 }}!</p>\n" +
+    "          <h6>This is an info window at {{ m.latitude | number:4 }}, {{ m.longitude | number:4 }}!</h6>\n" +
     "\n" +
     "          <p>My marker will stay open when the window is popped up!</p>\n" +
     "\n" +
-    "          <a href=\"http://www.paypal.com\" target=\"_blank\">Buchen</a>\n" +
+    "          <p class=\"align-right\">\n" +
+    "            <a href=\"http://www.paypal.com\" target=\"_blank\" class=\"btn\">Book</a>\n" +
+    "          </p>\n" +
     "        </div>\n" +
     "      </window>\n" +
     "      <marker-label content=\"m.name\" anchor=\"22 0\"\n" +

@@ -50,6 +50,10 @@ footer{
   padding: $bu*2.0;
   width: 350px;
   float: left;
+  background-color: $color_white;
+  h2{
+    margin: $bu 0;
+  }
 }
 
 .map-wrap{
@@ -75,11 +79,91 @@ footer{
 }
 
 .marker-labels {
-  color: red;
+  padding: 2px 4px;
+  @include border-radius($border-radius_small);
+  @include border_all($color_grey_25);
+  color: $color_text;
   background-color: white;
-  font-size: 10px;
+  @include font-size_small;
   white-space: nowrap;
 }
+
+.marker-label-category-sports{
+  color: $color_sports;
+}
+
+.marker-label-category-culture{
+  color: $color_culture;
+}
+
+.marker-label-category-wellness{
+  color: $color_wellness;
+}
+
+
+@mixin window-category{
+  padding: 15px 0;
+  a.btn{
+    .gm-style-iw &{
+      font-size: 16px;
+    }
+  }
+  p{
+    font-family: $sysfont_01;
+    font-size: $fs;
+    line-height: $fs*$line-height_factor;
+    margin: 0;
+    font-weight: normal;
+  }
+  h4{
+    color: $color_grey;
+    margin-top: 0;
+    padding-bottom: 5px;
+    @include seperator(bottom, $color_main_seperator);
+    .icon{
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      @include border-radius(10px);
+      @include border_all($color_grey);
+      border-width: 3px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.window-category-sports{
+  @include window-category;
+  h4{
+//    color: $color_sports;
+    .icon{
+      border-color: $color_sports;
+    }
+  }
+}
+
+.window-category-culture{
+  @include window-category;
+  h4{
+//    color: $color_culture;
+    .icon{
+      border-color: $color_culture;
+    }
+  }
+}
+
+.window-category-wellness{
+  @include window-category;
+  h4{
+//    color: $color_wellness;
+    .icon{
+      border-color: $color_wellness;
+    }
+  }
+}
+
+
+
 
 
 // CONTENT ELEMENTS

@@ -160,21 +160,18 @@ a.link-download{
 // ###########################################################################################################################
 
 
-.btn {
-  //@include user-select(none);
-  background-color: transparent;
+.btn, a.btn {
   display: inline-block;
-  border: none;
+  @include user-select(none);
+  background-color: $color_button_background;
   padding: ($fs*0.25) ($fs*1.0);
-  @include box-shadow_2px;
-  @include border(top, $color_button_border);
   @include border-radius($border-radius_small);
-  @include gradient_blue;
+  @include border_all($color_button_border);
+  border-width: 3px;
   @include webfont_01;
   color: $color_button_text;
   text-decoration: none;
   font-size: 16px;
-  @include text-shadow(rgba($color_black, 0.15) 0 -1px 0);
   span{
     color: $color_button_text;
   }
@@ -182,7 +179,7 @@ a.link-download{
   &:hover {
     color: $color_button_text_hover;
     border-color: $color_button_border_hover;
-    @include gradient_blue_hover;
+    background-color: $color_button_background_hover;
     cursor: pointer;
   }
   &:active {
@@ -197,42 +194,6 @@ a.link-download{
     &:active {
       @include gradient_blue_hover;
     }
-  }
-}
-
-.btn-orange {
-  border-color: $color_grey_50;
-  @include gradient_orange;
-  &:hover {
-    border-color: $color_grey_50_l5;
-    @include gradient_orange_hover;
-  }
-  &:active {
-    background: $color_grey;
-  }
-}
-
-.btn-grey {
-  border-color: $color_grey_25;
-  @include gradient_grey;
-  &:hover {
-    border-color: $color_grey_25_l5;
-    @include gradient_grey_hover;
-  }
-  &:active {
-    background: $color_grey_50;
-  }
-}
-
-.btn-darkgrey {
-  border-color: $color_grey_50;
-  @include gradient_darkgrey;
-  &:hover {
-    border-color: $color_grey_50_l5;
-    @include gradient_darkgrey_hover;
-  }
-  &:active {
-    background: $color_grey;
   }
 }
 
