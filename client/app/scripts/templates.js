@@ -3012,12 +3012,12 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "  <div class=\"filter-toggle-show\"\n" +
     "       data-ng-class=\"{active: allSelected()}\"\n" +
     "       data-ng-click=\"selectAllCategories()\"\n" +
-    "      >Show all activities\n" +
+    "      >Show all\n" +
     "  </div>\n" +
     "  <div class=\"filter-toggle-hide\"\n" +
     "       data-ng-class=\"{active: noneSelected()}\"\n" +
     "       data-ng-click=\"deSelectAllCategories()\"\n" +
-    "      >Hide all activities\n" +
+    "      >Hide all\n" +
     "  </div>\n" +
     "</div>\n" +
     "\n" +
