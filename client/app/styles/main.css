@@ -892,15 +892,15 @@ a.link-download {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  border: solid 1px #8c8c8c;
+  border: solid 1px #85C900;
   border-width: 3px;
   font-family: embeded-webfont_01, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   letter-spacing: -0.03em;
-  color: #8c8c8c;
+  color: #85C900;
   text-decoration: none;
   font-size: 16px; }
   .btn span, a.btn span {
-    color: #8c8c8c; }
+    color: #85C900; }
   .btn:hover, a.btn:hover {
     color: #FFF;
     border-color: #85C900;
@@ -1256,15 +1256,15 @@ header {
 
 .footer {
   *zoom: 1;
-  color: #b3b3b3;
-  background-color: #666; }
+  color: #666;
+  background-color: #b3b3b3; }
   .footer:before, .footer:after {
     content: " ";
     display: table; }
   .footer:after {
     clear: both; }
   .footer a, .footer a:link, .footer a:focus, .footer a:active {
-    color: #b3b3b3; }
+    color: #666; }
     .footer a:hover, .footer a:link:hover, .footer a:focus:hover, .footer a:active:hover {
       color: #d9d9d9; }
   .footer.footer-startpage {
@@ -1827,11 +1827,11 @@ footer {
   display: inline-block;
   padding: 5px; }
   .nav-meta ul li a {
-    color: #b3b3b3; }
+    color: #666; }
     .nav-meta ul li a:hover {
       color: #d9d9d9; }
   .nav-meta ul li.active a {
-    color: #b3b3b3; }
+    color: #666; }
     .nav-meta ul li.active a:hover {
       color: #d9d9d9; }
 
@@ -2786,13 +2786,16 @@ footer {
   padding: 15px; }
   .teaser-block h4 {
     margin: 0; }
+  .teaser-block a {
+    text-decoration: none; }
   .footer-startpage .teaser-block {
     height: 100px; }
   .teaser-section-2 .teaser-block {
     width: 50%; }
 
 html {
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  background: #FFF; }
 
 body {
   position: relative;
