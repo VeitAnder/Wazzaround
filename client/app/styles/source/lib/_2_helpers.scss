@@ -1,52 +1,52 @@
 @import "_1_colorscheme_positive";
 
-
 // DEVELOP MIXINS
 // ###########################################################################################################################
 // ###########################################################################################################################
 // ###########################################################################################################################
 
 //mixin outline: outine block level elements
-@mixin outline{
+@mixin outline {
   @if $outline == true {
     outline: 1px solid blue;
-    outline-offset:-1px;
+    outline-offset: -1px;
   } @else {
     //render nothing
-  } 
-}//mixin outline
-.outline{
+  }
+}
+
+//mixin outline
+.outline {
   @include outline;
 }
 
 // lib.debug
-@mixin debug{
-  .debug{
+@mixin debug {
+  .debug {
     border: 2px solid #00ff00;
     color: #00ff00;
     background-color: black;
     font-family: Courier, sans-serif;
   }
-}//mixin debug
+}
+
+//mixin debug
 @include debug;
 //developer mixins end
 
-
-
 // MOUSE HOVER POINTER MIXIN
-@mixin cursor{
-  &:hover{
-    cursor:pointer;
+@mixin cursor {
+  &:hover {
+    cursor: pointer;
   }
 }
-
 
 // RESET MIXINS
 // ###########################################################################################################################
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-@mixin li-reset{
+@mixin li-reset {
   list-style-type: none;
   display: block;
   margin: 0;
@@ -54,7 +54,7 @@
   background: none;
 }
 
-@mixin ul-reset{
+@mixin ul-reset {
   list-style-type: none;
   display: block;
   margin: 0;
@@ -67,9 +67,7 @@
   dt, dd {
     margin: 0 0 0 0;
   }
-} 
-
-
+}
 
 // FONTS (EMBEDED)
 // ###########################################################################################################################
@@ -83,373 +81,350 @@
 // in your SCSS - that's it :-)
 // fonts generated with http://www.fontsquirrel.com/fontface/generator
 // font-embedding how-to: http://projekte.anorak.io.dyndns.info/projects/anorakio-typo3/wiki/FontEmbedding
-@mixin font-face($fontfile, $name, $font-weight, $font-style){
+@mixin font-face($fontfile, $name, $font-weight, $font-style) {
   @font-face {
-   font-family: $name;
-   src: url('#{$fontfile}.woff') format('woff'),
-        url('#{$fontfile}.ttf') format('truetype');
-   font-weight: $font-weight;
-   font-style: $font-style; 
+    font-family: $name;
+    src: url('#{$fontfile}.woff') format('woff'), url('#{$fontfile}.ttf') format('truetype');
+    font-weight: $font-weight;
+    font-style: $font-style;
   }
 }
+
 @include font-face('/fonts/#{$webfont_01}', 'embeded-webfont_01', 'normal', 'normal');
 
 // font embedding end
-
 
 // FONT-LIST
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-@mixin sysfont_01{
+@mixin sysfont_01 {
   font-family: #{$sysfont_01};
 }
 
-@mixin webfont_01{
+@mixin webfont_01 {
   font-family: embeded-webfont_01, #{$sysfont_01};
   letter-spacing: -0.03em;
 }
-
 
 // FONT-SIZES
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-@mixin font-size_small{ // min 12px
+@mixin font-size_small {
+  // min 12px
   @if $fs*$font-size_small_factor < 12px {
     font-size: 12px;
     line-height: 12px*$line-height_factor;
-    p{
+    p {
       padding-bottom: 12px*$line-height_factor;
     }
   } @else {
     font-size: $fs*$font-size_small_factor;
     line-height: $fs*$font-size_small_factor*$line-height_factor;
-    p{
+    p {
       padding-bottom: $fs*$font-size_small_factor;
     }
   }
 }
-
-
 
 // TRANSITIONS
 // ###########################################################################################################################
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-@mixin animation-defaults{
+@mixin animation-defaults {
   @include transition-duration($transition-duration);
   @include transition-timing-function($transition-function);
   @if $animation == true{
     text-decoration: none;
-  }
-  @else{
+  } @else {
   }
 }
 
-@mixin animation_all{
+@mixin animation_all {
   @if $animation == true{
     @include animation-defaults;
     @include transition-property(all);
-  }
-  @else{
+  } @else {
   }
 }
 
-@mixin animation_background{
+@mixin animation_background {
   @if $animation == true{
     @include animation-defaults;
     @include transition-property(background);
-  }
-  @else{
+  } @else {
   }
 }
 
-@mixin animation_border{
+@mixin animation_border {
   @if $animation == true{
     @include animation-defaults;
     @include transition-property(border);
-  }
-  @else{
+  } @else {
   }
 }
 
-@mixin animation_textlink{
+@mixin animation_textlink {
   @if $animation == true{
     @include animation-defaults;
     @include transition-property(color);
+  } @else {
   }
-  @else{
-  }
-}//@animation_textlink
-
-@mixin animation_none{
-  @include transition-property(none);
 }
 
+//@animation_textlink
 
+@mixin animation_none {
+  @include transition-property(none);
+}
 
 // CONTAINER ELEMENTS  ( E.G. NEWS-LIST )
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-@mixin animation_block_background{
+@mixin animation_block_background {
   @include animation_background;
-  a{
+  a {
     text-decoration: none;
-    &:hover{
+    &:hover {
       color: $color_main_link;
     }
   }
-}//@mixin animation_block_background
+}
 
-@mixin animation_block_link{
+//@mixin animation_block_background
+
+@mixin animation_block_link {
   @include animation_textlink;
-  &:hover{
-    a{
-      color:$color_main_link_hover;
+  &:hover {
+    a {
+      color: $color_main_link_hover;
     }
   }
-  a{
+  a {
     text-decoration: none;
   }
-}//@mixin animation_block_link
+}
 
-
-
+//@mixin animation_block_link
 
 // SEPERATORS / BORDERS / IMAGES
 // ###########################################################################################################################
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-
-@mixin seperator($type, $color){
+@mixin seperator($type, $color) {
   border-#{$type}: $seperator-style $seperator-width #{$color};
 }
 
-@mixin border($type, $color){
+@mixin border($type, $color) {
   border-#{$type}: $border-style $border-width #{$color};
 }
 
-@mixin border_all($color){
+@mixin border_all($color) {
   border: $border-style $border-width #{$color};
 }
 
-@mixin image_orientation($orientation){
+@mixin image_orientation($orientation) {
   float: #{$orientation};
   @if $orientation == left {
-    margin: 0 $bu*2.0 $bu*2.0 0;}
-  @else if $orientation == right {
-    margin: 0 0 $bu*2.0 $bu*2.0;} 
+    margin: 0 $bu*2.0 $bu*2.0 0;
+  } @else if $orientation == right {
+    margin: 0 0 $bu*2.0 $bu*2.0;
+  }
 }
 
-@mixin image_border{
-  padding: $image_border_padding; 
-  background-color: $color_main_image_background; 
+@mixin image_border {
+  padding: $image_border_padding;
+  background-color: $color_main_image_background;
   border: $image_border_width $image_border_style $color_main_border;
 }
-
-
-
 
 /*
  * enable Hardware Accelleration on CSS3 Transitions
  * http://www.html5rocks.com/en/tutorials/speed/html5/#toc-hardware-accell
  */
-@mixin hardwareaccelleration{
+@mixin hardwareaccelleration {
   //tested, works on iOS 5
   html.csstransforms3d.ios & {
     -webkit-transform: translateZ(0);
   }
 }
 
-
-
 // GRADIENTS (that works in IE)
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-@mixin gradient_orange{
-// needs latest Compass, add '@import "compass"' to your scss
+@mixin gradient_orange {
+  // needs latest Compass, add '@import "compass"' to your scss
   background-color: $color_grey; // Old browsers
-// IE9 SVG, needs conditional override of 'filter' to 'none'
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top,  rgba($color_grey_75,1) 0%,rgba($color_grey,1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_grey_75, 1) 0%, rgba($color_grey, 1) 100%));
 }
 
-@mixin gradient_orange_hover{
-// needs latest Compass, add '@import "compass"' to your scss
+@mixin gradient_orange_hover {
+  // needs latest Compass, add '@import "compass"' to your scss
   background-color: $color_grey_l5; // Old browsers
-// IE9 SVG, needs conditional override of 'filter' to 'none'
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top,  rgba($color_grey_75_l5,1) 0%,rgba($color_grey_l5,1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_grey_75_l5, 1) 0%, rgba($color_grey_l5, 1) 100%));
 }
 
-@mixin gradient_darkgrey{
-// needs latest Compass, add '@import "compass"' to your scss
+@mixin gradient_darkgrey {
+  // needs latest Compass, add '@import "compass"' to your scss
   background-color: $color_grey; // Old browsers
-// IE9 SVG, needs conditional override of 'filter' to 'none'
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top,  rgba($color_grey_75,1) 0%,rgba($color_grey,1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_grey_75, 1) 0%, rgba($color_grey, 1) 100%));
 }
 
-@mixin gradient_darkgrey_hover{
-// needs latest Compass, add '@import "compass"' to your scss
+@mixin gradient_darkgrey_hover {
+  // needs latest Compass, add '@import "compass"' to your scss
   background-color: $color_grey_l5; // Old browsers
-// IE9 SVG, needs conditional override of 'filter' to 'none'
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top,  rgba($color_grey_75_l5,1) 0%,rgba($color_grey_l5,1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_grey_75_l5, 1) 0%, rgba($color_grey_l5, 1) 100%));
 }
 
-@mixin gradient_lightblue{
-// needs latest Compass, add '@import "compass"' to your scss
+@mixin gradient_lightblue {
+  // needs latest Compass, add '@import "compass"' to your scss
   background-color: $color_green_15; // Old browsers
-// IE9 SVG, needs conditional override of 'filter' to 'none'
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top,  rgba($color_white,1) 0%,rgba($color_green_15,1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_white, 1) 0%, rgba($color_green_15, 1) 100%));
 }
 
-@mixin gradient_lightblue_reverse{
-// needs latest Compass, add '@import "compass"' to your scss
+@mixin gradient_lightblue_reverse {
+  // needs latest Compass, add '@import "compass"' to your scss
   background-color: $color_green_15; // Old browsers
-// IE9 SVG, needs conditional override of 'filter' to 'none'
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top,  rgba($color_green_25,1) 0%,rgba($color_white,1) 50%));
+  @include background-image(linear-gradient(top, rgba($color_green_25, 1) 0%, rgba($color_white, 1) 50%));
 }
 
-
-
-@mixin gradient_lightblue2{
-// needs latest Compass, add '@import "compass"' to your scss
+@mixin gradient_lightblue2 {
+  // needs latest Compass, add '@import "compass"' to your scss
   background-color: $color_green_25; // Old browsers
-// IE9 SVG, needs conditional override of 'filter' to 'none'
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top,  rgba($color_white,1) 0%,rgba($color_03,1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_white, 1) 0%, rgba($color_03, 1) 100%));
 }
 
-@mixin gradient_blue{
-// needs latest Compass, add '@import "compass"' to your scss
+@mixin gradient_blue {
+  // needs latest Compass, add '@import "compass"' to your scss
   background-color: $color_green; // Old browsers
-// IE9 SVG, needs conditional override of 'filter' to 'none'
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top,  rgba($color_green,1) 0%,rgba($color_green_k15,1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_green, 1) 0%, rgba($color_green_k15, 1) 100%));
 }
 
-@mixin gradient_blue_hover{
-// needs latest Compass, add '@import "compass"' to your scss
+@mixin gradient_blue_hover {
+  // needs latest Compass, add '@import "compass"' to your scss
   background-color: $color_green_l5; // Old browsers
-// IE9 SVG, needs conditional override of 'filter' to 'none'
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top,  rgba($color_green_l5,1) 0%,rgba($color_green_k15_l5,1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_green_l5, 1) 0%, rgba($color_green_k15_l5, 1) 100%));
 }
 
-@mixin gradient_grey{
-// needs latest Compass, add '@import "compass"' to your scss
+@mixin gradient_grey {
+  // needs latest Compass, add '@import "compass"' to your scss
   background-color: $color_grey_50; // Old browsers
-// IE9 SVG, needs conditional override of 'filter' to 'none'
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top, rgba($color_grey_25,1) 0%,rgba($color_grey_50,1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_grey_25, 1) 0%, rgba($color_grey_50, 1) 100%));
 }
 
-@mixin gradient_grey_hover{
-// needs latest Compass, add '@import "compass"' to your scss
+@mixin gradient_grey_hover {
+  // needs latest Compass, add '@import "compass"' to your scss
   background-color: $color_grey_50_l5; // Old browsers
-// IE9 SVG, needs conditional override of 'filter' to 'none'
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top, rgba($color_grey_25_l5,1) 0%,rgba($color_grey_50_l5,1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_grey_25_l5, 1) 0%, rgba($color_grey_50_l5, 1) 100%));
 }
 
-
-
-
-
-@mixin box-shadow_2px{
-  @include box-shadow(rgba($color_black,0.07) 0px 2px 0);
+@mixin box-shadow_2px {
+  @include box-shadow(rgba($color_black, 0.07) 0px 2px 0);
 }
 
-@mixin box-shadow_4px{
-  @include box-shadow(rgba($color_black,0.07) 0px 4px 0);
+@mixin box-shadow_4px {
+  @include box-shadow(rgba($color_black, 0.07) 0px 4px 0);
 }
 
-@mixin box-shadow_2px-inset{
-  @include box-shadow(rgba($color_black,0.07) 0px 2px 0 inset);
+@mixin box-shadow_2px-inset {
+  @include box-shadow(rgba($color_black, 0.07) 0px 2px 0 inset);
 }
 
-@mixin text-shadow_4px{
-  @include text-shadow(rgba($color_black,0.07) 0px 4px 0);
+@mixin text-shadow_4px {
+  @include text-shadow(rgba($color_black, 0.07) 0px 4px 0);
 }
 
-@mixin text-shadow_2px{
-  @include text-shadow(rgba($color_black,0.15) 0px 2px 0);
+@mixin text-shadow_2px {
+  @include text-shadow(rgba($color_black, 0.15) 0px 2px 0);
 }
 
-@mixin text-shadow_-2px{
-  @include text-shadow(rgba($color_black,0.07) 0px -2px 0);
+@mixin text-shadow_-2px {
+  @include text-shadow(rgba($color_black, 0.07) 0px -2px 0);
 }
 
-@mixin text-shadow_-1px{
-  @include text-shadow(rgba($color_black,0.15) 0px -1px 0);
+@mixin text-shadow_-1px {
+  @include text-shadow(rgba($color_black, 0.15) 0px -1px 0);
 }
 
-@mixin text-shadow_highlight{
-  @include text-shadow(rgba($color_white,1.0) 0px -1px 0px);
+@mixin text-shadow_highlight {
+  @include text-shadow(rgba($color_white, 1.0) 0px -1px 0px);
 }
 
-
-
-
-
-@mixin padding-30px-vert{
+@mixin padding-30px-vert {
   padding-bottom: 30px;
 
-  &.first{
+  &.first {
     padding-top: 30px;
   }
 
-  &.no-padding-bottom{
+  &.no-padding-bottom {
     padding-bottom: 0;
   }
 
 }
 
-@mixin padding-60px-vert{
+@mixin padding-60px-vert {
   padding-bottom: 60px;
 
-  &.first{
+  &.first {
     padding-top: 60px;
   }
 
-  &.no-padding-bottom{
+  &.no-padding-bottom {
     padding-bottom: 0;
   }
 
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     padding-bottom: 15px;
-    &.first{
+    &.first {
       padding-top: 15px;
     }
   }
 }
 
-.padding-30px-vert{
+.padding-30px-vert {
   @include padding-30px-vert;
 }
 
-.padding-60px-vert{
+.padding-60px-vert {
   @include padding-30px-vert;
 }
 
-@mixin text-white{
-  p,h1,h2,h3,h4,h5,h6,li{
+@mixin text-white {
+  p, h1, h2, h3, h4, h5, h6, li {
     color: $color_white;
   }
-  a,a:hover,a:visited,a:active{
+  a, a:hover, a:visited, a:active {
     color: $color_white;
   }
 }
-
 
 @mixin input-placeholder($color) {
   &.placeholder {
@@ -466,9 +441,6 @@
   }
 }
 
-
-
-
 // Media Queries - respond-to mixin
 // do not use media queries directly, only via respond-to mixin
 // ############################################################################################################################
@@ -477,59 +449,55 @@
 //// Media queries breakpoints from _variables.scss
 //// ------------------------------------------------------
 
+$break-high-screen: 1250px;
+$break-low-screen: 600px;
 
 @mixin respond-to($media) {
   @if $media == screen-xs {
     @media only screen and (min-width: $screen-xs) and (max-width: $screen-xs-max) {
       @content;
     }
-  }
-  @else if $media == screen-sm {
+  } @else if $media == screen-sm {
     @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
       @content;
     }
-  }
-  @else if $media == screen-md {
+  } @else if $media == screen-md {
     @media only screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
       @content;
     }
-  }
-  @else if $media == screen-lg {
+  } @else if $media == screen-lg {
     @media only screen and (min-width: $screen-lg) {
       @content;
     }
-  }
-  @else if $media == screen-nocols {
+  } @else if $media == screen-nocols {
     @media only screen and (max-width: $screen-xs-max) {
       @content;
     }
   }
 
-
-//
-////high-screen break
-//@else if $media == high-screen {
-//  @media only screen and (min-height: $break-high-screen) {
-//    @content;
-//  }
-//}
-////medium-height break
-//@else if $media == medium-height-screen {
-//  @media only screen and (min-height: $break-low-screen + 1) and (max-height: $break-high-screen - 1)  {
-//    @content;
-//  }
-//}
-////low-height break
-//@else if $media == low-screen {
-//  @media only screen and (max-height: $break-low-screen) {
-//    @content;
-//  }
-//}
-//@else if $media == high-density-screen {
-//  @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
-//    @content;
-//  }
-//}
+    //high-screen break
+  @else if $media == high-screen {
+    @media only screen and (min-height: $break-high-screen) {
+      @content;
+    }
+  }
+    //medium-height break
+  @else if $media == medium-height-screen {
+    @media only screen and (min-height: $break-low-screen + 1) and (max-height: $break-high-screen - 1) {
+      @content;
+    }
+  }
+    //low-height break
+  @else if $media == low-screen {
+    @media only screen and (max-height: $break-low-screen) {
+      @content;
+    }
+  }
+  //  @else if $media == high-density-screen {
+  //    @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+  //      @content;
+  //    }
+  //  }
 
 }
 

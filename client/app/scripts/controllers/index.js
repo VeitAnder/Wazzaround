@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedactivities) {
+  .controller('indexCtrl', function ($scope, resolvedactivities, $window) {
     $scope.activities = resolvedactivities;
 
     debug("resolvedactivities", resolvedactivities);
+    $scope.windowheight = ($window.innerHeight - 100) + "px";
 
     $scope.states = {
       sports: {

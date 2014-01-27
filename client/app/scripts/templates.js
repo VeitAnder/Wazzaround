@@ -2996,8 +2996,9 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "\n" +
     "</div>\n" +
     "\n" +
-    "<div class=\"map-wrap\"\n" +
-    "     windowheight\n" +
+    "<div\n" +
+    "    class=\"map-wrap\"\n" +
+    "    windowheight\n" +
     "    >\n" +
     "  <google-map\n" +
     "      center='map.center'\n" +
@@ -3057,7 +3058,11 @@ angular.module("legalnotes.html", []).run(["$templateCache", function($templateC
 
 angular.module("logo.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("logo.html",
-    "<a href=\"/#/\" id=\"logo\">\n" +
+    "<a href=\"/#/\"\n" +
+    "   id=\"logo\"\n" +
+    "   data-ng-controller=\"LogoCtrl\"\n" +
+    "   data-ng-click=\"goToHome()\"\n" +
+    "    >\n" +
     "  <span>reActure – Find your activity</span>\n" +
     "</a>");
 }]);
