@@ -222,13 +222,18 @@
         icon='getMarkerIcon(m)'
         >
       <window show="m.showWindow" closeClick="m.closeClick()">
-        <h2>{{m.name}}</h2>
+        <div
+            class="window-category-{{m.category}}"
+            >
+          <h2>{{m.name}}</h2>
 
-        <p>This is an info window at {{ m.latitude | number:4 }}, {{ m.longitude | number:4 }}!</p>
+          <p>This is an info window at {{ m.latitude | number:4 }}, {{ m.longitude | number:4 }}!</p>
 
-        <p class="muted">My marker will stay open when the window is popped up!</p>
+          <p class="muted">My marker will stay open when the window is popped up!</p>
+
+        </div>
       </window>
-      <marker-label content="m.name" anchor="22 0" class="marker-labels"/>
+      <marker-label content="m.name" anchor="22 0" class="marker-labels marker-label-category-{{m.category}}"/>
     </marker>
 
   </google-map>
