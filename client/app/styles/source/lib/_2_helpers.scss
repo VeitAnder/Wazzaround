@@ -22,11 +22,18 @@
 
 // lib.debug
 @mixin debug {
-  .debug {
-    border: 2px solid #00ff00;
-    color: #00ff00;
-    background-color: black;
-    font-family: Courier, sans-serif;
+  .map-debug {
+
+    display: none;
+
+    position: absolute;
+    z-index: 10000;
+    top: 50px;
+    right: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #CCC;
+    padding: 15px;
+
   }
 }
 

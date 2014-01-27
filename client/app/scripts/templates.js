@@ -3023,7 +3023,7 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "\n" +
     "</div>\n" +
     "\n" +
-    "<div style=\"position: absolute; z-index: 10000; top: 50px; right: 50px; background-color: rgba(0, 0, 0, 0.5); color:#CCC; padding: 15px;\">\n" +
+    "<div class=\"map-debug\">\n" +
     "  <strong>Map-Debug:</strong> <br/>\n" +
     "  <u>Map ZOOM:</u> {{ map.zoom }}<br/>\n" +
     "  <u>You clicked here:</u><br/>\n" +
