@@ -27,7 +27,8 @@
     "node-logentries": "~0.1.2",
     "aws-sdk": "~2.0.0-rc8",
     "ua-parser-js": "~0.6.2",
-    "js-beautify": "~1.4.2"
+    "js-beautify": "~1.4.2",
+    "modelizer": "0.0.6"
   },
   "devDependencies": {
     "underscore": "1.5.x",

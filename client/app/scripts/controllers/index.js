@@ -2,6 +2,10 @@
 
 angular.module('anorakApp')
   .controller('indexCtrl', function ($scope, resolvedactivities, $window) {
+
+    // TODO: usage Beispiel
+
+
     $scope.activities = resolvedactivities;
 
     debug("resolvedactivities", resolvedactivities);
