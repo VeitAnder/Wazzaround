@@ -23,7 +23,7 @@
   })());
 
 angular.module('anorakApp', ['ngRoute', 'google-maps', 'login', 'ui.keypress', 'registration', 'momentjs', 'projectowner',
-  'mongolabResource', 'resources.users', 'resources.activities', 'resources.projects', 'resources.plans',
+//  'mongolabResource', 'resources.users', 'resources.activities', 'resources.projects', 'resources.plans',
   'services.authentication',
   'services.i18nNotifications',
   'services.httpRequestTracker',
@@ -55,13 +55,13 @@ angular.module('anorakApp')
     $routeProvider
       .when('/', {
         templateUrl: 'views/index.html',
-        controller: 'indexCtrl',
+        controller: 'indexCtrl'/*,
         resolve: {
           resolvedactivities: ['Activities',
             function (Activities) {
               return Activities.all();
             }]
-        }
+        } */
       })
       .when('/legalnotes', {
         templateUrl: 'views/legalnotes.html',
@@ -109,6 +109,10 @@ angular.module('anorakApp')
 
     debug("application run called");
     $rootScope.debug = debug;
+
+    var connector = Model.AngularConnector("http://localhost:3000/");
+    UserModel.connection(connector);
+    ActivityModel.connection(connector);
 
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
 

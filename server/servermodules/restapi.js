@@ -1,16 +1,6 @@
 var config = require('../config.js');
 var logger = require('../lib/logger.js');
 
-var projects = require('../routes/projects');
-var plans = require('../routes/plans');
-var users = require('../routes/users');
-var activities = require('../routes/activities');
-var userregistrations = require('../routes/userregistrations');
-var mail = require('../routes/mail');
-var s3fineuploader = require('../routes/s3fineuploader');
-
-var security = require('../lib/security');
-
 var manifest = function (app) {
   app.get("/static/manifest.appcache", function (req, res) {
     logger.info("send /static/manifest.appcache");

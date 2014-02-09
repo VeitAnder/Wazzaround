@@ -3,11 +3,13 @@
 
 // using the the Modelizer library
 var model = require('modelizer');
+//var model = require('../../../../modelizer/lib/modelizer.js');
+
 var Attr = model.Attr;
 var Type = model.Attr.Types;
 var Ref = model.Ref;
-var RefArray = model.RefArray;
 var Operation = model.Operation;
+
 
 
 var UserModel = new model("User", {
@@ -25,9 +27,9 @@ var UserModel = new model("User", {
     }
   },
 
-  login : Operation,
-  logout : Operation,
-  register : Operation
+  login : Operation(),
+  logout : Operation(),
+  register : Operation()
 });
 
 
@@ -52,23 +54,10 @@ var ActivityModel = new model("Activity", {
     end : Attr(Type.string)
   },
 
-  owner : Ref(ActivityModel)
+  owner : Ref(UserModel)
 
 });
 
-
-
-
-var ProjectModel = new model("Project", {
-  title : Attr(Type.string),
-
-  participants : [{
-    user : Ref(UserModel),
-    roles : Attr(Type.array),
-    permission : Attr(Type.string, Type.enum('owner', 'participant'))
-  }]
-
-});
 
 
 
@@ -77,6 +66,6 @@ if (typeof window === 'undefined') {
 
   module.exports = {
     UserModel : UserModel,
-    ProjectModel : ProjectModel
+    ActivityModel : ActivityModel
   };
 }

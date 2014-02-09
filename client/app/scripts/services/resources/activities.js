@@ -1,3 +1,4 @@
+/*
 angular.module('resources.activities', ['mongolabResource'])
   .factory('Activities', function (mongolabResource, $http) {
     "use strict";
@@ -47,3 +48,4 @@ angular.module('resources.activities', ['mongolabResource'])
 
     return Activities;
   });
+*/

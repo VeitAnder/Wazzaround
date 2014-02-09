@@ -1,11 +1,26 @@
+/*
+ [07.02.14 16:22:57] Maximilian Schmid: reactureapp
+ [07.02.14 16:23:01] Maximilian Schmid: 7kdtaTPV9ooAnA
+
+ [07.02.14 16:23:15] Maximilian Schmid: gmail: reactureapp@gmail.com
+ [07.02.14 16:23:20] Maximilian Schmid: HpsQni3UJkEEd2
+
+ [07.02.14 16:23:37] Maximilian Schmid: modulus:
+ [07.02.14 16:23:38] Maximilian Schmid: reactureapp
+ sYpZo2TzWn4HAK
+
+ */
+
+
 var config = {
   host: "http://localhost:3000/",
   clienthost: "http://localhost:9000/",
   mongo: {
-    username: 'reactureappdev',
-    password: 'pGjRLG72qvXBGo',
-    dbName: 'reactureappdev',                                // The name of database that contains the security information
-    host: 'ds027419.mongolab.com:27419'                         // mongolab mongodb connection url
+    //username: 'reactureappdev',
+    //password: 'pGjRLG72qvXBGo',
+    //dbName: 'reactureappdev',                                // The name of database that contains the security information
+    //host: 'ds027419.mongolab.com:27419',                         // mongolab mongodb connection url
+    url : 'mongodb://127.0.0.1/reacturelocal'
   },
   security: {
     usersCollection: 'users',                                   // The name of the collection contains user information
@@ -23,7 +38,7 @@ var config = {
     listenPort: 3000,                                           // The port on which the server is to listen (means that the app is at http://localhost:3000 for instance)
     securePort: 8433,                                           // The HTTPS port on which the server is to listen (means that the app is at https://localhost:8433 for instance)
     distFolder: '../client/app/',                               // The folder that contains the application files (note that the files are in a different repository) - relative to this file
-    cookieSecret: 'scMafaus3dfs4po03CrDAFd7fd45'                // The secret for encrypting the cookie
+    cookieSecret: 'QKTNrFTZzX4i3iKXoBjQuRdmZLoD'                // The secret for encrypting the cookie
   },
   postmark: {
     apikey: "",              // postmark api key
