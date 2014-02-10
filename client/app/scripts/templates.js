@@ -3156,6 +3156,7 @@ angular.module("map/mapsearchbar.html", []).run(["$templateCache", function($tem
   $templateCache.put("map/mapsearchbar.html",
     "<div data-ng-controller=\"MapsearchbarCtrl\">\n" +
     "\n" +
+    "\n" +
     "  <div class=\"input-group input-group-lg\">\n" +
     "    <input type=\"text\" class=\"form-control\">\n" +
     "    <span class=\"input-group-btn\">\n" +
@@ -3163,8 +3164,25 @@ angular.module("map/mapsearchbar.html", []).run(["$templateCache", function($tem
     "    </span>\n" +
     "  </div>\n" +
     "\n" +
-    "  <p>This is the mapsearchbar view.</p>\n" +
-    "  {{test}}\n" +
+    "  from\n" +
+    "  <input type=\"text\"\n" +
+    "         class=\"form-control\"\n" +
+    "         ng-model=\"fromDate\"\n" +
+    "         data-max-date=\"{{untilDate}}\"\n" +
+    "         placeholder=\"From\"\n" +
+    "         bs-datepicker\n" +
+    "         autoclose=\"true\"\n" +
+    "      >\n" +
+    "  till\n" +
+    "  <input type=\"text\"\n" +
+    "         class=\"form-control\"\n" +
+    "         ng-model=\"untilDate\"\n" +
+    "         data-min-date=\"{{fromDate}}\"\n" +
+    "         placeholder=\"Until\"\n" +
+    "         bs-datepicker\n" +
+    "         autoclose=\"true\"\n" +
+    "      >\n" +
+    "\n" +
     "</div>\n" +
     "\n" +
     "");

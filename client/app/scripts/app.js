@@ -22,7 +22,15 @@
     }
   })());
 
-angular.module('anorakApp', ['ngRoute', 'google-maps', 'login', 'ui.keypress', 'registration', 'momentjs', 'projectowner',
+angular.module('anorakApp', ['ngRoute',
+  'google-maps',
+  'mgcrea.ngStrap.datepicker',
+  'login',
+  'ui.keypress',
+  'registration',
+  'momentjs',
+  'projectowner',
+
 //  'mongolabResource', 'resources.users', 'resources.activities', 'resources.projects', 'resources.plans',
   'services.authentication',
   'services.i18nNotifications',
@@ -55,13 +63,13 @@ angular.module('anorakApp')
     $routeProvider
       .when('/', {
         templateUrl: 'views/index.html',
-        controller: 'indexCtrl'/*,
+        controller: 'indexCtrl',
         resolve: {
-          resolvedactivities: ['Activities',
-            function (Activities) {
-              return Activities.all();
-            }]
-        } */
+          resolvedActivities: function () {
+              // todo: use service for Modelizer
+              return ActivityModel.use.all();
+            }
+        }
       })
       .when('/legalnotes', {
         templateUrl: 'views/legalnotes.html',
