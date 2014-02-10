@@ -3,13 +3,12 @@ angular.module('services.authentication.current-user', [])
   .factory('currentUser', function ($rootScope) {
     "use strict";
 
-    var userObject = null;
     var currentUser = {
       load : function() {
         return UserModel.use.all()
           .then(function(users) {
             if (users.length > 0) {
-              userObject = users[0];
+              currentUser.user = users[0];
               currentUser.authenticated = true;
               $rootScope.$apply();
               return currentUser;
@@ -21,9 +20,7 @@ angular.module('services.authentication.current-user', [])
           });
       },
 
-      user : function() {
-        return userObject;
-      },
+      user : null,
 
       login : function(username, password) {
         return UserModel.login({username:username, password:password})
@@ -45,7 +42,7 @@ angular.module('services.authentication.current-user', [])
       logout : function() {
         return UserModel.logout()
           .then(function(res) {
-            userObject = null;
+            currentUser.user = null;
             currentUser.authenticated = false;
             $rootScope.$apply();
           })
