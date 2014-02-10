@@ -57,26 +57,26 @@
 
           <div data-ng-if="$index % 2 === 0">
 
-          <div
-              class="filter-category-sub div-cell"
-              data-ng-if="sportsCategories[$index+0]"
-              ng-class="{selected: sportsCategories[$index+0].selected === true}"
-              ng-click="toggleItemSelection(sportsCategories[$index+0])"
-              >
-            <span class="checkbox inline"></span>
-            {{sportsCategories[$index+0].name}}
-          </div>
+            <div
+                class="filter-category-sub div-cell"
+                data-ng-if="sportsCategories[$index+0]"
+                ng-class="{selected: sportsCategories[$index+0].selected === true}"
+                ng-click="toggleItemSelection(sportsCategories[$index+0])"
+                >
+              <span class="checkbox inline"></span>
+              {{sportsCategories[$index+0].name}}
+            </div>
 
-          <div
-              class="filter-category-sub div-cell"
-              data-ng-if="sportsCategories[$index+1]"
-              ng-class="{selected: sportsCategories[$index+1].selected === true}"
-              ng-click="toggleItemSelection(sportsCategories[$index+1])"
-              >
-            <span class="checkbox inline"></span>
-            {{sportsCategories[$index+1].name}}
+            <div
+                class="filter-category-sub div-cell"
+                data-ng-if="sportsCategories[$index+1]"
+                ng-class="{selected: sportsCategories[$index+1].selected === true}"
+                ng-click="toggleItemSelection(sportsCategories[$index+1])"
+                >
+              <span class="checkbox inline"></span>
+              {{sportsCategories[$index+1].name}}
+            </div>
           </div>
-         </div>
 
         </div>
 
@@ -250,7 +250,7 @@
 
 </div>
 
-<div data-ng-include="'login/login_page.tpl.html'"></div>
+<div data-ng-include="'login/login.html'"></div>
 
 <div
     class="map-wrap"
