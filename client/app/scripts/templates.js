@@ -619,7 +619,7 @@ angular.module("login/login_page.tpl.html", []).run(["$templateCache", function(
     "      <form class=\"loginform\" name=\"loginform\" novalidate autocomplete=\"on\"\n" +
     "            action=\"{{actionurl}}\" method=\"post\" target=\"_self\">\n" +
     "\n" +
-    "        <h1>Login - {{actionurl}}</h1>\n" +
+    "        <h1>Login</h1>\n" +
     "\n" +
     "        <!--<div ng-show=\"state.confirmed\">\n" +
     "          <p class=\"alert alert-success\">Ihr Benutzerkonto wurde erfolgreich aktiviert.</p>\n" +
