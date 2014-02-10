@@ -1064,8 +1064,8 @@ angular.module("map/mapsearchbar.html", []).run(["$templateCache", function($tem
     "  from\n" +
     "  <input type=\"text\"\n" +
     "         class=\"form-control\"\n" +
-    "         ng-model=\"fromDate\"\n" +
-    "         data-max-date=\"{{untilDate}}\"\n" +
+    "         ng-model=\"search.fromDate\"\n" +
+    "         data-min-date=\"{{search.minDate}}\"\n" +
     "         placeholder=\"From\"\n" +
     "         bs-datepicker\n" +
     "         autoclose=\"false\"\n" +
@@ -1073,8 +1073,8 @@ angular.module("map/mapsearchbar.html", []).run(["$templateCache", function($tem
     "  till\n" +
     "  <input type=\"text\"\n" +
     "         class=\"form-control\"\n" +
-    "         ng-model=\"untilDate\"\n" +
-    "         data-min-date=\"{{fromDate}}\"\n" +
+    "         ng-model=\"search.untilDate\"\n" +
+    "         data-min-date=\"{{search.fromDate}}\"\n" +
     "         placeholder=\"Until\"\n" +
     "         bs-datepicker\n" +
     "         autoclose=\"false\"\n" +
