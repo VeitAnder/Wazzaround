@@ -3028,6 +3028,27 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "  </div>\n" +
     "</div>\n" +
     "\n" +
+    "\n" +
+    "<label>from</label>\n" +
+    "<input type=\"text\"\n" +
+    "       class=\"form-control\"\n" +
+    "       ng-model=\"fromDate\"\n" +
+    "       data-max-date=\"{{untilDate}}\"\n" +
+    "       placeholder=\"From\"\n" +
+    "       bs-datepicker\n" +
+    "       autoclose=\"true\"\n" +
+    "    >\n" +
+    "<label>till</label>\n" +
+    "<input type=\"text\"\n" +
+    "       class=\"form-control\"\n" +
+    "       ng-model=\"untilDate\"\n" +
+    "       data-min-date=\"{{fromDate}}\"\n" +
+    "       placeholder=\"Until\"\n" +
+    "       bs-datepicker\n" +
+    "       autoclose=\"true\"\n" +
+    "    >\n" +
+    "\n" +
+    "\n" +
     "</div>\n" +
     "\n" +
     "<div class=\"map-debug\">\n" +
@@ -3156,32 +3177,12 @@ angular.module("map/mapsearchbar.html", []).run(["$templateCache", function($tem
   $templateCache.put("map/mapsearchbar.html",
     "<div data-ng-controller=\"MapsearchbarCtrl\">\n" +
     "\n" +
-    "\n" +
     "  <div class=\"input-group input-group-lg\">\n" +
-    "    <input type=\"text\" class=\"form-control\">\n" +
+    "    <input type=\"text\" class=\"form-control\" placeholder=\"Enter your location …\">\n" +
     "    <span class=\"input-group-btn\">\n" +
-    "      <button class=\"btn\" type=\"button\">Go!</button>\n" +
+    "      <button class=\"btn\" type=\"button\">Find</button>\n" +
     "    </span>\n" +
     "  </div>\n" +
-    "\n" +
-    "  from\n" +
-    "  <input type=\"text\"\n" +
-    "         class=\"form-control\"\n" +
-    "         ng-model=\"fromDate\"\n" +
-    "         data-max-date=\"{{untilDate}}\"\n" +
-    "         placeholder=\"From\"\n" +
-    "         bs-datepicker\n" +
-    "         autoclose=\"true\"\n" +
-    "      >\n" +
-    "  till\n" +
-    "  <input type=\"text\"\n" +
-    "         class=\"form-control\"\n" +
-    "         ng-model=\"untilDate\"\n" +
-    "         data-min-date=\"{{fromDate}}\"\n" +
-    "         placeholder=\"Until\"\n" +
-    "         bs-datepicker\n" +
-    "         autoclose=\"true\"\n" +
-    "      >\n" +
     "\n" +
     "</div>\n" +
     "\n" +

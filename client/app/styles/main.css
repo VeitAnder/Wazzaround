@@ -1473,13 +1473,13 @@ input, textarea {
   outline: thin dotted \9;
   /* IE6-9 */ }
   input.placeholder, textarea.placeholder {
-    color: #d9d9d9; }
+    color: #b3b3b3; }
   input:-moz-placeholder, textarea:-moz-placeholder {
-    color: #d9d9d9; }
+    color: #b3b3b3; }
   input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-    color: #d9d9d9; }
+    color: #b3b3b3; }
   input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-    color: #d9d9d9; }
+    color: #b3b3b3; }
   input:hover, textarea:hover {
     border-color: #c0c0c0; }
   input:focus, textarea:focus {
