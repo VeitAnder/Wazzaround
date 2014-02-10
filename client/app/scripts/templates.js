@@ -610,6 +610,8 @@ angular.module("login/accessdenied.tpl.html", []).run(["$templateCache", functio
 
 angular.module("login/login_page.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("login/login_page.tpl.html",
+    "SHOW {{!isAuthenticated}}\n" +
+    "\n" +
     "<div class=\"page\" ng-show=\"!isAuthenticated\">\n" +
     "  <div class=\"authpage\">\n" +
     "    <div class=\"innerwrap\">\n" +
@@ -617,9 +619,9 @@ angular.module("login/login_page.tpl.html", []).run(["$templateCache", function(
     "      <form class=\"loginform\" name=\"loginform\" novalidate autocomplete=\"on\"\n" +
     "            action=\"{{actionurl}}\" method=\"post\" target=\"_self\">\n" +
     "\n" +
-    "        <h1>Login</h1>\n" +
+    "        <h1>Login - {{actionurl}}</h1>\n" +
     "\n" +
-    "        <div ng-show=\"state.confirmed\">\n" +
+    "        <!--<div ng-show=\"state.confirmed\">\n" +
     "          <p class=\"alert alert-success\">Ihr Benutzerkonto wurde erfolgreich aktiviert.</p>\n" +
     "        </div>\n" +
     "\n" +
@@ -644,7 +646,7 @@ angular.module("login/login_page.tpl.html", []).run(["$templateCache", function(
     "            Bitte loggen Sie sich ein.<br>\n" +
     "            ( Entweder ist Ihre Session abgelaufen, oder Sie waren noch nicht angemeldet. )\n" +
     "          </div>\n" +
-    "        </div>\n" +
+    "        </div>  -->\n" +
     "\n" +
     "        <p>\n" +
     "          <label>E-Mail</label>\n" +
@@ -653,20 +655,20 @@ angular.module("login/login_page.tpl.html", []).run(["$templateCache", function(
     "        <p>\n" +
     "          <label>Passwort</label>\n" +
     "          <input name=\"password\" id=\"password\" type=\"password\" ng-model=\"user.password\" required class=\"input-block-level\">\n" +
-    "          <a class=\"forgottenpasswordlink\" ng-click=\"forgotPassword()\">Passwort vergessen?</a>\n" +
+    "        <!--  <a class=\"forgottenpasswordlink\" ng-click=\"forgotPassword()\">Passwort vergessen?</a>-->\n" +
     "        </p>\n" +
     "\n" +
     "        <button type=\"submit\">Anmelden</button>\n" +
     "\n" +
     "      </form>\n" +
     "\n" +
-    "      <div class=\"buttonbar\">\n" +
+    "    <!--  <div class=\"buttonbar\">\n" +
     "        <a ng-click=\"register()\">Jetzt kostenlos registrieren</a>\n" +
-    "      </div>\n" +
+    "      </div>      -->\n" +
     "\n" +
     "    </div>\n" +
     "  </div>\n" +
-    "  <div class=\"communication-element\" ng-include=\"'communication.tpl.html'\"></div>\n" +
+    " <!-- <div class=\"communication-element\" ng-include=\"'communication.tpl.html'\"></div> -->\n" +
     "\n" +
     "</div>");
 }]);
@@ -3032,6 +3034,8 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "</div>\n" +
     "\n" +
     "</div>\n" +
+    "\n" +
+    "<div data-ng-include=\"'login/login_page.tpl.html'\"></div>\n" +
     "\n" +
     "<div\n" +
     "    class=\"map-wrap\"\n" +

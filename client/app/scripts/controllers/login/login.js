@@ -43,12 +43,12 @@ angular.module('login', ['services.authentication', 'services.localizedMessages'
       $scope.state.alreadyconfirmed = true;
     }
 
-    $scope.register = function () {
+   /* $scope.register = function () {
       $location.path('/registration');
-    };
+    };*/
 
-    $scope.forgotPassword = function () {
+   /* $scope.forgotPassword = function () {
       $location.path('/registration/forgotpassword/');
-    };
+    };  */
 
   });

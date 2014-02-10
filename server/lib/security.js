@@ -1,4 +1,4 @@
-var passport = require('passport');
+/*var passport = require('passport');
 var nodetime = require('nodetime');
 
 var MongoStrategy = require('./mongo-strategy');
@@ -7,7 +7,7 @@ var BasicStrategy = require('./basic-strategy');
 var usermanager = require('../lib/usermanager.js');
 var tokenmanager = require('../lib/tokenmanager.js');
 var config = require('../config.js');
-var mail = require('../routes/mail.js');
+var mail = require('../routes/mail.js'); */
 var logger = require('./logger.js');
 
 var filterUser = function (user) {
@@ -16,8 +16,8 @@ var filterUser = function (user) {
       user: {
         id: user._id,
         email: user.email,
-        profile: user.profile,
-        payment: user.payment
+        profile: user.profile
+        //payment: user.payment
       }
     };
   } else {
@@ -27,7 +27,7 @@ var filterUser = function (user) {
 
 var security = {
   // Postmark Bounce API will post to here with basic authentication
-  basic: function (req, res) {
+  /*basic: function (req, res) {
     // decode base 64 data
     var credentials = req.headers.authorization.substring(req.headers.authorization.indexOf("Basic ") + "Basic ".length, req.headers.authorization.length);
     var buf = new Buffer(credentials, 'base64');
@@ -51,7 +51,7 @@ var security = {
   },
   initialize: function () {
     passport.use(new MongoStrategy());
-  },
+  },*/
   passwordAuthenticationRequired: function (req, res, next) {
     var redirectParam = req.query && req.query.redirect ? "&redirect=" + req.query.redirect : "";
     if (req.query.username && req.query.password) {
@@ -69,7 +69,7 @@ var security = {
       }
     }
   },
-  accesstokenAuthenticationRequired: function (req, res, next) {
+  /*accesstokenAuthenticationRequired: function (req, res, next) {
     var token = req.query.accesstoken;
     var tokenresourceid = req.query.tokenresourceid;
     tokenmanager.isTokenAllowedToAccessResource(token, tokenresourceid).then(function (accesstoken) {
@@ -81,26 +81,28 @@ var security = {
       logger.error("Accesstoken auth failed for token " + token + " and resource id " + tokenresourceid);
       res.send(401, err);
     });
-  },
+  },*/
   sendCurrentUser: function (req, res, next) {
     res.json(200, filterUser(req.user));
   },
   login: function (req, res, next) {
     var redirectParam,
       clientHost;
-
     clientHost = req.headers.origin;
 
-    logger.log("Login", req.body.username);
-    // Monitoring the number of logins
-    nodetime.metric("Login", "Number of Logins", 1, 'times', 'sum');
+    console.log("REQ BODY", req.body);
+    console.log("REQ QUERy", req.query);
 
-    redirectParam = req.query && req.query.redirect ? "&redirect=" + req.query.redirect : "";
+    // logger.log("Login", req.body.username);
+    //logger.log("Login", req.query.username);
+
+    // Monitoring the number of logins
+    //nodetime.metric("Login", "Number of Logins", 1, 'times', 'sum');
 
     // form autofill works only on username, not on email as form field name
-    req.body.email = req.body.username;
+    //req.body.email = req.query.username;
 
-    function authenticationFailed(err, user, info) {
+    /*function authenticationFailed(err, user, info) {
       if (err) {
         logger.error("Error in authentication", err);
         return next(err);
@@ -129,7 +131,9 @@ var security = {
       });
     }
 
-    return passport.authenticate(MongoStrategy.name, authenticationFailed)(req, res, next);
+    return passport.authenticate(MongoStrategy.name, authenticationFailed)(req, res, next); */
+    res.send(200);
+    // RETURN CURRENT USER res.json(200, filterUser(req.user));
   },
 
   logout: function (req, res, next) {

@@ -1,3 +1,5 @@
+SHOW {{!isAuthenticated}}
+
 <div class="page" ng-show="!isAuthenticated">
   <div class="authpage">
     <div class="innerwrap">
@@ -5,9 +7,9 @@
       <form class="loginform" name="loginform" novalidate autocomplete="on"
             action="{{actionurl}}" method="post" target="_self">
 
-        <h1>Login</h1>
+        <h1>Login - {{actionurl}}</h1>
 
-        <div ng-show="state.confirmed">
+        <!--<div ng-show="state.confirmed">
           <p class="alert alert-success">Ihr Benutzerkonto wurde erfolgreich aktiviert.</p>
         </div>
 
@@ -32,7 +34,7 @@
             Bitte loggen Sie sich ein.<br>
             ( Entweder ist Ihre Session abgelaufen, oder Sie waren noch nicht angemeldet. )
           </div>
-        </div>
+        </div>  -->
 
         <p>
           <label>E-Mail</label>
@@ -41,19 +43,19 @@
         <p>
           <label>Passwort</label>
           <input name="password" id="password" type="password" ng-model="user.password" required class="input-block-level">
-          <a class="forgottenpasswordlink" ng-click="forgotPassword()">Passwort vergessen?</a>
+        <!--  <a class="forgottenpasswordlink" ng-click="forgotPassword()">Passwort vergessen?</a>-->
         </p>
 
         <button type="submit">Anmelden</button>
 
       </form>
 
-      <div class="buttonbar">
+    <!--  <div class="buttonbar">
         <a ng-click="register()">Jetzt kostenlos registrieren</a>
-      </div>
+      </div>      -->
 
     </div>
   </div>
-  <div class="communication-element" ng-include="'communication.tpl.html'"></div>
+ <!-- <div class="communication-element" ng-include="'communication.tpl.html'"></div> -->
 
 </div>
