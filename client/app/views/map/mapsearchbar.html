@@ -1,11 +1,32 @@
 <div data-ng-controller="MapsearchbarCtrl">
 
   <div class="input-group input-group-lg">
-    <input type="text" class="form-control" placeholder="Enter your location …">
+    <input type="text"
+           class="form-control">
     <span class="input-group-btn">
-      <button class="btn" type="button">Find</button>
+      <button class="btn"
+              type="button">Go!
+      </button>
     </span>
   </div>
 
-</div>
+  <label>from</label>
+  <input type="text"
+         class="form-control"
+         ng-model="search.fromDate"
+         data-min-date="{{search.minDate}}"
+         placeholder="From"
+         bs-datepicker
+         autoclose="false"
+      >
+  <label>until</label>
+  <input type="text"
+         class="form-control"
+         ng-model="search.untilDate"
+         data-min-date="{{search.fromDate}}"
+         placeholder="Until"
+         bs-datepicker
+         autoclose="false"
+      >
 
+</div>

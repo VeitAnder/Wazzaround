@@ -2,6 +2,9 @@
 
 angular.module('anorakApp')
   .controller('MapsearchbarCtrl', function ($scope) {
-    $scope.test = "hellosearchbar";
+
+    $scope.search = {
+      minDate: new Date()
+    };
 
   });
