@@ -22,22 +22,19 @@
     }
   })());
 
-angular.module('anorakApp', ['ngRoute',
+angular.module('anorakApp', [
+  'ngRoute',
   'google-maps',
   'mgcrea.ngStrap.datepicker',
   'login',
   'ui.keypress',
   'registration',
   'momentjs',
-  'projectowner',
-
-//  'mongolabResource', 'resources.users', 'resources.activities', 'resources.projects', 'resources.plans',
   'services.authentication',
   'services.i18nNotifications',
   'services.httpRequestTracker',
-  'services.filenameValidation',
-  'directives.s3uploadform', 'directives.customvalidation', 'directives.fullname', 'directives.spinner', 'directives.downloadlink',
-  'templates.app', 'resources.userregistrations', 'forgotpassword', 'services.supportbar', 'directives.roleselector', 'services.s3uploadservice', 'services.fileuploadcheck', 'filename']);
+  'templates.app'
+]);
 
 angular.module('anorakApp').constant('I18NMESSAGES', {
   'errors.route.changeError': 'Route change error',
@@ -66,9 +63,9 @@ angular.module('anorakApp')
         controller: 'indexCtrl',
         resolve: {
           resolvedActivities: function () {
-              // todo: use service for Modelizer
-              return ActivityModel.use.all();
-            }
+            // todo: use service for Modelizer
+            return ActivityModel.use.all();
+          }
         }
       })
       .when('/legalnotes', {
