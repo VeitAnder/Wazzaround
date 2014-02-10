@@ -2,6 +2,6 @@
 
 angular.module('anorakApp')
   .controller('MapsearchbarCtrl', function ($scope) {
-      $scope.test = "hellosearchbar";
+    $scope.test = "hellosearchbar";
 
   });

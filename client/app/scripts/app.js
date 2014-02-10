@@ -22,7 +22,15 @@
     }
   })());
 
-angular.module('anorakApp', ['ngRoute', 'google-maps', 'login', 'ui.keypress', 'registration', 'momentjs', 'projectowner',
+angular.module('anorakApp', ['ngRoute',
+  'google-maps',
+  'mgcrea.ngStrap.datepicker',
+  'login',
+  'ui.keypress',
+  'registration',
+  'momentjs',
+  'projectowner',
+
 //  'mongolabResource', 'resources.users', 'resources.activities', 'resources.projects', 'resources.plans',
   'services.authentication',
   'services.i18nNotifications',
