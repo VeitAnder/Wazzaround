@@ -59,6 +59,14 @@ var ActivityModel = new model("Activity", {
 });
 
 
+if (typeof window !== 'undefined') {
+  // we run in a browser environment
+
+  // http://stackoverflow.com/questions/17544965/unhandled-rejection-reasons-should-be-empty
+  Q.stopUnhandledRejectionTracking();  // why does this happen?
+}
+
+
 if (typeof window === 'undefined') {
   // we don't run in a browser environment
 

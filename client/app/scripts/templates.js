@@ -976,12 +976,12 @@ angular.module("legalnotes.html", []).run(["$templateCache", function($templateC
 angular.module("login/login.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("login/login.html",
     "<!--<div class=\"page\" ng-show=\"!isAuthenticated\">-->\n" +
-    "<div class=\"page\" ng-show=\"!isAuthenticated\">\n" +
+    "<div class=\"page\" ng-controller=\"LoginPageCtrl\"  ng-show=\"!currentUser.authenticated\">\n" +
     "  <div class=\"authpage\">\n" +
     "    <div class=\"innerwrap\">\n" +
     "\n" +
     "      <form class=\"loginform\" name=\"loginform\" novalidate autocomplete=\"on\"\n" +
-    "            action=\"{{actionurl}}\" method=\"post\" target=\"_self\">\n" +
+    "            action=\"\" method=\"post\" target=\"_self\">\n" +
     "\n" +
     "        <h1>Login</h1>\n" +
     "\n" +
@@ -1014,15 +1014,18 @@ angular.module("login/login.html", []).run(["$templateCache", function($template
     "\n" +
     "        <p>\n" +
     "          <label>E-Mail</label>\n" +
-    "          <input name=\"username\" type=\"email\" ng-model=\"user.email\" required autofocus class=\"input-block-level\">\n" +
+    "          <input name=\"username\" ng-model=\"form.username\" class=\"input-block-level\" required autofocus>\n" +
     "        </p>\n" +
     "        <p>\n" +
     "          <label>Passwort</label>\n" +
-    "          <input name=\"password\" id=\"password\" type=\"password\" ng-model=\"user.password\" required class=\"input-block-level\">\n" +
-    "        <!--  <a class=\"forgottenpasswordlink\" ng-click=\"forgotPassword()\">Passwort vergessen?</a>-->\n" +
+    "          <input name=\"password\" id=\"password\" type=\"password\" ng-model=\"form.password\" required class=\"input-block-level\">\n" +
     "        </p>\n" +
     "\n" +
-    "        <button type=\"submit\">Anmelden</button>\n" +
+    "        <div ng-show=\"state.error\">\n" +
+    "          <div class=\"alert alert-error\">{{state.message}}</div>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <button type=\"submit\" ng-click=\"login()\">Anmelden</button>\n" +
     "\n" +
     "      </form>\n" +
     "\n" +

@@ -1,6 +1,6 @@
 // The current user.  You can watch this for changes due to logging in and out
 angular.module('services.authentication.current-user', [])
-  .factory('currentUser', function () {
+  .factory('currentUser', function ($rootScope) {
     "use strict";
 
     var userObject = null;
@@ -11,6 +11,7 @@ angular.module('services.authentication.current-user', [])
             if (users.length > 0) {
               userObject = users[0];
               currentUser.authenticated = true;
+              $rootScope.$apply();
               return currentUser;
             }
           })
@@ -46,6 +47,7 @@ angular.module('services.authentication.current-user', [])
           .then(function(res) {
             userObject = null;
             currentUser.authenticated = false;
+            $rootScope.$apply();
           })
       },
 
