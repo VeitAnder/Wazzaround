@@ -29,11 +29,11 @@ models.UserModel.operationImpl("register", function(params, req) {
   // save the new user
   return Q()
     .then(function() {
-      return models.UserModel.use.find({username:params.username})  // find all existing users
+      return models.UserModel.use.find({username:params.username});  // find all existing users
     })
     .then(function(users) {
       if (users.length > 0 ) throw new Error("User already exists");
-      return user.save()  // save the new user
+      return user.save();  // save the new user
     })
     .then(function() {  // if save was ok
       return {status:"ok"};
@@ -63,7 +63,7 @@ models.UserModel.operationImpl("login", function(params, req) {
 
 
 // logout
-models.UserModel.operationImpl("login", function(params, req) {
+models.UserModel.operationImpl("logout", function(params, req) {
   delete req.session.auth;
   delete req.session.user;
 });
