@@ -6,13 +6,13 @@ var express = require('express');
 
 var config = require('./config.js');
 var logger = require('./lib/logger.js');
-var security = require('./lib/security');
+//var security = require('./lib/security');
 //var protectJSON = require('./lib/protectJSON');
 //var cacheControl = require('./lib/cacheControl');
 
 var app = express();
 
-var RestApi = require("./servermodules/restapi.js");
+//var RestApi = require("./servermodules/restapi.js");
 
 logger.info("Node environment: NODE_ENV=%s", process.env.NODE_ENV);
 
