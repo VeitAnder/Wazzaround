@@ -52,31 +52,31 @@
 
         <div
             class="div-row"
-            ng-repeat="activity in filteredactivitiessports = (activities | filter: onlySports)"
+            ng-repeat="category in sportsCategories"
             >
 
           <div data-ng-if="$index % 2 === 0">
-            <div
-                data-ng-if="filteredactivitiessports[$index+0]"
-                class="filter-category-sub div-cell"
-                ng-class="{selected: !filteredactivitiessports[$index+0].hidden}"
-                ng-click="toggleItemSelection(filteredactivitiessports[$index+0])"
-                >
-              <span class="checkbox inline"></span>
-              {{filteredactivitiessports[$index+0].name}}
-            </div>
 
-            <div
-                class="filter-category-sub div-cell"
-                data-ng-if="filteredactivitiessports[$index+1]"
-                ng-class="{selected: !filteredactivitiessports[$index+1].hidden}"
-                ng-click="toggleItemSelection(filteredactivitiessports[$index+1])"
-                >
-              <span class="checkbox inline"></span>
-              {{filteredactivitiessports[$index+1].name}}
-            </div>
-
+          <div
+              class="filter-category-sub div-cell"
+              data-ng-if="sportsCategories[$index+0]"
+              ng-class="{selected: sportsCategories[$index+0].selected === true}"
+              ng-click="toggleItemSelection(sportsCategories[$index+0])"
+              >
+            <span class="checkbox inline"></span>
+            {{sportsCategories[$index+0].name}}
           </div>
+
+          <div
+              class="filter-category-sub div-cell"
+              data-ng-if="sportsCategories[$index+1]"
+              ng-class="{selected: sportsCategories[$index+1].selected === true}"
+              ng-click="toggleItemSelection(sportsCategories[$index+1])"
+              >
+            <span class="checkbox inline"></span>
+            {{sportsCategories[$index+1].name}}
+          </div>
+         </div>
 
         </div>
 
@@ -122,28 +122,28 @@
     <div class="innerwrap">
       <div
           class="div-row"
-          ng-repeat="activity in filteredactivitiesculture = (activities | filter: onlyCulture)"
+          ng-repeat="category in cultureCategories"
           >
 
         <div data-ng-if="$index % 2 === 0">
           <div
-              data-ng-if="filteredactivitiesculture[$index+0]"
               class="filter-category-sub div-cell"
-              ng-class="{selected: !filteredactivitiesculture[$index+0].hidden}"
-              ng-click="toggleItemSelection(filteredactivitiesculture[$index+0])"
+              data-ng-if="cultureCategories[$index+0]"
+              ng-class="{selected: cultureCategories[$index+0].selected}"
+              ng-click="toggleItemSelection(cultureCategories[$index+0])"
               >
             <span class="checkbox inline"></span>
-            {{filteredactivitiesculture[$index+0].name}}
+            {{cultureCategories[$index+0].name}}
           </div>
 
           <div
               class="filter-category-sub div-cell"
-              data-ng-if="filteredactivitiesculture[$index+1]"
-              ng-class="{selected: !filteredactivitiesculture[$index+1].hidden}"
-              ng-click="toggleItemSelection(filteredactivitiesculture[$index+1])"
+              data-ng-if="cultureCategories[$index+1]"
+              ng-class="{selected: cultureCategories[$index+1].selected}"
+              ng-click="toggleItemSelection(cultureCategories[$index+1])"
               >
             <span class="checkbox inline"></span>
-            {{filteredactivitiesculture[$index+1].name}}
+            {{cultureCategories[$index+1].name}}
           </div>
 
         </div>
@@ -189,28 +189,28 @@
     <div class="innerwrap">
       <div
           class="div-row"
-          ng-repeat="activity in filteredactivitieswellness = (activities | filter: onlyWellness)"
+          ng-repeat="category in wellnessCategories"
           >
 
         <div data-ng-if="$index % 2 === 0">
           <div
-              data-ng-if="filteredactivitieswellness[$index+0]"
+              data-ng-if="wellnessCategories[$index+0]"
               class="filter-category-sub div-cell"
-              ng-class="{selected: !filteredactivitieswellness[$index+0].hidden}"
-              ng-click="toggleItemSelection(filteredactivitieswellness[$index+0])"
+              ng-class="{selected: wellnessCategories[$index+0].selected}"
+              ng-click="toggleItemSelection(wellnessCategories[$index+0])"
               >
             <span class="checkbox inline"></span>
-            {{filteredactivitieswellness[$index+0].name}}
+            {{wellnessCategories[$index+0].name}}
           </div>
 
           <div
               class="filter-category-sub div-cell"
-              data-ng-if="filteredactivitieswellness[$index+1]"
-              ng-class="{selected: !filteredactivitieswellness[$index+1].hidden}"
-              ng-click="toggleItemSelection(filteredactivitieswellness[$index+1])"
+              data-ng-if="wellnessCategories[$index+1]"
+              ng-class="{selected: wellnessCategories[$index+1].selected}"
+              ng-click="toggleItemSelection(wellnessCategories[$index+1])"
               >
             <span class="checkbox inline"></span>
-            {{filteredactivitieswellness[$index+1].name}}
+            {{wellnessCategories[$index+1].name}}
           </div>
 
         </div>
@@ -295,7 +295,7 @@
 
           <p>The season lasts from march to september.
             <br/>
-            You can book this venue right here!
+             You can book this venue right here!
           </p>
 
           <p class="align-right">

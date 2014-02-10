@@ -2847,31 +2847,31 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "\n" +
     "        <div\n" +
     "            class=\"div-row\"\n" +
-    "            ng-repeat=\"activity in filteredactivitiessports = (activities | filter: onlySports)\"\n" +
+    "            ng-repeat=\"category in sportsCategories\"\n" +
     "            >\n" +
     "\n" +
     "          <div data-ng-if=\"$index % 2 === 0\">\n" +
-    "            <div\n" +
-    "                data-ng-if=\"filteredactivitiessports[$index+0]\"\n" +
-    "                class=\"filter-category-sub div-cell\"\n" +
-    "                ng-class=\"{selected: !filteredactivitiessports[$index+0].hidden}\"\n" +
-    "                ng-click=\"toggleItemSelection(filteredactivitiessports[$index+0])\"\n" +
-    "                >\n" +
-    "              <span class=\"checkbox inline\"></span>\n" +
-    "              {{filteredactivitiessports[$index+0].name}}\n" +
-    "            </div>\n" +
     "\n" +
-    "            <div\n" +
-    "                class=\"filter-category-sub div-cell\"\n" +
-    "                data-ng-if=\"filteredactivitiessports[$index+1]\"\n" +
-    "                ng-class=\"{selected: !filteredactivitiessports[$index+1].hidden}\"\n" +
-    "                ng-click=\"toggleItemSelection(filteredactivitiessports[$index+1])\"\n" +
-    "                >\n" +
-    "              <span class=\"checkbox inline\"></span>\n" +
-    "              {{filteredactivitiessports[$index+1].name}}\n" +
-    "            </div>\n" +
-    "\n" +
+    "          <div\n" +
+    "              class=\"filter-category-sub div-cell\"\n" +
+    "              data-ng-if=\"sportsCategories[$index+0]\"\n" +
+    "              ng-class=\"{selected: sportsCategories[$index+0].selected === true}\"\n" +
+    "              ng-click=\"toggleItemSelection(sportsCategories[$index+0])\"\n" +
+    "              >\n" +
+    "            <span class=\"checkbox inline\"></span>\n" +
+    "            {{sportsCategories[$index+0].name}}\n" +
     "          </div>\n" +
+    "\n" +
+    "          <div\n" +
+    "              class=\"filter-category-sub div-cell\"\n" +
+    "              data-ng-if=\"sportsCategories[$index+1]\"\n" +
+    "              ng-class=\"{selected: sportsCategories[$index+1].selected === true}\"\n" +
+    "              ng-click=\"toggleItemSelection(sportsCategories[$index+1])\"\n" +
+    "              >\n" +
+    "            <span class=\"checkbox inline\"></span>\n" +
+    "            {{sportsCategories[$index+1].name}}\n" +
+    "          </div>\n" +
+    "         </div>\n" +
     "\n" +
     "        </div>\n" +
     "\n" +
@@ -2917,28 +2917,28 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "    <div class=\"innerwrap\">\n" +
     "      <div\n" +
     "          class=\"div-row\"\n" +
-    "          ng-repeat=\"activity in filteredactivitiesculture = (activities | filter: onlyCulture)\"\n" +
+    "          ng-repeat=\"category in cultureCategories\"\n" +
     "          >\n" +
     "\n" +
     "        <div data-ng-if=\"$index % 2 === 0\">\n" +
     "          <div\n" +
-    "              data-ng-if=\"filteredactivitiesculture[$index+0]\"\n" +
     "              class=\"filter-category-sub div-cell\"\n" +
-    "              ng-class=\"{selected: !filteredactivitiesculture[$index+0].hidden}\"\n" +
-    "              ng-click=\"toggleItemSelection(filteredactivitiesculture[$index+0])\"\n" +
+    "              data-ng-if=\"cultureCategories[$index+0]\"\n" +
+    "              ng-class=\"{selected: cultureCategories[$index+0].selected}\"\n" +
+    "              ng-click=\"toggleItemSelection(cultureCategories[$index+0])\"\n" +
     "              >\n" +
     "            <span class=\"checkbox inline\"></span>\n" +
-    "            {{filteredactivitiesculture[$index+0].name}}\n" +
+    "            {{cultureCategories[$index+0].name}}\n" +
     "          </div>\n" +
     "\n" +
     "          <div\n" +
     "              class=\"filter-category-sub div-cell\"\n" +
-    "              data-ng-if=\"filteredactivitiesculture[$index+1]\"\n" +
-    "              ng-class=\"{selected: !filteredactivitiesculture[$index+1].hidden}\"\n" +
-    "              ng-click=\"toggleItemSelection(filteredactivitiesculture[$index+1])\"\n" +
+    "              data-ng-if=\"cultureCategories[$index+1]\"\n" +
+    "              ng-class=\"{selected: cultureCategories[$index+1].selected}\"\n" +
+    "              ng-click=\"toggleItemSelection(cultureCategories[$index+1])\"\n" +
     "              >\n" +
     "            <span class=\"checkbox inline\"></span>\n" +
-    "            {{filteredactivitiesculture[$index+1].name}}\n" +
+    "            {{cultureCategories[$index+1].name}}\n" +
     "          </div>\n" +
     "\n" +
     "        </div>\n" +
@@ -2984,28 +2984,28 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "    <div class=\"innerwrap\">\n" +
     "      <div\n" +
     "          class=\"div-row\"\n" +
-    "          ng-repeat=\"activity in filteredactivitieswellness = (activities | filter: onlyWellness)\"\n" +
+    "          ng-repeat=\"category in wellnessCategories\"\n" +
     "          >\n" +
     "\n" +
     "        <div data-ng-if=\"$index % 2 === 0\">\n" +
     "          <div\n" +
-    "              data-ng-if=\"filteredactivitieswellness[$index+0]\"\n" +
+    "              data-ng-if=\"wellnessCategories[$index+0]\"\n" +
     "              class=\"filter-category-sub div-cell\"\n" +
-    "              ng-class=\"{selected: !filteredactivitieswellness[$index+0].hidden}\"\n" +
-    "              ng-click=\"toggleItemSelection(filteredactivitieswellness[$index+0])\"\n" +
+    "              ng-class=\"{selected: wellnessCategories[$index+0].selected}\"\n" +
+    "              ng-click=\"toggleItemSelection(wellnessCategories[$index+0])\"\n" +
     "              >\n" +
     "            <span class=\"checkbox inline\"></span>\n" +
-    "            {{filteredactivitieswellness[$index+0].name}}\n" +
+    "            {{wellnessCategories[$index+0].name}}\n" +
     "          </div>\n" +
     "\n" +
     "          <div\n" +
     "              class=\"filter-category-sub div-cell\"\n" +
-    "              data-ng-if=\"filteredactivitieswellness[$index+1]\"\n" +
-    "              ng-class=\"{selected: !filteredactivitieswellness[$index+1].hidden}\"\n" +
-    "              ng-click=\"toggleItemSelection(filteredactivitieswellness[$index+1])\"\n" +
+    "              data-ng-if=\"wellnessCategories[$index+1]\"\n" +
+    "              ng-class=\"{selected: wellnessCategories[$index+1].selected}\"\n" +
+    "              ng-click=\"toggleItemSelection(wellnessCategories[$index+1])\"\n" +
     "              >\n" +
     "            <span class=\"checkbox inline\"></span>\n" +
-    "            {{filteredactivitieswellness[$index+1].name}}\n" +
+    "            {{wellnessCategories[$index+1].name}}\n" +
     "          </div>\n" +
     "\n" +
     "        </div>\n" +
@@ -3090,7 +3090,7 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "\n" +
     "          <p>The season lasts from march to september.\n" +
     "            <br/>\n" +
-    "            You can book this venue right here!\n" +
+    "             You can book this venue right here!\n" +
     "          </p>\n" +
     "\n" +
     "          <p class=\"align-right\">\n" +

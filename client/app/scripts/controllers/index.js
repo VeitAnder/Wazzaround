@@ -118,7 +118,7 @@ angular.module('anorakApp')
     };
 
     $scope.toggleItemSelection = function (item) {
-      item.hidden = !item.hidden;
+      item.selected = !item.selected;
     };
 
     $scope.selectAllCategories = function () {
@@ -175,12 +175,68 @@ angular.module('anorakApp')
       });
     };
 
+    // TODO check number of selected
     $scope.numberOfSelectedFromCategory = function (category) {
-      return _.where($scope.activities, { 'category': category, 'hidden': false}).length;
+      return _.where(filterActivitiesByMainCategory(category), { 'selected': true }).length;
     };
 
     $scope.totalNumberOfCategory = function (category) {
-      return _.where($scope.activities, { 'category': category}).length;
+      return filterActivitiesByMainCategory(category).length;
     };
 
+    var categoryNames = {
+      // sports
+      "adventure": "Adventure",
+      "yoga": "Yoga & Pilates",
+      "water": "Water Sports",
+      "extreme": "Extreme Sports",
+      "trekking": "Trekking, Biking, Hiking",
+      "fullday": "Full day activities",
+      "winter": "Winter Sports",
+      "motor": "Motorized Sports",
+      // culture
+      "degustation": "Degustations: Wine & Food & Cigars",
+      "exhibition": "Exhibitions & Fairs",
+      "music_film": "Music & Film",
+      "guided_tour": "Guided Tours",
+      "opera": "Opera & Theater",
+      // wellness
+      "massage": "Massages",
+      "beauty": "Beauty",
+      "medical": "Medical Treatments",
+      "spa_sauna": "SPA & Sauna"
+    };
+
+    function filterActivitiesByMainCategory(mainCatName) {
+      return _.filter(resolvedActivities, function (activity) {
+        if (activity.hidden === false) {
+          return activity.category.main === mainCatName;
+        }
+      });
+    }
+
+    function findSubcategories(activities) {
+      var groupBy = _.groupBy(activities, function (activity) {
+        if (activity.hidden === false) {
+          return activity.category.sub;
+        }
+      });
+      var arr = [];
+      _.forEach(Object.keys(groupBy), function (key) {
+        if (categoryNames[key].length > 0) {
+          arr.push({
+            name: categoryNames[key],
+            key: key,
+            selected: true
+          });
+        }
+      });
+      return arr;
+    }
+
+    $scope.sportsCategories = findSubcategories(filterActivitiesByMainCategory("sports"));
+    $scope.cultureCategories = findSubcategories(filterActivitiesByMainCategory("culture"));
+    $scope.wellnessCategories = findSubcategories(filterActivitiesByMainCategory("wellness"));
+
   });
+
