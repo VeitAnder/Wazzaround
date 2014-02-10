@@ -2,13 +2,10 @@
 
 </div>
 
-<div class="map-searchbar"
-     data-ng-include="'views/map/mapsearchbar.html'">
-</div>
-
 <div class="map-selection-block">
 
 <div class="section section-map">
+
 <div class="controlpanel">
 <div data-ng-include="'views/logo.html'"></div>
 <h2>What's around me?</h2>
@@ -257,6 +254,11 @@
     class="map-wrap"
     windowheight
     >
+
+  <div class="map-searchbar"
+       data-ng-include="'views/map/mapsearchbar.html'">
+  </div>
+
   <google-map
       center='map.center'
       zoom='map.zoom'
@@ -291,7 +293,7 @@
 
           <p>The season lasts from march to september.
             <br/>
-             You can book this venue right here!
+            You can book this venue right here!
           </p>
 
           <p class="align-right">
