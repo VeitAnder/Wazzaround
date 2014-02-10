@@ -12,7 +12,7 @@ var Operation = model.Operation;
 
 
 
-var UserModel = new model("User", {
+var UserModel = new model("users", {
   email : Attr(Type.string),
   password : Attr(Type.string),
 
@@ -33,7 +33,7 @@ var UserModel = new model("User", {
 });
 
 
-var ActivityModel = new model("Activity", {
+var ActivityModel = new model("activities", {
   name : Attr(Type.string),
 
   description : Attr(Type.string),
