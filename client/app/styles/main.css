@@ -2919,7 +2919,8 @@ body {
   line-height: 22.4px;
   color: #666;
   -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 .page {
   min-width: 300px; }
