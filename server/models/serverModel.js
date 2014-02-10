@@ -27,7 +27,7 @@ models.UserModel.operationImpl("register", function(params, req) {
   user.password = params.password;
 
   // save the new user
-  Q()
+  return Q()
     .then(function() {
       return models.UserModel.use.find({username:params.username})  // find all existing users
     })
@@ -37,32 +37,28 @@ models.UserModel.operationImpl("register", function(params, req) {
     })
     .then(function() {  // if save was ok
       return {status:"ok"};
-    })
-    .fail(function(err) {  // if save failed
-      return {
-        status:"error",
-        error:err
-      };
     });
 });
 
 
 // a operation to login a user
 models.UserModel.operationImpl("login", function(params, req) {
-
+  console.log("params", params);
   return models.UserModel.use.find({username:params.username})  // find this user
     .then(function(users) {
-
-      if (users.length != 1) throw new Error("found more then one user");
+      console.log("then", users);
+      if (users.length <= 1) throw new Error("user not found");
+      if (users.length > 1) throw new Error("found more then one user");
 
       if (users[0].password == params.password) { // auth successfull
         // remember in a sesson, that auth was sucessfull
         req.session.auth = true;
         // remember the user in the sesson
         req.session.user = users[0]._id;
+      } else {
+        throw new Error('Invalid Username');
       }
-    })
-
+    });
 });
 
 
