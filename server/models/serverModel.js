@@ -10,7 +10,7 @@ models.UserModel.readFilter(function(req) {
     return false;  // if not logged in don't allow read operations
   }
 
-  return {_id:ObjectId(req.session.user)};  // filter for only your documents (your user id)
+  return {_id : ObjectId(req.session.user) };  // filter for only your documents (your user id)
 });
 
 models.UserModel.writeFilter(function(userObj, req) {

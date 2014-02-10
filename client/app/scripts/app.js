@@ -65,7 +65,10 @@ angular.module('anorakApp')
           resolvedActivities: function () {
             // todo: use service for Modelizer
             return ActivityModel.use.all();
-          }
+          },
+          resolveCurrentUser : ['currentUser', function(currentUser) {
+            return currentUser.load();
+          }]
         }
       })
       .when('/legalnotes', {

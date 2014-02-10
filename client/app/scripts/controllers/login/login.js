@@ -18,14 +18,9 @@ angular.module('login', ['services.authentication', 'services.localizedMessages'
       .when('/login/:confirmeduseremail/:confirmed', routeconfig);
 
   })
-  .controller('LoginPageCtrl', function ($scope, $location, AuthenticationService, $routeParams, APP_CONFIG) {
+  .controller('LoginPageCtrl', function ($scope, $location, $routeParams) {
     'use strict';
 
-    if ($routeParams.redirect) {
-      $scope.actionurl = APP_CONFIG.APIUrl + "login/?redirect=" + $routeParams.redirect;
-    } else {
-      $scope.actionurl = APP_CONFIG.APIUrl + "login/";
-    }
 
     // check for query params, if there are some, write to auth error, the params are set via security.js on server side
     $scope.state = {

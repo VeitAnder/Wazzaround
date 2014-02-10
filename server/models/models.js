@@ -27,19 +27,9 @@ var UserModel = new model("User", {
     }
   },
 
-  login : Operation(/*{
-    params: {
-      username : Attr(Type.string),
-      password : Attr(Type.string)
-    }
-  }*/),
+  login : Operation(),
   logout : Operation(),
-  register : Operation(/*{
-    params: {
-      username : Attr(Type.string),
-      password : Attr(Type.string)
-    }
-  }*/)
+  register : Operation()
 });
 
 
@@ -50,7 +40,7 @@ var ActivityModel = new model("Activity", {
   images : Attr(Type.array),
 
   category : {
-    main : Attr(Type.string, Type.enum('sports', 'culture', 'wellness')),
+    main : Attr(Type.string),
     sub : Attr(Type.string)
   },
 
@@ -67,9 +57,6 @@ var ActivityModel = new model("Activity", {
   owner : Ref(UserModel)
 
 });
-
-// TODOs categories model
-
 
 
 if (typeof window === 'undefined') {

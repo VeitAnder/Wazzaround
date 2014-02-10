@@ -3,35 +3,53 @@ angular.module('services.authentication.current-user', [])
   .factory('currentUser', function () {
     "use strict";
 
-    var userInfo = null;
+    var userObject = null;
     var currentUser = {
-      updateProfile: function (profile) {
-        userInfo.profile = profile;
+      load : function() {
+        return UserModel.use.all()
+          .then(function(users) {
+            if (users.length > 0) {
+              userObject = users[0];
+              currentUser.authenticated = true;
+              return currentUser;
+            }
+          })
+          .fail(function(err) {
+            // user has not been logged in
+            return currentUser;
+          });
       },
-      update: function (info) {
-        userInfo = info;
+
+      user : function() {
+        return userObject;
       },
-      clear: function () {
-        userInfo = null;
+
+      login : function(username, password) {
+        return UserModel.login({username:username, password:password})
+          .then(function(res){
+            return currentUser.load();
+          })
       },
-      info: function () {
-        return userInfo;
+
+      register : function(username, password) {
+        return UserModel.register({
+            username : username,
+            password : password
+          })
+          .then(function(res) {
+            return currentUser.login(username, password);
+          });
       },
-      isAuthenticated: function () {
-        return !!userInfo;
+
+      logout : function() {
+        return UserModel.logout()
+          .then(function(res) {
+            userObject = null;
+            currentUser.authenticated = false;
+          })
       },
-      isGoodwillMode: function () {
-        if (userInfo === null) {
-          return false;
-        }
-        if (userInfo.payment !== undefined && userInfo.payment.firstproject) {
-          var diff = moment().diff(moment(userInfo.payment.firstproject), 'days');
-          if (diff >= userInfo.payment.trialperioddays) {
-            return true;
-          }
-        }
-        return false;
-      }
+
+      authenticated: false
     };
 
     return currentUser;
