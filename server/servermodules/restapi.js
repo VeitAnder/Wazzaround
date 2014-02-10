@@ -1,38 +1,38 @@
 var config = require('../config.js');
 var logger = require('../lib/logger.js');
+var security = require('../lib/security.js');
 
-var manifest = function (app) {
+/*var manifest = function (app) {
   app.get("/static/manifest.appcache", function (req, res) {
     logger.info("send /static/manifest.appcache");
     res.header("Content-Type", "text/cache-manifest");
     res.end("CACHE MANIFEST");
   });
-};
+}; */
 
 var publicRestApi = function (app) {
   ////////////////////////////////////////////////////////
   // Postmark Bounce API
-
   // postmark app bounce hook api
-  app.post('/' + config.api.apiversion + 'mail/bounce', security.basic);
-  app.get('/' + config.api.apiversion + 'mail/bounce', security.basic);
+//  app.post('/' + config.api.apiversion + 'mail/bounce', security.basic);
+//  app.get('/' + config.api.apiversion + 'mail/bounce', security.basic);
 
   // User Registration process
-  app.post('/' + config.api.apiversion + 'logging', logger.logRequest);
+  //app.post('/' + config.api.apiversion + 'logging', logger.logRequest);
 
-  app.post('/' + config.api.apiversion + 'userregistrations/', userregistrations.add);
-  app.get('/' + config.api.apiversion + 'userregistrations/confirmuserregistration/:token/', userregistrations.confirmuserregistration);
-  app.get('/' + config.api.apiversion + 'userregistrations/isemailavailableforloginaccount/', userregistrations.isEmailAdressAvailableForLoginAccount);
-  app.post('/' + config.api.apiversion + 'userregistrations/forgotpassword/', userregistrations.forgotpassword);
+  //app.post('/' + config.api.apiversion + 'userregistrations/', userregistrations.add);
+  //app.get('/' + config.api.apiversion + 'userregistrations/confirmuserregistration/:token/', userregistrations.confirmuserregistration);
+//  app.get('/' + config.api.apiversion + 'userregistrations/isemailavailableforloginaccount/', userregistrations.isEmailAdressAvailableForLoginAccount);
+//  app.post('/' + config.api.apiversion + 'userregistrations/forgotpassword/', userregistrations.forgotpassword);
 // user authentication routes
   app.post('/' + config.api.apiversion + 'login', security.login);
 // for login via project inviation email
-  app.get('/' + config.api.apiversion + 'login', security.login);
-  app.post('/' + config.api.apiversion + 'logout', security.logout);
+//  app.get('/' + config.api.apiversion + 'login', security.login);
+//  app.post('/' + config.api.apiversion + 'logout', security.logout);
 // Retrieve the current user
-  app.get('/' + config.api.apiversion + 'current-user', security.sendCurrentUser);
+//  app.get('/' + config.api.apiversion + 'current-user', security.sendCurrentUser);
 
-  app.get('/' + config.api.apiversion + 'activities', activities.findAll);
+//  app.get('/' + config.api.apiversion + 'activities', activities.findAll);
 
 //  app.get('/' + config.api.apiversion + 'svg', function (req, res, next) {
 //
@@ -57,7 +57,7 @@ var publicRestApi = function (app) {
 //  });
 };
 
-var RestApiAuthentication = function (app) {
+/*var RestApiAuthentication = function (app) {
   app.all('/' + config.api.apiversion + '*', function (req, res, next) {
     if (req.query.accesstoken) {
       //use token based authentication
@@ -73,13 +73,13 @@ var RestApiAuthentication = function (app) {
       security.passwordAuthenticationRequired(req, res, next);         // 403 with custom login
     }
   });
-};
+};*/
 
 ////////////////////////////////////////////////////////
 // The REST API
 var privateRestApi = function (app) {
 // users
-  app.get('/' + config.api.apiversion + 'users/:id', users.findById);
+  /*app.get('/' + config.api.apiversion + 'users/:id', users.findById);
   app.put('/' + config.api.apiversion + 'users/:id/profile/', users.updateProfile);
   app.post('/' + config.api.apiversion + 'users/:id/password/', users.setpassword);
   app.post('/' + config.api.apiversion + 'users/mail/support/', mail.sendSupportMail);
@@ -123,12 +123,12 @@ var privateRestApi = function (app) {
     // Just send the index.html for other files to support HTML5Mode
     logger.warn('Invalid API request', req.url);
     res.send(400);
-  });
+  });   */
 };
 
 module.exports = {
-  "manifest": manifest,
+  //"manifest": manifest,
   "publicRestApi": publicRestApi,
-  "RestApiAuthentication": RestApiAuthentication,
+  //"RestApiAuthentication": RestApiAuthentication,
   "privateRestApi": privateRestApi
 };

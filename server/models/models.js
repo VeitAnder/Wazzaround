@@ -27,9 +27,19 @@ var UserModel = new model("User", {
     }
   },
 
-  login : Operation(),
+  login : Operation(/*{
+    params: {
+      username : Attr(Type.string),
+      password : Attr(Type.string)
+    }
+  }*/),
   logout : Operation(),
-  register : Operation()
+  register : Operation(/*{
+    params: {
+      username : Attr(Type.string),
+      password : Attr(Type.string)
+    }
+  }*/)
 });
 
 
@@ -40,7 +50,7 @@ var ActivityModel = new model("Activity", {
   images : Attr(Type.array),
 
   category : {
-    main : Attr(Type.string, Type.enum('sport', 'culture', 'wellness')),
+    main : Attr(Type.string, Type.enum('sports', 'culture', 'wellness')),
     sub : Attr(Type.string)
   },
 
