@@ -39,7 +39,6 @@ angular.module('login', ['services.authentication', 'services.localizedMessages'
     }
 
     $scope.login = function () {
-      console.log("login", $scope.form.username, $scope.form.password);
       $scope.currentUser.login($scope.form.username, $scope.form.password)
         .fail(function(err){
           $scope.state.error = true;

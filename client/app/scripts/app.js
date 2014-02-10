@@ -65,10 +65,10 @@ angular.module('anorakApp')
           resolvedActivities: function () {
             // todo: use service for Modelizer
             return ActivityModel.use.all();
-          },
-          resolveCurrentUser : ['currentUser', function(currentUser) {
-            return currentUser.load();
-          }]
+          }//,
+//          resolveCurrentUser : ['currentUser', function(currentUser) {
+//            return currentUser.load();
+//          }]
         }
       })
       .when('/legalnotes', {
@@ -112,7 +112,7 @@ angular.module('anorakApp')
     $httpProvider.defaults.withCredentials = true;
 
   })
-  .run(function ($rootScope, $log, debug) {
+  .run(function ($rootScope, $log, debug, currentUser) {
     "use strict";
 
     debug("application run called");
@@ -121,6 +121,9 @@ angular.module('anorakApp')
     var connector = Model.AngularConnector("http://localhost:3000/");
     UserModel.connection(connector);
     ActivityModel.connection(connector);
+
+    // load current User from server
+    currentUser.load().done();
 
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
 
