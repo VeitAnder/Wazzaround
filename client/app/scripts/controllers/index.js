@@ -1,16 +1,11 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, /*resolvedactivities,*/ $window, APP_CONFIG, currentUser) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, $window) {
 
-    $scope.actionurl = APP_CONFIG.APIUrl + "login/";
-    //$scope.isAuthenticated = currentUser.isAuthenticated;
+    $scope.activities = resolvedActivities;
 
-    // TODO: usage Beispiel
-
-    //$scope.activities = resolvedactivities;
-
-    //debug("resolvedactivities", resolvedactivities);
+    debug("resolvedactivities", resolvedActivities);
 
     //$scope.windowheight = ($window.innerHeight - 100)Activities + "px";
 
