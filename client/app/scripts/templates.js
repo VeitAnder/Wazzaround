@@ -2793,6 +2793,14 @@ angular.module("registration/registration_page.tpl.html", []).run(["$templateCac
 
 angular.module("index.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("index.html",
+    "<div class=\"loginform\">\n" +
+    "\n" +
+    "</div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
     "<div class=\"section section-map\">\n" +
     "<div class=\"controlpanel\">\n" +
     "<div data-ng-include=\"'views/logo.html'\"></div>\n" +
