@@ -18,20 +18,15 @@ angular.module('login', ['services.authentication', 'services.localizedMessages'
       .when('/login/:confirmeduseremail/:confirmed', routeconfig);
 
   })
-  .controller('LoginPageCtrl', function ($scope, $location, AuthenticationService, $routeParams, APP_CONFIG) {
+  .controller('LoginPageCtrl', function ($scope, $routeParams) {
     'use strict';
 
-    if ($routeParams.redirect) {
-      $scope.actionurl = APP_CONFIG.APIUrl + "login/?redirect=" + $routeParams.redirect;
-    } else {
-      $scope.actionurl = APP_CONFIG.APIUrl + "login/";
-    }
+    $scope.form = {};
 
     // check for query params, if there are some, write to auth error, the params are set via security.js on server side
     $scope.state = {
       autherrortype: $routeParams.error
     };
-    $scope.user = {};
 
     if ($routeParams.confirmeduseremail) {
       $scope.user.email = $routeParams.confirmeduseremail;
@@ -43,12 +38,13 @@ angular.module('login', ['services.authentication', 'services.localizedMessages'
       $scope.state.alreadyconfirmed = true;
     }
 
-   /* $scope.register = function () {
-      $location.path('/registration');
-    };*/
-
-   /* $scope.forgotPassword = function () {
-      $location.path('/registration/forgotpassword/');
-    };  */
+    $scope.login = function () {
+      $scope.currentUser.login($scope.form.username, $scope.form.password)
+        .fail(function(err){
+          $scope.state.error = true;
+          $scope.state.message = err.message;
+          $scope.$apply();
+        });
+    };
 
   });

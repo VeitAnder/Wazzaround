@@ -1700,7 +1700,7 @@ footer {
 .map-searchbar {
   position: absolute;
   z-index: 10;
-  margin: 30px; }
+  margin: 45px; }
 
 .map-wrap {
   position: relative;
@@ -3018,6 +3018,10 @@ footer {
     height: 100px; }
   .teaser-section-2 .teaser-block {
     width: 50%; }
+
+.datepicker button.btn-default {
+  border: none;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 html {
   overflow-y: scroll;
