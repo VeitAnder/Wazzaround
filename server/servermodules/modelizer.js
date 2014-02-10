@@ -16,14 +16,13 @@ var initModelizer = function (app) {
   // importing our models
   var models = require('../models/models.js');
 
-
   // init mongodb database connection
   var mongojs = require('mongojs');
-  var db = mongojs(config.mongo.url);
+//  var db = mongojs(config.mongo.url);
+  var db = mongojs('mongodb://'+ config.mongo.username + ':' + config.mongo.password + '@'+ config.mongo.host + '/' + config.mongo.dbName);
 
   // get a mongodb database connector
   var connector = model.MongoConnector(db);
-
 
   // say that our model should use express and the database connector
   models.UserModel.connection(connector);
@@ -33,8 +32,6 @@ var initModelizer = function (app) {
   models.ActivityModel.connection(connector);
   models.ActivityModel.express(app);
   models.ActivityModel.serve();
-
-
 };
 
 
