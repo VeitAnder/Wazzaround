@@ -610,8 +610,6 @@ angular.module("login/accessdenied.tpl.html", []).run(["$templateCache", functio
 
 angular.module("login/login_page.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("login/login_page.tpl.html",
-    "SHOW {{!isAuthenticated}}\n" +
-    "\n" +
     "<div class=\"page\" ng-show=\"!isAuthenticated\">\n" +
     "  <div class=\"authpage\">\n" +
     "    <div class=\"innerwrap\">\n" +
