@@ -22,6 +22,12 @@ angular.module('anorakApp')
       }
     };
 
+    $scope.states.categories = {
+      sports: [],
+      culture: [],
+      wellness: []
+    };
+
     $scope.toggleFilter = function (category) {
       if ($scope.states[category].open) {
         $scope.states[category].open = false;
@@ -85,108 +91,92 @@ angular.module('anorakApp')
       marker.showWindow = true;
     };
 
-    // filter activities
-    $scope.onlySports = function (activity) {
-      if (activity.category === "sports") {
-        return true;
-      } else {
-        return false;
-      }
-    };
-
-    $scope.onlyCulture = function (activity) {
-      if (activity.category === "culture") {
-        return true;
-      } else {
-        return false;
-      }
-    };
-
-    $scope.onlyWellness = function (activity) {
-      if (activity.category === "wellness") {
-        return true;
-      } else {
-        return false;
-      }
-    };
-
+    // TODO what is that for?
     $scope.onlySelected = function (activity) {
-      if (activity.hidden) {
+      if (activity.see) {
         return false;
       } else {
         return true;
       }
     };
 
-    $scope.toggleItemSelection = function (item) {
-      item.selected = !item.selected;
+    $scope.toggleCategorySelection = function (category) {
+      category.selected = !category.selected;
+    };
+
+    var selectAllSubCategories = function (mainCat, selectIt) {
+      angular.forEach($scope.states.categories[mainCat], function (category) {
+        category.selected = selectIt;
+      });
     };
 
     $scope.selectAllCategories = function () {
-      angular.forEach($scope.activities, function (activity) {
-        activity.hidden = false;
-      });
+      selectAllSubCategories("sports", true);
+      selectAllSubCategories("culture", true);
+      selectAllSubCategories("wellness", true);
     };
+
     // start by selecting all
     $scope.selectAllCategories();
 
     $scope.deSelectAllCategories = function () {
-      angular.forEach($scope.activities, function (activity) {
-        activity.hidden = true;
-      });
+      selectAllSubCategories("sports", false);
+      selectAllSubCategories("culture", false);
+      selectAllSubCategories("wellness", false);
+    };
+
+    // if there is no category that is not selected, then all categories are selected
+    $scope.allSelectedFromCategory = function (mainCat) {
+      return (_.where($scope.states.categories[mainCat], { 'selected': false }).length > 0) ? false : true;
+    };
+
+    // if there is no category that is selected, then all categories are deselected
+    $scope.noneSelectedFromCategory = function (mainCat) {
+      return (_.where($scope.states.categories[mainCat], { 'selected': true }).length > 0) ? false : true;
     };
 
     $scope.allSelected = function () {
-      if (_.where($scope.activities, { 'hidden': true }).length > 0) {
-        return false;
-      } else {
-        return true;
-      }
+      return ($scope.allSelectedFromCategory('sports') && $scope.allSelectedFromCategory('culture') && $scope.allSelectedFromCategory('wellness'));
     };
 
     $scope.noneSelected = function () {
-      if (_.where($scope.activities, { 'hidden': false }).length > 0) {
-        return false;
-      } else {
-        return true;
-      }
+      return ($scope.noneSelectedFromCategory('sports') && $scope.noneSelectedFromCategory('culture') && $scope.noneSelectedFromCategory('wellness'));
     };
 
     $scope.getMarkerIcon = function (activity) {
       return "/img/mapicons/marker-" + activity.category + ".svg";
     };
 
-    $scope.areItemsInThisCategorySelected = function (category) {
-      if (_.where($scope.activities, { 'hidden': false, 'category': category }).length > 0) {
+    $scope.areItemsInThisCategorySelected = function (mainCat) {
+      if (_.where($scope.states.categories[mainCat], { 'selected': true }).length > 0) {
         return true;
       } else {
         return false;
       }
     };
 
-    $scope.selectAllFromCategory = function (category) {
-      angular.forEach(_.where($scope.activities, { 'category': category }), function (activity) {
-        activity.hidden = false;
+    $scope.selectAllFromCategory = function (mainCat) {
+      angular.forEach($scope.states.categories[mainCat], function (category) {
+        category.selected = true;
       });
     };
 
-    $scope.deSelectAllFromCategory = function (category) {
-      angular.forEach(_.where($scope.activities, { 'category': category }), function (activity) {
-        activity.hidden = true;
+    $scope.deSelectAllFromCategory = function (mainCat) {
+      angular.forEach($scope.states.categories[mainCat], function (category) {
+        category.selected = false;
       });
     };
 
-    // TODO check number of selected
-    $scope.numberOfSelectedFromCategory = function (category) {
-      return _.where(filterActivitiesByMainCategory(category), { 'selected': true }).length;
+    $scope.numberOfSelectedFromCategory = function (mainCat) {
+      return _.where($scope.states.categories[mainCat], { 'selected': true }).length;
     };
 
-    $scope.totalNumberOfCategory = function (category) {
-      return filterActivitiesByMainCategory(category).length;
+    $scope.totalNumberOfCategory = function (mainCat) {
+      return filterActivitiesByMainCategory(mainCat).length;
     };
 
     var categoryNames = {
-      // sports
+//      "sports": {
       "adventure": "Adventure",
       "yoga": "Yoga & Pilates",
       "water": "Water Sports",
@@ -195,49 +185,49 @@ angular.module('anorakApp')
       "fullday": "Full day activities",
       "winter": "Winter Sports",
       "motor": "Motorized Sports",
-      // culture
+//      },
+//      "culture": {
       "degustation": "Degustations: Wine & Food & Cigars",
       "exhibition": "Exhibitions & Fairs",
       "music_film": "Music & Film",
       "guided_tour": "Guided Tours",
-      "opera": "Opera & Theater",
-      // wellness
+      "opera_theater": "Opera & Theater",
+//      },
+//      "wellness": {
       "massage": "Massages",
       "beauty": "Beauty",
       "medical": "Medical Treatments",
       "spa_sauna": "SPA & Sauna"
+//      }
     };
 
     function filterActivitiesByMainCategory(mainCatName) {
       return _.filter(resolvedActivities, function (activity) {
-        if (activity.hidden === false) {
-          return activity.category.main === mainCatName;
-        }
+        return activity.category.main === mainCatName;
       });
     }
 
-    function findSubcategories(activities) {
+    function findSubcategories(mainCat, activities) {
       var groupBy = _.groupBy(activities, function (activity) {
-        if (activity.hidden === false) {
-          return activity.category.sub;
-        }
+        return activity.category.sub;
       });
-      var arr = [];
+
       _.forEach(Object.keys(groupBy), function (key) {
         if (categoryNames[key].length > 0) {
-          arr.push({
+          $scope.states.categories[mainCat].push({
             name: categoryNames[key],
             key: key,
             selected: true
           });
         }
       });
-      return arr;
+      return $scope.states.categories[mainCat];
     }
 
-    $scope.sportsCategories = findSubcategories(filterActivitiesByMainCategory("sports"));
-    $scope.cultureCategories = findSubcategories(filterActivitiesByMainCategory("culture"));
-    $scope.wellnessCategories = findSubcategories(filterActivitiesByMainCategory("wellness"));
+    $scope.sportsCategories = findSubcategories("sports", filterActivitiesByMainCategory("sports"));
+    $scope.cultureCategories = findSubcategories("culture", filterActivitiesByMainCategory("culture"));
+    $scope.wellnessCategories = findSubcategories("wellness", filterActivitiesByMainCategory("wellness"));
 
   });
 
+// TODO komisches Verhalten von "Select All" und "Deselect All" Wann wollen wir was darstellen?
