@@ -6,13 +6,13 @@ var express = require('express');
 
 var config = require('./config.js');
 var logger = require('./lib/logger.js');
-var security = require('./lib/security');
+//var security = require('./lib/security');
 //var protectJSON = require('./lib/protectJSON');
 //var cacheControl = require('./lib/cacheControl');
 
 var app = express();
 
-var RestApi = require("./servermodules/restapi.js");
+//var RestApi = require("./servermodules/restapi.js");
 
 logger.info("Node environment: NODE_ENV=%s", process.env.NODE_ENV);
 
@@ -26,15 +26,15 @@ app.use(logger.expressLogger);
 
 //app.use(express.json());                                    // JSON parser for endpoint
 //app.use(express.urlencoded());                              // urlencoded JSON endpoint
-//app.use(express.bodyParser());
-//app.set('json spaces',2);
+app.use(express.bodyParser());
+app.set('json spaces',2);
 
-
-//app.use(express.cookieParser());
-//app.use(express.session({
-//  secret: config.server.cookieSecret,
-//  store: new express.session.MemoryStore
-//}));
+// todo user mongo store
+app.use(express.cookieParser());
+app.use(express.session({
+  secret: config.server.cookieSecret,
+  store: new express.session.MemoryStore
+}));
 
 
 require("./servermodules/modelizer.js").initModelizer(app);
@@ -70,9 +70,9 @@ if (process.env.NODE_ENV === "production") {
 //require("./servermodules/security.js").useCSRFProtection(app);
 
 //RestApi.manifest(app);
-RestApi.publicRestApi(app);
+//RestApi.publicRestApi(app);
 //RestApi.RestApiAuthentication(app);
-RestApi.privateRestApi(app);
+//RestApi.privateRestApi(app);
 
 //require("./servermodules/serveclient.js").serveClient(app);
 
