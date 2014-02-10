@@ -2797,13 +2797,10 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "\n" +
     "</div>\n" +
     "\n" +
-    "<div class=\"map-searchbar\"\n" +
-    "     data-ng-include=\"'views/map/mapsearchbar.html'\">\n" +
-    "</div>\n" +
-    "\n" +
     "<div class=\"map-selection-block\">\n" +
     "\n" +
     "<div class=\"section section-map\">\n" +
+    "\n" +
     "<div class=\"controlpanel\">\n" +
     "<div data-ng-include=\"'views/logo.html'\"></div>\n" +
     "<h2>What's around me?</h2>\n" +
@@ -3054,6 +3051,11 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "    class=\"map-wrap\"\n" +
     "    windowheight\n" +
     "    >\n" +
+    "\n" +
+    "  <div class=\"map-searchbar\"\n" +
+    "       data-ng-include=\"'views/map/mapsearchbar.html'\">\n" +
+    "  </div>\n" +
+    "\n" +
     "  <google-map\n" +
     "      center='map.center'\n" +
     "      zoom='map.zoom'\n" +
@@ -3088,7 +3090,7 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "\n" +
     "          <p>The season lasts from march to september.\n" +
     "            <br/>\n" +
-    "             You can book this venue right here!\n" +
+    "            You can book this venue right here!\n" +
     "          </p>\n" +
     "\n" +
     "          <p class=\"align-right\">\n" +
@@ -3155,6 +3157,15 @@ angular.module("logo.html", []).run(["$templateCache", function($templateCache) 
 angular.module("map/mapsearchbar.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("map/mapsearchbar.html",
     "<div data-ng-controller=\"MapsearchbarCtrl\">\n" +
+    "\n" +
+    "\n" +
+    "  <div class=\"input-group input-group-lg\">\n" +
+    "    <input type=\"text\" class=\"form-control\">\n" +
+    "    <span class=\"input-group-btn\">\n" +
+    "      <button class=\"btn\" type=\"button\">Go!</button>\n" +
+    "    </span>\n" +
+    "  </div>\n" +
+    "\n" +
     "  from\n" +
     "  <input type=\"text\"\n" +
     "         class=\"form-control\"\n" +

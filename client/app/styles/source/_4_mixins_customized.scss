@@ -16,7 +16,6 @@ header{
   right: 0;
   left: 0;
   z-index: 1000;
-  //@include box-shadow_2px;
   padding: 0 10px;
   min-width: $min-width-xxs;
 
@@ -42,11 +41,11 @@ footer{
 //  bottom:0;
 //  left:0;
 //  right:0;
-  @include box-sizing(border-box);
+
 }
 
 .controlpanel{
-  @include box-sizing(border-box);
+  //@include box-sizing(border-box);
   padding: $bu*2.0;
   width: 350px;
   float: left;
@@ -54,6 +53,12 @@ footer{
   h2{
     margin: $bu 0;
   }
+}
+
+.map-searchbar{
+  position: absolute;
+  z-index: 10;
+  margin: $bu*2.0;
 }
 
 .map-wrap{
@@ -953,7 +958,7 @@ $filter-category-arrow-width: 65px;
   }
   .filter-category-header{
     position: relative;
-    @include box-sizing(border-box);
+    //@include box-sizing(border-box);
     background-color: $color_grey_50;
     padding: $bu/1.5 $bu;
     padding-right: $filter-category-arrow-width + $bu;
@@ -1003,7 +1008,7 @@ $filter-category-arrow-width: 65px;
     color: $color_grey_50;
     padding-left: 23px;
     .checkbox{
-      @include box-sizing(border-box);
+      //@include box-sizing(border-box);
       min-height: 0;
       width: 16px;
       height: 16px;
@@ -1050,7 +1055,7 @@ $filter-category-arrow-width: 65px;
   @include border-radius($border-radius);
   .filter-toggle-show, .filter-toggle-hide{
     float: left;
-    @include box-sizing(border-box);
+    //@include box-sizing(border-box);
     padding: 5px 10px;
     width: 50%;
     text-align: center;
@@ -1117,10 +1122,45 @@ $filter-category-arrow-width: 65px;
 }
 
 
+.input-group{
+  margin-bottom: 10px;
+  position: relative;
+  display: table;
+  border-collapse: separate;
+
+  .form-control{
+    display: table-cell;
+    &:first-child {
+      @include border-right-radius(0);
+    }
+  }
+}
+
+.form-control{
+  display: block;
+  width: 100%;
+}
+
+.input-group-btn{
+  display: table-cell;
+  position: relative;
+  font-size: 0;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  &>.btn{
+    position: relative;
+    height: $input_height;
+  }
+  &:last-child > .btn{
+    @include border-left-radius(0);
+  }
+}
+
 
 .nav-footer{
   background-color: $color_white;
-  @include box-sizing(border-box);
+  //@include box-sizing(border-box);
   @include seperator(top, $color_footer_border);
   width: 350px;
   float: left;
@@ -1133,7 +1173,7 @@ $filter-category-arrow-width: 65px;
 }
 
 .teaser-block{
-  @include box-sizing(border-box);
+  //@include box-sizing(border-box);
   display: inline-block;
   float: left;
   @include seperator(left, $color_grey_50);

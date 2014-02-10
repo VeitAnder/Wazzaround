@@ -512,7 +512,7 @@ a.link-download{
 
 @mixin alert {
   @include label;
-  @include box-sizing(border-box);
+  //@include box-sizing(border-box);
   padding: 5px 10px;
   margin: 5px 0 10px;
   @include text-shadow_highlight;
@@ -636,7 +636,7 @@ p.inline-screen-sm{
         overflow: hidden;
 
         span{
-          @include box-sizing(border-box);
+          //@include box-sizing(border-box);
           margin: 0;
           padding: 0;
           display: block;
@@ -1027,7 +1027,7 @@ header {
 
 @mixin fieldformat_form {
   display: block;
-  @include box-sizing(border-box);
+  //@include box-sizing(border-box);
   padding: $fs*0.75;
   @include textformat_form;
   @include border-radius($border-radius_small);
@@ -1037,7 +1037,7 @@ header {
 }
 
 @mixin checkbox_rounded_big{
-  @include box-sizing(border-box);
+  //@include box-sizing(border-box);
   display: inline-block;
   width: 20px;
   height: 20px;
