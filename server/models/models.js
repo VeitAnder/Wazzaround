@@ -40,7 +40,7 @@ var ActivityModel = new model("Activity", {
   images : Attr(Type.array),
 
   category : {
-    main : Attr(Type.string),
+    main : Attr(Type.string, Type.enum('sport', 'culture', 'wellness')),
     sub : Attr(Type.string)
   },
 
@@ -58,6 +58,7 @@ var ActivityModel = new model("Activity", {
 
 });
 
+// TODOs categories model
 
 
 
