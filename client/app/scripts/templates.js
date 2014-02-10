@@ -1,4 +1,4 @@
-angular.module('templates.app', ['account/account.tpl.html', 'account/account_basepagetemplate.tpl.html', 'account/account_payment.tpl.html', 'account/account_tabnav.tpl.html', 'account/password/password_page.tpl.html', 'directives/downloadlink.tpl.html', 'directives/fileuploadcheck.tpl.html', 'directives/fullname.tpl.html', 'directives/roleselector.tpl.html', 'directives/s3uploadform.tpl.html', 'header.tpl.html', 'login/accessdenied.tpl.html', 'login/login_page.tpl.html', 'login/modalloginform.tpl.html', 'login/toolbar.tpl.html', 'navbar/navbar.tpl.html', 'projects/activities/_activities_list.tpl.html', 'projects/activities/activities.tpl.html', 'projects/participants/_participants_detail_detail_lock.tpl.html', 'projects/participants/participants_detail_detail.tpl.html', 'projects/participants/participants_detail_page.tpl.html', 'projects/participants/participants_list_page.tpl.html', 'projects/participants/participants_new_detail.tpl.html', 'projects/participants/participants_new_page.tpl.html', 'projects/planlist/planlist.tpl.html', 'projects/plans/_plans_detail_detail_revisioncontent.tpl.html', 'projects/plans/plan_uploadpartial.tpl.html', 'projects/plans/plans_detail_detail.tpl.html', 'projects/plans/plans_detail_page.tpl.html', 'projects/plans/plans_list_page.tpl.html', 'projects/plans/plans_new_detail.tpl.html', 'projects/plans/plans_new_page.tpl.html', 'projects/projects_basepagetemplate.tpl.html', 'projects/projects_list.tpl.html', 'projects/projects_new.tpl.html', 'projecttitle/projecttitle.tpl.html', 'registration/forgotpassword/forgotpassword_page.tpl.html', 'registration/registration_page.tpl.html', 'index.html', 'legalnotes.html', 'logo.html', 'map/mapsearchbar.html', 'map/templatedinfowindow.html', 'why.html', 'workwithus.html']);
+angular.module('templates.app', ['account/account.tpl.html', 'account/account_basepagetemplate.tpl.html', 'account/account_payment.tpl.html', 'account/account_tabnav.tpl.html', 'account/password/password_page.tpl.html', 'directives/downloadlink.tpl.html', 'directives/fileuploadcheck.tpl.html', 'directives/fullname.tpl.html', 'directives/roleselector.tpl.html', 'directives/s3uploadform.tpl.html', 'header.tpl.html', 'navbar/navbar.tpl.html', 'projects/activities/_activities_list.tpl.html', 'projects/activities/activities.tpl.html', 'projects/participants/_participants_detail_detail_lock.tpl.html', 'projects/participants/participants_detail_detail.tpl.html', 'projects/participants/participants_detail_page.tpl.html', 'projects/participants/participants_list_page.tpl.html', 'projects/participants/participants_new_detail.tpl.html', 'projects/participants/participants_new_page.tpl.html', 'projects/planlist/planlist.tpl.html', 'projects/plans/_plans_detail_detail_revisioncontent.tpl.html', 'projects/plans/plan_uploadpartial.tpl.html', 'projects/plans/plans_detail_detail.tpl.html', 'projects/plans/plans_detail_page.tpl.html', 'projects/plans/plans_list_page.tpl.html', 'projects/plans/plans_new_detail.tpl.html', 'projects/plans/plans_new_page.tpl.html', 'projects/projects_basepagetemplate.tpl.html', 'projects/projects_list.tpl.html', 'projects/projects_new.tpl.html', 'projecttitle/projecttitle.tpl.html', 'registration/forgotpassword/forgotpassword_page.tpl.html', 'registration/registration_page.tpl.html', 'index.html', 'legalnotes.html', 'login/login.html', 'logo.html', 'map/mapsearchbar.html', 'map/templatedinfowindow.html', 'why.html', 'workwithus.html']);
 
 angular.module("account/account.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.tpl.html",
@@ -586,139 +586,6 @@ angular.module("header.tpl.html", []).run(["$templateCache", function($templateC
     "  </div>\n" +
     "\n" +
     "</div>");
-}]);
-
-angular.module("login/accessdenied.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("login/accessdenied.tpl.html",
-    "<div class=\"page\">\n" +
-    "  <div class=\"authpage\">\n" +
-    "    <div class=\"innerwrap\">\n" +
-    "\n" +
-    "      <h1>Kein Zugriff!</h1>\n" +
-    "\n" +
-    "      <div class=\"alert alert-error\">\n" +
-    "        Ihr Zugang zum Projekt <strong>„Project-title“</strong> wurde gesperrt. Für weitere Informationen kontaktieren Sie den Projekteigentümer: <a href=\"mailto:123@asdf.com\"><strong>Sepp Eigentümer (123@asdf.com)</strong></a>\n" +
-    "      </div>\n" +
-    "\n" +
-    "      <div class=\"buttonbar\">\n" +
-    "        <a href=\"/#/login/\">weiter zum Login</a>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "  </div>\n" +
-    "</div>");
-}]);
-
-angular.module("login/login_page.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("login/login_page.tpl.html",
-    "<div class=\"page\" ng-show=\"!isAuthenticated\">\n" +
-    "  <div class=\"authpage\">\n" +
-    "    <div class=\"innerwrap\">\n" +
-    "\n" +
-    "      <form class=\"loginform\" name=\"loginform\" novalidate autocomplete=\"on\"\n" +
-    "            action=\"{{actionurl}}\" method=\"post\" target=\"_self\">\n" +
-    "\n" +
-    "        <h1>Login</h1>\n" +
-    "\n" +
-    "        <!--<div ng-show=\"state.confirmed\">\n" +
-    "          <p class=\"alert alert-success\">Ihr Benutzerkonto wurde erfolgreich aktiviert.</p>\n" +
-    "        </div>\n" +
-    "\n" +
-    "        <div ng-show=\"state.alreadyconfirmed\">\n" +
-    "          <p class=\"alert\">Ihr Benutzerkonto ist bereits aktiviert worden.</p>\n" +
-    "        </div>\n" +
-    "\n" +
-    "        <div data-ng-switch=\"state.autherrortype\">\n" +
-    "          <div ng-switch-when=\"invalidcredentials\" class=\"alert alert-error\">\n" +
-    "            Bitte überprüfen Sie E-Mail und Passwort.\n" +
-    "          </div>\n" +
-    "          <div ng-switch-when=\"userupdateerror\" class=\"alert alert-error\">\n" +
-    "            Es gab einen Fehler beim Login.\n" +
-    "          </div>\n" +
-    "          <div ng-switch-when=\"loginerror\" class=\"alert alert-error\">\n" +
-    "            Es gab einen Fehler beim Login.\n" +
-    "          </div>\n" +
-    "          <div ng-switch-when=\"usernotloggedin\" class=\"alert alert-error\">\n" +
-    "            Sie sind nicht eingeloggt.\n" +
-    "          </div>\n" +
-    "          <div ng-switch-when=\"sessionExpired\" class=\"alert alert-error\">\n" +
-    "            Bitte loggen Sie sich ein.<br>\n" +
-    "            ( Entweder ist Ihre Session abgelaufen, oder Sie waren noch nicht angemeldet. )\n" +
-    "          </div>\n" +
-    "        </div>  -->\n" +
-    "\n" +
-    "        <p>\n" +
-    "          <label>E-Mail</label>\n" +
-    "          <input name=\"username\" type=\"email\" ng-model=\"user.email\" required autofocus class=\"input-block-level\">\n" +
-    "        </p>\n" +
-    "        <p>\n" +
-    "          <label>Passwort</label>\n" +
-    "          <input name=\"password\" id=\"password\" type=\"password\" ng-model=\"user.password\" required class=\"input-block-level\">\n" +
-    "        <!--  <a class=\"forgottenpasswordlink\" ng-click=\"forgotPassword()\">Passwort vergessen?</a>-->\n" +
-    "        </p>\n" +
-    "\n" +
-    "        <button type=\"submit\">Anmelden</button>\n" +
-    "\n" +
-    "      </form>\n" +
-    "\n" +
-    "    <!--  <div class=\"buttonbar\">\n" +
-    "        <a ng-click=\"register()\">Jetzt kostenlos registrieren</a>\n" +
-    "      </div>      -->\n" +
-    "\n" +
-    "    </div>\n" +
-    "  </div>\n" +
-    " <!-- <div class=\"communication-element\" ng-include=\"'communication.tpl.html'\"></div> -->\n" +
-    "\n" +
-    "</div>");
-}]);
-
-angular.module("login/modalloginform.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("login/modalloginform.tpl.html",
-    "<div modal=\"showLoginForm\" close=\"cancelLogin()\">\n" +
-    "    <form name=\"form\">\n" +
-    "        <div class=\"modal-header\">\n" +
-    "            <h4>Sign in</h4>\n" +
-    "        </div>\n" +
-    "        <div class=\"modal-body\">\n" +
-    "            <div class=\"alert alert-error\" ng-show=\"authError\">\n" +
-    "                {{authError}}\n" +
-    "            </div>\n" +
-    "                <label>E-mail</label>\n" +
-    "                <input name=\"login\" type=\"email\" ng-model=\"user.email\" required autofocus>\n" +
-    "                <label>Password</label>\n" +
-    "                <input name=\"pass\" type=\"password\" ng-model=\"user.password\" required>\n" +
-    "        </div>\n" +
-    "        <div class=\"modal-footer\">\n" +
-    "            <button class=\"btn btn-primary login\" ng-click=\"login()\" ng-disabled='form.$invalid'>Sign in</button>\n" +
-    "            <button class=\"btn clear\" ng-click=\"clearForm()\">Clear</button>\n" +
-    "            <button class=\"btn btn-warning cancel\" ng-click=\"cancelLogin()\">Cancel</button>\n" +
-    "        </div>\n" +
-    "    </form>\n" +
-    "</div>\n" +
-    "");
-}]);
-
-angular.module("login/toolbar.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("login/toolbar.tpl.html",
-    "<ul class=\"nav pull-right\">\n" +
-    "  <li ng-show=\"currentUser\">\n" +
-    "    <a href=\"/#/account\">\n" +
-    "      <span>Benutzerkonto </span>\n" +
-    "      <span>({{userInfo().email}})</span>\n" +
-    "      <!--<div fullname user=\"userInfo()\" donotlink=\"true\" alwaysshowemail=\"false\"></div>-->\n" +
-    "    </a>\n" +
-    "  </li>\n" +
-    "  <li class=\"divider-vertical\"></li>\n" +
-    "  <li class=\"btn_logout\" ng-show=\"isAuthenticated()\">\n" +
-    "    <form class=\"navbar-form\">\n" +
-    "      <button class=\"btn\" ng-click=\"logout()\">Log out</button>\n" +
-    "    </form>\n" +
-    "  </li>\n" +
-    "  <li class=\"btn_logout\" ng-hide=\"isAuthenticated()\">\n" +
-    "    <form class=\"navbar-form\">\n" +
-    "      <button class=\"btn\" ng-click=\"login()\">Log in</button>\n" +
-    "    </form>\n" +
-    "  </li>\n" +
-    "</ul>");
 }]);
 
 angular.module("navbar/navbar.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -2793,9 +2660,8 @@ angular.module("registration/registration_page.tpl.html", []).run(["$templateCac
 
 angular.module("index.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("index.html",
-    "<div class=\"loginform\">\n" +
     "\n" +
-    "</div>\n" +
+    "\n" +
     "\n" +
     "<div class=\"map-selection-block\">\n" +
     "\n" +
@@ -3045,7 +2911,6 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "\n" +
     "</div>\n" +
     "\n" +
-    "<div data-ng-include=\"'login/login_page.tpl.html'\"></div>\n" +
     "\n" +
     "<div\n" +
     "    class=\"map-wrap\"\n" +
@@ -3113,6 +2978,11 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "</div>\n" +
     "\n" +
     "<div class=\"admininterface\">\n" +
+    "\n" +
+    "\n" +
+    "  <div data-ng-include=\"'views/login/login.html'\"></div>\n" +
+    "\n" +
+    "\n" +
     "  Admininterface block\n" +
     "</div>\n" +
     "\n" +
@@ -3141,6 +3011,70 @@ angular.module("legalnotes.html", []).run(["$templateCache", function($templateC
     "\n" +
     "<p>This is the legalnotes view.</p>\n" +
     "");
+}]);
+
+angular.module("login/login.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("login/login.html",
+    "<!--<div class=\"page\" ng-show=\"!isAuthenticated\">-->\n" +
+    "<div class=\"page\" ng-show=\"!isAuthenticated\">\n" +
+    "  <div class=\"authpage\">\n" +
+    "    <div class=\"innerwrap\">\n" +
+    "\n" +
+    "      <form class=\"loginform\" name=\"loginform\" novalidate autocomplete=\"on\"\n" +
+    "            action=\"{{actionurl}}\" method=\"post\" target=\"_self\">\n" +
+    "\n" +
+    "        <h1>Login</h1>\n" +
+    "\n" +
+    "        <!--<div ng-show=\"state.confirmed\">\n" +
+    "          <p class=\"alert alert-success\">Ihr Benutzerkonto wurde erfolgreich aktiviert.</p>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div ng-show=\"state.alreadyconfirmed\">\n" +
+    "          <p class=\"alert\">Ihr Benutzerkonto ist bereits aktiviert worden.</p>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div data-ng-switch=\"state.autherrortype\">\n" +
+    "          <div ng-switch-when=\"invalidcredentials\" class=\"alert alert-error\">\n" +
+    "            Bitte überprüfen Sie E-Mail und Passwort.\n" +
+    "          </div>\n" +
+    "          <div ng-switch-when=\"userupdateerror\" class=\"alert alert-error\">\n" +
+    "            Es gab einen Fehler beim Login.\n" +
+    "          </div>\n" +
+    "          <div ng-switch-when=\"loginerror\" class=\"alert alert-error\">\n" +
+    "            Es gab einen Fehler beim Login.\n" +
+    "          </div>\n" +
+    "          <div ng-switch-when=\"usernotloggedin\" class=\"alert alert-error\">\n" +
+    "            Sie sind nicht eingeloggt.\n" +
+    "          </div>\n" +
+    "          <div ng-switch-when=\"sessionExpired\" class=\"alert alert-error\">\n" +
+    "            Bitte loggen Sie sich ein.<br>\n" +
+    "            ( Entweder ist Ihre Session abgelaufen, oder Sie waren noch nicht angemeldet. )\n" +
+    "          </div>\n" +
+    "        </div>  -->\n" +
+    "\n" +
+    "        <p>\n" +
+    "          <label>E-Mail</label>\n" +
+    "          <input name=\"username\" type=\"email\" ng-model=\"user.email\" required autofocus class=\"input-block-level\">\n" +
+    "        </p>\n" +
+    "        <p>\n" +
+    "          <label>Passwort</label>\n" +
+    "          <input name=\"password\" id=\"password\" type=\"password\" ng-model=\"user.password\" required class=\"input-block-level\">\n" +
+    "        <!--  <a class=\"forgottenpasswordlink\" ng-click=\"forgotPassword()\">Passwort vergessen?</a>-->\n" +
+    "        </p>\n" +
+    "\n" +
+    "        <button type=\"submit\">Anmelden</button>\n" +
+    "\n" +
+    "      </form>\n" +
+    "\n" +
+    "    <!--  <div class=\"buttonbar\">\n" +
+    "        <a ng-click=\"register()\">Jetzt kostenlos registrieren</a>\n" +
+    "      </div>      -->\n" +
+    "\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    " <!-- <div class=\"communication-element\" ng-include=\"'communication.tpl.html'\"></div> -->\n" +
+    "\n" +
+    "</div>");
 }]);
 
 angular.module("logo.html", []).run(["$templateCache", function($templateCache) {

@@ -3,7 +3,7 @@ angular.module('login', ['services.authentication', 'services.localizedMessages'
     'use strict';
 
     var routeconfig = {
-      templateUrl: 'login/login_page.tpl.html',
+      templateUrl: 'login/login.html',
       controller: 'LoginPageCtrl',
       reloadOnSearch: false
     };
