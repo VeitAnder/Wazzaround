@@ -29,7 +29,7 @@ app.use(logger.expressLogger);
 app.use(express.bodyParser());
 app.set('json spaces',2);
 
-
+// todo user mongo store
 app.use(express.cookieParser());
 app.use(express.session({
   secret: config.server.cookieSecret,

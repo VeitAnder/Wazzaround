@@ -2,8 +2,8 @@
 
 
 // using the the Modelizer library
-//var model = require('modelizer');
-var model = require('../../../../modelizer/lib/modelizer.js');
+var model = require('modelizer');
+//var model = require('../../../../modelizer/lib/modelizer.js');
 
 var Attr = model.Attr;
 var Type = model.Attr.Types;
