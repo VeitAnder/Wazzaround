@@ -2,9 +2,11 @@
 
 </div>
 
+<div class="map-searchbar"
+     data-ng-include="'views/map/mapsearchbar.html'">
+</div>
 
-
-
+<div class="map-selection-block">
 
 <div class="section section-map">
 <div class="controlpanel">
@@ -237,10 +239,15 @@
 </div>
 
 <div class="map-debug">
-  <strong>Map-Debug:</strong> <br/>
-  <u>Map ZOOM:</u> {{ map.zoom }}<br/>
-  <u>You clicked here:</u><br/>
-  "longitude": {{ map.clickedMarker.longitude }}<br/>
+  <strong>Map-Debug:</strong>
+  <br/>
+  <u>Map ZOOM:</u>
+  {{ map.zoom }}
+  <br/>
+  <u>You clicked here:</u>
+  <br/>
+  "longitude": {{ map.clickedMarker.longitude }}
+  <br/>
   "latitude": {{ map.clickedMarker.latitude }}
 </div>
 
@@ -271,20 +278,32 @@
         <div
             class="window-category-{{m.category}}"
             >
-          <h4><span class="icon"></span>{{m.name}}</h4>
+          <h4>
+            <span class="icon"></span>
+            {{m.name}}
+          </h4>
 
-          <img src="/img/mapicons/piemont.jpg" width="100" alt=""/>
-          
+          <img src="/img/mapicons/piemont.jpg"
+               width="100"
+               alt=""/>
+
           <h6>Offered by: Piemont Travel Office</h6>
 
-          <p>The season lasts from march to september. <br/> You can book this venue right here!</p>
+          <p>The season lasts from march to september.
+            <br/>
+             You can book this venue right here!
+          </p>
 
           <p class="align-right">
-            <a href="http://www.paypal.com" target="_blank" class="btn">Book now</a>
+            <a href="http://www.paypal.com"
+               target="_blank"
+               class="btn">Book now
+            </a>
           </p>
         </div>
       </window>
-      <marker-label content="m.name" anchor="22 0"
+      <marker-label content="m.name"
+                    anchor="22 0"
                     class="marker-labels marker-label-category-{{m.category}}"
           />
     </marker>
@@ -292,11 +311,26 @@
   </google-map>
 </div>
 </div>
+</div>
+
+<div class="admininterface">
+  Admininterface block
+</div>
 
 <div class="footer footer-startpage">
-  <div class="nav-footer"><a href="#/legalnotes/">Contact & Impressum</a></div>
+  <div class="nav-footer">
+    <a href="#/legalnotes/">Contact & Impressum</a>
+  </div>
   <div class="teaser-section teaser-section-2">
-    <div class="teaser-block align-right"><h4><a href="#/why/">Why reActure?</a></h4></div>
-    <div class="teaser-block align-right"><h4><a href="#/workwithus/">Work with us!</a></h4></div>
+    <div class="teaser-block align-right">
+      <h4>
+        <a href="#/why/">Why reActure?</a>
+      </h4>
+    </div>
+    <div class="teaser-block align-right">
+      <h4>
+        <a href="#/workwithus/">Work with us!</a>
+      </h4>
+    </div>
   </div>
 </div>

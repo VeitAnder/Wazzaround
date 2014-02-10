@@ -1,4 +1,4 @@
-angular.module('templates.app', ['account/account.tpl.html', 'account/account_basepagetemplate.tpl.html', 'account/account_payment.tpl.html', 'account/account_tabnav.tpl.html', 'account/password/password_page.tpl.html', 'directives/downloadlink.tpl.html', 'directives/fileuploadcheck.tpl.html', 'directives/fullname.tpl.html', 'directives/roleselector.tpl.html', 'directives/s3uploadform.tpl.html', 'header.tpl.html', 'login/accessdenied.tpl.html', 'login/login_page.tpl.html', 'login/modalloginform.tpl.html', 'login/toolbar.tpl.html', 'navbar/navbar.tpl.html', 'projects/activities/_activities_list.tpl.html', 'projects/activities/activities.tpl.html', 'projects/participants/_participants_detail_detail_lock.tpl.html', 'projects/participants/participants_detail_detail.tpl.html', 'projects/participants/participants_detail_page.tpl.html', 'projects/participants/participants_list_page.tpl.html', 'projects/participants/participants_new_detail.tpl.html', 'projects/participants/participants_new_page.tpl.html', 'projects/planlist/planlist.tpl.html', 'projects/plans/_plans_detail_detail_revisioncontent.tpl.html', 'projects/plans/plan_uploadpartial.tpl.html', 'projects/plans/plans_detail_detail.tpl.html', 'projects/plans/plans_detail_page.tpl.html', 'projects/plans/plans_list_page.tpl.html', 'projects/plans/plans_new_detail.tpl.html', 'projects/plans/plans_new_page.tpl.html', 'projects/projects_basepagetemplate.tpl.html', 'projects/projects_list.tpl.html', 'projects/projects_new.tpl.html', 'projecttitle/projecttitle.tpl.html', 'registration/forgotpassword/forgotpassword_page.tpl.html', 'registration/registration_page.tpl.html', 'index.html', 'legalnotes.html', 'logo.html', 'map/templatedinfowindow.html', 'why.html', 'workwithus.html']);
+angular.module('templates.app', ['account/account.tpl.html', 'account/account_basepagetemplate.tpl.html', 'account/account_payment.tpl.html', 'account/account_tabnav.tpl.html', 'account/password/password_page.tpl.html', 'directives/downloadlink.tpl.html', 'directives/fileuploadcheck.tpl.html', 'directives/fullname.tpl.html', 'directives/roleselector.tpl.html', 'directives/s3uploadform.tpl.html', 'header.tpl.html', 'login/accessdenied.tpl.html', 'login/login_page.tpl.html', 'login/modalloginform.tpl.html', 'login/toolbar.tpl.html', 'navbar/navbar.tpl.html', 'projects/activities/_activities_list.tpl.html', 'projects/activities/activities.tpl.html', 'projects/participants/_participants_detail_detail_lock.tpl.html', 'projects/participants/participants_detail_detail.tpl.html', 'projects/participants/participants_detail_page.tpl.html', 'projects/participants/participants_list_page.tpl.html', 'projects/participants/participants_new_detail.tpl.html', 'projects/participants/participants_new_page.tpl.html', 'projects/planlist/planlist.tpl.html', 'projects/plans/_plans_detail_detail_revisioncontent.tpl.html', 'projects/plans/plan_uploadpartial.tpl.html', 'projects/plans/plans_detail_detail.tpl.html', 'projects/plans/plans_detail_page.tpl.html', 'projects/plans/plans_list_page.tpl.html', 'projects/plans/plans_new_detail.tpl.html', 'projects/plans/plans_new_page.tpl.html', 'projects/projects_basepagetemplate.tpl.html', 'projects/projects_list.tpl.html', 'projects/projects_new.tpl.html', 'projecttitle/projecttitle.tpl.html', 'registration/forgotpassword/forgotpassword_page.tpl.html', 'registration/registration_page.tpl.html', 'index.html', 'legalnotes.html', 'logo.html', 'map/mapsearchbar.html', 'map/templatedinfowindow.html', 'why.html', 'workwithus.html']);
 
 angular.module("account/account.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.tpl.html",
@@ -2797,9 +2797,11 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "\n" +
     "</div>\n" +
     "\n" +
+    "<div class=\"map-searchbar\"\n" +
+    "     data-ng-include=\"'views/map/mapsearchbar.html'\">\n" +
+    "</div>\n" +
     "\n" +
-    "\n" +
-    "\n" +
+    "<div class=\"map-selection-block\">\n" +
     "\n" +
     "<div class=\"section section-map\">\n" +
     "<div class=\"controlpanel\">\n" +
@@ -3032,10 +3034,15 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "</div>\n" +
     "\n" +
     "<div class=\"map-debug\">\n" +
-    "  <strong>Map-Debug:</strong> <br/>\n" +
-    "  <u>Map ZOOM:</u> {{ map.zoom }}<br/>\n" +
-    "  <u>You clicked here:</u><br/>\n" +
-    "  \"longitude\": {{ map.clickedMarker.longitude }}<br/>\n" +
+    "  <strong>Map-Debug:</strong>\n" +
+    "  <br/>\n" +
+    "  <u>Map ZOOM:</u>\n" +
+    "  {{ map.zoom }}\n" +
+    "  <br/>\n" +
+    "  <u>You clicked here:</u>\n" +
+    "  <br/>\n" +
+    "  \"longitude\": {{ map.clickedMarker.longitude }}\n" +
+    "  <br/>\n" +
     "  \"latitude\": {{ map.clickedMarker.latitude }}\n" +
     "</div>\n" +
     "\n" +
@@ -3066,20 +3073,32 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "        <div\n" +
     "            class=\"window-category-{{m.category}}\"\n" +
     "            >\n" +
-    "          <h4><span class=\"icon\"></span>{{m.name}}</h4>\n" +
+    "          <h4>\n" +
+    "            <span class=\"icon\"></span>\n" +
+    "            {{m.name}}\n" +
+    "          </h4>\n" +
     "\n" +
-    "          <img src=\"/img/mapicons/piemont.jpg\" width=\"100\" alt=\"\"/>\n" +
-    "          \n" +
+    "          <img src=\"/img/mapicons/piemont.jpg\"\n" +
+    "               width=\"100\"\n" +
+    "               alt=\"\"/>\n" +
+    "\n" +
     "          <h6>Offered by: Piemont Travel Office</h6>\n" +
     "\n" +
-    "          <p>The season lasts from march to september. <br/> You can book this venue right here!</p>\n" +
+    "          <p>The season lasts from march to september.\n" +
+    "            <br/>\n" +
+    "             You can book this venue right here!\n" +
+    "          </p>\n" +
     "\n" +
     "          <p class=\"align-right\">\n" +
-    "            <a href=\"http://www.paypal.com\" target=\"_blank\" class=\"btn\">Book now</a>\n" +
+    "            <a href=\"http://www.paypal.com\"\n" +
+    "               target=\"_blank\"\n" +
+    "               class=\"btn\">Book now\n" +
+    "            </a>\n" +
     "          </p>\n" +
     "        </div>\n" +
     "      </window>\n" +
-    "      <marker-label content=\"m.name\" anchor=\"22 0\"\n" +
+    "      <marker-label content=\"m.name\"\n" +
+    "                    anchor=\"22 0\"\n" +
     "                    class=\"marker-labels marker-label-category-{{m.category}}\"\n" +
     "          />\n" +
     "    </marker>\n" +
@@ -3087,12 +3106,27 @@ angular.module("index.html", []).run(["$templateCache", function($templateCache)
     "  </google-map>\n" +
     "</div>\n" +
     "</div>\n" +
+    "</div>\n" +
+    "\n" +
+    "<div class=\"admininterface\">\n" +
+    "  Admininterface block\n" +
+    "</div>\n" +
     "\n" +
     "<div class=\"footer footer-startpage\">\n" +
-    "  <div class=\"nav-footer\"><a href=\"#/legalnotes/\">Contact & Impressum</a></div>\n" +
+    "  <div class=\"nav-footer\">\n" +
+    "    <a href=\"#/legalnotes/\">Contact & Impressum</a>\n" +
+    "  </div>\n" +
     "  <div class=\"teaser-section teaser-section-2\">\n" +
-    "    <div class=\"teaser-block align-right\"><h4><a href=\"#/why/\">Why reActure?</a></h4></div>\n" +
-    "    <div class=\"teaser-block align-right\"><h4><a href=\"#/workwithus/\">Work with us!</a></h4></div>\n" +
+    "    <div class=\"teaser-block align-right\">\n" +
+    "      <h4>\n" +
+    "        <a href=\"#/why/\">Why reActure?</a>\n" +
+    "      </h4>\n" +
+    "    </div>\n" +
+    "    <div class=\"teaser-block align-right\">\n" +
+    "      <h4>\n" +
+    "        <a href=\"#/workwithus/\">Work with us!</a>\n" +
+    "      </h4>\n" +
+    "    </div>\n" +
     "  </div>\n" +
     "</div>");
 }]);
@@ -3114,6 +3148,16 @@ angular.module("logo.html", []).run(["$templateCache", function($templateCache) 
     "    >\n" +
     "  <span>reActure – Find your activity</span>\n" +
     "</a>");
+}]);
+
+angular.module("map/mapsearchbar.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("map/mapsearchbar.html",
+    "<div data-ng-controller=\"MapsearchbarCtrl\">\n" +
+    "  <p>This is the mapsearchbar view.</p>\n" +
+    "  {{test}}\n" +
+    "</div>\n" +
+    "\n" +
+    "");
 }]);
 
 angular.module("map/templatedinfowindow.html", []).run(["$templateCache", function($templateCache) {
