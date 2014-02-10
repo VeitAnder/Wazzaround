@@ -426,8 +426,27 @@ module.exports = function (grunt) {
           stdout: true,
           stderr: true,
           failOnError: true
+        },
+        npminstallclient: {
+          command: 'npm install',
+          options: {
+            async: true
+          }
+        },
+        bowerinstallclient: {
+          command: 'bower install',
+          options: {
+            async: true
+          }
+        },
+        npminstallserver: {
+          command: 'cd ../server/ & npm install',
+          options: {
+            async: true
+          }
         }
       }
+
 
     }
   );
@@ -484,6 +503,12 @@ module.exports = function (grunt) {
     'newer:jshint',
     'test',
     'build'
+  ]);
+
+  grunt.registerTask('install', [
+    'shell:npminstallclient',
+    'shell:bowerinstallclient',
+    'shell:npminstallserver'
   ]);
 
 }
