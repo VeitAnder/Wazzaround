@@ -1,9 +1,10 @@
-<div class="page" ng-show="!isAuthenticated">
+<!--<div class="page" ng-show="!isAuthenticated">-->
+<div class="page" ng-controller="LoginPageCtrl"  ng-show="!currentUser.authenticated">
   <div class="authpage">
     <div class="innerwrap">
 
       <form class="loginform" name="loginform" novalidate autocomplete="on"
-            action="{{actionurl}}" method="post" target="_self">
+            action="" method="post" target="_self">
 
         <h1>Login</h1>
 
@@ -36,15 +37,18 @@
 
         <p>
           <label>E-Mail</label>
-          <input name="username" type="email" ng-model="user.email" required autofocus class="input-block-level">
+          <input name="username" ng-model="form.username" class="input-block-level" required autofocus>
         </p>
         <p>
           <label>Passwort</label>
-          <input name="password" id="password" type="password" ng-model="user.password" required class="input-block-level">
-        <!--  <a class="forgottenpasswordlink" ng-click="forgotPassword()">Passwort vergessen?</a>-->
+          <input name="password" id="password" type="password" ng-model="form.password" required class="input-block-level">
         </p>
 
-        <button type="submit">Anmelden</button>
+        <div ng-show="state.error">
+          <div class="alert alert-error">{{state.message}}</div>
+        </div>
+
+        <button type="submit" ng-click="login()">Anmelden</button>
 
       </form>
 

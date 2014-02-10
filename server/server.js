@@ -6,13 +6,13 @@ var express = require('express');
 
 var config = require('./config.js');
 var logger = require('./lib/logger.js');
-//var security = require('./lib/security');
+var security = require('./lib/security');
 //var protectJSON = require('./lib/protectJSON');
 //var cacheControl = require('./lib/cacheControl');
 
 var app = express();
 
-//var RestApi = require("./servermodules/restapi.js");
+var RestApi = require("./servermodules/restapi.js");
 
 logger.info("Node environment: NODE_ENV=%s", process.env.NODE_ENV);
 
@@ -29,7 +29,7 @@ app.use(logger.expressLogger);
 app.use(express.bodyParser());
 app.set('json spaces',2);
 
-
+// todo user mongo store
 app.use(express.cookieParser());
 app.use(express.session({
   secret: config.server.cookieSecret,

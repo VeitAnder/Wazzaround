@@ -380,7 +380,7 @@ module.exports = function (grunt) {
           options: {
             base: '<%= yeoman.app %>/views/'
           },
-          src: ['<%= yeoman.app %>/views/**/*.tpl.html','<%= yeoman.app %>/views/**/*.html'],
+          src: ['<%= yeoman.app %>/views/**/*.tpl.html', '<%= yeoman.app %>/views/**/*.html'],
           dest: '<%= yeoman.app %>/scripts/templates.js',
           module: 'templates.app'
         }
@@ -458,7 +458,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'bower-install',
+//      'bower-install', // creates mess with dependencies
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -482,7 +482,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'bower-install',
+//    'bower-install', // creates mess with dependencies
     'useminPrepare',
     'html2js',
     'concurrent:dist',
@@ -511,5 +511,4 @@ module.exports = function (grunt) {
     'shell:npminstallserver'
   ]);
 
-}
-;
+};

@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, $window) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window) {
 
     $scope.activities = resolvedActivities;
+    $scope.currentUser = currentUser;
 
     debug("resolvedactivities", resolvedActivities);
 

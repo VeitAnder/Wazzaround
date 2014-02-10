@@ -27,19 +27,9 @@ var UserModel = new model("User", {
     }
   },
 
-  login : Operation(/*{
-    params: {
-      username : Attr(Type.string),
-      password : Attr(Type.string)
-    }
-  }*/),
+  login : Operation(),
   logout : Operation(),
-  register : Operation(/*{
-    params: {
-      username : Attr(Type.string),
-      password : Attr(Type.string)
-    }
-  }*/)
+  register : Operation()
 });
 
 
@@ -50,7 +40,7 @@ var ActivityModel = new model("Activity", {
   images : Attr(Type.array),
 
   category : {
-    main : Attr(Type.string, Type.enum('sports', 'culture', 'wellness')),
+    main : Attr(Type.string),
     sub : Attr(Type.string)
   },
 
@@ -68,8 +58,13 @@ var ActivityModel = new model("Activity", {
 
 });
 
-// TODOs categories model
 
+if (typeof window !== 'undefined') {
+  // we run in a browser environment
+
+  // http://stackoverflow.com/questions/17544965/unhandled-rejection-reasons-should-be-empty
+  Q.stopUnhandledRejectionTracking();  // why does this happen?
+}
 
 
 if (typeof window === 'undefined') {
