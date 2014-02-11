@@ -1223,6 +1223,29 @@ $filter-category-arrow-width: 65px;
   }
 }
 
+
+.logoutlink{
+  .admin-section &{
+    display: none;
+  }
+  .col-left-fixed &{
+    @include button;
+    background-color: $color_red;
+    border-color: $color_red;
+    &:hover{
+      background-color: $color_red_l5;
+      border-color: $color_red_l5;
+    }
+  }
+}
+
+.accountlink{
+  .col-left-fixed &{
+    display: none;
+  }
+}
+
+
 .teaser-section {
   overflow: hidden;
 }
@@ -1263,6 +1286,7 @@ $filter-category-arrow-width: 65px;
 }
 
 .listbody{
+
 }
 
 .listrow{
@@ -1369,4 +1393,11 @@ $filter-category-arrow-width: 65px;
   font-family: inherit;
   font-size: 100%;
   border: 1px solid grey;
+}
+
+.ta-root{
+  .btn-default{
+    font-size: 14px;
+    padding: 2px 15px;
+  }
 }

@@ -1,51 +1,102 @@
 <h2>Account</h2>
 <h3>my Activities</h3>
 
+<pre>
+ var ActivityModel = new model("activities", {
+  name: Attr(Type.string),
+
+  description: Attr(Type.string),
+  images: Attr(Type.array),
+
+  category: {
+    main: Attr(Type.string),
+    sub: Attr(Type.string)
+  },
+  longitude: Attr(Type.string),
+  latitude: Attr(Type.string),
+  availability: {
+    start: Attr(Type.string),
+    end: Attr(Type.string)
+  },
+
+  owner: Ref(UserModel)
+
+});
+    </pre>
+
+{{activity}}
+
 <form role="form"
       name="valForm"
       novalidate
     >
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email"
-           class="form-control"
-           id="exampleInputEmail1"
-           placeholder="Enter email">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password"
-           class="form-control"
-           id="exampleInputPassword1"
-           placeholder="Password">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file"
-           id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox">
-      Check me out
-    </label>
+
+  <div style="width:100%; height:400px; overflow:hidden; position:relative;">
+
+    <google-map
+        center='map.center'
+        zoom='map.zoom'
+        draggable='true'
+        events='map.events'
+        >
+
+      <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
+      <div ng-init="opts = {animation:1}">
+        <marker coords="map.clickedMarker"
+                options="opts">
+        </marker>
+      </div>
+
+    </google-map>
+
   </div>
 
   <div class="form-group">
-    <label for="select">Email address</label>
+    <label for="categoryMain">Main Category</label>
     <select class="form-control"
-            id="select">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+            id="categoryMain"
+            required
+            >
+      <option disabled>Select Main Category</option>
+      <option>Sports & Activities</option>
+      <option>Culutre</option>
+      <option>Wellness & Relax</option>
     </select>
   </div>
 
-  <div text-angular
-       ng-model="htmlVariable"></div>
+  <div class="form-group">
+    <label for="categorySub">Sub Category</label>
+    <select class="form-control"
+            id="categorySub"
+            required
+            >
+      <option disabled>Select Sub Category</option>
+      <option>Sub Category I</option>
+      <option>Sub Category II</option>
+      <option>Sub Category III</option>
+      <option>Sub Category IV</option>
+      <option>Sub Category V</option>
+      <option>Sub Category VI</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="name">Name of Activity</label>
+    <input type="text"
+           class="form-control"
+           id="name"
+           placeholder="Enter name of activity"
+           ng-model="activity.name"
+        >
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <div text-angular
+         ng-model="activity.description">
+    </div>
+  </div>
+
 
   <div class="buttonbar">
     <button class="btn"
