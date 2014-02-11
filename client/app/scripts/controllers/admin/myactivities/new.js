@@ -14,6 +14,11 @@ angular.module('anorakApp')
         "latitude": 45.12199086176226
       },
       zoom: 9,
+      clickedMarker: {
+        title: 'Location of activity',
+        latitude: null,
+        longitude: null
+      },
       events: {
         click: function (mapModel, eventName, originalEventArgs) {
           // 'this' is the directive's scope
