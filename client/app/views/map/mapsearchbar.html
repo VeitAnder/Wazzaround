@@ -2,32 +2,40 @@
 
   <div class="input-group input-group-lg">
     <input type="text"
-           class="form-control">
+           class="form-control"
+           placeholder="Your location …"
+        >
     <span class="input-group-btn">
       <button class="btn"
-              type="button">Go!
+              type="button">Find!
       </button>
     </span>
   </div>
 
-  <label>from</label>
-  <input type="text"
-         class="form-control"
-         ng-model="search.fromDate"
-         data-min-date="{{search.minDate}}"
-         placeholder="From"
-         bs-datepicker
-         autoclose="false"
-      >
-  <label>until</label>
-  <input type="text"
-         class="form-control"
-         ng-model="search.untilDate"
-         data-min-date="{{search.fromDate}}"
-         placeholder="Until"
-         bs-datepicker
-         autoclose="false"
-      >
+  <div class="form-daterange">
+    <div class="form-group">
+      <label>from</label>
+      <input type="text"
+             class="form-control"
+             ng-model="search.fromDate"
+             data-min-date="{{search.minDate}}"
+             placeholder="From"
+             bs-datepicker
+             autoclose="false"
+          >
+    </div>
+    <div class="form-group">
+      <label>until</label>
+      <input type="text"
+             class="form-control"
+             ng-model="search.untilDate"
+             data-min-date="{{search.fromDate}}"
+             placeholder="Until"
+             bs-datepicker
+             autoclose="false"
+          >
+    </div>
 
+  </div>
 </div>
 
