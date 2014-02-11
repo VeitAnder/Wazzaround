@@ -14,6 +14,7 @@ var Operation = model.Operation;
 
 var UserModel = new model("users", {
   email : Attr(Type.string),
+  username : Attr(Type.string),
   password : Attr(Type.string),
 
   profile : {
