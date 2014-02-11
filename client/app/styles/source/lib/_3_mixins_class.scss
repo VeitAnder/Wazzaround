@@ -799,6 +799,11 @@ header {
 // FOOTER
 // ---------------------------------------------------------------------------------------------------------------------------
 .footer {
+  min-height: $footer-height;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+
   @include outline;
   @include clearfix;
   color: $color_footer_text;
@@ -811,7 +816,7 @@ header {
   }//a
 
   &.footer-startpage{
-    height: $footer-startpage-height;
+    position: relative;
   }
 }//footer
 

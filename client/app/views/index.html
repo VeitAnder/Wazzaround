@@ -33,13 +33,13 @@
 
       <div class="filter-toggle">
         <div class="filter-toggle-show"
-             data-ng-class="{active: !allSelectedFromCategory('sports')}"
+             data-ng-class="{active: allSelectedFromCategory('sports')}"
              data-ng-click="selectAllFromCategory('sports')"
             >
           Select all
         </div>
         <div class="filter-toggle-hide"
-             data-ng-class="{active: !noneSelectedFromCategory('sports')}"
+             data-ng-class="{active: noneSelectedFromCategory('sports')}"
              data-ng-click="deSelectAllFromCategory('sports')"
             >
           Deselect all
@@ -105,13 +105,13 @@
 
     <div class="filter-toggle">
       <div class="filter-toggle-show"
-           data-ng-class="{active: !allSelectedFromCategory('culture')}"
+           data-ng-class="{active: allSelectedFromCategory('culture')}"
            data-ng-click="selectAllFromCategory('culture')"
           >
         Select all
       </div>
       <div class="filter-toggle-hide"
-           data-ng-class="{active: !noneSelectedFromCategory('culture')}"
+           data-ng-class="{active: noneSelectedFromCategory('culture')}"
            data-ng-click="deSelectAllFromCategory('culture')"
           >
         Deselect all
@@ -172,13 +172,13 @@
 
     <div class="filter-toggle">
       <div class="filter-toggle-show"
-           data-ng-class="{active: !allSelectedFromCategory('wellness')}"
+           data-ng-class="{active: allSelectedFromCategory('wellness')}"
            data-ng-click="selectAllFromCategory('wellness')"
           >
         Select all
       </div>
       <div class="filter-toggle-hide"
-           data-ng-class="{active: !noneSelectedFromCategory('wellness')}"
+           data-ng-class="{active: noneSelectedFromCategory('wellness')}"
            data-ng-click="deSelectAllFromCategory('wellness')"
           >
         Deselect all
@@ -266,7 +266,7 @@
       >
 
     <marker
-        ng-repeat="m in activities | filter:onlySelected"
+        ng-repeat="m in activities | filter:onlySelectedCategories"
         coords='m'
         click='onMarkerClicked(m)'
         options='markerOptions'
@@ -277,7 +277,7 @@
           closeClick="m.closeClick()"
           >
         <div
-            class="window-category-{{m.category}}"
+            class="window-category-{{m.category.main}}"
             >
           <h4>
             <span class="icon"></span>
@@ -305,7 +305,7 @@
       </window>
       <marker-label content="m.name"
                     anchor="22 0"
-                    class="marker-labels marker-label-category-{{m.category}}"
+                    class="marker-labels marker-label-category-{{m.category.main}}"
           />
     </marker>
 
@@ -333,14 +333,10 @@
 <div class="footer footer-startpage">
   <div class="teaser-section teaser-section-2">
     <div class="teaser-block align-right">
-      <h4>
-        <a href="#/why/">Why reActure?</a>
-      </h4>
+      <a href="#/why/">Why reActure?</a>
     </div>
     <div class="teaser-block align-right">
-      <h4>
-        <a href="#/workwithus/">Work with us!</a>
-      </h4>
+      <a href="#/workwithus/">Work with us!</a>
     </div>
   </div>
   <div class="nav-meta">

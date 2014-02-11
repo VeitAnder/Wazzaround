@@ -91,13 +91,9 @@ angular.module('anorakApp')
       marker.showWindow = true;
     };
 
-    // TODO what is that for?
-    $scope.onlySelected = function (activity) {
-      if (activity.see) {
-        return false;
-      } else {
-        return true;
-      }
+    // filter activities so that only if their sub category is selected, they are displayed
+    $scope.onlySelectedCategories = function (activity) {
+      return _.where($scope.states.categories[activity.category.main], { 'key' : activity.category.sub, 'selected' : true }).length === 1 ? true : false;
     };
 
     $scope.toggleCategorySelection = function (category) {
@@ -138,7 +134,7 @@ angular.module('anorakApp')
     };
 
     $scope.getMarkerIcon = function (activity) {
-      return "/img/mapicons/marker-" + activity.category + ".svg";
+      return "/img/mapicons/marker-" + activity.category.main + ".svg";
     };
 
     $scope.areItemsInThisCategorySelected = function (mainCat) {
