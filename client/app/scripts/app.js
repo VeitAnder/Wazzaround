@@ -26,7 +26,6 @@ angular.module('anorakApp', [
   'ngRoute',
   'google-maps',
   'mgcrea.ngStrap.datepicker',
-  'login',
   'ui.keypress',
   'registration',
   'momentjs',
@@ -151,6 +150,8 @@ angular.module('anorakApp')
     $rootScope.currentUser = currentUser;
 
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
+
+      debug("routeChangeStart");
 
       // no trailing slash
       // regexpr literals
