@@ -1234,14 +1234,17 @@ $img-block-size: 150px;
       width: 100%;
       a{
         display: block;
-        background-color: $color_grey_50;
-        height: 30px;
-        padding: 2px 5px;
+        background-color: $color_grey;
+        padding: 5px;
         color: $color_white;
         font-weight: $font-weight_bold;
         text-decoration: none;
+        @include opacity(0.85);
         &:hover{
           background-color: $color_red;
+          i{
+            color: $color_red;
+          }
         }
       }
       i{
@@ -1251,9 +1254,12 @@ $img-block-size: 150px;
         height: 20px;
         @include border-radius(10px);
         background-color: $color_white;
-        color: $color_grey_50;
+        color: $color_grey;
         font-weight: $font-weight_bold;
+        font-family: 'Helvetica Neue', Helvetica, Arial;
         font-style: normal;
+        text-align: center;
+        line-height: 17px;
       }
     }
   }

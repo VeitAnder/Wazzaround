@@ -3089,14 +3089,17 @@ footer {
       width: 100%; }
       .img-selector .img-block .img-edit a {
         display: block;
-        background-color: #b3b3b3;
-        height: 30px;
-        padding: 2px 5px;
+        background-color: #666;
+        padding: 5px;
         color: #FFF;
         font-weight: 600;
-        text-decoration: none; }
+        text-decoration: none;
+        opacity: 0.85;
+        filter: alpha(opacity=85); }
         .img-selector .img-block .img-edit a:hover {
           background-color: #C83C19; }
+          .img-selector .img-block .img-edit a:hover i {
+            color: #C83C19; }
       .img-selector .img-block .img-edit i {
         display: block;
         float: right;
@@ -3109,9 +3112,12 @@ footer {
         -o-border-radius: 10px;
         border-radius: 10px;
         background-color: #FFF;
-        color: #b3b3b3;
+        color: #666;
         font-weight: 600;
-        font-style: normal; }
+        font-family: 'Helvetica Neue', Helvetica, Arial;
+        font-style: normal;
+        text-align: center;
+        line-height: 17px; }
 
 .admin-section {
   background-color: #85C900;
