@@ -1,6 +1,10 @@
 <h2>Account</h2>
-    <h3>my Activities</h3>
-<form role="form">
+<h3>my Activities</h3>
+
+<form role="form"
+      name="valForm"
+      novalidate
+    >
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email"
@@ -40,6 +44,9 @@
     </select>
   </div>
 
+  <div text-angular
+       ng-model="htmlVariable"></div>
+
   <div class="buttonbar">
     <button class="btn"
             ng-click="save()"
@@ -50,4 +57,5 @@
         >abbrechen
     </a>
   </div>
+
 </form>
