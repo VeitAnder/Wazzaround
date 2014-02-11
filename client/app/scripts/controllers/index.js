@@ -39,7 +39,7 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.map = mapdataservice;
+    $scope.map = mapdataservice.map;
     $scope.map.markers = $scope.activities;
     $scope.map.events = {
       click: function (mapModel, eventName, originalEventArgs) {
@@ -63,6 +63,10 @@ angular.module('anorakApp')
         $scope.$apply();
       }
     };
+
+    $scope.$watch('map.address', function(newVal, oldVal) {
+      console.log("MAP CHANGED NOW", $scope.map.address);
+    });
 
     $scope.onMarkerClicked = function (marker) {
       debug("Marker: lat: " + marker.latitude + ", lon: " + marker.longitude + " clicked!!");

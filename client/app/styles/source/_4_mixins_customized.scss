@@ -54,6 +54,7 @@ footer {
   position: relative;
   overflow: hidden;
   display: block;
+  max-width: 1200px - $col-left-width;
 }
 
 .controlpanel {
@@ -1032,7 +1033,7 @@ $filter-category-arrow-width: 65px;
     }
     &:hover {
       background-color: $color_grey_50_l5;
-      @include cursor;
+      @include hovercursor;
     }
   }
   .filter-category-body {
@@ -1064,7 +1065,7 @@ $filter-category-arrow-width: 65px;
     }
     &:hover {
       color: $color_grey;
-      @include cursor;
+      @include hovercursor;
     }
     &.selected {
       color: $color_grey;
@@ -1100,7 +1101,7 @@ $filter-category-arrow-width: 65px;
     padding: 5px 10px;
     width: 50%;
     text-align: center;
-    @include cursor;
+    @include hovercursor;
     @include user-select(none);
     @include border(left, $color_grey_50);
 
@@ -1222,6 +1223,29 @@ $filter-category-arrow-width: 65px;
   }
 }
 
+
+.logoutlink{
+  .admin-section &{
+    display: none;
+  }
+  .col-left-fixed &{
+    @include button;
+    background-color: $color_red;
+    border-color: $color_red;
+    &:hover{
+      background-color: $color_red_l5;
+      border-color: $color_red_l5;
+    }
+  }
+}
+
+.accountlink{
+  .col-left-fixed &{
+    display: none;
+  }
+}
+
+
 .teaser-section {
   overflow: hidden;
 }
@@ -1253,6 +1277,35 @@ $filter-category-arrow-width: 65px;
   }
   .form-control{
 
+  }
+}
+
+
+.listheader{
+  @include divtable_header_small;
+}
+
+.listbody{
+
+}
+
+.listrow{
+  @include divtable_row;
+  @include striperows;
+}
+
+.list-myactivities{
+  .activity{
+    width: 25%;
+  }
+  .category-main, .category-sub{
+    width: 15%;
+  }
+  .location{
+    width: 25%;
+  }
+  .availability{
+    width: 20%;
   }
 }
 
@@ -1330,4 +1383,21 @@ $filter-category-arrow-width: 65px;
 
 .datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
   height: 65px
+}
+
+// https://github.com/fraywing/textAngular/wiki/Getting-Started
+.ta-editor {
+  min-height: 300px;
+  height: auto;
+  overflow: auto;
+  font-family: inherit;
+  font-size: 100%;
+  border: 1px solid grey;
+}
+
+.ta-root{
+  .btn-default{
+    font-size: 14px;
+    padding: 2px 15px;
+  }
 }
