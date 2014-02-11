@@ -33,13 +33,13 @@
 
       <div class="filter-toggle">
         <div class="filter-toggle-show"
-             data-ng-class="{active: !allSelectedFromCategory('sports')}"
+             data-ng-class="{active: allSelectedFromCategory('sports')}"
              data-ng-click="selectAllFromCategory('sports')"
             >
           Select all
         </div>
         <div class="filter-toggle-hide"
-             data-ng-class="{active: !noneSelectedFromCategory('sports')}"
+             data-ng-class="{active: noneSelectedFromCategory('sports')}"
              data-ng-click="deSelectAllFromCategory('sports')"
             >
           Deselect all
@@ -105,13 +105,13 @@
 
     <div class="filter-toggle">
       <div class="filter-toggle-show"
-           data-ng-class="{active: !allSelectedFromCategory('culture')}"
+           data-ng-class="{active: allSelectedFromCategory('culture')}"
            data-ng-click="selectAllFromCategory('culture')"
           >
         Select all
       </div>
       <div class="filter-toggle-hide"
-           data-ng-class="{active: !noneSelectedFromCategory('culture')}"
+           data-ng-class="{active: noneSelectedFromCategory('culture')}"
            data-ng-click="deSelectAllFromCategory('culture')"
           >
         Deselect all
@@ -172,13 +172,13 @@
 
     <div class="filter-toggle">
       <div class="filter-toggle-show"
-           data-ng-class="{active: !allSelectedFromCategory('wellness')}"
+           data-ng-class="{active: allSelectedFromCategory('wellness')}"
            data-ng-click="selectAllFromCategory('wellness')"
           >
         Select all
       </div>
       <div class="filter-toggle-hide"
-           data-ng-class="{active: !noneSelectedFromCategory('wellness')}"
+           data-ng-class="{active: noneSelectedFromCategory('wellness')}"
            data-ng-click="deSelectAllFromCategory('wellness')"
           >
         Deselect all
