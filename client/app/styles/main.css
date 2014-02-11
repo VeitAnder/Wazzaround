@@ -3019,9 +3019,64 @@ footer {
   .teaser-section-2 .teaser-block {
     width: 50%; }
 
-.datepicker button.btn-default {
-  border: none;
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+.datepicker {
+  padding: 10px; }
+  .datepicker button.btn-default {
+    background-color: #FFF;
+    border: none;
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #666;
+    font-weight: 600; }
+    .datepicker button.btn-default span {
+      color: #666; }
+      .datepicker button.btn-default span.text-muted {
+        font-weight: 200; }
+    .datepicker button.btn-default:hover {
+      background-color: #e8e8e8; }
+    .datepicker button.btn-default:active {
+      background-color: #85C900; }
+      .datepicker button.btn-default:active span, .datepicker button.btn-default:active strong {
+        color: #FFF; }
+  .datepicker button.btn-primary {
+    background-color: #85C900; }
+    .datepicker button.btn-primary span {
+      color: #FFF; }
+    .datepicker button.btn-primary:hover {
+      background-color: #85C900; }
+  .datepicker button.btn-block {
+    display: block;
+    width: 100%; }
+  .datepicker button.pull-right, .datepicker button.pull-left {
+    width: 30px;
+    height: 20px;
+    background-position: -13px -58px;
+    background-repeat: no-repeat; }
+    .svg .datepicker button.pull-right, .svg .datepicker button.pull-left {
+      background-image: url('/img/sprite_icons.svg'); }
+    .no-svg .datepicker button.pull-right, .no-svg .datepicker button.pull-left {
+      background-image: url('/img/sprite_icons.png'); }
+    .datepicker button.pull-right:active, .datepicker button.pull-left:active {
+      background-color: #d9d9d9; }
+  .datepicker button.pull-left {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg); }
+
+
+.datepicker.dropdown-menu button {
+  outline: 0;
+  border: 0; }
+
+.datepicker.dropdown-menu tbody {
+  height: 180px; }
+
+.datepicker.dropdown-menu tbody button {
+  padding: 6px; }
+
+.datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
+  height: 65px; }
 
 html {
   overflow-y: scroll;
