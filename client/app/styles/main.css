@@ -1935,74 +1935,76 @@ footer {
   .social-facebook:hover {
     background-position: -234px -100px; }
 
-.nav-meta:after {
-  content: "";
-  display: table;
-  clear: both; }
-.nav-meta ul {
-  list-style-type: none;
-  display: block;
-  margin: 0;
-  padding: 0;
-  background: none; }
-  .nav-meta ul li {
+.nav-meta {
+  display: none; }
+  .nav-meta:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .nav-meta ul {
     list-style-type: none;
     display: block;
     margin: 0;
     padding: 0;
     background: none; }
-    .nav-meta ul li a {
-      display: block;
-      overflow: hidden; }
-      .nav-meta ul li a span {
-        margin: 0;
-        padding: 0;
-        display: block; }
-      .nav-meta ul li a:hover {
-        cursor: pointer; }
-    .nav-meta ul li ul {
+    .nav-meta ul li {
       list-style-type: none;
       display: block;
       margin: 0;
       padding: 0;
       background: none; }
-      .nav-meta ul li ul li {
+      .nav-meta ul li a {
+        display: block;
+        overflow: hidden; }
+        .nav-meta ul li a span {
+          margin: 0;
+          padding: 0;
+          display: block; }
+        .nav-meta ul li a:hover {
+          cursor: pointer; }
+      .nav-meta ul li ul {
         list-style-type: none;
         display: block;
         margin: 0;
         padding: 0;
         background: none; }
-        .nav-meta ul li ul li ul {
+        .nav-meta ul li ul li {
           list-style-type: none;
           display: block;
           margin: 0;
           padding: 0;
           background: none; }
-          .nav-meta ul li ul li ul li {
+          .nav-meta ul li ul li ul {
             list-style-type: none;
             display: block;
             margin: 0;
             padding: 0;
             background: none; }
-  .nav-meta ul .current a:hover {
-    cursor: default; }
-  .nav-meta ul .currentandsub {
-    border-bottom: none; }
-    .nav-meta ul .currentandsub a:hover {
+            .nav-meta ul li ul li ul li {
+              list-style-type: none;
+              display: block;
+              margin: 0;
+              padding: 0;
+              background: none; }
+    .nav-meta ul .current a:hover {
       cursor: default; }
-    .nav-meta ul .currentandsub li a:hover {
-      cursor: pointer; }
-.nav-meta ul li {
-  display: inline-block;
-  padding: 5px; }
-  .nav-meta ul li a {
-    color: #b3b3b3; }
-    .nav-meta ul li a:hover {
-      color: #8c8c8c; }
-  .nav-meta ul li.active a {
-    color: #b3b3b3; }
-    .nav-meta ul li.active a:hover {
-      color: #8c8c8c; }
+    .nav-meta ul .currentandsub {
+      border-bottom: none; }
+      .nav-meta ul .currentandsub a:hover {
+        cursor: default; }
+      .nav-meta ul .currentandsub li a:hover {
+        cursor: pointer; }
+  .nav-meta ul li {
+    display: inline-block;
+    padding: 5px; }
+    .nav-meta ul li a {
+      color: #b3b3b3; }
+      .nav-meta ul li a:hover {
+        color: #8c8c8c; }
+    .nav-meta ul li.active a {
+      color: #b3b3b3; }
+      .nav-meta ul li.active a:hover {
+        color: #8c8c8c; }
 
 .nav-inpage {
   margin: 64px 0;
