@@ -5,12 +5,4 @@ angular.module('anorakApp')
     $scope.getPagePartial = function () {
       return 'views/admin/index.html';
     };
-
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
-
   });

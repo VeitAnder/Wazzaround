@@ -1,63 +1,68 @@
-<!--<div class="page" ng-show="!isAuthenticated">-->
-<div class="page">
-  <div class="authpage">
-    <div class="innerwrap">
+<form class="loginform"
+      name="loginform"
+      novalidate
+      autocomplete="on"
+      action=""
+      method="post"
+      target="_self">
 
-      <form class="loginform" name="loginform" novalidate autocomplete="on"
-            action="" method="post" target="_self">
+  <h2>Account</h2>
 
-        <h1>Login</h1>
+  <h3>Login</h3>
 
-        <!--<div ng-show="state.confirmed">
-          <p class="alert alert-success">Ihr Benutzerkonto wurde erfolgreich aktiviert.</p>
-        </div>
-
-        <div ng-show="state.alreadyconfirmed">
-          <p class="alert">Ihr Benutzerkonto ist bereits aktiviert worden.</p>
-        </div>
-
-        <div data-ng-switch="state.autherrortype">
-          <div ng-switch-when="invalidcredentials" class="alert alert-error">
-            Bitte überprüfen Sie E-Mail und Passwort.
-          </div>
-          <div ng-switch-when="userupdateerror" class="alert alert-error">
-            Es gab einen Fehler beim Login.
-          </div>
-          <div ng-switch-when="loginerror" class="alert alert-error">
-            Es gab einen Fehler beim Login.
-          </div>
-          <div ng-switch-when="usernotloggedin" class="alert alert-error">
-            Sie sind nicht eingeloggt.
-          </div>
-          <div ng-switch-when="sessionExpired" class="alert alert-error">
-            Bitte loggen Sie sich ein.<br>
-            ( Entweder ist Ihre Session abgelaufen, oder Sie waren noch nicht angemeldet. )
-          </div>
-        </div>  -->
-
-        <p>
-          <label>E-Mail</label>
-          <input name="username" ng-model="form.username" class="input-block-level" required autofocus>
-        </p>
-        <p>
-          <label>Passwort</label>
-          <input name="password" id="password" type="password" ng-model="form.password" required class="input-block-level">
-        </p>
-
-        <div ng-show="state.error">
-          <div class="alert alert-error">{{state.message}}</div>
-        </div>
-
-        <button type="submit" ng-click="login()">Anmelden</button>
-
-      </form>
-
-      <!--  <div class="buttonbar">
-          <a ng-click="register()">Jetzt kostenlos registrieren</a>
-        </div>      -->
-
-    </div>
+  <!--<div ng-show="state.confirmed">
+    <p class="alert alert-success">Ihr Benutzerkonto wurde erfolgreich aktiviert.</p>
   </div>
-  <!-- <div class="communication-element" ng-include="'communication.tpl.html'"></div> -->
 
-</div>
+  <div ng-show="state.alreadyconfirmed">
+    <p class="alert">Ihr Benutzerkonto ist bereits aktiviert worden.</p>
+  </div>
+
+  <div data-ng-switch="state.autherrortype">
+    <div ng-switch-when="invalidcredentials" class="alert alert-error">
+      Bitte überprüfen Sie E-Mail und Passwort.
+    </div>
+    <div ng-switch-when="userupdateerror" class="alert alert-error">
+      Es gab einen Fehler beim Login.
+    </div>
+    <div ng-switch-when="loginerror" class="alert alert-error">
+      Es gab einen Fehler beim Login.
+    </div>
+    <div ng-switch-when="usernotloggedin" class="alert alert-error">
+      Sie sind nicht eingeloggt.
+    </div>
+    <div ng-switch-when="sessionExpired" class="alert alert-error">
+      Bitte loggen Sie sich ein.<br>
+      ( Entweder ist Ihre Session abgelaufen, oder Sie waren noch nicht angemeldet. )
+    </div>
+  </div>  -->
+
+  <p>
+    <label for="email">E-Mail</label>
+    <input name="username"
+           ng-model="form.username"
+           class="input-block-level"
+           id="email"
+           required
+           autofocus>
+  </p>
+  <p>
+    <label for="password">Passwort</label>
+    <input name="password"
+           id="password"
+           type="password"
+           ng-model="form.password"
+           required
+           class="input-block-level">
+  </p>
+
+  <div ng-show="state.error">
+    <div class="alert alert-error">{{state.message}}</div>
+  </div>
+
+  <button class="btn"
+          type="submit"
+          ng-click="login()">Anmelden
+  </button>
+
+</form>

@@ -1,18 +1,20 @@
-admin basetemplate
+<div class="col-left-fixed">
+  <div data-ng-include="'views/_logo.html'"></div>
+  <nav
+      data-ng-show="currentUser.authenticated"
+      >
+    <ul>
+      <li>
+        <a href="#/admin/">Administration overview</a>
+      </li>
+      <li>
+        <a href="#/admin/myactivities">My Activies</a>
+      </li>
+    </ul>
+    <loginstatus></loginstatus>
+  </nav>
 
-<div data-ng-include="'views/_logo.html'"></div>
-
-navigation:
-<nav>
-  <ul>
-    <li>
-      <a href="#/admin/">Administration overview</a>
-    </li>
-    <li>
-      <a href="#/admin/myactivities">My Activies</a>
-    </li>
-  </ul>
-</nav>
-
-content:
-<div data-ng-include="getPagePartial()"></div>
+</div>
+<div class="col-right">
+  <div data-ng-include="getPagePartial()"></div>
+</div>
