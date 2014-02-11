@@ -1197,6 +1197,71 @@ $filter-category-arrow-width: 65px;
   }
 }
 
+$img-block-size: 150px;
+
+.img-selector{
+  overflow: hidden;
+  .img-block{
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    img{
+      width: $img-block-size;
+      height: $img-block-size;
+    }
+    &.img-new{
+      a{
+        text-decoration: none;
+        display: block;
+        width: $img-block-size;
+        height: $img-block-size;
+        background-color: $color_grey_25;
+        color: $color_white;
+        text-align: center;
+        font-size: 100px;
+        line-height: ($img-block-size*0.5) + (100px*0.5);
+        font-weight: $font-weight_bold;
+        font-family: 'Helvetica Neue', Helvetica, Arial;
+        &:hover{
+            background-color: $color_green;
+        }
+      }
+    }
+    .img-edit{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      a{
+        display: block;
+        background-color: $color_grey_50;
+        height: 30px;
+        padding: 2px 5px;
+        color: $color_white;
+        font-weight: $font-weight_bold;
+        text-decoration: none;
+        &:hover{
+          background-color: $color_red;
+        }
+      }
+      i{
+        display: block;
+        float: right;
+        width: 20px;
+        height: 20px;
+        @include border-radius(10px);
+        background-color: $color_white;
+        color: $color_grey_50;
+        font-weight: $font-weight_bold;
+        font-style: normal;
+      }
+    }
+  }
+}
+
+
+
+
 @mixin teaser-textformat{
   a, a:link{
     display: block;

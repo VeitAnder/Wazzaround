@@ -1,28 +1,5 @@
 <h2>Account</h2>
-<h3>my Activities</h3>
-
-<pre>
- var ActivityModel = new model("activities", {
-  name: Attr(Type.string),
-
-  description: Attr(Type.string),
-  images: Attr(Type.array),
-
-  category: {
-    main: Attr(Type.string),
-    sub: Attr(Type.string)
-  },
-  longitude: Attr(Type.string),
-  latitude: Attr(Type.string),
-  availability: {
-    start: Attr(Type.string),
-    end: Attr(Type.string)
-  },
-
-  owner: Ref(UserModel)
-
-});
-    </pre>
+<h3>New Activity</h3>
 
 {{activity}}
 
@@ -56,7 +33,7 @@
     <select class="form-control"
             id="categoryMain"
             required
-            >
+        >
       <option disabled>Select Main Category</option>
       <option>Sports & Activities</option>
       <option>Culutre</option>
@@ -69,7 +46,7 @@
     <select class="form-control"
             id="categorySub"
             required
-            >
+        >
       <option disabled>Select Sub Category</option>
       <option>Sub Category I</option>
       <option>Sub Category II</option>
@@ -97,6 +74,34 @@
     </div>
   </div>
 
+  <div class="form-group img-selector">
+    <label>Images</label>
+    <div class="img-block">
+      <img src="http://www.o-solemio.de/wp-content/uploads/Piemont/Locanda_Riziere/Piemont_Langhe.jpg"/>
+      <div class="img-edit">
+        <a class="delete"
+           href="#"
+           ng-click="delete()">delete
+          <i>x</i>
+        </a>
+      </div>
+    </div>
+    <div class="img-block">
+      <img src="http://www.welt-atlas.de/datenbank/fotos/1-941/big/1-941-42.jpg"/>
+      <div class="img-edit">
+        <a class="delete"
+           href="#"
+           ng-click="delete()">delete
+          <i>x</i>
+        </a>
+      </div>
+    </div>
+    <div class="img-block img-new">
+      <a href="#">
+        +
+      </a>
+    </div>
+  </div>
 
   <div class="buttonbar">
     <button class="btn"
@@ -110,3 +115,26 @@
   </div>
 
 </form>
+
+<pre>
+ var ActivityModel = new model("activities", {
+  name: Attr(Type.string),
+
+  description: Attr(Type.string),
+  images: Attr(Type.array),
+
+  category: {
+    main: Attr(Type.string),
+    sub: Attr(Type.string)
+  },
+  longitude: Attr(Type.string),
+  latitude: Attr(Type.string),
+  availability: {
+    start: Attr(Type.string),
+    end: Attr(Type.string)
+  },
+
+  owner: Ref(UserModel)
+
+});
+    </pre>
