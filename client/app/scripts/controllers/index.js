@@ -138,7 +138,7 @@ angular.module('anorakApp')
     };
 
     $scope.getMarkerIcon = function (activity) {
-      return "/img/mapicons/marker-" + activity.category + ".svg";
+      return "/img/mapicons/marker-" + activity.category.main + ".svg";
     };
 
     $scope.areItemsInThisCategorySelected = function (mainCat) {
