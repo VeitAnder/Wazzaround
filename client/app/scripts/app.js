@@ -148,6 +148,7 @@ angular.module('anorakApp')
 
     // load current User from server
     currentUser.load().done();
+    $rootScope.currentUser = currentUser;
 
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
 
