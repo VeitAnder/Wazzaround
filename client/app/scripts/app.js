@@ -72,16 +72,40 @@ angular.module('anorakApp')
         }
       })
       .when('/legalnotes', {
-        templateUrl: 'views/legalnotes.html',
+        templateUrl: 'views/page_basetemplate.html',
         controller: 'LegalnotesCtrl'
       })
       .when('/why', {
-        templateUrl: 'views/why.html',
+        templateUrl: 'views/page_basetemplate.html',
         controller: 'WhyCtrl'
       })
       .when('/workwithus', {
-        templateUrl: 'views/workwithus.html',
+        templateUrl: 'views/page_basetemplate.html',
         controller: 'WorkwithusCtrl'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/admin/myactivities/:id/edit', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'AdminMyactivitiesEditCtrl'
+      })
+      .when('/admin/myactivities/new', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'AdminMyactivitiesNewCtrl'
+      })
+      .when('/admin/myactivities/:id/', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'AdminMyactivitiesDetailCtrl'
+      })
+      .when('/admin/', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'AdminIndexCtrl'
+      })
+      .when('/admin/myactivities/', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'AdminMyactivitiesIndexCtrl'
       })
       .otherwise({
         redirectTo: '/'
@@ -124,6 +148,7 @@ angular.module('anorakApp')
 
     // load current User from server
     currentUser.load().done();
+    $rootScope.currentUser = currentUser;
 
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
 
