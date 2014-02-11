@@ -102,7 +102,12 @@ angular.module('anorakApp')
       })
       .when('/admin/myactivities/:id/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
-        controller: 'AdminMyactivitiesDetailCtrl'
+        controller: 'AdminMyactivitiesDetailCtrl',
+        resolve: {
+          activity: ['$route', function ($route) {
+            return ActivityModel.use.get($route.current.params.id);
+          }]
+        }
       })
       .when('/admin/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
@@ -110,7 +115,12 @@ angular.module('anorakApp')
       })
       .when('/admin/myactivities/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
-        controller: 'AdminMyactivitiesIndexCtrl'
+        controller: 'AdminMyactivitiesIndexCtrl',
+        resolve: {
+          activitieslist: function () {
+            return ActivityModel.use.all();
+          }
+        }
       })
       .otherwise({
         redirectTo: '/'

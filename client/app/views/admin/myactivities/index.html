@@ -29,39 +29,31 @@
   </div>
 
   <div class="listbody">
-    <div class="listrow">
+
+
+    <div class="listrow"
+        ng-repeat="activity in activities"
+        data-ng-click="open(activity)"
+        >
       <div class="activity cell first">
-        Activty
+        {{activity.name}}
       </div>
       <div class="category-main cell">
-        Main Category
+        {{activity.category.main}}
       </div>
       <div class="category-sub cell">
-        Sub Category
+        {{activity.category.sub}}
       </div>
+
       <div class="location cell">
         Location
+
       </div>
       <div class="availability cell last">
         Availability
       </div>
     </div>
-    <div class="listrow">
-      <div class="activity cell first">
-        Activty
-      </div>
-      <div class="category-main cell">
-        Main Category
-      </div>
-      <div class="category-sub cell">
-        Sub Category
-      </div>
-      <div class="location cell">
-        Location
-      </div>
-      <div class="availability cell last">
-        Availability
-      </div>
-    </div>
+
+
   </div>
 </div>
