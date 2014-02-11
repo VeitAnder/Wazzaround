@@ -6,10 +6,4 @@ angular.module('anorakApp')
       return 'views/admin/myactivities/detail.html';
     };
 
-
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
   });
