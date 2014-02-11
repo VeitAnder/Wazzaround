@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, mapdataservice) {
 
     $scope.activities = resolvedActivities;
     $scope.currentUser = currentUser;
@@ -39,50 +39,28 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.map = {
-      center: {
-        "longitude": 8.01177978515625,
-        "latitude": 45.12199086176226
+    $scope.map = mapdataservice;
+    $scope.map.markers = $scope.activities;
+    $scope.map.events = {
+      click: function (mapModel, eventName, originalEventArgs) {
+        // 'this' is the directive's scope
+        debug("user defined event: " + eventName, mapModel, originalEventArgs);
 
-      },
-      zoom: 9,
-      markers: $scope.activities,
-      markericon: "/img/mapicons/marker-sports.svg",
-      templatedInfoWindow: {
-        coords: {
-          latitude: 44.93077975622578,
-          longitude: 7.998046875
-        },
-        options: {
-          disableAutoPan: true
-        },
-        show: true,
-        templateUrl: 'views/map/templatedinfowindow.html',
-        templateParameter: {
-          message: 'passed in from the opener'
+        var e = originalEventArgs[0];
+
+        if (!$scope.map.clickedMarker) {
+          $scope.map.clickedMarker = {
+            title: 'You clicked here',
+            latitude: e.latLng.lat(),
+            longitude: e.latLng.lng()
+          };
         }
-      },
-      events: {
-        click: function (mapModel, eventName, originalEventArgs) {
-          // 'this' is the directive's scope
-          debug("user defined event: " + eventName, mapModel, originalEventArgs);
-
-          var e = originalEventArgs[0];
-
-          if (!$scope.map.clickedMarker) {
-            $scope.map.clickedMarker = {
-              title: 'You clicked here',
-              latitude: e.latLng.lat(),
-              longitude: e.latLng.lng()
-            };
-          }
-          else {
-            $scope.map.clickedMarker.latitude = e.latLng.lat();
-            $scope.map.clickedMarker.longitude = e.latLng.lng();
-          }
-
-          $scope.$apply();
+        else {
+          $scope.map.clickedMarker.latitude = e.latLng.lat();
+          $scope.map.clickedMarker.longitude = e.latLng.lng();
         }
+
+        $scope.$apply();
       }
     };
 
@@ -93,7 +71,7 @@ angular.module('anorakApp')
 
     // filter activities so that only if their sub category is selected, they are displayed
     $scope.onlySelectedCategories = function (activity) {
-      return _.where($scope.states.categories[activity.category.main], { 'key' : activity.category.sub, 'selected' : true }).length === 1 ? true : false;
+      return _.where($scope.states.categories[activity.category.main], { 'key': activity.category.sub, 'selected': true }).length === 1 ? true : false;
     };
 
     $scope.toggleCategorySelection = function (category) {
