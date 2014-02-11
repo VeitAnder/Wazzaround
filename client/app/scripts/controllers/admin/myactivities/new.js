@@ -8,6 +8,11 @@ angular.module('anorakApp')
 
     $scope.activity = ActivityModel.createObject();
 
+    $scope.activity.category = {
+      main: "sports",
+      sub: "adventure"
+    };
+
     $scope.map = {
       center: {
         "longitude": 8.01177978515625,
@@ -38,11 +43,16 @@ angular.module('anorakApp')
             $scope.map.clickedMarker.longitude = e.latLng.lng();
           }
 
+          //update model
+          $scope.activity.latitude = e.latLng.lat();
+          $scope.activity.longitude = e.latLng.lng();
+
           debug("$scope.map.clickedMarker", $scope.map.clickedMarker);
           $scope.$apply();
         }
       }
     };
+
 
     $scope.getMarkerIcon = function () {
       return "/img/mapicons/marker-sports.svg";
