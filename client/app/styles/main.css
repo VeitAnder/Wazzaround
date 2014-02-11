@@ -3285,6 +3285,14 @@ footer {
 .datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
   height: 65px; }
 
+.ta-editor {
+  min-height: 300px;
+  height: auto;
+  overflow: auto;
+  font-family: inherit;
+  font-size: 100%;
+  border: 1px solid grey; }
+
 html {
   overflow-y: scroll;
   background: #FFF; }
