@@ -314,23 +314,17 @@
 </div>
 </div>
 
-<div class="admininterface">
-  <div class="admin-section">
 
+<div class="footer footer-startpage">
+  <div class="admin-section">
     <div class="loginbutton" ng-hide='currentUser.authenticated'>
       <a href="#/login/">Login</a>
     </div>
-
     <div class="loginbutton" ng-show='currentUser.authenticated'>
-      Hello {{currentUser.user.username}}!
-      <a href="#/admin/">Admin</a>
+      <a href="#/admin/">Your reActure (<strong>{{currentUser.user.username}}</strong>)</a>
     </div>
-
-
   </div>
-</div>
 
-<div class="footer footer-startpage">
   <div class="teaser-section teaser-section-2">
     <div class="teaser-block align-right">
       <a href="#/why/">Why reActure?</a>
