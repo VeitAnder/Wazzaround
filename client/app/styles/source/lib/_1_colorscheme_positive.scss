@@ -123,14 +123,12 @@ $color_notification_text: #7e7e56;
 
 $color_alert_background: $color_notification_background;
 $color_alert_text: $color_notification_text;
-$color_error_background: $color_grey;
-$color_error_text: $color_grey_25;
-$color_info_background: $color_green_15;
-$color_info_text: $color_green_75;
-$color_upload_background: $color_grey_15;
-$color_upload_text: $color_grey_75;
-$color_success_background: $color_green_15;
-$color_success_text: $color_green_75;
+$color_error_background: $color_red;
+$color_error_text: $color_red_15;
+$color_info_background: $color_grey_75;
+$color_info_text: $color_grey_15;
+$color_success_background: $color_green;
+$color_success_text: $color_green_15;
 
 
 

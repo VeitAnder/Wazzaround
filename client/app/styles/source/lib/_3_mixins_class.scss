@@ -159,8 +159,7 @@ a.link-download{
 // BUTTON
 // ###########################################################################################################################
 
-
-.btn, a.btn {
+@mixin button{
   display: inline-block;
   @include user-select(none);
   background-color: $color_button_background;
@@ -185,6 +184,8 @@ a.link-download{
   }
   &:active {
     background: $color_button_background;
+    color: $color_button_text_hover;
+    border-color: $color_button_border_hover;
   }
 
   &[disabled="disabled"], &.disabled {
@@ -198,6 +199,22 @@ a.link-download{
   }
 }
 
+.btn, a.btn {
+  @include button;
+  &.btn-default{
+    background-color: $color_white;
+    color: $color_text;
+    border-width: 1px;
+    border-color: $color_grey_50;
+    &:hover{
+      background-color: $color_grey_50;
+      color: $color_white;
+    }
+  }
+}
+
+
+
 .btn-large{
   padding: ($fs*0.75) ($fs*2.0);
   font-size: 25px;
@@ -210,7 +227,64 @@ a.link-download{
   font-size: 14px;
 }
 
+.btn-group{
+  .btn{
+    margin-left: 2px;
+    &:first-child{
+      margin-left: 0;
+    }
+  }
+  margin-bottom: 2px;
+}
 
+
+@mixin buttonbar {
+  @include box-sizing(border-box);
+  @include pie-clearfix;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  text-align: right;
+  @include seperator(top, $color_grey_75);
+  text-align: right;
+
+  @include user-select(none);
+
+  .text_link, .confirm, .cancel, .edit {
+    margin-left: 5px;
+  }
+  .text_icon_close {
+    @include webfont_01;
+    color: $color_text;
+    span {
+      margin-left: $fs*0.25;
+    }
+  }
+  &.align-left{
+    text-align: left;
+  }
+  &.align-center{
+    text-align: center;
+  }
+}
+
+
+@mixin buttonbar_small {
+  @include buttonbar;
+  padding: 5px;
+  .text_icon_close {
+    span {
+      @include icon_small;
+    }
+  }
+}
+
+
+form{
+  .buttonbar{
+    @include buttonbar;
+  }
+}
 
 // TEXTFORMAT BASICS
 // ###########################################################################################################################
@@ -513,10 +587,8 @@ a.link-download{
 
 @mixin alert {
   @include label;
-  //@include box-sizing(border-box);
   padding: 5px 10px;
   margin: 5px 0 10px;
-  @include text-shadow_highlight;
   @include box-shadow_2px;
   text-align: left;
   white-space: normal;
@@ -531,10 +603,6 @@ a.link-download{
   &.alert-info{
     background-color: $color_info_background;
     color: $color_info_text;
-  }
-  &.alert-upload{
-    background-color: $color_upload_background;
-    color: $color_upload_text;
   }
   &.alert-success{
     background-color: $color_success_background;
@@ -1033,17 +1101,16 @@ header {
 
 @mixin fieldformat_form {
   display: block;
-  //@include box-sizing(border-box);
   padding: $fs*0.75;
   @include textformat_form;
   @include border-radius($border-radius_small);
   background-color: $color_input_background;
   @include border_all($color_input_border);
   outline-style: none!important;
+  min-width: 75%;
 }
 
 @mixin checkbox_rounded_big{
-  //@include box-sizing(border-box);
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -1129,7 +1196,14 @@ input[type="checkbox"] {
   &.disabled{
     cursor: auto;
   }
+  label{
+    display: inline;
+    font-weight: normal;
+    cursor: pointer;
+    line-height: $fs*$line-height_factor;
+  }
 }
+
 
 .radio input[type="radio"],
 .checkbox input[type="checkbox"] {
@@ -1169,7 +1243,7 @@ input[type="checkbox"]:focus {
 }
 
 .form-group{
-//  padding: 10px 0;
+  padding: 10px 0;
 }
 
 @mixin input_label{
@@ -1196,11 +1270,8 @@ input[type="checkbox"]:focus {
   @include box-sizing(border-box);
   @include pie-clearfix;
   clear: both;
-  background-color: $color_green;
-  @include border-radius($border-radius_small);
   font-weight: $font-weight_bold;
-  color: $color_white;
-  @include text-shadow(rgba($color_black, 0.25) 0 -1px 0);
+  color: $color_green;
 
   &.sortable{
     :hover{
@@ -1217,14 +1288,13 @@ input[type="checkbox"]:focus {
     @include ellipsis(no-wrap);
     float: left;
     padding: 10px 5px;
-    @include border(left, $color_green_75);
+    @include border(bottom, $color_green);
+    border-bottom-width: 3px;
     &.first {
-      @include border-left-radius($border-radius_small);
-      border: none;
+      border-left: none;
       padding-left: 10px;
     }
     &.last {
-      @include border-right-radius($border-radius_small);
       padding-right: 10px;
     }
     &.right{
@@ -1236,7 +1306,6 @@ input[type="checkbox"]:focus {
 
 @mixin divtable_header_small {
   @include divtable_header;
-  background-color: $color_green;
 
   .cell {
     padding: 5px (5px * 0.5);
@@ -1289,7 +1358,8 @@ input[type="checkbox"]:focus {
   .enable_hover &{
     @include hovercursor;
     &:hover {
-      background-color: $color_green_75;
+      background-color: $color_green;
+      color: $color_white;
       .cell{
         border-color: $color_grey_50;
         background-color: transparent;
@@ -1346,7 +1416,7 @@ input[type="checkbox"]:focus {
 
 @mixin striperows {
   &:nth-child(even) {
-    background-color: $color_green_15;
+    background-color: $color_grey_15_l5;
     border: none;
   }
   &:nth-child(odd) {
@@ -1360,7 +1430,7 @@ input[type="checkbox"]:focus {
 
 @mixin striperows2 {
   &:nth-child(odd) {
-    background-color: $color_green_15;
+    background-color: $color_grey_15_l5;
     @include border-radius($border-radius_small);
     border: none;
   }
