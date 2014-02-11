@@ -6,7 +6,7 @@
  - filter activities in a radius of 30km around this central coordinates
  */
 angular.module('anorakApp')
-  .service('mapdataservice', function mapdataservice() {
+  .service('mapdataservice', function mapdataservice($rootScope) {
 
     var geocoder;
     var map;
@@ -19,8 +19,8 @@ angular.module('anorakApp')
       setAddress: function geoCodeAddress(address) {
         var defer = Q.defer();
 
-        console.log("WILL GEOCODE ADDRESS", address);
         geocoder = new google.maps.Geocoder();
+
 
         geocoder.geocode({ 'address': address }, function (results, status) {
 
@@ -30,6 +30,8 @@ angular.module('anorakApp')
             mapdataservice.map.center.latitude = results[0].geometry.location.d;
             mapdataservice.map.center.longitude = results[0].geometry.location.e;
             mapdataservice.map.address = address; // TODO remove later, is only for controlling
+
+            $rootScope.$broadcast("MapChangeEvent");  // TODO better way than this to send new map center?
 
             return defer.resolve();
 

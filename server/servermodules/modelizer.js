@@ -33,6 +33,11 @@ var initModelizer = function (app) {
   models.ActivityModel.express(app);
   models.ActivityModel.serve();
 
+
+  models.CategoryModel.connection(connector);
+  models.CategoryModel.express(app);
+  models.CategoryModel.serve();
+
   // apply server model
   require('../models/serverModel.js');
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, mapdataservice) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, mapdataservice, $rootScope) {
 
     $scope.activities = resolvedActivities;
     $scope.currentUser = currentUser;
@@ -40,6 +40,7 @@ angular.module('anorakApp')
     };
 
     $scope.map = mapdataservice.map;
+    console.log("GOT MAP", mapdataservice.map);
     $scope.map.markers = $scope.activities;
     $scope.map.events = {
       click: function (mapModel, eventName, originalEventArgs) {
@@ -47,7 +48,6 @@ angular.module('anorakApp')
         debug("user defined event: " + eventName, mapModel, originalEventArgs);
 
         var e = originalEventArgs[0];
-
         if (!$scope.map.clickedMarker) {
           $scope.map.clickedMarker = {
             title: 'You clicked here',
@@ -64,8 +64,14 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.$watch('map.address', function(newVal, oldVal) {
-      console.log("MAP CHANGED NOW", $scope.map.address);
+    $rootScope.$on("MapChangeEvent", function (event, message) {
+      var e = {
+        latLng : {
+          lat : function() { return $scope.map.center.latitude; },
+          lng : function() { return $scope.map.center.longitude; }
+        }
+      };
+      $scope.map.events.click("", "mapserviceclick", [e]);
     });
 
     $scope.onMarkerClicked = function (marker) {
