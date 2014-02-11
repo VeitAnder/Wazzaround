@@ -42,7 +42,7 @@
 //developer mixins end
 
 // MOUSE HOVER POINTER MIXIN
-@mixin cursor {
+@mixin hovercursor {
   &:hover {
     cursor: pointer;
   }
