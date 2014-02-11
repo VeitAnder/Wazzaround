@@ -2,9 +2,8 @@
 
 angular.module('anorakApp')
   .controller('WhyCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $scope.getPagePartial = function () {
+      return 'views/why.html';
+    };
+
   });
