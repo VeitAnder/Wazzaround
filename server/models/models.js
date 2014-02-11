@@ -40,8 +40,10 @@ var ActivityModel = new model("activities", {
     main: Attr(Type.string),
     sub: Attr(Type.string)
   },
-  longitude: Attr(Type.string),
-  latitude: Attr(Type.string),
+
+  longitude: Attr(Type.number),
+  latitude: Attr(Type.number),
+
   availability: {
     start: Attr(Type.string),
     end: Attr(Type.string)
