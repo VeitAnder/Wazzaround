@@ -4,10 +4,13 @@
     <input type="text"
            class="form-control"
            placeholder="Your location …"
+           ng-model="search.address"
         >
     <span class="input-group-btn">
       <button class="btn"
-              type="button">Find!
+              type="button"
+              ng-click="findAddressOnMap()"
+          >Find!
       </button>
     </span>
   </div>
