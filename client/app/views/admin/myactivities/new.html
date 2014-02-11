@@ -1,1 +1,53 @@
-<p>This is the admin/myactivities/new view.</p>
+<h2>Account</h2>
+    <h3>my Activities</h3>
+<form role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email"
+           class="form-control"
+           id="exampleInputEmail1"
+           placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password"
+           class="form-control"
+           id="exampleInputPassword1"
+           placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file"
+           id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">
+      Check me out
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label for="select">Email address</label>
+    <select class="form-control"
+            id="select">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
+  <div class="buttonbar">
+    <button class="btn"
+            ng-click="save()"
+        >speichern
+    </button>
+    <a class="cancel"
+       ng-click="cancel()"
+        >abbrechen
+    </a>
+  </div>
+</form>
