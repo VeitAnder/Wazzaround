@@ -1047,6 +1047,10 @@ a.link-download {
     .btn.btn-default:hover, a.btn.btn-default:hover {
       background-color: #b3b3b3;
       color: #FFF; }
+    .btn.btn-default.active, a.btn.btn-default.active {
+      background-color: #85C900;
+      border-color: #85C900;
+      color: #FFF; }
 
 .btn-large {
   padding: 12px 32px;
@@ -3342,7 +3346,8 @@ footer {
   border: 1px solid grey; }
 
 .ta-root .btn-default {
-  font-size: 14px; }
+  font-size: 14px;
+  padding: 2px 15px; }
 
 html {
   overflow-y: scroll;

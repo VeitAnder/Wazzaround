@@ -210,6 +210,11 @@ a.link-download{
       background-color: $color_grey_50;
       color: $color_white;
     }
+    &.active{
+      background-color: $color_button_background_active;
+      border-color: $color_button_border_active;
+      color: $color_button_text_active;
+    }
   }
 }
 
