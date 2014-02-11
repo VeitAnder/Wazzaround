@@ -9,11 +9,13 @@ angular.module('anorakApp')
         scope.currentUser = currentUser;
 
         scope.logout = function () {
-          currentUser.logout();
-          // @TODO logout() not then-able
-          $location.path("/");
+          currentUser.logout()
+            .then(function () {
+              scope.$apply(function () {
+                $location.path('/');
+              });
+            });
         };
-
       }
     };
   });

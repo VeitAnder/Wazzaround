@@ -1032,7 +1032,7 @@ $filter-category-arrow-width: 65px;
     }
     &:hover {
       background-color: $color_grey_50_l5;
-      @include cursor;
+      @include hovercursor;
     }
   }
   .filter-category-body {
@@ -1064,7 +1064,7 @@ $filter-category-arrow-width: 65px;
     }
     &:hover {
       color: $color_grey;
-      @include cursor;
+      @include hovercursor;
     }
     &.selected {
       color: $color_grey;
@@ -1100,7 +1100,7 @@ $filter-category-arrow-width: 65px;
     padding: 5px 10px;
     width: 50%;
     text-align: center;
-    @include cursor;
+    @include hovercursor;
     @include user-select(none);
     @include border(left, $color_grey_50);
 
@@ -1253,6 +1253,35 @@ $filter-category-arrow-width: 65px;
   }
   .form-control{
 
+  }
+}
+
+
+.listheader{
+  @include divtable_header_small;
+}
+
+.listbody{
+}
+
+.listrow{
+  @include divtable_row;
+  @include striperows;
+
+}
+
+.list-myactivities{
+  .activity{
+    width: 25%;
+  }
+  .category-main, .category-sub{
+    width: 15%;
+  }
+  .location{
+    width: 25%;
+  }
+  .availability{
+    width: 20%;
   }
 }
 
