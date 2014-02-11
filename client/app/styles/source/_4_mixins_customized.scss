@@ -54,6 +54,7 @@ footer {
   position: relative;
   overflow: hidden;
   display: block;
+  max-width: 1200px - $col-left-width;
 }
 
 .controlpanel {
