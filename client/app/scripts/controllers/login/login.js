@@ -18,8 +18,12 @@ angular.module('login', ['services.authentication', 'services.localizedMessages'
 //      .when('/login/:confirmeduseremail/:confirmed', routeconfig);
 
   })
-  .controller('LoginPageCtrl', function ($scope, $routeParams) {
+  .controller('LoginPageCtrl', function ($scope, $routeParams, $location) {
     'use strict';
+
+    if ($scope.currentUser.authenticated) {
+      $location.path('/admin/');
+    }
 
     $scope.form = {};
 
@@ -40,6 +44,9 @@ angular.module('login', ['services.authentication', 'services.localizedMessages'
 
     $scope.login = function () {
       $scope.currentUser.login($scope.form.username, $scope.form.password)
+        .then(function() {
+          $location.path('/admin/');
+        })
         .fail(function(err){
           $scope.state.error = true;
           $scope.state.message = err.message;
