@@ -33,13 +33,13 @@
 
       <div class="filter-toggle">
         <div class="filter-toggle-show"
-             data-ng-class="{active: !allSelectedFromCategory('sports')}"
+             data-ng-class="{active: allSelectedFromCategory('sports')}"
              data-ng-click="selectAllFromCategory('sports')"
             >
           Select all
         </div>
         <div class="filter-toggle-hide"
-             data-ng-class="{active: !noneSelectedFromCategory('sports')}"
+             data-ng-class="{active: noneSelectedFromCategory('sports')}"
              data-ng-click="deSelectAllFromCategory('sports')"
             >
           Deselect all
@@ -105,13 +105,13 @@
 
     <div class="filter-toggle">
       <div class="filter-toggle-show"
-           data-ng-class="{active: !allSelectedFromCategory('culture')}"
+           data-ng-class="{active: allSelectedFromCategory('culture')}"
            data-ng-click="selectAllFromCategory('culture')"
           >
         Select all
       </div>
       <div class="filter-toggle-hide"
-           data-ng-class="{active: !noneSelectedFromCategory('culture')}"
+           data-ng-class="{active: noneSelectedFromCategory('culture')}"
            data-ng-click="deSelectAllFromCategory('culture')"
           >
         Deselect all
@@ -172,13 +172,13 @@
 
     <div class="filter-toggle">
       <div class="filter-toggle-show"
-           data-ng-class="{active: !allSelectedFromCategory('wellness')}"
+           data-ng-class="{active: allSelectedFromCategory('wellness')}"
            data-ng-click="selectAllFromCategory('wellness')"
           >
         Select all
       </div>
       <div class="filter-toggle-hide"
-           data-ng-class="{active: !noneSelectedFromCategory('wellness')}"
+           data-ng-class="{active: noneSelectedFromCategory('wellness')}"
            data-ng-click="deSelectAllFromCategory('wellness')"
           >
         Deselect all
@@ -266,7 +266,7 @@
       >
 
     <marker
-        ng-repeat="m in activities | filter:onlySelected"
+        ng-repeat="m in activities | filter:onlySelectedCategories"
         coords='m'
         click='onMarkerClicked(m)'
         options='markerOptions'
@@ -314,26 +314,23 @@
 </div>
 </div>
 
-<div class="loginbutton">
-
-  <a href="#/login/">Login</a>
-
-
-  Login
-
-@TODO wenn eingeloggt, dann admin interface link
-  immer mit show/hide
-
-</div>
-
 <div class="admininterface">
-  Admininterface block
+  <div class="admin-section">
+
+    <div class="loginbutton" ng-hide='currentUser.authenticated'>
+      <a href="#/login/">Login</a>
+    </div>
+
+    <div class="loginbutton" ng-show='currentUser.authenticated'>
+      Hello {{currentUser.user.username}}!
+      <a href="#/admin/">Admin</a>
+    </div>
+
+
+  </div>
 </div>
 
 <div class="footer footer-startpage">
-  <div class="admin-section">
-    <a href="#/login/">Login</a>
-  </div>
   <div class="teaser-section teaser-section-2">
     <div class="teaser-block align-right">
       <a href="#/why/">Why reActure?</a>

@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, /*currentUser,*/ $window) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window) {
 
     $scope.activities = resolvedActivities;
-//    $scope.currentUser = currentUser;
+    $scope.currentUser = currentUser;
 
     debug("resolvedactivities", resolvedActivities);
 
@@ -91,13 +91,9 @@ angular.module('anorakApp')
       marker.showWindow = true;
     };
 
-    // TODO what is that for?
-    $scope.onlySelected = function (activity) {
-      if (activity.see) {
-        return false;
-      } else {
-        return true;
-      }
+    // filter activities so that only if their sub category is selected, they are displayed
+    $scope.onlySelectedCategories = function (activity) {
+      return _.where($scope.states.categories[activity.category.main], { 'key' : activity.category.sub, 'selected' : true }).length === 1 ? true : false;
     };
 
     $scope.toggleCategorySelection = function (category) {
