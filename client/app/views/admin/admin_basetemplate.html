@@ -3,7 +3,9 @@ admin basetemplate
 <div data-ng-include="'views/_logo.html'"></div>
 
 navigation:
-<nav>
+<nav
+    data-ng-show="currentUser.authenticated"
+    >
   <ul>
     <li>
       <a href="#/admin/">Administration overview</a>
@@ -12,7 +14,11 @@ navigation:
       <a href="#/admin/myactivities">My Activies</a>
     </li>
   </ul>
+
+  <loginstatus></loginstatus>
+
 </nav>
 
 content:
+
 <div data-ng-include="getPagePartial()"></div>

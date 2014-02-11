@@ -4,7 +4,7 @@ angular.module('services.authentication.current-user', [])
     "use strict";
 
     var currentUser = {
-      load : function() {
+      load: function () {
         // don't load if already loaded
         if (currentUser.user) {
           var defer = $q.defer();
@@ -13,7 +13,7 @@ angular.module('services.authentication.current-user', [])
         }
 
         return UserModel.use.all()
-          .then(function(users) {
+          .then(function (users) {
             if (users.length > 0) {
               currentUser.user = users[0];
               currentUser.authenticated = true;
@@ -21,38 +21,38 @@ angular.module('services.authentication.current-user', [])
               return currentUser;
             }
           })
-          .fail(function(err) {
+          .fail(function (err) {
             // user has not been logged in
             return currentUser;
           });
       },
 
-      user : null,
+      user: null,
 
-      login : function(username, password) {
-        return UserModel.login({username:username, password:password})
-          .then(function(res){
+      login: function (username, password) {
+        return UserModel.login({username: username, password: password})
+          .then(function (res) {
             return currentUser.load();
-          })
+          });
       },
 
-      register : function(username, password) {
+      register: function (username, password) {
         return UserModel.register({
-            username : username,
-            password : password
-          })
-          .then(function(res) {
+          username: username,
+          password: password
+        })
+          .then(function (res) {
             return currentUser.login(username, password);
           });
       },
 
-      logout : function() {
+      logout: function () {
         return UserModel.logout()
-          .then(function(res) {
+          .then(function (res) {
             currentUser.user = null;
             currentUser.authenticated = false;
             $rootScope.$apply();
-          })
+          });
       },
 
       authenticated: false

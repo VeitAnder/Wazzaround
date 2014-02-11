@@ -2,7 +2,9 @@
 
 angular.module('anorakApp')
   .controller('LoginCtrl', function ($scope, $routeParams, $location, currentUser) {
-    'use strict';
+    $scope.getPagePartial = function () {
+      return 'views/login.html';
+    };
 
     $scope.form = {};
     $scope.state = {};
@@ -15,7 +17,7 @@ angular.module('anorakApp')
       currentUser.login($scope.form.username, $scope.form.password)
         .then(function () {
           // http://stackoverflow.com/questions/19499323/location-path-doesnt-change-in-a-factory-with-angularjs
-          $scope.$apply( function() {
+          $scope.$apply(function () {
             $location.path('/admin/');
           });
         })

@@ -65,7 +65,7 @@ angular.module('anorakApp')
             // todo: use service for Modelizer
             return ActivityModel.use.all();
           },
-          resolveCurrentUser : ['currentUser', function(currentUser) {
+          resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
           }]
         }
@@ -83,10 +83,10 @@ angular.module('anorakApp')
         controller: 'WorkwithusCtrl'
       })
       .when('/login', {
-        templateUrl: 'views/login.html',
+        templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'LoginCtrl',
         resolve: {
-          resolveCurrentUser : ['currentUser', function(currentUser) {
+          resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
           }]
         }
@@ -150,9 +150,9 @@ angular.module('anorakApp')
     UserModel.connection(connector);
     ActivityModel.connection(connector);
 
-    // load current User from server
-    //currentUser.load().done();
     $rootScope.currentUser = currentUser;
+    // load current User from server
+    currentUser.load().done();
 
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
 
