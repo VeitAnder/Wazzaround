@@ -43,11 +43,20 @@ footer {
 
 }
 
-.controlpanel {
-  //@include box-sizing(border-box);
+.col-left-fixed{
   padding: $bu*2.0;
-  width: 350px;
+  width: $col-left-width;
   float: left;
+}
+
+.col-right{
+  padding: $bu*1.0;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.controlpanel {
   background-color: $color_white;
   h2 {
     margin: $bu 0;
@@ -1203,7 +1212,7 @@ $filter-category-arrow-width: 65px;
 
 .admin-section {
   background-color: $color_green;
-  width: 350px;
+  width: $col-left-width;
   float: left;
   clear: both;
   @include teaser-textformat;

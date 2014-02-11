@@ -168,7 +168,8 @@ a.link-download{
   @include border-radius($border-radius_small);
   @include border_all($color_button_border);
   border-width: 3px;
-  @include webfont_01;
+  @include sysfont_01;
+  font-weight: $font-weight_bold;
   color: $color_button_text;
   text-decoration: none;
   font-size: 16px;
@@ -286,7 +287,7 @@ a.link-download{
     li{
       margin: 0 0 $fs*0.5 0;
       padding: 0 0 0 $fs*1.0;
-      @include sprite_icons(-275px, -793px, no-repeat);
+      @include sprite_icons(-25px, -57px, no-repeat);
       list-style: none;
   
       ul{
