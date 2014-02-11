@@ -1286,6 +1286,21 @@ input[type="checkbox"]:focus {
     @include box-sizing(border-box);
     white-space: normal;
   }
+  .enable_hover &{
+    @include hovercursor;
+    &:hover {
+      background-color: $color_green_75;
+      .cell{
+        border-color: $color_grey_50;
+        background-color: transparent;
+        &.first{
+          border: none;
+        }
+      }
+      .even {
+      }
+    }
+  }
 }
 
 @mixin divtable_row_small {
@@ -1325,22 +1340,6 @@ input[type="checkbox"]:focus {
     background-color: $color_white;
     &.last{
       @include border-right-radius($border-radius_small);
-    }
-  }
-  .enable_hover &{
-    @include hovercursor;
-    &:hover {
-//      @include box-shadow_hover;
-      @include gradient_lightblue;
-      .cell{
-        border-color: $color_grey_50;
-        background-color: transparent;
-        &.first{
-          border: none;
-        }
-      }
-      .even {
-      }
     }
   }
 }

@@ -1700,7 +1700,8 @@ footer {
   padding: 15px;
   position: relative;
   overflow: hidden;
-  display: block; }
+  display: block;
+  max-width: 850px; }
 
 .controlpanel {
   background-color: #FFF; }
@@ -3197,6 +3198,15 @@ footer {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     white-space: normal; }
+  .enable_hover .listrow:hover {
+    cursor: pointer; }
+  .enable_hover .listrow:hover {
+    background-color: #a4d740; }
+    .enable_hover .listrow:hover .cell {
+      border-color: #b3b3b3;
+      background-color: transparent; }
+      .enable_hover .listrow:hover .cell.first {
+        border: none; }
   .listrow:nth-child(even) {
     background-color: #edf7d9;
     border: none; }
@@ -3275,6 +3285,14 @@ footer {
 .datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
   height: 65px; }
 
+.ta-editor {
+  min-height: 300px;
+  height: auto;
+  overflow: auto;
+  font-family: inherit;
+  font-size: 100%;
+  border: 1px solid grey; }
+
 html {
   overflow-y: scroll;
   background: #FFF; }
@@ -3286,6 +3304,7 @@ body {
   font-size: 16px;
   line-height: 22.4px;
   color: #666;
+  min-width: 760px;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }

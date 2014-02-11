@@ -54,6 +54,7 @@ footer {
   position: relative;
   overflow: hidden;
   display: block;
+  max-width: 1200px - $col-left-width;
 }
 
 .controlpanel {
@@ -1267,7 +1268,6 @@ $filter-category-arrow-width: 65px;
 .listrow{
   @include divtable_row;
   @include striperows;
-
 }
 
 .list-myactivities{
@@ -1359,4 +1359,14 @@ $filter-category-arrow-width: 65px;
 
 .datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
   height: 65px
+}
+
+// https://github.com/fraywing/textAngular/wiki/Getting-Started
+.ta-editor {
+  min-height: 300px;
+  height: auto;
+  overflow: auto;
+  font-family: inherit;
+  font-size: 100%;
+  border: 1px solid grey;
 }
