@@ -1187,14 +1187,30 @@ $filter-category-arrow-width: 65px;
   }
 }
 
+@mixin teaser-textformat{
+  a, a:link{
+    display: block;
+    min-height: $footer-height;
+    @include h5;
+    padding: $bu;
+    margin: 0;
+    text-decoration: none;
+    &:hover{
+      color: $color_white;
+    }
+  }
+}
+
 .admin-section {
-  background-color: $color_white;
-  //@include box-sizing(border-box);
-  @include seperator(top, $color_footer_border);
+  background-color: $color_green;
   width: 350px;
   float: left;
   clear: both;
-  padding: $bu;
+  @include teaser-textformat;
+  a, a:link{
+    padding-left: 35px;
+    color: $color_green_25;
+  }
 }
 
 .teaser-section {
@@ -1202,25 +1218,12 @@ $filter-category-arrow-width: 65px;
 }
 
 .teaser-block {
-  //@include box-sizing(border-box);
-  display: inline-block;
+  @include teaser-textformat;
   float: left;
   @include seperator(left, $color_grey_50);
   background-color: $color_grey_75;
-  padding: $bu;
-  h4 {
-    margin: 0;
-  }
   a, a:link {
     color: $color_grey_25;
-    text-decoration: none;
-    &:hover {
-      color: $color_white;
-    }
-  }
-
-  .footer-startpage & {
-    height: $footer-startpage-height;
   }
 
   .teaser-section-2 & {
