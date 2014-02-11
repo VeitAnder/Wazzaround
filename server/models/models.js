@@ -53,6 +53,15 @@ var ActivityModel = new model("activities", {
 
 });
 
+var CategoryModel = new model("categories", {
+  title : Attr(Type.string),
+  key: Attr(Type.string, Type.enum("sports", "culture", "wellness")),
+  sub : [{
+    title: Attr(Type.string),
+    key: Attr(Type.string)
+  }]
+});
+
 if (typeof window !== 'undefined') {
   // we run in a browser environment
 
@@ -65,6 +74,7 @@ if (typeof window === 'undefined') {
 
   module.exports = {
     UserModel: UserModel,
-    ActivityModel: ActivityModel
+    ActivityModel: ActivityModel,
+    CategoryModel: CategoryModel
   };
 }
