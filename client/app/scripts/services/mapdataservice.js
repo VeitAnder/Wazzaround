@@ -10,11 +10,80 @@ angular.module('anorakApp')
 
     console.log("AM IN MAPDATA SERVICE");
 
+    var google_api_key_for_localhost = "ABQIAAAAvZMU4-DFRYtw1UlTj_zc6hT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQcT1h-VA8wQL5JBdsM5JWeJpukvw";
+
+    /*
+     * app.service('geocoder',function() {
+     this.geocode=function(address, outerCallback) {
+     var geocoder = new google.maps.Geocoder();
+     geocoder.geocode( { 'address': address}, function(results, status) {
+     console.log(results);
+     if (status == google.maps.GeocoderStatus.OK) {
+     outerCallback({success: true, err: null, results: results});
+     } else {
+     outerCallback({success:false, err: new Error('Geocode was not successful for the following reason: ' + status), results: null});
+     }
+     });
+     };
+     });*/
+
+    var geocoder;
+    var map;
+    var standardCenter = {
+      "longitude": 8.01177978515625,
+      "latitude": 45.12199086176226
+    };
+
+    function geoCodeAddress() {
+      console.log("INIT 1", new google.maps.Geocoder());
+      geocoder = new google.maps.Geocoder();
+      console.log("INIT 2");
+      geocoder.geocode({ 'address': "Torino" }, function (results, status) {
+        console.log("TORINO: ", results, status);
+
+        if (status == google.maps.GeocoderStatus.OK) {
+          console.log("results 0 geometry location", results[0].geometry.location);
+          map.center.latitude = results[0].geometry.location.d;
+          map.center.longitude = results[0].geometry.location.e;
+
+        } else {
+          console.log("Status not OK!, failing", status);
+          map.center = standardCenter;
+        }
+
+      });
+
+    };
+
+    /*function codeAddress() {
+     var address = document.getElementById("address").value;
+     geocoder.geocode( { 'address': address}, function(results, status) {
+     if (status == google.maps.GeocoderStatus.OK) {
+     map.setCenter(results[0].geometry.location);
+     var marker = new google.maps.Marker({
+     map: map,
+     position: results[0].geometry.location
+     });
+     } else {
+     alert("Geocode was not successful for the following reason: " + status);
+     }
+     });
+     }*/
+
+//   <body onload="initialize()">
+//   <div id="map-canvas" style="width: 320px; height: 480px;"></div>
+//   <div>
+//   <input id="address" type="textbox" value="Sydney, NSW">
+//   <input type="button" value="Encode" onclick="codeAddress()">
+//   </div>
+//   </body>
+
+    console.log("CALLING GEOCODER", geoCodeAddress());
+
     var map = {
       center: {
         "longitude": 8.01177978515625,
         "latitude": 45.12199086176226
-
       },
       zoom: 9,
       markericon: "/img/mapicons/marker-sports.svg",
@@ -58,6 +127,14 @@ angular.module('anorakApp')
        }*/
     };
 
+    // TODO this controller gets a location entered by the user
+    // pass this location to mapdataservice
+    // connect mapdataservice to google to find lat and lon for this location
+    // set map center in mapdataservice
+    // now display the newly centered map
+    // fil
+
     return map;
   });
 
+//src="https://maps.googleapis.com/maps/api/js?key=API_KEY&sensor=SET_TO_TRUE_OR_FALSE">
