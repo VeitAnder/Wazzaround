@@ -1386,7 +1386,7 @@ header {
     .footer a:hover, .footer a:link:hover, .footer a:focus:hover, .footer a:active:hover {
       color: #8c8c8c; }
   .footer.footer-startpage {
-    height: 100px; }
+    height: 50px; }
 
 .skip, .hideme {
   position: absolute;
@@ -2988,7 +2988,7 @@ footer {
     -o-border-bottom-left-radius: 0;
     border-bottom-left-radius: 0; }
 
-.nav-footer {
+.admin-section {
   background-color: #FFF;
   border-top: dotted 1px #d9d9d9;
   width: 350px;
@@ -3013,7 +3013,7 @@ footer {
     .teaser-block a:hover, .teaser-block a:link:hover {
       color: #FFF; }
   .footer-startpage .teaser-block {
-    height: 100px; }
+    height: 50px; }
   .teaser-section-2 .teaser-block {
     width: 50%; }
 
