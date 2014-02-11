@@ -61,8 +61,6 @@ angular.module('anorakApp')
     $scope.save = function () {
       $scope.activity.save()
         .then(function (activity) {
-          debug("save success");
-
           $location.path("/admin/myactivities/");
           $scope.$apply();
         });

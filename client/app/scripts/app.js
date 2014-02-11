@@ -26,7 +26,7 @@ angular.module('anorakApp', [
   'ngRoute',
   'google-maps',
   'mgcrea.ngStrap.datepicker',
-  //'textAngular',
+  'textAngular',
   'ui.keypress',
   'registration',
   'momentjs',
@@ -136,6 +136,7 @@ angular.module('anorakApp')
     var connector = Model.AngularConnector("http://localhost:3000/");
     UserModel.connection(connector);
     ActivityModel.connection(connector);
+    CategoryModel.connection(connector);
 
     $rootScope.currentUser = currentUser;
     // load current User from server
@@ -148,7 +149,7 @@ angular.module('anorakApp')
 
       // if you try to access a admin route without being authenticated -> redirect to /login
       if (!currentUser.authenticated) {
-        if (next.$$route.originalPath.match(/^\/admin/)) {
+        if (next.$$route.originalPath.match(/^\/admin/) || next.$$route.originalPath.match(/^\/account/)) {
           $location.path('/login');
         }
       }
