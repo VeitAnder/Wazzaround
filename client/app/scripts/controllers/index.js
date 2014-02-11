@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, /*currentUser,*/ $window) {
 
     $scope.activities = resolvedActivities;
-    $scope.currentUser = currentUser;
+//    $scope.currentUser = currentUser;
 
     debug("resolvedactivities", resolvedActivities);
 
@@ -110,20 +110,14 @@ angular.module('anorakApp')
       });
     };
 
-    $scope.selectAllCategories = function () {
-      selectAllSubCategories("sports", true);
-      selectAllSubCategories("culture", true);
-      selectAllSubCategories("wellness", true);
+    $scope.selectAllCategories = function (selectAll) {
+      selectAllSubCategories("sports", selectAll);
+      selectAllSubCategories("culture", selectAll);
+      selectAllSubCategories("wellness", selectAll);
     };
 
     // start by selecting all
-    $scope.selectAllCategories();
-
-    $scope.deSelectAllCategories = function () {
-      selectAllSubCategories("sports", false);
-      selectAllSubCategories("culture", false);
-      selectAllSubCategories("wellness", false);
-    };
+    $scope.selectAllCategories(true);
 
     // if there is no category that is not selected, then all categories are selected
     $scope.allSelectedFromCategory = function (mainCat) {
