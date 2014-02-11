@@ -6,7 +6,7 @@
 
 <div class="section section-map">
 
-<div class="controlpanel">
+<div class="col-left-fixed controlpanel">
       <div data-ng-include="'views/_logo.html'"></div>
 <h2>What's around me?</h2>
 
@@ -314,26 +314,18 @@
 </div>
 </div>
 
-<div class="loginbutton">
-
-  <a href="#/login/">Login</a>
-
-
-  Login
-
-@TODO wenn eingeloggt, dann admin interface link
-  immer mit show/hide
-
-</div>
-
-<div class="admininterface">
-  Admininterface block
-</div>
 
 <div class="footer footer-startpage">
   <div class="admin-section">
-    <a href="#/login/">Login</a>
+    <div class="loginbutton" ng-hide='currentUser.authenticated'>
+      <a href="#/login/">Login</a>
+    </div>
+    <div class="loginbutton" ng-show='currentUser.authenticated'>
+      <a href="#/admin/">Your reActure (<strong>{{currentUser.user.username}}</strong>)</a>
+    </div>
   </div>
+
+
   <div class="teaser-section teaser-section-2">
     <div class="teaser-block align-right">
       <a href="#/why/">Why reActure?</a>

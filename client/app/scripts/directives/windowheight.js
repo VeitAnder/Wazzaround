@@ -14,7 +14,7 @@ angular.module('anorakApp')
 
       // Set on load
       scope.$watch(scope.getWinHeight, function (newValue, oldValue) {
-        setNavHeight(scope.getWinHeight() - 100);
+        setNavHeight(scope.getWinHeight() - 50);
       }, true);
 
       // Set on resize

@@ -1,12 +1,10 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, mapdataservice, /*currentUser,*/ $window) {
-
-    console.log("INDEX JS GOT SERVICE", mapdataservice);
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, mapdataservice) {
 
     $scope.activities = resolvedActivities;
-//    $scope.currentUser = currentUser;
+    $scope.currentUser = currentUser;
 
     debug("resolvedactivities", resolvedActivities);
 

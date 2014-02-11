@@ -10,15 +10,16 @@ var Ref = model.Ref;
 var Operation = model.Operation;
 
 var UserModel = new model("users", {
-  email: Attr(Type.string),
-  password: Attr(Type.string),
+  email : Attr(Type.string),
+  username : Attr(Type.string),
+  password : Attr(Type.string),
 
-  profile: {
-    firstName: Attr(Type.string),
-    lastName: Attr(Type.string),
-    company: Attr(Type.string),
-    address: Attr(Type.string),
-    location: {
+  profile : {
+    firstName : Attr(Type.string),
+    lastName : Attr(Type.string),
+    company : Attr(Type.string),
+    address : Attr(Type.string),
+    location : {
       longitude: Attr(Type.string),
       latitude: Attr(Type.string)
     }
