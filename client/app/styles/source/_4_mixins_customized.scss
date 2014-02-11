@@ -57,7 +57,7 @@ footer {
 .map-searchbar {
   position: absolute;
   z-index: 10;
-  margin: $bu*3.0;
+  margin: $bu*3.0 $bu*2.0 0 $bu*6.0;
 }
 
 .map-wrap {
@@ -1227,7 +1227,24 @@ $filter-category-arrow-width: 65px;
   }
 }
 
+.form-daterange{
+  .form-group{
+    float: left;
+    width: 49%;
+    &:first-child{
+      margin-right: 2%;
+    }
+    label{
+      display: none;
+    }
+  }
+  .form-control{
+
+  }
+}
+
 .datepicker {
+  min-width: 300px;
   padding: 10px;
   button {
     &.btn-default{

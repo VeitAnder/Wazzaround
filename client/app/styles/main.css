@@ -1650,8 +1650,6 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
 .form-block input, .form-block textarea {
   width: 100%; }
 
-.form-group {
-  padding: 10px 0; }
 
 .input_label, label {
   display: block;
@@ -1700,7 +1698,7 @@ footer {
 .map-searchbar {
   position: absolute;
   z-index: 10;
-  margin: 45px; }
+  margin: 45px 30px 0 90px; }
 
 .map-wrap {
   position: relative;
@@ -3019,7 +3017,16 @@ footer {
   .teaser-section-2 .teaser-block {
     width: 50%; }
 
+.form-daterange .form-group {
+  float: left;
+  width: 49%; }
+  .form-daterange .form-group:first-child {
+    margin-right: 2%; }
+  .form-daterange .form-group label {
+    display: none; }
+
 .datepicker {
+  min-width: 300px;
   padding: 10px; }
   .datepicker button.btn-default {
     background-color: #FFF;
