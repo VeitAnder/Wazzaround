@@ -22,9 +22,9 @@ angular.module('anorakApp')
         geocoder = new google.maps.Geocoder();
 
 
-        geocoder.geocode({ 'address': address }, function (results, status) {
+        geocoder.geocode({ 'address': address, 'region' : 'it' }, function (results, status) {
 
-          console.log("FOUND ADDRESS!", status);
+          console.log("FOUND ADDRESS!", status, results);
 
           if (status == google.maps.GeocoderStatus.OK) {
             mapdataservice.map.center.latitude = results[0].geometry.location.d;
