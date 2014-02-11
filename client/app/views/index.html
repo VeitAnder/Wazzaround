@@ -222,12 +222,12 @@
 <div class="filter-toggle">
   <div class="filter-toggle-show"
        data-ng-class="{active: allSelected()}"
-       data-ng-click="selectAllCategories()"
+       data-ng-click="selectAllCategories(true)"
       >Show all
   </div>
   <div class="filter-toggle-hide"
        data-ng-class="{active: noneSelected()}"
-       data-ng-click="deSelectAllCategories()"
+       data-ng-click="selectAllCategories(false)"
       >Hide all
   </div>
 </div>

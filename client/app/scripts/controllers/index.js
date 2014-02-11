@@ -110,20 +110,14 @@ angular.module('anorakApp')
       });
     };
 
-    $scope.selectAllCategories = function () {
-      selectAllSubCategories("sports", true);
-      selectAllSubCategories("culture", true);
-      selectAllSubCategories("wellness", true);
+    $scope.selectAllCategories = function (selectAll) {
+      selectAllSubCategories("sports", selectAll);
+      selectAllSubCategories("culture", selectAll);
+      selectAllSubCategories("wellness", selectAll);
     };
 
     // start by selecting all
-    $scope.selectAllCategories();
-
-    $scope.deSelectAllCategories = function () {
-      selectAllSubCategories("sports", false);
-      selectAllSubCategories("culture", false);
-      selectAllSubCategories("wellness", false);
-    };
+    $scope.selectAllCategories(true);
 
     // if there is no category that is not selected, then all categories are selected
     $scope.allSelectedFromCategory = function (mainCat) {
