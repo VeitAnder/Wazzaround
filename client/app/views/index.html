@@ -50,7 +50,7 @@
             <div
                 class="innerwrap"
                 >
-
+              {{sportsCategories}}
               <div
                   class="div-row"
                   ng-repeat="category in sportsCategories"
@@ -62,7 +62,7 @@
                       class="filter-category-sub div-cell"
                       data-ng-if="sportsCategories[$index+0]"
                       ng-class="{selected: sportsCategories[$index+0].selected}"
-                      ng-click="toggleCategorySelection(sportsCategories[$index+0])"
+                      ng-click="toggleCategorySelection('sports', sportsCategories[$index+0])"
                       >
                     <span class="checkbox inline"></span>
                     {{sportsCategories[$index+0].title}}
@@ -72,7 +72,7 @@
                       class="filter-category-sub div-cell"
                       data-ng-if="sportsCategories[$index+1]"
                       ng-class="{selected: sportsCategories[$index+1].selected}"
-                      ng-click="toggleCategorySelection(sportsCategories[$index+1])"
+                      ng-click="toggleCategorySelection('sports', sportsCategories[$index+1])"
                       >
                     <span class="checkbox inline"></span>
                     {{sportsCategories[$index+1].title}}
@@ -278,6 +278,7 @@
             closeClick="m.closeClick()"
             options="windowOptions"
             >
+
           <div
               class="window-category-{{m.category.main}}"
               >
@@ -290,19 +291,80 @@
                  width="100"
                  alt=""/>
 
-            <h6>Offered by</h6>
+            <div class="input_label">Offered by</div>
+            <h5 class="no-margin-top">Activity Inc.</h5>
 
-            <div>
-              {{m.description}}
+            <div class="description">
+              <div class="input_label">Description</div>
+              <p>
+                {{m.description}}
+              </p>
             </div>
 
-            <p class="align-right">
-              <a href="http://www.paypal.com"
-                 target="_blank"
-                 class="btn">Book now
-              </a>
-            </p>
+            <div class="availability availability-user">
+              <div class="input_label">Availability</div>
+              <div class="availability-list">
+                <div class="availability-header">
+                  <div class="month cell first">February</div>
+                </div>
+                <div class="availability-entry">
+                  <div class="availability-date cell first">
+                    19/02/2014
+                  </div>
+                  <div class="availability-time cell">
+                    2:00pm
+                  </div>
+                  <div class="availability-amount cell">
+                    4x
+                  </div>
+                  <div class="availability-book cell last align-right">
+                    <a class="btn btn-mini"
+                       href="#/admin/myactivities/{{activity._id}}/edit/">Book
+                    </a>
+                  </div>
+                </div>
+                <div class="availability-entry">
+                  <div class="availability-date cell first">
+                    24/02/2014
+                  </div>
+                  <div class="availability-time cell">
+                    2:00pm
+                  </div>
+                  <div class="availability-amount cell">
+                    32x
+                  </div>
+                  <div class="availability-book cell last align-right">
+                    <a class="btn btn-mini"
+                       href="#/admin/myactivities/{{activity._id}}/edit/">Book
+                    </a>
+                  </div>
+                </div>
+                <div class="availability-header">
+                  <div class="month cell first">March</div>
+                </div>
+                <div class="availability-entry">
+                  <div class="availability-date cell first">
+                    07/03/2014
+                  </div>
+                  <div class="availability-time cell">
+                    2:00pm
+                  </div>
+                  <div class="availability-amount cell">
+                    18x
+                  </div>
+                  <div class="availability-book cell last align-right">
+                    <a class="btn btn-mini"
+                       href="#/admin/myactivities/{{activity._id}}/edit/">Book
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
+
+
         </window>
         <marker-label content="m.name"
                       anchor="22 0"

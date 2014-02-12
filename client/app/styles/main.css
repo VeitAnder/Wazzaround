@@ -1830,8 +1830,11 @@ footer {
 
 .window-category-sports {
   padding: 15px 0;
-  min-width: 400px; }
-  .gm-style-iw .window-category-sports a.btn {
+  min-width: 400px;
+  max-width: 600px; }
+  .window-category-sports.activity-detail {
+    max-width: 100%; }
+  .window-category-sports a.btn {
     font-size: 16px;
     font-weight: 600; }
   .window-category-sports p {
@@ -1876,6 +1879,20 @@ footer {
     padding: 3px;
     width: 150px;
     height: auto; }
+  .window-category-sports .description {
+    margin-top: 16px; }
+  .window-category-sports .location {
+    margin-top: 16px; }
+  .window-category-sports .availability {
+    margin-top: 32px;
+    clear: left; }
+  .gm-style .gm-style-iw .window-category-sports .availability-header .cell {
+    font-weight: 600; }
+  .gm-style .gm-style-iw .window-category-sports .input_label {
+    font-weight: 600; }
+  .gm-style .gm-style-iw .window-category-sports .btn-mini {
+    font-size: 12px;
+    padding: 2.4px 8px; }
   .window-category-sports h4 .icon {
     border-color: #C83C19; }
   .window-category-sports .category {
@@ -1887,8 +1904,11 @@ footer {
 
 .window-category-culture {
   padding: 15px 0;
-  min-width: 400px; }
-  .gm-style-iw .window-category-culture a.btn {
+  min-width: 400px;
+  max-width: 600px; }
+  .window-category-culture.activity-detail {
+    max-width: 100%; }
+  .window-category-culture a.btn {
     font-size: 16px;
     font-weight: 600; }
   .window-category-culture p {
@@ -1933,6 +1953,20 @@ footer {
     padding: 3px;
     width: 150px;
     height: auto; }
+  .window-category-culture .description {
+    margin-top: 16px; }
+  .window-category-culture .location {
+    margin-top: 16px; }
+  .window-category-culture .availability {
+    margin-top: 32px;
+    clear: left; }
+  .gm-style .gm-style-iw .window-category-culture .availability-header .cell {
+    font-weight: 600; }
+  .gm-style .gm-style-iw .window-category-culture .input_label {
+    font-weight: 600; }
+  .gm-style .gm-style-iw .window-category-culture .btn-mini {
+    font-size: 12px;
+    padding: 2.4px 8px; }
   .window-category-culture h4 .icon {
     border-color: #1970C8; }
   .window-category-culture .category {
@@ -1944,8 +1978,11 @@ footer {
 
 .window-category-wellness {
   padding: 15px 0;
-  min-width: 400px; }
-  .gm-style-iw .window-category-wellness a.btn {
+  min-width: 400px;
+  max-width: 600px; }
+  .window-category-wellness.activity-detail {
+    max-width: 100%; }
+  .window-category-wellness a.btn {
     font-size: 16px;
     font-weight: 600; }
   .window-category-wellness p {
@@ -1990,6 +2027,20 @@ footer {
     padding: 3px;
     width: 150px;
     height: auto; }
+  .window-category-wellness .description {
+    margin-top: 16px; }
+  .window-category-wellness .location {
+    margin-top: 16px; }
+  .window-category-wellness .availability {
+    margin-top: 32px;
+    clear: left; }
+  .gm-style .gm-style-iw .window-category-wellness .availability-header .cell {
+    font-weight: 600; }
+  .gm-style .gm-style-iw .window-category-wellness .input_label {
+    font-weight: 600; }
+  .gm-style .gm-style-iw .window-category-wellness .btn-mini {
+    font-size: 12px;
+    padding: 2.4px 8px; }
   .window-category-wellness h4 .icon {
     border-color: #bc913d; }
   .window-category-wellness .category {
@@ -1999,15 +2050,6 @@ footer {
     .window-category-wellness.activity-detail img {
       width: 250px; }
 
-.activity-detail {
-  margin: 32px 0; }
-  .activity-detail .description {
-    margin-top: 16px; }
-  .activity-detail .location {
-    margin-top: 16px; }
-  .activity-detail .availability {
-    margin-top: 32px;
-    clear: left; }
 
 .activity-edit .availability-entry .cell.first {
   padding-left: 0; }
@@ -2143,10 +2185,20 @@ footer {
       padding-right: 10px; }
   .availability-entry .availability-date {
     width: 45%; }
+    .availability-user .availability-entry .availability-date {
+      width: 40%; }
   .availability-entry .availability-time {
     width: 35%; }
+    .availability-user .availability-entry .availability-time {
+      width: 30%; }
   .availability-entry .availability-amount {
     width: 20%; }
+    .availability-user .availability-entry .availability-amount {
+      width: 15%; }
+  .availability-entry .availability-book {
+    width: 0%; }
+    .availability-user .availability-entry .availability-book {
+      width: 15%; }
 
 #logo {
   display: block;
