@@ -1,6 +1,6 @@
 // The current user.  You can watch this for changes due to logging in and out
 angular.module('services.authentication.current-user', [])
-  .factory('currentUser', function ($rootScope, $q) {
+  .factory('currentUser', function ($rootScope, $q, models) {
     "use strict";
 
     var currentUser = {
@@ -12,7 +12,7 @@ angular.module('services.authentication.current-user', [])
           return defer.promise;
         }
 
-        return UserModel.currentUser()
+        return models.UserModel.currentUser()
           .then(function (users) {
             currentUser.user = users[0];
             currentUser.authenticated = true;
@@ -28,14 +28,14 @@ angular.module('services.authentication.current-user', [])
       user: null,
 
       login: function (username, password) {
-        return UserModel.login({username: username, password: password})
+        return models.UserModel.login({username: username, password: password})
           .then(function (res) {
             return currentUser.load();
           });
       },
 
       register: function (username, password) {
-        return UserModel.register({
+        return models.UserModel.register({
           username: username,
           password: password
         })
@@ -45,7 +45,7 @@ angular.module('services.authentication.current-user', [])
       },
 
       logout: function () {
-        return UserModel.logout()
+        return models.UserModel.logout()
           .then(function (res) {
             currentUser.user = null;
             currentUser.authenticated = false;
