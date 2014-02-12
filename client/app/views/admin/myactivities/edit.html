@@ -96,7 +96,7 @@
       <img src="http://www.o-solemio.de/wp-content/uploads/Piemont/Locanda_Riziere/Piemont_Langhe.jpg"/>
       <div class="img-edit">
         <a class="delete"
-           href="#"
+           href=""
            ng-click="delete()">delete
           <i>x</i>
         </a>
@@ -106,14 +106,15 @@
       <img src="http://www.welt-atlas.de/datenbank/fotos/1-941/big/1-941-42.jpg"/>
       <div class="img-edit">
         <a class="delete"
-           href="#"
+           href=""
            ng-click="delete()">delete
           <i>x</i>
         </a>
       </div>
     </div>
     <div class="img-block img-new">
-      <a href="#">
+      <a href=""
+         ng-click="">
         +
       </a>
     </div>
@@ -153,12 +154,8 @@
         <div class="availability-time cell">
           <input type="text"
                  class="form-control"
-                 ng-model="search.startDate"
-                 data-min-date="{{search.minDate}}"
+                 id="name"
                  placeholder="Time"
-                 bs-datepicker
-                 autoclose="true"
-                 value=""
               >
         </div>
         <div class="availability-amount cell last align-right">
@@ -184,12 +181,8 @@
         <div class="availability-time cell">
           <input type="text"
                  class="form-control"
-                 ng-model="search.startDate"
-                 data-min-date="{{search.minDate}}"
+                 id="name"
                  placeholder="Time"
-                 bs-datepicker
-                 autoclose="true"
-                 value=""
               >
         </div>
         <div class="availability-amount cell last align-right">
@@ -228,12 +221,8 @@
         <div class="availability-time cell">
           <input type="text"
                  class="form-control"
-                 ng-model="search.startDate"
-                 data-min-date="{{search.minDate}}"
+                 id="name"
                  placeholder="Time"
-                 bs-datepicker
-                 autoclose="true"
-                 value=""
               >
         </div>
         <div class="availability-amount cell last align-right">
@@ -246,17 +235,12 @@
       </div>
       
       
-      
-      
-      
-      
-
       <div class="availability-entry">
         <div class="cell">
-        <a href="#"
+        <a ng-click=""
            class="btn btn-small"
             >
-          New Entry
+          Add Entry
            </a>
         </div>
       </div>
