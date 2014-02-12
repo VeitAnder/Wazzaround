@@ -50,7 +50,7 @@
             <div
                 class="innerwrap"
                 >
-
+              {{sportsCategories}}
               <div
                   class="div-row"
                   ng-repeat="category in sportsCategories"
@@ -62,7 +62,7 @@
                       class="filter-category-sub div-cell"
                       data-ng-if="sportsCategories[$index+0]"
                       ng-class="{selected: sportsCategories[$index+0].selected}"
-                      ng-click="toggleCategorySelection(sportsCategories[$index+0])"
+                      ng-click="toggleCategorySelection('sports', sportsCategories[$index+0])"
                       >
                     <span class="checkbox inline"></span>
                     {{sportsCategories[$index+0].title}}
@@ -72,7 +72,7 @@
                       class="filter-category-sub div-cell"
                       data-ng-if="sportsCategories[$index+1]"
                       ng-class="{selected: sportsCategories[$index+1].selected}"
-                      ng-click="toggleCategorySelection(sportsCategories[$index+1])"
+                      ng-click="toggleCategorySelection('sports', sportsCategories[$index+1])"
                       >
                     <span class="checkbox inline"></span>
                     {{sportsCategories[$index+1].title}}

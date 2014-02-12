@@ -76,8 +76,10 @@ angular.module('anorakApp')
       return _.where($scope.getMainCategory(activity.category.main).sub, { 'key': activity.category.sub, 'selected': true }).length === 1 ? true : false;
     };
 
-    $scope.toggleCategorySelection = function (category) {
+    $scope.toggleCategorySelection = function (mainCat, category) {
+      console.log("CATEGORY SELECTION", category);
       category.selected = !category.selected;
+      console.log("CATEGORY NOW", category);
     };
 
     $scope.selectAllCategories = function () {
@@ -149,12 +151,32 @@ angular.module('anorakApp')
       });
     };
 
+    // first time coming here, all the categories are selected
+    // after a search:
+    // we find some activities and search for those with the right main category
+    // only the sub-categories of that activities should be selected
     $scope.numberOfSelectedFromCategory = function (mainCat) {
+      var categoriesInActivities = [];
+      angular.forEach($scope.map.markers, function(activity) {
+        if(activity.category.main === mainCat) {
+          categoriesInActivities.push(activity.category.sub);
+        }
+      });
+      categoriesInActivities = _.uniq(categoriesInActivities);
+
+      angular.forEach($scope.getMainCategory(mainCat).sub, function(category) {
+        if(_.contains(categoriesInActivities, category.key)) {
+          category.selected = true;
+        } else {
+          category.selected = false;
+        }
+      });
       return _.where($scope.getMainCategory(mainCat).sub, { 'selected': true }).length;
     };
 
+
     $scope.totalNumberOfCategory = function (mainCat) {
-      return filterActivitiesByMainCategory(mainCat).length;
+      return _.where($scope.getMainCategory(mainCat).sub, { 'selected': true }).length;
     };
 
     function filterActivitiesByMainCategory(mainCatName) {
