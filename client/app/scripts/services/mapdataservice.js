@@ -35,16 +35,12 @@ angular.module('anorakApp')
 
           console.log("FOUND ADDRESS!", status, results);
 
-          if (status == google.maps.GeocoderStatus.OK) {
-            mapdataservice.map.center.latitude = results[0].geometry.location.d;
-            mapdataservice.map.center.longitude = results[0].geometry.location.e;
-            mapdataservice.map.centerMarker.latitude = results[0].geometry.location.d;
-            mapdataservice.map.centerMarker.longitude = results[0].geometry.location.e;
-            mapdataservice.map.address = address; // TODO remove later, is only for controlling
           if (status === google.maps.GeocoderStatus.OK) {
             mapdata.map.center.latitude = results[0].geometry.location.d;
             mapdata.map.center.longitude = results[0].geometry.location.e;
-            mapdata.map.address = address;
+            mapdata.map.centerMarker.latitude = results[0].geometry.location.d;
+            mapdata.map.centerMarker.longitude = results[0].geometry.location.e;
+            mapdata.map.address = address; // TODO remove later, is only for controlling
 
             var markersInRadius = [];
             for (var i = 0; i < mapdata.map.markers.length; i++) {
@@ -70,8 +66,8 @@ angular.module('anorakApp')
 
           } else {
             console.log("Status not OK!, failing", status);
-            mapdataservice.map.center = standardCenter;
-            mapdataservice.map.centerMarker = standardCenter;
+            mapdata.map.center = standardCenter;
+            mapdata.map.centerMarker = standardCenter;
             mapdata.map.center = standardCenter;
             return defer.reject("Could not geocode address", status);
           }
