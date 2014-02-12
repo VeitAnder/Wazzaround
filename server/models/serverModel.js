@@ -36,6 +36,10 @@ models.UserModel.operationImpl("register", function(params, req) {
   // save the new user
   return Q()
     .then(function() {
+      if (params.username == undefined || params.username == "") {
+        throw new Error("You have to provide a E-Mail address");
+      };
+
       return models.UserModel.use.find({username:params.username});  // find all existing users
     })
     .then(function(users) {

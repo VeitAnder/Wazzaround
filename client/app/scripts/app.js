@@ -92,6 +92,10 @@ angular.module('anorakApp')
           }]
         }
       })
+      .when('/register', {
+        templateUrl: 'views/page_basetemplate.html',
+        controller: 'RegisterCtrl'
+      })
       .when('/admin/myactivities/:id/edit', {
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl'
@@ -151,6 +155,13 @@ angular.module('anorakApp')
       if (!currentUser.authenticated) {
         if (next.$$route.originalPath.match(/^\/admin/) || next.$$route.originalPath.match(/^\/account/)) {
           $location.path('/login');
+        }
+      }
+
+      // if you try to access the register route being authenticated -> redirect to /admin
+      if (currentUser.authenticated) {
+        if (next.$$route.originalPath.match(/^\/register/)) {
+          $location.path('/admin');
         }
       }
 
