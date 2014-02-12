@@ -76,7 +76,7 @@ angular.module('anorakApp')
       return _.where($scope.getMainCategory(activity.category.main).sub, { 'key': activity.category.sub, 'selected': true }).length === 1 ? true : false;
     };
 
-    $scope.toggleCategorySelection = function (mainCat, category) {
+    $scope.toggleCategorySelection = function (category) {
       console.log("CATEGORY SELECTION", category);
       category.selected = !category.selected;
       console.log("CATEGORY NOW", category);
