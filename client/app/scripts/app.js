@@ -62,6 +62,9 @@ angular.module('anorakApp')
         templateUrl: 'views/index.html',
         controller: 'indexCtrl',
         resolve: {
+          categories: function () {
+            return CategoryModel.use.all();
+          },
           resolvedActivities: function () {
             // todo: use service for Modelizer
             return ActivityModel.use.all();
@@ -94,11 +97,24 @@ angular.module('anorakApp')
       })
       .when('/admin/myactivities/:id/edit', {
         templateUrl: 'views/admin/admin_basetemplate.html',
-        controller: 'AdminMyactivitiesEditCtrl'
+        controller: 'AdminMyactivitiesEditCtrl',
+        resolve: {
+          activity: ['$route', function ($route) {
+            return ActivityModel.use.get($route.current.params.id);
+          }]
+        }
       })
       .when('/admin/myactivities/new', {
         templateUrl: 'views/admin/admin_basetemplate.html',
-        controller: 'AdminMyactivitiesNewCtrl'
+        controller: 'AdminMyactivitiesNewCtrl',
+        resolve: {
+          categories: function () {
+            return CategoryModel.use.all();
+          },
+          activity: function () {
+            return ActivityModel.createObject();
+          }
+        }
       })
       .when('/admin/myactivities/:id/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
@@ -127,32 +143,43 @@ angular.module('anorakApp')
       });
 
   })
-  .run(function ($rootScope, $log, debug, currentUser, $location) {
+  .run(function ($rootScope, $log, debug, currentUser, $location, $route) {
     "use strict";
 
     debug("application run called");
     $rootScope.debug = debug;
+    var checkRouteForAuthorization;
 
     var connector = Model.AngularConnector("http://localhost:3000/");
     UserModel.connection(connector);
     ActivityModel.connection(connector);
     CategoryModel.connection(connector);
 
-    $rootScope.currentUser = currentUser;
-    // load current User from server
-    currentUser.load().done();
+    debug("$route", $route);
 
-
-    $rootScope.$on('$routeChangeStart', function (event, next, current) {
-
-      debug("routeChangeStart", next.$$route.originalPath);
+    checkRouteForAuthorization = function () {
+      debug("routeChangeStart", $route.current.$$route.originalPath);
 
       // if you try to access a admin route without being authenticated -> redirect to /login
       if (!currentUser.authenticated) {
-        if (next.$$route.originalPath.match(/^\/admin/) || next.$$route.originalPath.match(/^\/account/)) {
-          $location.path('/login');
+        if ($route.current.$$route.originalPath.match(/^\/admin/) || $route.current.$$route.originalPath.match(/^\/account/)) {
+          $rootScope.$apply(function () {
+            $location.path('/login');
+          });
         }
       }
+    };
+
+    $rootScope.currentUser = currentUser;
+    // load current User from server
+    // @TODO - content flickers as long as route has not been checked
+    currentUser.load()
+      .then(function () {
+        checkRouteForAuthorization();
+      })
+      .done();
+
+    $rootScope.$on('$routeChangeStart', function (event, next, current) {
 
     });
 
