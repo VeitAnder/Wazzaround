@@ -2,17 +2,25 @@
 <h3>My Activities</h3>
 
 <div
-    class="window-category-wellness"
+    class="window-category-{{activity.category.main}}"
     >
   <h4>
     <span class="icon"></span>
     {{activity.name}}
   </h4>
 
+  <h5 class="category">
+    {{activity.category.main}}
+    <span class="category-sub">
+      {{activity.category.sub}}
+    </span>
+  </h5>
+
   <img src="/img/mapicons/piemont.jpg"
        alt=""/>
 
-  <h6>Offered by</h6>
+  <div class="input_label">Offered by</div>
+  <h5 class="no-margin-top">$Firmenname des Anbieters</h5>
 
   <div>
     <div class="input_label">Description</div>
@@ -20,9 +28,30 @@
   </div>
 </div>
 
+<div style="width:100%; height:250px; overflow:hidden; position:relative; background: #ccc">
+
+  <google-map
+      center='map.center'
+      zoom='map.zoom'
+      draggable='true'
+      events='map.events'
+      >
+
+    <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
+    <div ng-init="opts = {animation:1}">
+      <marker coords="map.clickedMarker"
+              options="opts">
+      </marker>
+    </div>
+
+  </google-map>
+
+</div>
+
 <div class="buttonbar">
-<a href="#/admin/myactivities/{{activity._id}}/edit/">edit</a>
-<a data-ng-click="delete(activity)">delete</a>
+  <a class="text-link float-left" href="#/admin/myactivities/">back to 'My Activities'</a>
+  <a class="btn btn-small" href="#/admin/myactivities/{{activity._id}}/edit/">edit</a>
+  <a class="btn btn-alert btn-small" data-ng-click="delete(activity)">delete</a>
 </div>
 
 

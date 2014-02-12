@@ -145,6 +145,12 @@ footer {
       margin-right: 5px;
     }
   }
+  .category{
+    text-transform: capitalize;
+    .category-sub{
+      font-weight: $font-weight_light;
+    }
+  }
   img {
     float: left;
     margin: 0 $bu $fs 0;
@@ -161,30 +167,36 @@ footer {
 .window-category-sports {
   @include window-category;
   h4 {
-    //    color: $color_sports;
     .icon {
       border-color: $color_sports;
     }
+  }
+  .category{
+    color: $color_sports;
   }
 }
 
 .window-category-culture {
   @include window-category;
   h4 {
-    //    color: $color_culture;
     .icon {
       border-color: $color_culture;
     }
+  }
+  .category{
+    color: $color_culture;
   }
 }
 
 .window-category-wellness {
   @include window-category;
   h4 {
-    //    color: $color_wellness;
     .icon {
       border-color: $color_wellness;
     }
+  }
+  .category{
+    color: $color_wellness;
   }
 }
 
