@@ -1880,8 +1880,10 @@ footer {
     border-color: #C83C19; }
   .window-category-sports .category {
     color: #C83C19; }
-  .window-category-sports.activity-detail img {
-    width: 250px; }
+  .window-category-sports.activity-detail {
+    padding: 0; }
+    .window-category-sports.activity-detail img {
+      width: 250px; }
 
 .window-category-culture {
   padding: 15px 0;
@@ -1935,8 +1937,10 @@ footer {
     border-color: #1970C8; }
   .window-category-culture .category {
     color: #1970C8; }
-  .window-category-culture.activity-detail img {
-    width: 250px; }
+  .window-category-culture.activity-detail {
+    padding: 0; }
+    .window-category-culture.activity-detail img {
+      width: 250px; }
 
 .window-category-wellness {
   padding: 15px 0;
@@ -1990,16 +1994,25 @@ footer {
     border-color: #bc913d; }
   .window-category-wellness .category {
     color: #bc913d; }
-  .window-category-wellness.activity-detail img {
-    width: 250px; }
+  .window-category-wellness.activity-detail {
+    padding: 0; }
+    .window-category-wellness.activity-detail img {
+      width: 250px; }
 
-.activity-detail .description {
-  margin-top: 16px; }
-.activity-detail .location {
-  margin-top: 16px; }
-.activity-detail .availability {
-  margin-top: 32px;
-  clear: left; }
+.activity-detail {
+  margin: 32px 0; }
+  .activity-detail .description {
+    margin-top: 16px; }
+  .activity-detail .location {
+    margin-top: 16px; }
+  .activity-detail .availability {
+    margin-top: 32px;
+    clear: left; }
+
+.activity-edit .availability-entry .cell.first {
+  padding-left: 0; }
+.activity-edit .availability-entry .cell.last {
+  padding-right: 0; }
 
 
 .availability-header {
@@ -2131,9 +2144,9 @@ footer {
   .availability-entry .availability-date {
     width: 45%; }
   .availability-entry .availability-time {
-    width: 45%; }
+    width: 35%; }
   .availability-entry .availability-amount {
-    width: 10%; }
+    width: 20%; }
 
 #logo {
   display: block;
@@ -2158,6 +2171,9 @@ footer {
 
 .no-padding-top {
   padding-top: 0; }
+
+.margin-top {
+  margin-top: 44.8px; }
 
 .social-bar {
   position: absolute;

@@ -1,17 +1,21 @@
 <h2>Account</h2>
 <h3>My Activities</h3>
 
-<div class="buttonbar buttonbar-top">
-  <a class="btn btn-small"
-     href="#/admin/myactivities/{{activity._id}}/edit/">edit
-  </a>
-  <a class="btn btn-alert btn-small"
-     data-ng-click="delete(activity)">delete
-  </a>
-</div>
 <div
     class="activity-detail window-category-{{activity.category.main}}"
     >
+
+  <div class="buttonbar buttonbar-top">
+    <a class="btn btn-small"
+       href="#/admin/myactivities/{{activity._id}}/edit/">edit
+    </a>
+    <a class="btn btn-alert btn-small"
+       data-ng-click="delete(activity)">delete
+    </a>
+  </div>
+
+
+
   <h4>
     <span class="icon"></span>
     {{activity.name}}
@@ -103,72 +107,20 @@
           18x
         </div>
       </div>
-      <div class="availability-entry">
-        <div class="availability-date cell first">
-          19/03/2014
-        </div>
-        <div class="availability-time cell">
-          2:00pm
-        </div>
-        <div class="availability-amount cell last align-right">
-          18x
-        </div>
-      </div>
-      <div class="availability-header">
-        <div class="month cell first">April</div>
-      </div>
-      <div class="availability-entry">
-        <div class="availability-date cell first">
-          02/04/2014
-        </div>
-        <div class="availability-time cell">
-          2:00pm
-        </div>
-        <div class="availability-amount cell last align-right">
-          10x
-        </div>
-      </div>
-      <div class="availability-entry">
-        <div class="availability-date cell first">
-          08/04/2014
-        </div>
-        <div class="availability-time cell">
-          2:00pm
-        </div>
-        <div class="availability-amount cell last align-right">
-          1x
-        </div>
-
-      </div>
-      <div class="availability-header">
-        <div class="month cell first">June</div>
-      </div>
-      <div class="availability-entry">
-        <div class="availability-date cell first">
-          12/05/2014
-        </div>
-        <div class="availability-time cell">
-          2:00pm
-        </div>
-        <div class="availability-amount cell last align-right">
-          1x
-        </div>
-
-      </div>
 
     </div>
   </div>
+  <div class="buttonbar margin-top">
+    <a class="text-link float-left"
+       href="#/admin/myactivities/">Go to 'My Activities'
+    </a>
+    <a class="btn btn-small"
+       href="#/admin/myactivities/{{activity._id}}/edit/">edit
+    </a>
+    <a class="btn btn-alert btn-small"
+       data-ng-click="delete(activity)">delete
+    </a>
+  </div>
+
 
 </div>
-<div class="buttonbar">
-  <a class="text-link float-left"
-     href="#/admin/myactivities/">Go to 'My Activities'
-  </a>
-  <a class="btn btn-small"
-     href="#/admin/myactivities/{{activity._id}}/edit/">edit
-  </a>
-  <a class="btn btn-alert btn-small"
-     data-ng-click="delete(activity)">delete
-  </a>
-</div>
-
