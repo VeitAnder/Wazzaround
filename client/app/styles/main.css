@@ -1830,8 +1830,9 @@ footer {
 
 .window-category-sports {
   padding: 15px 0;
-  min-width: 400px; }
-  .gm-style-iw .window-category-sports a.btn {
+  min-width: 400px;
+  max-width: 600px; }
+  .window-category-sports a.btn {
     font-size: 16px;
     font-weight: 600; }
   .window-category-sports p {
@@ -1876,6 +1877,10 @@ footer {
     padding: 3px;
     width: 150px;
     height: auto; }
+  .gm-style .gm-style-iw .window-category-sports .availability-header .cell {
+    font-weight: 600; }
+  .gm-style .gm-style-iw .window-category-sports .input_label {
+    font-weight: 600; }
   .window-category-sports h4 .icon {
     border-color: #C83C19; }
   .window-category-sports .category {
@@ -1887,8 +1892,9 @@ footer {
 
 .window-category-culture {
   padding: 15px 0;
-  min-width: 400px; }
-  .gm-style-iw .window-category-culture a.btn {
+  min-width: 400px;
+  max-width: 600px; }
+  .window-category-culture a.btn {
     font-size: 16px;
     font-weight: 600; }
   .window-category-culture p {
@@ -1933,6 +1939,10 @@ footer {
     padding: 3px;
     width: 150px;
     height: auto; }
+  .gm-style .gm-style-iw .window-category-culture .availability-header .cell {
+    font-weight: 600; }
+  .gm-style .gm-style-iw .window-category-culture .input_label {
+    font-weight: 600; }
   .window-category-culture h4 .icon {
     border-color: #1970C8; }
   .window-category-culture .category {
@@ -1944,8 +1954,9 @@ footer {
 
 .window-category-wellness {
   padding: 15px 0;
-  min-width: 400px; }
-  .gm-style-iw .window-category-wellness a.btn {
+  min-width: 400px;
+  max-width: 600px; }
+  .window-category-wellness a.btn {
     font-size: 16px;
     font-weight: 600; }
   .window-category-wellness p {
@@ -1990,6 +2001,10 @@ footer {
     padding: 3px;
     width: 150px;
     height: auto; }
+  .gm-style .gm-style-iw .window-category-wellness .availability-header .cell {
+    font-weight: 600; }
+  .gm-style .gm-style-iw .window-category-wellness .input_label {
+    font-weight: 600; }
   .window-category-wellness h4 .icon {
     border-color: #bc913d; }
   .window-category-wellness .category {
@@ -1999,15 +2014,13 @@ footer {
     .window-category-wellness.activity-detail img {
       width: 250px; }
 
-.activity-detail {
-  margin: 32px 0; }
-  .activity-detail .description {
-    margin-top: 16px; }
-  .activity-detail .location {
-    margin-top: 16px; }
-  .activity-detail .availability {
-    margin-top: 32px;
-    clear: left; }
+.activity-detail .description {
+  margin-top: 16px; }
+.activity-detail .location {
+  margin-top: 16px; }
+.activity-detail .availability {
+  margin-top: 32px;
+  clear: left; }
 
 .activity-edit .availability-entry .cell.first {
   padding-left: 0; }
