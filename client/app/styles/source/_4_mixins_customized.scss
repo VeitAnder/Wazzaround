@@ -44,6 +44,7 @@ footer {
 }
 
 .col-left-fixed{
+  position: relative;
   padding: $bu*2.0;
   width: $col-left-width;
   float: left;
@@ -1368,6 +1369,7 @@ $img-block-size: 150px;
 .list-myactivities{
   .activity{
     width: 25%;
+    font-weight: $font-weight_bold;
   }
   .category-main, .category-sub{
     width: 15%;
@@ -1378,6 +1380,16 @@ $img-block-size: 150px;
   .availability{
     width: 20%;
   }
+}
+
+.language-select{
+  position: absolute;
+  top: $bu;
+  right: $bu;
+  width: 76px;
+  height: 11px;
+  background: url(#{$img_path}flags_mont.png) 0 0 no-repeat;
+  @include hovercursor;
 }
 
 .datepicker {
