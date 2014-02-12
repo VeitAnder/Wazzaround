@@ -182,7 +182,7 @@ angular.module('anorakApp')
     // ATTENTION: this is called after toggleSelected, so dont set any selected here, will overwrite what user does in UI!
     $scope.numberOfSelectedFromCategory = function (mainCat) {
       var catsInActs = categoriesInActivities(mainCat);
-      console.log("NOW WE HAVE", catsInActs.length);
+//      console.log("NOW WE HAVE", catsInActs.length);
       var countSelected = 0;
       // TODO: what we set here as selected will not be updated in view !!!
       angular.forEach($scope.getMainCategory(mainCat).sub, function (category) {
