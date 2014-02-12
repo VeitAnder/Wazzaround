@@ -38,7 +38,9 @@
       <option disabled="disabled">Select Main Category</option>
       <option
           ng-repeat="category in categories"
-          value="{{category.key}}">{{category.title}}
+          value="{{category.key}}"
+          ng-selected="activity.category.main === category.key"
+          >{{category.title}}
       </option>
     </select>
   </div>
@@ -55,7 +57,9 @@
       <option disabled>Select Sub Category</option>
       <option
           ng-repeat="subcategory in getSubCategories()"
-          value="{{subcategory.key}}">{{subcategory.title}}
+          value="{{subcategory.key}}"
+          ng-selected="activity.category.sub === subcategory.key"
+          >{{subcategory.title}}
       </option>
     </select>
   </div>
