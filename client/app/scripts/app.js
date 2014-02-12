@@ -59,35 +59,35 @@ angular.module('anorakApp')
     //if no route specified, go to default route
     $routeProvider
       .when('/', {
-        templateUrl: 'views/index.html',
+        templateUrl: 'index.html',
         controller: 'indexCtrl',
         resolve: {
-          categories: function () {
+          categories: [function () {
             return CategoryModel.use.all();
-          },
-          resolvedActivities: function () {
+          }],
+          resolvedActivities:[ function () {
             // todo: use service for Modelizer
             return ActivityModel.use.all();
-          },
+          }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
           }]
         }
       })
       .when('/legalnotes', {
-        templateUrl: 'views/page_basetemplate.html',
+        templateUrl: 'page_basetemplate.html',
         controller: 'LegalnotesCtrl'
       })
       .when('/why', {
-        templateUrl: 'views/page_basetemplate.html',
+        templateUrl: 'page_basetemplate.html',
         controller: 'WhyCtrl'
       })
       .when('/workwithus', {
-        templateUrl: 'views/page_basetemplate.html',
+        templateUrl: 'page_basetemplate.html',
         controller: 'WorkwithusCtrl'
       })
       .when('/login', {
-        templateUrl: 'views/admin/admin_basetemplate.html',
+        templateUrl: 'admin/admin_basetemplate.html',
         controller: 'LoginCtrl',
         resolve: {
           resolveCurrentUser: ['currentUser', function (currentUser) {
@@ -96,35 +96,35 @@ angular.module('anorakApp')
         }
       })
       .when('/register', {
-        templateUrl: 'views/page_basetemplate.html',
+        templateUrl: 'page_basetemplate.html',
         controller: 'RegisterCtrl'
       })
       .when('/admin/myactivities/:id/edit', {
-        templateUrl: 'views/admin/admin_basetemplate.html',
+        templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
-          categories: function () {
+          categories: [function () {
             return CategoryModel.use.all();
-          },
+          }],
           activity: ['$route', function ($route) {
             return ActivityModel.use.get($route.current.params.id);
           }]
         }
       })
       .when('/admin/myactivities/new', {
-        templateUrl: 'views/admin/admin_basetemplate.html',
+        templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
-          categories: function () {
+          categories: [function () {
             return CategoryModel.use.all();
-          },
-          activity: function () {
+          }],
+          activity: [function () {
             return ActivityModel.createObject();
-          }
+          }]
         }
       })
       .when('/admin/myactivities/:id/', {
-        templateUrl: 'views/admin/admin_basetemplate.html',
+        templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesDetailCtrl',
         resolve: {
           activity: ['$route', function ($route) {
@@ -133,23 +133,16 @@ angular.module('anorakApp')
         }
       })
       .when('/admin/', {
-        templateUrl: 'views/admin/admin_basetemplate.html',
+        templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminIndexCtrl'
       })
       .when('/admin/myactivities/', {
-        templateUrl: 'views/admin/admin_basetemplate.html',
+        templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesIndexCtrl',
         resolve: {
-          myActivitiesList: function (currentUser) {
+          myActivitiesList:['currentUser', function (currentUser) {
               return ActivityModel.getMyActivities();
-
-//            return currentUser.load()
-//              .then(function(user){
-//                return ActivityModel.use.find({'owner._reference' : user.user._id});
-//              });
-
-//             return ActivityModel.use.all();
-          }
+          }]
         }
       })
       .otherwise({
@@ -157,19 +150,17 @@ angular.module('anorakApp')
       });
 
   })
-  .run(function ($rootScope, $log, debug, currentUser, $location, $route) {
+  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG) {
     "use strict";
 
     debug("application run called");
     $rootScope.debug = debug;
     var checkRouteForAuthorization;
 
-    var connector = Model.AngularConnector("http://localhost:3000/");
+    var connector = Model.AngularConnector(APP_CONFIG.modelizerurl);
     UserModel.connection(connector);
     ActivityModel.connection(connector);
     CategoryModel.connection(connector);
-
-    debug("$route", $route);
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);

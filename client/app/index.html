@@ -15,7 +15,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
   <!-- build:css({.tmp,app}) /styles/main.css -->
-  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 
   <link rel='stylesheet' href='http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'>
@@ -26,11 +26,10 @@
   <meta name="application-name" content="reActure App">
   <!--<meta name="viewport" content="width=device-width">-->
 
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/q/q.js"></script>
-  <script src="libs/modelizer.js"></script>
-  <!--<script src="libs/modelizerLatest.js"></script>-->
-  <script src="models/models.js"></script>
+  <!--<script src="bower_components/angular/angular.js"></script>-->
+  <!--<script src="bower_components/q/q.js"></script>-->
+  <!--<script src="scripts/modelizer/modelizer.js"></script>-->
+  <!--<script src="scripts/modelizer/models.js"></script>-->
 
 
 </head>
@@ -77,8 +76,13 @@
 <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
 
 
-<!-- build:js /scripts/vendor.js -->
+<!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/q/q.js"></script>
+<script src="scripts/modelizer/modelizer.js"></script>
+<script src="scripts/modelizer/models.js"></script>
+
 <script src="bower_components/jquery/jquery.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
@@ -99,39 +103,39 @@
 <script src="bower_components/angular-ui-utils/keypress.js"></script>
 
 
-<!-- build:js({.tmp,app}) /scripts/scripts.js -->
-<script src="/scripts/templates.js"></script>
-<script src="/scripts/app.js"></script>
-<script src="/scripts/controllers/account/account.js"></script>
-<script src="/scripts/controllers/account/password/password.js"></script>
-<script src="/scripts/controllers/registration/forgotpassword/forgotpassword.js"></script>
-<script src="/scripts/controllers/registration/registration.js"></script>
-<script src="/scripts/directives/downloadlink.js"></script>
-<script src="/scripts/directives/formvalidation/customvalidations.js"></script>
-<script src="/scripts/directives/fullname.js"></script>
-<script src="/scripts/directives/roleselector.js"></script>
-<script src="/scripts/directives/s3uploadform.js"></script>
-<script src="/scripts/directives/spinner.js"></script>
-<script src="/scripts/filters/filename.js"></script>
-<script src="/scripts/filters/moment.js"></script>
-<script src="/scripts/filters/projectowner.js"></script>
-<script src="/scripts/services/APP_CONFIG.js"></script>
-<script src="/scripts/services/authentication/authentication.js"></script>
-<script src="/scripts/services/authentication/current-user.js"></script>
-<script src="/scripts/services/authentication/interceptor.js"></script>
-<script src="/scripts/services/authentication/retry-queue.js"></script>
-<script src="/scripts/services/exceptionHandler.js"></script>
-<script src="/scripts/services/filename-validation.js"></script>
-<script src="/scripts/services/fileuploadcheck.js"></script>
-<script src="/scripts/services/httpRequestTracker.js"></script>
-<script src="/scripts/services/i18nNotifications.js"></script>
-<script src="/scripts/services/localizedMessages.js"></script>
-<script src="/scripts/services/notifications.js"></script>
-<script src="/scripts/services/s3uploadservice.js"></script>
-<script src="/scripts/services/supportbar.js"></script>
-<script src="/scripts/services/userAgent.js"></script>
-<script src="/scripts/services/debug.js"></script>
-<script src="/scripts/services/mapdataservice.js"></script>
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/templates.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/account/account.js"></script>
+<script src="scripts/controllers/account/password/password.js"></script>
+<script src="scripts/controllers/registration/forgotpassword/forgotpassword.js"></script>
+<script src="scripts/controllers/registration/registration.js"></script>
+<script src="scripts/directives/downloadlink.js"></script>
+<script src="scripts/directives/formvalidation/customvalidations.js"></script>
+<script src="scripts/directives/fullname.js"></script>
+<script src="scripts/directives/roleselector.js"></script>
+<script src="scripts/directives/s3uploadform.js"></script>
+<script src="scripts/directives/spinner.js"></script>
+<script src="scripts/filters/filename.js"></script>
+<script src="scripts/filters/moment.js"></script>
+<script src="scripts/filters/projectowner.js"></script>
+<script src="scripts/services/APP_CONFIG.js"></script>
+<script src="scripts/services/authentication/authentication.js"></script>
+<script src="scripts/services/authentication/current-user.js"></script>
+<script src="scripts/services/authentication/interceptor.js"></script>
+<script src="scripts/services/authentication/retry-queue.js"></script>
+<script src="scripts/services/exceptionHandler.js"></script>
+<script src="scripts/services/filename-validation.js"></script>
+<script src="scripts/services/fileuploadcheck.js"></script>
+<script src="scripts/services/httpRequestTracker.js"></script>
+<script src="scripts/services/i18nNotifications.js"></script>
+<script src="scripts/services/localizedMessages.js"></script>
+<script src="scripts/services/notifications.js"></script>
+<script src="scripts/services/s3uploadservice.js"></script>
+<script src="scripts/services/supportbar.js"></script>
+<script src="scripts/services/userAgent.js"></script>
+<script src="scripts/services/debug.js"></script>
+<script src="scripts/services/mapdataservice.js"></script>
 <script src="scripts/controllers/index.js"></script>
 <script src="scripts/directives/windowheight.js"></script>
 <script src="scripts/controllers/legalnotes.js"></script>
