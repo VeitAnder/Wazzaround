@@ -145,7 +145,6 @@ angular.module('anorakApp')
 
     var mapdata = {
       searchActivities: function (startDate, endDate, address) {
-        console.log("SEARCH FOR", startDate, endDate, address);
 
         var defer = Q.defer();
 

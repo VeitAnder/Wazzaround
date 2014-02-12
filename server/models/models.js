@@ -46,7 +46,7 @@ var UserModel = new model("users", {
   logout: Operation(),
   register: Operation(),
 
-  currentUser : Factory()
+//  currentUser : Factory()
 });
 
 var ActivityModel = new model("activities", {
@@ -70,7 +70,7 @@ var ActivityModel = new model("activities", {
 
   owner: Ref(UserModel),
 
-  getMyActivities : Factory()
+//  getMyActivities : Factory()
 
 });
 
