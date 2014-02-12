@@ -30,15 +30,15 @@ angular.module('anorakApp')
       var defer = Q.defer();
 
       if (!address) {
-        console.log("GOT NO ADDRESS", address);
+//        console.log("GOT NO ADDRESS", address);
         defer.resolve("No address entered");
       } else {
-        console.log("GOT ADDRESS", address);
+//        console.log("GOT ADDRESS", address);
         geocoder = new google.maps.Geocoder();
 
         geocoder.geocode({ 'address': address, 'region': 'it' }, function (results, status) {
 
-          console.log("FOUND ADDRESS!", status, results);
+//          console.log("FOUND ADDRESS!", status, results);
 
           if (status === google.maps.GeocoderStatus.OK) {
             mapdata.map.center.latitude = results[0].geometry.location.d;
@@ -59,7 +59,7 @@ angular.module('anorakApp')
 
               var distance = calculateDistance(mapdata.map.center.latitude, mapdata.map.center.longitude, mapdata.map.markers[i].latitude, mapdata.map.markers[i].longitude);
               if (distance < 30) {
-                console.log("DISTANCE FIT FOR MARKER");
+//                console.log("DISTANCE FIT FOR MARKER");
                 markersInRadius.push(mapdata.map.markers[i]);
               }
             }
@@ -80,7 +80,7 @@ angular.module('anorakApp')
 
     var findActivitiesForDateRange = function (start, end) {
 
-      console.log("FIND ACTS FOR DATE RANGE", start, end);
+//      console.log("FIND ACTS FOR DATE RANGE", start, end);
 
       // it's not a search for date, so just return
       if (!start && !end) {
@@ -102,7 +102,7 @@ angular.module('anorakApp')
         var activityEnd = moment(new Date(activity.availability[0].end));
 
         if (isDateRange) {
-          console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+//          console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 
           // activityStart is same or later than startDate AND activityEnd is same or before endDate, THEN it's in range
 //          console.log("ACT START", activity.availability.start);
@@ -119,7 +119,7 @@ angular.module('anorakApp')
             activityStart.isAfter(startDate) === true) ||
             (activityEnd.diff(endDate, 'days') === 0 ||
               activityEnd.isBefore(endDate) === true)) {
-            console.log("RESULT COMPARE FOUND");
+//            console.log("RESULT COMPARE FOUND");
             return true;
           }
 
@@ -127,7 +127,7 @@ angular.module('anorakApp')
           // either activity is on same day as selected start date
           // or it is on same day as selected end date
           // or I select a date which is BEFORE activities' end date AND AFTER activities' start date
-          console.log("NO DATE RANGE");
+//          console.log("NO DATE RANGE");
 //          console.log("ACT START", activity.availability.start);
 //          console.log("ACT END", activity.availability.end);
 //          console.log("START DATE", start);
@@ -141,13 +141,13 @@ angular.module('anorakApp')
         }
       });
 
-      console.log("GOT DATE FILTERED ACTIVITIES", dateFilteredActivities);
+//      console.log("GOT DATE FILTERED ACTIVITIES", dateFilteredActivities);
       mapdata.map.markers = dateFilteredActivities;
     };
 
     var mapdata = {
       searchActivities: function (startDate, endDate, address) {
-        console.log("SEARCHING START", startDate, "END ", endDate, " ADDR ", address);
+//        console.log("SEARCHING START", startDate, "END ", endDate, " ADDR ", address);
 
         if (!startDate && !endDate && !address) {
           console.log("FOUND NONE OF SERARCH STUFF");
