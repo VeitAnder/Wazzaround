@@ -13,8 +13,8 @@ angular.module('services.authentication.current-user', [])
         }
 
         return models.UserModel.currentUser()
-          .then(function (users) {
-            currentUser.user = users[0];
+          .then(function (user) {
+            currentUser.user = user;
             currentUser.authenticated = true;
             $rootScope.$apply();
             return currentUser;
