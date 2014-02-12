@@ -26,6 +26,8 @@ angular.module('anorakApp')
     };
 
     var geoCodeAddress = function (address) {
+
+      console.log("GEOCODE ADDRESS", address);
       var defer = Q.defer();
 
       if (!address) {
@@ -47,8 +49,8 @@ angular.module('anorakApp')
 
             var markersInRadius = [];
             for (var i = 0; i < mapdata.map.markers.length; i++) {
-//              console.log("CHECK MARKER", mapdata.map.markers[i]);
-//              console.log("THE DISTANCE IS", calculateDistance(mapdata.map.center.latitude, mapdata.map.center.longitude, mapdata.map.markers[i].latitude, mapdata.map.markers[i].longitude));
+              console.log("CHECK MARKER", mapdata.map.markers[i]);
+              console.log("THE DISTANCE IS", calculateDistance(mapdata.map.center.latitude, mapdata.map.center.longitude, mapdata.map.markers[i].latitude, mapdata.map.markers[i].longitude));
 
               // calculate distance between center and the marker
               // if distance more than 30km, dont display
@@ -79,12 +81,19 @@ angular.module('anorakApp')
     var findActivitiesForDateRange = function (start, end) {
 
       console.log("FIND ACTS FOR DATE RANGE", start, end);
+      
+      // it's not a search for date, so just return
+      if(!start && !end) {
+        return;
+      }
+      
       var startDate = moment(start);
       var endDate = moment(end);
       var isDateRange = (start && end) ? true : false;
       console.log("IS DATE RANGE", isDateRange);
 
       // filter activities for dates
+      console.log("GOT ACTIVITIES TO FILTER", mapdata.map.markers);
       var dateFilteredActivities = _.filter(mapdata.map.markers, function (activity) {
 
         var activityStart = moment(new Date(activity.availability.start));
@@ -96,8 +105,8 @@ angular.module('anorakApp')
           // activityStart is same or later than startDate AND activityEnd is same or before endDate, THEN it's in range
           console.log("ACT START", activity.availability.start);
           console.log("ACT END", activity.availability.end);
-          console.log("START DATE", startDate);
-          console.log("END DATE", endDate);
+          console.log("START DATE", start);
+          console.log("END DATE", end);
           
           console.log("ACT START VS START DATE", activityStart.diff(startDate, 'days'));
           console.log("ACT START AFTER START DATE", activityStart.isAfter(startDate));
@@ -113,16 +122,20 @@ angular.module('anorakApp')
           }
 
         } else {
+          // either activity is on same day as selected start date
+          // or it is on same day as selected end date
+          // or I select a date which is BEFORE activities' end date AND AFTER activities' start date
           console.log("NO DATE RANGE");
-          var date = startDate ? moment(startDate) : moment(endDate);
-          var start = moment(activityStart);
-          var end = moment(activityEnd);
-
-          var diffStart = start.diff(date, 'days');
-          var diffEnd = end.diff(date, 'days');
+          console.log("ACT START", activity.availability.start);
+          console.log("ACT END", activity.availability.end);
+          console.log("START DATE", start);
+          console.log("END DATE", end);
+          var date = start ? startDate : endDate;
+          var diffStart = activityStart.diff(date, 'days');
+          var diffEnd = activityEnd.diff(date, 'days');
 
           console.log("DIFFSTART", diffStart, "DIFFEND", diffEnd);
-          return diffStart === 0 || diffEnd === 0;
+          return  diffStart === 0 || (date.isBefore(activityEnd) && date.isAfter(activityStart)) || diffEnd === 0;
         }
       });
 
@@ -132,6 +145,8 @@ angular.module('anorakApp')
 
     var mapdata = {
       searchActivities: function (startDate, endDate, address) {
+        console.log("SEARCH FOR", startDate, endDate, address);
+
         var defer = Q.defer();
 
         geoCodeAddress(address)

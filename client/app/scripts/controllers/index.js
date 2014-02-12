@@ -157,8 +157,6 @@ angular.module('anorakApp')
       return filterActivitiesByMainCategory(mainCat).length;
     };
 
-
-
     function filterActivitiesByMainCategory(mainCatName) {
       return _.filter($scope.map.markers, function (marker) {
         return marker.category.main === mainCatName;
