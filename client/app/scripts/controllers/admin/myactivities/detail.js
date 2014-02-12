@@ -21,10 +21,9 @@ angular.module('anorakApp')
       return "/img/mapicons/marker-"+$scope.activity.category.main+".svg";
     };
 
-    $scope.delete = function (activity) {
-      activity.remove()
+    $scope.delete = function () {
+      $scope.activity.remove()
         .then(function () {
-          console.log("deleted activity", activity);
           $location.path("/admin/myactivities/");
           $scope.$apply();
         });
