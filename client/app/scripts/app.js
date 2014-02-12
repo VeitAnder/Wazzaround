@@ -137,8 +137,13 @@ angular.module('anorakApp')
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesIndexCtrl',
         resolve: {
-          activitieslist: function () {
-            return ActivityModel.use.all();
+          myActivitiesList: function (currentUser) {
+            // TODO: server-factory für sowas wär schöner
+            return currentUser.load()
+              .then(function(user){
+                return ActivityModel.use.find({'owner._reference' : user.user._id});
+              });
+//              return ActivityModel.use.all();
           }
         }
       })
