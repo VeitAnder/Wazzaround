@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminMyactivitiesEditCtrl', function ($scope, $location, activity, categories) {
+  .controller('AdminMyactivitiesEditCtrl', function ($scope, $location, activity, categories, mapdataservice) {
     $scope.getPagePartial = function () {
       return 'admin/myactivities/edit.html';
     };
@@ -32,6 +32,7 @@ angular.module('anorakApp')
         latitude: null,
         longitude: null
       },
+      options: mapdataservice.map.options,
       events: {
         click: function (mapModel, eventName, originalEventArgs) {
           // 'this' is the directive's scope

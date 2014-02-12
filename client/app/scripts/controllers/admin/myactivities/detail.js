@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminMyactivitiesDetailCtrl', function ($scope, $location, activity) {
+  .controller('AdminMyactivitiesDetailCtrl', function ($scope, $location, activity, mapdataservice) {
     $scope.getPagePartial = function () {
       return 'admin/myactivities/detail.html';
     };
@@ -13,7 +13,8 @@ angular.module('anorakApp')
         "longitude": parseFloat($scope.activity.longitude),
         "latitude": parseFloat($scope.activity.latitude)
       },
-      zoom: 9
+      zoom: 9,
+      options: mapdataservice.map.options
     };
 
     $scope.getMarkerIcon = function () {

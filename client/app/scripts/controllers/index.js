@@ -66,6 +66,7 @@ angular.module('anorakApp')
       }
     };
 
+
     $scope.windowOptions = {
       "zIndex": 1000
     };
