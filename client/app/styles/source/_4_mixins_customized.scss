@@ -44,6 +44,7 @@ footer {
 }
 
 .col-left-fixed{
+  position: relative;
   padding: $bu*2.0;
   width: $col-left-width;
   float: left;
@@ -147,13 +148,13 @@ footer {
   img {
     float: left;
     margin: 0 $bu $fs 0;
-    @include border_all($color_grey_50);
+    @include border_all($color_grey_15);
     @include border-radius($border-radius);
     border-width: 7px;
     padding: 3px;
-    width: 150px;
+    width: 250px;
     height: auto;
-    background-color: $color_grey_75;
+    background-color: $color_grey_15_l5;
   }
 }
 
@@ -1294,6 +1295,12 @@ $img-block-size: 150px;
   }
 }
 
+.loginbutton{
+  .col-left-fixed &{
+    padding-top: $bu;
+    @include seperator(top, $color_main_seperator);
+  }
+}
 
 .logoutlink{
   .admin-section &{
@@ -1368,6 +1375,7 @@ $img-block-size: 150px;
 .list-myactivities{
   .activity{
     width: 25%;
+    font-weight: $font-weight_bold;
   }
   .category-main, .category-sub{
     width: 15%;
@@ -1378,6 +1386,16 @@ $img-block-size: 150px;
   .availability{
     width: 20%;
   }
+}
+
+.language-select{
+  position: absolute;
+  top: $bu;
+  right: $bu;
+  width: 76px;
+  height: 11px;
+  background: url(#{$img_path}flags_mont.png) 0 0 no-repeat;
+  @include hovercursor;
 }
 
 .datepicker {
