@@ -65,6 +65,11 @@ angular.module('anorakApp')
       }
     };
 
+
+    $scope.windowOptions = {
+      "zIndex": 1000
+    };
+
     $scope.onMarkerClicked = function (marker) {
       debug("Marker: lat: " + marker.latitude + ", lon: " + marker.longitude + " clicked!!");
       marker.showWindow = true;

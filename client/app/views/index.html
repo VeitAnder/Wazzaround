@@ -262,6 +262,7 @@
         zoom='map.zoom'
         draggable='true'
         events='map.events'
+        options='map.options'
         >
       <marker
           ng-repeat="m in map.markers | filter:onlySelectedCategories"
@@ -274,7 +275,9 @@
         <window
             show="m.showWindow"
             closeClick="m.closeClick()"
+            options="windowOptions"
             >
+
           <div
               class="window-category-{{m.category.main}}"
               >
@@ -287,19 +290,83 @@
                  width="100"
                  alt=""/>
 
-            <h6>Offered by</h6>
+            <div class="input_label">Offered by</div>
+            <h5 class="no-margin-top">Activity Inc.</h5>
 
-            <div>
-              {{m.description}}
+            <div class="description">
+              <div class="input_label">Description</div>
+              <p>
+                {{m.description}}
+              </p>
             </div>
 
-            <p class="align-right">
-              <a href="http://www.paypal.com"
-                 target="_blank"
-                 class="btn">Book now
-              </a>
-            </p>
+            <div class="availability availability-user">
+              <div class="input_label">Availability</div>
+              <div class="availability-list">
+                <div class="availability-header">
+                  <div class="month cell first">February</div>
+                </div>
+                <div class="availability-entry">
+                  <div class="availability-date cell first">
+                    19/02/2014
+                  </div>
+                  <div class="availability-time cell">
+                    2:00pm
+                  </div>
+                  <div class="availability-amount cell">
+                    4x
+                  </div>
+                  <div class="availability-book cell last align-right">
+                    <a class="btn btn-mini"
+                       ng-click=""
+                        >Book
+                    </a>
+                  </div>
+                </div>
+                <div class="availability-entry">
+                  <div class="availability-date cell first">
+                    24/02/2014
+                  </div>
+                  <div class="availability-time cell">
+                    2:00pm
+                  </div>
+                  <div class="availability-amount cell">
+                    32x
+                  </div>
+                  <div class="availability-book cell last align-right">
+                    <a class="btn btn-mini"
+                       ng-click="#"
+                       href="#">Book
+                    </a>
+                  </div>
+                </div>
+                <div class="availability-header">
+                  <div class="month cell first">March</div>
+                </div>
+                <div class="availability-entry">
+                  <div class="availability-date cell first">
+                    07/03/2014
+                  </div>
+                  <div class="availability-time cell">
+                    2:00pm
+                  </div>
+                  <div class="availability-amount cell">
+                    18x
+                  </div>
+                  <div class="availability-book cell last align-right">
+                    <a class="btn btn-mini"
+                       ng-click="#"
+                       href="#">Book
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
+
+
         </window>
         <marker-label content="m.name"
                       anchor="22 0"

@@ -81,12 +81,12 @@ angular.module('anorakApp')
     var findActivitiesForDateRange = function (start, end) {
 
       console.log("FIND ACTS FOR DATE RANGE", start, end);
-      
+
       // it's not a search for date, so just return
-      if(!start && !end) {
+      if (!start && !end) {
         return;
       }
-      
+
       var startDate = moment(start);
       var endDate = moment(end);
       var isDateRange = (start && end) ? true : false;
@@ -107,7 +107,7 @@ angular.module('anorakApp')
           console.log("ACT END", activity.availability.end);
           console.log("START DATE", start);
           console.log("END DATE", end);
-          
+
           console.log("ACT START VS START DATE", activityStart.diff(startDate, 'days'));
           console.log("ACT START AFTER START DATE", activityStart.isAfter(startDate));
           console.log("ACT END VS END DATE", activityEnd.diff(endDate, 'days'));
@@ -193,9 +193,19 @@ angular.module('anorakApp')
           templateParameter: {
             message: 'passed in from the opener'
           }
+        },
+        options: {
+          zoomControl: {
+            style: "SMALL"
+          },
+          panControl: false,
+          overviewMapControl: false,
+          mapTypeControl: false,
+          streetViewControl: false
         }
       }
     };
 
     return mapdata;
-  });
+  })
+;

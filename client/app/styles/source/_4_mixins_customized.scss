@@ -72,7 +72,7 @@ footer {
 .map-searchbar {
   position: absolute;
   z-index: 10;
-  margin: $bu*3.0 $bu*2.0 0 $bu*6.0;
+  margin: 15px 0 0 40px;
 }
 
 .map-wrap {
@@ -84,16 +84,16 @@ footer {
 
   // setting the height is necessary to avoid a bug of angularmap on route change
   // when switching back from another route, height is initialized with 0
-  height: 1500px;
+  height: 1024px;
 
   @include respond-to(high-screen) {
-    height: 2000px;
+    height: 1460px;
   }
   @include respond-to(medium-height-screen) {
-    height: 1250px;
+    height: 1024px;
   }
   @include respond-to(low-screen) {
-    height: 600px;
+    height: 768px;
   }
 }
 
@@ -122,12 +122,15 @@ footer {
 @mixin window-category {
   padding: 15px 0;
   min-width: 400px;
-  a.btn {
-    .gm-style-iw & {
-      font-size: 16px;
-      font-weight: $font-weight_bold;
-    }
+  max-width: 600px;
+  &.activity-detail{
+    max-width: 100%;
   }
+  a.btn {
+    font-size: $fs;
+    font-weight: $font-weight_bold;
+  }
+
   p {
     font-family: $sysfont_01;
     font-size: $fs;
@@ -135,6 +138,7 @@ footer {
     margin: 0;
     font-weight: normal;
   }
+
   h4 {
     color: $color_grey;
     margin-top: 0;
@@ -156,6 +160,7 @@ footer {
       font-weight: $font-weight_light;
     }
   }
+
   img {
     float: left;
     margin: 0 $bu $fs 0;
@@ -166,6 +171,40 @@ footer {
     width: 150px;
     height: auto;
   }
+
+  .description {
+    margin-top: $fs;
+  }
+  .location {
+    margin-top: $fs;
+  }
+  .availability {
+    margin-top: $fs*2.0;
+    clear: left;
+  }
+
+  //  Google overwrites
+
+  .availability-header{
+    .cell{
+      .gm-style .gm-style-iw &{
+        font-weight: $font-weight_bold;
+      }
+    }
+  }
+  .input_label{
+    .gm-style .gm-style-iw &{
+      font-weight: $font-weight_bold;
+    }
+  }
+  .btn-mini{
+    .gm-style .gm-style-iw &{
+      font-size: 12px;
+      padding: ($fs*0.15) ($fs*0.5);
+    }
+  }
+
+
 }
 
 .window-category-sports {
@@ -223,52 +262,55 @@ footer {
 }
 
 .activity-detail {
-  margin: $fs*2.0 0;
-  .description{
-    margin-top: $fs;
-  }
-  .location{
-    margin-top: $fs;
-  }
-  .availability {
-    margin-top: $fs*2.0;
-    clear: left;
-  }
 }
 
-.activity-edit{
-  .availability-entry{
-    .cell{
-      &.first{
+.activity-edit {
+  .availability-entry {
+    .cell {
+      &.first {
         padding-left: 0;
       }
-      &.last{
+      &.last {
         padding-right: 0;
       }
     }
   }
 }
 
-.availability-list{
+.availability-list {
 }
 
-.availability-header{
+.availability-header {
   @include divtable_header_small;
 }
 
-.availability-entry{
+.availability-entry {
   @include divtable_row_small;
-  .availability-date{
+  .availability-date {
     width: 45%;
+    .availability-user &{
+      width: 40%;
+    }
   }
-  .availability-time{
+  .availability-time {
     width: 35%;
+    .availability-user &{
+      width: 30%;
+    }
   }
-  .availability-amount{
+  .availability-amount {
     width: 20%;
+    .availability-user &{
+      width: 15%;
+    }
+  }
+  .availability-book {
+    width: 0%;
+    .availability-user &{
+      width: 15%;
+    }
   }
 }
-
 
 // CONTENT ELEMENTS
 // ###########################################################################################################################
@@ -306,7 +348,7 @@ footer {
   padding-top: 0;
 }
 
-.margin-top{
+.margin-top {
   margin-top: $fs*$line-height_factor*2.0;
 }
 
@@ -1424,15 +1466,19 @@ $img-block-size: 150px;
   }
 }
 
-.form-daterange {
+.form-mapsearch {
   .form-group {
     float: left;
-    width: 49%;
+    width: 45%;
+    margin-left: 1%;
     &:first-child {
-      margin-right: 2%;
+      margin-left: 0;
     }
     label {
       display: none;
+    }
+    &.date-from, &.date-until{
+      width: 25%;
     }
   }
   .form-control {
@@ -1464,7 +1510,7 @@ $img-block-size: 150px;
   .location {
     width: 25%;
   }
-  .edit{
+  .edit {
     width: 15%;
   }
 }
