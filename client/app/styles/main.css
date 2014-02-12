@@ -1075,10 +1075,11 @@ a.link-download {
     .btn-group .btn:first-child {
       margin-left: 0; }
 
-form .buttonbar {
+.buttonbar {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  clear: both;
   width: 100%;
   margin: 10px 0;
   padding: 10px;
@@ -1089,21 +1090,17 @@ form .buttonbar {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  form .buttonbar:after {
-    content: "";
-    display: table;
-    clear: both; }
-  form .buttonbar .text_link, form .buttonbar .confirm, form .buttonbar .cancel, form .buttonbar .edit {
+  .buttonbar .text_link, .buttonbar .confirm, .buttonbar .cancel, .buttonbar .edit {
     margin-left: 5px; }
-  form .buttonbar .text_icon_close {
+  .buttonbar .text_icon_close {
     font-family: embeded-webfont_01, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     letter-spacing: -0.03em;
     color: #666; }
-    form .buttonbar .text_icon_close span {
+    .buttonbar .text_icon_close span {
       margin-left: 4px; }
-  form .buttonbar.align-left {
+  .buttonbar.align-left {
     text-align: left; }
-  form .buttonbar.align-center {
+  .buttonbar.align-center {
     text-align: center; }
 
 cite, blockquote {
@@ -1844,7 +1841,7 @@ footer {
   .window-category-sports img {
     float: left;
     margin: 0 15px 16px 0;
-    border: solid 1px #b3b3b3;
+    border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -1853,9 +1850,9 @@ footer {
     border-radius: 6px;
     border-width: 7px;
     padding: 3px;
-    width: 150px;
+    width: 250px;
     height: auto;
-    background-color: #8c8c8c; }
+    background-color: #f5f5f5; }
   .window-category-sports h4 .icon {
     border-color: #C83C19; }
 
@@ -1891,7 +1888,7 @@ footer {
   .window-category-culture img {
     float: left;
     margin: 0 15px 16px 0;
-    border: solid 1px #b3b3b3;
+    border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -1900,9 +1897,9 @@ footer {
     border-radius: 6px;
     border-width: 7px;
     padding: 3px;
-    width: 150px;
+    width: 250px;
     height: auto;
-    background-color: #8c8c8c; }
+    background-color: #f5f5f5; }
   .window-category-culture h4 .icon {
     border-color: #1970C8; }
 
@@ -1938,7 +1935,7 @@ footer {
   .window-category-wellness img {
     float: left;
     margin: 0 15px 16px 0;
-    border: solid 1px #b3b3b3;
+    border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -1947,9 +1944,9 @@ footer {
     border-radius: 6px;
     border-width: 7px;
     padding: 3px;
-    width: 150px;
+    width: 250px;
     height: auto;
-    background-color: #8c8c8c; }
+    background-color: #f5f5f5; }
   .window-category-wellness h4 .icon {
     border-color: #bc913d; }
 
@@ -3141,6 +3138,10 @@ footer {
   .admin-section a, .admin-section a:link {
     padding-left: 35px;
     color: #e0f1bf; }
+
+.col-left-fixed .loginbutton {
+  padding-top: 15px;
+  border-top: dotted 1px #b3b3b3; }
 
 .admin-section .logoutlink {
   display: none; }

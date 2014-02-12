@@ -1,6 +1,29 @@
-{{activity}}
+<h2>Account</h2>
+<h3>My Activities</h3>
 
-<br/>
+<div
+    class="window-category-wellness"
+    >
+  <h4>
+    <span class="icon"></span>
+    {{activity.name}}
+  </h4>
+
+  <img src="/img/mapicons/piemont.jpg"
+       alt=""/>
+
+  <h6>Offered by</h6>
+
+  <div>
+    <div class="input_label">Description</div>
+    {{activity.description}}
+  </div>
+</div>
+
+<div class="buttonbar">
 <a href="#/admin/myactivities/{{activity._id}}/edit/">edit</a>
-<br/>
 <a data-ng-click="delete(activity)">delete</a>
+</div>
+
+
+{{activity}}
