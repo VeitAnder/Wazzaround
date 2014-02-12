@@ -1,8 +1,6 @@
 <h2>Account</h2>
 <h3>New Activity</h3>
 
-{{activity}}
-
 <form role="form"
       name="valForm"
       novalidate
@@ -24,10 +22,10 @@
                 icon='getMarkerIcon()'
             >
         </marker>
-          <!--<marker-label content="getMarkerLabel()"-->
-                        <!--anchor="44 0"-->
-                        <!--class="marker-labels"-->
-              <!--/>-->
+        <!--<marker-label content="getMarkerLabel()"-->
+        <!--anchor="44 0"-->
+        <!--class="marker-labels"-->
+        <!--/>-->
       </div>
 
     </google-map>
@@ -82,9 +80,14 @@
 
   <div class="form-group">
     <label>Description</label>
-    <div text-angular
-         ng-model="activity.description">
-    </div>
+    <!--<div text-angular-->
+    <!--ng-model="activity.description">-->
+    <!--</div>   -->
+
+    <textarea style="width: 100%;"
+              rows="5"
+              ng-model="activity.description">
+    </textarea>
   </div>
 
   <div class="form-group img-selector">
@@ -129,26 +132,3 @@
   </div>
 
 </form>
-
-<pre>
- var ActivityModel = new model("activities", {
-  name: Attr(Type.string),
-
-  description: Attr(Type.string),
-  images: Attr(Type.array),
-
-  category: {
-    main: Attr(Type.string),
-    sub: Attr(Type.string)
-  },
-  longitude: Attr(Type.string),
-  latitude: Attr(Type.string),
-  availability: {
-    start: Attr(Type.string),
-    end: Attr(Type.string)
-  },
-
-  owner: Ref(UserModel)
-
-});
-    </pre>
