@@ -3,6 +3,24 @@ var ObjectId = require('mongojs').ObjectId;
 
 var models = require('../models/models.js');
 
+models.ActivityModel.readFilter(function(req) {
+  return true;  // allow global read access
+});
+
+models.ActivityModel.writeFilter(function(activityObj, req) {
+  if (!req.session.auth) {
+    return false;  // if not logged in don't allow write operations
+  }
+
+  // don't allow to save activitys where the user is not the owner
+  if (activityObj._id != undefined && activityObj.owner._reference != req.session.user_id) {
+    return false;
+  }
+
+  // set the owner of the activity
+  activityObj.owner = { _reference : req.session.user_id };
+  return true;
+});
 
 // setup filters for the UserModel
 models.UserModel.readFilter(function(req) {
@@ -10,7 +28,7 @@ models.UserModel.readFilter(function(req) {
     return false;  // if not logged in don't allow read operations
   }
 
-  return {_id : ObjectId(req.session.user) };  // filter for only your documents (your user id)
+  return {_id : ObjectId(req.session.user_id) };  // filter for only your documents (your user id)
 });
 
 models.UserModel.writeFilter(function(userObj, req) {
@@ -19,7 +37,7 @@ models.UserModel.writeFilter(function(userObj, req) {
   }
 
   // allow the user to save his own User Object
-  if (userObj._id == req.session.user) {
+  if (userObj._id == req.session.user_id) {
     return true;
   }
 
@@ -63,7 +81,7 @@ models.UserModel.operationImpl("login", function(params, req) {
         // remember in a sesson, that auth was sucessfull
         req.session.auth = true;
         // remember the user in the sesson
-        req.session.user = users[0]._id;
+        req.session.user_id = users[0]._id;
       } else {
         throw new Error('Invalid Password');
       }
@@ -77,5 +95,5 @@ models.UserModel.operationImpl("login", function(params, req) {
 // logout
 models.UserModel.operationImpl("logout", function(params, req) {
   delete req.session.auth;
-  delete req.session.user;
+  delete req.session.user_id;
 });
