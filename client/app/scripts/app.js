@@ -103,6 +103,9 @@ angular.module('anorakApp')
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
+          categories: function () {
+            return CategoryModel.use.all();
+          },
           activity: ['$route', function ($route) {
             return ActivityModel.use.get($route.current.params.id);
           }]
@@ -110,7 +113,7 @@ angular.module('anorakApp')
       })
       .when('/admin/myactivities/new', {
         templateUrl: 'views/admin/admin_basetemplate.html',
-        controller: 'AdminMyactivitiesNewCtrl',
+        controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
           categories: function () {
             return CategoryModel.use.all();

@@ -1,6 +1,14 @@
 <h2>Account</h2>
 <h3>My Activities</h3>
 
+<div class="buttonbar buttonbar-top">
+  <a class="btn btn-small"
+     href="#/admin/myactivities/{{activity._id}}/edit/">edit
+  </a>
+  <a class="btn btn-alert btn-small"
+     data-ng-click="delete(activity)">delete
+  </a>
+</div>
 <div
     class="activity-detail window-category-{{activity.category.main}}"
     >
@@ -22,43 +30,108 @@
   <div class="input_label">Offered by</div>
   <h5 class="no-margin-top">$Firmenname des Anbieters</h5>
 
-  <div>
+  <div class="description">
     <div class="input_label">Description</div>
-    {{activity.description}}
+    <p>
+      {{activity.description}}
+    </p>
   </div>
 
-
-  <div class="angular-google-map-container">
+  <div class="location">
     <div class="input_label">Location</div>
+
     <google-map
-        center='map.center'
+        center='activity'
         zoom='map.zoom'
         draggable='true'
-        events='map.events'
         >
+      <marker
+          coords='map.center'
+          icon='getMarkerIcon()'
+          >
+        <marker-label content="activity.name"
+                      anchor="22 0"
+                      class="marker-labels marker-label-category-{{activity.category.main}}"
+            />
+      </marker>
+
     </google-map>
 
   </div>
 
+
   <div class="availability">
     <div class="input_label">Availability</div>
-    <ul>
-      <li><strong>3x</strong> 19/02/2014</li>
-      <li><strong>1x</strong> 24/02/2014</li>
-      <li><strong>1x</strong> 07/03/2014</li>
-      <li><strong>6x</strong> 19/03/2014</li>
-      <li><strong>2x</strong> 26/03/2014</li>
-      <li><strong>8x</strong> 02/04/2014</li>
-      <li><strong>1x</strong> 08/04/2014</li>
-      <li><strong>1x</strong> 12/05/2014</li>
-    </ul>
-  </div>
+    <div class="availability-list">
+      <div class="availability-header">
+        <div class="month cell first">February</div>
+      </div>
+      <div class="availability-entry">
+        <div class="availability-date cell first">
+          <strong>3x</strong>
+          19/02/2014
+        </div>
+      </div>
+      <div class="availability-entry">
+        <div class="availability-date cell first">
+          <strong>1x</strong>
+          24/02/2014
+        </div>
+      </div>
+      <div class="availability-header">
+        <div class="month cell first">March</div>
+      </div>
+      <div class="availability-entry">
+        <div class="availability-date cell first">
+          <strong>1x</strong>
+          07/03/2014
+        </div>
+      </div>
+     <div class="availability-entry">
+        <div class="availability-date cell first">
+          <strong>6x</strong>
+          19/03/2014
+        </div>
+      </div>
+      <div class="availability-header">
+        <div class="month cell first">April</div>
+      </div>
+      <div class="availability-entry">
+        <div class="availability-date cell first">
+          <strong>8x</strong>
+          02/04/2014
+        </div>
+      </div>
+      <div class="availability-entry">
+        <div class="availability-date cell first">
+          <strong>1x</strong>
+          08/04/2014
+        </div>
+      </div>
+      <div class="availability-header">
+        <div class="month cell first">June</div>
+      </div>
+      <div class="availability-entry">
+        <div class="availability-date cell first">
+          <strong>1x</strong>
+          12/05/2014
+        </div>
+      </div>
 
-  <div class="buttonbar">
-    <a class="text-link float-left" href="#/admin/myactivities/">back to 'My Activities'</a>
-    <a class="btn btn-small" href="#/admin/myactivities/{{activity._id}}/edit/">edit</a>
-    <a class="btn btn-alert btn-small" data-ng-click="delete(activity)">delete</a>
+    </div>
   </div>
 
 
 </div>
+<div class="buttonbar">
+  <a class="text-link float-left"
+     href="#/admin/myactivities/">Go to 'My Activities'
+  </a>
+  <a class="btn btn-small"
+     href="#/admin/myactivities/{{activity._id}}/edit/">edit
+  </a>
+  <a class="btn btn-alert btn-small"
+     data-ng-click="delete(activity)">delete
+  </a>
+</div>
+

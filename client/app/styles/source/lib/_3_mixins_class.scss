@@ -279,6 +279,10 @@ a.link-download{
   &.align-center{
     text-align: center;
   }
+  &.buttonbar-top{
+//    @include seperator(bottom, $color_grey_75);
+    border-top: none;
+  }
 }
 
 
@@ -1288,6 +1292,8 @@ input[type="checkbox"]:focus {
   clear: both;
   font-weight: $font-weight_bold;
   color: $color_green;
+  @include border(bottom, $color_green);
+  border-bottom-width: 3px;
 
   &.sortable{
     :hover{
@@ -1304,8 +1310,6 @@ input[type="checkbox"]:focus {
     @include ellipsis(no-wrap);
     float: left;
     padding: 10px 5px;
-    @include border(bottom, $color_green);
-    border-bottom-width: 3px;
     &.first {
       border-left: none;
       padding-left: 10px;
@@ -1352,10 +1356,10 @@ input[type="checkbox"]:focus {
   padding: 5px 2.5px;
 
   &.first {
-    padding-left: 5px;
+    padding-left: 10px;
   }
   &.last {
-    padding-right: 5px;
+    padding-right: 10px;
   }
 }
 
@@ -1392,7 +1396,7 @@ input[type="checkbox"]:focus {
 @mixin divtable_row_small {
   @include divtable_row;
 
-  div {
+  .cell {
     @include divtable_cell_small;
   }
 }
