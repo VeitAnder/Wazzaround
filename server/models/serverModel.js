@@ -110,7 +110,7 @@ models.UserModel.factoryImpl("currentUser", function(params, req) {
   //return models.UserModel.use.get(ObjectId(req.session.user_id));
   return models.UserModel.use.find({ _id: ObjectId(req.session.user_id)})
     .then(function(users){
-      if (users.length != 1) throw new Erorr("User not found");
+      if (users.length !== 1) throw new Error("User not found");
       return users[0];
     });
 });

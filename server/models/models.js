@@ -14,13 +14,13 @@ var models = function () {
   var validators = {
     username: function (obj, name) {
       var value = obj[name];
-      if (value == undefined || value == null || value == "") {
+      if (value === undefined || value === null || value === "") {
         throw new Error("you have to provide a username");
       }
     },
     password: function (obj, name) {
       var value = obj[name];
-      if (value == undefined || value == null || value == "") {
+      if (value === undefined || value === null || value === "") {
         throw new Error("you have to provide a password");
       }
     }
@@ -66,7 +66,8 @@ var models = function () {
     availability: [
       {
         start: Attr(Type.string),
-        end: Attr(Type.string)
+        end: Attr(Type.string),
+        quantity: Attr(Type.number)
       }
     ],
 
