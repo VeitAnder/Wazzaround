@@ -123,6 +123,9 @@ footer {
   padding: 15px 0;
   min-width: 400px;
   max-width: 600px;
+  &.activity-detail{
+    max-width: 100%;
+  }
   a.btn {
     font-size: $fs;
     font-weight: $font-weight_bold;
@@ -151,7 +154,6 @@ footer {
       margin-right: 5px;
     }
   }
-
   .category {
     text-transform: capitalize;
     .category-sub {
@@ -170,7 +172,18 @@ footer {
     height: auto;
   }
 
-//  Google overwrites
+  .description {
+    margin-top: $fs;
+  }
+  .location {
+    margin-top: $fs;
+  }
+  .availability {
+    margin-top: $fs*2.0;
+    clear: left;
+  }
+
+  //  Google overwrites
 
   .availability-header{
     .cell{
@@ -182,6 +195,12 @@ footer {
   .input_label{
     .gm-style .gm-style-iw &{
       font-weight: $font-weight_bold;
+    }
+  }
+  .btn-mini{
+    .gm-style .gm-style-iw &{
+      font-size: 12px;
+      padding: ($fs*0.15) ($fs*0.5);
     }
   }
 
@@ -243,16 +262,6 @@ footer {
 }
 
 .activity-detail {
-  .description {
-    margin-top: $fs;
-  }
-  .location {
-    margin-top: $fs;
-  }
-  .availability {
-    margin-top: $fs*2.0;
-    clear: left;
-  }
 }
 
 .activity-edit {
@@ -279,12 +288,27 @@ footer {
   @include divtable_row_small;
   .availability-date {
     width: 45%;
+    .availability-user &{
+      width: 40%;
+    }
   }
   .availability-time {
     width: 35%;
+    .availability-user &{
+      width: 30%;
+    }
   }
   .availability-amount {
     width: 20%;
+    .availability-user &{
+      width: 15%;
+    }
+  }
+  .availability-book {
+    width: 0%;
+    .availability-user &{
+      width: 15%;
+    }
   }
 }
 
