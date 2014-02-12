@@ -12,7 +12,8 @@ angular.module('anorakApp')
           accesskey: ""
         },
         APIUrl: $window.location.protocol + "//" + $window.location.hostname + "/api/v1/",
-        debug: false
+        debug: false,
+        modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/"
       };
     } else if ($window.location.hostname === "reactureappdev-10669.onmodulus.net" || $window.location.hostname === "reacture.anorak.io") {
       // development server
@@ -22,7 +23,8 @@ angular.module('anorakApp')
           accesskey: ""
         },
         APIUrl: $window.location.protocol + "//" + $window.location.hostname + "/api/v1/",
-        debug: true
+        debug: true,
+        modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/"
       };
     } else {
       // localhost dev
@@ -32,7 +34,8 @@ angular.module('anorakApp')
           accesskey: ""
         },
         APIUrl: $window.location.protocol + "//" + $window.location.hostname + ":3000/api/v1/",
-        debug: true
+        debug: true,
+        modelizerurl: $window.location.protocol + "//" + $window.location.hostname + ":3000/"
       };
     }
 

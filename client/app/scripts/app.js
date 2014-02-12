@@ -140,14 +140,14 @@ angular.module('anorakApp')
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesIndexCtrl',
         resolve: {
-          myActivitiesList: function (currentUser) {
+          myActivitiesList: ['currentUser', function (currentUser) {
             // TODO: server-factory für sowas wär schöner
             return currentUser.load()
               .then(function(user){
                 return ActivityModel.use.find({'owner._reference' : user.user._id});
               });
 //              return ActivityModel.use.all();
-          }
+          }]
         }
       })
       .otherwise({
@@ -155,19 +155,17 @@ angular.module('anorakApp')
       });
 
   })
-  .run(function ($rootScope, $log, debug, currentUser, $location, $route) {
+  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG) {
     "use strict";
 
     debug("application run called");
     $rootScope.debug = debug;
     var checkRouteForAuthorization;
 
-    var connector = Model.AngularConnector("http://localhost:3000/");
+    var connector = Model.AngularConnector(APP_CONFIG.modelizerurl);
     UserModel.connection(connector);
     ActivityModel.connection(connector);
     CategoryModel.connection(connector);
-
-    debug("$route", $route);
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);
