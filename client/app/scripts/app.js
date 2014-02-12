@@ -59,7 +59,7 @@ angular.module('anorakApp')
     //if no route specified, go to default route
     $routeProvider
       .when('/', {
-        templateUrl: 'views/index.html',
+        templateUrl: 'index.html',
         controller: 'indexCtrl',
         resolve: {
           categories: [function () {
@@ -75,19 +75,19 @@ angular.module('anorakApp')
         }
       })
       .when('/legalnotes', {
-        templateUrl: 'views/page_basetemplate.html',
+        templateUrl: 'page_basetemplate.html',
         controller: 'LegalnotesCtrl'
       })
       .when('/why', {
-        templateUrl: 'views/page_basetemplate.html',
+        templateUrl: 'page_basetemplate.html',
         controller: 'WhyCtrl'
       })
       .when('/workwithus', {
-        templateUrl: 'views/page_basetemplate.html',
+        templateUrl: 'page_basetemplate.html',
         controller: 'WorkwithusCtrl'
       })
       .when('/login', {
-        templateUrl: 'views/admin/admin_basetemplate.html',
+        templateUrl: 'admin/admin_basetemplate.html',
         controller: 'LoginCtrl',
         resolve: {
           resolveCurrentUser: ['currentUser', function (currentUser) {
@@ -96,11 +96,11 @@ angular.module('anorakApp')
         }
       })
       .when('/register', {
-        templateUrl: 'views/page_basetemplate.html',
+        templateUrl: 'page_basetemplate.html',
         controller: 'RegisterCtrl'
       })
       .when('/admin/myactivities/:id/edit', {
-        templateUrl: 'views/admin/admin_basetemplate.html',
+        templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
           categories: [function () {
@@ -112,7 +112,7 @@ angular.module('anorakApp')
         }
       })
       .when('/admin/myactivities/new', {
-        templateUrl: 'views/admin/admin_basetemplate.html',
+        templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
           categories: [function () {
@@ -124,7 +124,7 @@ angular.module('anorakApp')
         }
       })
       .when('/admin/myactivities/:id/', {
-        templateUrl: 'views/admin/admin_basetemplate.html',
+        templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesDetailCtrl',
         resolve: {
           activity: ['$route', function ($route) {
@@ -133,11 +133,11 @@ angular.module('anorakApp')
         }
       })
       .when('/admin/', {
-        templateUrl: 'views/admin/admin_basetemplate.html',
+        templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminIndexCtrl'
       })
       .when('/admin/myactivities/', {
-        templateUrl: 'views/admin/admin_basetemplate.html',
+        templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesIndexCtrl',
         resolve: {
           myActivitiesList:['currentUser', function (currentUser) {

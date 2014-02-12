@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .controller('RegisterCtrl', function ($scope, $routeParams, $location, currentUser) {
     $scope.getPagePartial = function () {
-      return 'views/register.html';
+      return 'register.html';
     };
 
     $scope.form = {};

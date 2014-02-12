@@ -189,7 +189,7 @@ angular.module('anorakApp')
             disableAutoPan: true
           },
           show: true,
-          templateUrl: 'views/map/templatedinfowindow.html',
+          templateUrl: 'map/templatedinfowindow.html',
           templateParameter: {
             message: 'passed in from the opener'
           }
