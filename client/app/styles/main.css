@@ -1051,22 +1051,26 @@ a.link-download {
       background-color: #85C900;
       border-color: #85C900;
       color: #FFF; }
-
-.btn-large {
-  padding: 12px 32px;
-  font-size: 25px;
-  font-family: embeded-webfont_01, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  letter-spacing: -0.03em;
-  -webkit-border-radius: 6px;
-  -khtml-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px; }
-
-.btn-small {
-  padding: 2.4px 12px;
-  font-size: 14px; }
+  .btn.btn-alert, a.btn.btn-alert {
+    background-color: #C83C19;
+    border-color: #C83C19; }
+    .btn.btn-alert:hover, a.btn.btn-alert:hover {
+      background-color: #df401c;
+      border-color: #df401c; }
+  .btn.btn-large, a.btn.btn-large {
+    padding: 12px 32px;
+    font-size: 25px;
+    font-family: embeded-webfont_01, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: -0.03em;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px; }
+  .btn.btn-small, a.btn.btn-small {
+    padding: 2.4px 12px;
+    font-size: 14px; }
 
 .btn-group {
   margin-bottom: 2px; }
@@ -1082,7 +1086,7 @@ a.link-download {
   clear: both;
   width: 100%;
   margin: 10px 0;
-  padding: 10px;
+  padding: 10px 0;
   text-align: right;
   border-top: dotted 1px #8c8c8c;
   text-align: right;
@@ -1838,6 +1842,10 @@ footer {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
+  .window-category-sports .category {
+    text-transform: capitalize; }
+    .window-category-sports .category .category-sub {
+      font-weight: 200; }
   .window-category-sports img {
     float: left;
     margin: 0 15px 16px 0;
@@ -1855,6 +1863,8 @@ footer {
     background-color: #f5f5f5; }
   .window-category-sports h4 .icon {
     border-color: #C83C19; }
+  .window-category-sports .category {
+    color: #C83C19; }
 
 .window-category-culture {
   padding: 15px 0; }
@@ -1885,6 +1895,10 @@ footer {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
+  .window-category-culture .category {
+    text-transform: capitalize; }
+    .window-category-culture .category .category-sub {
+      font-weight: 200; }
   .window-category-culture img {
     float: left;
     margin: 0 15px 16px 0;
@@ -1902,6 +1916,8 @@ footer {
     background-color: #f5f5f5; }
   .window-category-culture h4 .icon {
     border-color: #1970C8; }
+  .window-category-culture .category {
+    color: #1970C8; }
 
 .window-category-wellness {
   padding: 15px 0; }
@@ -1932,6 +1948,10 @@ footer {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
+  .window-category-wellness .category {
+    text-transform: capitalize; }
+    .window-category-wellness .category .category-sub {
+      font-weight: 200; }
   .window-category-wellness img {
     float: left;
     margin: 0 15px 16px 0;
@@ -1949,6 +1969,8 @@ footer {
     background-color: #f5f5f5; }
   .window-category-wellness h4 .icon {
     border-color: #bc913d; }
+  .window-category-wellness .category {
+    color: #bc913d; }
 
 #logo {
   display: block;

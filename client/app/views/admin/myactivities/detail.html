@@ -2,17 +2,25 @@
 <h3>My Activities</h3>
 
 <div
-    class="window-category-wellness"
+    class="window-category-{{activity.category.main}}"
     >
   <h4>
     <span class="icon"></span>
     {{activity.name}}
   </h4>
 
+  <h5 class="category">
+    {{activity.category.main}}
+    <span class="category-sub">
+      {{activity.category.sub}}
+    </span>
+  </h5>
+
   <img src="/img/mapicons/piemont.jpg"
        alt=""/>
 
-  <h6>Offered by</h6>
+  <div class="input_label">Offered by</div>
+  <h5 class="no-margin-top">$Firmenname des Anbieters</h5>
 
   <div>
     <div class="input_label">Description</div>
@@ -21,8 +29,8 @@
 </div>
 
 <div class="buttonbar">
-<a href="#/admin/myactivities/{{activity._id}}/edit/">edit</a>
-<a data-ng-click="delete(activity)">delete</a>
+  <a class="btn btn-small" href="#/admin/myactivities/{{activity._id}}/edit/">edit</a>
+  <a class="btn btn-alert btn-small" data-ng-click="delete(activity)">delete</a>
 </div>
 
 
