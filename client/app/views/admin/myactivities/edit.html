@@ -1,8 +1,6 @@
 <h2>Account</h2>
 <h3>New Activity</h3>
 
-{{activity}}
-
 <form role="form"
       name="valForm"
       novalidate
@@ -129,26 +127,3 @@
   </div>
 
 </form>
-
-<pre>
- var ActivityModel = new model("activities", {
-  name: Attr(Type.string),
-
-  description: Attr(Type.string),
-  images: Attr(Type.array),
-
-  category: {
-    main: Attr(Type.string),
-    sub: Attr(Type.string)
-  },
-  longitude: Attr(Type.string),
-  latitude: Attr(Type.string),
-  availability: {
-    start: Attr(Type.string),
-    end: Attr(Type.string)
-  },
-
-  owner: Ref(UserModel)
-
-});
-    </pre>
