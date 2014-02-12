@@ -179,6 +179,7 @@ footer {
     color: $color_sports;
   }
   &.activity-detail {
+    padding: 0;
     img {
       width: 250px;
     }
@@ -196,6 +197,7 @@ footer {
     color: $color_culture;
   }
   &.activity-detail {
+    padding: 0;
     img {
       width: 250px;
     }
@@ -213,6 +215,7 @@ footer {
     color: $color_wellness;
   }
   &.activity-detail {
+    padding: 0;
     img {
       width: 250px;
     }
@@ -220,6 +223,7 @@ footer {
 }
 
 .activity-detail {
+  margin: $fs*2.0 0;
   .description{
     margin-top: $fs;
   }
@@ -229,6 +233,19 @@ footer {
   .availability {
     margin-top: $fs*2.0;
     clear: left;
+  }
+}
+
+.activity-edit{
+  .availability-entry{
+    .cell{
+      &.first{
+        padding-left: 0;
+      }
+      &.last{
+        padding-right: 0;
+      }
+    }
   }
 }
 
@@ -245,10 +262,10 @@ footer {
     width: 45%;
   }
   .availability-time{
-    width: 45%;
+    width: 35%;
   }
   .availability-amount{
-    width: 10%;
+    width: 20%;
   }
 }
 
@@ -287,6 +304,10 @@ footer {
 
 .no-padding-top {
   padding-top: 0;
+}
+
+.margin-top{
+  margin-top: $fs*$line-height_factor*2.0;
 }
 
 .social-bar {
