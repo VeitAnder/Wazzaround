@@ -9,7 +9,7 @@
     <span class="input-group-btn">
       <button class="btn"
               type="button"
-              ng-click="findAddressOnMap()"
+              ng-click="searchActivities()"
           >Find!
       </button>
     </span>
@@ -20,7 +20,7 @@
       <label>from</label>
       <input type="text"
              class="form-control"
-             ng-model="search.fromDate"
+             ng-model="search.startDate"
              data-min-date="{{search.minDate}}"
              placeholder="From"
              bs-datepicker
@@ -31,7 +31,7 @@
       <label>until</label>
       <input type="text"
              class="form-control"
-             ng-model="search.untilDate"
+             ng-model="search.endDate"
              data-min-date="{{search.fromDate}}"
              placeholder="Until"
              bs-datepicker

@@ -1,0 +1,54 @@
+<form class="registerform"
+      name="registerform"
+      novalidate
+      autocomplete="on"
+      action=""
+      method="post"
+      target="_self"
+      style="padding-bottom: 100px;"
+>
+<!--TODO: Register-->
+  <h2>Account</h2>
+
+  <h3>Register</h3>
+
+
+  <p>
+    <label for="email">E-Mail</label>
+    <input name="email"
+           ng-model="form.email"
+           class="input-block-level"
+           id="email"
+           required
+           autofocus>
+  </p>
+  <p>
+    <label for="password">Password</label>
+    <input name="password"
+           id="password"
+           type="password"
+           ng-model="form.password"
+           required
+           class="input-block-level">
+  </p>
+
+  <p>
+    <label for="password">Retype Password</label>
+    <input name="password"
+           id="repeatPassword"
+           type="password"
+           ng-model="form.password2"
+           required
+           class="input-block-level">
+  </p>
+
+  <div ng-show="state.error">
+    <div class="alert alert-error">{{state.message}}</div>
+  </div>
+
+  <button class="btn"
+          type="submit"
+          ng-click="register()">Anmelden
+  </button>
+
+</form>

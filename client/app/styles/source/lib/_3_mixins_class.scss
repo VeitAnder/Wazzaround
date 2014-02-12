@@ -216,21 +216,29 @@ a.link-download{
       color: $color_button_text_active;
     }
   }
+  &.btn-alert{
+    background-color: $color_red;
+    border-color: $color_red;
+    &:hover{
+      background-color: $color_red_l5;
+      border-color: $color_red_l5;
+    }
+  }
+  &.btn-large{
+    padding: ($fs*0.75) ($fs*2.0);
+    font-size: 25px;
+    @include webfont_01;
+    @include border-radius($border-radius);
+  }
+
+  &.btn-small{
+    padding: ($fs*0.15) ($fs*0.75);
+    font-size: 14px;
+  }
+
 }
 
 
-
-.btn-large{
-  padding: ($fs*0.75) ($fs*2.0);
-  font-size: 25px;
-  @include webfont_01;
-  @include border-radius($border-radius);
-}
-
-.btn-small{
-  padding: ($fs*0.15) ($fs*0.75);
-  font-size: 14px;
-}
 
 .btn-group{
   .btn{
@@ -245,17 +253,17 @@ a.link-download{
 
 @mixin buttonbar {
   @include box-sizing(border-box);
-  @include pie-clearfix;
+  clear: both;
   width: 100%;
   margin: 10px 0;
-  padding: 10px;
+  padding: 10px 0;
   text-align: right;
   @include seperator(top, $color_grey_75);
   text-align: right;
 
   @include user-select(none);
 
-  .text_link, .confirm, .cancel, .edit {
+  .confirm, .cancel, .edit {
     margin-left: 5px;
   }
   .text_icon_close {
@@ -285,10 +293,8 @@ a.link-download{
 }
 
 
-form{
-  .buttonbar{
-    @include buttonbar;
-  }
+.buttonbar{
+  @include buttonbar;
 }
 
 // TEXTFORMAT BASICS
@@ -561,6 +567,11 @@ form{
 .align-center{
   text-align: center;
 }
+
+.float-left{
+  float: left;
+}
+
 
 .footnote{
   @include font-size_small;

@@ -1051,22 +1051,26 @@ a.link-download {
       background-color: #85C900;
       border-color: #85C900;
       color: #FFF; }
-
-.btn-large {
-  padding: 12px 32px;
-  font-size: 25px;
-  font-family: embeded-webfont_01, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  letter-spacing: -0.03em;
-  -webkit-border-radius: 6px;
-  -khtml-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px; }
-
-.btn-small {
-  padding: 2.4px 12px;
-  font-size: 14px; }
+  .btn.btn-alert, a.btn.btn-alert {
+    background-color: #C83C19;
+    border-color: #C83C19; }
+    .btn.btn-alert:hover, a.btn.btn-alert:hover {
+      background-color: #df401c;
+      border-color: #df401c; }
+  .btn.btn-large, a.btn.btn-large {
+    padding: 12px 32px;
+    font-size: 25px;
+    font-family: embeded-webfont_01, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: -0.03em;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px; }
+  .btn.btn-small, a.btn.btn-small {
+    padding: 2.4px 12px;
+    font-size: 14px; }
 
 .btn-group {
   margin-bottom: 2px; }
@@ -1075,13 +1079,14 @@ a.link-download {
     .btn-group .btn:first-child {
       margin-left: 0; }
 
-form .buttonbar {
+.buttonbar {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  clear: both;
   width: 100%;
   margin: 10px 0;
-  padding: 10px;
+  padding: 10px 0;
   text-align: right;
   border-top: dotted 1px #8c8c8c;
   text-align: right;
@@ -1089,21 +1094,17 @@ form .buttonbar {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  form .buttonbar:after {
-    content: "";
-    display: table;
-    clear: both; }
-  form .buttonbar .text_link, form .buttonbar .confirm, form .buttonbar .cancel, form .buttonbar .edit {
+  .buttonbar .confirm, .buttonbar .cancel, .buttonbar .edit {
     margin-left: 5px; }
-  form .buttonbar .text_icon_close {
+  .buttonbar .text_icon_close {
     font-family: embeded-webfont_01, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     letter-spacing: -0.03em;
     color: #666; }
-    form .buttonbar .text_icon_close span {
+    .buttonbar .text_icon_close span {
       margin-left: 4px; }
-  form .buttonbar.align-left {
+  .buttonbar.align-left {
     text-align: left; }
-  form .buttonbar.align-center {
+  .buttonbar.align-center {
     text-align: center; }
 
 cite, blockquote {
@@ -1284,6 +1285,9 @@ h1.nomargin, h2.nomargin, h3.nomargin, h4.nomargin, h5.nomargin, h6.nomargin {
 
 .align-center {
   text-align: center; }
+
+.float-left {
+  float: left; }
 
 .footnote {
   font-size: 12px;
@@ -1748,6 +1752,7 @@ footer {
   height: 100%; }
 
 .col-left-fixed {
+  position: relative;
   padding: 30px;
   width: 350px;
   float: left; }
@@ -1840,10 +1845,14 @@ footer {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
+  .window-category-sports .category {
+    text-transform: capitalize; }
+    .window-category-sports .category .category-sub {
+      font-weight: 200; }
   .window-category-sports img {
     float: left;
     margin: 0 15px 16px 0;
-    border: solid 1px #b3b3b3;
+    border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -1852,11 +1861,13 @@ footer {
     border-radius: 6px;
     border-width: 7px;
     padding: 3px;
-    width: 150px;
+    width: 250px;
     height: auto;
-    background-color: #8c8c8c; }
+    background-color: #f5f5f5; }
   .window-category-sports h4 .icon {
     border-color: #C83C19; }
+  .window-category-sports .category {
+    color: #C83C19; }
 
 .window-category-culture {
   padding: 15px 0; }
@@ -1887,10 +1898,14 @@ footer {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
+  .window-category-culture .category {
+    text-transform: capitalize; }
+    .window-category-culture .category .category-sub {
+      font-weight: 200; }
   .window-category-culture img {
     float: left;
     margin: 0 15px 16px 0;
-    border: solid 1px #b3b3b3;
+    border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -1899,11 +1914,13 @@ footer {
     border-radius: 6px;
     border-width: 7px;
     padding: 3px;
-    width: 150px;
+    width: 250px;
     height: auto;
-    background-color: #8c8c8c; }
+    background-color: #f5f5f5; }
   .window-category-culture h4 .icon {
     border-color: #1970C8; }
+  .window-category-culture .category {
+    color: #1970C8; }
 
 .window-category-wellness {
   padding: 15px 0; }
@@ -1934,10 +1951,14 @@ footer {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
+  .window-category-wellness .category {
+    text-transform: capitalize; }
+    .window-category-wellness .category .category-sub {
+      font-weight: 200; }
   .window-category-wellness img {
     float: left;
     margin: 0 15px 16px 0;
-    border: solid 1px #b3b3b3;
+    border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -1946,11 +1967,13 @@ footer {
     border-radius: 6px;
     border-width: 7px;
     padding: 3px;
-    width: 150px;
+    width: 250px;
     height: auto;
-    background-color: #8c8c8c; }
+    background-color: #f5f5f5; }
   .window-category-wellness h4 .icon {
     border-color: #bc913d; }
+  .window-category-wellness .category {
+    color: #bc913d; }
 
 #logo {
   display: block;
@@ -3141,6 +3164,10 @@ footer {
     padding-left: 35px;
     color: #e0f1bf; }
 
+.col-left-fixed .loginbutton {
+  padding-top: 15px;
+  border-top: dotted 1px #b3b3b3; }
+
 .admin-section .logoutlink {
   display: none; }
 .col-left-fixed .logoutlink {
@@ -3329,13 +3356,24 @@ footer {
       border-bottom: solid 1px #b3b3b3; }
 
 .list-myactivities .activity {
-  width: 25%; }
+  width: 25%;
+  font-weight: 600; }
 .list-myactivities .category-main, .list-myactivities .category-sub {
   width: 15%; }
 .list-myactivities .location {
   width: 25%; }
 .list-myactivities .availability {
   width: 20%; }
+
+.language-select {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 76px;
+  height: 11px;
+  background: url(/img/flags_mont.png) 0 0 no-repeat; }
+  .language-select:hover {
+    cursor: pointer; }
 
 .datepicker {
   min-width: 300px;

@@ -3,7 +3,6 @@
 angular.module('anorakApp')
   .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, mapdataservice, $rootScope, categories) {
 
-    $scope.activities = resolvedActivities;
     $scope.currentUser = currentUser;
 
     debug("resolvedactivities", resolvedActivities);
@@ -55,8 +54,7 @@ angular.module('anorakApp')
     };
 
     $scope.map = mapdataservice.map;
-    console.log("GOT MAP", mapdataservice.map);
-    $scope.map.markers = $scope.activities;
+    $scope.map.markers = resolvedActivities;
     $scope.map.events = {
       click: function (mapModel, eventName, originalEventArgs) {
         // 'this' is the directive's scope
@@ -78,16 +76,6 @@ angular.module('anorakApp')
         $scope.$apply();
       }
     };
-
-    $rootScope.$on("MapChangeEvent", function (event, message) {
-      var e = {
-        latLng : {
-          lat : function() { return $scope.map.center.latitude; },
-          lng : function() { return $scope.map.center.longitude; }
-        }
-      };
-      $scope.map.events.click("", "mapserviceclick", [e]);
-    });
 
     $scope.onMarkerClicked = function (marker) {
       debug("Marker: lat: " + marker.latitude + ", lon: " + marker.longitude + " clicked!!");
@@ -203,18 +191,18 @@ angular.module('anorakApp')
     };
 
     function filterActivitiesByMainCategory(mainCatName) {
-      return _.filter(resolvedActivities, function (activity) {
-        return activity.category.main === mainCatName;
+      return _.filter($scope.map.markers, function (marker) {
+        return marker.category.main === mainCatName;
       });
     }
 
-    function findSubcategories(mainCat, activities) {
-      var groupBy = _.groupBy(activities, function (activity) {
-        return activity.category.sub;
+    function findSubcategories(mainCat, markers) {
+      var groupBy = _.groupBy(markers, function (marker) {
+        return marker.category.sub;
       });
 
       _.forEach(Object.keys(groupBy), function (key) {
-        if (categoryNames[key].length > 0) {
+        if (categoryNames[key] && categoryNames[key].length > 0) {
           $scope.states.categories[mainCat].push({
             title: categoryNames[key],
             key: key,
@@ -225,10 +213,33 @@ angular.module('anorakApp')
       return $scope.states.categories[mainCat];
     }
 
-    $scope.sportsCategories = findSubcategories("sports", filterActivitiesByMainCategory("sports"));
-    $scope.cultureCategories = findSubcategories("culture", filterActivitiesByMainCategory("culture"));
-    $scope.wellnessCategories = findSubcategories("wellness", filterActivitiesByMainCategory("wellness"));
+    // create an empty states array which holds the categories to be displayed in the UI
+    function fillUICategories() {
+      $scope.states.categories = {
+        sports: [],
+        culture: [],
+        wellness: []
+      };
+      $scope.sportsCategories = findSubcategories("sports", filterActivitiesByMainCategory("sports"));
+      $scope.cultureCategories = findSubcategories("culture", filterActivitiesByMainCategory("culture"));
+      $scope.wellnessCategories = findSubcategories("wellness", filterActivitiesByMainCategory("wellness"));
+    }
+    fillUICategories();
+
+    $rootScope.$on("MapChangeEvent", function (event, message) {
+      console.log("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
+      fillUICategories();
+      var e = {
+        latLng: {
+          lat: function () {
+            return $scope.map.center.latitude;
+          },
+          lng: function () {
+            return $scope.map.center.longitude;
+          }
+        }
+      };
+      $scope.map.events.click("", "mapserviceclick", [e]);
+    });
 
   });
-
-// TODO komisches Verhalten von "Select All" und "Deselect All" Wann wollen wir was darstellen?
