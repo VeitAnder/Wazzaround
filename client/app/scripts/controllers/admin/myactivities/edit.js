@@ -69,7 +69,15 @@ angular.module('anorakApp')
     }
 
     $scope.getMarkerIcon = function () {
-      return "/img/mapicons/marker-sports.svg";
+      if ($scope.activity.category.main) {
+        return "/img/mapicons/marker-" + $scope.activity.category.main + ".svg";
+      } else {
+        return "/img/mapicons/marker.svg";
+      }
+    };
+
+    $scope.getMarkerLabel = function () {
+      return "Activity location";
     };
 
     $scope.save = function () {

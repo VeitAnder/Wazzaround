@@ -18,10 +18,16 @@
         >
 
       <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
-      <div ng-init="opts = {animation:1}">
+      <div ng-init="opts = {animation:0}">
         <marker coords="map.clickedMarker"
-                options="opts">
+                options="opts"
+                icon='getMarkerIcon()'
+            >
         </marker>
+          <!--<marker-label content="getMarkerLabel()"-->
+                        <!--anchor="44 0"-->
+                        <!--class="marker-labels"-->
+              <!--/>-->
       </div>
 
     </google-map>
@@ -119,6 +125,7 @@
        ng-click="cancel()"
         >abbrechen
     </a>
+
   </div>
 
 </form>

@@ -8,6 +8,18 @@ angular.module('anorakApp')
 
     $scope.activity = activity;
 
+    $scope.map = {
+      center: {
+        "longitude": parseFloat($scope.activity.longitude),
+        "latitude": parseFloat($scope.activity.latitude)
+      },
+      zoom: 9
+    };
+
+    $scope.getMarkerIcon = function () {
+      return "/img/mapicons/marker-"+$scope.activity.category.main+".svg";
+    };
+
     $scope.delete = function (activity) {
       activity.remove()
         .then(function () {
