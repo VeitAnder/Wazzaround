@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, mapdataservice, $rootScope) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, mapdataservice, $rootScope, categories) {
 
     $scope.activities = resolvedActivities;
     $scope.currentUser = currentUser;
@@ -22,11 +22,26 @@ angular.module('anorakApp')
       }
     };
 
+
+
     $scope.states.categories = {
-      sports: [],
-      culture: [],
-      wellness: []
+//      sports: [],
+//      culture: [],
+//      wellness: []
     };
+
+    var updateStatesCategories = function () {
+      angular.forEach(categories, function (category) {
+        debug("category", category);
+      });
+    };
+    updateStatesCategories();
+
+
+
+
+
+
 
     $scope.toggleFilter = function (category) {
       if ($scope.states[category].open) {
@@ -153,6 +168,14 @@ angular.module('anorakApp')
       return filterActivitiesByMainCategory(mainCat).length;
     };
 
+
+
+
+
+
+
+
+
     var categoryNames = {
 //      "sports": {
       "adventure": "Adventure",
@@ -193,7 +216,7 @@ angular.module('anorakApp')
       _.forEach(Object.keys(groupBy), function (key) {
         if (categoryNames[key].length > 0) {
           $scope.states.categories[mainCat].push({
-            name: categoryNames[key],
+            title: categoryNames[key],
             key: key,
             selected: true
           });
