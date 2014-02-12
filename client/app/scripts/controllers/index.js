@@ -65,7 +65,6 @@ angular.module('anorakApp')
       }
     };
 
-
     $scope.windowOptions = {
       "zIndex": 1000
     };
@@ -157,7 +156,7 @@ angular.module('anorakApp')
       var catsInActs = [];
       angular.forEach($scope.map.markers, function (activity) {
         if (activity.category.main === mainCat) {
-          if (_.where($scope.getMainCategory(mainCat).sub, { 'key' : activity.category.sub }).length > 0) {
+          if (_.where($scope.getMainCategory(mainCat).sub, { 'key': activity.category.sub }).length > 0) {
             catsInActs.push(activity.category.sub);
           }
         }
@@ -165,27 +164,35 @@ angular.module('anorakApp')
       return _.uniq(catsInActs);
     }
 
-    // first time coming here, all the categories are selected
-    // after a search:
-    // we find some activities and search for those with the right main category
-    // only the sub-categories of that activities should be selected
-
-    // ATTENTION: this is called after toggleSelected, so dont set any selected here, will overwrite what user does in UI!
     $scope.numberOfSelectedFromCategory = function (mainCat) {
       var catsInActs = categoriesInActivities(mainCat);
       var countSelected = 0;
-      // TODO: what we set here as selected will not be updated in view !!!
-      angular.forEach($scope.getMainCategory(mainCat).sub, function (category) {
-        if (_.contains(catsInActs, category.key)) {
-          if(category.selected === true) {
+      angular.forEach($scope.getMainCategory(mainCat).sub, function (subCat) {
+        if (_.contains(catsInActs, subCat.key)) {
+          if (subCat.selected === true) {
             countSelected++;
           }
         } else {
-          category.selected = false;  // will set to false in UI and not allow to click
+          subCat.selected = false;  // DIRTY HACK
         }
       });
       return countSelected;
     };
+
+    // first time coming here, all the categories are selected
+    // after a search:
+    // we find some activities and search for those with the right main category
+    // only the sub-categories of that activities should be selected and counted
+    function setSelected(mainCat) {
+      var filteredSubCats = categoriesInActivities(mainCat);
+      angular.forEach($scope.getMainCategory(mainCat).sub, function (subCat) {
+        if (_.contains(filteredSubCats, subCat.key)) {
+          subCat.selected = true;
+        } else {
+          subCat.selected = false;
+        }
+      });
+    }
 
     // this is the fixed number of categories contained in activities, no matter if selected or not
     $scope.totalNumberOfCategory = function (mainCat) {
@@ -194,7 +201,10 @@ angular.module('anorakApp')
 
     $rootScope.$on("MapChangeEvent", function (event, message) {
       debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
-      // @TODO new categories from server
+      angular.forEach($scope.categories, function (mainCat) {
+        setSelected(mainCat.key);
+      });
+
       var e = {
         latLng: {
           lat: function () {
