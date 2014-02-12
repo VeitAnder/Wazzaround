@@ -49,8 +49,8 @@ angular.module('anorakApp')
 
             var markersInRadius = [];
             for (var i = 0; i < mapdata.map.markers.length; i++) {
-//              debug("CHECK MARKER", mapdata.map.markers[i]);
-//              debug("THE DISTANCE IS", calculateDistance(mapdata.map.center.latitude, mapdata.map.center.longitude, mapdata.map.markers[i].latitude, mapdata.map.markers[i].longitude));
+//              console.log("CHECK MARKER", mapdata.map.markers[i]);
+//              console.log("THE DISTANCE IS", calculateDistance(mapdata.map.center.latitude, mapdata.map.center.longitude, mapdata.map.markers[i].latitude, mapdata.map.markers[i].longitude));
 
               // calculate distance between center and the marker
               // if distance more than 30km, dont display
@@ -80,7 +80,7 @@ angular.module('anorakApp')
 
     var findActivitiesForDateRange = function (start, end) {
 
-      debug("FIND ACTS FOR DATE RANGE", start, end);
+      console.log("FIND ACTS FOR DATE RANGE", start, end);
 
       // it's not a search for date, so just return
       if (!start && !end) {
