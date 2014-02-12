@@ -38,7 +38,9 @@ angular.module('anorakApp')
           if (status === google.maps.GeocoderStatus.OK) {
             mapdata.map.center.latitude = results[0].geometry.location.d;
             mapdata.map.center.longitude = results[0].geometry.location.e;
-            mapdata.map.address = address;
+            mapdata.map.centerMarker.latitude = results[0].geometry.location.d;
+            mapdata.map.centerMarker.longitude = results[0].geometry.location.e;
+            mapdata.map.address = address; // TODO remove later, is only for controlling
 
             var markersInRadius = [];
             for (var i = 0; i < mapdata.map.markers.length; i++) {
@@ -65,6 +67,8 @@ angular.module('anorakApp')
           } else {
             console.log("Status not OK!, failing", status);
             mapdata.map.center = standardCenter;
+            mapdata.map.centerMarker = standardCenter;
+            mapdata.map.center = standardCenter;
             return defer.reject("Could not geocode address", status);
           }
         });
@@ -76,6 +80,11 @@ angular.module('anorakApp')
         circle: 0,
         address: "",
         center: {
+          "longitude": 8.01177978515625,
+          "latitude": 45.12199086176226
+        },
+        centerMarker: {
+          title: 'Your current search location ',
           "longitude": 8.01177978515625,
           "latitude": 45.12199086176226
         },

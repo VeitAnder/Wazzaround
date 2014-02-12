@@ -1,17 +1,24 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminMyactivitiesNewCtrl', function ($scope, $location) {
+  .controller('AdminMyactivitiesNewCtrl', function ($scope, $location, activity, categories) {
     $scope.getPagePartial = function () {
-      return 'views/admin/myactivities/new.html';
+      return 'views/admin/myactivities/edit.html';
     };
 
-    $scope.activity = ActivityModel.createObject();
+    $scope.categories = categories;
+    $scope.activity = activity;
 
-    $scope.activity.category = {
-      main: "sports",
-      sub: "adventure"
+    $scope.getSubCategories = function () {
+      var maincategory = _.find(categories, { 'key': $scope.activity.category.main });
+      if (maincategory){
+        return maincategory.sub;
+      }
     };
+    // reset activity.category.sub when activity.category.main changes
+    $scope.$watch('activity.category.main', function () {
+      $scope.activity.category.sub = undefined;
+    });
 
     $scope.map = {
       center: {
@@ -52,7 +59,6 @@ angular.module('anorakApp')
         }
       }
     };
-
 
     $scope.getMarkerIcon = function () {
       return "/img/mapicons/marker-sports.svg";

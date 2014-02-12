@@ -9,10 +9,27 @@ var Type = model.Attr.Types;
 var Ref = model.Ref;
 var Operation = model.Operation;
 
+var validators = {
+  username : function(obj, name) {
+    var value = obj[name];
+    if (value == undefined || value == null || value == "") {
+      throw new Error("you have to provide a username");
+    }
+  },
+  password : function(obj, name) {
+    var value = obj[name];
+    if (value == undefined || value == null || value == "") {
+      throw new Error("you have to provide a password");
+    }
+  }
+};
+
+
+
 var UserModel = new model("users", {
   email : Attr(Type.string),
-  username : Attr(Type.string),
-  password : Attr(Type.string),
+  username : Attr(Type.string, validators.username),
+  password : Attr(Type.string, validators.password),
 
   profile : {
     firstName : Attr(Type.string),
