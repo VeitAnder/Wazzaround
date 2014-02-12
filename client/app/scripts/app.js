@@ -50,7 +50,7 @@ angular.module('anorakApp').constant('I18NMESSAGES', {
 });
 
 angular.module('anorakApp')
-  .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     'use strict';
 
     $locationProvider.html5Mode((function () {
@@ -66,7 +66,7 @@ angular.module('anorakApp')
           categories: ['models', function (models) {
             return models.CategoryModel.use.all();
           }],
-          resolvedActivities:['models', function (models) {
+          resolvedActivities: ['models', function (models) {
             return models.ActivityModel.use.all();
           }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
@@ -127,7 +127,7 @@ angular.module('anorakApp')
         templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesDetailCtrl',
         resolve: {
-          activity: ['models', '$route', function ($route, models) {
+          activity: ['$route', 'models', function ($route, models) {
             return models.ActivityModel.use.get($route.current.params.id);
           }]
         }
@@ -140,8 +140,8 @@ angular.module('anorakApp')
         templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesIndexCtrl',
         resolve: {
-          myActivitiesList:['models', function (models) {
-              return models.ActivityModel.getMyActivities();
+          myActivitiesList: ['models', function (models) {
+            return models.ActivityModel.getMyActivities();
           }]
         }
       })
