@@ -1,6 +1,6 @@
 'use strict';
 
-var models = function() {
+var models = function () {
   // using the the Modelizer library
   var model = require('modelizer');
   //var model = require('../../../../modelizer/lib/modelizer.js');
@@ -12,13 +12,13 @@ var models = function() {
   var Factory = model.Factory;
 
   var validators = {
-    username : function(obj, name) {
+    username: function (obj, name) {
       var value = obj[name];
       if (value == undefined || value == null || value == "") {
         throw new Error("you have to provide a username");
       }
     },
-    password : function(obj, name) {
+    password: function (obj, name) {
       var value = obj[name];
       if (value == undefined || value == null || value == "") {
         throw new Error("you have to provide a password");
@@ -26,18 +26,17 @@ var models = function() {
     }
   };
 
-
   var UserModel = new model("users", {
-    email : Attr(Type.string),
-    username : Attr(Type.string, validators.username),
-    password : Attr(Type.string, validators.password),
+    email: Attr(Type.string),
+    username: Attr(Type.string, validators.username),
+    password: Attr(Type.string, validators.password),
 
-    profile : {
-      firstName : Attr(Type.string),
-      lastName : Attr(Type.string),
-      company : Attr(Type.string),
-      address : Attr(Type.string),
-      location : {
+    profile: {
+      firstName: Attr(Type.string),
+      lastName: Attr(Type.string),
+      company: Attr(Type.string),
+      address: Attr(Type.string),
+      location: {
         longitude: Attr(Type.string),
         latitude: Attr(Type.string)
       }
@@ -47,7 +46,7 @@ var models = function() {
     logout: Operation(),
     register: Operation(),
 
-    currentUser : Factory()
+    currentUser: Factory()
   });
 
   var ActivityModel = new model("activities", {
@@ -64,31 +63,35 @@ var models = function() {
     longitude: Attr(Type.number),
     latitude: Attr(Type.number),
 
-    availability: {
-      start: Attr(Type.string),
-      end: Attr(Type.string)
-    },
+    availability: [
+      {
+        start: Attr(Type.string),
+        end: Attr(Type.string)
+      }
+    ],
 
     owner: Ref(UserModel),
 
-    getMyActivities : Factory()
+    getMyActivities: Factory()
   });
 
   var CategoryModel = new model("categories", {
-    title : Attr(Type.string),
+    title: Attr(Type.string),
     key: Attr(Type.string, Type.enum("sports", "culture", "wellness")),
-    sub : [{
-      title: Attr(Type.string),
-      key: Attr(Type.string)
-    }]
-  })
+    sub: [
+      {
+        title: Attr(Type.string),
+        key: Attr(Type.string)
+      }
+    ]
+  });
 
   return {
     UserModel: UserModel,
     ActivityModel: ActivityModel,
     CategoryModel: CategoryModel
   };
-}
+};
 
 if (typeof window !== 'undefined') {
   // we run in a browser environment
@@ -99,8 +102,6 @@ if (typeof window !== 'undefined') {
   // The current user.  You can watch this for changes due to logging in and out
   angular.module('modelizer', [])
     .factory('models', function () {
-      "use strict";
-
       var theModels = models();
       return theModels;
     });
