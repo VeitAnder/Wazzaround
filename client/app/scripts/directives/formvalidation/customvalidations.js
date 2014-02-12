@@ -180,7 +180,7 @@ angular.module('directives.customvalidation', [])
 
         // use this to watch whether "Save" button is clicked to save new plan or save revision
         scope.$watch('fileuploadcheck.submitted', function (value, oldValue) {
-          console.log("value oldValue", value, oldValue);
+          debug("value oldValue", value, oldValue);
           if (oldValue !== value && value === true) {
             scope.pristine = false;
             $timeout(function () {
