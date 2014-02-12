@@ -266,7 +266,7 @@
       >
 
     <marker
-        ng-repeat="m in activities | filter:onlySelectedCategories"
+        ng-repeat="m in map.markers | filter:onlySelectedCategories"
         coords='m'
         click='onMarkerClicked(m)'
         options='markerOptions'

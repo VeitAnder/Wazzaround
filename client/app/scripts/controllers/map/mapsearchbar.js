@@ -10,7 +10,7 @@ angular.module('anorakApp')
 
     $scope.findAddressOnMap = function () {
       if ($scope.search.address.length > 0) {
-        mapdataservice.setAddress($scope.search.address).then(function() {
+        mapdataservice.setAddress($scope.search.address).then(function () {
         });
       }
     }
