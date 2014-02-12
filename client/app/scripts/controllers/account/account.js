@@ -181,8 +181,8 @@ angular.module('anorakApp')
 
     $scope.showError = function (fieldName, error) {
       var showerror = false;
-      //console.log("ALL ERRORS", $scope.valFormInvite[fieldName].$error);
-      //console.log("ERROR " + error, $scope.valFormInvite[fieldName].$error[error]);
+      //debug("ALL ERRORS", $scope.valFormInvite[fieldName].$error);
+      //debug("ERROR " + error, $scope.valFormInvite[fieldName].$error[error]);
       if (($scope.valForm[fieldName].$error[error] && !$scope.valForm[fieldName].$pristine) || ( $scope.valForm[fieldName].$error[error] && $scope.states.submitted )) {
         showerror = true;
       }

@@ -43,7 +43,7 @@ angular.module('directives.roleselector', [])
 
         // roles list handling
         scope.selectRole = function (role) {
-          console.log("selectRole()");
+          debug("selectRole()");
 
           if (scope.multiselect === "false") {
             scope.deselectAllinRoleList();

@@ -14,7 +14,7 @@ angular.module('anorakApp')
     }
 
     $scope.register = function () {
-      console.log("register from", $scope.form);
+      debug("register from", $scope.form);
       // check input
       if ($scope.form.password !== $scope.form.password2) {
         $scope.state.error = true;

@@ -20,9 +20,9 @@ angular.module('services.filenameValidation', [])
 
       // if filename contains chars that are forbidden in Windows or #, validate as false
       validateFileName: function validateFileName(fileName) {
-        //console.log("FILENAME", fileName, encodeURIComponent(fileName));  Encoding shows which signs are used
+        //debug("FILENAME", fileName, encodeURIComponent(fileName));  Encoding shows which signs are used
         fileName = service.encodeSpecialChars(fileName);
-        //console.log("FILENAME NOW", fileName, encodeURIComponent(fileName));  Encoding shows which signs are used
+        //debug("FILENAME NOW", fileName, encodeURIComponent(fileName));  Encoding shows which signs are used
 
         var forbiddenInWin = /[;,/?:@&=+$#"*]/g;
         var forbidden = forbiddenInWin.exec(fileName);

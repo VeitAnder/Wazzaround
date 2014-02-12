@@ -23,7 +23,7 @@ angular.module('anorakApp')
           accesskey: ""
         },
         APIUrl: $window.location.protocol + "//" + $window.location.hostname + "/api/v1/",
-        debug: true,
+        debug: false,
         modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/"
       };
     } else {

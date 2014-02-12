@@ -154,18 +154,9 @@ angular.module('anorakApp')
 
     // find all categories that are in the activities we get from the map
     function categoriesInActivities(mainCat) {
-//      console.log("CATS IN ACTS READING MARKERS", $scope.map.markers.length); correct
       var catsInActs = [];
       angular.forEach($scope.map.markers, function (activity) {
-//        console.log("ONE ACTIVITY IN MARKERS", activity);  correct
         if (activity.category.main === mainCat) {
-//          console.log("IS SAME AS MAINCAT");
-//          angular.forEach($scope.getMainCategory(mainCat).sub, function(subCat) {
-//            console.log("GOT SUBCAT", subCat);
-//            console.log("KEY IS SAME?", subCat.key, activity.category.sub, subCat.key === activity.category.sub);
-//            console.log("CHECK CONTAINS", _.contains($scope.getMainCategory(mainCat).sub, { 'key' : activity.category.sub }));
-//          });
-
           if (_.where($scope.getMainCategory(mainCat).sub, { 'key' : activity.category.sub }).length > 0) {
             catsInActs.push(activity.category.sub);
           }
@@ -182,12 +173,10 @@ angular.module('anorakApp')
     // ATTENTION: this is called after toggleSelected, so dont set any selected here, will overwrite what user does in UI!
     $scope.numberOfSelectedFromCategory = function (mainCat) {
       var catsInActs = categoriesInActivities(mainCat);
-//      console.log("NOW WE HAVE", catsInActs.length);
       var countSelected = 0;
       // TODO: what we set here as selected will not be updated in view !!!
       angular.forEach($scope.getMainCategory(mainCat).sub, function (category) {
         if (_.contains(catsInActs, category.key)) {
-//          console.log("CATS IN ACTS CONTAINS", catsInActs, category.key);
           if(category.selected === true) {
             countSelected++;
           }
@@ -204,7 +193,7 @@ angular.module('anorakApp')
     };
 
     $rootScope.$on("MapChangeEvent", function (event, message) {
-      console.log("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
+      debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
       // @TODO new categories from server
       var e = {
         latLng: {
