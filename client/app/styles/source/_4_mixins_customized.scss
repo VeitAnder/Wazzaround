@@ -40,7 +40,7 @@ footer {
   //  bottom:0;
   //  left:0;
   //  right:0;
-  .activity-detail &{
+  .activity-detail & {
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -49,15 +49,14 @@ footer {
   }
 }
 
-
-.col-left-fixed{
+.col-left-fixed {
   position: relative;
   padding: $bu*2.0;
   width: $col-left-width;
   float: left;
 }
 
-.col-right{
+.col-right {
   padding: $bu*1.0;
   position: relative;
   overflow: hidden;
@@ -122,12 +121,13 @@ footer {
   color: $color_wellness;
 }
 
-
 @mixin window-category {
   padding: 15px 0;
+  min-width: 400px;
   a.btn {
     .gm-style-iw & {
       font-size: 16px;
+      font-weight: $font-weight_bold;
     }
   }
   p {
@@ -153,9 +153,9 @@ footer {
       margin-right: 5px;
     }
   }
-  .category{
+  .category {
     text-transform: capitalize;
-    .category-sub{
+    .category-sub {
       font-weight: $font-weight_light;
     }
   }
@@ -166,7 +166,7 @@ footer {
     @include border-radius($border-radius);
     border-width: 7px;
     padding: 3px;
-    width: 250px;
+    width: 150px;
     height: auto;
     background-color: $color_grey_15_l5;
   }
@@ -179,8 +179,13 @@ footer {
       border-color: $color_sports;
     }
   }
-  .category{
+  .category {
     color: $color_sports;
+  }
+  &.activity-detail {
+    img {
+      width: 250px;
+    }
   }
 }
 
@@ -191,8 +196,13 @@ footer {
       border-color: $color_culture;
     }
   }
-  .category{
+  .category {
     color: $color_culture;
+  }
+  &.activity-detail {
+    img {
+      width: 250px;
+    }
   }
 }
 
@@ -203,20 +213,35 @@ footer {
       border-color: $color_wellness;
     }
   }
-  .category{
+  .category {
     color: $color_wellness;
+  }
+  &.activity-detail {
+    img {
+      width: 250px;
+    }
   }
 }
 
-
-.activity-detail{
-  .google-map{
+.activity-detail {
+  .google-map {
     margin-top: $fs;
     background-color: $color_grey_15;
   }
-  .availability{
+  .availability {
     margin-top: $fs;
   }
+}
+
+.availability-list{
+}
+
+.availability-header{
+  @include divtable_header_small;
+}
+
+.availability-entry{
+  @include divtable_row_small;
 }
 
 
@@ -1232,19 +1257,19 @@ $filter-category-arrow-width: 65px;
 
 $img-block-size: 150px;
 
-.img-selector{
+.img-selector {
   overflow: hidden;
-  .img-block{
+  .img-block {
     position: relative;
     float: left;
     margin-right: 10px;
     margin-bottom: 10px;
-    img{
+    img {
       width: $img-block-size;
       height: $img-block-size;
     }
-    &.img-new{
-      a{
+    &.img-new {
+      a {
         text-decoration: none;
         display: block;
         width: $img-block-size;
@@ -1256,16 +1281,16 @@ $img-block-size: 150px;
         line-height: ($img-block-size*0.5) + (100px*0.5);
         font-weight: $font-weight_bold;
         font-family: 'Helvetica Neue', Helvetica, Arial;
-        &:hover{
-            background-color: $color_green;
+        &:hover {
+          background-color: $color_green;
         }
       }
     }
-    .img-edit{
+    .img-edit {
       position: absolute;
       bottom: 0;
       width: 100%;
-      a{
+      a {
         display: block;
         background-color: $color_grey;
         padding: 5px;
@@ -1273,14 +1298,14 @@ $img-block-size: 150px;
         font-weight: $font-weight_bold;
         text-decoration: none;
         @include opacity(0.85);
-        &:hover{
+        &:hover {
           background-color: $color_red;
-          i{
+          i {
             color: $color_red;
           }
         }
       }
-      i{
+      i {
         display: block;
         float: right;
         width: 20px;
@@ -1298,18 +1323,15 @@ $img-block-size: 150px;
   }
 }
 
-
-
-
-@mixin teaser-textformat{
-  a, a:link{
+@mixin teaser-textformat {
+  a, a:link {
     display: block;
     min-height: $footer-height;
     @include h5;
     padding: $bu;
     margin: 0;
     text-decoration: none;
-    &:hover{
+    &:hover {
       color: $color_white;
     }
   }
@@ -1321,40 +1343,39 @@ $img-block-size: 150px;
   float: left;
   clear: both;
   @include teaser-textformat;
-  a, a:link{
+  a, a:link {
     padding-left: 35px;
     color: $color_green_25;
   }
 }
 
-.loginbutton{
-  .col-left-fixed &{
+.loginbutton {
+  .col-left-fixed & {
     padding-top: $bu;
     @include seperator(top, $color_main_seperator);
   }
 }
 
-.logoutlink{
-  .admin-section &{
+.logoutlink {
+  .admin-section & {
     display: none;
   }
-  .col-left-fixed &{
+  .col-left-fixed & {
     @include button;
     background-color: $color_red;
     border-color: $color_red;
-    &:hover{
+    &:hover {
       background-color: $color_red_l5;
       border-color: $color_red_l5;
     }
   }
 }
 
-.accountlink{
-  .col-left-fixed &{
+.accountlink {
+  .col-left-fixed & {
     display: none;
   }
 }
-
 
 .teaser-section {
   overflow: hidden;
@@ -1374,53 +1395,52 @@ $img-block-size: 150px;
   }
 }
 
-.form-daterange{
-  .form-group{
+.form-daterange {
+  .form-group {
     float: left;
     width: 49%;
-    &:first-child{
+    &:first-child {
       margin-right: 2%;
     }
-    label{
+    label {
       display: none;
     }
   }
-  .form-control{
+  .form-control {
 
   }
 }
 
-
-.listheader{
+.listheader {
   @include divtable_header_small;
 }
 
-.listbody{
+.listbody {
 
 }
 
-.listrow{
+.listrow {
   @include divtable_row;
   @include striperows;
 }
 
-.list-myactivities{
-  .activity{
+.list-myactivities {
+  .activity {
     width: 25%;
     font-weight: $font-weight_bold;
   }
-  .category-main, .category-sub{
+  .category-main, .category-sub {
     width: 15%;
   }
-  .location{
+  .location {
     width: 25%;
   }
-  .availability{
+  .availability {
     width: 20%;
   }
 }
 
-.language-select{
+.language-select {
   position: absolute;
   top: $bu;
   right: $bu;
@@ -1434,59 +1454,58 @@ $img-block-size: 150px;
   min-width: 300px;
   padding: 10px;
   button {
-    &.btn-default{
+    &.btn-default {
       background-color: $color_white;
       border: none;
       font-family: $sysfont_01;
       color: $color_grey;
       font-weight: $font-weight_bold;
-      span{
+      span {
         color: $color_grey;
-        &.text-muted{
+        &.text-muted {
           font-weight: $font-weight_light;
         }
       }
-      &:hover{
+      &:hover {
         background-color: $color_grey_15;
       }
-      &:active{
+      &:active {
         background-color: $color_green;
-        span, strong{
+        span, strong {
           color: $color_white;
         }
       }
     }
-    &.btn-primary{
+    &.btn-primary {
       background-color: $color_green;
-      span{
+      span {
         color: $color_white;
       }
-      &:hover{
+      &:hover {
         background-color: $color_green;
       }
     }
-    &.btn-block{
+    &.btn-block {
       display: block;
       width: 100%;
     }
-    &.pull-right, &.pull-left{
+    &.pull-right, &.pull-left {
       width: 30px;
       height: 20px;
       @include sprite_icons(-13px, -58px, no-repeat);
-      &:active{
+      &:active {
         background-color: $color_grey_25;
       }
     }
-    &.pull-left{
+    &.pull-left {
       @include transform(rotate(180deg));
     }
   }
 }
 
-
 .datepicker.dropdown-menu {
-//  width: 250px;
-//  height: 270px
+  //  width: 250px;
+  //  height: 270px
 }
 
 .datepicker.dropdown-menu button {
@@ -1516,8 +1535,8 @@ $img-block-size: 150px;
   border: 1px solid grey;
 }
 
-.ta-root{
-  .btn-default{
+.ta-root {
+  .btn-default {
     font-size: 14px;
     padding: 2px 15px;
   }
