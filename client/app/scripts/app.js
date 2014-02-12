@@ -33,7 +33,8 @@ angular.module('anorakApp', [
   'services.authentication',
   'services.i18nNotifications',
   'services.httpRequestTracker',
-  'templates.app'
+  'templates.app',
+  'modelizer'
 ]);
 
 angular.module('anorakApp').constant('I18NMESSAGES', {
@@ -49,7 +50,7 @@ angular.module('anorakApp').constant('I18NMESSAGES', {
 });
 
 angular.module('anorakApp')
-  .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     'use strict';
 
     $locationProvider.html5Mode((function () {
@@ -62,12 +63,11 @@ angular.module('anorakApp')
         templateUrl: 'index.html',
         controller: 'indexCtrl',
         resolve: {
-          categories: [function () {
-            return CategoryModel.use.all();
+          categories: ['models', function (models) {
+            return models.CategoryModel.use.all();
           }],
-          resolvedActivities:[ function () {
-            // todo: use service for Modelizer
-            return ActivityModel.use.all();
+          resolvedActivities: ['models', function (models) {
+            return models.ActivityModel.use.all();
           }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
@@ -103,11 +103,11 @@ angular.module('anorakApp')
         templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
-          categories: [function () {
-            return CategoryModel.use.all();
+          categories: ['models', function (models) {
+            return models.CategoryModel.use.all();
           }],
-          activity: ['$route', function ($route) {
-            return ActivityModel.use.get($route.current.params.id);
+          activity: ['$route', 'models', function ($route, models) {
+            return models.ActivityModel.use.get($route.current.params.id);
           }]
         }
       })
@@ -115,11 +115,11 @@ angular.module('anorakApp')
         templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
-          categories: [function () {
-            return CategoryModel.use.all();
+          categories: ['models', function (models) {
+            return models.CategoryModel.use.all();
           }],
-          activity: [function () {
-            return ActivityModel.createObject();
+          activity: ['models', function (models) {
+            return models.ActivityModel.createObject();
           }]
         }
       })
@@ -127,8 +127,8 @@ angular.module('anorakApp')
         templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesDetailCtrl',
         resolve: {
-          activity: ['$route', function ($route) {
-            return ActivityModel.use.get($route.current.params.id);
+          activity: ['$route', 'models', function ($route, models) {
+            return models.ActivityModel.use.get($route.current.params.id);
           }]
         }
       })
@@ -140,8 +140,8 @@ angular.module('anorakApp')
         templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesIndexCtrl',
         resolve: {
-          myActivitiesList:['currentUser', function (currentUser) {
-              return ActivityModel.getMyActivities();
+          myActivitiesList: ['models', function (models) {
+            return models.ActivityModel.getMyActivities();
           }]
         }
       })
@@ -150,17 +150,18 @@ angular.module('anorakApp')
       });
 
   })
-  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG) {
+  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models) {
     "use strict";
 
     debug("application run called");
     $rootScope.debug = debug;
+    $rootScope.models = models;
     var checkRouteForAuthorization;
 
     var connector = Model.AngularConnector(APP_CONFIG.modelizerurl);
-    UserModel.connection(connector);
-    ActivityModel.connection(connector);
-    CategoryModel.connection(connector);
+    models.UserModel.connection(connector);
+    models.ActivityModel.connection(connector);
+    models.CategoryModel.connection(connector);
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);
