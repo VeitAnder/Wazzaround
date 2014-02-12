@@ -50,6 +50,7 @@ var models = function () {
 
   var ActivityModel = new model("activities", {
     name: Attr(Type.string),
+    company: Attr(Type.string),
 
     description: Attr(Type.string),
     images: Attr(Type.array),
@@ -62,11 +63,11 @@ var models = function () {
     longitude: Attr(Type.number),
     latitude: Attr(Type.number),
 
-    availability: {
+    availability: [{
       start: Attr(Type.string),
       end: Attr(Type.string),
       quantity: Attr(Type.number)
-    },
+    }],
 
     owner: Ref(UserModel),
 

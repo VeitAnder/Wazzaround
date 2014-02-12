@@ -98,8 +98,8 @@ angular.module('anorakApp')
 //      console.log("GOT ACTIVITIES TO FILTER", mapdata.map.markers);
       var dateFilteredActivities = _.filter(mapdata.map.markers, function (activity) {
 
-        var activityStart = moment(new Date(activity.availability.start));
-        var activityEnd = moment(new Date(activity.availability.end));
+        var activityStart = moment(new Date(activity.availability[0].start));
+        var activityEnd = moment(new Date(activity.availability[0].end));
 
         if (isDateRange) {
           console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
