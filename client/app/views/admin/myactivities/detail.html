@@ -4,7 +4,6 @@
 <div
     class="activity-detail window-category-{{activity.category.main}}"
     >
-
   <h4>
     <span class="icon"></span>
     {{activity.name}}
@@ -30,12 +29,22 @@
 
   <div class="angular-google-map-container">
     <div class="input_label">Location</div>
+
     <google-map
-        center='map.center'
+        center='activity'
         zoom='map.zoom'
         draggable='true'
-        events='map.events'
         >
+      <marker
+          coords='map.center'
+          icon='getMarkerIcon()'
+          >
+        <marker-label content="activity.name"
+                      anchor="22 0"
+                      class="marker-labels marker-label-category-{{activity.category.main}}"
+            />
+      </marker>
+
     </google-map>
 
   </div>
@@ -101,8 +110,6 @@
 
     </div>
   </div>
-
-
 
   <div class="buttonbar">
     <a class="text-link float-left"
