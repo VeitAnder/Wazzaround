@@ -138,12 +138,14 @@ angular.module('anorakApp')
         controller: 'AdminMyactivitiesIndexCtrl',
         resolve: {
           myActivitiesList: function (currentUser) {
-            // TODO: server-factory für sowas wär schöner
-            return currentUser.load()
-              .then(function(user){
-                return ActivityModel.use.find({'owner._reference' : user.user._id});
-              });
-//              return ActivityModel.use.all();
+              return ActivityModel.getMyActivities();
+
+//            return currentUser.load()
+//              .then(function(user){
+//                return ActivityModel.use.find({'owner._reference' : user.user._id});
+//              });
+
+//             return ActivityModel.use.all();
           }
         }
       })
