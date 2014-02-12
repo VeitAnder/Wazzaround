@@ -1094,7 +1094,7 @@ a.link-download {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .buttonbar .text_link, .buttonbar .confirm, .buttonbar .cancel, .buttonbar .edit {
+  .buttonbar .confirm, .buttonbar .cancel, .buttonbar .edit {
     margin-left: 5px; }
   .buttonbar .text_icon_close {
     font-family: embeded-webfont_01, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -1285,6 +1285,9 @@ h1.nomargin, h2.nomargin, h3.nomargin, h4.nomargin, h5.nomargin, h6.nomargin {
 
 .align-center {
   text-align: center; }
+
+.float-left {
+  float: left; }
 
 .footnote {
   font-size: 12px;

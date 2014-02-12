@@ -263,7 +263,7 @@ a.link-download{
 
   @include user-select(none);
 
-  .text_link, .confirm, .cancel, .edit {
+  .confirm, .cancel, .edit {
     margin-left: 5px;
   }
   .text_icon_close {
@@ -567,6 +567,11 @@ a.link-download{
 .align-center{
   text-align: center;
 }
+
+.float-left{
+  float: left;
+}
+
 
 .footnote{
   @include font-size_small;
