@@ -235,6 +235,13 @@ a.link-download{
     padding: ($fs*0.15) ($fs*0.75);
     font-size: 14px;
   }
+  &.btn-mini{
+    font-size: 12px;
+    line-height: 12px*$line-height_factor;
+    text-transform: uppercase;
+    padding: ($fs*0.15) ($fs*0.5);
+    border-width: 1px;
+  }
 
 }
 
@@ -1389,6 +1396,14 @@ input[type="checkbox"]:focus {
       }
       .even {
       }
+    .btn{
+      background-color: $color_white;
+      color: $color_green;
+      &:hover{
+        background-color: $color_green_25;
+        color: $color_green;
+      }
+    }
     }
   }
 }

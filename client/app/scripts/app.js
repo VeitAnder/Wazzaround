@@ -62,13 +62,13 @@ angular.module('anorakApp')
         templateUrl: 'views/index.html',
         controller: 'indexCtrl',
         resolve: {
-          categories: function () {
+          categories: [function () {
             return CategoryModel.use.all();
-          },
-          resolvedActivities: function () {
+          }],
+          resolvedActivities:[ function () {
             // todo: use service for Modelizer
             return ActivityModel.use.all();
-          },
+          }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
           }]
@@ -103,9 +103,9 @@ angular.module('anorakApp')
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
-          categories: function () {
+          categories: [function () {
             return CategoryModel.use.all();
-          },
+          }],
           activity: ['$route', function ($route) {
             return ActivityModel.use.get($route.current.params.id);
           }]
@@ -115,12 +115,12 @@ angular.module('anorakApp')
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
-          categories: function () {
+          categories: [function () {
             return CategoryModel.use.all();
-          },
-          activity: function () {
+          }],
+          activity: [function () {
             return ActivityModel.createObject();
-          }
+          }]
         }
       })
       .when('/admin/myactivities/:id/', {
@@ -140,13 +140,8 @@ angular.module('anorakApp')
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesIndexCtrl',
         resolve: {
-          myActivitiesList: ['currentUser', function (currentUser) {
-            // TODO: server-factory für sowas wär schöner
-            return currentUser.load()
-              .then(function(user){
-                return ActivityModel.use.find({'owner._reference' : user.user._id});
-              });
-//              return ActivityModel.use.all();
+          myActivitiesList:['currentUser', function (currentUser) {
+              return ActivityModel.getMyActivities();
           }]
         }
       })

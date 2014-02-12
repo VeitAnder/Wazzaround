@@ -25,9 +25,14 @@ angular.module('anorakApp')
       return R * 2 * Math.asin(Math.sqrt(a));
     };
 
-    var mapdata = {
-      setAddress: function geoCodeAddress(address) {
-        var defer = Q.defer();
+    var geoCodeAddress = function (address) {
+
+      console.log("GEOCODE ADDRESS", address);
+      var defer = Q.defer();
+
+      if (!address) {
+        defer.resolve("No address entered");
+      } else {
 
         geocoder = new google.maps.Geocoder();
 
@@ -44,8 +49,8 @@ angular.module('anorakApp')
 
             var markersInRadius = [];
             for (var i = 0; i < mapdata.map.markers.length; i++) {
-//              console.log("CHECK MARKER", mapdata.map.markers[i]);
-//              console.log("THE DISTANCE IS", calculateDistance(mapdata.map.center.latitude, mapdata.map.center.longitude, mapdata.map.markers[i].latitude, mapdata.map.markers[i].longitude));
+              console.log("CHECK MARKER", mapdata.map.markers[i]);
+              console.log("THE DISTANCE IS", calculateDistance(mapdata.map.center.latitude, mapdata.map.center.longitude, mapdata.map.markers[i].latitude, mapdata.map.markers[i].longitude));
 
               // calculate distance between center and the marker
               // if distance more than 30km, dont display
@@ -58,10 +63,7 @@ angular.module('anorakApp')
                 markersInRadius.push(mapdata.map.markers[i]);
               }
             }
-
-//            console.log("GOT MARKERS NOW", markersInRadius);
             mapdata.map.markers = markersInRadius;
-            $rootScope.$broadcast("MapChangeEvent");
             return defer.resolve();
 
           } else {
@@ -72,12 +74,101 @@ angular.module('anorakApp')
             return defer.reject("Could not geocode address", status);
           }
         });
+      }
+      return defer.promise;
+    };
+
+    var findActivitiesForDateRange = function (start, end) {
+
+      console.log("FIND ACTS FOR DATE RANGE", start, end);
+      
+      // it's not a search for date, so just return
+      if(!start && !end) {
+        return;
+      }
+      
+      var startDate = moment(start);
+      var endDate = moment(end);
+      var isDateRange = (start && end) ? true : false;
+      console.log("IS DATE RANGE", isDateRange);
+
+      // filter activities for dates
+      console.log("GOT ACTIVITIES TO FILTER", mapdata.map.markers);
+      var dateFilteredActivities = _.filter(mapdata.map.markers, function (activity) {
+
+        var activityStart = moment(new Date(activity.availability.start));
+        var activityEnd = moment(new Date(activity.availability.end));
+
+        if (isDateRange) {
+          console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+          // activityStart is same or later than startDate AND activityEnd is same or before endDate, THEN it's in range
+          console.log("ACT START", activity.availability.start);
+          console.log("ACT END", activity.availability.end);
+          console.log("START DATE", start);
+          console.log("END DATE", end);
+          
+          console.log("ACT START VS START DATE", activityStart.diff(startDate, 'days'));
+          console.log("ACT START AFTER START DATE", activityStart.isAfter(startDate));
+          console.log("ACT END VS END DATE", activityEnd.diff(endDate, 'days'));
+          console.log("ACT END BEFORE END DATE", activityEnd.isBefore(endDate));
+
+          if ((activityStart.diff(startDate, 'days') === 0 ||
+            activityStart.isAfter(startDate) === true) ||
+            (activityEnd.diff(endDate, 'days') === 0 ||
+              activityEnd.isBefore(endDate) === true)) {
+            console.log("RESULT COMPARE FOUND");
+            return true;
+          }
+
+        } else {
+          // either activity is on same day as selected start date
+          // or it is on same day as selected end date
+          // or I select a date which is BEFORE activities' end date AND AFTER activities' start date
+          console.log("NO DATE RANGE");
+          console.log("ACT START", activity.availability.start);
+          console.log("ACT END", activity.availability.end);
+          console.log("START DATE", start);
+          console.log("END DATE", end);
+          var date = start ? startDate : endDate;
+          var diffStart = activityStart.diff(date, 'days');
+          var diffEnd = activityEnd.diff(date, 'days');
+
+          console.log("DIFFSTART", diffStart, "DIFFEND", diffEnd);
+          return  diffStart === 0 || (date.isBefore(activityEnd) && date.isAfter(activityStart)) || diffEnd === 0;
+        }
+      });
+
+      console.log("GOT DATE FILTERED ACTIVITIES", dateFilteredActivities);
+      mapdata.map.markers = dateFilteredActivities;
+    };
+
+    var mapdata = {
+      searchActivities: function (startDate, endDate, address) {
+        console.log("SEARCH FOR", startDate, endDate, address);
+
+        var defer = Q.defer();
+
+        geoCodeAddress(address)
+          .then(function () {
+
+            findActivitiesForDateRange(startDate, endDate);
+            console.log("AM DONE SEARCHING IN SERVICE");
+            $rootScope.$broadcast("MapChangeEvent");
+
+            defer.resolve();
+          })
+
+          .fail(function (err) {
+            console.log("Something went wrong while searching", err);
+            defer.reject("Something went wrong while searching", err);
+          })
+
+          .done();
 
         return defer.promise;
       },
-
       map: {
-        circle: 0,
         address: "",
         center: {
           "longitude": 8.01177978515625,

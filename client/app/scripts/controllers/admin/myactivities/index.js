@@ -9,7 +9,6 @@ angular.module('anorakApp')
     $scope.activities = myActivitiesList;
 
     $scope.open = function (activity) {
-      console.log(activity._id);
       $location.path("/admin/myactivities/" + activity._id + "/");
     };
 

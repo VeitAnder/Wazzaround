@@ -8,6 +8,7 @@ var Attr = model.Attr;
 var Type = model.Attr.Types;
 var Ref = model.Ref;
 var Operation = model.Operation;
+var Factory = model.Factory;
 
 var validators = {
   username : function(obj, name) {
@@ -23,7 +24,6 @@ var validators = {
     }
   }
 };
-
 
 
 var UserModel = new model("users", {
@@ -44,7 +44,9 @@ var UserModel = new model("users", {
 
   login: Operation(),
   logout: Operation(),
-  register: Operation()
+  register: Operation(),
+
+  currentUser : Factory()
 });
 
 var ActivityModel = new model("activities", {
@@ -66,7 +68,9 @@ var ActivityModel = new model("activities", {
     end: Attr(Type.string)
   },
 
-  owner: Ref(UserModel)
+  owner: Ref(UserModel),
+
+  getMyActivities : Factory()
 
 });
 

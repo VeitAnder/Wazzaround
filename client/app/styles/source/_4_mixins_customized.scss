@@ -165,7 +165,6 @@ footer {
     padding: 3px;
     width: 150px;
     height: auto;
-    background-color: $color_grey_15_l5;
   }
 }
 
@@ -226,10 +225,10 @@ footer {
   }
   .location{
     margin-top: $fs;
-    clear: left;
   }
   .availability {
     margin-top: $fs*2.0;
+    clear: left;
   }
 }
 
@@ -242,6 +241,15 @@ footer {
 
 .availability-entry{
   @include divtable_row_small;
+  .availability-date{
+    width: 45%;
+  }
+  .availability-time{
+    width: 45%;
+  }
+  .availability-amount{
+    width: 10%;
+  }
 }
 
 
@@ -1424,9 +1432,9 @@ $img-block-size: 150px;
   @include striperows;
 }
 
-.list-myactivities {
+.myactivities-list {
   .activity {
-    width: 25%;
+    width: 30%;
     font-weight: $font-weight_bold;
   }
   .category-main, .category-sub {
@@ -1435,8 +1443,8 @@ $img-block-size: 150px;
   .location {
     width: 25%;
   }
-  .availability {
-    width: 20%;
+  .edit{
+    width: 15%;
   }
 }
 
