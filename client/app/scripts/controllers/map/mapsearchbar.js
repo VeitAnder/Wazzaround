@@ -12,7 +12,6 @@ angular.module('anorakApp')
     };
 
     $scope.searchActivities = function () {
-      console.log("SEARCH", $scope.search.startDate, $scope.search.endDate, $scope.search.address);
       mapdataservice.searchActivities($scope.search.startDate, $scope.search.endDate, $scope.search.address);
     };
 
