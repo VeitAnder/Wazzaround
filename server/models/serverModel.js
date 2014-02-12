@@ -97,3 +97,31 @@ models.UserModel.operationImpl("logout", function(params, req) {
   delete req.session.auth;
   delete req.session.user_id;
 });
+
+
+models.UserModel.factoryImpl("currentUser", function(params, req) {
+  var deferred = Q.defer();
+  if (!req.session.auth) {
+    var err = new Error("no authorized");
+    err.statusCode = 401;
+    deferred.reject(err);
+    return deferred.promise;
+  }
+  //return models.UserModel.use.get(ObjectId(req.session.user_id));
+  return models.UserModel.use.find({ _id: ObjectId(req.session.user_id)})
+    .then(function(users){
+      if (users.length != 1) throw new Erorr("User not found");
+      return users[0];
+    });
+});
+
+
+
+models.ActivityModel.factoryImpl("getMyActivities", function(params, req) {
+  if (!req.session.auth) {
+    return false;  // if not logged operation not allowed
+  }
+
+  return models.ActivityModel.use.find({'owner._reference' : req.session.user_id});
+});
+

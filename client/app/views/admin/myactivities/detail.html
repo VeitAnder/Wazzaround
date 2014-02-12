@@ -1,6 +1,14 @@
 <h2>Account</h2>
 <h3>My Activities</h3>
 
+<div class="buttonbar buttonbar-top">
+  <a class="btn btn-small"
+     href="#/admin/myactivities/{{activity._id}}/edit/">edit
+  </a>
+  <a class="btn btn-alert btn-small"
+     data-ng-click="delete(activity)">delete
+  </a>
+</div>
 <div
     class="activity-detail window-category-{{activity.category.main}}"
     >
@@ -22,12 +30,14 @@
   <div class="input_label">Offered by</div>
   <h5 class="no-margin-top">$Firmenname des Anbieters</h5>
 
-  <div>
+  <div class="description">
     <div class="input_label">Description</div>
-    {{activity.description}}
+    <p>
+      {{activity.description}}
+    </p>
   </div>
 
-  <div class="angular-google-map-container">
+  <div class="location">
     <div class="input_label">Location</div>
 
     <google-map
@@ -111,16 +121,17 @@
     </div>
   </div>
 
-  <div class="buttonbar">
-    <a class="text-link float-left"
-       href="#/admin/myactivities/">back to 'My Activities'
-    </a>
-    <a class="btn btn-small"
-       href="#/admin/myactivities/{{activity._id}}/edit/">edit
-    </a>
-    <a class="btn btn-alert btn-small"
-       data-ng-click="delete(activity)">delete
-    </a>
-  </div>
 
 </div>
+<div class="buttonbar">
+  <a class="text-link float-left"
+     href="#/admin/myactivities/">Go to 'My Activities'
+  </a>
+  <a class="btn btn-small"
+     href="#/admin/myactivities/{{activity._id}}/edit/">edit
+  </a>
+  <a class="btn btn-alert btn-small"
+     data-ng-click="delete(activity)">delete
+  </a>
+</div>
+

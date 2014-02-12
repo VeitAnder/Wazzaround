@@ -280,7 +280,7 @@ a.link-download{
     text-align: center;
   }
   &.buttonbar-top{
-    @include seperator(bottom, $color_grey_75);
+//    @include seperator(bottom, $color_grey_75);
     border-top: none;
   }
 }
