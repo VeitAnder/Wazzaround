@@ -73,11 +73,7 @@ angular.module('anorakApp')
 
     // filter activities so that only if their sub category is selected, they are displayed
     $scope.onlySelectedCategories = function (activity) {
-      debug("$scope.getMainCategory(activity.category.main).sub ", $scope.getMainCategory(activity.category.main).sub);
-
-      var selected = _.where($scope.getMainCategory(activity.category.main).sub, { 'key': activity.category.sub, 'selected': true }).length === 1 ? true : false;
-      debug("selected", selected);
-      return selected;
+      return _.where($scope.getMainCategory(activity.category.main).sub, { 'key': activity.category.sub, 'selected': true }).length === 1 ? true : false;
     };
 
     $scope.toggleCategorySelection = function (category) {
@@ -160,8 +156,6 @@ angular.module('anorakApp')
     $scope.totalNumberOfCategory = function (mainCat) {
       return filterActivitiesByMainCategory(mainCat).length;
     };
-
-
 
     function filterActivitiesByMainCategory(mainCatName) {
       return _.filter($scope.map.markers, function (marker) {

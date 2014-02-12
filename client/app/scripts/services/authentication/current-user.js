@@ -12,14 +12,12 @@ angular.module('services.authentication.current-user', [])
           return defer.promise;
         }
 
-        return UserModel.use.all()
+        return UserModel.currentUser()
           .then(function (users) {
-            if (users.length > 0) {
-              currentUser.user = users[0];
-              currentUser.authenticated = true;
-              $rootScope.$apply();
-              return currentUser;
-            }
+            currentUser.user = users[0];
+            currentUser.authenticated = true;
+            $rootScope.$apply();
+            return currentUser;
           })
           .fail(function (err) {
             // user has not been logged in
