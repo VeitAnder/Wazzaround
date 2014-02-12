@@ -1,1 +1,0 @@
-../../../../../modelizer/lib/modelizer.js

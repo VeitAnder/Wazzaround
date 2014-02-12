@@ -22,7 +22,7 @@ logger.info("Node environment: NODE_ENV=%s", process.env.NODE_ENV);
 app.use(logger.expressLogger);
 
 //require("./servermodules/security.js").allowCors(app);
-//require("./servermodules/serveclient.js").setupStaticAssetsServer(app, (86400000 * 3));
+require("./servermodules/serveclient.js").setupStaticAssetsServer(app, (86400000 * 3));
 
 //app.use(express.json());                                    // JSON parser for endpoint
 //app.use(express.urlencoded());                              // urlencoded JSON endpoint
@@ -74,7 +74,7 @@ if (process.env.NODE_ENV === "production") {
 //RestApi.RestApiAuthentication(app);
 //RestApi.privateRestApi(app);
 
-//require("./servermodules/serveclient.js").serveClient(app);
+require("./servermodules/serveclient.js").serveClient(app);
 
 //require("./servermodules/errorhandling.js").errorHandling(app);
 
