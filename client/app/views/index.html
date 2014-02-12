@@ -65,7 +65,7 @@
                       ng-click="toggleCategorySelection(sportsCategories[$index+0])"
                       >
                     <span class="checkbox inline"></span>
-                    {{sportsCategories[$index+0].name}}
+                    {{sportsCategories[$index+0].title}}
                   </div>
 
                   <div
@@ -75,7 +75,7 @@
                       ng-click="toggleCategorySelection(sportsCategories[$index+1])"
                       >
                     <span class="checkbox inline"></span>
-                    {{sportsCategories[$index+1].name}}
+                    {{sportsCategories[$index+1].title}}
                   </div>
                 </div>
 
@@ -133,7 +133,7 @@
                     ng-click="toggleCategorySelection(cultureCategories[$index+0])"
                     >
                   <span class="checkbox inline"></span>
-                  {{cultureCategories[$index+0].name}}
+                  {{cultureCategories[$index+0].title}}
                 </div>
 
                 <div
@@ -143,7 +143,7 @@
                     ng-click="toggleCategorySelection(cultureCategories[$index+1])"
                     >
                   <span class="checkbox inline"></span>
-                  {{cultureCategories[$index+1].name}}
+                  {{cultureCategories[$index+1].title}}
                 </div>
 
               </div>
@@ -200,7 +200,7 @@
                     ng-click="toggleCategorySelection(wellnessCategories[$index+0])"
                     >
                   <span class="checkbox inline"></span>
-                  {{wellnessCategories[$index+0].name}}
+                  {{wellnessCategories[$index+0].title}}
                 </div>
 
                 <div
@@ -210,7 +210,7 @@
                     ng-click="toggleCategorySelection(wellnessCategories[$index+1])"
                     >
                   <span class="checkbox inline"></span>
-                  {{wellnessCategories[$index+1].name}}
+                  {{wellnessCategories[$index+1].title}}
                 </div>
 
               </div>
@@ -223,12 +223,12 @@
       <div class="filter-toggle">
         <div class="filter-toggle-show"
              data-ng-class="{active: allSelected()}"
-             data-ng-click="selectAllCategories(true)"
+             data-ng-click="selectAllCategories()"
             >Show all
         </div>
         <div class="filter-toggle-hide"
              data-ng-class="{active: noneSelected()}"
-             data-ng-click="selectAllCategories(false)"
+             data-ng-click="deSelectAllCategories()"
             >Hide all
         </div>
       </div>
@@ -264,60 +264,61 @@
         zoom='map.zoom'
         draggable='true'
         events='map.events'
-    <marker
-        ng-repeat="m in map.markers | filter:onlySelectedCategories"
-        coords='m'
-        click='onMarkerClicked(m)'
-        options='markerOptions'
-        icon='getMarkerIcon(m)'
         >
-
-      <window
-          show="m.showWindow"
-          closeClick="m.closeClick()"
+      <marker
+          ng-repeat="m in map.markers | filter:onlySelectedCategories"
+          coords='m'
+          click='onMarkerClicked(m)'
+          options='markerOptions'
+          icon='getMarkerIcon(m)'
           >
-        <div
-            class="window-category-{{m.category.main}}"
+
+        <window
+            show="m.showWindow"
+            closeClick="m.closeClick()"
             >
-          <h4>
-            <span class="icon"></span>
-            {{m.name}}
-          </h4>
+          <div
+              class="window-category-{{m.category.main}}"
+              >
+            <h4>
+              <span class="icon"></span>
+              {{m.name}}
+            </h4>
 
-          <img src="/img/mapicons/piemont.jpg"
-               width="100"
-               alt=""/>
+            <img src="/img/mapicons/piemont.jpg"
+                 width="100"
+                 alt=""/>
 
-          <h6>Offered by</h6>
+            <h6>Offered by</h6>
 
-          <div>
-            {{m.description}}
+            <div>
+              {{m.description}}
+            </div>
+
+            <p class="align-right">
+              <a href="http://www.paypal.com"
+                 target="_blank"
+                 class="btn">Book now
+              </a>
+            </p>
           </div>
-
-          <p class="align-right">
-            <a href="http://www.paypal.com"
-               target="_blank"
-               class="btn">Book now
-            </a>
-          </p>
-        </div>
-      </window>
-      <marker-label content="m.name"
-                    anchor="22 0"
-                    class="marker-labels marker-label-category-{{m.category.main}}"
-          />
-    </marker>
-
-    <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
-    <div ng-init="opts = {animation:0}">
-      <marker coords="map.centerMarker"
-              options="opts">
-        <marker-label content="map.centerMarker.title"
+        </window>
+        <marker-label content="m.name"
                       anchor="22 0"
-                      class="marker-labels marker-labels-your-location"
+                      class="marker-labels marker-label-category-{{m.category.main}}"
             />
       </marker>
-    </div>
+
+      <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
+      <div ng-init="opts = {animation:0}">
+        <marker coords="map.centerMarker"
+                options="opts">
+          <marker-label content="map.centerMarker.title"
+                        anchor="22 0"
+                        class="marker-labels marker-labels-your-location"
+              />
+        </marker>
+      </div>
 
     </google-map>
   </div>
