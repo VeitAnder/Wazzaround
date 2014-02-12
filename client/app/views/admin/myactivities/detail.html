@@ -21,6 +21,14 @@
     {{activity.name}}
   </h4>
 
+
+  <h4 >
+    <p>
+    Company offering this activity:
+    </p>
+      {{activity.company}}
+  </h4>
+
   <div class="location">
     <div class="input_label">Location</div>
 
@@ -68,46 +76,31 @@
 
   <div class="availability">
     <div class="input_label">Availability</div>
+
+
+
     <div class="availability-list">
+
+
+
       <div class="availability-header">
         <div class="month cell first">February</div>
       </div>
-      <div class="availability-entry">
+
+
+      <div class="availability-entry"
+          ng-repeat="available in activity.availability">
         <div class="availability-date cell first">
-          19/02/2014
+          {{available.start | momentjs:{format: 'DD.MM.YYYY'}  }}
         </div>
         <div class="availability-time cell">
-          2:00pm
+          {{available.end | momentjs:{format: 'DD.MM.YYYY'} }}
         </div>
         <div class="availability-amount cell last align-right">
-          4x
+          {{available.quantity}}x
         </div>
       </div>
-      <div class="availability-entry">
-        <div class="availability-date cell first">
-          24/02/2014
-        </div>
-        <div class="availability-time cell">
-          2:00pm
-        </div>
-        <div class="availability-amount cell last align-right">
-          32x
-        </div>
-      </div>
-      <div class="availability-header">
-        <div class="month cell first">March</div>
-      </div>
-      <div class="availability-entry">
-        <div class="availability-date cell first">
-          07/03/2014
-        </div>
-        <div class="availability-time cell">
-          2:00pm
-        </div>
-        <div class="availability-amount cell last align-right">
-          18x
-        </div>
-      </div>
+
 
     </div>
   </div>
