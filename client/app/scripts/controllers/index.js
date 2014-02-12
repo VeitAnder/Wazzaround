@@ -179,7 +179,7 @@ angular.module('anorakApp')
       });
 
       _.forEach(Object.keys(groupBy), function (key) {
-        if (categoryNames[key].length > 0) {
+        if (categoryNames[key] && categoryNames[key].length > 0) {
           $scope.states.categories[mainCat].push({
             name: categoryNames[key],
             key: key,
