@@ -124,25 +124,23 @@
 
   {{activity}}
 
-
+  {{newavailability}}
   <div class="availability">
     <div class="input_label">Availability</div>
     <div class="availability-list">
+
+
+
+
       <div class="availability-header">
         <div class="month cell first">February</div>
       </div>
 
-
-
-
-
-
-
       <div class="availability-entry">
         <div class="availability-date cell first">
           <input type="text"
                  class="form-control"
-                 ng-model="search.startDate"
+                 ng-model="newavailability.end"
                  data-min-date="{{search.minDate}}"
                  placeholder="Date"
                  bs-datepicker
@@ -153,7 +151,7 @@
         <div class="availability-time cell">
           <input type="text"
                  class="form-control"
-                 ng-model="search.startDate"
+                 ng-model="newavailability.start"
                  data-min-date="{{search.minDate}}"
                  placeholder="Time"
                  bs-datepicker
@@ -166,97 +164,18 @@
                  class="form-control"
                  id="name"
                  placeholder="Amount"
-              >
-        </div>
-      </div>
-      <div class="availability-entry">
-        <div class="availability-date cell first">
-          <input type="text"
-                 class="form-control"
-                 ng-model="search.startDate"
-                 data-min-date="{{search.minDate}}"
-                 placeholder="Date"
-                 bs-datepicker
-                 autoclose="true"
-                 value=""
-              >
-        </div>
-        <div class="availability-time cell">
-          <input type="text"
-                 class="form-control"
-                 ng-model="search.startDate"
-                 data-min-date="{{search.minDate}}"
-                 placeholder="Time"
-                 bs-datepicker
-                 autoclose="true"
-                 value=""
-              >
-        </div>
-        <div class="availability-amount cell last align-right">
-          <input type="text"
-                 class="form-control"
-                 id="name"
-                 placeholder="Amount"
+                 ng-model="newavailability.quantity"
               >
         </div>
       </div>
 
-
-      
-      
-     <div class="availability-header">
-        <div class="month cell first">March</div>
-      </div>
-      
-      
-      
-      
-      
-      
-      <div class="availability-entry">
-        <div class="availability-date cell first">
-          <input type="text"
-                 class="form-control"
-                 ng-model="search.startDate"
-                 data-min-date="{{search.minDate}}"
-                 placeholder="Date"
-                 bs-datepicker
-                 autoclose="true"
-                 value=""
-              >
-        </div>
-        <div class="availability-time cell">
-          <input type="text"
-                 class="form-control"
-                 ng-model="search.startDate"
-                 data-min-date="{{search.minDate}}"
-                 placeholder="Time"
-                 bs-datepicker
-                 autoclose="true"
-                 value=""
-              >
-        </div>
-        <div class="availability-amount cell last align-right">
-          <input type="text"
-                 class="form-control"
-                 id="name"
-                 placeholder="Amount"
-              >
-        </div>
-      </div>
-      
-      
-      
-      
-      
-      
 
       <div class="availability-entry">
         <div class="cell">
         <a href="#"
            class="btn btn-small"
             >
-          New Entry
+          Add Entry
            </a>
         </div>
       </div>

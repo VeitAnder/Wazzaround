@@ -461,8 +461,8 @@
 //// Media queries breakpoints from _variables.scss
 //// ------------------------------------------------------
 
-$break-high-screen: 1250px;
-$break-low-screen: 600px;
+$break-high-screen: 1280px;
+$break-low-screen: 768px;
 
 @mixin respond-to($media) {
   @if $media == screen-xs {

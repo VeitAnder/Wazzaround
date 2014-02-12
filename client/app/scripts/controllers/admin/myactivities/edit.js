@@ -96,4 +96,11 @@ angular.module('anorakApp')
       $location.path("/admin/myactivities/");
     };
 
+
+    $scope.newavailability = {
+      start: undefined,
+      end: undefined,
+      quantity: undefined
+    };
+
   });
