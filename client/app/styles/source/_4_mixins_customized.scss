@@ -1466,15 +1466,19 @@ $img-block-size: 150px;
   }
 }
 
-.form-daterange {
+.form-mapsearch {
   .form-group {
     float: left;
-    width: 49%;
+    width: 45%;
+    margin-left: 1%;
     &:first-child {
-      margin-right: 2%;
+      margin-left: 0;
     }
     label {
       display: none;
+    }
+    &.date-from, &.date-until{
+      width: 25%;
     }
   }
   .form-control {

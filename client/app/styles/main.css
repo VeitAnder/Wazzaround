@@ -3472,13 +3472,16 @@ footer {
   .teaser-section-2 .teaser-block {
     width: 50%; }
 
-.form-daterange .form-group {
+.form-mapsearch .form-group {
   float: left;
-  width: 49%; }
-  .form-daterange .form-group:first-child {
-    margin-right: 2%; }
-  .form-daterange .form-group label {
+  width: 45%;
+  margin-left: 1%; }
+  .form-mapsearch .form-group:first-child {
+    margin-left: 0; }
+  .form-mapsearch .form-group label {
     display: none; }
+  .form-mapsearch .form-group.date-from, .form-mapsearch .form-group.date-until {
+    width: 25%; }
 
 .listheader {
   -webkit-user-select: none;
