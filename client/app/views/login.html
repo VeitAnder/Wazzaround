@@ -38,7 +38,7 @@
   </div>  -->
 
   <p>
-    <label for="email">E-Mail</label>
+    <label for="email">E-mail</label>
     <input name="username"
            ng-model="form.username"
            class="input-block-level"
@@ -47,7 +47,7 @@
            autofocus>
   </p>
   <p>
-    <label for="password">Passwort</label>
+    <label for="password">Password</label>
     <input name="password"
            id="password"
            type="password"
@@ -60,9 +60,16 @@
     <div class="alert alert-error">{{state.message}}</div>
   </div>
 
+
   <button class="btn"
           type="submit"
-          ng-click="login()">Anmelden
+          ng-click="login()">Login
   </button>
+
+  <p>
+    <a href="#/register">
+      Not registered?
+    </a>
+  </p>
 
 </form>

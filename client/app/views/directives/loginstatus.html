@@ -2,7 +2,6 @@
      ng-hide='currentUser.authenticated'
     >
   <a href="#/login/">Login</a>
-  <a href="#/register">Register</a>
 </div>
 
 <div class="loginbutton"
@@ -12,5 +11,7 @@
      class="accountlink"
       >Account (<strong>{{currentUser.user.username}}</strong>)
   </a>
-  <a data-ng-click="logout()">Logout</a>
+  <a data-ng-click="logout()"
+      class="logoutlink"
+      >Logout</a>
 </div>

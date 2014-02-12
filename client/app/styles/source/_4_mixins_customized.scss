@@ -40,8 +40,15 @@ footer {
   //  bottom:0;
   //  left:0;
   //  right:0;
-
+  .activity-detail &{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+    background-color: $color_grey_15;
+  }
 }
+
 
 .col-left-fixed{
   position: relative;
@@ -114,6 +121,7 @@ footer {
 .marker-label-category-wellness {
   color: $color_wellness;
 }
+
 
 @mixin window-category {
   padding: 15px 0;
@@ -199,6 +207,18 @@ footer {
     color: $color_wellness;
   }
 }
+
+
+.activity-detail{
+  .google-map{
+    margin-top: $fs;
+    background-color: $color_grey_15;
+  }
+  .availability{
+    margin-top: $fs;
+  }
+}
+
 
 // CONTENT ELEMENTS
 // ###########################################################################################################################

@@ -1750,6 +1750,12 @@ footer {
   position: absolute;
   width: 100%;
   height: 100%; }
+  .activity-detail .angular-google-map-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+    background-color: #e8e8e8; }
 
 .col-left-fixed {
   position: relative;
@@ -1974,6 +1980,12 @@ footer {
     border-color: #bc913d; }
   .window-category-wellness .category {
     color: #bc913d; }
+
+.activity-detail .google-map {
+  margin-top: 16px;
+  background-color: #e8e8e8; }
+.activity-detail .availability {
+  margin-top: 16px; }
 
 #logo {
   display: block;
