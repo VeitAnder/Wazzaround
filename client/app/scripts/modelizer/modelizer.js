@@ -1,0 +1,1 @@
+../../../../server/node_modules/modelizer/lib/modelizer.js
