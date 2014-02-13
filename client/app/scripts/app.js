@@ -163,6 +163,7 @@ angular.module('anorakApp')
     models.ActivityModel.connection(connector);
     models.CategoryModel.connection(connector);
 
+
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);
 
