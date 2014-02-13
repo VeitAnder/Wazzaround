@@ -6,14 +6,15 @@ angular.module('anorakApp')
       return 'admin/myactivities/edit.html';
     };
 
-    debug("$route", $route);
+    //only check once at initialization time
+    if ($route.current.$$route.originalPath === "/admin/myactivities/new") {
+      $scope.newMode = true;
+    } else {
+      $scope.newMode = false;
+    }
 
     $scope.isNewMode = function () {
-      if ( $route.current.$$route.originalPath === "/admin/myactivities/new") {
-        return true;
-      } else {
-        return false;
-      }
+      return $scope.newMode;
     };
 
     $scope.categories = categories;
