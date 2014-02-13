@@ -1,9 +1,19 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminMyactivitiesEditCtrl', function ($scope, $location, activity, categories, mapdataservice) {
+  .controller('AdminMyactivitiesEditCtrl', function ($scope, $location, activity, categories, mapdataservice, $route) {
     $scope.getPagePartial = function () {
       return 'admin/myactivities/edit.html';
+    };
+
+    debug("$route", $route);
+
+    $scope.isNewMode = function () {
+      if ( $route.current.$$route.originalPath === "/admin/myactivities/new") {
+        return true;
+      } else {
+        return false;
+      }
     };
 
     $scope.categories = categories;
@@ -88,6 +98,14 @@ angular.module('anorakApp')
           if (err) {
             debug("err", err);
           }
+          $location.path("/admin/myactivities/");
+          $scope.$apply();
+        });
+    };
+
+    $scope.delete = function () {
+      $scope.activity.remove()
+        .then(function () {
           $location.path("/admin/myactivities/");
           $scope.$apply();
         });

@@ -131,15 +131,12 @@
     </div>
   </div>
 
-
-
-
   <div class="availability">
     <div class="input_label">Availability</div>
     <div class="availability-list">
 
       <!--<div class="availability-header">-->
-        <!--<div class="month cell first">February</div>-->
+      <!--<div class="month cell first">February</div>-->
       <!--</div>-->
 
       <div class="availability-entry">
@@ -175,20 +172,27 @@
         </div>
       </div>
 
-
       <!--<div class="availability-entry">-->
-        <!--<div class="cell">-->
-        <!--<a href="#"-->
-           <!--class="btn btn-small">-->
-          <!--Add Entry-->
-           <!--</a>-->
-        <!--</div>-->
+      <!--<div class="cell">-->
+      <!--<a href="#"-->
+      <!--class="btn btn-small">-->
+      <!--Add Entry-->
+      <!--</a>-->
+      <!--</div>-->
       <!--</div>-->
 
     </div>
   </div>
 
   <div class="buttonbar margin-top">
+
+
+    <a data-ng-show="!isNewMode()"
+       class="btn btn-alert float-left"
+       data-ng-click="delete()">delete
+    </a>
+
+
     <button class="btn"
             ng-click="save()"
         >speichern
@@ -198,8 +202,8 @@
         >abbrechen
     </a>
 
-  </div>
 
+  </div>
 
   <br/>
   <br/>
