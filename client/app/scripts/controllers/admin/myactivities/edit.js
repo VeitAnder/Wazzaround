@@ -101,7 +101,7 @@ angular.module('anorakApp')
           }
           $location.path("/admin/myactivities/");
           $scope.$apply();
-        });
+        }).done(); // <-----------------1!!! SEHR WICHTIG immer done aufrufen! Sonst bekommt ihr nicht mit wenn was schief lief!
     };
 
     $scope.delete = function () {
@@ -109,7 +109,7 @@ angular.module('anorakApp')
         .then(function () {
           $location.path("/admin/myactivities/");
           $scope.$apply();
-        });
+        }).done();
     };
 
     $scope.cancel = function () {

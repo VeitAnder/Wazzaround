@@ -26,7 +26,7 @@ angular.module('anorakApp')
         .then(function () {
           $location.path("/admin/myactivities/");
           $scope.$apply();
-        });
+        }).done();
     };
 
   });
