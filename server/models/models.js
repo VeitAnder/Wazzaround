@@ -12,17 +12,17 @@ var models = function () {
   var Factory = model.Factory;
 
   var validators = {
-    username: function (obj, name) {
-      var value = obj[name];
+    username: function (value) {
       if (value === undefined || value === null || value === "") {
         throw new Error("you have to provide a username");
       }
+      return value;
     },
-    password: function (obj, name) {
-      var value = obj[name];
+    password: function (value) {
       if (value === undefined || value === null || value === "") {
         throw new Error("you have to provide a password");
       }
+      return value;
     }
   };
 
@@ -37,8 +37,8 @@ var models = function () {
       company: Attr(Type.string),
       address: Attr(Type.string),
       location: {
-        longitude: Attr(Type.string),
-        latitude: Attr(Type.string)
+        longitude: Attr(Type.number),
+        latitude: Attr(Type.number)
       }
     },
 
@@ -65,8 +65,8 @@ var models = function () {
     latitude: Attr(Type.number),
 
     availability: [{
-      start: Attr(Type.string),
-      end: Attr(Type.string),
+      start: Attr(Type.date),
+      end: Attr(Type.date),
       quantity: Attr(Type.number)
     }],
 
