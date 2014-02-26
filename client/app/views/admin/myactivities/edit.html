@@ -149,134 +149,159 @@
 
   <fieldset>
     <legend>What can be booked?</legend>
-    <div class="form-group">
-      <div class="activitytype">
-        <div class="activitytype-list">
 
-          <!--<div class="availability-header">-->
-          <!--<div class="month cell first">February</div>-->
-          <!--</div>-->
-          <div class="activitytype-header">
-            <div class="activitytype-name cell first">
-              Name of Type
-            </div>
-            <div class="activitytype-quantity cell">
-              Qty.
-            </div>
-            <div class="activitytype-price cell last">
-              Price in €
-            </div>
-          </div>
-          <div class="activitytype-entry">
-            <div class="activitytype-name cell first">
-              Example Type
-            </div>
-            <div class="activitytype-quantity cell">
-              17
-            </div>
-            <div class="activitytype-price cell">
-              250
-            </div>
-            <div class="listaction cell last">
-              <a class="delete"><span>delete Type</span></a>
-            </div>
-          </div>
-          <div class="activitytype-entry">
-            <div class="activitytype-name cell first">
-              <input type="text"
-                     class="form-control"
-                     placeholder="Name of Type"
-                  >
-            </div>
-            <div class="activitytype-quantity cell ">
-              <input type="number"
-                     class="form-control"
-                     placeholder="Qty."
-                     ng-model="activity.availability[0].quantity"
-                  >
-            </div>
-            <div class="activitytype-price cell">
-              <input type="number"
-                     class="form-control"
-                     placeholder="Price in €"
-                  >
-            </div>
-            <div class="listaction cell last">
-              <a class="add"><span>add Type</span></a>
-            </div>
-          </div>
+    <div class="bookableitems">
 
-          <!--<div class="availability-entry">-->
-          <!--<div class="cell">-->
-          <!--<a href="#"-->
-          <!--class="btn btn-small">-->
-          <!--Add Entry-->
-          <!--</a>-->
-          <!--</div>-->
-          <!--</div>-->
+      <div class="bookableitem bookableitem-add">
 
+        <div class="bookableitem-header">
+          <div class="bookableitem-name cell first">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Name of bookable Item"/>
+          </div>
+          <div class="bookableitem-price cell">
+            <input type="number"
+                   class="form-control"
+                   placeholder="Price in €"/>
+          </div>
+          <div class="listaction cell last">
+            <a class="add">
+              <span>add Item</span>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </fieldset>
 
-  <fieldset>
-    <legend>When can it be booked?</legend>
-    <div class="form-group">
-      <div class="availability">
-        <div class="input_label">Availability</div>
-        <div class="availability-list">
-
-          <!--<div class="availability-header">-->
-          <!--<div class="month cell first">February</div>-->
-          <!--</div>-->
-
-          <div class="availability-entry">
-            <div class="availability-date cell first">
-              <input type="text"
-                     class="form-control"
-                     ng-model="activity.availability[0].start"
-                     data-min-date="{{search.minDate}}"
-                     placeholder="Date"
-                     bs-datepicker
-                     autoclose="true"
-                     value=""
-                  >
-            </div>
-            <div class="availability-time cell">
-              <input type="text"
-                     class="form-control"
-                     ng-model="activity.availability[0].end"
-                     data-min-date="{{search.minDate}}"
-                     placeholder="Time"
-                     bs-datepicker
-                     autoclose="true"
-                     value=""
-                  >
-            </div>
-            <div class="availability-amount cell last align-right">
-              <input type="number"
-                     class="form-control"
-                     id="name"
-                     placeholder="Amount"
-                     ng-model="activity.availability[0].quantity"
-                  >
-            </div>
+      <div class="bookableitem">
+        <div class="bookableitem-header">
+          <div class="bookableitem-name cell first">
+            Name of bookable Item
+          </div>
+          <div class="bookableitem-price cell">
+            450,–
+          </div>
+          <div class="listaction cell last">
+            <a class="">
+              <span>add Item</span>
+            </a>
           </div>
 
-          <!--<div class="availability-entry">-->
-          <!--<div class="cell">-->
-          <!--<a href="#"-->
-          <!--class="btn btn-small">-->
-          <!--Add Entry-->
-          <!--</a>-->
-          <!--</div>-->
-          <!--</div>-->
-
-        </div>
       </div>
+
     </div>
+
   </fieldset>
+  <!--<fieldset>-->
+  <!--<legend>What can be booked?</legend>-->
+  <!--<div class="form-group">-->
+  <!--<div class="activitytype">-->
+  <!--<div class="activitytype-list">-->
+
+  <!--&lt;!&ndash;<div class="availability-header">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="month cell first">February</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--<div class="activitytype-header">-->
+  <!--<div class="activitytype-name cell first">-->
+  <!--Name of Type-->
+  <!--</div>-->
+  <!--<div class="activitytype-quantity cell">-->
+  <!--Qty.-->
+  <!--</div>-->
+  <!--<div class="activitytype-price cell last">-->
+  <!--Price in €-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div class="activitytype-entry">-->
+  <!--<div class="activitytype-name cell first">-->
+  <!--Example Type-->
+  <!--</div>-->
+  <!--<div class="activitytype-quantity cell">-->
+  <!--17-->
+  <!--</div>-->
+  <!--<div class="activitytype-price cell">-->
+  <!--250-->
+  <!--</div>-->
+  <!--<div class="listaction cell last">-->
+  <!--<a class="delete"><span>delete Type</span></a>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div class="activitytype-entry">-->
+  <!--<div class="activitytype-name cell first">-->
+  <!--<input type="text"-->
+  <!--class="form-control"-->
+  <!--placeholder="Name of Type"-->
+  <!--</div>-->
+  <!--<div class="activitytype-quantity cell ">-->
+  <!--<input type="number"-->
+  <!--class="form-control"-->
+  <!--placeholder="Qty."-->
+  <!--ng-model="activity.availability[0].quantity"-->
+  <!--</div>-->
+  <!--<div class="activitytype-price cell">-->
+  <!--<input type="number"-->
+  <!--class="form-control"-->
+  <!--placeholder="Price in €"-->
+  <!--</div>-->
+  <!--<div class="listaction cell last">-->
+  <!--<a class="add"><span>add Type</span></a>-->
+  <!--</div>-->
+  <!--</div>-->
+
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</fieldset>-->
+
+  <!--<fieldset>-->
+  <!--<legend>When can it be booked?</legend>-->
+  <!--<div class="form-group">-->
+  <!--<div class="availability">-->
+  <!--<div class="availability-list">-->
+
+  <!--<div class="availability-entry">-->
+  <!--<div class="availability-date cell first">-->
+  <!--</div>-->
+  <!--<div class="availability-time cell">-->
+  <!--</div>-->
+  <!--<div class="availability-amount cell last align-right">-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div class="availability-entry">-->
+  <!--<div class="availability-date cell first">-->
+  <!--<input type="text"-->
+  <!--class="form-control"-->
+  <!--ng-model="activity.availability[0].start"-->
+  <!--data-min-date="{{search.minDate}}"-->
+  <!--placeholder="Date"-->
+  <!--bs-datepicker-->
+  <!--autoclose="true"-->
+  <!--value=""-->
+  <!--</div>-->
+  <!--<div class="availability-time cell">-->
+  <!--<input type="text"-->
+  <!--class="form-control"-->
+  <!--ng-model="activity.availability[0].end"-->
+  <!--data-min-date="{{search.minDate}}"-->
+  <!--placeholder="Time"-->
+  <!--bs-datepicker-->
+  <!--autoclose="true"-->
+  <!--value=""-->
+  <!--</div>-->
+  <!--<div class="availability-amount cell last align-right">-->
+  <!--<input type="number"-->
+  <!--class="form-control"-->
+  <!--id="name"-->
+  <!--placeholder="Amount"-->
+  <!--ng-model="activity.availability[0].quantity"-->
+  <!--</div>-->
+  <!--</div>-->
+
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</fieldset>-->
+
   <div class="buttonbar margin-top">
 
     <a data-ng-show="!isNewMode()"

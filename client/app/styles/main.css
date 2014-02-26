@@ -2081,14 +2081,8 @@ footer {
     .window-category-wellness.activity-detail img {
       width: 250px; }
 
-
-.activity-edit .availability-entry .cell.first {
-  padding-left: 0; }
-.activity-edit .availability-entry .cell.last {
-  padding-right: 0; }
-
 .listaction.cell {
-  width: 15%;
+  width: 10%;
   text-align: center; }
   .listaction.cell .delete {
     display: inline-block;
@@ -2163,65 +2157,34 @@ footer {
       background-color: #85C900; }
     .listaction.cell .add span {
       display: none; }
+    .bookableitem-header .listaction.cell .add {
+      background-color: #85C900;
+      border: 2px solid #FFF;
+      background-position: -92px 8px; }
+      .bookableitem-header .listaction.cell .add:hover {
+        background-color: #666; }
 
 
-.availability-header, .activitytype-header {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  clear: both;
-  font-weight: 600;
-  color: #85C900;
-  border-bottom: solid 1px #85C900;
-  border-bottom-width: 3px; }
-  .availability-header:after, .activitytype-header:after {
-    content: "";
-    display: table;
-    clear: both; }
-  .availability-header.sortable :hover, .activitytype-header.sortable :hover {
-    cursor: pointer;
-    background-color: #a4d740; }
-  .availability-header.sortable .active, .activitytype-header.sortable .active {
-    color: #FFF;
-    background-color: #71ab00; }
-  .availability-header .cell, .activitytype-header .cell {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-text-overflow: ellipsis;
-    -khtml-text-overflow: ellipsis;
-    -moz-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    float: left;
-    padding: 10px 5px; }
-    .availability-header .cell.first, .activitytype-header .cell.first {
-      border-left: none;
-      padding-left: 10px; }
-    .availability-header .cell.last, .activitytype-header .cell.last {
-      padding-right: 10px; }
-    .availability-header .cell.right, .activitytype-header .cell.right {
-      text-align: right; }
-  .availability-header .cell, .activitytype-header .cell {
-    padding: 5px 2.5px; }
+.bookableitem {
+  margin-bottom: 32px; }
 
-.availability-entry {
+.bookableitem-header {
+  background-color: #85C900;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: solid 1px #b3b3b3; }
-  .availability-entry:after {
+  .bookableitem-header:after {
     content: "";
     display: table;
     clear: both; }
-  .availability-entry .cell {
+  .bookableitem-header .cell {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -2237,162 +2200,39 @@ footer {
     vertical-align: middle;
     min-height: 100%;
     padding: 10px 5px; }
-    .availability-entry .cell.first {
+    .bookableitem-header .cell.first {
       padding-left: 10px; }
-    .availability-entry .cell.last {
+    .bookableitem-header .cell.last {
       padding-right: 10px; }
-    .availability-entry .cell.right {
+    .bookableitem-header .cell.right {
       text-align: right; }
-  .availability-entry .cell_wrap {
+  .bookableitem-header .cell_wrap {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     white-space: normal; }
-  .enable_hover .availability-entry:hover {
+  .enable_hover .bookableitem-header:hover {
     cursor: pointer; }
-  .enable_hover .availability-entry:hover {
+  .enable_hover .bookableitem-header:hover {
     background-color: #85C900;
     color: #FFF; }
-    .enable_hover .availability-entry:hover .cell {
+    .enable_hover .bookableitem-header:hover .cell {
       border-color: #b3b3b3;
       background-color: transparent; }
-      .enable_hover .availability-entry:hover .cell.first {
+      .enable_hover .bookableitem-header:hover .cell.first {
         border: none; }
-    .enable_hover .availability-entry:hover .btn {
+    .enable_hover .bookableitem-header:hover .btn {
       background-color: #FFF;
       color: #85C900; }
-      .enable_hover .availability-entry:hover .btn:hover {
+      .enable_hover .bookableitem-header:hover .btn:hover {
         background-color: #e0f1bf;
         color: #85C900; }
-  .availability-entry .cell {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-text-overflow: ellipsis;
-    -khtml-text-overflow: ellipsis;
-    -moz-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    float: left;
-    vertical-align: middle;
-    min-height: 100%;
-    padding: 10px 5px;
-    padding: 5px 2.5px; }
-    .availability-entry .cell.first {
-      padding-left: 10px; }
-    .availability-entry .cell.last {
-      padding-right: 10px; }
-    .availability-entry .cell.right {
-      text-align: right; }
-    .availability-entry .cell.first {
-      padding-left: 10px; }
-    .availability-entry .cell.last {
-      padding-right: 10px; }
-  .availability-entry .availability-date {
-    width: 45%; }
-    .availability-user .availability-entry .availability-date {
-      width: 40%; }
-  .availability-entry .availability-time {
-    width: 35%; }
-    .availability-user .availability-entry .availability-time {
-      width: 30%; }
-  .availability-entry .availability-amount {
-    width: 20%; }
-    .availability-user .availability-entry .availability-amount {
-      width: 15%; }
-  .availability-entry .availability-book {
-    width: 0%; }
-    .availability-user .availability-entry .availability-book {
-      width: 15%; }
 
-.activitytype-list .activitytype-entry {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border-bottom: solid 1px #b3b3b3; }
-  .activitytype-list .activitytype-entry:after {
-    content: "";
-    display: table;
-    clear: both; }
-  .activitytype-list .activitytype-entry .cell {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-text-overflow: ellipsis;
-    -khtml-text-overflow: ellipsis;
-    -moz-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    float: left;
-    vertical-align: middle;
-    min-height: 100%;
-    padding: 10px 5px; }
-    .activitytype-list .activitytype-entry .cell.first {
-      padding-left: 10px; }
-    .activitytype-list .activitytype-entry .cell.last {
-      padding-right: 10px; }
-    .activitytype-list .activitytype-entry .cell.right {
-      text-align: right; }
-  .activitytype-list .activitytype-entry .cell_wrap {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    white-space: normal; }
-  .enable_hover .activitytype-list .activitytype-entry:hover {
-    cursor: pointer; }
-  .enable_hover .activitytype-list .activitytype-entry:hover {
-    background-color: #85C900;
-    color: #FFF; }
-    .enable_hover .activitytype-list .activitytype-entry:hover .cell {
-      border-color: #b3b3b3;
-      background-color: transparent; }
-      .enable_hover .activitytype-list .activitytype-entry:hover .cell.first {
-        border: none; }
-    .enable_hover .activitytype-list .activitytype-entry:hover .btn {
-      background-color: #FFF;
-      color: #85C900; }
-      .enable_hover .activitytype-list .activitytype-entry:hover .btn:hover {
-        background-color: #e0f1bf;
-        color: #85C900; }
-  .activitytype-list .activitytype-entry .cell {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-text-overflow: ellipsis;
-    -khtml-text-overflow: ellipsis;
-    -moz-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    float: left;
-    vertical-align: middle;
-    min-height: 100%;
-    padding: 10px 5px;
-    padding: 5px 2.5px; }
-    .activitytype-list .activitytype-entry .cell.first {
-      padding-left: 10px; }
-    .activitytype-list .activitytype-entry .cell.last {
-      padding-right: 10px; }
-    .activitytype-list .activitytype-entry .cell.right {
-      text-align: right; }
-    .activitytype-list .activitytype-entry .cell.first {
-      padding-left: 10px; }
-    .activitytype-list .activitytype-entry .cell.last {
-      padding-right: 10px; }
-.activitytype-list .activitytype-name {
-  width: 50%; }
-.activitytype-list .activitytype-quantity {
-  width: 15%; }
-.activitytype-list .activitytype-price {
-  width: 20%; }
+.bookableitem-name {
+  width: 60%; }
+
+.bookableitem-price {
+  width: 30%; }
 
 #logo {
   display: block;
