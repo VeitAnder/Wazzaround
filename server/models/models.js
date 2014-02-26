@@ -59,7 +59,7 @@ var models = function () {
     category: {
       main: Attr(Type.string),
       subs: [{
-        key: Attr(Type.string)
+        title: Attr(Type.string)
       }]
     },
 

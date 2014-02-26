@@ -6,221 +6,222 @@
       novalidate
       class="activity-edit"
     >
-  <div class="form-group">
-    <label for="name">Name of Activity</label>
-    <input type="text"
-           class="form-control"
-           id="name"
-           placeholder="Enter name of activity"
-           ng-model="activity.name"
-        >
-  </div>
-
-  <div class="form-group">
-    <label for="name">Company offering this activity</label>
-    <input type="text"
-           class="form-control"
-           id="name"
-           placeholder="Enter company "
-           ng-model="activity.company"
-        >
-  </div>
-
-  <div style="width:100%; height:400px; overflow:hidden; position:relative;">
-
-    <google-map
-        center='map.center'
-        zoom='map.zoom'
-        draggable='true'
-        events='map.events'
-        options='map.options'
-        >
-
-      <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
-      <div ng-init="opts = {animation:0}">
-        <marker coords="map.clickedMarker"
-                options="opts"
-                icon='getMarkerIcon()'
-            >
-        </marker>
-        <!--<marker-label content="getMarkerLabel()"-->
-        <!--anchor="44 0"-->
-        <!--class="marker-labels"-->
-        <!--/>-->
-      </div>
-
-    </google-map>
-
-  </div>
-
-  <div class="form-group">
-    <label for="categoryMain">Main Category</label>
-    <select class="form-control"
-            id="categoryMain"
-            required
-            ng-model="activity.category.main"
-        >
-      <option disabled="disabled">Select Main Category</option>
-      <option
-          ng-repeat="category in categories"
-          value="{{category.key}}"
-          ng-selected="activity.category.main === category.key"
-          >{{category.title}}
-      </option>
-    </select>
-  </div>
-
-  <div class="form-group"
-       data-ng-show="activity.category.main"
+<div class="form-group">
+  <label for="name">Name of Activity</label>
+  <input type="text"
+         class="form-control"
+         id="name"
+         placeholder="Enter name of activity"
+         ng-model="activity.name"
       >
-    <span>Select Sub Category</span><br />
-    <!--<label for="categorySub">Sub Category</label>-->
-    ACT{{activity}}<br><br>
-                        ACT CAT MAIN{{activity.category.main}}<br />
-                        ACT CAT SUBs{{activity.category.subs}} <br /> <br>
-    <span
+</div>
+
+<div class="form-group">
+  <label for="name">Company offering this activity</label>
+  <input type="text"
+         class="form-control"
+         id="name"
+         placeholder="Enter company "
+         ng-model="activity.company"
+      >
+</div>
+
+<div style="width:100%; height:400px; overflow:hidden; position:relative;">
+
+  <google-map
+      center='map.center'
+      zoom='map.zoom'
+      draggable='true'
+      events='map.events'
+      options='map.options'
+      >
+
+    <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
+    <div ng-init="opts = {animation:0}">
+      <marker coords="map.clickedMarker"
+              options="opts"
+              icon='getMarkerIcon()'
+          >
+      </marker>
+      <!--<marker-label content="getMarkerLabel()"-->
+      <!--anchor="44 0"-->
+      <!--class="marker-labels"-->
+      <!--/>-->
+    </div>
+
+  </google-map>
+
+</div>
+
+<div class="form-group">
+  <label for="categoryMain">Main Category</label>
+  <select class="form-control"
+          id="categoryMain"
+          required
+          ng-model="activity.category.main"
+      >
+    <option disabled="disabled">Select Main Category</option>
+    <option
+        ng-repeat="category in categories"
+        value="{{category.key}}"
+        ng-selected="activity.category.main === category.key"
+        >{{category.title}}
+    </option>
+  </select>
+</div>
+
+<div class="form-group"
+     data-ng-show="activity.category.main"
+    >
+  <span>Select Sub Category</span> <br><br>
+
+  <span class="alert alert-error" data-ng-show="activity.category.subs.length >= 2">You can choose 2 Subcategories at most!</span><br><br>
+  <span class="alert alert-error" data-ng-show="activity.category.subs.length === 0">You must choose at least 1 Subcategory!</span><br><br>
+
+  <span
       ng-repeat="subcategory in getSubCategories()"
-      > {{subcategory.title}} - {{$index}}
-      <input type="checkbox" ng-model="value$index" data-ng-change="setSubcat(subcategory.key)" ng-true-value="{{subcategory.key}}" ng-false-value="" />
+      > {{subcategory.title}}
+    <input type="checkbox"
+           ng-model="value$index"
+           data-ng-change="setSubcat(subcategory.title)"
+           ng-true-value="{{subcategory.title}}"
+           ng-false-value=""
+           ng-checked="isTitleInSubcats(subcategory.title)"
+           ng-disabled="!isTitleInSubcats(subcategory.title) && activity.category.subs.length >= 2"
+        />
+  </span>
+</div>
 
+<div class="form-group">
+  <label>Description</label>
+  <!--<div text-angular-->
+  <!--ng-model="activity.description">-->
+  <!--</div>   -->
 
-      VALUE  {{value$index}} <br><br><br>
-      </span>
-  </div>
+  <textarea style="width: 100%;"
+            rows="5"
+            ng-model="activity.description">
+  </textarea>
+</div>
 
-  <div class="form-group">
-    <label>Description</label>
-    <!--<div text-angular-->
-    <!--ng-model="activity.description">-->
-    <!--</div>   -->
-
-    <textarea style="width: 100%;"
-              rows="5"
-              ng-model="activity.description">
-    </textarea>
-  </div>
-
-  <div class="form-group img-selector">
-    <label>Images</label>
-    <div class="img-block">
-      <img src="http://www.o-solemio.de/wp-content/uploads/Piemont/Locanda_Riziere/Piemont_Langhe.jpg"/>
-      <div class="img-edit">
-        <a class="delete"
-           href=""
-           ng-click="delete()">delete
-          <i>x</i>
-        </a>
-      </div>
-    </div>
-    <div class="img-block">
-      <img src="http://www.welt-atlas.de/datenbank/fotos/1-941/big/1-941-42.jpg"/>
-      <div class="img-edit">
-        <a class="delete"
-           href=""
-           ng-click="delete()">delete
-          <i>x</i>
-        </a>
-      </div>
-    </div>
-    <div class="img-block img-new">
-      <a href=""
-         ng-click="">
-        +
+<div class="form-group img-selector">
+  <label>Images</label>
+  <div class="img-block">
+    <img src="http://www.o-solemio.de/wp-content/uploads/Piemont/Locanda_Riziere/Piemont_Langhe.jpg"/>
+    <div class="img-edit">
+      <a class="delete"
+         href=""
+         ng-click="delete()">delete
+        <i>x</i>
       </a>
     </div>
   </div>
-
-  <div class="availability">
-    <div class="input_label">Availability</div>
-    <div class="availability-list">
-
-      <!--<div class="availability-header">-->
-      <!--<div class="month cell first">February</div>-->
-      <!--</div>-->
-
-      <div class="availability-entry">
-        <div class="availability-date cell first">
-          <input type="text"
-                 class="form-control"
-                 ng-model="activity.availability[0].start"
-                 data-min-date="{{search.minDate}}"
-                 placeholder="Date"
-                 bs-datepicker
-                 autoclose="true"
-                 value=""
-              >
-        </div>
-        <div class="availability-time cell">
-          <input type="text"
-                 class="form-control"
-                 ng-model="activity.availability[0].end"
-                 data-min-date="{{search.minDate}}"
-                 placeholder="Time"
-                 bs-datepicker
-                 autoclose="true"
-                 value=""
-              >
-        </div>
-        <div class="availability-amount cell last align-right">
-          <input type="text"
-                 class="form-control"
-                 id="name"
-                 placeholder="Amount"
-                 ng-model="activity.availability[0].quantity"
-              >
-        </div>
-      </div>
-
-      <!--<div class="availability-entry">-->
-      <!--<div class="cell">-->
-      <!--<a href="#"-->
-      <!--class="btn btn-small">-->
-      <!--Add Entry-->
-      <!--</a>-->
-      <!--</div>-->
-      <!--</div>-->
-
+  <div class="img-block">
+    <img src="http://www.welt-atlas.de/datenbank/fotos/1-941/big/1-941-42.jpg"/>
+    <div class="img-edit">
+      <a class="delete"
+         href=""
+         ng-click="delete()">delete
+        <i>x</i>
+      </a>
     </div>
   </div>
-
-  <div class="buttonbar margin-top">
-
-
-    <a data-ng-show="!isNewMode()"
-       class="btn btn-alert float-left"
-       data-ng-click="delete()">delete
+  <div class="img-block img-new">
+    <a href=""
+       ng-click="">
+      +
     </a>
+  </div>
+</div>
 
+<div class="availability">
+  <div class="input_label">Availability</div>
+  <div class="availability-list">
 
-    <button class="btn"
-            ng-click="save()"
-        >speichern
-    </button>
-    <a class="cancel"
-       ng-click="cancel()"
-        >abbrechen
-    </a>
+    <!--<div class="availability-header">-->
+    <!--<div class="month cell first">February</div>-->
+    <!--</div>-->
 
+    <div class="availability-entry">
+      <div class="availability-date cell first">
+        <input type="text"
+               class="form-control"
+               ng-model="activity.availability[0].start"
+               data-min-date="{{search.minDate}}"
+               placeholder="Date"
+               bs-datepicker
+               autoclose="true"
+               value=""
+            >
+      </div>
+      <div class="availability-time cell">
+        <input type="text"
+               class="form-control"
+               ng-model="activity.availability[0].end"
+               data-min-date="{{search.minDate}}"
+               placeholder="Time"
+               bs-datepicker
+               autoclose="true"
+               value=""
+            >
+      </div>
+      <div class="availability-amount cell last align-right">
+        <input type="number"
+               class="form-control"
+               id="name"
+               placeholder="Amount"
+               ng-model="activity.availability[0].quantity"
+            >
+      </div>
+    </div>
+
+    <!--<div class="availability-entry">-->
+    <!--<div class="cell">-->
+    <!--<a href="#"-->
+    <!--class="btn btn-small">-->
+    <!--Add Entry-->
+    <!--</a>-->
+    <!--</div>-->
+    <!--</div>-->
 
   </div>
+</div>
 
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
+<div class="buttonbar margin-top">
+
+  <a data-ng-show="!isNewMode()"
+     class="btn btn-alert float-left"
+     data-ng-click="delete()">delete
+  </a>
+
+  <button class="btn"
+          ng-click="save()"
+      >speichern
+  </button>
+  <a class="cancel"
+     ng-click="cancel()"
+      >abbrechen
+  </a>
+
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 </form>

@@ -26,15 +26,27 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.setSubcat = function (key) {
-      console.log("GOT KEY", key);
+    $scope.isTitleInSubcats = function(title) {
+      var found = _.filter($scope.activity.category.subs, function (sub) {
+        if (sub.title === title) {
+          return true;
+        }
+      });
+      if (found.length > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    $scope.setSubcat = function (title) {
       if (!$scope.activity.category.subs) {
         $scope.activity.category.subs = [];
       }
-      if (_.contains($scope.activity.category.subs, key)) {
-        $scope.activity.category.subs = _.without($scope.activity.category.subs, key);
+      if ($scope.isTitleInSubcats(title)) {
+        _.remove($scope.activity.category.subs, { 'title': title });
       } else {
-        $scope.activity.category.subs.push(key);
+        $scope.activity.category.subs.push({ 'title': title });
       }
     };
 
@@ -104,7 +116,8 @@ angular.module('anorakApp')
     };
 
     $scope.save = function () {
-      debug("save() called");
+      debug("save() called", $scope.activity);
+      $scope.activity.availability
       $scope.activity.save()
         .then(function (activity, err) {
           if (err) {
