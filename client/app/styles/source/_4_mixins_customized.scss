@@ -280,7 +280,7 @@ footer {
 .availability-list {
 }
 
-.availability-header {
+.availability-header, .activitytype-header {
   @include divtable_header_small;
 }
 
@@ -309,6 +309,21 @@ footer {
     .availability-user &{
       width: 15%;
     }
+  }
+}
+
+.activitytype-list{
+  .activitytype-entry{
+    @include divtable_row_small;
+  }
+  .activitytype-name{
+    width: 60%;
+  }
+  .activitytype-quantity{
+    width: 15%;
+  }
+  .activitytype-price{
+    width: 25%;
   }
 }
 
