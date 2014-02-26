@@ -47,7 +47,7 @@ models.UserModel.writeFilter(function(userObj, req) {
 
 // setup Operations for the model to register an user
 models.UserModel.operationImpl("register", function(params, req) {
-  var user = models.UserModel.createObject();
+  var user = models.UserModel.create();
   user.username = params.username;
   user.password = params.password;
 
@@ -58,7 +58,7 @@ models.UserModel.operationImpl("register", function(params, req) {
         throw new Error("You have to provide a E-Mail address");
       };
 
-      return models.UserModel.use.find({username:params.username});  // find all existing users
+      return models.UserModel.find({username:params.username});  // find all existing users
     })
     .then(function(users) {
       if (users.length > 0 ) throw new Error("User already exists");
@@ -72,7 +72,7 @@ models.UserModel.operationImpl("register", function(params, req) {
 
 // a operation to login a user
 models.UserModel.operationImpl("login", function(params, req) {
-  return models.UserModel.use.find({username:params.username})  // find this user
+  return models.UserModel.find({username:params.username})  // find this user
     .then(function(users) {
       if (users.length < 1) throw new Error("User not found");
       if (users.length > 1) throw new Error("Found more then one user");
@@ -107,8 +107,8 @@ models.UserModel.factoryImpl("currentUser", function(params, req) {
     deferred.reject(err);
     return deferred.promise;
   }
-  //return models.UserModel.use.get(ObjectId(req.session.user_id));
-  return models.UserModel.use.find({ _id: ObjectId(req.session.user_id)})
+  //return models.UserModel.get(ObjectId(req.session.user_id));
+  return models.UserModel.find({ _id: ObjectId(req.session.user_id)})
     .then(function(users){
       if (users.length !== 1) throw new Error("User not found");
       return users[0];
@@ -122,6 +122,6 @@ models.ActivityModel.factoryImpl("getMyActivities", function(params, req) {
     return false;  // if not logged operation not allowed
   }
 
-  return models.ActivityModel.use.find({'owner._reference' : req.session.user_id});
+  return models.ActivityModel.find({'owner._reference' : req.session.user_id});
 });
 

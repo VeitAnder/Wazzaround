@@ -64,10 +64,10 @@ angular.module('anorakApp')
         controller: 'indexCtrl',
         resolve: {
           categories: ['models', function (models) {
-            return models.CategoryModel.use.all();
+            return models.CategoryModel.all();
           }],
           resolvedActivities: ['models', function (models) {
-            return models.ActivityModel.use.all();
+            return models.ActivityModel.all();
           }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
@@ -104,10 +104,10 @@ angular.module('anorakApp')
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
           categories: ['models', function (models) {
-            return models.CategoryModel.use.all();
+            return models.CategoryModel.all();
           }],
           activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.use.get($route.current.params.id);
+            return models.ActivityModel.get($route.current.params.id);
           }]
         }
       })
@@ -116,10 +116,10 @@ angular.module('anorakApp')
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
           categories: ['models', function (models) {
-            return models.CategoryModel.use.all();
+            return models.CategoryModel.all();
           }],
           activity: ['models', function (models) {
-            return models.ActivityModel.createObject();
+            return models.ActivityModel.create();
           }]
         }
       })
@@ -128,7 +128,7 @@ angular.module('anorakApp')
         controller: 'AdminMyactivitiesDetailCtrl',
         resolve: {
           activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.use.get($route.current.params.id);
+            return models.ActivityModel.get($route.current.params.id);
           }]
         }
       })
