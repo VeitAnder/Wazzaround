@@ -277,6 +277,20 @@ footer {
   }
 }
 
+
+.listaction.cell{
+  width: 15%;
+  text-align: center;
+  .delete{
+    @include button_icon_delete;
+    top: 3px;
+  }
+  .add{
+    @include button_icon_large_add;
+    top: 5px;
+  }
+}
+
 .availability-list {
 }
 
@@ -317,13 +331,13 @@ footer {
     @include divtable_row_small;
   }
   .activitytype-name{
-    width: 60%;
+    width: 50%;
   }
   .activitytype-quantity{
     width: 15%;
   }
   .activitytype-price{
-    width: 25%;
+    width: 20%;
   }
 }
 

@@ -2087,6 +2087,83 @@ footer {
 .activity-edit .availability-entry .cell.last {
   padding-right: 0; }
 
+.listaction.cell {
+  width: 15%;
+  text-align: center; }
+  .listaction.cell .delete {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #999999;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-position: -70px 5px;
+    background-repeat: no-repeat;
+    top: 3px; }
+    .svg .listaction.cell .delete {
+      background-image: url('/img/sprite_icons.svg'); }
+    .no-svg .listaction.cell .delete {
+      background-image: url('/img/sprite_icons.png'); }
+    .listaction.cell .delete:hover {
+      background-color: #8c8c8c; }
+    .svg .listaction.cell .delete {
+      background-image: url('/img/sprite_icons.svg'); }
+    .no-svg .listaction.cell .delete {
+      background-image: url('/img/sprite_icons.png'); }
+    .listaction.cell .delete:hover {
+      background-color: #C83C19; }
+    .listaction.cell .delete span {
+      display: none; }
+  .listaction.cell .add {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #999999;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    -webkit-border-radius: 15px;
+    -khtml-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+    background-position: -90px 10px;
+    background-repeat: no-repeat;
+    top: 5px; }
+    .svg .listaction.cell .add {
+      background-image: url('/img/sprite_icons.svg'); }
+    .no-svg .listaction.cell .add {
+      background-image: url('/img/sprite_icons.png'); }
+    .listaction.cell .add:hover {
+      background-color: #8c8c8c; }
+    .svg .listaction.cell .add {
+      background-image: url('/img/sprite_icons.svg'); }
+    .no-svg .listaction.cell .add {
+      background-image: url('/img/sprite_icons.png'); }
+    .listaction.cell .add:hover {
+      background-color: #85C900; }
+    .listaction.cell .add span {
+      display: none; }
+
 
 .availability-header, .activitytype-header {
   -webkit-user-select: none;
@@ -2311,11 +2388,11 @@ footer {
     .activitytype-list .activitytype-entry .cell.last {
       padding-right: 10px; }
 .activitytype-list .activitytype-name {
-  width: 60%; }
+  width: 50%; }
 .activitytype-list .activitytype-quantity {
   width: 15%; }
 .activitytype-list .activitytype-price {
-  width: 25%; }
+  width: 20%; }
 
 #logo {
   display: block;

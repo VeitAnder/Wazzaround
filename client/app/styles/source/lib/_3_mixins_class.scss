@@ -258,6 +258,111 @@ a.link-download{
 }
 
 
+
+@mixin icon {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: $color_13;
+  @include border-radius(10px);
+  @include sprite_icons(0, 0, no-repeat);
+}
+
+@mixin icon_large {
+  @include icon;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  @include border-radius(15px);
+}
+
+@mixin icon_small {
+  @include icon;
+  top: 3px;
+  width: 14px;
+  height: 14px;
+  @include border-radius(7px);
+}
+
+@mixin button_icon {
+  @include icon;
+  &:hover {
+    background-color: $color_grey_75;
+  }
+}
+
+@mixin button_icon_large {
+  @include icon_large;
+  &:hover {
+    background-color: $color_grey_75;
+  }
+}
+
+@mixin button_icon_small {
+  @include icon_small;
+  &:hover {
+    background-color: $color_grey_75;
+  }
+}
+
+@mixin button_icon_delete {
+  @include button_icon;
+  @include sprite_icons(-70px, 5px, no-repeat);
+  &:hover {
+    background-color: $color_red;
+  }
+  span {
+    display: none;
+  }
+}
+
+@mixin button_icon_add {
+  @include button_icon;
+  @include sprite_icons(-95px, 5px, no-repeat);
+  &:hover {
+    background-color: $color_green;
+  }
+  span {
+    display: none;
+  }
+}
+
+@mixin button_icon_small_delete{
+  @include button_icon_small;
+  @include sprite_icons(3px, -197px, no-repeat);
+  &:hover {
+    background-color: $color_red;
+  }
+  span {
+    display: none;
+  }
+}
+
+@mixin button_icon_large_add{
+  @include button_icon_large;
+  @include sprite_icons(-90px, 10px, no-repeat);
+  &:hover {
+    background-color: $color_green;
+  }
+  span {
+    display: none;
+  }
+}
+
+@mixin button_icon_large_delete{
+  @include button_icon_large;
+  @include sprite_icons(-65px, 10px, no-repeat);
+  &:hover {
+    background-color: $color_green;
+  }
+  span {
+    display: none;
+  }
+}
+
+
 @mixin buttonbar {
   @include box-sizing(border-box);
   clear: both;
