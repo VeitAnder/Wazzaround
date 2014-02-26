@@ -19,11 +19,22 @@ angular.module('anorakApp')
 
     $scope.categories = categories;
     $scope.activity = activity;
-
     $scope.getSubCategories = function () {
       var maincategory = _.find(categories, { 'key': $scope.activity.category.main });
       if (maincategory) {
         return maincategory.sub;
+      }
+    };
+
+    $scope.setSubcat = function (key) {
+      console.log("GOT KEY", key);
+      if (!$scope.activity.category.subs) {
+        $scope.activity.category.subs = [];
+      }
+      if (_.contains($scope.activity.category.subs, key)) {
+        $scope.activity.category.subs = _.without($scope.activity.category.subs, key);
+      } else {
+        $scope.activity.category.subs.push(key);
       }
     };
 

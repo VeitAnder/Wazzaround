@@ -58,7 +58,9 @@ var models = function () {
 
     category: {
       main: Attr(Type.string),
-      sub: Attr(Type.string)
+      subs: [{
+        key: Attr(Type.string)
+      }]
     },
 
     longitude: Attr(Type.number),

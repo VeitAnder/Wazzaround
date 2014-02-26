@@ -73,20 +73,19 @@
   <div class="form-group"
        data-ng-show="activity.category.main"
       >
-    <label for="categorySub">Sub Category</label>
-    <select class="form-control"
-            id="categorySub"
-            required
-            ng-model="activity.category.sub"
-        >
-      <option disabled>Select Sub Category</option>
-      <option
-          ng-repeat="subcategory in getSubCategories()"
-          value="{{subcategory.key}}"
-          ng-selected="activity.category.sub === subcategory.key"
-          >{{subcategory.title}}
-      </option>
-    </select>
+    <span>Select Sub Category</span><br />
+    <!--<label for="categorySub">Sub Category</label>-->
+    ACT{{activity}}<br><br>
+                        ACT CAT MAIN{{activity.category.main}}<br />
+                        ACT CAT SUBs{{activity.category.subs}} <br /> <br>
+    <span
+      ng-repeat="subcategory in getSubCategories()"
+      > {{subcategory.title}} - {{$index}}
+      <input type="checkbox" ng-model="value$index" data-ng-change="setSubcat(subcategory.key)" ng-true-value="{{subcategory.key}}" ng-false-value="" />
+
+
+      VALUE  {{value$index}} <br><br><br>
+      </span>
   </div>
 
   <div class="form-group">
