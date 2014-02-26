@@ -116,6 +116,7 @@ angular.module('anorakApp')
       $location.path("/admin/myactivities/");
     };
 
+    /*
     // only when creating element
     if (!$scope.activity.availability[0]) {
       $scope.newavailability = {
@@ -127,5 +128,6 @@ angular.module('anorakApp')
       $scope.activity.availability[0] = $scope.newavailability;
 
     }
+    */
 
   });

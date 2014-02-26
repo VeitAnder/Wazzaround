@@ -6,15 +6,12 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var model = require('modelizer');
-//var model = require('../../../../modelizer/lib/modelizer.js');
+//var model = require('modelizer');
+var model = require('../../../../modelizer/lib/modelizer.js');
 
 var config = require('../config.js');
 
 var initModelizer = function (app) {
-
-  // importing our models
-  var models = require('../models/models.js');
 
   // init mongodb database connection
   var mongojs = require('mongojs');
@@ -25,18 +22,27 @@ var initModelizer = function (app) {
   var connector = model.MongoConnector(db);
 
   // say that our model should use express and the database connector
-  models.UserModel.connection(connector);
-  models.UserModel.express(app);
-  models.UserModel.serve();
 
-  models.ActivityModel.connection(connector);
-  models.ActivityModel.express(app);
-  models.ActivityModel.serve();
+  // setup connection and express for all models
+  model.globalConnection = connector;
+  model.globalExpress = app;
+
+  // importing our models
+  var models = require('../models/models.js');
 
 
-  models.CategoryModel.connection(connector);
-  models.CategoryModel.express(app);
-  models.CategoryModel.serve();
+//  models.UserModel.connection(connector);
+//  models.UserModel.express(app);
+//  models.UserModel.serve();
+//
+//  models.ActivityModel.connection(connector);
+//  models.ActivityModel.express(app);
+//  models.ActivityModel.serve();
+//
+//
+//  models.CategoryModel.connection(connector);
+//  models.CategoryModel.express(app);
+//  models.CategoryModel.serve();
 
   // apply server model
   require('../models/serverModel.js');

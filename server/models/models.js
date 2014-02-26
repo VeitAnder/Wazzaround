@@ -2,12 +2,13 @@
 
 var models = function () {
   // using the the Modelizer library
-  var model = require('modelizer');
-  //var model = require('../../../../modelizer/lib/modelizer.js');
+  //var model = require('modelizer');
+  var model = require('../../../../modelizer/lib/modelizer.js');
 
   var Attr = model.Attr;
   var Type = model.Attr.Types;
   var Ref = model.Ref;
+  var RefArray = model.RefArray;
   var Operation = model.Operation;
   var Factory = model.Factory;
 
@@ -49,6 +50,39 @@ var models = function () {
     currentUser: Factory()
   });
 
+
+  var BookableItemModel = new model("bookableItems", {
+    description: Attr(Type.string),
+    price: Attr(Type.number),
+
+//    bookableEvents: [{
+//      start: Attr(Type.date),
+//      end: Attr(Type.date),
+//      quantity: Attr(Type.number),
+//      repeating : Attr(Type.boolean),
+//      daysOfWeek: {
+//        Mon : Attr(Type.boolean),
+//        Tue : Attr(Type.boolean),
+//        Wed : Attr(Type.boolean),
+//        Thu : Attr(Type.boolean),
+//        Fri : Attr(Type.boolean),
+//        Sat : Attr(Type.boolean),
+//        Son : Attr(Type.boolean)
+//      }
+//    }],
+
+    events : [{
+      start: Attr(Type.date),
+      end: Attr(Type.date),
+      quantity: Attr(Type.number)
+    }],
+
+    owner: Ref(UserModel),
+
+    bookItem : Operation()
+  });
+
+
   var ActivityModel = new model("activities", {
     name: Attr(Type.string),
     company: Attr(Type.string),
@@ -64,15 +98,30 @@ var models = function () {
     longitude: Attr(Type.number),
     latitude: Attr(Type.number),
 
-    availability: [{
-      start: Attr(Type.date),
-      end: Attr(Type.date),
-      quantity: Attr(Type.number)
-    }],
+    bookableItems: RefArray(BookableItemModel),
 
     owner: Ref(UserModel),
 
     getMyActivities: Factory()
+  });
+
+
+  var BookingsModel = new model('bookings', {
+//    derUserDerBucht: 34,
+//    verweisAufAnbieter :432,
+
+    activityCopy : ActivityModel,
+    bookableItemCopy : BookableItemModel,
+    bookableItemRef : Ref(BookableItemModel),
+
+    booking : {
+      start: Attr(Type.date),
+      end: Attr(Type.date),
+      quantity: Attr(Type.number),
+      price: Attr(Type.number)
+    },
+
+    cancelBooking : Operation()
   });
 
   var CategoryModel = new model("categories", {
@@ -86,10 +135,13 @@ var models = function () {
     ]
   });
 
+
   return {
     UserModel: UserModel,
     ActivityModel: ActivityModel,
-    CategoryModel: CategoryModel
+    CategoryModel: CategoryModel,
+    BookableItemModel: BookableItemModel,
+    BookingsModel: BookingsModel
   };
 };
 

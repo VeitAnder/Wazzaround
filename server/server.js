@@ -1,5 +1,10 @@
 //var http = require('http');
 
+// process uncaught Exceptions
+process.on('uncaughtException', function(err) {
+  console.log('Caught exception', err);
+});
+
 var express = require('express');
 //require('express-namespace');
 //var passport = require('passport');
