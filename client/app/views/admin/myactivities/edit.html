@@ -152,13 +152,88 @@
 
     <div class="bookableitems">
 
+      <div class="bookableitem">
+        <div class="bookableitem-header">
+          <div class="bookableitem-name cell first">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Name of new Item"
+                   value="Quad 250 ccm"/>
+
+          </div>
+          <div class="bookableitem-price cell">
+            <input type="number"
+                   class="form-control"
+                   placeholder="Price in €"
+                   value="450"/>
+          </div>
+          <div class="listaction cell last">
+            <a class="delete">
+              <span>delete Item</span>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="bookableitem-body">
+          <h4>When can it be booked?</h4>
+
+          <div class="event-list">
+            <div class="event-header">
+              <div class="event-date cell first">Date</div>
+              <div class="event-quantity cell">Qty.</div>
+              <div class="listaction cell last">
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-date cell first">24.07.2014</div>
+              <div class="event-quantity cell">2x</div>
+              <div class="listaction cell last">
+                <a class="edit"><span>edit</span></a>
+                <a class="delete"><span>delete</span></a>
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-date cell first">24.07.2014</div>
+              <div class="event-quantity cell">2x</div>
+              <div class="listaction cell last">
+                <a class="edit"><span>edit</span></a>
+                <a class="delete"><span>delete</span></a>
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-date cell first">24.07.2014</div>
+              <div class="event-quantity cell">2x</div>
+              <div class="listaction cell last">
+                <a class="edit"><span>edit</span></a>
+                <a class="delete"><span>delete</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-add align-right">
+            <a class="btn-icon-add">Add Event<span class="btn-icon-right"></span></a>
+            <!--<input type="text"-->
+            <!--class="form-control"-->
+            <!--ng-model="activity.availability[0].start"-->
+            <!--data-min-date="{{search.minDate}}"-->
+            <!--placeholder="Date"-->
+            <!--bs-datepicker-->
+            <!--autoclose="true"-->
+            <!--value=""/>-->
+
+          </div>
+        </div>
+
+      </div>
+
       <div class="bookableitem bookableitem-add">
 
         <div class="bookableitem-header">
           <div class="bookableitem-name cell first">
             <input type="text"
                    class="form-control"
-                   placeholder="Name of bookable Item"/>
+                   placeholder="Name of new Item"/>
           </div>
           <div class="bookableitem-price cell">
             <input type="number"
@@ -171,22 +246,6 @@
             </a>
           </div>
         </div>
-      </div>
-
-      <div class="bookableitem">
-        <div class="bookableitem-header">
-          <div class="bookableitem-name cell first">
-            Name of bookable Item
-          </div>
-          <div class="bookableitem-price cell">
-            450,–
-          </div>
-          <div class="listaction cell last">
-            <a class="">
-              <span>add Item</span>
-            </a>
-          </div>
-
       </div>
 
     </div>

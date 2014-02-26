@@ -264,21 +264,30 @@ footer {
 
 .listaction.cell{
   width: 10%;
-  text-align: center;
+  text-align: right;
   .delete{
-    @include button_icon_delete;
-    top: 3px;
+    @include button_icon_large_delete;
+    top: 5px;
+    .bookableitem-header &{
+      border: 2px solid $color_white;
+      background-position: -67px 8px;
+    }
   }
   .add{
     @include button_icon_large_add;
     top: 5px;
     .bookableitem-header &{
-      background-color: $color_green;
       border: 2px solid $color_white;
       background-position: -92px 8px;
-      &:hover{
-        background-color: $color_grey;
-      }
+    }
+  }
+  .event-list &{
+    width: 20%;
+    .add{
+      @include button_icon_add;
+    }
+    .delete{
+      @include button_icon_small_delete;
     }
   }
 }
@@ -289,11 +298,36 @@ footer {
 
 .bookableitem{
   margin-bottom: $fs*2.0;
+  &:last-child{
+    margin-bottom: 0;
+  }
 }
 .bookableitem-header{
-  background-color: $color_green;
-  @include border-radius($border-radius);
+  background-color: $color_grey;
+  @include border-top-radius($border-radius);
   @include divtable_row;
+  padding: $bu;
+  border-bottom: none;
+  .bookableitem-add &{
+    @include border-radius($border-radius);
+    background-color: $color_grey_25;
+  }
+  .cell{
+    padding-top: 0;
+    padding-bottom: 0;
+    &.first{
+      padding-left: 0;
+    }
+    &.last{
+      padding-right: 0;
+    }
+  }
+}
+
+.bookableitem-body{
+  padding: $bu;
+  background-color: $color_white;
+  @include border-bottom-radius($border-radius);
 }
 
 .bookableitem-name{
@@ -302,6 +336,29 @@ footer {
 
 .bookableitem-price{
   width: 30%;
+}
+
+
+.event-list{
+
+}
+
+.event-header{
+  @include divtable_header_small;
+}
+.event{
+  @include divtable_row_small;
+}
+
+.event-date{
+  width: 60%;
+}
+.event-quantity{
+  width: 20%;
+}
+
+.event-add{
+  padding-top: 10px;
 }
 
 //

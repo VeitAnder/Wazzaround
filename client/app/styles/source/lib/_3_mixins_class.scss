@@ -331,7 +331,7 @@ a.link-download{
 
 @mixin button_icon_small_delete{
   @include button_icon_small;
-  @include sprite_icons(3px, -197px, no-repeat);
+  @include sprite_icons(-72px, -22px, no-repeat);
   &:hover {
     background-color: $color_red;
   }
@@ -355,10 +355,32 @@ a.link-download{
   @include button_icon_large;
   @include sprite_icons(-65px, 10px, no-repeat);
   &:hover {
-    background-color: $color_green;
+    background-color: $color_red;
   }
   span {
     display: none;
+  }
+}
+
+
+.btn-icon-add{
+  text-decoration: none;
+  font-weight: $font-weight_bold;
+  color: $color_grey_75;
+  span{
+    @include button_icon_add;
+    &.btn-icon-left{
+      margin-right: 5px;
+    }
+    &.btn-icon-right{
+      margin-left: 5px;
+    }
+  }
+  &:hover{
+    color: $color_green;
+    span{
+      background-color: $color_green;
+    }
   }
 }
 
