@@ -2,8 +2,8 @@
 
 var models = function () {
   // using the the Modelizer library
-  //var model = require('modelizer');
-  var model = require('../../../../modelizer/lib/modelizer.js');
+  var model = require('modelizer');
+  //var model = require('../../../../modelizer/lib/modelizer.js');
 
   var Attr = model.Attr;
   var Type = model.Attr.Types;
@@ -92,7 +92,9 @@ var models = function () {
 
     category: {
       main: Attr(Type.string),
-      sub: Attr(Type.string)
+      subs: [{
+        title: Attr(Type.string)
+      }]
     },
 
     longitude: Attr(Type.number),

@@ -261,56 +261,174 @@ footer {
   }
 }
 
-.activity-detail {
-}
 
-.activity-edit {
-  .availability-entry {
-    .cell {
-      &.first {
-        padding-left: 0;
-      }
-      &.last {
-        padding-right: 0;
-      }
+.listaction.cell{
+  width: 10%;
+  text-align: right;
+  .delete{
+    @include button_icon_large_delete;
+    top: 5px;
+    .bookableitem-header &{
+      border: 2px solid $color_white;
+      background-position: -67px 8px;
+    }
+  }
+  .add{
+    @include button_icon_large_add;
+    top: 5px;
+    .bookableitem-header &{
+      border: 2px solid $color_white;
+      background-position: -92px 8px;
+    }
+  }
+  .event-list &{
+    width: 20%;
+    .add{
+      @include button_icon_add;
+    }
+    .delete{
+      @include button_icon_small_delete;
     }
   }
 }
 
-.availability-list {
+.bookableitems{
+
 }
 
-.availability-header {
+.bookableitem{
+  margin-bottom: $fs*2.0;
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+.bookableitem-header{
+  background-color: $color_grey;
+  @include border-top-radius($border-radius);
+  @include divtable_row;
+  padding: $bu;
+  border-bottom: none;
+  .bookableitem-add &{
+    @include border-radius($border-radius);
+    background-color: $color_grey_25;
+  }
+  .cell{
+    padding-top: 0;
+    padding-bottom: 0;
+    &.first{
+      padding-left: 0;
+    }
+    &.last{
+      padding-right: 0;
+    }
+  }
+}
+
+.bookableitem-body{
+  padding: $bu;
+  background-color: $color_white;
+  @include border-bottom-radius($border-radius);
+}
+
+.bookableitem-name{
+  width: 60%;
+}
+
+.bookableitem-price{
+  width: 30%;
+}
+
+
+.event-list{
+
+}
+
+.event-header{
   @include divtable_header_small;
 }
-
-.availability-entry {
+.event{
   @include divtable_row_small;
-  .availability-date {
-    width: 45%;
-    .availability-user &{
-      width: 40%;
-    }
-  }
-  .availability-time {
-    width: 35%;
-    .availability-user &{
-      width: 30%;
-    }
-  }
-  .availability-amount {
-    width: 20%;
-    .availability-user &{
-      width: 15%;
-    }
-  }
-  .availability-book {
-    width: 0%;
-    .availability-user &{
-      width: 15%;
-    }
-  }
 }
+
+.event-date{
+  width: 60%;
+}
+.event-quantity{
+  width: 20%;
+}
+
+.event-add{
+  padding-top: 10px;
+}
+
+//
+//.activity-detail {
+//}
+//
+//.activity-edit {
+//  .availability-entry {
+//    .cell {
+//      &.first {
+//        padding-left: 0;
+//      }
+//      &.last {
+//        padding-right: 0;
+//      }
+//    }
+//  }
+//}
+//
+//
+//
+//.availability-list {
+//}
+//
+//.availability-header, .activitytype-header {
+//  @include divtable_header_small;
+//}
+//
+//.availability-entry {
+//  @include divtable_row_small;
+//  .availability-date {
+//    width: 45%;
+//    .availability-user &{
+//      width: 40%;
+//    }
+//  }
+//  .availability-time {
+//    width: 35%;
+//    .availability-user &{
+//      width: 30%;
+//    }
+//  }
+//  .availability-amount {
+//    width: 20%;
+//    .availability-user &{
+//      width: 15%;
+//    }
+//  }
+//  .availability-book {
+//    width: 0%;
+//    .availability-user &{
+//      width: 15%;
+//    }
+//  }
+//}
+//
+//.activitytype-list{
+//  .activitytype-entry{
+//    @include divtable_row_small;
+//  }
+//  .activitytype-name{
+//    width: 50%;
+//  }
+//  .activitytype-quantity{
+//    width: 15%;
+//  }
+//  .activitytype-price{
+//    width: 20%;
+//  }
+//}
 
 // CONTENT ELEMENTS
 // ###########################################################################################################################

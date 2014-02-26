@@ -19,11 +19,34 @@ angular.module('anorakApp')
 
     $scope.categories = categories;
     $scope.activity = activity;
-
     $scope.getSubCategories = function () {
       var maincategory = _.find(categories, { 'key': $scope.activity.category.main });
       if (maincategory) {
         return maincategory.sub;
+      }
+    };
+
+    $scope.isTitleInSubcats = function(title) {
+      var found = _.filter($scope.activity.category.subs, function (sub) {
+        if (sub.title === title) {
+          return true;
+        }
+      });
+      if (found.length > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    $scope.setSubcat = function (title) {
+      if (!$scope.activity.category.subs) {
+        $scope.activity.category.subs = [];
+      }
+      if ($scope.isTitleInSubcats(title)) {
+        _.remove($scope.activity.category.subs, { 'title': title });
+      } else {
+        $scope.activity.category.subs.push({ 'title': title });
       }
     };
 
@@ -93,7 +116,8 @@ angular.module('anorakApp')
     };
 
     $scope.save = function () {
-      debug("save() called");
+      debug("save() called", $scope.activity);
+      $scope.activity.availability
       $scope.activity.save()
         .then(function (activity, err) {
           if (err) {
