@@ -119,13 +119,10 @@ angular.module('anorakApp')
       debug("save() called", $scope.activity);
       $scope.activity.availability
       $scope.activity.save()
-        .then(function (activity, err) {
-          if (err) {
-            debug("err", err);
-          }
+        .then(function (activity) {
           $location.path("/admin/myactivities/");
           $scope.$apply();
-        }).done(); // <-----------------1!!! SEHR WICHTIG immer done aufrufen! Sonst bekommt ihr nicht mit wenn was schief lief!
+        }).done();
     };
 
     $scope.delete = function () {
