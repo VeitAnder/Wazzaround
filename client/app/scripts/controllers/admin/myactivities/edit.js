@@ -19,6 +19,8 @@ angular.module('anorakApp')
 
     $scope.categories = categories;
     $scope.activity = activity;
+
+
     $scope.getSubCategories = function () {
       var maincategory = _.find(categories, { 'key': $scope.activity.category.main });
       if (maincategory) {
@@ -115,15 +117,31 @@ angular.module('anorakApp')
       return "Activity location";
     };
 
+    // Save the Activiy
     $scope.save = function () {
       debug("save() called", $scope.activity);
-      $scope.activity.availability
-      $scope.activity.save()
-        .then(function (activity) {
+
+      var saveItemsPromises = [];
+
+      _.forEach($scope.activity.bookableItems, function(item) {
+        if (item.ref().repeating === false || item.ref().repeating == undefined) {
+          saveItemsPromises.push(item.ref().save());  // save all BookableItems
+        } else {
+          console.log("TODO!");
+        }
+      });
+
+      Q.all(saveItemsPromises)
+        .then(function(results) {  // all BookableItems are saved
+          console.log("all results", results);
+          return $scope.activity.save();  // save the activity
+        })
+        .then(function(activity) {
           $location.path("/admin/myactivities/");
           $scope.$apply();
         }).done();
     };
+
 
     $scope.delete = function () {
       $scope.activity.remove()
