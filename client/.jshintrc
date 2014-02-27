@@ -95,6 +95,8 @@
     "UAParser": true,
     "escape": true,
     "unescape":true,
-    "debug": true
+    "debug": true,
+    "Model": true,
+    "google": true
   }
 }

@@ -6,7 +6,7 @@
  - filter activities in a radius of 30km around this central coordinates
  */
 angular.module('anorakApp')
-  .service('mapdataservice', function mapdataservice($rootScope, models) {
+  .service('mapdataservice', function mapdataservice($rootScope, models, $q) {
 
     var geocoder;
     var standardCenter = {
@@ -27,7 +27,7 @@ angular.module('anorakApp')
 
     var geoCodeAddress = function (address) {
 
-      var defer = Q.defer();
+      var defer = $q.defer();
 
       if (!address) {
         debug("GOT NO ADDRESS", address);

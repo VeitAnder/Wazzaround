@@ -162,6 +162,9 @@ angular.module('anorakApp')
     models.UserModel.connection(connector);
     models.ActivityModel.connection(connector);
     models.CategoryModel.connection(connector);
+    models.BookableItemModel.connection(connector);
+    models.BookingsModel.connection(connector);
+
 
 
     checkRouteForAuthorization = function () {
