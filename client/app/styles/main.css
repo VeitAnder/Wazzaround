@@ -1856,10 +1856,14 @@ footer {
   .controlpanel h2 {
     margin: 15px 0; }
 
-.map-searchbar {
+.mapsearchbar-overlay {
   position: absolute;
   z-index: 10;
   margin: 15px 0 0 40px; }
+
+.mapsearchbar {
+  overflow: hidden;
+  margin-bottom: 15px; }
 
 .map-wrap {
   position: relative;
@@ -3751,6 +3755,14 @@ footer {
     .admin-section a:hover, .admin-section a:link:hover {
       color: #FFF; }
   .admin-section a, .admin-section a:link {
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
     padding-left: 35px;
     color: #e0f1bf; }
 
@@ -3836,14 +3848,17 @@ footer {
 
 .form-mapsearch .form-group {
   float: left;
-  width: 45%;
-  margin-left: 1%; }
-  .form-mapsearch .form-group:first-child {
-    margin-left: 0; }
+  margin-bottom: 0;
+  padding-top: 0; }
   .form-mapsearch .form-group label {
     display: none; }
-  .form-mapsearch .form-group.date-from, .form-mapsearch .form-group.date-until {
-    width: 25%; }
+  .form-mapsearch .form-group.location {
+    width: 100%; }
+  .form-mapsearch .form-group.date-from {
+    width: 48%; }
+  .form-mapsearch .form-group.date-until {
+    width: 48%;
+    margin-left: 4%; }
 
 .listheader {
   -webkit-user-select: none;

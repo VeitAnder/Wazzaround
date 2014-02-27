@@ -69,11 +69,17 @@ footer {
   }
 }
 
-.map-searchbar {
+.mapsearchbar-overlay {
   position: absolute;
   z-index: 10;
   margin: 15px 0 0 40px;
 }
+
+.mapsearchbar{
+  overflow: hidden;
+  margin-bottom: $bu;
+}
+
 
 .map-wrap {
   position: relative;
@@ -1533,6 +1539,7 @@ $img-block-size: 150px;
   clear: both;
   @include teaser-textformat;
   a, a:link {
+    @include ellipsis(no-wrap);
     padding-left: 35px;
     color: $color_green_25;
   }
@@ -1587,16 +1594,20 @@ $img-block-size: 150px;
 .form-mapsearch {
   .form-group {
     float: left;
-    width: 45%;
-    margin-left: 1%;
-    &:first-child {
-      margin-left: 0;
-    }
+    margin-bottom: 0;
+    padding-top: 0;
     label {
       display: none;
     }
-    &.date-from, &.date-until{
-      width: 25%;
+    &.location{
+      width: 100%;
+    }
+    &.date-from{
+      width: 48%;
+    }
+    &.date-until{
+      width: 48%;
+      margin-left: 4%;
     }
   }
   .form-control {

@@ -25,7 +25,7 @@
 angular.module('anorakApp', [
   'ngRoute',
   'google-maps',
-  'mgcrea.ngStrap.datepicker',
+  'mgcrea.ngStrap',
   'textAngular',
   'ui.keypress',
   'registration',
