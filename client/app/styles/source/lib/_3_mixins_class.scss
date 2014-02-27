@@ -199,23 +199,38 @@ a.link-download{
   }
 }
 
-.btn, a.btn {
+button.btn, .btn, a.btn {
   @include button;
   &.btn-default{
     background-color: $color_white;
-    color: $color_text;
-    border-width: 1px;
-    border-color: $color_grey_50;
-    &:hover{
-      background-color: $color_grey_50;
-      color: $color_white;
+    border: none;
+    font-family: $sysfont_01;
+    color: $color_grey;
+    font-weight: $font-weight_bold;
+    span {
+      color: $color_grey;
+      &.text-muted {
+        font-weight: $font-weight_light;
+      }
     }
-    &.active{
-      background-color: $color_button_background_active;
-      border-color: $color_button_border_active;
-      color: $color_button_text_active;
+    &:hover {
+      background-color: $color_grey_15;
+    }
+    &:active {
+      background-color: $color_grey_25;
     }
   }
+  &.btn-primary {
+    background-color: $color_green;
+    color: $color_white;
+    span {
+      color: $color_white;
+    }
+    &:hover {
+      background-color: $color_green;
+    }
+  }
+
   &.btn-alert{
     background-color: $color_red;
     border-color: $color_red;
@@ -380,6 +395,27 @@ a.link-download{
     color: $color_green;
     span{
       background-color: $color_green;
+    }
+  }
+}
+
+.btn-icon-delete{
+  text-decoration: none;
+  font-weight: $font-weight_bold;
+  color: $color_grey_75;
+  span{
+    @include button_icon_delete;
+    &.btn-icon-left{
+      margin-right: 5px;
+    }
+    &.btn-icon-right{
+      margin-left: 5px;
+    }
+  }
+  &:hover{
+    color: $color_red;
+    span{
+      background-color: $color_red;
     }
   }
 }

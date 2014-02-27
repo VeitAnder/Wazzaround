@@ -999,7 +999,7 @@ a.link-download {
   .no-svg a.link-download {
     background-image: url('/img/sprite_icons.png'); }
 
-.btn, a.btn {
+button.btn, .btn, a.btn {
   display: inline-block;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1020,44 +1020,53 @@ a.link-download {
   color: #FFF;
   text-decoration: none;
   font-size: 16px; }
-  .btn span, a.btn span {
+  button.btn span, .btn span, a.btn span {
     color: #FFF; }
-  .btn:hover, a.btn:hover {
+  button.btn:hover, .btn:hover, a.btn:hover {
     color: #FFF;
     border-color: #a4d740;
     background-color: #a4d740;
     cursor: pointer; }
-  .btn:active, a.btn:active {
+  button.btn:active, .btn:active, a.btn:active {
     background: #85C900;
     color: #FFF;
     border-color: #a4d740; }
-  .btn[disabled="disabled"], .btn.disabled, a.btn[disabled="disabled"], a.btn.disabled {
+  button.btn[disabled="disabled"], button.btn.disabled, .btn[disabled="disabled"], .btn.disabled, a.btn[disabled="disabled"], a.btn.disabled {
     opacity: 0.5; }
-    .btn[disabled="disabled"]:hover, .btn.disabled:hover, a.btn[disabled="disabled"]:hover, a.btn.disabled:hover {
+    button.btn[disabled="disabled"]:hover, button.btn.disabled:hover, .btn[disabled="disabled"]:hover, .btn.disabled:hover, a.btn[disabled="disabled"]:hover, a.btn.disabled:hover {
       cursor: default; }
-    .btn[disabled="disabled"]:active, .btn.disabled:active, a.btn[disabled="disabled"]:active, a.btn.disabled:active {
+    button.btn[disabled="disabled"]:active, button.btn.disabled:active, .btn[disabled="disabled"]:active, .btn.disabled:active, a.btn[disabled="disabled"]:active, a.btn.disabled:active {
       background-color: #97e300;
       background-image: -webkit-linear-gradient(top, #97e300 0%, #83c400 100%);
       background-image: linear-gradient(to bottom, #97e300 0%, #83c400 100%); }
-  .btn.btn-default, a.btn.btn-default {
+  button.btn.btn-default, .btn.btn-default, a.btn.btn-default {
     background-color: #FFF;
+    border: none;
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #666;
-    border-width: 1px;
-    border-color: #b3b3b3; }
-    .btn.btn-default:hover, a.btn.btn-default:hover {
-      background-color: #b3b3b3;
+    font-weight: 600; }
+    button.btn.btn-default span, .btn.btn-default span, a.btn.btn-default span {
+      color: #666; }
+      button.btn.btn-default span.text-muted, .btn.btn-default span.text-muted, a.btn.btn-default span.text-muted {
+        font-weight: 200; }
+    button.btn.btn-default:hover, .btn.btn-default:hover, a.btn.btn-default:hover {
+      background-color: #e8e8e8; }
+    button.btn.btn-default:active, .btn.btn-default:active, a.btn.btn-default:active {
+      background-color: #d9d9d9; }
+  button.btn.btn-primary, .btn.btn-primary, a.btn.btn-primary {
+    background-color: #85C900;
+    color: #FFF; }
+    button.btn.btn-primary span, .btn.btn-primary span, a.btn.btn-primary span {
       color: #FFF; }
-    .btn.btn-default.active, a.btn.btn-default.active {
-      background-color: #85C900;
-      border-color: #85C900;
-      color: #FFF; }
-  .btn.btn-alert, a.btn.btn-alert {
+    button.btn.btn-primary:hover, .btn.btn-primary:hover, a.btn.btn-primary:hover {
+      background-color: #85C900; }
+  button.btn.btn-alert, .btn.btn-alert, a.btn.btn-alert {
     background-color: #C83C19;
     border-color: #C83C19; }
-    .btn.btn-alert:hover, a.btn.btn-alert:hover {
+    button.btn.btn-alert:hover, .btn.btn-alert:hover, a.btn.btn-alert:hover {
       background-color: #df401c;
       border-color: #df401c; }
-  .btn.btn-large, a.btn.btn-large {
+  button.btn.btn-large, .btn.btn-large, a.btn.btn-large {
     padding: 12px 32px;
     font-size: 25px;
     font-family: embeded-webfont_01, 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -1068,10 +1077,10 @@ a.link-download {
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
     border-radius: 6px; }
-  .btn.btn-small, a.btn.btn-small {
+  button.btn.btn-small, .btn.btn-small, a.btn.btn-small {
     padding: 2.4px 12px;
     font-size: 14px; }
-  .btn.btn-mini, a.btn.btn-mini {
+  button.btn.btn-mini, .btn.btn-mini, a.btn.btn-mini {
     font-size: 12px;
     line-height: 16.8px;
     text-transform: uppercase;
@@ -1128,6 +1137,50 @@ a.link-download {
     color: #85C900; }
     .btn-icon-add:hover span {
       background-color: #85C900; }
+
+.btn-icon-delete {
+  text-decoration: none;
+  font-weight: 600;
+  color: #8c8c8c; }
+  .btn-icon-delete span {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #999999;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-position: -70px 5px;
+    background-repeat: no-repeat; }
+    .svg .btn-icon-delete span {
+      background-image: url('/img/sprite_icons.svg'); }
+    .no-svg .btn-icon-delete span {
+      background-image: url('/img/sprite_icons.png'); }
+    .btn-icon-delete span:hover {
+      background-color: #8c8c8c; }
+    .svg .btn-icon-delete span {
+      background-image: url('/img/sprite_icons.svg'); }
+    .no-svg .btn-icon-delete span {
+      background-image: url('/img/sprite_icons.png'); }
+    .btn-icon-delete span:hover {
+      background-color: #C83C19; }
+    .btn-icon-delete span span {
+      display: none; }
+    .btn-icon-delete span.btn-icon-left {
+      margin-right: 5px; }
+    .btn-icon-delete span.btn-icon-right {
+      margin-left: 5px; }
+  .btn-icon-delete:hover {
+    color: #C83C19; }
+    .btn-icon-delete:hover span {
+      background-color: #C83C19; }
 
 .buttonbar {
   -webkit-box-sizing: border-box;
@@ -2394,6 +2447,8 @@ footer {
       padding-left: 0; }
     .bookableitem-header .cell.last {
       padding-right: 0; }
+  .bookableitem-header label {
+    display: none; }
 
 .bookableitem-body {
   padding: 15px;
@@ -2558,13 +2613,43 @@ footer {
       padding-right: 10px; }
 
 .event-date {
-  width: 60%; }
+  width: 30%; }
+
+.event-time {
+  width: 40%; }
 
 .event-quantity {
-  width: 20%; }
+  width: 10%; }
 
-.event-add {
-  padding-top: 10px; }
+
+.event-new input {
+  min-width: 0;
+  float: left;
+  margin-left: 4%; }
+  .event-new input:first-child {
+    margin-left: 0; }
+.event-new .input-date-from {
+  width: 28%; }
+.event-new .input-time {
+  width: 28%; }
+.event-new .input-duration {
+  width: 16%; }
+.event-new .input-quantity {
+  width: 16%; }
+.event-new .input-time-until {
+  width: 30%; }
+
+.event-new-repeat {
+  overflow: hidden;
+  clear: left;
+  border-top: dotted 1px #b3b3b3;
+  margin-top: 45px;
+  padding-top: 15px; }
+  .event-new-repeat .checkbox-label input {
+    margin-right: 5px; }
+  .event-new-repeat .checkbox-label-inline {
+    float: left;
+    width: 12.5%; }
 
 #logo {
   display: block;
@@ -3992,28 +4077,6 @@ footer {
 .datepicker {
   min-width: 300px;
   padding: 10px; }
-  .datepicker button.btn-default {
-    background-color: #FFF;
-    border: none;
-    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #666;
-    font-weight: 600; }
-    .datepicker button.btn-default span {
-      color: #666; }
-      .datepicker button.btn-default span.text-muted {
-        font-weight: 200; }
-    .datepicker button.btn-default:hover {
-      background-color: #e8e8e8; }
-    .datepicker button.btn-default:active {
-      background-color: #85C900; }
-      .datepicker button.btn-default:active span, .datepicker button.btn-default:active strong {
-        color: #FFF; }
-  .datepicker button.btn-primary {
-    background-color: #85C900; }
-    .datepicker button.btn-primary span {
-      color: #FFF; }
-    .datepicker button.btn-primary:hover {
-      background-color: #85C900; }
   .datepicker button.btn-block {
     display: block;
     width: 100%; }
@@ -4026,8 +4089,6 @@ footer {
       background-image: url('/img/sprite_icons.svg'); }
     .no-svg .datepicker button.pull-right, .no-svg .datepicker button.pull-left {
       background-image: url('/img/sprite_icons.png'); }
-    .datepicker button.pull-right:active, .datepicker button.pull-left:active {
-      background-color: #d9d9d9; }
   .datepicker button.pull-left {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -4035,6 +4096,27 @@ footer {
     -o-transform: rotate(180deg);
     transform: rotate(180deg); }
 
+.timepicker .glyphicon-chevron-down, .timepicker .glyphicon-chevron-up {
+  display: block;
+  width: 30px;
+  height: 20px;
+  background-position: -13px -58px;
+  background-repeat: no-repeat;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg); }
+  .svg .timepicker .glyphicon-chevron-down, .svg .timepicker .glyphicon-chevron-up {
+    background-image: url('/img/sprite_icons.svg'); }
+  .no-svg .timepicker .glyphicon-chevron-down, .no-svg .timepicker .glyphicon-chevron-up {
+    background-image: url('/img/sprite_icons.png'); }
+.timepicker .glyphicon-chevron-up {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg); }
 
 .datepicker.dropdown-menu button {
   outline: 0;
