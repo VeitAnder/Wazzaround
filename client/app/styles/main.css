@@ -1779,7 +1779,6 @@ input[type="radio"], input[type="checkbox"] {
   display: block;
   min-height: 20px;
   padding-left: 20px;
-  cursor: pointer;
   color: #666;
   font-size: 16px;
   line-height: 22.4px; }
@@ -2622,34 +2621,57 @@ footer {
   width: 10%; }
 
 
-.event-new input {
-  min-width: 0;
-  float: left;
-  margin-left: 4%; }
-  .event-new input:first-child {
-    margin-left: 0; }
-.event-new .input-date-from {
-  width: 28%; }
-.event-new .input-time {
-  width: 28%; }
-.event-new .input-duration {
-  width: 16%; }
-.event-new .input-quantity {
-  width: 16%; }
-.event-new .input-time-until {
-  width: 30%; }
+.event-new {
+  border: solid 1px #d9d9d9;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  padding: 5px 15px;
+  margin-top: 15px; }
+  .event-new input {
+    min-width: 0; }
+  .event-new .form-group {
+    margin-right: 4%;
+    float: left; }
+    .event-new .form-group.quantity {
+      margin-right: 0; }
+  .event-new .date-from, .event-new .date-until {
+    width: 28%; }
+  .event-new .time {
+    width: 28%; }
+  .event-new .duration {
+    width: 16%; }
+  .event-new .quantity {
+    width: 16%; }
+  .event-new .buttonbar {
+    border-top: solid 1px #d9d9d9;
+    width: auto;
+    margin: 15px -15px 0 -15px;
+    padding: 5px 10px; }
 
 .event-new-repeat {
-  overflow: hidden;
-  clear: left;
-  border-top: dotted 1px #b3b3b3;
-  margin-top: 45px;
-  padding-top: 15px; }
-  .event-new-repeat .checkbox-label input {
-    margin-right: 5px; }
-  .event-new-repeat .checkbox-label-inline {
-    float: left;
-    width: 12.5%; }
+  *zoom: 1;
+  clear: both;
+  margin-top: 15px; }
+  .event-new-repeat:before, .event-new-repeat:after {
+    content: " ";
+    display: table; }
+  .event-new-repeat:after {
+    clear: both; }
+  .event-new-repeat .checkbox label {
+    font-weight: 600; }
+  .event-new-repeat .repeating {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: dotted 1px #b3b3b3; }
+    .event-new-repeat .repeating .checkbox {
+      float: left;
+      width: 14.28571%; }
+      .event-new-repeat .repeating .checkbox label {
+        font-weight: normal; }
 
 #logo {
   display: block;
@@ -4096,27 +4118,32 @@ footer {
     -o-transform: rotate(180deg);
     transform: rotate(180deg); }
 
-.timepicker .glyphicon-chevron-down, .timepicker .glyphicon-chevron-up {
-  display: block;
-  width: 30px;
-  height: 20px;
-  background-position: -13px -58px;
-  background-repeat: no-repeat;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg); }
-  .svg .timepicker .glyphicon-chevron-down, .svg .timepicker .glyphicon-chevron-up {
-    background-image: url('/img/sprite_icons.svg'); }
-  .no-svg .timepicker .glyphicon-chevron-down, .no-svg .timepicker .glyphicon-chevron-up {
-    background-image: url('/img/sprite_icons.png'); }
-.timepicker .glyphicon-chevron-up {
-  -webkit-transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-  transform: rotate(270deg); }
+.timepicker {
+  padding: 10px; }
+  .timepicker button.btn-default {
+    padding-left: 5px;
+    padding-right: 5px; }
+  .timepicker .glyphicon-chevron-down, .timepicker .glyphicon-chevron-up {
+    display: block;
+    width: 30px;
+    height: 20px;
+    background-position: -13px -58px;
+    background-repeat: no-repeat;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); }
+    .svg .timepicker .glyphicon-chevron-down, .svg .timepicker .glyphicon-chevron-up {
+      background-image: url('/img/sprite_icons.svg'); }
+    .no-svg .timepicker .glyphicon-chevron-down, .no-svg .timepicker .glyphicon-chevron-up {
+      background-image: url('/img/sprite_icons.png'); }
+  .timepicker .glyphicon-chevron-up {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg); }
 
 .datepicker.dropdown-menu button {
   outline: 0;
