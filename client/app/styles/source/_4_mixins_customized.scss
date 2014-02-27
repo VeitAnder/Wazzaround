@@ -303,33 +303,48 @@ footer {
 }
 
 .bookableitem{
-  margin-bottom: $fs*2.0;
-  &:last-child{
-    margin-bottom: 0;
-  }
+  margin-top: $bu*2.0;
 }
 .bookableitem-header{
-  background-color: $color_grey;
+  background-color: $color_grey_75;
   @include border-top-radius($border-radius);
   @include divtable_row;
   padding: $bu;
   border-bottom: none;
   .bookableitem-add &{
-    @include border-radius($border-radius);
-    background-color: $color_grey_25;
   }
   .cell{
     padding-top: 0;
     padding-bottom: 0;
+    margin-bottom: 10px;
     &.first{
       padding-left: 0;
     }
     &.last{
       padding-right: 0;
+      @include clearfix;
     }
   }
   label{
     display: none;
+  }
+
+  .buttonbar{
+    border-color: $color_grey_15;
+    margin: 0;
+    padding: 5px 0 0 0;
+    .txt-icon-delete{
+      color: $color_grey_15;
+      span{
+        background-color: $color_grey_50;
+      }
+      &:hover{
+        color: $color_white;
+        span{
+          background-color: $color_red;
+        }
+      }
+    }
   }
 }
 
@@ -340,7 +355,7 @@ footer {
 }
 
 .bookableitem-name{
-  width: 60%;
+  width: 70%;
 }
 
 .bookableitem-price{
@@ -349,13 +364,15 @@ footer {
 
 
 .event-list{
-
+  @include seperator(top, $color_grey_50);
+  padding-top: $bu;
+  margin-top: $bu;
 }
 
 .event-header{
   @include divtable_header_small;
 }
-.event{
+.event-row{
   @include divtable_row_small;
 }
 
@@ -1530,56 +1547,16 @@ $img-block-size: 150px;
       width: $img-block-size;
       height: $img-block-size;
     }
-    &.img-new {
-      a {
-        text-decoration: none;
-        display: block;
-        width: $img-block-size;
-        height: $img-block-size;
-        background-color: $color_grey_25;
-        color: $color_white;
-        text-align: center;
-        font-size: 100px;
-        line-height: ($img-block-size*0.5) + (100px*0.5);
-        font-weight: $font-weight_bold;
-        font-family: 'Helvetica Neue', Helvetica, Arial;
-        &:hover {
-          background-color: $color_green;
-        }
-      }
-    }
     .img-edit {
       position: absolute;
-      bottom: 0;
+      top: 5px;
+      left: 5px;
       width: 100%;
-      a {
-        display: block;
-        background-color: $color_grey;
-        padding: 5px;
-        color: $color_white;
-        font-weight: $font-weight_bold;
-        text-decoration: none;
-        @include opacity(0.85);
-        &:hover {
-          background-color: $color_red;
-          i {
-            color: $color_red;
-          }
-        }
-      }
-      i {
-        display: block;
-        float: right;
-        width: 20px;
-        height: 20px;
-        @include border-radius(10px);
-        background-color: $color_white;
-        color: $color_grey;
-        font-weight: $font-weight_bold;
-        font-family: 'Helvetica Neue', Helvetica, Arial;
-        font-style: normal;
-        text-align: center;
-        line-height: 17px;
+      .delete {
+        @include button_icon_large_delete;
+        top: 0;
+        border: 2px solid $color_white;
+        background-position: -67px 8px;
       }
     }
   }

@@ -163,7 +163,7 @@ a.link-download{
   display: inline-block;
   @include user-select(none);
   background-color: $color_button_background;
-  padding: ($fs*0.25) ($fs*1.0);
+  padding: ($fs*0.25) ($fs*0.75);
   @include border-radius($border-radius_small);
   @include border_all($color_button_border);
   border-width: 3px;
@@ -183,9 +183,16 @@ a.link-download{
     cursor: pointer;
   }
   &:active {
-    background: $color_button_background;
+    background: $color_button_background_hover;
     color: $color_button_text_hover;
     border-color: $color_button_border_hover;
+    outline: none;
+  }
+  &:focus{
+    background: $color_button_background;
+    color: $color_button_text;
+    border-color: $color_button_border;
+    outline-color: $color_green_75;
   }
 
   &[disabled="disabled"], &.disabled {
@@ -261,6 +268,14 @@ button.btn, .btn, a.btn {
 }
 
 
+@mixin btn-large{
+  @include button;
+  padding: ($fs*0.75) ($fs*2.0);
+  font-size: 25px;
+  @include border-radius($border-radius);
+
+}
+
 
 .btn-group{
   .btn{
@@ -299,6 +314,17 @@ button.btn, .btn, a.btn {
   width: 14px;
   height: 14px;
   @include border-radius(7px);
+}
+
+@mixin icon_large_add{
+  @include icon_large;
+  @include sprite_icons(-90px, 10px, no-repeat);
+}
+
+@mixin icon_add{
+  @include icon;
+  @include sprite_icons(-95px, 5px, no-repeat);
+
 }
 
 @mixin button_icon {
@@ -366,6 +392,7 @@ button.btn, .btn, a.btn {
   }
 }
 
+
 @mixin button_icon_large_delete{
   @include button_icon_large;
   @include sprite_icons(-65px, 10px, no-repeat);
@@ -377,8 +404,58 @@ button.btn, .btn, a.btn {
   }
 }
 
+@mixin button-txt-icon-large-add{
+  @include btn-large;
+  span{
+    @include icon_large_add;
+    background-color: transparent;
+    border: 4px solid $color_white;
+    width: 34px;
+    height: 34px;
+    @include border-radius(17px);
+    background-position: -92px 8px;
+    vertical-align: middle;
+    top: 0;
+    &.btn-icon-left{
+      margin-right: 10px;
+    }
+    &.btn-icon-right{
+      margin-left: 10px;
+    }
+  }
+}
+@mixin button-txt-icon-add{
+  @include button;
+  span{
+    @include icon_add;
+    background-color: transparent;
+    border: 2px solid $color_white;
+    width: 24px;
+    height: 24px;
+    @include border-radius(12px);
+    background-position: -95px 5px;
+    vertical-align: middle;
+    top: 0;
+    &.btn-icon-left{
+      margin-right: 10px;
+    }
+    &.btn-icon-right{
+      margin-left: 10px;
+    }
+  }
+}
 
-.btn-icon-add{
+.btn-large-add{
+  @include button-txt-icon-large-add;
+}
+
+.btn-add{
+  @include button-txt-icon-add;
+}
+
+
+.txt-icon-add{
+  display: inline-block;
   text-decoration: none;
   font-weight: $font-weight_bold;
   color: $color_grey_75;
@@ -399,7 +476,8 @@ button.btn, .btn, a.btn {
   }
 }
 
-.btn-icon-delete{
+.txt-icon-delete{
+  display: inline-block;
   text-decoration: none;
   font-weight: $font-weight_bold;
   color: $color_grey_75;

@@ -122,9 +122,9 @@
         <img src="http://www.o-solemio.de/wp-content/uploads/Piemont/Locanda_Riziere/Piemont_Langhe.jpg"/>
         <div class="img-edit">
           <a class="delete"
-             href=""
-             ng-click="delete()">delete
-            <i>x</i>
+             ng-click=""
+             ng-click="delete()">
+            <span>delete</span>
           </a>
         </div>
       </div>
@@ -132,38 +132,30 @@
         <img src="http://www.welt-atlas.de/datenbank/fotos/1-941/big/1-941-42.jpg"/>
         <div class="img-edit">
           <a class="delete"
-             href=""
-             ng-click="delete()">delete
-            <i>x</i>
+             ng-click=""
+             ng-click="delete()">
+            <span>delete</span>
           </a>
         </div>
       </div>
-      <div class="img-block img-new">
-        <a href=""
-           ng-click="">
-          +
-        </a>
-      </div>
+      <button class="btn-add"
+              ng-click="">
+        <span class="btn-icon-left"></span>
+        add Image
+      </button>
     </div>
   </fieldset>
 
   <fieldset>
     <legend>What can be booked?</legend>
 
-    <div class="bookableitems">
-
-    </div>
-
-    <p></p>
-
     <!-- New Stuff -->
     <div class="bookableitems">
-      <div class="input_label">Bookable Items:</div>
-      <p>
-        <button class="btn"
-                ng-click="activity.createBookableItems()">create a new Bookable Item
-        </button>
-      </p>
+      <button class="btn-add"
+              ng-click="activity.createBookableItems()">
+        <span class="btn-icon-left"></span>
+        create a new Bookable Item
+      </button>
 
       <div class="bookableitem bookableitem-add"
            ng-repeat="bookableItem in activity.bookableItems">
@@ -179,20 +171,19 @@
                 >
 
           </div>
-          <div class="bookableitem-price cell">
+          <div class="bookableitem-price cell last">
             <label for="itemPrice">Price</label>
             <input type="text"
                    class="form-control"
                    id="itemPrice"
-                   placeholder="Amount €"
+                   placeholder="Price €"
                    ng-model="bookableItem.ref().price"
                 >
           </div>
-
-          <div class="listaction cell last">
-            <a class="add"
-               ng-click="">
-              <span>add Item</span>
+          <div class="buttonbar">
+            <a ng-click=""
+               class="txt-icon-delete">Delete Item
+              <span class="btn-icon-right"></span>
             </a>
           </div>
 
@@ -200,13 +191,14 @@
 
         <div class="bookableitem-body">
           <div class="event-add">
-            <a class="btn-icon-add"
+            <a class="txt-icon-add"
                ng-click="bookableItem.ref().createEvents()">
               <span class="btn-icon-left"></span>
               Scedule Event
             </a>
 
           </div>
+
           <div class="event-new"
                ng-repeat="event in bookableItem.ref().events">
 
@@ -316,58 +308,24 @@
                          autoclose="true"
                          value=""
                       >
-                  </div>
+                </div>
               </div>
 
             </div>
             <div class="buttonbar">
-              <a class="btn-icon-delete"
+              <a class="txt-icon-delete"
                  ng-click=""
-                  >remove
-                <span class="btn-icon-right"></span>
+                  >remove<span class="btn-icon-right"></span>
               </a>
             </div>
 
           </div>
-        </div>
-      </div>
-    </div>
 
-    </div>
-    </div>
 
-  </fieldset>
 
-  <fieldset>
-    <legend>What can be booked?</legend>
 
-    <div class="bookableitems">
 
-      <div class="bookableitem">
-        <div class="bookableitem-header">
-          <div class="bookableitem-name cell first">
-            <input type="text"
-                   class="form-control"
-                   placeholder="Name of new Item"
-                   value="Quad 250 ccm"/>
-
-          </div>
-          <div class="bookableitem-price cell">
-            <input type="number"
-                   class="form-control"
-                   placeholder="Price in €"
-                   value="450"/>
-          </div>
-          <div class="listaction cell last">
-            <a class="delete">
-              <span>delete Item</span>
-            </a>
-          </div>
-
-        </div>
-
-        <div class="bookableitem-body">
-          <h4>When can it be booked?</h4>
+          <!-- ######## STATIC LIST ######## -->
 
           <div class="event-list">
             <div class="event-header">
@@ -377,7 +335,7 @@
               <div class="listaction cell last">
               </div>
             </div>
-            <div class="event">
+            <div class="event-row">
               <div class="event-date cell first">24.07.2014</div>
               <div class="event-time cell">11.30 am</div>
               <div class="event-quantity cell">2x</div>
@@ -390,7 +348,7 @@
                 </a>
               </div>
             </div>
-            <div class="event">
+            <div class="event-row">
               <div class="event-date cell first">24.07.2014</div>
               <div class="event-time cell">08.30 am</div>
               <div class="event-quantity cell">2x</div>
@@ -403,7 +361,7 @@
                 </a>
               </div>
             </div>
-            <div class="event">
+            <div class="event-row">
               <div class="event-date cell first">24.07.2014</div>
               <div class="event-time cell">11.30 am</div>
               <div class="event-quantity cell">2x</div>
@@ -418,40 +376,21 @@
             </div>
           </div>
 
-          <div class="event-add align-right">
-            <a class="btn-icon-add">Add Event
-              <span class="btn-icon-right"></span>
-            </a>
+          <!-- ######## STATIC LIST END ######## -->
 
-          </div>
-        </div>
 
-      </div>
 
-      <div class="bookableitem bookableitem-add">
 
-        <div class="bookableitem-header">
-          <div class="bookableitem-name cell first">
-            <input type="text"
-                   class="form-control"
-                   placeholder="Name of new Item"/>
-          </div>
-          <div class="bookableitem-price cell">
-            <input type="number"
-                   class="form-control"
-                   placeholder="Price in €"/>
-          </div>
-          <div class="listaction cell last">
-            <a class="add">
-              <span>add Item</span>
-            </a>
-          </div>
         </div>
       </div>
+    </div>
 
+    </div>
     </div>
 
   </fieldset>
+
+
 
   <div class="buttonbar margin-top">
 
@@ -471,22 +410,6 @@
 
   </div>
 
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
   <br/>
   <br/>
 
