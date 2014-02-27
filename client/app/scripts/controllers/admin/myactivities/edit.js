@@ -124,10 +124,15 @@ angular.module('anorakApp')
       var saveItemsPromises = [];
 
       _.forEach($scope.activity.bookableItems, function(item) {
-        if (item.ref().repeating === false || item.ref().repeating == undefined) {
-          saveItemsPromises.push(item.ref().save());  // save all BookableItems
+        console.log("event", item.ref().events[0]);
+        if (item.ref().events.length > 0 && item.ref().events[0].repeating === true) {
+          console.log("save repeating events!", item.ref());
+          saveItemsPromises.push($scope.models.BookableItemModel.saveWithRepeatingEvents({
+            obj : item.ref()
+          }));
+          // TODO: die Referenz auf die neu erstellten events fehlen noch
         } else {
-          console.log("TODO!");
+          saveItemsPromises.push(item.ref().save());  // save all BookableItems
         }
       });
 

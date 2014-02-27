@@ -79,7 +79,8 @@ var models = function () {
 
     owner: Ref(UserModel),
 
-    bookItem : Operation()
+    bookItem : Operation(),
+    saveWithRepeatingEvents : Operation()
   });
 
 

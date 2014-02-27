@@ -1,4 +1,5 @@
 var Q = require('q');
+var moment = require('moment');
 var ObjectId = require('mongojs').ObjectId;
 
 var models = require('../models/models.js');
@@ -125,3 +126,64 @@ models.ActivityModel.factoryImpl("getMyActivities", function(params, req) {
   return models.ActivityModel.find({'owner._reference' : req.session.user_id});
 });
 
+
+models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(params, req) {
+  // todo auth
+  var deferred = Q.defer();
+
+  console.log("saveWithRepeatingEvents called");
+
+  if (!req.session.auth) {
+    return false;  // if not logged operation not allowed
+  }
+
+  if (typeof params.obj != 'object') {
+    deferred.reject(new Error("no 'obj' parameter"));
+    return deferred.promise;
+  }
+
+  var obj = params.obj;
+
+  console.log('obj', obj);
+
+  var item = models.BookableItemModel.create();
+
+  item.description = obj.description;
+  item.price = obj.price;
+
+  var startDate = moment(obj.events[0].start); //moment();
+  var duration = obj.events[0].duration;
+  var quantity = obj.events[0].quantity;
+  var endDate = moment(obj.events[0].end); //moment().add('days', 14);
+
+  if (moment().subtract('days', 1) > startDate) {
+    console.log("you're trying to add events in the past");
+    deferred.reject(new Error("you're trying to add events in the past"));
+    return deferred.promise;
+  }
+
+  if (endDate.diff(startDate, 'years') > 2) {
+    console.log("you're trying to add events for more than two years");
+    deferred.reject(new Error("you're trying to add events for more than two years"));
+    return deferred.promise;
+  }
+
+
+  while (startDate <= endDate) {
+    // add new event
+    if (obj.events[0].dayOfWeek[startDate.format('ddd')]) {  // Wochentag angehakt
+      console.log('Create Event at: ', startDate.format("dddd, MMMM Do YYYY, h:mm:ss a"));
+      item.events.push({
+        start : startDate.toDate(),
+        duration : duration,
+        quantity : quantity
+      });
+    }
+    startDate.add('days', 1);
+  }
+
+  return item.save()
+    .then(function() {
+      // return nothing
+    });
+});

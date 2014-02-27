@@ -203,7 +203,7 @@
             <a class="btn-icon-add"
                ng-click="bookableItem.ref().createEvents()">
               <span class="btn-icon-left"></span>
-              Scedule Event
+              Schedule Event
             </a>
 
           </div>
@@ -284,11 +284,12 @@
                 </label>
                 <label class="checkbox-label checkbox-label-inline">
                   <input type="checkbox"
-                         ng-model="event.dayOfWeek.Son">
-                  Son
+                         ng-model="event.dayOfWeek.Sun">
+                  Sun
                 </label>
 
                 <div class="availability-time cell">
+                  <!--TODO: min and max date-->
                   <input type="text"
                          class="form-control"
                          ng-model="event.end"
