@@ -123,28 +123,24 @@ angular.module('anorakApp')
 
       var saveItemsPromises = [];
 
-      for(var i=0; i<$scope.activity.bookableItems.length; i++) {
-        var item = $scope.activity.bookableItems[i].ref();
-
-        if (item.repeating === false || item.repeating == undefined) {
-          saveItemsPromises.push(item.save());  // save all BookableItems
+      _.forEach($scope.activity.bookableItems, function(item) {
+        if (item.ref().repeating === false || item.ref().repeating == undefined) {
+          saveItemsPromises.push(item.ref().save());  // save all BookableItems
         } else {
           console.log("TODO!");
         }
-      }
+      });
 
       Q.all(saveItemsPromises)
         .then(function(results) {  // all BookableItems are saved
           console.log("all results", results);
           return $scope.activity.save();  // save the activity
+        })
+        .then(function(activity) {
+          $location.path("/admin/myactivities/");
+          $scope.$apply();
         }).done();
     };
-
-//      $scope.activity.save()
-//        .then(function (activity) {
-//          $location.path("/admin/myactivities/");
-//          $scope.$apply();
-//        }).done();
 
 
     $scope.delete = function () {

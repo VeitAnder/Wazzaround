@@ -111,15 +111,20 @@ angular.module('anorakApp')
               .then(function(activity) {
                 // load bookable items
                 var loadingBookableItems = [];
-                for (var i=0; i<activity.bookableItems.length; i++) {
-                  loadingBookableItems.push(activity.bookableItems[i].load());
-                }
+                _.forEach(activity.bookableItems, function(item) {
+                  loadingBookableItems.push(item.load());
+                });
 
                 return Q.all(loadingBookableItems)
                   .then(function(res){
+                    console.log("loadingBookableItems", res);
                     return activity;  // return the activity, when all bookableItems have been loaded
                   });
-            });
+              })
+              .fail(function (err) {
+                console.log("Fail loading activities in the myactivities route", err);
+              })
+              ;
           }]
         }
       })
