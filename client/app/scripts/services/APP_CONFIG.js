@@ -4,7 +4,7 @@ angular.module('anorakApp')
     var hostconfig = {},
       globalconfig = {};
 
-    if ($window.location.hostname === "reacture.com") {
+    if ($window.location.hostname === "reacture.anorak.io" || $window.location.hostname === "reactureapp-11359.onmodulus.net") {
       // PRODUCTION SERVER
       hostconfig = {
         AmazonS3Config: {
@@ -15,7 +15,7 @@ angular.module('anorakApp')
         debug: false,
         modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/"
       };
-    } else if ($window.location.hostname === "reactureappdev-10669.onmodulus.net" || $window.location.hostname === "reacture.anorak.io") {
+    } else if ($window.location.hostname === "reactureappdev-10669.onmodulus.net" || $window.location.hostname === "dev.reacture.anorak.io") {
       // development server
       hostconfig = {
         AmazonS3Config: {
