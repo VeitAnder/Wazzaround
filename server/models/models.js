@@ -73,7 +73,7 @@ var models = function () {
 
     events : [{
       start: Attr(Type.date),
-      end: Attr(Type.date),
+      duration: Attr(Type.number),
       quantity: Attr(Type.number)
     }],
 
@@ -102,11 +102,12 @@ var models = function () {
 
     bookableItems: RefArray(BookableItemModel),
 
+    published: Attr(Type.boolean),
+
     owner: Ref(UserModel),
 
     getMyActivities: Factory()
   });
-
 
   var BookingsModel = new model('bookings', {
 //    derUserDerBucht: 34,

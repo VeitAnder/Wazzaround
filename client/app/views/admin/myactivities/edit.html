@@ -192,29 +192,24 @@
           <div ng-repeat="event in bookableItem.ref().events">
 
             <div class="availability-entry">
-              <!-- Datum incl Uhrzeit-->
-              <div class="availability-date cell first">
-                <input type="text"
-                       class="form-control"
-                       ng-model="event.start"
-                       data-min-date=""
-                       placeholder="Date"
-                       bs-datepicker
-                       autoclose="true"
-                       value=""
-                >
+
+              <div class="form-group">
+                <label class="control-label"><i class="fa fa-calendar"></i> Datetime picker</label><br>
+                <div class="form-group">
+                  <input type="text" size="10" class="form-control" ng-model="event.start" data-autoclose="1" placeholder="Date" bs-datepicker>
+                </div>
+                <div class="form-group">
+                  <input type="text" size="8" class="form-control" ng-model="event.start" data-autoclose="1" placeholder="Time" bs-timepicker>
+                </div>
               </div>
-              <div class="availability-time cell">
-                <input type="text"
-                       class="form-control"
-                       ng-model="event.end"
-                       data-min-date=""
-                       placeholder="Time"
-                       bs-datepicker
-                       autoclose="true"
-                       value=""
+
+              <input type="text"
+                     class="form-control"
+                     id="duration"
+                     placeholder="Duration (in h)"
+                     ng-model="bookableItem.ref().price"
                 >
-              </div>
+
               <div class="availability-amount cell last align-right">
                 <input type="text"
                        class="form-control"
@@ -229,19 +224,31 @@
                 >remove
               </button>
 
-              <span class="checkbox" ng-click="event.repeating = true; event.dayOfWeek = {};">
-                repeating
-              </span>
+              <label><input type="checkbox" ng-model="event.repeating">repeating</label>
 
               <div class="repeating" ng-show="event.repeating">
-                <span class="checkbox inline" ng-click="event.dayOfWeek.Mon = true">Mon</span>
-                <span class="checkbox inline" ng-click="event.dayOfWeek.Tue = true">Tue</span>
-                <span class="checkbox inline" ng-click="event.dayOfWeek.Wed = true">Wed</span>
-                <span class="checkbox inline" ng-click="event.dayOfWeek.Thu = true">Thu</span>
-                <span class="checkbox inline" ng-click="event.dayOfWeek.Fri = true">Fri</span>
-                <span class="checkbox inline" ng-click="event.dayOfWeek.Sat = true">Sat</span>
-                <span class="checkbox inline" ng-click="event.dayOfWeek.Son = true">Son</span>
+                <label><input type="checkbox" ng-model="event.dayOfWeek.Mon">Mon</label>
+                <label><input type="checkbox" ng-model="event.dayOfWeek.Tue">Tue</label>
+                <label><input type="checkbox" ng-model="event.dayOfWeek.Wed">Wed</label>
+                <label><input type="checkbox" ng-model="event.dayOfWeek.Thu">Thu</label>
+                <label><input type="checkbox" ng-model="event.dayOfWeek.Fri">Fri</label>
+                <label><input type="checkbox" ng-model="event.dayOfWeek.Sat">Sat</label>
+                <label><input type="checkbox" ng-model="event.dayOfWeek.Son">Son</label>
+
+                <div class="availability-time cell">
+                  <input type="text"
+                         class="form-control"
+                         ng-model="event.end"
+                         data-min-date=""
+                         placeholder="Until"
+                         bs-datepicker
+                         autoclose="true"
+                         value=""
+                    >
+                </div>
+
               </div>
+
 
 
             </div>
