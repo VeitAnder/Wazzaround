@@ -107,7 +107,19 @@ angular.module('anorakApp')
             return models.CategoryModel.all();
           }],
           activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.get($route.current.params.id);
+            return models.ActivityModel.get($route.current.params.id)
+              .then(function(activity) {
+                // load bookable items
+                var loadingBookableItems = [];
+                for (var i=0; i<activity.bookableItems.length; i++) {
+                  loadingBookableItems.push(activity.bookableItems[i].load());
+                }
+
+                return Q.all(loadingBookableItems)
+                  .then(function(res){
+                    return activity;  // return the activity, when all bookableItems have been loaded
+                  });
+            });
           }]
         }
       })
