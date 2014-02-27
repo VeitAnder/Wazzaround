@@ -152,88 +152,141 @@
 
     <div class="bookableitems">
 
-
     </div>
 
     <p></p>
 
     <!-- New Stuff -->
-    <div class="bookableItem">
+    <div class="bookableitems">
       <div class="input_label">Bookable Items:</div>
-
-      <p><button class="btn" ng-click="activity.createBookableItems()">create a new Bookable Item</button></p>
-
-
-      <div ng-repeat="bookableItem in activity.bookableItems">
-        <label for="name">Description</label>
-        <input type="text"
-               class="form-control"
-               id="itemDescription"
-               placeholder="Description of the Item"
-               ng-model="bookableItem.ref().description"
-          >
-
-        <label for="name">Price</label>
-        <input type="text"
-               class="form-control"
-               id="itemPrice"
-               placeholder="Ammount €"
-               ng-model="bookableItem.ref().price"
-          >
-
-        <button class="cancel"
-           ng-click=""
-          >remove
+      <p>
+        <button class="btn"
+                ng-click="activity.createBookableItems()">create a new Bookable Item
         </button>
+      </p>
 
-        <div calss="events">
-          <p><button class="btn" ng-click="bookableItem.ref().createEvents()">schedule event</button></p>
+      <div class="bookableitem bookableitem-add"
+           ng-repeat="bookableItem in activity.bookableItems">
+        <div class="bookableitem-header">
+          <div class="bookableitem-name cell first">
 
-          <div ng-repeat="event in bookableItem.ref().events">
+            <label for="itemDescription">Description</label>
+            <input type="text"
+                   class="form-control"
+                   id="itemDescription"
+                   placeholder="Description of the Item"
+                   ng-model="bookableItem.ref().description"
+                >
 
-            <div class="availability-entry">
+          </div>
+          <div class="bookableitem-price cell">
+            <label for="itemPrice">Price</label>
+            <input type="text"
+                   class="form-control"
+                   id="itemPrice"
+                   placeholder="Amount €"
+                   ng-model="bookableItem.ref().price"
+                >
+          </div>
 
-              <div class="form-group">
-                <label class="control-label"><i class="fa fa-calendar"></i> Datetime picker</label><br>
-                <div class="form-group">
-                  <input type="text" size="10" class="form-control" ng-model="event.start" data-autoclose="1" placeholder="Date" bs-datepicker>
-                </div>
-                <div class="form-group">
-                  <input type="text" size="8" class="form-control" ng-model="event.start" data-autoclose="1" placeholder="Time" bs-timepicker>
-                </div>
-              </div>
+          <div class="listaction cell last">
+            <a class="add"
+               ng-click="">
+              <span>add Item</span>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="bookableitem-body">
+          <div class="event-add">
+            <a class="btn-icon-add"
+               ng-click="bookableItem.ref().createEvents()">
+              <span class="btn-icon-left"></span>
+              Scedule Event
+            </a>
+
+          </div>
+          <div class="event-new"
+              ng-repeat="event in bookableItem.ref().events">
+
+            <div class="form-group">
+              <input type="text"
+                     size="10"
+                     class="form-control input-date-from"
+                     ng-model="event.start"
+                     data-autoclose="0"
+                     placeholder="Date"
+                     bs-datepicker>
 
               <input type="text"
-                     class="form-control"
-                     id="duration"
-                     placeholder="Duration (in h)"
-                     ng-model="bookableItem.ref().price"
+                     size="8"
+                     class="form-control input-time"
+                     ng-model="event.start"
+                     data-autoclose="0"
+                     placeholder="Time"
+                     bs-timepicker
+                  >
+
+            <input type="text"
+                   class="form-control input-duration"
+                   id="duration"
+                   placeholder="Duration (in h)"
+                   ng-model="bookableItem.ref().price"
                 >
 
-              <div class="availability-amount cell last align-right">
-                <input type="text"
-                       class="form-control"
-                       id="name"
-                       placeholder="Amount"
-                       ng-model="event.quantity"
+            <input type="text"
+                   class="form-control input-quantity"
+                   id="name"
+                   placeholder="Quantity"
+                   ng-model="event.quantity"
                 >
-              </div>
+            </div>
 
-              <button class="cancel"
-                      ng-click=""
-                >remove
-              </button>
+            <div class="event-new-repeat">
+              <label class="checkbox-label">
+                <input type="checkbox"
+                       ng-model="event.repeating">
+                repeating
+              </label>
 
-              <label><input type="checkbox" ng-model="event.repeating">repeating</label>
-
-              <div class="repeating" ng-show="event.repeating">
-                <label><input type="checkbox" ng-model="event.dayOfWeek.Mon">Mon</label>
-                <label><input type="checkbox" ng-model="event.dayOfWeek.Tue">Tue</label>
-                <label><input type="checkbox" ng-model="event.dayOfWeek.Wed">Wed</label>
-                <label><input type="checkbox" ng-model="event.dayOfWeek.Thu">Thu</label>
-                <label><input type="checkbox" ng-model="event.dayOfWeek.Fri">Fri</label>
-                <label><input type="checkbox" ng-model="event.dayOfWeek.Sat">Sat</label>
-                <label><input type="checkbox" ng-model="event.dayOfWeek.Son">Son</label>
+              <div class="repeating"
+                   ng-show="event.repeating">
+                <label class="checkbox-label checkbox-label-inline">
+                  <input type="checkbox"
+                         ng-model="event.dayOfWeek.Mon">
+                  Mon
+                </label>
+                <label class="checkbox-label checkbox-label-inline">
+                  <input type="checkbox"
+                         ng-model="event.dayOfWeek.Tue">
+                  Tue
+                </label>
+                <label class="checkbox-label checkbox-label-inline">
+                  <input type="checkbox"
+                         ng-model="event.dayOfWeek.Wed">
+                  Wed
+                </label>
+                <label class="checkbox-label checkbox-label-inline">
+                  <input type="checkbox"
+                         ng-model="event.dayOfWeek.Thu">
+                  Thu
+                </label>
+                <label class="checkbox-label checkbox-label-inline">
+                  <input type="checkbox"
+                         ng-model="event.dayOfWeek.Fri">
+                  Fri
+                </label>
+                <label class="checkbox-label checkbox-label-inline">
+                  <input type="checkbox"
+                         ng-model="event.dayOfWeek.Sat">
+                  Sat
+                </label>
+                <label class="checkbox-label checkbox-label-inline">
+                  <input type="checkbox"
+                         ng-model="event.dayOfWeek.Son">
+                  Son
+                </label>
 
                 <div class="availability-time cell">
                   <input type="text"
@@ -244,25 +297,35 @@
                          bs-datepicker
                          autoclose="true"
                          value=""
-                    >
+                      >
                 </div>
-
               </div>
 
-
-
             </div>
-
+            <a class="btn-icon-delete"
+               ng-click=""
+                >remove<span class="btn-icon-right"></span>
+            </a>
 
           </div>
-
         </div>
       </div>
+    </div>
 
     </div>
-  </div>
+    </div>
 
   </fieldset>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -301,38 +364,56 @@
           <div class="event-list">
             <div class="event-header">
               <div class="event-date cell first">Date</div>
+              <div class="event-time cell">Time</div>
               <div class="event-quantity cell">Qty.</div>
               <div class="listaction cell last">
               </div>
             </div>
             <div class="event">
               <div class="event-date cell first">24.07.2014</div>
+              <div class="event-time cell">11.30 am</div>
               <div class="event-quantity cell">2x</div>
               <div class="listaction cell last">
-                <a class="edit"><span>edit</span></a>
-                <a class="delete"><span>delete</span></a>
+                <a class="edit">
+                  <span>edit</span>
+                </a>
+                <a class="delete">
+                  <span>delete</span>
+                </a>
               </div>
             </div>
             <div class="event">
               <div class="event-date cell first">24.07.2014</div>
+              <div class="event-time cell">08.30 am</div>
               <div class="event-quantity cell">2x</div>
               <div class="listaction cell last">
-                <a class="edit"><span>edit</span></a>
-                <a class="delete"><span>delete</span></a>
+                <a class="edit">
+                  <span>edit</span>
+                </a>
+                <a class="delete">
+                  <span>delete</span>
+                </a>
               </div>
             </div>
             <div class="event">
               <div class="event-date cell first">24.07.2014</div>
+              <div class="event-time cell">11.30 am</div>
               <div class="event-quantity cell">2x</div>
               <div class="listaction cell last">
-                <a class="edit"><span>edit</span></a>
-                <a class="delete"><span>delete</span></a>
+                <a class="edit">
+                  <span>edit</span>
+                </a>
+                <a class="delete">
+                  <span>delete</span>
+                </a>
               </div>
             </div>
           </div>
 
           <div class="event-add align-right">
-            <a class="btn-icon-add">Add Event<span class="btn-icon-right"></span></a>
+            <a class="btn-icon-add">Add Event
+              <span class="btn-icon-right"></span>
+            </a>
 
           </div>
         </div>
@@ -363,10 +444,6 @@
     </div>
 
   </fieldset>
-
-
-
-
 
   <div class="buttonbar margin-top">
 

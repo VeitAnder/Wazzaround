@@ -328,6 +328,9 @@ footer {
       padding-right: 0;
     }
   }
+  label{
+    display: none;
+  }
 }
 
 .bookableitem-body{
@@ -357,15 +360,63 @@ footer {
 }
 
 .event-date{
-  width: 60%;
+  width: 30%;
+}
+.event-time{
+  width: 40%;
 }
 .event-quantity{
-  width: 20%;
+  width: 10%;
 }
 
 .event-add{
-  padding-top: 10px;
+//  padding-top: 10px;
 }
+
+.event-new{
+  input{
+    min-width: 0;
+    float: left;
+    margin-left: 4%;
+    &:first-child{
+      margin-left: 0;
+    }
+  }
+  .input-date-from{
+    width: 28%;
+  }
+  .input-time{
+    width: 28%;
+  }
+  .input-duration{
+    width: 16%;
+  }
+  .input-quantity{
+    width: 16%;
+  }
+  .input-time-until{
+    width: 30%;
+  }
+}
+
+.event-new-repeat{
+  overflow: hidden;
+  clear: left;
+  @include seperator(top, $color_grey_50);
+  margin-top: $bu*3.0;
+  padding-top: $bu;
+  .checkbox-label{
+    input{
+      margin-right: 5px;
+    }
+  }
+  .checkbox-label-inline{
+    float: left;
+    width: (100%) / 8;
+  }
+}
+
+
 
 //
 //.activity-detail {
@@ -1658,37 +1709,6 @@ $img-block-size: 150px;
   min-width: 300px;
   padding: 10px;
   button {
-    &.btn-default {
-      background-color: $color_white;
-      border: none;
-      font-family: $sysfont_01;
-      color: $color_grey;
-      font-weight: $font-weight_bold;
-      span {
-        color: $color_grey;
-        &.text-muted {
-          font-weight: $font-weight_light;
-        }
-      }
-      &:hover {
-        background-color: $color_grey_15;
-      }
-      &:active {
-        background-color: $color_green;
-        span, strong {
-          color: $color_white;
-        }
-      }
-    }
-    &.btn-primary {
-      background-color: $color_green;
-      span {
-        color: $color_white;
-      }
-      &:hover {
-        background-color: $color_green;
-      }
-    }
     &.btn-block {
       display: block;
       width: 100%;
@@ -1697,9 +1717,6 @@ $img-block-size: 150px;
       width: 30px;
       height: 20px;
       @include sprite_icons(-13px, -58px, no-repeat);
-      &:active {
-        background-color: $color_grey_25;
-      }
     }
     &.pull-left {
       @include transform(rotate(180deg));
@@ -1707,9 +1724,17 @@ $img-block-size: 150px;
   }
 }
 
-.datepicker.dropdown-menu {
-  //  width: 250px;
-  //  height: 270px
+.timepicker{
+  .glyphicon-chevron-down, .glyphicon-chevron-up{
+    display: block;
+    width: 30px;
+    height: 20px;
+    @include sprite_icons(-13px, -58px, no-repeat);
+    @include transform(rotate(90deg));
+  }
+  .glyphicon-chevron-up{
+    @include transform(rotate(270deg));
+  }
 }
 
 .datepicker.dropdown-menu button {
