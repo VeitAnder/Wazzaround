@@ -208,88 +208,105 @@
 
           </div>
           <div class="event-new"
-              ng-repeat="event in bookableItem.ref().events">
+               ng-repeat="event in bookableItem.ref().events">
 
-            <div class="form-group">
+            <div class="form-group date-from">
               <input type="text"
                      size="10"
-                     class="form-control input-date-from"
+                     class="form-control"
                      ng-model="event.start"
                      data-autoclose="0"
                      placeholder="Date"
                      bs-datepicker>
-
+            </div>
+            <div class="form-group time">
               <input type="text"
                      size="8"
-                     class="form-control input-time"
+                     class="form-control"
                      ng-model="event.start"
                      data-autoclose="0"
                      placeholder="Time"
                      bs-timepicker
                   >
-
-            <input type="text"
-                   class="form-control input-duration"
-                   id="duration"
-                   placeholder="Duration (h)"
-                   ng-model="event.duration"
-                >
-
-            <input type="text"
-                   class="form-control input-quantity"
-                   id="name"
-                   placeholder="Quantity"
-                   ng-model="event.quantity"
-                >
+            </div>
+            <div class="form-group duration">
+              <input type="text"
+                     class="form-control"
+                     id="duration"
+                     placeholder="Duration (h)"
+                     ng-model="event.duration"
+                  >
+            </div>
+            <div class="form-group quantity">
+              <input type="text"
+                     class="form-control"
+                     id="name"
+                     placeholder="Quantity"
+                     ng-model="event.quantity"
+                  >
             </div>
 
             <div class="event-new-repeat">
-              <label class="checkbox-label">
-                <input type="checkbox"
-                       ng-model="event.repeating">
-                repeating
-              </label>
-
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         ng-model="event.repeating">
+                  repeating
+                </label>
+              </div>
               <div class="repeating"
                    ng-show="event.repeating">
-                <label class="checkbox-label checkbox-label-inline">
-                  <input type="checkbox"
-                         ng-model="event.dayOfWeek.Mon">
-                  Mon
-                </label>
-                <label class="checkbox-label checkbox-label-inline">
-                  <input type="checkbox"
-                         ng-model="event.dayOfWeek.Tue">
-                  Tue
-                </label>
-                <label class="checkbox-label checkbox-label-inline">
-                  <input type="checkbox"
-                         ng-model="event.dayOfWeek.Wed">
-                  Wed
-                </label>
-                <label class="checkbox-label checkbox-label-inline">
-                  <input type="checkbox"
-                         ng-model="event.dayOfWeek.Thu">
-                  Thu
-                </label>
-                <label class="checkbox-label checkbox-label-inline">
-                  <input type="checkbox"
-                         ng-model="event.dayOfWeek.Fri">
-                  Fri
-                </label>
-                <label class="checkbox-label checkbox-label-inline">
-                  <input type="checkbox"
-                         ng-model="event.dayOfWeek.Sat">
-                  Sat
-                </label>
-                <label class="checkbox-label checkbox-label-inline">
-                  <input type="checkbox"
-                         ng-model="event.dayOfWeek.Sun">
-                  Sun
-                </label>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Mon">
+                    Mon
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Tue">
+                    Tue
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Wed">
+                    Wed
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Thu">
+                    Thu
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Fri">
+                    Fri
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Sat">
+                    Sat
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Son">
+                    Son
+                  </label>
+                </div>
 
-                <div class="availability-time cell">
-                  <!--TODO: min and max date-->
+                <div class="form-group date-until">
                   <input type="text"
                          class="form-control"
                          ng-model="event.end"
@@ -299,14 +316,17 @@
                          autoclose="true"
                          value=""
                       >
-                </div>
+                  </div>
               </div>
 
             </div>
-            <a class="btn-icon-delete"
-               ng-click=""
-                >remove<span class="btn-icon-right"></span>
-            </a>
+            <div class="buttonbar">
+              <a class="btn-icon-delete"
+                 ng-click=""
+                  >remove
+                <span class="btn-icon-right"></span>
+              </a>
+            </div>
 
           </div>
         </div>
@@ -317,19 +337,6 @@
     </div>
 
   </fieldset>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <fieldset>
     <legend>What can be booked?</legend>

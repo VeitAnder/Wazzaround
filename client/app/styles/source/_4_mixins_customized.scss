@@ -374,45 +374,61 @@ footer {
 }
 
 .event-new{
+  @include border_all($color_grey_25);
+  @include border-radius($border-radius);
+  padding: 5px $bu;
+  margin-top: $bu;
   input{
     min-width: 0;
+  }
+  .form-group{
+    margin-right: 4%;
     float: left;
-    margin-left: 4%;
-    &:first-child{
-      margin-left: 0;
+    &.quantity{
+      margin-right: 0;
     }
   }
-  .input-date-from{
+  .date-from, .date-until{
     width: 28%;
   }
-  .input-time{
+  .time{
     width: 28%;
   }
-  .input-duration{
+  .duration{
     width: 16%;
   }
-  .input-quantity{
+  .quantity{
     width: 16%;
   }
-  .input-time-until{
-    width: 30%;
+
+  .buttonbar{
+    @include border(top, $color_grey_25);
+    width: auto;
+    margin: $bu (-$bu) 0 (-$bu);
+    padding: 5px 10px;
   }
 }
 
 .event-new-repeat{
-  overflow: hidden;
-  clear: left;
-  @include seperator(top, $color_grey_50);
-  margin-top: $bu*3.0;
-  padding-top: $bu;
-  .checkbox-label{
-    input{
-      margin-right: 5px;
+  @include clearfix;
+  clear: both;
+  margin-top: $bu;
+  .checkbox{
+    label{
+      font-weight: $font-weight_bold;
     }
   }
-  .checkbox-label-inline{
-    float: left;
-    width: (100%) / 8;
+  .repeating{
+    margin-top: 5px;
+    padding-top: 5px;
+    @include seperator(top, $color_grey_50);
+    .checkbox{
+      float: left;
+      width: (100%) / 7;
+      label{
+        font-weight: normal;
+      }
+    }
   }
 }
 
@@ -1725,6 +1741,11 @@ $img-block-size: 150px;
 }
 
 .timepicker{
+  padding: 10px;
+  button.btn-default{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
   .glyphicon-chevron-down, .glyphicon-chevron-up{
     display: block;
     width: 30px;

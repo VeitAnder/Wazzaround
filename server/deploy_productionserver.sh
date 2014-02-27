@@ -10,18 +10,18 @@ set -e
 
 #set scriptpath
 SCRIPTPATH=`dirname $0`
-
-#SECRETCONFIGFILE=config_productionserver.js
-#SECRETCONFIGFILEPATH=
-#source ${SECRETCONFIGFILEPATH}/passwd.sh
-#MODULUS_USERNAME=
-#MODULUS_APPNAME=
-
-#check if secret config file is accessible
-#if [ ! -f ${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} ]; then
-#    echo "${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} file not found! Not ready to deploy. Check your planfred truecrypt volume to be mounted."
-#    exit 0
-#fi
+#
+SECRETCONFIGFILE=config_productionmodulus.js
+SECRETCONFIGFILEPATH=/Volumes/truecrypt/reactureapp/
+source ${SECRETCONFIGFILEPATH}/passwd.sh
+MODULUS_USERNAME=reactureapp
+MODULUS_APPNAME=reactureapp
+#
+# check if secret config file is accessible
+if [ ! -f ${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} ]; then
+    echo "${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} file not found! Not ready to deploy. Check your planfred truecrypt volume to be mounted."
+    exit 0
+fi
 
 echo "\n\nnode version used:"
 node --version
@@ -35,13 +35,14 @@ grunt --version
 
 #build server
 echo "build release of server"
-grunt --gruntfile ${SCRIPTPATH}/gruntFile.js bump:minor
-grunt --gruntfile ${SCRIPTPATH}/gruntFile.js release
+#grunt --gruntfile ${SCRIPTPATH}/gruntFile.js bump:patch
+grunt --gruntfile ${SCRIPTPATH}/gruntFile.js releasedevelopment
 
 #build clientapp
 echo "build release of clientapp"
-grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js bump:minor
-grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js release
+grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js build
+#grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js releasedevelopment
+
 
 #copy clientapp to server dir for deployment
 echo "rsync clientapp to server dir"
@@ -58,7 +59,7 @@ echo "When no modulus commmand is found in your path, install it via [sudo] npm 
 echo "Modulus deploy start"
 modulus logout
 echo "Login as $MODULUS_USERNAME and deploy $MODULUS_APPNAME:"
-modulus login --username $MODULUS_USERNAME --password $MODULUS_PLANFREDAPP_PASSWORD
+modulus login --username $MODULUS_USERNAME
 modulus deploy -p $MODULUS_APPNAME
 modulus logout
 
@@ -70,4 +71,4 @@ rm -R ${SCRIPTPATH}/clientapp
 echo "\n\nremove $SECRETCONFIGFILE - contains sensitive access data!!"
 rm ${SCRIPTPATH}/${SECRETCONFIGFILE}
 
-open https://app.planfred.com/
+open http://reacture.anorak.io/
