@@ -1,6 +1,7 @@
 var Q = require('q');
 var moment = require('moment');
 var ObjectId = require('mongojs').ObjectId;
+var _ = require('lodash');
 
 var models = require('../models/models.js');
 
@@ -128,6 +129,8 @@ models.ActivityModel.factoryImpl("getMyActivities", function(params, req) {
 
 
 models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(params, req) {
+  //TODO: muss zum bestehenden objekt hinzugefügt werden...
+
   // todo auth
   var deferred = Q.defer();
 
@@ -146,44 +149,67 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
 
   console.log('obj', obj);
 
-  var item = models.BookableItemModel.create();
+  var createEventSeries = function(item, obj) {
 
-  item.description = obj.description;
-  item.price = obj.price;
+    _.forEach(obj.events, function(event) {
+      if (event.repeating != undefined && event.repeating === true) {
 
-  var startDate = moment(obj.events[0].start); //moment();
-  var duration = obj.events[0].duration;
-  var quantity = obj.events[0].quantity;
-  var endDate = moment(obj.events[0].end); //moment().add('days', 14);
+        var startDate = moment(event.start); //moment();
+        var duration = event.duration;
+        var quantity = event.quantity;
+        var endDate = moment(event.end);  //moment().add('days', 14);
 
-  if (moment().subtract('days', 1) > startDate) {
-    console.log("you're trying to add events in the past");
-    deferred.reject(new Error("you're trying to add events in the past"));
-    return deferred.promise;
-  }
+        if (moment().subtract('days', 1) > startDate) {
+          console.log("you're trying to add events in the past");
+          deferred.reject(new Error("you're trying to add events in the past"));
+          return deferred.promise;
+        }
 
-  if (endDate.diff(startDate, 'years') > 2) {
-    console.log("you're trying to add events for more than two years");
-    deferred.reject(new Error("you're trying to add events for more than two years"));
-    return deferred.promise;
-  }
+        if (endDate.diff(startDate, 'years') > 2) {
+          console.log("you're trying to add events for more than two years");
+          deferred.reject(new Error("you're trying to add events for more than two years"));
+          return deferred.promise;
+        }
 
+        while (startDate < endDate) {
+          // add new event
+          if (event.dayOfWeek[startDate.format('ddd')]) {  // Wochentag angehakt
+            console.log('Create Event at: ', startDate.format("dddd, MMMM Do YYYY, h:mm:ss a"));
+            item.events.push({
+              start : new Date(startDate.toDate()),
+              duration : duration,
+              quantity : quantity
+            });
+          }
+          startDate.add('days', 1);
+        }
 
-  while (startDate <= endDate) {
-    // add new event
-    if (obj.events[0].dayOfWeek[startDate.format('ddd')]) {  // Wochentag angehakt
-      console.log('Create Event at: ', startDate.format("dddd, MMMM Do YYYY, h:mm:ss a"));
-      item.events.push({
-        start : startDate.toDate(),
-        duration : duration,
-        quantity : quantity
-      });
-    }
-    startDate.add('days', 1);
-  }
-
-  return item.save()
-    .then(function() {
-      // return nothing
+      }
     });
+
+    console.log("save", item);
+
+    return item.save()
+      .then(function() {
+        // return nothing
+      });
+  }
+
+  if (obj._id != undefined) {  // es exisiert schon ein BoockAble-Item
+    console.log("get existing item");
+    return models.BookableItemModel.get(ObjectId(obj._id))
+      .then(function(item) {
+        return createEventSeries(item, obj);
+      });
+  } else {
+    console.log("create new item");
+    var item = models.BookableItemModel.create();  // create new item
+
+    item.description = obj.description;
+    item.price = obj.price;
+
+    return createEventSeries(item, obj);
+  }
+
+
 });

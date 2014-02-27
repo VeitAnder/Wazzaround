@@ -124,7 +124,7 @@ angular.module('anorakApp')
       var saveItemsPromises = [];
 
       _.forEach($scope.activity.bookableItems, function(item) {
-        console.log("event", item.ref().events[0]);
+        console.log("event", item.ref().events[0]); // nicht nur 0 sondern alle
         if (item.ref().events.length > 0 && item.ref().events[0].repeating === true) {
           console.log("save repeating events!", item.ref());
           saveItemsPromises.push($scope.models.BookableItemModel.saveWithRepeatingEvents({
