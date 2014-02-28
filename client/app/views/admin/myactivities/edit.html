@@ -75,24 +75,20 @@
     <div class="form-group"
          data-ng-show="activity.category.main"
         >
-      <span>Select Sub Category</span>
-      <br>
-      <br>
+      <div class="input_label">Sub Category</div>
 
       <span class="alert alert-error"
             data-ng-show="activity.category.subs.length >= 2">You can choose 2 Subcategories at most!
       </span>
-      <br>
-      <br>
       <span class="alert alert-error"
             data-ng-show="activity.category.subs.length === 0">You must choose at least 1 Subcategory!
       </span>
-      <br>
-      <br>
 
-      <span
+      <div
+          class="checkbox"
           ng-repeat="subcategory in getSubCategories()"
-          > {{subcategory.title}}
+          >
+        <label>{{subcategory.title}}
         <input type="checkbox"
                ng-model="value$index"
                data-ng-change="setSubcat(subcategory.title)"
@@ -101,7 +97,8 @@
                ng-checked="isTitleInSubcats(subcategory.title)"
                ng-disabled="!isTitleInSubcats(subcategory.title) && activity.category.subs.length >= 2"
             />
-      </span>
+          </label>
+      </div>
     </div>
 
     <div class="form-group">
