@@ -296,7 +296,7 @@
               </p>
             </div>
 
-            <div class="availability availability-user">
+            <div class="availability">
               <div class="input_label">Availability</div>
               <div class="availability-list">
                 <div class="availability-header">
@@ -307,13 +307,17 @@
 
                 <div class="availability-entry"
                      ng-repeat="available in m.availability">
-                  <div class="availability-date cell first">
+                  <div class="availability-title cell first">
+                    Bookable Item TITLE
+                  </div>
+                   <div class="availability-date cell">
                     {{available.start | momentjs:{format: 'DD.MM.YYYY'}  }}
                   </div>
                   <div class="availability-time cell">
-                    {{available.end | momentjs:{format: 'DD.MM.YYYY'} }}
+                    <!--{{available.end | momentjs:{format: 'DD.MM.YYYY'} }}-->
+                    Time
                   </div>
-                  <div class="availability-amount cell">
+                  <div class="availability-quantity cell">
                     {{available.quantity}}x
                   </div>
 
@@ -331,13 +335,16 @@
 
 
                 <div class="availability-entry">
-                  <div class="availability-date cell first">
+                  <div class="availability-title cell first">
+                    Bookable Item TITLE
+                  </div>
+                  <div class="availability-date cell">
                     19.02.2014
                   </div>
                   <div class="availability-time cell">
-                    20.02.2014
+                    02.30 pm
                   </div>
-                  <div class="availability-amount cell">
+                  <div class="availability-quantity cell">
                     4x
                   </div>
                   <div class="availability-book cell last align-right">
@@ -354,14 +361,17 @@
                 <div class="availability-header">
                   <div class="month cell first">March</div>
                 </div>
+                <div class="availability-title cell first">
+                  Bookable Item TITLE
+                </div>
                 <div class="availability-entry">
-                  <div class="availability-date cell first">
+                  <div class="availability-date cell">
                     07.03.2014
                   </div>
                   <div class="availability-time cell">
-                    08.03.2014
+                    11.00 am
                   </div>
-                  <div class="availability-amount cell">
+                  <div class="availability-quantity cell">
                     18x
                   </div>
                   <div class="availability-book cell last align-right">
