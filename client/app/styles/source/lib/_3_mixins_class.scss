@@ -200,9 +200,6 @@ a.link-download{
     &:hover {
       cursor: default;
     }
-    &:active {
-      @include gradient_blue_hover;
-    }
   }
 }
 

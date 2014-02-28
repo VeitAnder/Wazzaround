@@ -132,10 +132,6 @@ footer {
   &.activity-detail{
     max-width: 100%;
   }
-  a.btn {
-    font-size: $fs;
-    font-weight: $font-weight_bold;
-  }
 
   p {
     font-family: $sysfont_01;
@@ -450,75 +446,53 @@ footer {
 }
 
 
+.availability-list {
+}
 
-//
-//.activity-detail {
-//}
-//
-//.activity-edit {
-//  .availability-entry {
-//    .cell {
-//      &.first {
-//        padding-left: 0;
-//      }
-//      &.last {
-//        padding-right: 0;
-//      }
-//    }
-//  }
-//}
-//
-//
-//
-//.availability-list {
-//}
-//
-//.availability-header, .activitytype-header {
-//  @include divtable_header_small;
-//}
-//
-//.availability-entry {
-//  @include divtable_row_small;
-//  .availability-date {
-//    width: 45%;
-//    .availability-user &{
-//      width: 40%;
-//    }
-//  }
-//  .availability-time {
-//    width: 35%;
-//    .availability-user &{
-//      width: 30%;
-//    }
-//  }
-//  .availability-amount {
-//    width: 20%;
-//    .availability-user &{
-//      width: 15%;
-//    }
-//  }
-//  .availability-book {
-//    width: 0%;
-//    .availability-user &{
-//      width: 15%;
-//    }
-//  }
-//}
-//
-//.activitytype-list{
-//  .activitytype-entry{
-//    @include divtable_row_small;
-//  }
-//  .activitytype-name{
-//    width: 50%;
-//  }
-//  .activitytype-quantity{
-//    width: 15%;
-//  }
-//  .activitytype-price{
-//    width: 20%;
-//  }
-//}
+.availability-header {
+  @include divtable_header_small;
+}
+
+.availability-entry {
+  @include divtable_row_small;
+  .availability-title {
+    width: 30%;
+    white-space: normal;
+  }
+  .availability-date {
+    width: 20%;
+  }
+  .availability-time {
+    width: 20%;
+  }
+  .availability-quantity {
+    width: 10%;
+  }
+  .availability-book {
+    width: 20%;
+  }
+}
+
+.availability-footer{
+  @include divtable_row_small;
+//  margin-top: $bu;
+  border-bottom: none;
+  background-color: $color_grey_15;
+  .cell{
+    width: (100%)/3;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    .btn{
+      background-color: $color_grey_75;
+      border-color: $color_grey_75;
+      &:hover{
+        background-color: $color_grey_75_l5;
+        border-color: $color_grey_75_l5;
+      }
+    }
+  }
+}
+
 
 // CONTENT ELEMENTS
 // ###########################################################################################################################

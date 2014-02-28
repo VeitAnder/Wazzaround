@@ -1041,10 +1041,6 @@ button.btn, .btn, a.btn {
     opacity: 0.5; }
     button.btn[disabled="disabled"]:hover, button.btn.disabled:hover, .btn[disabled="disabled"]:hover, .btn.disabled:hover, a.btn[disabled="disabled"]:hover, a.btn.disabled:hover {
       cursor: default; }
-    button.btn[disabled="disabled"]:active, button.btn.disabled:active, .btn[disabled="disabled"]:active, .btn.disabled:active, a.btn[disabled="disabled"]:active, a.btn.disabled:active {
-      background-color: #97e300;
-      background-image: -webkit-linear-gradient(top, #97e300 0%, #83c400 100%);
-      background-image: linear-gradient(to bottom, #97e300 0%, #83c400 100%); }
   button.btn.btn-default, .btn.btn-default, a.btn.btn-default {
     background-color: #FFF;
     border: none;
@@ -1150,10 +1146,6 @@ button.btn, .btn, a.btn {
     opacity: 0.5; }
     .btn-large-add[disabled="disabled"]:hover, .btn-large-add.disabled:hover {
       cursor: default; }
-    .btn-large-add[disabled="disabled"]:active, .btn-large-add.disabled:active {
-      background-color: #97e300;
-      background-image: -webkit-linear-gradient(top, #97e300 0%, #83c400 100%);
-      background-image: linear-gradient(to bottom, #97e300 0%, #83c400 100%); }
   .btn-large-add span {
     display: inline-block;
     position: relative;
@@ -1248,10 +1240,6 @@ button.btn, .btn, a.btn {
     opacity: 0.5; }
     .btn-add[disabled="disabled"]:hover, .btn-add.disabled:hover {
       cursor: default; }
-    .btn-add[disabled="disabled"]:active, .btn-add.disabled:active {
-      background-color: #97e300;
-      background-image: -webkit-linear-gradient(top, #97e300 0%, #83c400 100%);
-      background-image: linear-gradient(to bottom, #97e300 0%, #83c400 100%); }
   .btn-add span {
     display: inline-block;
     position: relative;
@@ -2168,9 +2156,6 @@ footer {
   max-width: 600px; }
   .window-category-sports.activity-detail {
     max-width: 100%; }
-  .window-category-sports a.btn {
-    font-size: 16px;
-    font-weight: 600; }
   .window-category-sports p {
     font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -2242,9 +2227,6 @@ footer {
   max-width: 600px; }
   .window-category-culture.activity-detail {
     max-width: 100%; }
-  .window-category-culture a.btn {
-    font-size: 16px;
-    font-weight: 600; }
   .window-category-culture p {
     font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -2316,9 +2298,6 @@ footer {
   max-width: 600px; }
   .window-category-wellness.activity-detail {
     max-width: 100%; }
-  .window-category-wellness a.btn {
-    font-size: 16px;
-    font-weight: 600; }
   .window-category-wellness p {
     font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -2888,6 +2867,237 @@ footer {
       width: 14.28571%; }
       .event-new-repeat .repeating .checkbox label {
         font-weight: normal; }
+
+
+.availability-header {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  clear: both;
+  font-weight: 600;
+  color: #85C900;
+  border-bottom: solid 1px #85C900;
+  border-bottom-width: 3px; }
+  .availability-header:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .availability-header.sortable :hover {
+    cursor: pointer;
+    background-color: #a4d740; }
+  .availability-header.sortable .active {
+    color: #FFF;
+    background-color: #71ab00; }
+  .availability-header .cell {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    float: left;
+    padding: 10px 5px; }
+    .availability-header .cell.first {
+      border-left: none;
+      padding-left: 10px; }
+    .availability-header .cell.last {
+      padding-right: 10px; }
+    .availability-header .cell.right {
+      text-align: right; }
+  .availability-header .cell {
+    padding: 5px 2.5px; }
+
+.availability-entry {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: solid 1px #b3b3b3; }
+  .availability-entry:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .availability-entry .cell {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    float: left;
+    vertical-align: middle;
+    min-height: 100%;
+    padding: 10px 5px; }
+    .availability-entry .cell.first {
+      padding-left: 10px; }
+    .availability-entry .cell.last {
+      padding-right: 10px; }
+    .availability-entry .cell.right {
+      text-align: right; }
+  .availability-entry .cell_wrap {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: normal; }
+  .enable_hover .availability-entry:hover {
+    cursor: pointer; }
+  .enable_hover .availability-entry:hover {
+    background-color: #85C900;
+    color: #FFF; }
+    .enable_hover .availability-entry:hover .cell {
+      border-color: #b3b3b3;
+      background-color: transparent; }
+      .enable_hover .availability-entry:hover .cell.first {
+        border: none; }
+    .enable_hover .availability-entry:hover .btn {
+      background-color: #FFF;
+      color: #85C900; }
+      .enable_hover .availability-entry:hover .btn:hover {
+        background-color: #e0f1bf;
+        color: #85C900; }
+  .availability-entry .cell {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    float: left;
+    vertical-align: middle;
+    min-height: 100%;
+    padding: 10px 5px;
+    padding: 5px 2.5px; }
+    .availability-entry .cell.first {
+      padding-left: 10px; }
+    .availability-entry .cell.last {
+      padding-right: 10px; }
+    .availability-entry .cell.right {
+      text-align: right; }
+    .availability-entry .cell.first {
+      padding-left: 10px; }
+    .availability-entry .cell.last {
+      padding-right: 10px; }
+  .availability-entry .availability-title {
+    width: 30%;
+    white-space: normal; }
+  .availability-entry .availability-date {
+    width: 20%; }
+  .availability-entry .availability-time {
+    width: 20%; }
+  .availability-entry .availability-quantity {
+    width: 10%; }
+  .availability-entry .availability-book {
+    width: 20%; }
+
+.availability-footer {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: solid 1px #b3b3b3;
+  border-bottom: none;
+  background-color: #e8e8e8; }
+  .availability-footer:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .availability-footer .cell {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    float: left;
+    vertical-align: middle;
+    min-height: 100%;
+    padding: 10px 5px; }
+    .availability-footer .cell.first {
+      padding-left: 10px; }
+    .availability-footer .cell.last {
+      padding-right: 10px; }
+    .availability-footer .cell.right {
+      text-align: right; }
+  .availability-footer .cell_wrap {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: normal; }
+  .enable_hover .availability-footer:hover {
+    cursor: pointer; }
+  .enable_hover .availability-footer:hover {
+    background-color: #85C900;
+    color: #FFF; }
+    .enable_hover .availability-footer:hover .cell {
+      border-color: #b3b3b3;
+      background-color: transparent; }
+      .enable_hover .availability-footer:hover .cell.first {
+        border: none; }
+    .enable_hover .availability-footer:hover .btn {
+      background-color: #FFF;
+      color: #85C900; }
+      .enable_hover .availability-footer:hover .btn:hover {
+        background-color: #e0f1bf;
+        color: #85C900; }
+  .availability-footer .cell {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    float: left;
+    vertical-align: middle;
+    min-height: 100%;
+    padding: 10px 5px;
+    padding: 5px 2.5px; }
+    .availability-footer .cell.first {
+      padding-left: 10px; }
+    .availability-footer .cell.last {
+      padding-right: 10px; }
+    .availability-footer .cell.right {
+      text-align: right; }
+    .availability-footer .cell.first {
+      padding-left: 10px; }
+    .availability-footer .cell.last {
+      padding-right: 10px; }
+  .availability-footer .cell {
+    width: 33.33333%;
+    padding-top: 10px;
+    padding-bottom: 15px; }
+    .availability-footer .cell .btn {
+      background-color: #8c8c8c;
+      border-color: #8c8c8c; }
+      .availability-footer .cell .btn:hover {
+        background-color: #999999;
+        border-color: #999999; }
 
 #logo {
   display: block;
@@ -4138,10 +4348,6 @@ footer {
     opacity: 0.5; }
     .col-left-fixed .logoutlink[disabled="disabled"]:hover, .col-left-fixed .logoutlink.disabled:hover {
       cursor: default; }
-    .col-left-fixed .logoutlink[disabled="disabled"]:active, .col-left-fixed .logoutlink.disabled:active {
-      background-color: #97e300;
-      background-image: -webkit-linear-gradient(top, #97e300 0%, #83c400 100%);
-      background-image: linear-gradient(to bottom, #97e300 0%, #83c400 100%); }
   .col-left-fixed .logoutlink:hover {
     background-color: #df401c;
     border-color: #df401c; }
