@@ -144,6 +144,11 @@ angular.module('anorakApp')
       mapdata.map.markers = dateFilteredActivities;
     };
 
+    var setMarkerOnMap = function (marker) {
+      mapdata.map.markers = [];
+      mapdata.map.markers.push(marker);
+    };
+
     var mapdata = {
       searchActivities: function (startDate, endDate, address) {
         debug("SEARCHING START", startDate, "END ", endDate, " ADDR ", address);
@@ -185,23 +190,22 @@ angular.module('anorakApp')
             });
         }
       },
-      findAddressOnMap: function (address) {
-        if (!address) {
+      findAddressOnMap: function (marker) {
+        if (!marker.address) {
           debug("FOUND NO ADDRESS");
 
         } else {
 
-          geoCodeAddress(address)
+          geoCodeAddress(marker.address)
             .then(function () {
-              console.log("DONE GEOCODING ADDRESS");
+              console.log("DONE GEOCODING ADDRESS");     // TODO set marker on map
+              setMarkerOnMap(marker);
               $rootScope.$broadcast("EditMapChangeEvent");
             })
 
-            .fail(function (err) {
+            .catch(function (err) {
               debug("Something went wrong while searching address", err);
-            })
-
-            .done();
+            });
         }
       },
       map: {
@@ -239,6 +243,38 @@ angular.module('anorakApp')
           overviewMapControl: false,
           mapTypeControl: false,
           streetViewControl: false
+        },
+        events: {
+          click: function (mapModel, eventName, originalEventArgs) {
+
+            var e;
+            if(!originalEventArgs) {
+              e = {
+                latLng: {
+                  lat: function () {
+                    return mapdata.map.center.latitude;
+                  },
+                  lng: function () {
+                    return mapdata.map.center.longitude;
+                  }
+                }
+              };
+            } else {
+              e = originalEventArgs[0];
+            }
+
+            if (mapdata.map.clickedMarker) {
+              mapdata.map.clickedMarker = {
+                title: 'You clicked here',
+                latitude: e.latLng.lat(),
+                longitude: e.latLng.lng()
+              };
+            }
+            else {
+              mapdata.map.clickedMarker.latitude = e.latLng.lat();
+              mapdata.map.clickedMarker.longitude = e.latLng.lng();
+            }
+          }
         }
       }
     };

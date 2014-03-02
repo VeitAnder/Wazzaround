@@ -20,7 +20,6 @@ angular.module('anorakApp')
     $scope.categories = categories;
     $scope.activity = activity;
 
-
     $scope.getSubCategories = function () {
       var maincategory = _.find(categories, { 'key': $scope.activity.category.main });
       if (maincategory) {
@@ -28,7 +27,7 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.isTitleInSubcats = function(title) {
+    $scope.isTitleInSubcats = function (title) {
       var found = _.filter($scope.activity.category.subs, function (sub) {
         if (sub.title === title) {
           return true;
@@ -57,45 +56,11 @@ angular.module('anorakApp')
 //      $scope.activity.category.sub = undefined;
 //    });
 
-    $scope.map = {
-      center: {
-        "longitude": 8.01177978515625,
-        "latitude": 45.12199086176226
-      },
-      zoom: 9,
-      clickedMarker: {
-        title: 'Location of activity',
-        latitude: null,
-        longitude: null
-      },
-      options: mapdataservice.map.options,
-      events: {
-        click: function (mapModel, eventName, originalEventArgs) {
-          // 'this' is the directive's scope
-          debug("user defined event: " + eventName, mapModel, originalEventArgs);
-
-          var e = originalEventArgs[0];
-
-          if (!$scope.map.clickedMarker) {
-            $scope.map.clickedMarker = {
-              title: 'Location of activity',
-              latitude: e.latLng.lat(),
-              longitude: e.latLng.lng()
-            };
-          }
-          else {
-            $scope.map.clickedMarker.latitude = e.latLng.lat();
-            $scope.map.clickedMarker.longitude = e.latLng.lng();
-          }
-
-          //update model
-          $scope.activity.latitude = e.latLng.lat();
-          $scope.activity.longitude = e.latLng.lng();
-
-          debug("$scope.map.clickedMarker", $scope.map.clickedMarker);
-          $scope.$apply();
-        }
-      }
+    $scope.map = mapdataservice.map;
+    $scope.map.clickedMarker = {
+      title: 'Location of activity',
+      latitude: null,
+      longitude: null
     };
 
     if (activity.latitude) {
@@ -120,28 +85,25 @@ angular.module('anorakApp')
     // address:
     // user enters address
     // address will be set on
-    $scope.setAddressOnMap = function() {
+    $scope.setAddressOnMap = function () {
       console.log("WILL SET ADDRESS", $scope.activity.address);
-      mapdataservice.findAddressOnMap($scope.activity.address);
+      mapdataservice.findAddressOnMap($scope.activity);
+      $scope.map = mapdataservice.map;
 
-      $rootScope.$on("EditMapChangeEvent", function (event, message) {
-        debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
-        //set marker on map TODO
-
-        var e = {
-          latLng: {
-            lat: function () {
-              return $scope.map.center.latitude;
-            },
-            lng: function () {
-              return $scope.map.center.longitude;
-            }
-          }
-        };
-        $scope.map.events.click("", "mapserviceclick", [e]);
-      });
     };
 
+    $rootScope.$on("EditMapChangeEvent", function (event, message) {
+      debug("EDIT MAP CHANGED !!! MARKERS: ", $scope.map.markers);
+
+      //update model and set marker by simulating click on map
+      $scope.map.events.click();
+
+      $scope.activity.latitude = $scope.map.center.latitude;
+      $scope.activity.longitude = $scope.map.center.longitude;
+      $scope.map.clickedMarker.title = 'Location of activity';
+
+      debug("$scope.map.clickedMarker", $scope.map.clickedMarker);
+    });
 
     // Save the Activiy
     $scope.save = function () {
@@ -149,12 +111,12 @@ angular.module('anorakApp')
 
       var saveItemsPromises = [];
 
-      _.forEach($scope.activity.bookableItems, function(item) {
+      _.forEach($scope.activity.bookableItems, function (item) {
         console.log("event", item.ref().events[0]); // nicht nur 0 sondern alle
         if (item.ref().events.length > 0 && item.ref().events[0].repeating === true) {
           console.log("save repeating events!", item.ref());
           saveItemsPromises.push($scope.models.BookableItemModel.saveWithRepeatingEvents({
-            obj : item.ref()
+            obj: item.ref()
           }));
           // TODO: die Referenz auf die neu erstellten events fehlen noch
         } else {
@@ -163,16 +125,15 @@ angular.module('anorakApp')
       });
 
       Q.all(saveItemsPromises)
-        .then(function(results) {  // all BookableItems are saved
+        .then(function (results) {  // all BookableItems are saved
           console.log("all results", results);
           return $scope.activity.save();  // save the activity
         })
-        .then(function(activity) {
+        .then(function (activity) {
           $location.path("/admin/myactivities/");
           $scope.$apply();
         }).done();
     };
-
 
     $scope.delete = function () {
       $scope.activity.remove()
@@ -187,17 +148,17 @@ angular.module('anorakApp')
     };
 
     /*
-    // only when creating element
-    if (!$scope.activity.availability[0]) {
-      $scope.newavailability = {
-        start: undefined,
-        end: undefined,
-        quantity: undefined
-      };
+     // only when creating element
+     if (!$scope.activity.availability[0]) {
+     $scope.newavailability = {
+     start: undefined,
+     end: undefined,
+     quantity: undefined
+     };
 
-      $scope.activity.availability[0] = $scope.newavailability;
+     $scope.activity.availability[0] = $scope.newavailability;
 
-    }
-    */
+     }
+     */
 
   });

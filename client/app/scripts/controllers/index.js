@@ -43,25 +43,6 @@ angular.module('anorakApp')
 
     $scope.map = mapdataservice.map;
     $scope.map.markers = resolvedActivities;
-    $scope.map.events = {
-      click: function (mapModel, eventName, originalEventArgs) {
-        // 'this' is the directive's scope
-        debug("user defined event: " + eventName, mapModel, originalEventArgs);
-
-        var e = originalEventArgs[0];
-        if (!$scope.map.clickedMarker) {
-          $scope.map.clickedMarker = {
-            title: 'You clicked here',
-            latitude: e.latLng.lat(),
-            longitude: e.latLng.lng()
-          };
-        }
-        else {
-          $scope.map.clickedMarker.latitude = e.latLng.lat();
-          $scope.map.clickedMarker.longitude = e.latLng.lng();
-        }
-      }
-    };
 
     $scope.windowOptions = {
       "zIndex": 1000
@@ -221,17 +202,8 @@ angular.module('anorakApp')
         setSelected(mainCat.key);
       });
 
-      var e = {
-        latLng: {
-          lat: function () {
-            return $scope.map.center.latitude;
-          },
-          lng: function () {
-            return $scope.map.center.longitude;
-          }
-        }
-      };
-      $scope.map.events.click("", "mapserviceclick", [e]);
+      // set marker by simulating click on map
+      $scope.map.events.click();
     });
 
   });
