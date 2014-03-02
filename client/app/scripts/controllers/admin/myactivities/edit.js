@@ -109,6 +109,12 @@ angular.module('anorakApp')
     $scope.save = function () {
       debug("save() called", $scope.activity);
 
+      // check if there was only a marker set or an address entered
+      if(!$scope.activity.latitude) {
+        $scope.activity.latitude = $scope.map.clickedMarker.latitude;
+        $scope.activity.longitude = $scope.map.clickedMarker.longitude;
+      }
+
       var saveItemsPromises = [];
 
       _.forEach($scope.activity.bookableItems, function (item) {
