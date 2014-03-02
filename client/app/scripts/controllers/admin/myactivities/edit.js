@@ -41,7 +41,7 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.setSubcat = function (title) {
+    $scope.setSubcat = function (title, key) {
       if (!$scope.activity.category.subs) {
         $scope.activity.category.subs = [];
       }

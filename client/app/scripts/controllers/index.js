@@ -74,9 +74,22 @@ angular.module('anorakApp')
       marker.showWindow = true;
     };
 
-    // filter activities so that only if their sub category is selected, they are displayed
     $scope.onlySelectedCategories = function (activity) {
-      return _.where($scope.getMainCategory(activity.category.main).sub, { 'key': activity.category.sub, 'selected': true }).length === 1 ? true : false;
+      if (!activity.category.main) {   // TODO this occurs because in edit mode it is allowed to save without selecting a category
+        return false;
+      }
+      // array of activity subcats
+      // array of subcats from categories
+      // in array of subcats from categories, subcat has to be selected===true and also has to equal at least one subcat from activity subcat array
+      var filteredActivities = [];
+      _.each(activity.category.subs, function (subCatInActivity) {
+        _.each($scope.getMainCategory(activity.category.main).sub, function (subCatFromCategories) {
+          if (subCatInActivity.title === subCatFromCategories.title && subCatFromCategories.selected === true) {
+            filteredActivities.push(subCatFromCategories);
+          }
+        });
+      });
+      return filteredActivities.length > 0;
     };
 
     $scope.toggleCategorySelection = function (category) {
@@ -156,9 +169,14 @@ angular.module('anorakApp')
       var catsInActs = [];
       angular.forEach($scope.map.markers, function (activity) {
         if (activity.category.main === mainCat) {
-          if (_.where($scope.getMainCategory(mainCat).sub, { 'key': activity.category.sub }).length > 0) {
-            catsInActs.push(activity.category.sub);
-          }
+          _.each(activity.category.subs, function (subCatInActivity) {
+
+            _.each($scope.getMainCategory(mainCat).sub, function (subCatInCategories) {
+              if (subCatInCategories.title === subCatInActivity.title) {
+                catsInActs.push(subCatInCategories.key);
+              }
+            });
+          });
         }
       });
       return _.uniq(catsInActs);
