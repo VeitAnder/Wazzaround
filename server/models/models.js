@@ -87,6 +87,7 @@ var models = function () {
   var ActivityModel = new model("activities", {
     name: Attr(Type.string),
     company: Attr(Type.string),
+    address: Attr(Type.string),
 
     description: Attr(Type.string),
     images: Attr(Type.array),

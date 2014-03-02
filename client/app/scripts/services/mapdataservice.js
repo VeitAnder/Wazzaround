@@ -25,12 +25,50 @@ angular.module('anorakApp')
       return R * 2 * Math.asin(Math.sqrt(a));
     };
 
+    // all activities are filtered for a location, with a radius of 30 km.
+    // if the activities are outside, dont display them on the map
+    // TODO what about the zoom level??? Markers numbers should change with the zoom level --> zoom out --> see more markers
+    var setMarkersInRadius = function () {
+
+      var defer = Q.defer();
+      var markersInRadius = [];
+
+      models.ActivityModel.all()
+
+        .then(function (activities) {
+
+          mapdata.map.markers = activities;
+          debug("ALL MARKERS", mapdata.map.markers.length);
+
+          for (var i = 0; i < mapdata.map.markers.length; i++) {
+            // calculate distance between center and the marker
+            // if distance more than 30km, dont display
+            // TODO later on filter activities(===markers) from db via lat-long range
+            /////Activiews.use.find({...}).then(....)
+
+            var distance = calculateDistance(mapdata.map.center.latitude, mapdata.map.center.longitude, mapdata.map.markers[i].latitude, mapdata.map.markers[i].longitude);
+            if (distance < 30) {
+              markersInRadius.push(mapdata.map.markers[i]);
+            }
+          }
+          mapdata.map.markers = markersInRadius;
+          debug("MARKERS IN RADIUS", markersInRadius.length);
+          defer.resolve();
+        })
+        .fail(function (err) {
+          debug("Could not get all activities", err);
+          defer.reject(err);
+        })
+        .done();
+
+      return defer.promise;
+    };
+
     var geoCodeAddress = function (address) {
 
       var defer = $q.defer();
 
       if (!address) {
-        debug("GOT NO ADDRESS", address);
         defer.resolve("No address entered");
       } else {
         debug("GOT ADDRESS", address);
@@ -47,20 +85,6 @@ angular.module('anorakApp')
             mapdata.map.centerMarker.longitude = results[0].geometry.location.e;
             mapdata.map.address = address; // TODO remove later, is only for controlling
 
-            var markersInRadius = [];
-            for (var i = 0; i < mapdata.map.markers.length; i++) {
-              // calculate distance between center and the marker
-              // if distance more than 30km, dont display
-              // TODO later on filter activities(===markers) from db via lat-long range
-              /////Activiews.use.find({...}).then(....)
-
-              var distance = calculateDistance(mapdata.map.center.latitude, mapdata.map.center.longitude, mapdata.map.markers[i].latitude, mapdata.map.markers[i].longitude);
-              if (distance < 30) {
-                debug("DISTANCE FIT FOR MARKER");
-                markersInRadius.push(mapdata.map.markers[i]);
-              }
-            }
-            mapdata.map.markers = markersInRadius;
             return defer.resolve();
 
           } else {
@@ -75,6 +99,8 @@ angular.module('anorakApp')
       return defer.promise;
     };
 
+    // filter activities according to date that the user entered
+    // there may be a start date and an end date or only one of them or none
     var findActivitiesForDateRange = function (start, end) {
 
       // it's not a search for date, so just return
@@ -83,7 +109,7 @@ angular.module('anorakApp')
       } else if (!start) {
         start = new Date();
       } else if (!end) {
-        end = new Date(2099,1,1);
+        end = new Date(2099, 1, 1);
       }
 
       var startDate = moment(start);
@@ -97,14 +123,15 @@ angular.module('anorakApp')
         var activityEnd = moment(new Date(activity.availability[0].end));
 
         // activityStart is same or later than startDate AND activityEnd is same or before endDate, THEN it's in range
-        function isOverlapping (s1, start, end) {
-          if ( s1 >= start && s1 <= end ) {
+        function isOverlapping(s1, start, end) {
+          if (s1 >= start && s1 <= end) {
             return true;
           }
           return false;
         }
+
         var overlaps = false;
-        if ( activityStart >= startDate ) {
+        if (activityStart >= startDate) {
           overlaps = isOverlapping(activityStart, startDate, endDate);
         } else {
           overlaps = isOverlapping(startDate, activityStart, activityEnd);
@@ -121,33 +148,57 @@ angular.module('anorakApp')
       searchActivities: function (startDate, endDate, address) {
         debug("SEARCHING START", startDate, "END ", endDate, " ADDR ", address);
 
+        // user clicked "Search" on empty form
         if (!startDate && !endDate && !address) {
-          debug("FOUND NONE OF SERARCH STUFF");
+          debug("FOUND NONE OF SEARCH STUFF");
 
-          models.ActivityModel.use.all()
+          models.ActivityModel.all()
 
             .then(function (activities) {
               debug("GOT ACTS", activities);
               mapdata.map.markers = activities;
               $rootScope.$broadcast("MapChangeEvent");
             })
-            .fail(function (err) {
+            .catch(function (err) {
               debug("Could not get all activities", err);
+            });
+
+        } else {
+          // set the address on the map and center map on that address
+          geoCodeAddress(address)
+
+            .then(function () {
+              // set markers only in a special radius on this map
+              return setMarkersInRadius();
             })
-            .done();
+
+            .then(function () {
+              // find only activities that are within a date range specified by the user
+              findActivitiesForDateRange(startDate, endDate);
+
+              debug("AM DONE SEARCHING IN SERVICE");
+              $rootScope.$broadcast("MapChangeEvent");
+            })
+
+            .catch(function (err) {
+              debug("Something went wrong while searching", err);
+            });
+        }
+      },
+      findAddressOnMap: function (address) {
+        if (!address) {
+          debug("FOUND NO ADDRESS");
 
         } else {
 
           geoCodeAddress(address)
             .then(function () {
-
-              findActivitiesForDateRange(startDate, endDate);
-              debug("AM DONE SEARCHING IN SERVICE");
-              $rootScope.$broadcast("MapChangeEvent");
+              console.log("DONE GEOCODING ADDRESS");
+              $rootScope.$broadcast("EditMapChangeEvent");
             })
 
             .fail(function (err) {
-              debug("Something went wrong while searching", err);
+              debug("Something went wrong while searching address", err);
             })
 
             .done();

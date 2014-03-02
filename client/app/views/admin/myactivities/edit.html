@@ -19,12 +19,23 @@
     </div>
 
     <div class="form-group">
-      <label for="name">Company offering this activity</label>
+      <label for="company">Company offering this activity</label>
       <input type="text"
              class="form-control"
-             id="name"
+             id="company"
              placeholder="Enter company "
              ng-model="activity.company"
+          >
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address of this this activity</label>
+      <input type="text"
+             class="form-control"
+             id="address"
+             placeholder="Enter address "
+             ng-model="activity.address"
+             ng-blur="setAddressOnMap()"
           >
     </div>
 
@@ -229,7 +240,7 @@
             <div class="form-group quantity">
               <input type="text"
                      class="form-control"
-                     id="name"
+                     id="quantity"
                      placeholder="Quantity"
                      ng-model="event.quantity"
                   >

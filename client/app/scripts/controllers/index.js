@@ -60,8 +60,6 @@ angular.module('anorakApp')
           $scope.map.clickedMarker.latitude = e.latLng.lat();
           $scope.map.clickedMarker.longitude = e.latLng.lng();
         }
-
-        $scope.$apply();
       }
     };
 
