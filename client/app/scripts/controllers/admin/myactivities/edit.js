@@ -25,6 +25,11 @@ angular.module('anorakApp')
       item.events.splice(idx, 1);
     }
 
+    $scope.removeItem = function(item, idx) {
+      item.remove().done();
+      activity.bookableItems.splice(idx, 1);
+    }
+
     $scope.moment = moment;
 
     $scope.isNewMode = function () {

@@ -166,7 +166,7 @@
       </button>
 
       <div class="bookableitem bookableitem-add"
-           ng-repeat="bookableItem in activity.bookableItems">
+           ng-repeat="(idx, bookableItem) in activity.bookableItems">
         <div class="bookableitem-header">
           <div class="bookableitem-name cell first">
 
@@ -189,7 +189,7 @@
                 >
           </div>
           <div class="buttonbar">
-            <a ng-click=""
+            <a ng-click="removeItem(bookableItem.ref(), idx)"
                class="txt-icon-delete">Delete Item
               <span class="btn-icon-right"></span>
             </a>
