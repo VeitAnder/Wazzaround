@@ -208,7 +208,7 @@
           </div>
 
           <div class="event-new"
-               ng-repeat="event in bookableItem.ref().events">
+               ng-repeat="(idx, event) in bookableItem.ref().events | filter:{mode:'edit'}">
 
             <div class="form-group date-from">
               <input type="text"
@@ -320,43 +320,48 @@
               </div>
 
             </div>
+
             <div class="buttonbar">
               <a class="txt-icon-delete"
-                 ng-click=""
+                 ng-click="removeEvent(bookableItem.ref(), idx)"
                   >remove<span class="btn-icon-right"></span>
+              </a>
+            </div>
+
+            <div class="buttonbar">
+              <a class="txt-icon-save"
+                 ng-click="event.mode = 'view'"
+                >save<span class="btn-icon-right"></span>
               </a>
             </div>
 
           </div>
 
 
-
-
-
-          <!-- ######## STATIC LIST ######## -->
-
           <div class="event-list">
             <div class="event-header">
               <div class="event-date cell first">Date</div>
               <div class="event-time cell">Time</div>
+              <!--<div class="event-duration cell">Duration</div>-->
               <div class="event-quantity cell">Qty.</div>
               <div class="listaction cell last">
               </div>
             </div>
-            <div class="event-row">
-              <div class="event-date cell first">24.07.2014</div>
-              <div class="event-time cell">11.30 am</div>
-              <div class="event-quantity cell">2x</div>
+            <div class="event-row" ng-repeat="(idx,event) in bookableItem.ref().events | filter:{mode:'!edit'}">
+              <div class="event-date cell first">{{moment(event.start).format("ddd, MMM Do YY")}}</div>
+              <div class="event-time cell">{{moment(event.start).format("h:mm a")}}</div>
+              <!--<div class="event-duration cell">{{event.duration}}h</div>-->
+              <div class="event-quantity cell">{{event.quantity}}x</div>
               <div class="listaction cell last">
-                <a class="edit">
+                <a class="edit" ng-click="event.mode = 'edit'">
                   <span>edit</span>
                 </a>
-                <a class="delete">
+                <a class="delete" ng-click="removeEvent(bookableItem.ref(), idx)">
                   <span>delete</span>
                 </a>
               </div>
             </div>
-            <div class="event-row">
+         <!--   <div class="event-row">
               <div class="event-date cell first">24.07.2014</div>
               <div class="event-time cell">08.30 am</div>
               <div class="event-quantity cell">2x</div>
@@ -381,7 +386,7 @@
                   <span>delete</span>
                 </a>
               </div>
-            </div>
+            </div>-->
           </div>
 
           <!-- ######## STATIC LIST END ######## -->

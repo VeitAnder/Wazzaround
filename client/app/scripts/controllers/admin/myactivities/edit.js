@@ -18,8 +18,14 @@ angular.module('anorakApp')
     $scope.createEvent = function(bookableItem) {
       var event = bookableItem.createEvents();
       event.start = new Date();
+      event.mode = 'edit';
     }
 
+    $scope.removeEvent = function(item, idx) {
+      item.events.splice(idx, 1);
+    }
+
+    $scope.moment = moment;
 
     $scope.isNewMode = function () {
       return $scope.newMode;

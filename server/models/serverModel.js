@@ -151,6 +151,19 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
 
   var createEventSeries = function(item, obj) {
 
+    item.description = obj.description;
+    item.price = obj.price;
+    item.events = [];
+
+    _.forEach(obj.events, function(event) {
+      // copy the 'first' event
+      item.events.push({
+        start : new Date(event.start),
+        duration : event.duration,
+        quantity : event.quantity
+      });
+    });
+
     _.forEach(obj.events, function(event) {
 
       if (event.repeating != undefined && event.repeating === true) {
@@ -203,23 +216,12 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
     return models.BookableItemModel.get(ObjectId(obj._id))
       .then(function(item) {
         console.log("existing item", item);
+
         return createEventSeries(item, obj);
       });
   } else {
     console.log("create new item");
     var item = models.BookableItemModel.create();  // create new item
-
-    item.description = obj.description;
-    item.price = obj.price;
-
-    _.forEach(obj.events, function(event) {
-      // copy the 'first' event
-      item.events.push({
-        start : new Date(event.start),
-        duration : event.duration,
-        quantity : event.quantity
-      });
-    });
 
     return createEventSeries(item, obj);
   }
