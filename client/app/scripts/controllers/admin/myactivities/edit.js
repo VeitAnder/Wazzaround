@@ -13,6 +13,14 @@ angular.module('anorakApp')
       $scope.newMode = false;
     }
 
+    $scope.state = {};
+
+    $scope.createEvent = function(bookableItem) {
+      var event = bookableItem.createEvents();
+      event.start = new Date();
+    }
+
+
     $scope.isNewMode = function () {
       return $scope.newMode;
     };
@@ -118,13 +126,18 @@ angular.module('anorakApp')
       var saveItemsPromises = [];
 
       _.forEach($scope.activity.bookableItems, function (item) {
-        console.log("event", item.ref().events[0]); // nicht nur 0 sondern alle
+        console.log("event", item.ref().events); // nicht nur 0 sondern alle
+
+        //TODO: immer operation aufrufen
         if (item.ref().events.length > 0 && item.ref().events[0].repeating === true) {
           console.log("save repeating events!", item.ref());
-          saveItemsPromises.push($scope.models.BookableItemModel.saveWithRepeatingEvents({
+          var itemPromise = $scope.models.BookableItemModel.saveWithRepeatingEvents({
             obj: item.ref()
-          }));
-          // TODO: die Referenz auf die neu erstellten events fehlen noch
+          })
+          .then(function(res){
+            item.ref()._id = res._id;
+          });
+          saveItemsPromises.push(itemPromise);
         } else {
           saveItemsPromises.push(item.ref().save());  // save all BookableItems
         }
@@ -138,7 +151,12 @@ angular.module('anorakApp')
         .then(function (activity) {
           $location.path("/admin/myactivities/");
           $scope.$apply();
-        }).done();
+        })
+        .fail(function (err) {
+          $scope.state.error = true;
+          $scope.state.message = err.message;
+          $scope.$apply();
+        });
     };
 
     $scope.delete = function () {

@@ -181,7 +181,7 @@
           </div>
           <div class="bookableitem-price cell last">
             <label for="itemPrice">Price</label>
-            <input type="text"
+            <input type="number"
                    class="form-control"
                    id="itemPrice"
                    placeholder="Price €"
@@ -200,7 +200,7 @@
         <div class="bookableitem-body">
           <div class="event-add">
             <a class="txt-icon-add"
-               ng-click="bookableItem.ref().createEvents()">
+               ng-click="createEvent(bookableItem.ref())">
               <span class="btn-icon-left"></span>
               Schedule Event
             </a>
@@ -230,7 +230,7 @@
                   >
             </div>
             <div class="form-group duration">
-              <input type="text"
+              <input type="number"
                      class="form-control"
                      id="duration"
                      placeholder="Duration (h)"
@@ -238,7 +238,7 @@
                   >
             </div>
             <div class="form-group quantity">
-              <input type="text"
+              <input type="number"
                      class="form-control"
                      id="quantity"
                      placeholder="Quantity"
@@ -401,6 +401,10 @@
 
 
   <div class="buttonbar margin-top">
+
+    <div ng-show="state.error">
+      <div class="alert alert-error">{{state.message}}</div>
+    </div>
 
     <a data-ng-show="!isNewMode()"
        class="btn btn-alert float-left"

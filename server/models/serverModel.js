@@ -152,6 +152,7 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
   var createEventSeries = function(item, obj) {
 
     _.forEach(obj.events, function(event) {
+
       if (event.repeating != undefined && event.repeating === true) {
 
         var startDate = moment(event.start); //moment();
@@ -171,7 +172,9 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
           return deferred.promise;
         }
 
-        while (startDate < endDate) {
+        startDate.add('days', 1);  // start Date + 1
+
+        while (startDate <= endDate) {
           // add new event
           if (event.dayOfWeek[startDate.format('ddd')]) {  // Wochentag angehakt
             console.log('Create Event at: ', startDate.format("dddd, MMMM Do YYYY, h:mm:ss a"));
@@ -190,8 +193,8 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
     console.log("save", item);
 
     return item.save()
-      .then(function() {
-        // return nothing
+      .then(function(item){
+        return { _id : item._id };
       });
   }
 
@@ -199,6 +202,7 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
     console.log("get existing item");
     return models.BookableItemModel.get(ObjectId(obj._id))
       .then(function(item) {
+        console.log("existing item", item);
         return createEventSeries(item, obj);
       });
   } else {
@@ -207,6 +211,15 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
 
     item.description = obj.description;
     item.price = obj.price;
+
+    _.forEach(item.events, function(event) {
+      // copy the 'first' event
+      item.events.push({
+        start : new Date(event.start),
+        duration : event.duration,
+        quantity : event.quantity
+      });
+    });
 
     return createEventSeries(item, obj);
   }
