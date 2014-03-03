@@ -126,21 +126,14 @@ angular.module('anorakApp')
       var saveItemsPromises = [];
 
       _.forEach($scope.activity.bookableItems, function (item) {
-        console.log("event", item.ref().events); // nicht nur 0 sondern alle
-
-        //TODO: immer operation aufrufen
-        if (item.ref().events.length > 0 && item.ref().events[0].repeating === true) {
-          console.log("save repeating events!", item.ref());
-          var itemPromise = $scope.models.BookableItemModel.saveWithRepeatingEvents({
-            obj: item.ref()
-          })
-          .then(function(res){
-            item.ref()._id = res._id;
-          });
-          saveItemsPromises.push(itemPromise);
-        } else {
-          saveItemsPromises.push(item.ref().save());  // save all BookableItems
-        }
+        var itemPromise = $scope.models.BookableItemModel.saveWithRepeatingEvents({
+          obj: item.ref()
+        })
+        .then(function(res){
+          // recive storage id
+          item.ref()._id = res._id;
+        });
+        saveItemsPromises.push(itemPromise);
       });
 
       Q.all(saveItemsPromises)
@@ -160,7 +153,15 @@ angular.module('anorakApp')
     };
 
     $scope.delete = function () {
-      $scope.activity.remove()
+      var deletePromises = [];
+      _.forEach($scope.activity.bookableItems, function(item) {
+        deletePromises.push(item.ref().remove());
+      })
+
+      Q.all(deletePromises)
+        .then(function(results) {
+          return $scope.activity.remove();
+        })
         .then(function () {
           $location.path("/admin/myactivities/");
           $scope.$apply();

@@ -158,7 +158,7 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
         var startDate = moment(event.start); //moment();
         var duration = event.duration;
         var quantity = event.quantity;
-        var endDate = moment(event.end);  //moment().add('days', 14);
+        var endDate = moment(event.end).hour(23).minute(59);  //moment().add('days', 14);
 
         if (moment().subtract('days', 1) > startDate) {
           console.log("you're trying to add events in the past");
@@ -212,7 +212,7 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
     item.description = obj.description;
     item.price = obj.price;
 
-    _.forEach(item.events, function(event) {
+    _.forEach(obj.events, function(event) {
       // copy the 'first' event
       item.events.push({
         start : new Date(event.start),
