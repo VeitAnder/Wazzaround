@@ -7,7 +7,7 @@ var context = {}  // the available context in the debugger prompt
 /// Your Code
 
 var server = require('./server');
-context.models = require('./models/models.js')
+context.models = require('./models/models.js');
 
 
 ////////////////////////
