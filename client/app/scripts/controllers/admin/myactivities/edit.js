@@ -206,7 +206,7 @@ angular.module('anorakApp')
 
     $scope.selectedAddress = "";
     $scope.getAddress = function(viewValue) {
-      var params = {address: viewValue, sensor: false};
+      var params = {address: viewValue, sensor: false, language: 'it'};
       return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params})
         .then(function(res) {
           return res.data.results;
