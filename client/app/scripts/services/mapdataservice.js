@@ -99,6 +99,18 @@ angular.module('anorakApp')
       return defer.promise;
     };
 
+
+    /// Beispiel:
+    //activitesIds = _.map(models.ActivityModel.all(), function(el) { return el._id; });
+//    activitesIds = _.map(models.ActivityModel.all(), '_id');
+//    activitesIds = [a1._id, a2._id,....];
+//
+//    models.ActivityModel.filterByTime({
+//      activites : activitesIds,
+//      startDate : xxx,
+//      endDate : yyy
+//    });
+
     // filter activities according to date that the user entered
     // there may be a start date and an end date or only one of them or none
     var findActivitiesForDateRange = function (start, end) {
