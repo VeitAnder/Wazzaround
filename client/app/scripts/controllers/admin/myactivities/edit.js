@@ -112,7 +112,6 @@ angular.module('anorakApp')
     $rootScope.$on("SetAddressEvent", function (event, message) {
       if ($scope.map.address) {
         $scope.activity.address = $scope.map.address;
-        $scope.$apply();
       }
     });
 

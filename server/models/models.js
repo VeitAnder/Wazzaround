@@ -109,11 +109,11 @@ var models = function () {
     owner: Ref(UserModel),
 
     getMyActivities: Factory(),
-    getActivitiesFilterByTime : Factory(/* {
+    getActivitiesFilterByTime : Factory( {
       activitiesIds : Type.ObjectId,
       startDate : Type.date,
       endDate : Type.date
-    }*/)
+    })
   });
 
   var BookingsModel = new model('bookings', {

@@ -196,13 +196,13 @@ angular.module('anorakApp')
       return categoriesInActivities(mainCat).length;
     };
 
+    $scope.getAddress = mapdataservice.getAddress;
+
     $rootScope.$on("MapChangeEvent", function (event, message) {
       debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
       angular.forEach($scope.categories, function (mainCat) {
         setSelected(mainCat.key);
       });
     });
-
-    $scope.getAddress = mapdataservice.getAddress;
 
   });

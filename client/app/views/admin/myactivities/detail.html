@@ -55,9 +55,9 @@
 
 
   <h5 class="category">
-    {{activity.category.main}}
-    <span class="category-sub">
-      {{activity.category.sub}}
+    {{activity.category.main}}<br/>
+    <span class="category-sub" ng-repeat="subcat in activity.category.subs">
+      <br/>{{subcat.title}}<br/>
     </span>
   </h5>
 

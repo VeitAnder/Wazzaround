@@ -99,26 +99,12 @@ angular.module('anorakApp')
       return defer.promise;
     };
 
-    /// Beispiel:
-//    activitiesIds = _.map(models.ActivityModel.all(), function(el) { return el._id; });
-//    activitiesIds = _.map(models.ActivityModel.all(), '_id');
-//    activitiesIds = [a1._id, a2._id,....];
-//
-//    models.ActivityModel.getActivitiesFilterByTime({
-//      activitiesIds : activitiesIds,
-//      startDate : xxx,
-//      endDate : yyy
-//    })
-//    .then(function (activities) {
-//
-//    });
-
     // filter activities according to date that the user entered
     // there may be a start date and an end date or only one of them or none
     var findActivitiesForDateRange = function (start, end) {
+      debug("LOOKING FOR DATE RANGE", start, end);
 
-      // it's not a search for date, so just return
-      if (!start && !end) {
+      if (!start && !end) {   // it's not a search for date, so just return
         return;
       } else if (!start) {
         start = new Date();
@@ -126,36 +112,18 @@ angular.module('anorakApp')
         end = new Date(2099, 1, 1);
       }
 
-      var startDate = moment(start);
-      var endDate = moment(end);
+      var activitiesIds = _.map(mapdata.map.markers, '_id');
 
-      // filter activities for dates
-      debug("GOT ACTIVITIES TO FILTER", mapdata.map.markers);
-      var dateFilteredActivities = _.filter(mapdata.map.markers, function (activity) {
-
-        var activityStart = moment(new Date(activity.availability[0].start));
-        var activityEnd = moment(new Date(activity.availability[0].end));
-
-        // activityStart is same or later than startDate AND activityEnd is same or before endDate, THEN it's in range
-        function isOverlapping(s1, start, end) {
-          if (s1 >= start && s1 <= end) {
-            return true;
-          }
-          return false;
-        }
-
-        var overlaps = false;
-        if (activityStart >= startDate) {
-          overlaps = isOverlapping(activityStart, startDate, endDate);
-        } else {
-          overlaps = isOverlapping(startDate, activityStart, activityEnd);
-        }
-        return overlaps;
-
-      });
-
-      debug("GOT DATE FILTERED ACTIVITIES", dateFilteredActivities);
-      mapdata.map.markers = dateFilteredActivities;
+      models.ActivityModel.getActivitiesFilterByTime({
+        activitiesIds: activitiesIds,
+        startDate: start,
+        endDate: end
+      })
+        .then(function (activities) {
+          debug("GOT DATE FILTERED ACTIVITIES", activities);
+          mapdata.map.markers = activities;
+        })
+        .done();
     };
 
     var setMarkerOnMap = function (marker) {
@@ -238,6 +206,7 @@ angular.module('anorakApp')
               debug('No address found for coordinates');
             }
             $rootScope.$broadcast("SetAddressEvent");
+            $rootScope.$apply();
           }
         });
       },
