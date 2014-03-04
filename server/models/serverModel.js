@@ -226,5 +226,68 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
     return createEventSeries(item, obj);
   }
 
+});
 
+
+models.ActivityModel.factoryImpl("getActivitiesFilterByTime", function(params, req) {
+  console.log("getActivitiesFilterByTime called");
+
+  var activities = _.map(params.activities, function(el) { return {_id:ObjectId(el)};});
+  var startDate = new Date(params.startDate);
+  var endDate = new Date(params.endDate);
+  //var activitiesIds = ["53159ee56733ddc32152606b", "53159f7a6733ddc32152606e"];
+  //var activities = _.map(activitiesIds, function(el) { return {_id:ObjectId(el)};})
+  //var startDate = new Date("2014-04-04T09:37:27.859Z");
+  //var endDate = new Date("2010-06-18T09:37:27.859Z");
+
+
+  return models.ActivityModel.find({'$or' : activities})
+    .then(function(activites) {
+      var activitiesPromises = [];
+      _.forEach(activites, function(activity) {
+        var itemPromises = [];
+
+        _.forEach(activity.bookableItems, function(item) {
+
+          itemPromises.push(
+            models.BookableItemModel.find({
+              _id:ObjectId(item._reference),
+              events : {
+                '$elemMatch' : {
+                  start : {
+                    '$gt' : startDate,
+                    '$lt' : endDate
+                  }
+                }
+              }
+            })
+          );
+
+
+        });
+
+        activitiesPromises.push(
+          Q.all(itemPromises)
+            .then(function(items) {
+              var hasAResult = false;
+              _.forEach(items, function(el) {
+                if (Array.isArray(el) && el.length > 0) {
+                  hasAResult = true;
+                }
+              })
+              //console.log("items", items);
+              //console.log("has Result", hasAResult);
+
+              if (hasAResult) {
+                return activity;
+              }
+          })
+        );
+      });
+
+      return Q.all(activitiesPromises)
+        .then(function(activities){
+          return _.filter(activities, function(el) { return el!=undefined; });
+        });
+    });
 });
