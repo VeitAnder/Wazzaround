@@ -101,14 +101,17 @@ angular.module('anorakApp')
 
 
     /// Beispiel:
-    //activitesIds = _.map(models.ActivityModel.all(), function(el) { return el._id; });
-//    activitesIds = _.map(models.ActivityModel.all(), '_id');
-//    activitesIds = [a1._id, a2._id,....];
+//    activitiesIds = _.map(models.ActivityModel.all(), function(el) { return el._id; });
+//    activitiesIds = _.map(models.ActivityModel.all(), '_id');
+//    activitiesIds = [a1._id, a2._id,....];
 //
-//    models.ActivityModel.filterByTime({
-//      activites : activitesIds,
+//    models.ActivityModel.getActivitiesFilterByTime({
+//      activitiesIds : activitiesIds,
 //      startDate : xxx,
 //      endDate : yyy
+//    })
+//    .then(function (activities) {
+//
 //    });
 
     // filter activities according to date that the user entered
