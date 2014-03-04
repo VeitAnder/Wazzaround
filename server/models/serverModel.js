@@ -151,13 +151,27 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
 
   var createEventSeries = function(item, obj) {
 
+    item.description = obj.description;
+    item.price = obj.price;
+    item.events = [];
+
     _.forEach(obj.events, function(event) {
+      // copy the 'first' event
+      item.events.push({
+        start : new Date(event.start),
+        duration : event.duration,
+        quantity : event.quantity
+      });
+    });
+
+    _.forEach(obj.events, function(event) {
+
       if (event.repeating != undefined && event.repeating === true) {
 
         var startDate = moment(event.start); //moment();
         var duration = event.duration;
         var quantity = event.quantity;
-        var endDate = moment(event.end);  //moment().add('days', 14);
+        var endDate = moment(event.end).hour(23).minute(59);  //moment().add('days', 14);
 
         if (moment().subtract('days', 1) > startDate) {
           console.log("you're trying to add events in the past");
@@ -171,7 +185,9 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
           return deferred.promise;
         }
 
-        while (startDate < endDate) {
+        startDate.add('days', 1);  // start Date + 1
+
+        while (startDate <= endDate) {
           // add new event
           if (event.dayOfWeek[startDate.format('ddd')]) {  // Wochentag angehakt
             console.log('Create Event at: ', startDate.format("dddd, MMMM Do YYYY, h:mm:ss a"));
@@ -190,8 +206,8 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
     console.log("save", item);
 
     return item.save()
-      .then(function() {
-        // return nothing
+      .then(function(item){
+        return { _id : item._id };
       });
   }
 
@@ -199,14 +215,13 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
     console.log("get existing item");
     return models.BookableItemModel.get(ObjectId(obj._id))
       .then(function(item) {
+        console.log("existing item", item);
+
         return createEventSeries(item, obj);
       });
   } else {
     console.log("create new item");
     var item = models.BookableItemModel.create();  // create new item
-
-    item.description = obj.description;
-    item.price = obj.price;
 
     return createEventSeries(item, obj);
   }

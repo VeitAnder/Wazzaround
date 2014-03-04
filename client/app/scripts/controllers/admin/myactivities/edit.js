@@ -13,6 +13,25 @@ angular.module('anorakApp')
       $scope.newMode = false;
     }
 
+    $scope.state = {};
+
+    $scope.createEvent = function(bookableItem) {
+      var event = bookableItem.createEvents();
+      event.start = new Date();
+      event.mode = 'edit';
+    }
+
+    $scope.removeEvent = function(item, idx) {
+      item.events.splice(idx, 1);
+    }
+
+    $scope.removeItem = function(item, idx) {
+      item.remove().done();
+      activity.bookableItems.splice(idx, 1);
+    }
+
+    $scope.moment = moment;
+
     $scope.isNewMode = function () {
       return $scope.newMode;
     };
@@ -129,16 +148,14 @@ angular.module('anorakApp')
       var saveItemsPromises = [];
 
       _.forEach($scope.activity.bookableItems, function (item) {
-        console.log("event", item.ref().events[0]); // nicht nur 0 sondern alle
-        if (item.ref().events.length > 0 && item.ref().events[0].repeating === true) {
-          console.log("save repeating events!", item.ref());
-          saveItemsPromises.push($scope.models.BookableItemModel.saveWithRepeatingEvents({
-            obj: item.ref()
-          }));
-          // TODO: die Referenz auf die neu erstellten events fehlen noch
-        } else {
-          saveItemsPromises.push(item.ref().save());  // save all BookableItems
-        }
+        var itemPromise = $scope.models.BookableItemModel.saveWithRepeatingEvents({
+          obj: item.ref()
+        })
+        .then(function(res){
+          // recive storage id
+          item.ref()._id = res._id;
+        });
+        saveItemsPromises.push(itemPromise);
       });
 
       Q.all(saveItemsPromises)
@@ -149,11 +166,24 @@ angular.module('anorakApp')
         .then(function (activity) {
           $location.path("/admin/myactivities/");
           $scope.$apply();
-        }).done();
+        })
+        .fail(function (err) {
+          $scope.state.error = true;
+          $scope.state.message = err.message;
+          $scope.$apply();
+        });
     };
 
     $scope.delete = function () {
-      $scope.activity.remove()
+      var deletePromises = [];
+      _.forEach($scope.activity.bookableItems, function(item) {
+        deletePromises.push(item.ref().remove());
+      })
+
+      Q.all(deletePromises)
+        .then(function(results) {
+          return $scope.activity.remove();
+        })
         .then(function () {
           $location.path("/admin/myactivities/");
           $scope.$apply();
