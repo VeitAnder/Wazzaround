@@ -86,11 +86,22 @@ angular.module('anorakApp')
     // user enters address
     // address will be set on
     $scope.setAddressOnMap = function () {
-      console.log("WILL SET ADDRESS", $scope.activity.address);
-      mapdataservice.findAddressOnMap($scope.activity);
-      $scope.map = mapdataservice.map;
+      console.log("WILL SET ADDRESS", $scope.activity.address, $scope.map.clickedMarker);
 
+      if ($scope.activity.address) {
+        mapdataservice.findAddressOnMap($scope.activity);
+      } else {
+        mapdataservice.findAddressForCoordinates($scope.map.clickedMarker.latitude, $scope.map.clickedMarker.longitude);
+      }
+      $scope.map = mapdataservice.map;
     };
+
+    $rootScope.$on("SetAddressEvent", function (event, message) {
+      if ($scope.map.address) {
+        $scope.activity.address = $scope.map.address;
+        $scope.$apply();
+      }
+    });
 
     $rootScope.$on("EditMapChangeEvent", function (event, message) {
       debug("EDIT MAP CHANGED !!! MARKERS: ", $scope.map.markers);
@@ -110,7 +121,7 @@ angular.module('anorakApp')
       debug("save() called", $scope.activity);
 
       // check if there was only a marker set or an address entered
-      if(!$scope.activity.latitude) {
+      if (!$scope.activity.latitude) {
         $scope.activity.latitude = $scope.map.clickedMarker.latitude;
         $scope.activity.longitude = $scope.map.clickedMarker.longitude;
       }

@@ -47,7 +47,7 @@ angular.module('anorakApp')
             /////Activiews.use.find({...}).then(....)
 
             var distance = calculateDistance(mapdata.map.center.latitude, mapdata.map.center.longitude, mapdata.map.markers[i].latitude, mapdata.map.markers[i].longitude);
-            if (distance < 30) {
+            if (distance < 100) {
               markersInRadius.push(mapdata.map.markers[i]);
             }
           }
@@ -83,7 +83,7 @@ angular.module('anorakApp')
             mapdata.map.center.longitude = results[0].geometry.location.e;
             mapdata.map.centerMarker.latitude = results[0].geometry.location.d;
             mapdata.map.centerMarker.longitude = results[0].geometry.location.e;
-            mapdata.map.address = address; // TODO remove later, is only for controlling
+            mapdata.map.address = address;
 
             return defer.resolve();
 
@@ -208,6 +208,31 @@ angular.module('anorakApp')
             });
         }
       },
+      findAddressForCoordinates: function (latitude, longitude) {
+        console.log("LOOKING FOR ADDRESS FOR", latitude, longitude);
+
+//        var defer = Q.defer;
+        var latlng = new google.maps.LatLng(latitude, longitude);
+
+        geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+          console.log("CODED RESULTS", results, status);
+          if (status === google.maps.GeocoderStatus.OK) {
+            if (results[1]) {
+              console.log("SET ADDRESS TO MAP", results[1]);
+              mapdata.map.address = results[1].formatted_address;
+            } else {
+              debug('No address found for coordinates');
+            }
+            $rootScope.$broadcast("SetAddressEvent");
+//            defer.resolve();
+          } else {
+//            defer.reject('Reverse geocoding of coordinates failed: ' + status);
+          }
+        });
+
+//        return defer.promise;
+      },
       map: {
         address: "",
         center: {
@@ -248,7 +273,7 @@ angular.module('anorakApp')
           click: function (mapModel, eventName, originalEventArgs) {
 
             var e;
-            if(!originalEventArgs) {
+            if (!originalEventArgs) {
               e = {
                 latLng: {
                   lat: function () {
@@ -264,11 +289,13 @@ angular.module('anorakApp')
             }
 
             if (mapdata.map.clickedMarker) {
+              // if we are here we come from activities edit view
               mapdata.map.clickedMarker = {
                 title: 'You clicked here',
                 latitude: e.latLng.lat(),
                 longitude: e.latLng.lng()
               };
+              mapdata.findAddressForCoordinates(mapdata.map.clickedMarker.latitude, mapdata.map.clickedMarker.longitude);
             }
             else {
               mapdata.map.clickedMarker.latitude = e.latLng.lat();
