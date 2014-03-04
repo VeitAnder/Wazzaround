@@ -211,7 +211,6 @@ angular.module('anorakApp')
       findAddressForCoordinates: function (latitude, longitude) {
         console.log("LOOKING FOR ADDRESS FOR", latitude, longitude);
 
-//        var defer = Q.defer;
         var latlng = new google.maps.LatLng(latitude, longitude);
 
         geocoder = new google.maps.Geocoder();
@@ -225,13 +224,8 @@ angular.module('anorakApp')
               debug('No address found for coordinates');
             }
             $rootScope.$broadcast("SetAddressEvent");
-//            defer.resolve();
-          } else {
-//            defer.reject('Reverse geocoding of coordinates failed: ' + status);
           }
         });
-
-//        return defer.promise;
       },
       map: {
         address: "",
@@ -288,18 +282,11 @@ angular.module('anorakApp')
               e = originalEventArgs[0];
             }
 
-            if (!mapdata.map.clickedMarker) {
-              mapdata.map.clickedMarker = {
-                title: 'You clicked here',
-                latitude: e.latLng.lat(),
-                longitude: e.latLng.lng()
-              };
-            }
-            else {
+            if (mapdata.map.clickedMarker) {   // only the case in edit view
               mapdata.map.clickedMarker.latitude = e.latLng.lat();
               mapdata.map.clickedMarker.longitude = e.latLng.lng();
+              mapdata.findAddressForCoordinates(mapdata.map.clickedMarker.latitude, mapdata.map.clickedMarker.longitude);
             }
-            mapdata.findAddressForCoordinates(mapdata.map.clickedMarker.latitude, mapdata.map.clickedMarker.longitude);
           }
         }
       }

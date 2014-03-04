@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminMyactivitiesEditCtrl', function ($scope, $location, activity, categories, mapdataservice, $route, $rootScope) {
+  .controller('AdminMyactivitiesEditCtrl', function ($scope, $location, activity, categories, mapdataservice, $route, $rootScope, $http) {
     $scope.getPagePartial = function () {
       return 'admin/myactivities/edit.html';
     };
@@ -174,7 +174,7 @@ angular.module('anorakApp')
       var deletePromises = [];
       _.forEach($scope.activity.bookableItems, function (item) {
         deletePromises.push(item.ref().remove());
-      })
+      });
 
       Q.all(deletePromises)
         .then(function (results) {
@@ -203,5 +203,15 @@ angular.module('anorakApp')
 
      }
      */
+
+    $scope.selectedAddress = "";
+    $scope.getAddress = function(viewValue) {
+      var params = {address: viewValue, sensor: false};
+      return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params})
+        .then(function(res) {
+          return res.data.results;
+        });
+    };
+
 
   });

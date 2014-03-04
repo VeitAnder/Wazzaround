@@ -34,7 +34,8 @@ angular.module('anorakApp', [
   'services.i18nNotifications',
   'services.httpRequestTracker',
   'templates.app',
-  'modelizer'
+  'modelizer',
+  'mgcrea.ngStrap'
 ]);
 
 angular.module('anorakApp').constant('I18NMESSAGES', {
@@ -108,15 +109,15 @@ angular.module('anorakApp')
           }],
           activity: ['$route', 'models', function ($route, models) {
             return models.ActivityModel.get($route.current.params.id)
-              .then(function(activity) {
+              .then(function (activity) {
                 // load bookable items
                 var loadingBookableItems = [];
-                _.forEach(activity.bookableItems, function(item) {
+                _.forEach(activity.bookableItems, function (item) {
                   loadingBookableItems.push(item.load());
                 });
 
                 return Q.all(loadingBookableItems)
-                  .then(function(res){
+                  .then(function (res) {
                     console.log("loadingBookableItems", res);
                     return activity;  // return the activity, when all bookableItems have been loaded
                   });
@@ -181,8 +182,6 @@ angular.module('anorakApp')
     models.CategoryModel.connection(connector);
     models.BookableItemModel.connection(connector);
     models.BookingsModel.connection(connector);
-
-
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);
