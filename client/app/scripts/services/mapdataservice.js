@@ -99,6 +99,21 @@ angular.module('anorakApp')
       return defer.promise;
     };
 
+
+    /// Beispiel:
+//    activitiesIds = _.map(models.ActivityModel.all(), function(el) { return el._id; });
+//    activitiesIds = _.map(models.ActivityModel.all(), '_id');
+//    activitiesIds = [a1._id, a2._id,....];
+//
+//    models.ActivityModel.getActivitiesFilterByTime({
+//      activitiesIds : activitiesIds,
+//      startDate : xxx,
+//      endDate : yyy
+//    })
+//    .then(function (activities) {
+//
+//    });
+
     // filter activities according to date that the user entered
     // there may be a start date and an end date or only one of them or none
     var findActivitiesForDateRange = function (start, end) {
