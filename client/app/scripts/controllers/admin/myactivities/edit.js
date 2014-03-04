@@ -15,17 +15,17 @@ angular.module('anorakApp')
 
     $scope.state = {};
 
-    $scope.createEvent = function(bookableItem) {
+    $scope.createEvent = function (bookableItem) {
       var event = bookableItem.createEvents();
       event.start = new Date();
       event.mode = 'edit';
     }
 
-    $scope.removeEvent = function(item, idx) {
+    $scope.removeEvent = function (item, idx) {
       item.events.splice(idx, 1);
     }
 
-    $scope.removeItem = function(item, idx) {
+    $scope.removeItem = function (item, idx) {
       item.remove().done();
       activity.bookableItems.splice(idx, 1);
     }
@@ -105,13 +105,7 @@ angular.module('anorakApp')
     // user enters address
     // address will be set on
     $scope.setAddressOnMap = function () {
-      console.log("WILL SET ADDRESS", $scope.activity.address, $scope.map.clickedMarker);
-
-      if ($scope.activity.address) {
-        mapdataservice.findAddressOnMap($scope.activity);
-      } else {
-        mapdataservice.findAddressForCoordinates($scope.map.clickedMarker.latitude, $scope.map.clickedMarker.longitude);
-      }
+      mapdataservice.findAddressOnMap($scope.activity);
       $scope.map = mapdataservice.map;
     };
 
@@ -126,7 +120,7 @@ angular.module('anorakApp')
       debug("EDIT MAP CHANGED !!! MARKERS: ", $scope.map.markers);
 
       //update model and set marker by simulating click on map
-      $scope.map.events.click();
+      $scope.map.events.click(); // TODO is there a better way than that???
 
       $scope.activity.latitude = $scope.map.center.latitude;
       $scope.activity.longitude = $scope.map.center.longitude;
@@ -151,23 +145,25 @@ angular.module('anorakApp')
         var itemPromise = $scope.models.BookableItemModel.saveWithRepeatingEvents({
           obj: item.ref()
         })
-        .then(function(res){
-          // recive storage id
-          item.ref()._id = res._id;
-        });
+          .then(function (res) {
+            // recive storage id
+            item.ref()._id = res._id;
+          });
         saveItemsPromises.push(itemPromise);
       });
 
       Q.all(saveItemsPromises)
         .then(function (results) {  // all BookableItems are saved
-          console.log("all results", results);
+          debug("all results", results);
           return $scope.activity.save();  // save the activity
         })
         .then(function (activity) {
+          debug("SAVED ACTIVITY");
           $location.path("/admin/myactivities/");
           $scope.$apply();
         })
         .fail(function (err) {
+          debug("Could not save activity");
           $scope.state.error = true;
           $scope.state.message = err.message;
           $scope.$apply();
@@ -176,12 +172,12 @@ angular.module('anorakApp')
 
     $scope.delete = function () {
       var deletePromises = [];
-      _.forEach($scope.activity.bookableItems, function(item) {
+      _.forEach($scope.activity.bookableItems, function (item) {
         deletePromises.push(item.ref().remove());
       })
 
       Q.all(deletePromises)
-        .then(function(results) {
+        .then(function (results) {
           return $scope.activity.remove();
         })
         .then(function () {

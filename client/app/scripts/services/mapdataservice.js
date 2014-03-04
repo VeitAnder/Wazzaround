@@ -288,19 +288,18 @@ angular.module('anorakApp')
               e = originalEventArgs[0];
             }
 
-            if (mapdata.map.clickedMarker) {
-              // if we are here we come from activities edit view
+            if (!mapdata.map.clickedMarker) {
               mapdata.map.clickedMarker = {
                 title: 'You clicked here',
                 latitude: e.latLng.lat(),
                 longitude: e.latLng.lng()
               };
-              mapdata.findAddressForCoordinates(mapdata.map.clickedMarker.latitude, mapdata.map.clickedMarker.longitude);
             }
             else {
               mapdata.map.clickedMarker.latitude = e.latLng.lat();
               mapdata.map.clickedMarker.longitude = e.latLng.lng();
             }
+            mapdata.findAddressForCoordinates(mapdata.map.clickedMarker.latitude, mapdata.map.clickedMarker.longitude);
           }
         }
       }
