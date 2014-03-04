@@ -226,5 +226,46 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function(param
     return createEventSeries(item, obj);
   }
 
+});
 
+
+models.ActivityModel.factoryImpl("getActivitiesFilterByTime", function(params, req) {
+  console.log("getActivitiesFilterByTime called");
+
+  var activitiesIds = ["53159ee56733ddc32152606b", "53159f7a6733ddc32152606e"];
+  var activities = _.map(activitiesIds, function(el) { return {_id:el};})
+  var startDate = new Date("2014-03-04T09:37:27.859Z");
+  var endDate = new Date("2014-03-18T09:37:27.859Z");
+
+
+  return models.ActivityModel.find({'$or' : activities})
+    .then(function(activites) {
+      _.forEach(activites, function(activity) {
+        var itemPromises = [];
+
+        _.forEach(activity.bookableItems, function(item) {
+
+          itemPromises.push(
+            models.BookableItemModel.find({
+              _id:ObjectId(item._reference),
+              events : {
+                '$elemMatch' : {
+                  start : {
+                    '$gt' : startDate,
+                    '$lt' : endDate
+                  }
+                }
+              }
+            })
+          );
+
+
+        });
+
+        Q.all(itemPromises)
+          .then(function(items) {
+            console.log("items", items);
+          });
+      });
+    });
 });

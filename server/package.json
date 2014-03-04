@@ -44,7 +44,8 @@
     "shelljs": "0.2.x",
     "URIjs": "~1.12.0",
     "grunt-env": "~0.4.1",
-    "jshint-stylish": "~0.1.5"
+    "jshint-stylish": "~0.1.5",
+    "repl.history": "~0.1.1"
   },
   "scripts": {
     "start": "server.js"
