@@ -201,9 +201,8 @@ angular.module('anorakApp')
       angular.forEach($scope.categories, function (mainCat) {
         setSelected(mainCat.key);
       });
-
-      // set marker by simulating click on map
-      $scope.map.events.click();
     });
+
+    $scope.getAddress = mapdataservice.getAddress;
 
   });

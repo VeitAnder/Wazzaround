@@ -6,7 +6,7 @@
  - filter activities in a radius of 30km around this central coordinates
  */
 angular.module('anorakApp')
-  .service('mapdataservice', function mapdataservice($rootScope, models, $q) {
+  .service('mapdataservice', function mapdataservice($rootScope, models, $q, $http) {
 
     var geocoder;
     var standardCenter = {
@@ -98,7 +98,6 @@ angular.module('anorakApp')
       }
       return defer.promise;
     };
-
 
     /// Beispiel:
 //    activitiesIds = _.map(models.ActivityModel.all(), function(el) { return el._id; });
@@ -242,6 +241,13 @@ angular.module('anorakApp')
           }
         });
       },
+      getAddress: function (viewValue) {
+        var params = {address: viewValue, sensor: false, language: 'it'};
+        return $http.get('http://maps.googleapis.com/maps/api/geocode/json', { params: params })
+          .then(function (res) {
+            return res.data.results;
+          });
+      },
       map: {
         address: "",
         center: {
@@ -280,7 +286,7 @@ angular.module('anorakApp')
         },
         events: {
           click: function (mapModel, eventName, originalEventArgs) {
-
+            console.log("USER CLICKED EVENT");
             var e;
             if (!originalEventArgs) {
               e = {

@@ -19,16 +19,16 @@ angular.module('anorakApp')
       var event = bookableItem.createEvents();
       event.start = new Date();
       event.mode = 'edit';
-    }
+    };
 
     $scope.removeEvent = function (item, idx) {
       item.events.splice(idx, 1);
-    }
+    };
 
     $scope.removeItem = function (item, idx) {
       item.remove().done();
       activity.bookableItems.splice(idx, 1);
-    }
+    };
 
     $scope.moment = moment;
 
@@ -118,15 +118,12 @@ angular.module('anorakApp')
 
     $rootScope.$on("EditMapChangeEvent", function (event, message) {
       debug("EDIT MAP CHANGED !!! MARKERS: ", $scope.map.markers);
-
-      //update model and set marker by simulating click on map
-      $scope.map.events.click(); // TODO is there a better way than that???
-
+      //update model and set marker to display result to user
       $scope.activity.latitude = $scope.map.center.latitude;
       $scope.activity.longitude = $scope.map.center.longitude;
+      $scope.map.clickedMarker.latitude = $scope.map.center.latitude;
+      $scope.map.clickedMarker.longitude = $scope.map.center.longitude;
       $scope.map.clickedMarker.title = 'Location of activity';
-
-      debug("$scope.map.clickedMarker", $scope.map.clickedMarker);
     });
 
     // Save the Activiy
@@ -205,13 +202,6 @@ angular.module('anorakApp')
      */
 
     $scope.selectedAddress = "";
-    $scope.getAddress = function(viewValue) {
-      var params = {address: viewValue, sensor: false, language: 'it'};
-      return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params})
-        .then(function(res) {
-          return res.data.results;
-        });
-    };
-
+    $scope.getAddress = mapdataservice.getAddress;
 
   });
