@@ -1,11 +1,4 @@
 angular.module('forgotpassword', ['services.authentication', 'services.localizedMessages'])
-  .config(function ($routeProvider) {
-    'use strict';
-    $routeProvider.when('/registration/forgotpassword/', {
-      templateUrl: 'registration/forgotpassword/forgotpassword_page.tpl.html',
-      controller: 'ForgotpasswordPageCtrl'
-    });
-  })
   .controller('ForgotpasswordPageCtrl', function ($scope, $location, $http, APP_CONFIG, $window) {
     'use strict';
     $scope.user = {};

@@ -29,10 +29,12 @@ angular.module('anorakApp', [
   'textAngular',
   'ui.keypress',
   'registration',
+  'forgotpassword',
   'momentjs',
   'services.authentication',
   'services.i18nNotifications',
   'services.httpRequestTracker',
+  'services.localizedMessages',
   'templates.app',
   'modelizer',
   'mgcrea.ngStrap'
@@ -74,6 +76,10 @@ angular.module('anorakApp')
             return currentUser.load();
           }]
         }
+      })
+      .when('/registration/forgotpassword/', {
+        templateUrl: 'registration/forgotpassword/forgotpassword_page.tpl.html',
+        controller: 'ForgotpasswordPageCtrl'
       })
       .when('/legalnotes', {
         templateUrl: 'page_basetemplate.html',

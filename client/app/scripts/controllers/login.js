@@ -28,4 +28,8 @@ angular.module('anorakApp')
         });
     };
 
+    $scope.forgotPassword = function () {
+      $location.path('/registration/forgotpassword/');
+    };
+
   });
