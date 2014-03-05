@@ -2,16 +2,19 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
   .controller('ForgotpasswordPageCtrl', function ($scope, $location, $http, APP_CONFIG, $window, models) {
     'use strict';
     $scope.user = {};
+    $scope.status = {};
 
-    $scope.send = function () {
-      console.log("SENDING EMAIL ADDRESS", $scope.user.email);
+    $scope.requestPasswordReset = function () {
       models.AccesstokenModel.sendReactivation({ email: $scope.user.email })
         .then(function (status) {
-          $scope.passwordrequestsuccess = true;
+          $scope.status.passwordrequestsuccess = true;
+          console.log("Requested pwd reset link", status);
+          $scope.$apply();
         })
         .fail(function (err) {
           debug("Error in sending reactivation token to user", err);
-          $scope.passwordrequestsuccess = false;
+          $scope.status.passwordrequestsuccess = false;
+          $scope.$apply();
         })
         .done();
     };

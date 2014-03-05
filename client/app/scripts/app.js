@@ -191,7 +191,6 @@ angular.module('anorakApp')
     models.BookingsModel.connection(connector);
     models.AccesstokenModel.connection(connector);
 
-
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);
 

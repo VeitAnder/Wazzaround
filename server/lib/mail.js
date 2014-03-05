@@ -237,13 +237,13 @@ exports.sendProjectInvitationMailToUnconfirmedAccount = function (userwhoinvites
   return send(sendmessage);
 };
 
-exports.sendResetPasswordMail = function (user, tokenObj) {
+exports.sendResetPasswordMail = function (user, token) {
   //E-Mail Body
   var sendmessage = {
     data: {
       user: user,
-      token: tokenObj.token,
-      activationurl: config.host + "registrations/forgotpassword?token=" + tokenObj.token + "&email=" + user.username,
+      token: token,
+      resetpwdurl: config.clienthost + "registration/forgotpassword?token=" + token + "&email=" + user.username,
       template: {
         resetpassword: true
       }
@@ -256,12 +256,6 @@ exports.sendResetPasswordMail = function (user, tokenObj) {
       "ReplyTo": config.postmark.replyto
     }
   };
-
-  //check if user is already activated, if not include activation link
-  if (!user.accountconfirmed) {
-    sendmessage.data.template.includeactivationlink = true;
-    sendmessage.data.activationurl = config.host + config.api.apiversion + "userregistrations/confirmuserregistration/" + user.accountconfirmationtoken + "/";
-  }
 
   return send(sendmessage);
 };
