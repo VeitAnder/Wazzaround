@@ -4,11 +4,16 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
     $scope.user = {};
 
     $scope.send = function () {
-      $http.post(APP_CONFIG.APIUrl + "userregistrations/forgotpassword/", {email: $scope.user.email}).then(function () {
-        $scope.passwordrequestsuccess = true;
-      }, function () {
-        $scope.passwordrequestsuccess = false;
-      });
+      console.log("SENDING EMAIL ADDRESS", $scope.user.email);
+      models.AccesstokenModel.sendReactivation({ email: $scope.user.email })
+        .then(function (status) {
+          $scope.passwordrequestsuccess = true;
+        })
+        .fail(function (err) {
+          debug("Error in sending reactivation token to user", err);
+          $scope.passwordrequestsuccess = false;
+        })
+        .done();
     };
 
     /**
@@ -42,18 +47,22 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
     $scope.cancel = function () {
       $window.location = '/#/login/';
     };
-    
+
     $scope.settingnew = {
       password: "",
       passwordrepeat: ""
     };
 
     // TODO evaluate while typing whether passwords are the same
-    $scope.setNewPassword = function() {
+    $scope.setNewPassword = function () {
       debug("SETTING NEW PWD");
       // TODO passwort Verschlüsselung???
-      models.UserModel.setNewPassword($scope.user._id, $scope.settingnew.password)
-        .then(function() {
+      models.AccesstokenModel.setNewPassword({
+        "email": "email", // TODO
+        "token": "token", // TODO
+        "password": $scope.settingnew.password
+      })
+        .then(function () {
           debug("Set new password for user", $scope.user.email);
           // TODO redirect to main page? message? login page plus message?
         })

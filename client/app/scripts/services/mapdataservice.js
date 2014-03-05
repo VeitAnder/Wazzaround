@@ -30,38 +30,20 @@ angular.module('anorakApp')
     // TODO what about the zoom level??? Markers numbers should change with the zoom level --> zoom out --> see more markers
     var setMarkersInRadius = function () {
 
-      var defer = Q.defer();
       var markersInRadius = [];
+      for (var i = 0; i < mapdata.map.markers.length; i++) {
+        // calculate distance between center and the marker
+        // if distance more than 100km, dont display
+        // TODO later on filter activities(===markers) from db via lat-long range
+        /////Activiews.use.find({...}).then(....)
 
-      models.ActivityModel.all()
-
-        .then(function (activities) {
-
-          mapdata.map.markers = activities;
-          debug("ALL MARKERS", mapdata.map.markers.length);
-
-          for (var i = 0; i < mapdata.map.markers.length; i++) {
-            // calculate distance between center and the marker
-            // if distance more than 30km, dont display
-            // TODO later on filter activities(===markers) from db via lat-long range
-            /////Activiews.use.find({...}).then(....)
-
-            var distance = calculateDistance(mapdata.map.center.latitude, mapdata.map.center.longitude, mapdata.map.markers[i].latitude, mapdata.map.markers[i].longitude);
-            if (distance < 100) {
-              markersInRadius.push(mapdata.map.markers[i]);
-            }
-          }
-          mapdata.map.markers = markersInRadius;
-          debug("MARKERS IN RADIUS", markersInRadius.length);
-          defer.resolve();
-        })
-        .fail(function (err) {
-          debug("Could not get all activities", err);
-          defer.reject(err);
-        })
-        .done();
-
-      return defer.promise;
+        var distance = calculateDistance(mapdata.map.center.latitude, mapdata.map.center.longitude, mapdata.map.markers[i].latitude, mapdata.map.markers[i].longitude);
+        if (distance < 100) {
+          markersInRadius.push(mapdata.map.markers[i]);
+        }
+      }
+      mapdata.map.markers = markersInRadius;
+      debug("MARKERS IN RADIUS", markersInRadius.length);
     };
 
     var geoCodeAddress = function (address) {
@@ -102,6 +84,8 @@ angular.module('anorakApp')
     // filter activities according to date that the user entered
     // there may be a start date and an end date or only one of them or none
     var findActivitiesForDateRange = function (start, end) {
+      var defer = Q.defer();
+
       debug("LOOKING FOR DATE RANGE", start, end);
 
       if (!start && !end) {   // it's not a search for date, so just return
@@ -122,8 +106,15 @@ angular.module('anorakApp')
         .then(function (activities) {
           debug("GOT DATE FILTERED ACTIVITIES", activities);
           mapdata.map.markers = activities;
+          defer.resolve();
+        })
+        .fail(function (err) {
+          debug("Error in date filtering", err);
+          defer.reject();
         })
         .done();
+
+      return defer.promise;
     };
 
     var setMarkerOnMap = function (marker) {
@@ -151,24 +142,20 @@ angular.module('anorakApp')
             });
 
         } else {
-          // set the address on the map and center map on that address
-          geoCodeAddress(address)
 
+          findActivitiesForDateRange(startDate, endDate)
             .then(function () {
-              // set markers only in a special radius on this map
-              return setMarkersInRadius();
+              return geoCodeAddress(address);
             })
 
             .then(function () {
-              // find only activities that are within a date range specified by the user
-              findActivitiesForDateRange(startDate, endDate);
-
+              setMarkersInRadius();
               debug("AM DONE SEARCHING IN SERVICE");
               $rootScope.$broadcast("MapChangeEvent");
             })
 
             .catch(function (err) {
-              debug("Something went wrong while searching", err);
+              debug("Something went wrong while searching activities", err);
             });
         }
       },

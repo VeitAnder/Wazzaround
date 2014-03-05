@@ -237,20 +237,20 @@ exports.sendProjectInvitationMailToUnconfirmedAccount = function (userwhoinvites
   return send(sendmessage);
 };
 
-exports.sendResetPasswordMail = function (user, token) {
+exports.sendResetPasswordMail = function (user, tokenObj) {
   //E-Mail Body
   var sendmessage = {
     data: {
-      user: user.toJSON(),
-      token: token,
-      activationurl: config.host + "registrations/forgotpassword" + user.email + "/?token=" + token,
+      user: user,
+      token: tokenObj.token,
+      activationurl: config.host + "registrations/forgotpassword?token=" + tokenObj.token + "&email=" + user.username,
       template: {
         resetpassword: true
       }
     },
     postmarkmail: {
       "From": config.postmark.from,
-      "To": user.email,
+      "To": user.username, // TODO in reacture email is saved under "username"
       "Subject": "Planfred – Setzen Sie Ihr Passwort zurück",
       "Tag": "resetpassword",
       "ReplyTo": config.postmark.replyto

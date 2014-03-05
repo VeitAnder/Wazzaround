@@ -14,7 +14,7 @@ var models = function () {
 
   var validators = {
     username: function (value) {
-      if (value === undefined || value === null || value === "") {
+      if (value === undefined || value === null || value === "") { // TODO validate username
         throw new Error("you have to provide a username");
       }
       return value;
@@ -46,7 +46,6 @@ var models = function () {
     login: Operation(),
     logout: Operation(),
     register: Operation(),
-    setNewPassword: Operation(), // TODO password encrypted? userid? what else?
 
     currentUser: Factory()
   });
@@ -146,23 +145,22 @@ var models = function () {
     ]
   });
 
-//  var token = require('token.js');              // TODO Authorization token for resetting password
-//  var AccesstokenModel = new model("accesstokens", {
-//    "token": Attr(Type.string), function () {
-//      return token(32);
-//    },
-//    "resourceid": Attr(Type.string),
-//    "expires": Attr(Type.Date),
-//    "user": Ref(UserModel)
-//  });
+  var AccesstokenModel = new model("accesstokens", {
+    "token": Attr(Type.string),
+    "expires": Attr(Type.date),
+    "user": Ref(UserModel),
+    "sendReactivation": Operation(),
+    "setNewPassword": Operation() // TODO password encrypted?
+
+  });
 
   return {
     UserModel: UserModel,
     ActivityModel: ActivityModel,
     CategoryModel: CategoryModel,
     BookableItemModel: BookableItemModel,
-    BookingsModel: BookingsModel
-//    AccesstokenModel: AccesstokenModel
+    BookingsModel: BookingsModel,
+    AccesstokenModel: AccesstokenModel
   };
 };
 
