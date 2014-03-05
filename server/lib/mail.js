@@ -237,13 +237,13 @@ exports.sendProjectInvitationMailToUnconfirmedAccount = function (userwhoinvites
   return send(sendmessage);
 };
 
-exports.sendNewPassword = function (user, newpassword) {
+exports.sendResetPasswordMail = function (user, token) {
   //E-Mail Body
   var sendmessage = {
     data: {
       user: user.toJSON(),
-      password: newpassword,
-      loginurl: config.host + "login/" + user.email + "/",
+      token: token,
+      activationurl: config.host + "registrations/forgotpassword" + user.email + "/?token=" + token,
       template: {
         resetpassword: true
       }
@@ -251,7 +251,7 @@ exports.sendNewPassword = function (user, newpassword) {
     postmarkmail: {
       "From": config.postmark.from,
       "To": user.email,
-      "Subject": "Planfred – Neues Passwort",
+      "Subject": "Planfred – Setzen Sie Ihr Passwort zurück",
       "Tag": "resetpassword",
       "ReplyTo": config.postmark.replyto
     }
@@ -265,6 +265,34 @@ exports.sendNewPassword = function (user, newpassword) {
 
   return send(sendmessage);
 };
+//exports.sendNewPassword = function (user, newpassword) {
+//  //E-Mail Body
+//  var sendmessage = {
+//    data: {
+//      user: user.toJSON(),
+//      password: newpassword,
+//      loginurl: config.host + "login/" + user.email + "/",
+//      template: {
+//        resetpassword: true
+//      }
+//    },
+//    postmarkmail: {
+//      "From": config.postmark.from,
+//      "To": user.email,
+//      "Subject": "Planfred – Neues Passwort",
+//      "Tag": "resetpassword",
+//      "ReplyTo": config.postmark.replyto
+//    }
+//  };
+//
+//  //check if user is already activated, if not include activation link
+//  if (!user.accountconfirmed) {
+//    sendmessage.data.template.includeactivationlink = true;
+//    sendmessage.data.activationurl = config.host + config.api.apiversion + "userregistrations/confirmuserregistration/" + user.accountconfirmationtoken + "/";
+//  }
+//
+//  return send(sendmessage);
+//};
 
 exports.sendActivationTokenEmail = function (user) {
   //E-Mail Body

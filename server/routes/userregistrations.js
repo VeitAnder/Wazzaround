@@ -49,15 +49,17 @@ exports.confirmuserregistration = function (req, res, next) {
     .done();
 };
 
+// when user forgets password, send activation token email
 exports.forgotpassword = function (req, res, next) {
-  var newpassword = Users.generatePassword();
+  console.log("FORGOT PASSWORD", req.body, req.query);
+//  var newpassword = Users.generatePassword();
   var emailofuser = req.body.email;
+  var authTokenToResetPwd;
   var userAccount;
 
-  usermanager.setPassword(emailofuser, newpassword)
+  Users.findOneQ({ email: emailofuser })
     .then(function (user) {
-      userAccount = user;
-      return mail.sendNewPassword(user, newpassword);
+      return mail.sendResetPasswordMail(user, authTokenToResetPwd);
     })
     .then(function () {
       res.send(200, {"email": userAccount.email});

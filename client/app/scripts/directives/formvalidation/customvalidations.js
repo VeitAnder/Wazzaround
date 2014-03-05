@@ -34,7 +34,6 @@ angular.module('directives.customvalidation', [])
       restrict: 'A',
       require: 'ngModel',
       link: function (scope, elm, attrs, ctrl) {
-
         function validateEqual(myValue, otherValue) {
           var val;
           if (myValue === otherValue) {

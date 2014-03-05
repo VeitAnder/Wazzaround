@@ -37,7 +37,8 @@ angular.module('anorakApp', [
   'services.localizedMessages',
   'templates.app',
   'modelizer',
-  'mgcrea.ngStrap'
+  'mgcrea.ngStrap',
+  'directives.customvalidation'
 ]);
 
 angular.module('anorakApp').constant('I18NMESSAGES', {

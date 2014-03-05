@@ -18,9 +18,9 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
      * @return {Boolean} true if the error should be shown
      */
 
-    $scope.showError = function (fieldName, error) {
+    $scope.showError = function (formName, fieldName, error) {
       var showerror = false;
-      if ($scope.valForm[fieldName].$error[error] && !$scope.valForm[fieldName].$pristine) {
+      if ($scope[formName][fieldName].$error[error] && !$scope[formName][fieldName].$pristine) {
         showerror = true;
       }
       return showerror;
@@ -41,6 +41,15 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
 
     $scope.cancel = function () {
       $window.location = '/#/login/';
+    };
+    
+    $scope.settingnew = {
+      password: "",
+      passwordrepeat: ""
+    };
+    // TODO evaluate while typing whether passwords are the same
+    $scope.setNewPassword = function() {
+      console.log("SETTING NEW PWD");
     };
 
   });

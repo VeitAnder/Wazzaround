@@ -1,6 +1,7 @@
 var config = require('../config.js');
-var logger = require('../lib/logger.js');
+//var logger = require('../lib/logger.js');
 var security = require('../lib/security.js');
+var userregistrations = require('../routes/userregistrations.js');
 
 /*var manifest = function (app) {
   app.get("/static/manifest.appcache", function (req, res) {
@@ -23,7 +24,7 @@ var publicRestApi = function (app) {
   //app.post('/' + config.api.apiversion + 'userregistrations/', userregistrations.add);
   //app.get('/' + config.api.apiversion + 'userregistrations/confirmuserregistration/:token/', userregistrations.confirmuserregistration);
 //  app.get('/' + config.api.apiversion + 'userregistrations/isemailavailableforloginaccount/', userregistrations.isEmailAdressAvailableForLoginAccount);
-//  app.post('/' + config.api.apiversion + 'userregistrations/forgotpassword/', userregistrations.forgotpassword);
+  app.post('/' + config.api.apiversion + 'userregistrations/forgotpassword/', userregistrations.forgotpassword);
 // user authentication routes
   app.post('/' + config.api.apiversion + 'login', security.login);
 // for login via project inviation email

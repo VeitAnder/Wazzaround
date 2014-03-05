@@ -145,6 +145,15 @@ var models = function () {
     ]
   });
 
+//  var token = require('token.js');
+//  var AccesstokenModel = new model("accesstokens", {
+//    "token": Attr(Type.string), function () {
+//      return token(32);
+//    },
+//    "resourceid": Attr(Type.string),
+//    "expires": Attr(Type.Date),
+//    "user": Ref(UserModel)
+//  });
 
   return {
     UserModel: UserModel,
@@ -152,6 +161,7 @@ var models = function () {
     CategoryModel: CategoryModel,
     BookableItemModel: BookableItemModel,
     BookingsModel: BookingsModel
+//    AccesstokenModel: AccesstokenModel
   };
 };
 
