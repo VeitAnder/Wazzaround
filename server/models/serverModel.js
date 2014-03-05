@@ -290,7 +290,6 @@ models.ActivityModel.factoryImpl("getActivitiesFilterByTime", function (params, 
 var token = require('token.js');
 var mail = require('../lib/mail.js');
 models.AccesstokenModel.operationImpl("sendReactivation", function (params, req) {
-  console.log("GOT USER EMAIL", params);
   var tokenObj = models.AccesstokenModel.create();
   tokenObj.token = token(32);
   tokenObj.expires = moment().add('days', 1).toDate();
@@ -310,41 +309,38 @@ models.AccesstokenModel.operationImpl("sendReactivation", function (params, req)
       return tokenObj;
     })
 
-    .then(function(tokenObj) {
-      console.log("SAVED TOKEN", tokenObj);
+    .then(function (tokenObj) {
       return mail.sendResetPasswordMail(tokenObj.user.ref(), tokenObj.token);
     })
 
     .then(function () {
       return { "status": "OK" };
-    })
+    });
 
-    .done(); // TODO remove later, only debugging now
 });
 
 models.AccesstokenModel.operationImpl("setNewPassword", function (params, req) {
 
-  // got token and user email and pwd
-
-  // token validieren ob es für diesen user ist
-  // TODO check expiration date / time and refuse change otherwise
-  // TODO check wrong data
-  // TODO remove accesstoken after setting new password
+  // got token and user email and pwd in params
   return models.AccesstokenModel.find({ token: params.token })
     .then(function (tokenObjs) {
-      console.log("GOT TOKENS", tokenObjs);
       if (tokenObjs.length !== 1) {
-        throw new Error("Tokenobjs not found");
+        throw new Error("No tokens found for token id", params.token);
       }
       return tokenObjs[0];
     })
 
     .then(function (tokenObj) {
+      // check expiration date, if it's today or before, its already expired
+      if (moment(tokenObj.expires).isBefore(new Date(), 'day')) {
+        throw new Error("This token has expired and cannot be used for setting a new password", tokenObj);
+      }
       return tokenObj.user.load();
     })
 
-    .then(function(user) {
-      if(user.username === params.email) {
+    .then(function (user) {
+      // token validieren ob es für diesen user ist
+      if (user.username === params.email) {
         // reset password
         user.password = params.password;
         return user.save();
@@ -353,7 +349,15 @@ models.AccesstokenModel.operationImpl("setNewPassword", function (params, req) {
       }
     })
 
-    .then(function() {
-      return { "status" : "OK" };
-    });
+    .then(function () {
+      console.log("AFTER SAVING USER");
+      // remove accesstoken after setting new password
+//      return models.AccesstokenModel.remove({ token: params.token });    TODO  Jonathan fragen warum das nicht geht
+//    })
+
+//    .then(function () {
+//      console.log("AFTER ALL DONE");
+      return { "status": "OK" };
+    })
+    .done();
 });
