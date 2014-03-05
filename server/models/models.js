@@ -46,6 +46,7 @@ var models = function () {
     login: Operation(),
     logout: Operation(),
     register: Operation(),
+    setNewPassword: Operation(), // TODO password encrypted? userid? what else?
 
     currentUser: Factory()
   });
@@ -145,7 +146,7 @@ var models = function () {
     ]
   });
 
-//  var token = require('token.js');
+//  var token = require('token.js');              // TODO Authorization token for resetting password
 //  var AccesstokenModel = new model("accesstokens", {
 //    "token": Attr(Type.string), function () {
 //      return token(32);

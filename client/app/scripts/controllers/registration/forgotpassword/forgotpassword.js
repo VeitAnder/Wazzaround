@@ -1,5 +1,5 @@
 angular.module('forgotpassword', ['services.authentication', 'services.localizedMessages'])
-  .controller('ForgotpasswordPageCtrl', function ($scope, $location, $http, APP_CONFIG, $window) {
+  .controller('ForgotpasswordPageCtrl', function ($scope, $location, $http, APP_CONFIG, $window, models) {
     'use strict';
     $scope.user = {};
 
@@ -47,9 +47,17 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
       password: "",
       passwordrepeat: ""
     };
+
     // TODO evaluate while typing whether passwords are the same
     $scope.setNewPassword = function() {
-      console.log("SETTING NEW PWD");
+      debug("SETTING NEW PWD");
+      // TODO passwort Verschlüsselung???
+      models.UserModel.setNewPassword($scope.user._id, $scope.settingnew.password)
+        .then(function() {
+          debug("Set new password for user", $scope.user.email);
+          // TODO redirect to main page? message? login page plus message?
+        })
+        .done();
     };
 
   });

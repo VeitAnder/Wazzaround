@@ -51,8 +51,6 @@ exports.confirmuserregistration = function (req, res, next) {
 
 // when user forgets password, send activation token email
 exports.forgotpassword = function (req, res, next) {
-  console.log("FORGOT PASSWORD", req.body, req.query);
-//  var newpassword = Users.generatePassword();
   var emailofuser = req.body.email;
   var authTokenToResetPwd;
   var userAccount;
