@@ -1,8 +1,10 @@
 angular.module('forgotpassword', ['services.authentication', 'services.localizedMessages'])
-  .controller('ForgotpasswordPageCtrl', function ($scope, $location, $http, APP_CONFIG, $window, models) {
+  .controller('ForgotpasswordPageCtrl', function ($scope, $location, $http, APP_CONFIG, $window, models, $route) {
     'use strict';
     $scope.user = {};
-    $scope.status = {};
+    $scope.status = {
+      resetpassword: !$route.current.params.email && !$route.current.params.token ? false : true
+    };
 
     $scope.requestPasswordReset = function () {
       models.AccesstokenModel.sendReactivation({ email: $scope.user.email })
@@ -60,14 +62,22 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
     $scope.setNewPassword = function () {
       debug("SETTING NEW PWD");
       // TODO passwort Verschlüsselung???
+
       models.AccesstokenModel.setNewPassword({
-        "email": "email", // TODO
-        "token": "token", // TODO
+        "email": $route.current.params.email,
+        "token": $route.current.params.token,
         "password": $scope.settingnew.password
       })
         .then(function () {
-          debug("Set new password for user", $scope.user.email);
+          debug("Have set new password");
           // TODO redirect to main page? message? login page plus message?
+          $scope.status.setnewpasswordsuccess = true;
+          $scope.$apply();
+        })
+        .fail(function (err) {
+          debug("Error in setting new password", err);
+          $scope.status.setnewpasswordsuccess = false;
+          $scope.$apply();
         })
         .done();
     };

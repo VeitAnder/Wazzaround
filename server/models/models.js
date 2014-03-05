@@ -20,6 +20,7 @@ var models = function () {
       return value;
     },
     password: function (value) {
+      // 1 Grossbuchstabe, 1 Zahl, 8 Stelle TODO
       if (value === undefined || value === null || value === "") {
         throw new Error("you have to provide a password");
       }
