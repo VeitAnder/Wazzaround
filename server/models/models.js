@@ -28,7 +28,7 @@ var models = function () {
   };
 
   var UserModel = new model("users", {
-    email: Attr(Type.string),
+    email: Attr(Type.string),  // email wird im username gespeichert
     username: Attr(Type.string, validators.username),
     password: Attr(Type.string, validators.password),
 
