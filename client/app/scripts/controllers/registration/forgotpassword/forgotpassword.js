@@ -7,6 +7,8 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
     };
 
     $scope.requestPasswordReset = function () {
+      $scope.status.error = "";
+
       models.AccesstokenModel.sendReactivation({ email: $scope.user.email })
         .then(function (status) {
           $scope.status.passwordrequestsuccess = true;
@@ -16,6 +18,13 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
         .fail(function (err) {
           debug("Error in sending reactivation token to user", err);
           $scope.status.passwordrequestsuccess = false;
+
+          if (err.message.indexOf("User not found") !== -1) {
+            $scope.status.error = "noUser";
+
+          } else {
+            $scope.status.error = "error";
+          }
           $scope.$apply();
         })
         .done();

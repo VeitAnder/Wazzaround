@@ -358,6 +358,5 @@ models.AccesstokenModel.operationImpl("setNewPassword", function (params, req) {
 //    .then(function () {
 //      console.log("AFTER ALL DONE");
       return { "status": "OK" };
-    })
-    .done();
+    });
 });
