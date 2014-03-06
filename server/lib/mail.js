@@ -251,7 +251,7 @@ exports.sendResetPasswordMail = function (user, token) {
     postmarkmail: {
       "From": config.postmark.from,
       "To": user.username, // TODO in reacture email is saved under "username"
-      "Subject": "Planfred – Setzen Sie Ihr Passwort zurück",
+      "Subject": "Reacture - reset your password",
       "Tag": "resetpassword",
       "ReplyTo": config.postmark.replyto
     }

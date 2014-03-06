@@ -67,9 +67,33 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
       passwordrepeat: ""
     };
 
+    $scope.status.forbidsave =
+      !$scope.newPasswordForm || $scope.newPasswordForm.$pristine ||
+        $scope.settingnew.passwordrepeat.length === 0 ||
+        $scope.settingnew.password.length === 0 ||
+        $scope.settingnew.passwordrepeat !== $scope.settingnew.password;
+
+    console.log("CHECK FIRST", $scope.check);
+
     // TODO evaluate while typing whether passwords are the same
     $scope.setNewPassword = function () {
       debug("SETTING NEW PWD");
+
+      if ($scope.status.forbidsave) {
+        debug("SAVE NOT ALLOWED");
+        $scope.status.setnewpasswordsuccess = false;
+        // one or both passwords are missing
+        if (!$scope.settingnew.passwordrepeat || !$scope.settingnew.password) {
+          console.log("MISSING");
+          $scope.status.savepwderror = "missing";
+
+        } else if ($scope.settingnew.password !== $scope.settingnew.passwordrepeat) {
+          console.log("NO MATCH");
+          $scope.status.savepwderror = "noMatch";
+        }
+        return;
+      }
+
       // TODO passwort Verschlüsselung???
 
       models.AccesstokenModel.setNewPassword({
