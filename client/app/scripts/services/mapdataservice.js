@@ -199,7 +199,7 @@ angular.module('anorakApp')
         });
       },
       getAddress: function (viewValue) {
-        var params = {address: viewValue, sensor: false, language: 'it'};
+        var params = {address: viewValue, sensor: false, language: 'en'};
         return $http.get('http://maps.googleapis.com/maps/api/geocode/json', { params: params })
           .then(function (res) {
             return res.data.results;
