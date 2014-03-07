@@ -30,8 +30,14 @@ angular.module('anorakApp')
           });
         })
         .fail(function (err) {
+          debug("Could not register user", err);
           $scope.state.error = true;
-          $scope.state.message = err.message;
+
+          if (err.message.indexOf("invalidPwd") !== -1) {
+            $scope.state.message = "invalidPwd";
+          } else {
+            $scope.state.message = err.message;
+          }
           $scope.$apply();
         });
     };

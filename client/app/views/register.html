@@ -34,16 +34,18 @@
 
   <p>
     <label for="password">Retype Password</label>
-    <input name="password"
+    <input name="repeatPassword"
            id="repeatPassword"
            type="password"
            ng-model="form.password2"
            required
-           class="input-block-level">
+           class="input-block-level"
+           validate-equals="form.password">
   </p>
 
   <div ng-show="state.error">
-    <div class="alert alert-error">{{state.message}}</div>
+    <div class="alert alert-error" ng-show="state.message !== 'invalidPwd'">{{state.message}}</div>
+    <div class="alert alert-error" ng-show="state.message === 'invalidPwd'">The password has to contain at least one capital letter, one number and has to have a minimum length of 8.</div>
   </div>
 
   <button class="btn"

@@ -36,7 +36,6 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
      * @param  {string} error - The name of the error as given by a validation directive
      * @return {Boolean} true if the error should be shown
      */
-
     $scope.showError = function (formName, fieldName, error) {
       var showerror = false;
       if ($scope[formName][fieldName].$error[error] && !$scope[formName][fieldName].$pristine) {
@@ -67,19 +66,13 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
       passwordrepeat: ""
     };
 
-    $scope.status.forbidsave =
-      !$scope.newPasswordForm || $scope.newPasswordForm.$pristine ||
-        $scope.settingnew.passwordrepeat.length === 0 ||
-        $scope.settingnew.password.length === 0 ||
-        $scope.settingnew.passwordrepeat !== $scope.settingnew.password;
-
-    console.log("CHECK FIRST", $scope.check);
-
     // TODO evaluate while typing whether passwords are the same
     $scope.setNewPassword = function () {
       debug("SETTING NEW PWD");
 
-      if ($scope.status.forbidsave) {
+      if ($scope.settingnew.passwordrepeat.length === 0 ||
+        $scope.settingnew.password.length === 0 ||
+        $scope.settingnew.passwordrepeat !== $scope.settingnew.password) {
         debug("SAVE NOT ALLOWED");
         $scope.status.setnewpasswordsuccess = false;
         // one or both passwords are missing
@@ -94,7 +87,7 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
         return;
       }
 
-      // TODO passwort Verschlüsselung???
+      // TODO passwort Verschlüsselung???   später implementieren
 
       models.AccesstokenModel.setNewPassword({
         "email": $route.current.params.email,
@@ -110,6 +103,10 @@ angular.module('forgotpassword', ['services.authentication', 'services.localized
         .fail(function (err) {
           debug("Error in setting new password", err);
           $scope.status.setnewpasswordsuccess = false;
+
+          if (err.message.indexOf("invalidPwd") !== -1) {
+            $scope.status.savepwderror = "invalidPwd";
+          }
           $scope.$apply();
         })
         .done();

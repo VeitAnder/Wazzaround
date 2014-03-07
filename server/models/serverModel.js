@@ -324,6 +324,7 @@ models.AccesstokenModel.operationImpl("setNewPassword", function (params, req) {
   // got token and user email and pwd in params
   return models.AccesstokenModel.find({ token: params.token })
     .then(function (tokenObjs) {
+      console.log("Found token Objs for provided token", tokenObjs);
       if (tokenObjs.length !== 1) {
         throw new Error("No tokens found for token id", params.token);
       }
@@ -331,6 +332,7 @@ models.AccesstokenModel.operationImpl("setNewPassword", function (params, req) {
     })
 
     .then(function (tokenObj) {
+      console.log("Found one tokenObj", tokenObj);
       // check expiration date, if it's today or before, its already expired
       if (moment(tokenObj.expires).isBefore(new Date(), 'day')) {
         throw new Error("This token has expired and cannot be used for setting a new password", tokenObj);
@@ -339,6 +341,7 @@ models.AccesstokenModel.operationImpl("setNewPassword", function (params, req) {
     })
 
     .then(function (user) {
+      console.log("Found user", user);
       // token validieren ob es für diesen user ist
       if (user.username === params.email) {
         // reset password

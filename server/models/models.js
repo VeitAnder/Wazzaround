@@ -20,9 +20,20 @@ var models = function () {
       return value;
     },
     password: function (value) {
-      // 1 Grossbuchstabe, 1 Zahl, 8 Stelle TODO
+      // 1 Grossbuchstabe, 1 Zahl, 8 Stellen 
       if (value === undefined || value === null || value === "") {
         throw new Error("you have to provide a password");
+      } else {
+
+        var capitalLetter = /[A-ZÄÖÜ]/g;
+        var capTest = capitalLetter.test(value);
+        var number = /[0-9]/g;
+        var numTest = number.test(value);
+
+        if(!capTest || !numTest || value.length < 8) {
+          console.log("PASSWORD NOT VALID");
+          throw new Error("invalidPwd");
+        }
       }
       return value;
     }
@@ -51,7 +62,6 @@ var models = function () {
     currentUser: Factory()
   });
 
-
   var BookableItemModel = new model("bookableItems", {
     description: Attr(Type.string),
     price: Attr(Type.number),
@@ -72,18 +82,19 @@ var models = function () {
 //      }
 //    }],
 
-    events : [{
-      start: Attr(Type.date),
-      duration: Attr(Type.number),
-      quantity: Attr(Type.number)
-    }],
+    events: [
+      {
+        start: Attr(Type.date),
+        duration: Attr(Type.number),
+        quantity: Attr(Type.number)
+      }
+    ],
 
     owner: Ref(UserModel),
 
-    bookItem : Operation(),
-    saveWithRepeatingEvents : Operation()
+    bookItem: Operation(),
+    saveWithRepeatingEvents: Operation()
   });
-
 
   var ActivityModel = new model("activities", {
     name: Attr(Type.string),
@@ -95,9 +106,11 @@ var models = function () {
 
     category: {
       main: Attr(Type.string),
-      subs: [{
-        title: Attr(Type.string)
-      }]
+      subs: [
+        {
+          title: Attr(Type.string)
+        }
+      ]
     },
 
     longitude: Attr(Type.number),
@@ -110,10 +123,10 @@ var models = function () {
     owner: Ref(UserModel),
 
     getMyActivities: Factory(),
-    getActivitiesFilterByTime : Factory( {
-      activitiesIds : Type.ObjectId,
-      startDate : Type.date,
-      endDate : Type.date
+    getActivitiesFilterByTime: Factory({
+      activitiesIds: Type.ObjectId,
+      startDate: Type.date,
+      endDate: Type.date
     })
   });
 
@@ -121,18 +134,18 @@ var models = function () {
 //    derUserDerBucht: 34,
 //    verweisAufAnbieter :432,
 
-    activityCopy : ActivityModel,
-    bookableItemCopy : BookableItemModel,
-    bookableItemRef : Ref(BookableItemModel),
+    activityCopy: ActivityModel,
+    bookableItemCopy: BookableItemModel,
+    bookableItemRef: Ref(BookableItemModel),
 
-    booking : {
+    booking: {
       start: Attr(Type.date),
       end: Attr(Type.date),
       quantity: Attr(Type.number),
       price: Attr(Type.number)
     },
 
-    cancelBooking : Operation()
+    cancelBooking: Operation()
   });
 
   var CategoryModel = new model("categories", {
