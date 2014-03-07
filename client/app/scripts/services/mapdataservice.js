@@ -89,7 +89,8 @@ angular.module('anorakApp')
       debug("LOOKING FOR DATE RANGE", start, end);
 
       if (!start && !end) {   // it's not a search for date, so just return
-        return;
+        defer.resolve();
+        return defer.promise;
       } else if (!start) {
         start = new Date();
       } else if (!end) {
