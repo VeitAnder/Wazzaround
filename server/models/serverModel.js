@@ -160,7 +160,7 @@ models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function (para
 
     _.forEach(obj.events, function (event) {
 
-      if (event.repeating != undefined && event.repeating === true) {
+      if (event.repeating !== undefined && event.repeating === true) {
 
         var startDate = moment(event.start); //moment();
         var duration = event.duration;

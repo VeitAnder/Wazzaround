@@ -196,7 +196,7 @@ angular.module('anorakApp')
       return categoriesInActivities(mainCat).length;
     };
 
-    $scope.getAddress = frontendmap.map.getAddress;
+    $scope.getAddress = frontendmap.getAddress;
 
     $rootScope.$on("MapChangeEvent", function (event, message) {
       debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);

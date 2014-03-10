@@ -76,18 +76,8 @@ angular.module('anorakApp')
 //    });
 
     $scope.map = activitybackendmap.map;
-    $scope.map.clickedMarker = {
-      title: 'Location of activity',
-      latitude: null,
-      longitude: null
-    };
 
-    if (activity.latitude) {
-      $scope.map.center.latitude = $scope.activity.latitude;
-      $scope.map.center.longitude = $scope.activity.longitude;
-      $scope.map.clickedMarker.latitude = $scope.activity.latitude;
-      $scope.map.clickedMarker.longitude = $scope.activity.longitude;
-    }
+    activitybackendmap.centerMapAndMarker($scope.activity);
 
     $scope.getMarkerIcon = function () {
       if ($scope.activity.category.main) {
@@ -105,7 +95,7 @@ angular.module('anorakApp')
     // user enters address
     // address will be set on
     $scope.setAddressOnMap = function () {
-      activitybackendmap.map.findAddressOnMap($scope.activity);
+      activitybackendmap.findAddressOnMap(activitybackendmap.map, $scope.activity);
       $scope.map = activitybackendmap.map;
     };
 
@@ -113,6 +103,8 @@ angular.module('anorakApp')
       if ($scope.map.address) {
         $scope.activity.address = $scope.map.address;
       }
+      $scope.activity.latitude = $scope.map.clickedMarker.latitude;
+      $scope.activity.longitude = $scope.map.clickedMarker.longitude;
     });
 
     $rootScope.$on("EditMapChangeEvent", function (event, message) {
@@ -127,7 +119,7 @@ angular.module('anorakApp')
 
     // Save the Activiy
     $scope.save = function () {
-      debug("save() called", $scope.activity);
+      debug("save() called", $scope.activity.latitude);
 
       // check if there was only a marker set or an address entered
       if (!$scope.activity.latitude) {
@@ -137,22 +129,22 @@ angular.module('anorakApp')
 
       var saveItemsPromises = [];
 
-      _.forEach($scope.activity.bookableItems, function (item) {
-        var itemPromise = $scope.models.BookableItemModel.saveWithRepeatingEvents({
-          obj: item.ref()
-        })
-          .then(function (res) {
-            // recive storage id
-            item.ref()._id = res._id;
-          });
-        saveItemsPromises.push(itemPromise);
-      });
+//      _.forEach($scope.activity.bookableItems, function (item) {
+//        var itemPromise = $scope.models.BookableItemModel.saveWithRepeatingEvents({
+//          obj: item.ref()
+//        })
+//          .then(function (res) {
+//            // recive storage id
+//            item.ref()._id = res._id;
+//          });
+//        saveItemsPromises.push(itemPromise);
+//      });
 
-      Q.all(saveItemsPromises)
-        .then(function (results) {  // all BookableItems are saved
-          debug("all results", results);
-          return $scope.activity.save();  // save the activity
-        })
+//      Q.all(saveItemsPromises)
+//        .then(function (results) {  // all BookableItems are saved
+//          debug("all results", results);
+      $scope.activity.save()  // save the activity
+//        })
         .then(function (activity) {
           debug("SAVED ACTIVITY");
           $location.path("/admin/myactivities/");
@@ -201,6 +193,6 @@ angular.module('anorakApp')
      */
 
     $scope.selectedAddress = "";
-    $scope.getAddress = activitybackendmap.map.getAddress;
+    $scope.getAddress = activitybackendmap.getAddress;
 
   });
