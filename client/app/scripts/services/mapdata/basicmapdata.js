@@ -137,16 +137,10 @@ angular.module('anorakApp')
 
       this.mapdata = {
         // when user first loads the map, we get all activities from controller. They need to be filtered for radius
-        showInitialActivities: function (map) {
-          getAllActivitiesAndSetToMap(map)
-            .then(function() {
-              setMarkersInRadius(map);
-              debug("INIT ACTIVITIES");
-              $rootScope.$apply();
-            })
-            .catch(function (err) {
-              debug("Something went wrong while setting initial activities", err);
-            });
+        showInitialActivities: function (map, activities) {
+          map.markers = activities;
+          setMarkersInRadius(map);
+          debug("INIT ACTIVITIES");
         },
         searchActivities: function (map, startDate, endDate, address) {
           debug("SEARCHING START", startDate, "END ", endDate, " ADDR ", address);
@@ -213,13 +207,12 @@ angular.module('anorakApp')
             });
         },
         map: {
-          rand: Math.random(),
           address: "",
           center: {
             "longitude": 8.01177978515625,
             "latitude": 45.12199086176226
           },
-          standardCenter : {
+          standardCenter: {
             "longitude": 8.01177978515625,
             "latitude": 45.12199086176226
           },
