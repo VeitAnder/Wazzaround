@@ -11,10 +11,6 @@ angular.module('anorakApp')
 
     var mapdata = function () {
       var geocoder;
-      var standardCenter = {
-        "longitude": 8.01177978515625,
-        "latitude": 45.12199086176226
-      };
 
       // optimized formula for calculation of distance between two points, because lib geometry is missing from angular-google-maps
       var calculateDistance = function (lat1, lon1, lat2, lon2) {
@@ -72,9 +68,9 @@ angular.module('anorakApp')
 
             } else {
               debug("Status not OK!, failing", status);
-              map.center = standardCenter;
-              map.centerMarker = standardCenter;
-              map.center = standardCenter;
+              map.center = map.standardCenter;
+              map.centerMarker = map.standardCenter;
+              map.center = map.standardCenter;
               defer.reject("Could not geocode address", status);
             }
           });
@@ -146,7 +142,6 @@ angular.module('anorakApp')
             .then(function() {
               setMarkersInRadius(map);
               debug("INIT ACTIVITIES");
-              $rootScope.$broadcast("MapChangeEvent");
               $rootScope.$apply();
             })
             .catch(function (err) {
@@ -221,6 +216,10 @@ angular.module('anorakApp')
           rand: Math.random(),
           address: "",
           center: {
+            "longitude": 8.01177978515625,
+            "latitude": 45.12199086176226
+          },
+          standardCenter : {
             "longitude": 8.01177978515625,
             "latitude": 45.12199086176226
           },

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .service('activitybackendmap', function activitybackendmap(basicmapdata) {
+  .service('activitybackendmap', function activitybackendmap(basicmapdata, $rootScope) {
 
     var mapdata = new basicmapdata().mapdata;
 
@@ -20,6 +20,8 @@ angular.module('anorakApp')
         mapdata.map.clickedMarker.longitude = marker.longitude;
 
       } else {
+        mapdata.map.center.latitude = mapdata.map.standardCenter.latitude;
+        mapdata.map.center.longitude = mapdata.map.standardCenter.longitude;
         mapdata.map.clickedMarker = {
           title: 'Location of activity',
           latitude: null,
