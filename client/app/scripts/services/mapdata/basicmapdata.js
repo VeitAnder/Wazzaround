@@ -6,7 +6,7 @@
  - filter activities in a radius of 30km around this central coordinates
  */
 angular.module('anorakApp')
-  .service('mapdataservice', function mapdataservice($rootScope, models, $q, $http) {
+  .service('basicmapdata', function basicmapdata($rootScope, models, $q, $http) {
 
     var geocoder;
     var standardCenter = {

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, mapdataservice, $rootScope, categories) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap) {
 
     $scope.currentUser = currentUser;
 
@@ -41,7 +41,7 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.map = mapdataservice.map;
+    $scope.map = frontendmap.map;
     $scope.map.markers = resolvedActivities;
 
     $scope.windowOptions = {
@@ -196,7 +196,7 @@ angular.module('anorakApp')
       return categoriesInActivities(mainCat).length;
     };
 
-    $scope.getAddress = mapdataservice.getAddress;
+    $scope.getAddress = frontendmap.map.getAddress;
 
     $rootScope.$on("MapChangeEvent", function (event, message) {
       debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);

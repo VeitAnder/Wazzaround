@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminMyactivitiesEditCtrl', function ($scope, $location, activity, categories, mapdataservice, $route, $rootScope, $http) {
+  .controller('AdminMyactivitiesEditCtrl', function ($scope, $location, activity, categories, activitybackendmap, $route, $rootScope, $http) {
     $scope.getPagePartial = function () {
       return 'admin/myactivities/edit.html';
     };
@@ -75,7 +75,7 @@ angular.module('anorakApp')
 //      $scope.activity.category.sub = undefined;
 //    });
 
-    $scope.map = mapdataservice.map;
+    $scope.map = activitybackendmap.map;
     $scope.map.clickedMarker = {
       title: 'Location of activity',
       latitude: null,
@@ -105,8 +105,8 @@ angular.module('anorakApp')
     // user enters address
     // address will be set on
     $scope.setAddressOnMap = function () {
-      mapdataservice.findAddressOnMap($scope.activity);
-      $scope.map = mapdataservice.map;
+      activitybackendmap.map.findAddressOnMap($scope.activity);
+      $scope.map = activitybackendmap.map;
     };
 
     $rootScope.$on("SetAddressEvent", function (event, message) {
@@ -201,6 +201,6 @@ angular.module('anorakApp')
      */
 
     $scope.selectedAddress = "";
-    $scope.getAddress = mapdataservice.getAddress;
+    $scope.getAddress = activitybackendmap.map.getAddress;
 
   });

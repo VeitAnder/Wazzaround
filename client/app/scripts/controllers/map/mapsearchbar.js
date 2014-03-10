@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('MapsearchbarCtrl', function ($scope, mapdataservice) {
+  .controller('MapsearchbarCtrl', function ($scope, frontendmap) {
 
     $scope.search = {
       minDate: new Date(),
@@ -12,7 +12,7 @@ angular.module('anorakApp')
     };
 
     $scope.searchActivities = function () {
-      mapdataservice.searchActivities($scope.search.startDate, $scope.search.endDate, $scope.search.address);
+      frontendmap.searchActivities($scope.search.startDate, $scope.search.endDate, $scope.search.address);
     };
 
   });
