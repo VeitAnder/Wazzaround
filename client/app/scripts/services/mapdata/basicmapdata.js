@@ -91,16 +91,7 @@ angular.module('anorakApp')
 
         if (!start && !end) {   // it's not a search for date, so just return all activities
 
-          models.ActivityModel.all()
-            .then(function (activities) {
-              map.markers = activities;
-              $rootScope.$broadcast("MapChangeEvent");
-              defer.resolve();
-            })
-            .catch(function (err) {
-              debug("Could not get all activities", err);
-            });
-          return defer.promise;
+          return getAllActivitiesAndSetToMap(map);
 
         } else if (!start) {
           start = new Date();
@@ -134,7 +125,34 @@ angular.module('anorakApp')
         map.markers.push(marker);
       };
 
+      var getAllActivitiesAndSetToMap = function (map) {
+        var defer = Q.defer();
+
+        models.ActivityModel.all()
+          .then(function (activities) {
+            map.markers = activities;
+            defer.resolve();
+          })
+          .catch(function (err) {
+            debug("Could not get all activities", err);
+          });
+        return defer.promise;
+      };
+
       this.mapdata = {
+        // when user first loads the map, we get all activities from controller. They need to be filtered for radius
+        showInitialActivities: function (map) {
+          getAllActivitiesAndSetToMap(map)
+            .then(function() {
+              setMarkersInRadius(map);
+              debug("INIT ACTIVITIES");
+              $rootScope.$broadcast("MapChangeEvent");
+              $rootScope.$apply();
+            })
+            .catch(function (err) {
+              debug("Something went wrong while setting initial activities", err);
+            });
+        },
         searchActivities: function (map, startDate, endDate, address) {
           debug("SEARCHING START", startDate, "END ", endDate, " ADDR ", address);
 
