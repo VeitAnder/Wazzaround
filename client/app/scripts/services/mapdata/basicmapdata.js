@@ -31,7 +31,6 @@ angular.module('anorakApp')
       // if the activities are outside, dont display them on the map
       // TODO what about the zoom level??? Markers numbers should change with the zoom level --> zoom out --> see more markers
       var setMarkersInRadius = function (map) {
-
         var markersInRadius = [];
         for (var i = 0; i < map.markers.length; i++) {
           // calculate distance between center and the marker
@@ -90,9 +89,19 @@ angular.module('anorakApp')
 
         debug("LOOKING FOR DATE RANGE", start, end);
 
-        if (!start && !end) {   // it's not a search for date, so just return
-          defer.resolve();
+        if (!start && !end) {   // it's not a search for date, so just return all activities
+
+          models.ActivityModel.all()
+            .then(function (activities) {
+              map.markers = activities;
+              $rootScope.$broadcast("MapChangeEvent");
+              defer.resolve();
+            })
+            .catch(function (err) {
+              debug("Could not get all activities", err);
+            });
           return defer.promise;
+
         } else if (!start) {
           start = new Date();
         } else if (!end) {
@@ -129,38 +138,21 @@ angular.module('anorakApp')
         searchActivities: function (map, startDate, endDate, address) {
           debug("SEARCHING START", startDate, "END ", endDate, " ADDR ", address);
 
-          // user clicked "Search" on empty form
-          if (!startDate && !endDate && !address) {
-            debug("FOUND NONE OF SEARCH STUFF");
+          findActivitiesForDateRange(map, startDate, endDate)
+            .then(function () {
+              return geoCodeAddress(map, address);
+            })
 
-            models.ActivityModel.all()
+            .then(function () {
+              setMarkersInRadius(map);
+              debug("AM DONE SEARCHING IN SERVICE");
+              $rootScope.$broadcast("MapChangeEvent");
+            })
 
-              .then(function (activities) {
-                debug("GOT ACTS", activities);
-                map.markers = activities;
-                $rootScope.$broadcast("MapChangeEvent");
-              })
-              .catch(function (err) {
-                debug("Could not get all activities", err);
-              });
+            .catch(function (err) {
+              debug("Something went wrong while searching activities", err);
+            });
 
-          } else {
-
-            findActivitiesForDateRange(map, startDate, endDate)
-              .then(function () {
-                return geoCodeAddress(map, address);
-              })
-
-              .then(function () {
-                setMarkersInRadius(map);
-                debug("AM DONE SEARCHING IN SERVICE");
-                $rootScope.$broadcast("MapChangeEvent");
-              })
-
-              .catch(function (err) {
-                debug("Something went wrong while searching activities", err);
-              });
-          }
         },
         findAddressOnMap: function (map, marker) {
           if (!marker.address) {
@@ -246,7 +238,6 @@ angular.module('anorakApp')
           }
         }
       };
-
     };
 
     return mapdata;
