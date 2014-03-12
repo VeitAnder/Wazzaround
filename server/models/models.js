@@ -59,6 +59,9 @@ var models = function () {
     logout: Operation(),
     register: Operation(),
 
+    // TODO: add security
+    userType: Attr(Type.string, Type.enum('user', 'admin'), Attr.default('user')),
+
     currentUser: Factory()
   });
 

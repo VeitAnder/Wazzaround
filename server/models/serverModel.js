@@ -8,12 +8,22 @@ var models = require('../models/models.js');
 models.ActivityModel.readFilter(function (req) {
   // allow global read access
 
+  //TODO: zwischen user und admins unterscheiden
+  if (req.session.auth) {  // if logged in
+    return true;  // allow global read access
+  }
+
   return {published:true};  //filter published Activities
+  //return true;
 });
 
 models.ActivityModel.writeFilter(function (activityObj, req) {
   if (!req.session.auth) {
     return false;  // if not logged in don't allow write operations
+  }
+
+  if (req.session.user.userType == 'admin') {
+    return true;  // allow global access to admin-user
   }
 
   // don't allow to save activitys where the user is not the owner
@@ -80,11 +90,13 @@ models.UserModel.operationImpl("login", function (params, req) {
       if (users.length < 1) throw new Error("User not found");
       if (users.length > 1) throw new Error("Found more then one user");
 
-      if (users[0].password == params.password) { // auth successfull
-        // remember in a sesson, that auth was sucessfull
+      if (users[0].password == params.password) { // auth successful
+        // remember in a session, that auth was successful
         req.session.auth = true;
         // remember the user in the sesson
         req.session.user_id = users[0]._id;
+        // remeber the user in the session
+        req.session.user = users[0];
       } else {
         throw new Error('Invalid Password');
       }

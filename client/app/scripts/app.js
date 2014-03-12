@@ -170,6 +170,16 @@ angular.module('anorakApp')
           }]
         }
       })
+      .when('/admin/allActivities', {
+        //templateUrl: 'views/admin/allactivities.html',
+        templateUrl: 'admin/admin_basetemplate.html',
+        controller: 'AdminAllactivitiesCtrl',
+        resolve: {
+          activities: ['models', function (models) {
+            return models.ActivityModel.all();
+          }]
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });
