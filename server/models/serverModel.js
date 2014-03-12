@@ -374,15 +374,14 @@ models.SignatureModel.operationImpl("generateSignatureObj", function (params, re
   var enc = require("crypto-js/enc-hex");
   var config = require("../config.js");
 
-  var dateTime = new Date().getTime() / 1000;
+  var dateTime = new Date().getTime();
   var apiSecret = config.cloudinary.apiSecret;
-  var corsUrl = "http://" + req.headers.host + "/cloudinary_cors.html";  // TODO where to put that file and what for?
-  var serial = 'callback=' + corsUrl + '&timestamp=' + dateTime + apiSecret;
-//  var sha = sha1(Blob.valueOf(serial)); // TODO BLOB APEX class converts to binary
-  var sha = sha1(serial);
-  var signature = sha1.toString(enc.parse(sha)); // TODO does this work how to use enc here?
+  var corsUrl = config.clienthost + "views/cloudinary_cors.html";  // TODO where to put that file and what for?
+  var serial = 'callback=' + corsUrl + '&timestamp=' + dateTime + "&apiSecret=" + apiSecret;
+//  var sha = sha1(Blob.valueOf(serial)); // TODO BLOB APEX class converts to binary, necessary?
+  var signature = crypto.SHA1(serial).toString();
 
-  var signatureString = '{"api_key":"' + config.cloudinary.apiKey + '","' + corsUrl + '","signature":"' + signature + '","timestamp":' + dateTime * '}';
+  var signatureString = '{"api_key":"' + config.cloudinary.apiKey + '","callback":"' + corsUrl + '","signature":"' + signature + '","timestamp":' + dateTime + '}';
   var data = {
     timestamp: dateTime,
     callback: corsUrl,
