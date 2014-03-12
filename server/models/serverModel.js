@@ -363,3 +363,32 @@ models.AccesstokenModel.operationImpl("setNewPassword", function (params, req) {
       return { "status": "OK" };
     });
 });
+
+// generates signature for image upload to cloudinary
+// we do this on server side so that client doesnt know the api secret
+models.SignatureModel.operationImpl("generateSignatureObj", function (params, req) {
+  var crypto = require("crypto-js");
+  var sha1 = require("crypto-js/sha1");
+  var enc = require("crypto-js/enc-hex");
+  var config = require("../config.js");
+
+  var dateTime = new Date().getTime() / 1000;
+  var apiSecret = config.cloudinary.apiSecret;
+  var corsUrl = "http://" + req.headers.host + "/cloudinary_cors.html";  // TODO where to put that file and what for?
+  var serial = 'callback=' + corsUrl + '&timestamp=' + dateTime + apiSecret;
+//  var sha = sha1(Blob.valueOf(serial)); // TODO BLOB APEX class converts to binary
+  var sha = sha1(serial);
+  var signature = sha1.toString(enc.parse(sha)); // TODO does this work how to use enc here?
+
+  var signatureString = '{"api_key":"' + config.cloudinary.apiKey + '","' + corsUrl + '","signature":"' + signature + '","timestamp":' + dateTime * '}';
+  var data = {
+    timestamp: dateTime,
+    callback: corsUrl,
+    signature: signatureString,
+    api_key: config.cloudinary.apiKey
+  };
+
+  return data;
+
+});
+

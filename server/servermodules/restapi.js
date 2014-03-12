@@ -1,7 +1,7 @@
 var config = require('../config.js');
 //var logger = require('../lib/logger.js');
 var security = require('../lib/security.js');
-var userregistrations = require('../routes/userregistrations.js');
+//var userregistrations = require('../routes/userregistrations.js');
 
 /*var manifest = function (app) {
   app.get("/static/manifest.appcache", function (req, res) {

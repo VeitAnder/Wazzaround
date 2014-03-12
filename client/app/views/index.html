@@ -10,7 +10,6 @@
            data-ng-include="'map/mapsearchbar.html'">
       </div>
 
-
       <div class="filter">
         <span class="input_label">Please choose:</span>
 
@@ -233,6 +232,71 @@
 
     </div>
 
+    <!--<form action="http://0.0.0.0:3000/upload"-->
+    <!--method="post"-->
+    <!--enctype="multipart/form-data">-->
+    <!--<h1>TESTING IMAGE UPLOAD</h1>-->
+    <!--<input type="file"-->
+    <!--image_upload_tag/>-->
+    <!--<input type="file"-->
+    <!--name="image"/>-->
+    <!--<button type="submit">Upload image</button>-->
+    <!---->
+    <!--<div ng-if="images && images.length">-->
+    <!--<img ng-repeat="image in images"-->
+    <!--src="image.url"/>-->
+    <!--</div>-->
+
+    <!--</form>-->
+
+    <!--///////////////////////////////////////////////////////////-->
+    <script>
+      // Configure Cloudinary
+      $.cloudinary.config({ api_key: '749653597734442', cloud_name: 'didceanll' });
+
+      $('.cloudinary-fileupload').fileupload({
+        formData: { api_key: '749653597734442', cloud_name: 'didceanll' },
+        dropZone: $('.sceneUpBtn'),
+        dataType: 'json',
+        done: function (e, data) {
+          console.log("BIND done");
+          $.each(data.result.files, function (index, file) {
+            $('<p/>').text(file.name).appendTo('#filename');
+          });
+        },
+        progressall: function (e, data) {
+          console.log("BIND prograssall");
+          var progress = parseInt(data.loaded / data.total * 100, 10);
+          $('.sceneUpBar').css('width', progress + '%');
+        }
+      })
+      ;
+
+      $('.cloudinary-fileupload').bind('fileuploadstart', function (e) {
+        console.log("UPLOAD STARTED");
+        $('.preview').html('Upload started...');
+      });
+
+      // Upload finished
+      $('.cloudinary-fileupload').bind('cloudinarydone', function (e, data) {
+        console.log("CLOUDINARY DONE");
+        $('.preview').html(
+            $.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'scale', width: 100, height: 100 })
+        );
+        return true;
+      });
+
+    </script>
+    <input name="file"
+           type="file"
+           id="uploadinput"
+           class="cloudinary-fileupload"
+           data-cloudinary-field="image_upload"
+           data-form-data="upload.data"/>
+
+    TODO: module für cloudinary integration (service?)
+    TODO: wo legt man jetzt die cloudinary_cors.html hin?
+
     <div class="map-debug">
       <strong>Map-Debug:</strong>
       <br/>
@@ -303,15 +367,13 @@
                   <div class="month cell first">Next available Dates</div>
                 </div>
 
-
-
                 <div class="availability-entry"
                      ng-repeat="available in m.availability">
                   <div class="availability-title cell first">
                     Bookable Item TITLE
                   </div>
-                   <div class="availability-date cell">
-                    {{available.start | momentjs:{format: 'DD.MM.YYYY'}  }}
+                  <div class="availability-date cell">
+                    {{available.start | momentjs:{format: 'DD.MM.YYYY'} }}
                   </div>
                   <div class="availability-time cell">
                     <!--{{available.end | momentjs:{format: 'DD.MM.YYYY'} }}-->
@@ -352,7 +414,6 @@
                   </div>
                 </div>
 
-
                 <div class="availability-footer">
                   <div class="cell first">
                     <a class="btn btn-mini disabled"
@@ -373,7 +434,6 @@
                     </a>
                   </div>
                 </div>
-
 
               </div>
             </div>
@@ -402,6 +462,7 @@
 
   </div>
 </div>
+
 </div>
 
 <div data-ng-include="'_footer.html'"></div>

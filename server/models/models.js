@@ -168,13 +168,18 @@ var models = function () {
 
   });
 
+  var SignatureModel = new model("signature", {
+    "generateSignatureObj": Operation()
+  });
+
   return {
     UserModel: UserModel,
     ActivityModel: ActivityModel,
     CategoryModel: CategoryModel,
     BookableItemModel: BookableItemModel,
     BookingsModel: BookingsModel,
-    AccesstokenModel: AccesstokenModel
+    AccesstokenModel: AccesstokenModel,
+    SignatureModel: SignatureModel
   };
 };
 

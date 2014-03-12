@@ -112,7 +112,7 @@ angular.module('anorakApp')
       //update model and set marker to display result to user
       $scope.activity.latitude = $scope.map.center.latitude;
       $scope.activity.longitude = $scope.map.center.longitude;
-      $scope.map.clickedMarker.latitude = $scope.map.center.latitude;
+      $scope.map.clickedMarker.latitude = $scope.map.center.latitude; // TODO move to service?
       $scope.map.clickedMarker.longitude = $scope.map.center.longitude;
       $scope.map.clickedMarker.title = 'Location of activity';
     });
@@ -129,22 +129,22 @@ angular.module('anorakApp')
 
       var saveItemsPromises = [];
 
-//      _.forEach($scope.activity.bookableItems, function (item) {
-//        var itemPromise = $scope.models.BookableItemModel.saveWithRepeatingEvents({
-//          obj: item.ref()
-//        })
-//          .then(function (res) {
-//            // recive storage id
-//            item.ref()._id = res._id;
-//          });
-//        saveItemsPromises.push(itemPromise);
-//      });
+      _.forEach($scope.activity.bookableItems, function (item) {
+        var itemPromise = $scope.models.BookableItemModel.saveWithRepeatingEvents({
+          obj: item.ref()
+        })
+          .then(function (res) {
+            // recive storage id
+            item.ref()._id = res._id;
+          });
+        saveItemsPromises.push(itemPromise);
+      });
 
-//      Q.all(saveItemsPromises)
-//        .then(function (results) {  // all BookableItems are saved
-//          debug("all results", results);
-      $scope.activity.save()  // save the activity
-//        })
+      Q.all(saveItemsPromises)
+        .then(function (results) {  // all BookableItems are saved
+          debug("all results", results);
+          return $scope.activity.save();  // save the activity
+        })
         .then(function (activity) {
           debug("SAVED ACTIVITY");
           $location.path("/admin/myactivities/");
