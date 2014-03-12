@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminMyactivitiesEditCtrl', function ($scope, $location, activity, categories, activitybackendmap, $route, $rootScope, $http) {
+  .controller('AdminMyactivitiesEditCtrl', function ($scope, $location, activity, categories, activitybackendmap, $route, $rootScope, cloudinary) {
     $scope.getPagePartial = function () {
       return 'admin/myactivities/edit.html';
     };
@@ -194,5 +194,10 @@ angular.module('anorakApp')
 
     $scope.selectedAddress = "";
     $scope.getAddress = activitybackendmap.getAddress;
+
+    cloudinary.getUploadAttrs([])
+      .then(function (data) {
+        $scope.cloudinaryData = data;
+      });
 
   });

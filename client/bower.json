@@ -17,7 +17,8 @@
     "angular-strap": "~2.0.0",
     "textAngular": "~1.1.2",
     "jquery": "~2.1.0",
-    "cloudinary_js": "https://github.com/cloudinary/cloudinary_js.git#~1.0.12"
+    "cloudinary_js": "https://github.com/cloudinary/cloudinary_js.git#~1.0.12",
+    "cloudinary_angular": "https://github.com/jbcpollak/cloudinary_angular.git"
   },
   "devDependencies": {
     "angular-mocks": "1.2.10",
