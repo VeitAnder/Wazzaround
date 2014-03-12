@@ -102,7 +102,7 @@ var models = function () {
     address: Attr(Type.string),
 
     description: Attr(Type.string),
-    images: Attr(Type.array),
+    images: Attr(Type.array),   // urls to images, will contain img name and activity id
 
     category: {
       main: Attr(Type.string),

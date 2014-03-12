@@ -250,52 +250,49 @@
     <!--</form>-->
 
     <!--///////////////////////////////////////////////////////////-->
-    <script>
-      // Configure Cloudinary
-      $.cloudinary.config({ api_key: '749653597734442', cloud_name: 'didceanll' });
+    <!--<script>-->
+      <!--// Configure Cloudinary-->
+      <!--$.cloudinary.config({ api_key: '749653597734442', cloud_name: 'didceanll' });-->
 
-      $('.cloudinary-fileupload').fileupload({
-        formData: { api_key: '749653597734442', cloud_name: 'didceanll' },
-        dropZone: $('.sceneUpBtn'),
-        dataType: 'json',
-        done: function (e, data) {
-          console.log("BIND done");
-          $.each(data.result.files, function (index, file) {
-            $('<p/>').text(file.name).appendTo('#filename');
-          });
-        },
-        progressall: function (e, data) {
-          console.log("BIND prograssall");
-          var progress = parseInt(data.loaded / data.total * 100, 10);
-          $('.sceneUpBar').css('width', progress + '%');
-        }
-      })
-      ;
+      <!--$('.cloudinary-fileupload').fileupload({-->
+        <!--formData: { api_key: '749653597734442', cloud_name: 'didceanll' },-->
+        <!--dropZone: $('.sceneUpBtn'),-->
+        <!--dataType: 'json',-->
+        <!--done: function (e, data) {-->
+          <!--console.log("BIND done");-->
+          <!--$.each(data.result.files, function (index, file) {-->
+            <!--$('<p/>').text(file.name).appendTo('#filename');-->
+          <!--});-->
+        <!--},-->
+        <!--progressall: function (e, data) {-->
+          <!--console.log("BIND prograssall");-->
+          <!--var progress = parseInt(data.loaded / data.total * 100, 10);-->
+          <!--$('.sceneUpBar').css('width', progress + '%');-->
+        <!--}-->
+      <!--})-->
+      <!--;-->
 
-      $('.cloudinary-fileupload').bind('fileuploadstart', function (e) {
-        console.log("UPLOAD STARTED");
-        $('.preview').html('Upload started...');
-      });
+      <!--$('.cloudinary-fileupload').bind('fileuploadstart', function (e) {-->
+        <!--console.log("UPLOAD STARTED");-->
+        <!--$('.preview').html('Upload started...');-->
+      <!--});-->
 
-      // Upload finished
-      $('.cloudinary-fileupload').bind('cloudinarydone', function (e, data) {
-        console.log("CLOUDINARY DONE");
-        $('.preview').html(
-            $.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'scale', width: 100, height: 100 })
-        );
-        return true;
-      });
+      <!--// Upload finished-->
+      <!--$('.cloudinary-fileupload').bind('cloudinarydone', function (e, data) {-->
+        <!--console.log("CLOUDINARY DONE");-->
+        <!--$('.preview').html(-->
+            <!--$.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'scale', width: 100, height: 100 })-->
+        <!--);-->
+        <!--return true;-->
+      <!--});-->
 
-    </script>
-    <input name="file"
-           type="file"
-           id="uploadinput"
-           class="cloudinary-fileupload"
-           data-cloudinary-field="image_upload"
-           data-form-data="upload.data"/>
-
-    TODO: module für cloudinary integration (service?)
-    TODO: wo legt man jetzt die cloudinary_cors.html hin?
+    <!--</script>-->
+    <!--<input name="file"-->
+           <!--type="file"-->
+           <!--id="uploadinput"-->
+           <!--class="cloudinary-fileupload"-->
+           <!--data-cloudinary-field="image_upload"-->
+           <!--data-form-data="upload.data"/>-->
 
     <div class="map-debug">
       <strong>Map-Debug:</strong>
