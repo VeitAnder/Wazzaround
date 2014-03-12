@@ -6,7 +6,9 @@ var _ = require('lodash');
 var models = require('../models/models.js');
 
 models.ActivityModel.readFilter(function (req) {
-  return true;  // allow global read access
+  // allow global read access
+
+  return {published:true};  //filter published Activities
 });
 
 models.ActivityModel.writeFilter(function (activityObj, req) {
