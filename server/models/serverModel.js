@@ -2,8 +2,6 @@ var Q = require('q');
 var moment = require('moment');
 var ObjectId = require('mongojs').ObjectId;
 var _ = require('lodash');
-var crypto = require("crypto-js");
-var config = require("../config.js");
 
 var models = require('../models/models.js');
 
@@ -24,12 +22,12 @@ models.ActivityModel.writeFilter(function (activityObj, req) {
     return false;  // if not logged in don't allow write operations
   }
 
-  if (req.session.user.userType == 'admin') {
+  if (req.session.user.userType === 'admin') {
     return true;  // allow global access to admin-user
   }
 
   // don't allow to save activitys where the user is not the owner
-  if (activityObj._id != undefined && activityObj.owner._reference != req.session.user_id) {
+  if (activityObj._id !== undefined && activityObj.owner._reference !== req.session.user_id) {
     return false;
   }
 
@@ -380,27 +378,4 @@ models.AccesstokenModel.operationImpl("setNewPassword", function (params, req) {
     });
 });
 
-// generates signature for image upload to cloudinary
-// we do this on server side so that client doesnt know the api secret
-models.SignatureModel.operationImpl("generateSignatureObj", function (params, req) {
-  var deferred = Q.defer();
-
-  var dateTime = params.timeStamp;
-//  var tags = params.tags; TODO not used by now
-  var apiSecret = config.cloudinary.apiSecret;
-//  var corsUrl = config.clienthost + "views/cloudinary_cors.html";  // TODO we dont have cors.html
-//  var serial = 'callback=' + corsUrl + '&timestamp=' + dateTime + "&apiSecret=" + apiSecret;
-  var serial = 'timestamp=' + dateTime + "&apiSecret=" + apiSecret;
-  var signature = crypto.SHA1(serial).toString();
-
-  var signatureString = '{"api_key":"' + config.cloudinary.apiKey + '","signature":"' + signature + '","timestamp":' + dateTime + '}';
-  var data = {
-    timestamp: dateTime,
-    signature: signatureString,
-    api_key: config.cloudinary.apiKey
-  };
-  deferred.resolve(data);
-  return deferred.promise;
-
-});
 
