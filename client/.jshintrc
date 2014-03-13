@@ -99,6 +99,7 @@
     "Model": true,
     "google": true,
     "Dropzone": true,
-    "$": true
+    "$": true,
+    "Q": true
   }
 }

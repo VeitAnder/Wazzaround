@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .directive('uploadform', function ($timeout, $http, APP_CONFIG) {
     return {
-      templateUrl: 'views/directives/uploadform.html',
+      templateUrl: 'directives/uploadform.html',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
         var activityid = "1234";
