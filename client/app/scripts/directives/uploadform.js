@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('uploadform', function ($timeout, $http) {
+  .directive('uploadform', function ($timeout, $http, APP_CONFIG) {
     return {
       templateUrl: 'views/directives/uploadform.html',
       restrict: 'E',
@@ -9,7 +9,7 @@ angular.module('anorakApp')
         var activityid = "1234";
 
         var myDropzone = new Dropzone('#dropzone', {
-          url: "http://localhost:3000/upload/activityimage/",
+          url: APP_CONFIG.APIUrl + "upload/activityimage/",
           withCredentials: true, // For CORS.
           params: {
             activityid: "1223456"
@@ -40,7 +40,7 @@ angular.module('anorakApp')
 
         myDropzone.on("removedfile", function (file) {
           // delete file from server implemented here
-          $http.delete('http://osx.local:3000/upload/activityimage/' + file.responsedata.data.public_id + "/",
+          $http.delete(APP_CONFIG.APIUrl + 'upload/activityimage/' + file.responsedata.data.public_id + "/",
             {
               withCredentials: true
             }
