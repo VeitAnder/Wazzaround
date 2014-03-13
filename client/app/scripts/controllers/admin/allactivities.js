@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminAllactivitiesCtrl', function ($scope, activities) {
+  .controller('AdminAllactivitiesCtrl', function ($scope, $location, activities) {
     $scope.getPagePartial = function () {
       return 'admin/allactivities.html';
     };
@@ -9,8 +9,7 @@ angular.module('anorakApp')
     $scope.activities = activities;
 
     $scope.open = function (activity) {
-      // todo - brauchts auch für alle
-      //$location.path("/admin/myactivities/" + activity._id + "/");
+      $location.path("/admin/allActivities/" + activity._id + "/");
     };
 
     $scope.toggle = function(activity) {
@@ -18,4 +17,5 @@ angular.module('anorakApp')
 
       activity.save().done();
     };
+
   });

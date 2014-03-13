@@ -180,6 +180,19 @@ angular.module('anorakApp')
           }]
         }
       })
+      .when('/admin/allActivities/:id/', {
+        templateUrl: 'admin/admin_basetemplate.html',
+        controller: 'AdminMyactivitiesDetailCtrl',
+        resolve: {
+          activity: ['$route', 'models', function ($route, models) {
+            return models.ActivityModel.get($route.current.params.id);
+          }]
+        }
+      })
+      .when('/admin/editprofile', {
+        templateUrl: 'views/admin/editprofile.html',
+        controller: 'AdminEditprofileCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

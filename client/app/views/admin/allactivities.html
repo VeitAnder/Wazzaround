@@ -45,7 +45,7 @@
       </div>
 
       <div class="edit cell last align-right">
-        <span class="btn btn-mini" data-ng-click="toggle(activity)" ng-switch="activity.published">
+        <span class="btn btn-mini" data-ng-click="toggle(activity); $event.stopPropagation();" ng-switch="activity.published">
           <span ng-switch-when="false">publish</span>
           <span ng-switch-when="true">unpublish</span>
           <span ng-switch-default>-</span>
