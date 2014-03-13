@@ -38,8 +38,7 @@ angular.module('anorakApp', [
   'templates.app',
   'modelizer',
   'mgcrea.ngStrap',
-  'directives.customvalidation',
-  'cloudinary'
+  'directives.customvalidation'
 ]);
 
 angular.module('anorakApp').constant('I18NMESSAGES', {
@@ -170,6 +169,29 @@ angular.module('anorakApp')
             return models.ActivityModel.getMyActivities();
           }]
         }
+      })
+      .when('/admin/allActivities', {
+        //templateUrl: 'views/admin/allactivities.html',
+        templateUrl: 'admin/admin_basetemplate.html',
+        controller: 'AdminAllactivitiesCtrl',
+        resolve: {
+          activities: ['models', function (models) {
+            return models.ActivityModel.all();
+          }]
+        }
+      })
+      .when('/admin/allActivities/:id/', {
+        templateUrl: 'admin/admin_basetemplate.html',
+        controller: 'AdminMyactivitiesDetailCtrl',
+        resolve: {
+          activity: ['$route', 'models', function ($route, models) {
+            return models.ActivityModel.get($route.current.params.id);
+          }]
+        }
+      })
+      .when('/admin/editprofile', {
+        templateUrl: 'views/admin/editprofile.html',
+        controller: 'AdminEditprofileCtrl'
       })
       .otherwise({
         redirectTo: '/'

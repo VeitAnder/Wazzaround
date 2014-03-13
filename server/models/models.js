@@ -59,28 +59,15 @@ var models = function () {
     logout: Operation(),
     register: Operation(),
 
+    // TODO: add security
+    userType: Attr(Type.string, Type.enum('user', 'admin'), Attr.default('user')),
+
     currentUser: Factory()
   });
 
   var BookableItemModel = new model("bookableItems", {
     description: Attr(Type.string),
     price: Attr(Type.number),
-
-//    bookableEvents: [{
-//      start: Attr(Type.date),
-//      end: Attr(Type.date),
-//      quantity: Attr(Type.number),
-//      repeating : Attr(Type.boolean),
-//      daysOfWeek: {
-//        Mon : Attr(Type.boolean),
-//        Tue : Attr(Type.boolean),
-//        Wed : Attr(Type.boolean),
-//        Thu : Attr(Type.boolean),
-//        Fri : Attr(Type.boolean),
-//        Sat : Attr(Type.boolean),
-//        Son : Attr(Type.boolean)
-//      }
-//    }],
 
     events: [
       {
@@ -118,7 +105,8 @@ var models = function () {
 
     bookableItems: RefArray(BookableItemModel),
 
-    published: Attr(Type.boolean),
+    // TODO security: der user könnte das hier schon auf true setzten
+    published: Attr(Type.boolean, Attr.default(false)),
 
     owner: Ref(UserModel),
 

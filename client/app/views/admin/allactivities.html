@@ -1,0 +1,59 @@
+<h2>Account</h2>
+<h3>Publish Activities</h3>
+
+<p>This is the admin/allActivities view.</p>
+
+
+<div class="myactivities-list enable_hover">
+  <div class="listheader">
+    <div class="activity cell first">
+      Activty
+    </div>
+    <div class="category-main cell">
+      Main Category
+    </div>
+    <div class="category-sub cell">
+      Sub Category
+    </div>
+    <div class="location cell">
+      Location
+    </div>
+    <div class="edit cell last">
+
+    </div>
+  </div>
+
+  <div class="listbody">
+
+
+    <div class="listrow"
+         ng-repeat="activity in activities"
+         data-ng-click="open(activity)"
+      >
+      <div class="activity cell first">
+        {{activity.name}}
+      </div>
+      <div class="category-main cell">
+        {{activity.category.main}}
+      </div>
+      <div class="category-sub cell">
+        <span ng-repeat="subcat in activity.category.subs">{{subcat.title}}<br></span>
+      </div>
+
+      <div class="location cell">
+        {{activity.address}}
+      </div>
+
+      <div class="edit cell last align-right">
+        <span class="btn btn-mini" data-ng-click="toggle(activity); $event.stopPropagation();" ng-switch="activity.published">
+          <span ng-switch-when="false">publish</span>
+          <span ng-switch-when="true">unpublish</span>
+          <span ng-switch-default>-</span>
+        </span>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>

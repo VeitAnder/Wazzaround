@@ -6,436 +6,422 @@
       novalidate
       class="activity-edit"
     >
-<fieldset>
-  <legend>Global Activity Info:</legend>
-  <div class="form-group">
-    <label for="name">Name of Activity</label>
-    <input type="text"
-           class="form-control"
-           id="name"
-           placeholder="Enter name of activity"
-           ng-model="activity.name"
-        >
-  </div>
-
-  <div class="form-group">
-    <label for="company">Company offering this activity</label>
-    <input type="text"
-           class="form-control"
-           id="company"
-           placeholder="Enter company "
-           ng-model="activity.company"
-        >
-  </div>
-
-  <div class="form-group">
-    <label for="address">Address of this activity</label>
-    <input type="text"
-           class="form-control"
-           id="address"
-           placeholder="Enter address "
-           ng-model="activity.address"
-           ng-options="address.formatted_address as address.formatted_address for address in getAddress($viewValue)"
-           bs-typeahead
-        >
-       <br>
-
-    <button type="submit"
-            data-ng-click="setAddressOnMap()">Submit address
-    </button>
-  </div>
-
-  <div style="width:100%; height:400px; overflow:hidden; position:relative;">
-
-    <google-map
-        center='map.center'
-        zoom='map.zoom'
-        draggable='true'
-        events='map.events'
-        options='map.options'
-        >
-
-      <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initialized yet-->
-      <div ng-init="opts = {animation:0}">
-        <marker coords="map.clickedMarker"
-                options="opts"
-                icon='getMarkerIcon()'
-            >
-        </marker>
-        <!--<marker-label content="getMarkerLabel()"-->
-        <!--anchor="44 0"-->
-        <!--class="marker-labels"-->
-        <!--/>-->
-      </div>
-
-    </google-map>
-
-  </div>
-
-  <div class="form-group">
-    <label for="categoryMain">Main Category</label>
-    <select class="form-control"
-            id="categoryMain"
-            required
-            ng-model="activity.category.main"
-        >
-      <option disabled="disabled">Select Main Category</option>
-      <option
-          ng-repeat="category in categories"
-          value="{{category.key}}"
-          ng-selected="activity.category.main === category.key"
-          >{{category.title}}
-      </option>
-    </select>
-  </div>
-
-  <div class="form-group"
-       data-ng-show="activity.category.main"
-      >
-    <div class="input_label">Sub Category</div>
-
-    <span class="alert alert-error"
-          data-ng-show="activity.category.subs.length >= 2">You can choose 2 Subcategories at most!
-    </span>
-    <span class="alert alert-error"
-          data-ng-show="activity.category.subs.length === 0">You must choose at least 1 Subcategory!
-    </span>
-
-    <div
-        class="checkbox"
-        ng-repeat="subcategory in getSubCategories()"
-        >
-      <label>{{subcategory.title}}
-        <input type="checkbox"
-               ng-model="value$index"
-               data-ng-change="setSubcat(subcategory.title)"
-               ng-true-value="{{subcategory.title}}"
-               ng-false-value=""
-               ng-checked="isTitleInSubcats(subcategory.title)"
-               ng-disabled="!isTitleInSubcats(subcategory.title) && activity.category.subs.length >= 2"
-            />
-      </label>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label>Description</label>
-    <!--<div text-angular-->
-    <!--ng-model="activity.description">-->
-    <!--</div>   -->
-
-    <textarea style="width: 100%;"
-              rows="5"
-              ng-model="activity.description">
-    </textarea>
-  </div>
-
-  CLOUDINARY UPLOAD
-  <cl-upload data="cloudinaryData"></cl-upload>
-
-  <div class="form-group img-selector">
-    <label>Images</label>
-    <div class="img-block">
-      <img src="http://www.o-solemio.de/wp-content/uploads/Piemont/Locanda_Riziere/Piemont_Langhe.jpg"/>
-      <div class="img-edit">
-        <a class="delete"
-           ng-click=""
-           ng-click="delete()">
-          <span>delete</span>
-        </a>
-      </div>
-    </div>
-    <div class="img-block">
-      <img src="http://www.welt-atlas.de/datenbank/fotos/1-941/big/1-941-42.jpg"/>
-      <div class="img-edit">
-        <a class="delete"
-           ng-click=""
-           ng-click="delete()">
-          <span>delete</span>
-        </a>
-      </div>
-    </div>
-    <button class="btn-add"
-            ng-click="">
-      <span class="btn-icon-left"></span>
-      add Image
-    </button>
-  </div>
-</fieldset>
-
-<fieldset>
-<legend>What can be booked?</legend>
-
-<!-- New Stuff -->
-<div class="bookableitems">
-<button class="btn-add"
-        ng-click="activity.createBookableItems()">
-  <span class="btn-icon-left"></span>
-  create a new Bookable Item
-</button>
-
-<div class="bookableitem bookableitem-add"
-     ng-repeat="(idx, bookableItem) in activity.bookableItems">
-<div class="bookableitem-header">
-  <div class="bookableitem-name cell first">
-
-    <label for="itemDescription">Description</label>
-    <input type="text"
-           class="form-control"
-           id="itemDescription"
-           placeholder="Description of the Item"
-           ng-model="bookableItem.ref().description"
-        >
-
-  </div>
-  <div class="bookableitem-price cell last">
-    <label for="itemPrice">Price</label>
-    <input type="number"
-           class="form-control"
-           id="itemPrice"
-           placeholder="Price €"
-           ng-model="bookableItem.ref().price"
-        >
-  </div>
-  <div class="buttonbar">
-    <a ng-click="removeItem(bookableItem.ref(), idx)"
-       class="txt-icon-delete">Delete Item
-      <span class="btn-icon-right"></span>
-    </a>
-  </div>
-
-</div>
-
-<div class="bookableitem-body">
-  <div class="event-add">
-    <a class="txt-icon-add"
-       ng-click="createEvent(bookableItem.ref())">
-      <span class="btn-icon-left"></span>
-      Schedule Event
-    </a>
-
-  </div>
-
-  <div class="event-new"
-       ng-repeat="(idx, event) in bookableItem.ref().events | filter:{mode:'edit'}">
-
-    <div class="form-group date-from">
+  <fieldset>
+    <legend>Global Activity Info:</legend>
+    <div class="form-group">
+      <label for="name">Name of Activity</label>
       <input type="text"
-             size="10"
              class="form-control"
-             ng-model="event.start"
-             data-autoclose="0"
-             placeholder="Date"
-             bs-datepicker>
-    </div>
-    <div class="form-group time">
-      <input type="text"
-             size="8"
-             class="form-control"
-             ng-model="event.start"
-             data-autoclose="0"
-             placeholder="Time"
-             bs-timepicker
-          >
-    </div>
-    <div class="form-group duration">
-      <input type="number"
-             class="form-control"
-             id="duration"
-             placeholder="Duration (h)"
-             ng-model="event.duration"
-          >
-    </div>
-    <div class="form-group quantity">
-      <input type="number"
-             class="form-control"
-             id="quantity"
-             placeholder="Quantity"
-             ng-model="event.quantity"
+             id="name"
+             placeholder="Enter name of activity"
+             ng-model="activity.name"
           >
     </div>
 
-    <div class="event-new-repeat">
-      <div class="checkbox">
-        <label>
+    <div class="form-group">
+      <label for="company">Company offering this activity</label>
+      <input type="text"
+             class="form-control"
+             id="company"
+             placeholder="Enter company "
+             ng-model="activity.company"
+          >
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address of this activity</label>
+      <input type="text"
+             class="form-control"
+             id="address"
+             placeholder="Enter address "
+             ng-model="activity.address"
+             ng-options="address.formatted_address as address.formatted_address for address in getAddress($viewValue)"
+             bs-typeahead
+          >
+      <br>
+
+      <button type="submit"
+              data-ng-click="setAddressOnMap()">Submit address
+      </button>
+    </div>
+
+    <div style="width:100%; height:400px; overflow:hidden; position:relative;">
+
+      <google-map
+          center='map.center'
+          zoom='map.zoom'
+          draggable='true'
+          events='map.events'
+          options='map.options'
+          >
+
+        <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initialized yet-->
+        <div ng-init="opts = {animation:0}">
+          <marker coords="map.clickedMarker"
+                  options="opts"
+                  icon='getMarkerIcon()'
+              >
+          </marker>
+          <!--<marker-label content="getMarkerLabel()"-->
+          <!--anchor="44 0"-->
+          <!--class="marker-labels"-->
+          <!--/>-->
+        </div>
+
+      </google-map>
+
+    </div>
+
+    <div class="form-group">
+      <label for="categoryMain">Main Category</label>
+      <select class="form-control"
+              id="categoryMain"
+              required
+              ng-model="activity.category.main"
+          >
+        <option disabled="disabled">Select Main Category</option>
+        <option
+            ng-repeat="category in categories"
+            value="{{category.key}}"
+            ng-selected="activity.category.main === category.key"
+            >{{category.title}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group"
+         data-ng-show="activity.category.main"
+        >
+      <div class="input_label">Sub Category</div>
+
+      <span class="alert alert-error"
+            data-ng-show="activity.category.subs.length >= 2">You can choose 2 Subcategories at most!
+      </span>
+      <span class="alert alert-error"
+            data-ng-show="activity.category.subs.length === 0">You must choose at least 1 Subcategory!
+      </span>
+
+      <div
+          class="checkbox"
+          ng-repeat="subcategory in getSubCategories()"
+          >
+        <label>{{subcategory.title}}
           <input type="checkbox"
-                 ng-model="event.repeating">
-          repeating
+                 ng-model="value$index"
+                 data-ng-change="setSubcat(subcategory.title)"
+                 ng-true-value="{{subcategory.title}}"
+                 ng-false-value=""
+                 ng-checked="isTitleInSubcats(subcategory.title)"
+                 ng-disabled="!isTitleInSubcats(subcategory.title) && activity.category.subs.length >= 2"
+              />
         </label>
       </div>
-      <div class="repeating"
-           ng-show="event.repeating">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"
-                   ng-model="event.dayOfWeek.Mon">
-            Mon
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"
-                   ng-model="event.dayOfWeek.Tue">
-            Tue
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"
-                   ng-model="event.dayOfWeek.Wed">
-            Wed
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"
-                   ng-model="event.dayOfWeek.Thu">
-            Thu
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"
-                   ng-model="event.dayOfWeek.Fri">
-            Fri
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"
-                   ng-model="event.dayOfWeek.Sat">
-            Sat
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"
-                   ng-model="event.dayOfWeek.Son">
-            Son
-          </label>
-        </div>
+    </div>
 
-        <div class="form-group date-until">
-          <input type="text"
-                 class="form-control"
-                 ng-model="event.end"
-                 data-min-date=""
-                 placeholder="Until"
-                 bs-datepicker
-                 autoclose="true"
-                 value=""
-              >
+    <div class="form-group">
+      <label>Description</label>
+      <!--<div text-angular-->
+      <!--ng-model="activity.description">-->
+      <!--</div>   -->
+
+      <textarea style="width: 100%;"
+                rows="5"
+                ng-model="activity.description">
+      </textarea>
+    </div>
+
+    <div class="form-group img-selector">
+      <label>Images</label>
+
+      <uploadform></uploadform>
+
+      <div class="img-block">
+        <img src="http://www.o-solemio.de/wp-content/uploads/Piemont/Locanda_Riziere/Piemont_Langhe.jpg"/>
+        <div class="img-edit">
+          <a class="delete"
+             ng-click=""
+             ng-click="delete()">
+            <span>delete</span>
+          </a>
         </div>
       </div>
 
     </div>
+  </fieldset>
 
-    <div class="buttonbar">
-      <a class="txt-icon-delete"
-         ng-click="removeEvent(bookableItem.ref(), idx)"
-          >remove
-        <span class="btn-icon-right"></span>
-      </a>
-    </div>
+  <fieldset>
+    <legend>What can be booked?</legend>
 
-    <div class="buttonbar">
-      <a class="txt-icon-save"
-         ng-click="event.mode = 'view'"
-          >save
-        <span class="btn-icon-right"></span>
-      </a>
-    </div>
+    <!-- New Stuff -->
+    <div class="bookableitems">
+      <button class="btn-add"
+              ng-click="activity.createBookableItems()">
+        <span class="btn-icon-left"></span>
+        create a new Bookable Item
+      </button>
 
-  </div>
+      <div class="bookableitem bookableitem-add"
+           ng-repeat="(idx, bookableItem) in activity.bookableItems">
+        <div class="bookableitem-header">
+          <div class="bookableitem-name cell first">
 
-  <div class="event-list">
-    <div class="event-header">
-      <div class="event-date cell first">Date</div>
-      <div class="event-time cell">Time</div>
-      <!--<div class="event-duration cell">Duration</div>-->
-      <div class="event-quantity cell">Qty.</div>
-      <div class="listaction cell last">
+            <label for="itemDescription">Description</label>
+            <input type="text"
+                   class="form-control"
+                   id="itemDescription"
+                   placeholder="Description of the Item"
+                   ng-model="bookableItem.ref().description"
+                >
+
+          </div>
+          <div class="bookableitem-price cell last">
+            <label for="itemPrice">Price</label>
+            <input type="number"
+                   class="form-control"
+                   id="itemPrice"
+                   placeholder="Price €"
+                   ng-model="bookableItem.ref().price"
+                >
+          </div>
+          <div class="buttonbar">
+            <a ng-click="removeItem(bookableItem.ref(), idx)"
+               class="txt-icon-delete">Delete Item
+              <span class="btn-icon-right"></span>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="bookableitem-body">
+          <div class="event-add">
+            <a class="txt-icon-add"
+               ng-click="createEvent(bookableItem.ref())">
+              <span class="btn-icon-left"></span>
+              Schedule Event
+            </a>
+
+          </div>
+
+          <div class="event-new"
+               ng-repeat="(idx, event) in bookableItem.ref().events | filter:{mode:'edit'}">
+
+            <div class="form-group date-from">
+              <input type="text"
+                     size="10"
+                     class="form-control"
+                     ng-model="event.start"
+                     data-autoclose="0"
+                     placeholder="Date"
+                     bs-datepicker>
+            </div>
+            <div class="form-group time">
+              <input type="text"
+                     size="8"
+                     class="form-control"
+                     ng-model="event.start"
+                     data-autoclose="0"
+                     placeholder="Time"
+                     bs-timepicker
+                  >
+            </div>
+            <div class="form-group duration">
+              <input type="number"
+                     class="form-control"
+                     id="duration"
+                     placeholder="Duration (h)"
+                     ng-model="event.duration"
+                  >
+            </div>
+            <div class="form-group quantity">
+              <input type="number"
+                     class="form-control"
+                     id="quantity"
+                     placeholder="Quantity"
+                     ng-model="event.quantity"
+                  >
+            </div>
+
+            <div class="event-new-repeat">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         ng-model="event.repeating">
+                  repeating
+                </label>
+              </div>
+              <div class="repeating"
+                   ng-show="event.repeating">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Mon">
+                    Mon
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Tue">
+                    Tue
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Wed">
+                    Wed
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Thu">
+                    Thu
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Fri">
+                    Fri
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Sat">
+                    Sat
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-model="event.dayOfWeek.Son">
+                    Son
+                  </label>
+                </div>
+
+                <div class="form-group date-until">
+                  <input type="text"
+                         class="form-control"
+                         ng-model="event.end"
+                         data-min-date=""
+                         placeholder="Until"
+                         bs-datepicker
+                         autoclose="true"
+                         value=""
+                      >
+                </div>
+              </div>
+
+            </div>
+
+            <div class="buttonbar">
+              <a class="txt-icon-delete"
+                 ng-click="removeEvent(bookableItem.ref(), idx)"
+                  >remove
+                <span class="btn-icon-right"></span>
+              </a>
+            </div>
+
+            <div class="buttonbar">
+              <a class="txt-icon-save"
+                 ng-click="event.mode = 'view'"
+                  >save
+                <span class="btn-icon-right"></span>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="event-list">
+            <div class="event-header">
+              <div class="event-date cell first">Date</div>
+              <div class="event-time cell">Time</div>
+              <!--<div class="event-duration cell">Duration</div>-->
+              <div class="event-quantity cell">Qty.</div>
+              <div class="listaction cell last">
+              </div>
+            </div>
+            <div class="event-row"
+                 ng-repeat="(idx,event) in bookableItem.ref().events | filter:{mode:'!edit'}">
+              <div class="event-date cell first">{{moment(event.start).format("ddd, MMM Do YY")}}</div>
+              <div class="event-time cell">{{moment(event.start).format("h:mm a")}}</div>
+              <!--<div class="event-duration cell">{{event.duration}}h</div>-->
+              <div class="event-quantity cell">{{event.quantity}}x</div>
+              <div class="listaction cell last">
+                <a class="edit"
+                   ng-click="event.mode = 'edit'">
+                  <span>edit</span>
+                </a>
+                <a class="delete"
+                   ng-click="removeEvent(bookableItem.ref(), idx)">
+                  <span>delete</span>
+                </a>
+              </div>
+            </div>
+            <!--   <div class="event-row">
+                 <div class="event-date cell first">24.07.2014</div>
+                 <div class="event-time cell">08.30 am</div>
+                 <div class="event-quantity cell">2x</div>
+                 <div class="listaction cell last">
+                   <a class="edit">
+                     <span>edit</span>
+                   </a>
+                   <a class="delete">
+                     <span>delete</span>
+                   </a>
+                 </div>
+               </div>
+               <div class="event-row">
+                 <div class="event-date cell first">24.07.2014</div>
+                 <div class="event-time cell">11.30 am</div>
+                 <div class="event-quantity cell">2x</div>
+                 <div class="listaction cell last">
+                   <a class="edit">
+                     <span>edit</span>
+                   </a>
+                   <a class="delete">
+                     <span>delete</span>
+                   </a>
+                 </div>
+               </div>-->
+          </div>
+
+          <!-- ######## STATIC LIST END ######## -->
+
+        </div>
       </div>
     </div>
-    <div class="event-row"
-         ng-repeat="(idx,event) in bookableItem.ref().events | filter:{mode:'!edit'}">
-      <div class="event-date cell first">{{moment(event.start).format("ddd, MMM Do YY")}}</div>
-      <div class="event-time cell">{{moment(event.start).format("h:mm a")}}</div>
-      <!--<div class="event-duration cell">{{event.duration}}h</div>-->
-      <div class="event-quantity cell">{{event.quantity}}x</div>
-      <div class="listaction cell last">
-        <a class="edit"
-           ng-click="event.mode = 'edit'">
-          <span>edit</span>
-        </a>
-        <a class="delete"
-           ng-click="removeEvent(bookableItem.ref(), idx)">
-          <span>delete</span>
-        </a>
-      </div>
+
     </div>
-    <!--   <div class="event-row">
-         <div class="event-date cell first">24.07.2014</div>
-         <div class="event-time cell">08.30 am</div>
-         <div class="event-quantity cell">2x</div>
-         <div class="listaction cell last">
-           <a class="edit">
-             <span>edit</span>
-           </a>
-           <a class="delete">
-             <span>delete</span>
-           </a>
-         </div>
-       </div>
-       <div class="event-row">
-         <div class="event-date cell first">24.07.2014</div>
-         <div class="event-time cell">11.30 am</div>
-         <div class="event-quantity cell">2x</div>
-         <div class="listaction cell last">
-           <a class="edit">
-             <span>edit</span>
-           </a>
-           <a class="delete">
-             <span>delete</span>
-           </a>
-         </div>
-       </div>-->
+    </div>
+
+  </fieldset>
+
+  <div class="buttonbar margin-top">
+
+    <div ng-show="state.error">
+      <div class="alert alert-error">{{state.message}}</div>
+    </div>
+
+    <a data-ng-show="!isNewMode()"
+       class="btn btn-alert float-left"
+       data-ng-click="delete()">delete
+    </a>
+
+    <button class="btn"
+            ng-click="save()"
+        >speichern
+    </button>
+    <a class="cancel"
+       ng-click="cancel()"
+        >abbrechen
+    </a>
+
   </div>
 
-  <!-- ######## STATIC LIST END ######## -->
-
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-</fieldset>
-
-<div class="buttonbar margin-top">
-
-  <div ng-show="state.error">
-    <div class="alert alert-error">{{state.message}}</div>
-  </div>
-
-  <a data-ng-show="!isNewMode()"
-     class="btn btn-alert float-left"
-     data-ng-click="delete()">delete
-  </a>
-
-  <button class="btn"
-          ng-click="save()"
-      >speichern
-  </button>
-  <a class="cancel"
-     ng-click="cancel()"
-      >abbrechen
-  </a>
-
-</div>
-
-<br/>
-<br/>
+  <br/>
+  <br/>
 
 </form>

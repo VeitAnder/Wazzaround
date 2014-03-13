@@ -5,7 +5,6 @@
     "angular": "1.2.10",
     "angular-animate": "1.2.10",
     "angular-route": "1.2.10",
-    "fineuploaders3patched": "https://github.com/planmanager/fineuploader.git",
     "ua-parser-js": "https://github.com/planmanager/ua-parser-js.git",
     "lodash": "~2.4.0",
     "moment": "~2.5.1",
@@ -17,8 +16,7 @@
     "angular-strap": "~2.0.0",
     "textAngular": "~1.1.2",
     "jquery": "~2.1.0",
-    "cloudinary_js": "https://github.com/cloudinary/cloudinary_js.git#~1.0.12",
-    "cloudinary_angular": "https://github.com/jbcpollak/cloudinary_angular.git"
+    "dropzone": "https://github.com/maximilianschmid/dropzone-patched.git"
   },
   "devDependencies": {
     "angular-mocks": "1.2.10",
