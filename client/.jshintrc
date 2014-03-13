@@ -97,6 +97,8 @@
     "unescape":true,
     "debug": true,
     "Model": true,
-    "google": true
+    "google": true,
+    "Dropzone": true,
+    "$": true
   }
 }
