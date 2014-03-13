@@ -205,39 +205,4 @@ angular.module('anorakApp')
       });
     });
 
-//    <script>
-//    // Configure Cloudinary  TODO where to configure? here? server?
-//    $.cloudinary.config({ api_key: '749653597734442', cloud_name: 'didceanll' });
-//    </script>
-//    <input name="file" type="file" id="uploadinput"
-//    class="cloudinary-fileupload" data-cloudinary-field="image_upload"
-//    data-form-data="" />
-//      TODO: module für cloudinary integration (service?)     wie kapsele ich das extra?
-//    TODO: serverseitiges Abrufen der Signatur, vielleicht über Modelizer?
-//      TODO: wo legt man jetzt die cloudinary_cors.html hin?
-//      <script>
-//      var data = { "timestamp":  1372282433,
-//        "callback": "http://" + request.headers.host + "/cloudinary_cors.html",
-//        "signature": "getfromserver!!!",
-//        "api_key": "749653597734442" };
-//        <!--use directive here instead of script tag? -->
-//      $('#uploadinput').attr('data-form-data', JSON.stringify(data));
-//      </script>
-
-    $scope.getCloudinarySignatureObj = function () {    // TODO this has to be server-side code, so that client doesnt know the secret
-
-      models.SignatureModel.generateSignatureObj()
-        .then(function (signatureObj) {
-          debug("Got cloudinary image upload signature", signatureObj);
-          $scope.$apply();
-        })
-        .fail(function (err) {
-          debug("Could not generate signature", err);
-        })
-        .done();
-    };
-    $scope.upload = {
-      data: $scope.getCloudinarySignatureObj()
-    };
-
   });
