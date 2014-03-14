@@ -281,9 +281,13 @@
               {{m.name}}
             </h4>
 
-            <img src="/img/mapicons/piemont.jpg"
-                 width="100"
-                 alt=""/>
+            <cloudinaryimage ng-show="m.images.length > 0"
+                             data-publicid="{{m.images[0].public_id}}"
+                             data-format="{{m.images[0].format}}"
+                             data-width="100"
+                             data-height="60"
+                >
+            </cloudinaryimage>
 
             <div class="input_label">Offered by</div>
             <h5 class="no-margin-top">{{m.company}}</h5>

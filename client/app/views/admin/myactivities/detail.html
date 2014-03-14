@@ -14,20 +14,23 @@
     </a>
   </div>
 
-  <p ng-if="activity.published"><b>Your activity is published</b></p>
-  <p ng-if="!activity.published"><b>Your activity isn't published yet</b></p>
+  <p ng-if="activity.published">
+    <b>Your activity is published</b>
+  </p>
+  <p ng-if="!activity.published">
+    <b>Your activity isn't published yet</b>
+  </p>
 
   <h4>
     <span class="icon"></span>
     {{activity.name}}
   </h4>
 
-
-  <h4 >
+  <h4>
     <p>
-    Company offering this activity:
+      Company offering this activity:
     </p>
-      {{activity.company}}
+    {{activity.company}}
   </h4>
 
   <div class="location">
@@ -53,17 +56,24 @@
 
   </div>
 
-
-
   <h5 class="category">
-    {{activity.category.main}}<br/>
-    <span class="category-sub" ng-repeat="subcat in activity.category.subs">
-      <br/>{{subcat.title}}<br/>
+    {{activity.category.main}}
+    <br/>
+    <span class="category-sub"
+          ng-repeat="subcat in activity.category.subs">
+      <br/>
+      {{subcat.title}}
+      <br/>
     </span>
   </h5>
 
-  <img src="/img/mapicons/piemont.jpg"
-       alt=""/>
+  <cloudinaryimage ng-show="activity.images.length > 0"
+                   data-publicid="{{activity.images[0].public_id}}"
+                   data-format="{{activity.images[0].format}}"
+                   data-width="250"
+                   data-height="150"
+      >
+  </cloudinaryimage>
 
   <div class="input_label">Offered by</div>
   <h5 class="no-margin-top">Activity Inc.</h5>
@@ -78,21 +88,16 @@
   <div class="availability">
     <div class="input_label">Availability</div>
 
-
-
     <div class="availability-list">
-
-
 
       <div class="availability-header">
         <div class="month cell first">February</div>
       </div>
 
-
       <div class="availability-entry"
-          ng-repeat="available in activity.availability">
+           ng-repeat="available in activity.availability">
         <div class="availability-date cell first">
-          {{available.start | momentjs:{format: 'DD.MM.YYYY'}  }}
+          {{available.start | momentjs:{format: 'DD.MM.YYYY'} }}
         </div>
         <div class="availability-time cell">
           {{available.end | momentjs:{format: 'DD.MM.YYYY'} }}
@@ -101,7 +106,6 @@
           {{available.quantity}}x
         </div>
       </div>
-
 
     </div>
   </div>
@@ -116,6 +120,5 @@
        data-ng-click="delete()">delete
     </a>
   </div>
-
 
 </div>
