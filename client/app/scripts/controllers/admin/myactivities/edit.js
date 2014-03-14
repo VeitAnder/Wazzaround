@@ -200,14 +200,15 @@ angular.module('anorakApp')
       activity.images.splice($index, 1);
 
       // delete file from server implemented here
-      $http.delete(APP_CONFIG.APIUrl + 'upload/activityimage/' + image.public_id + "/",
-        {
-          withCredentials: true
-        }
-      )
-        .catch(function (err) {
-          console.log(err);
-        });
+      // question is when to delete file from server??
+//      $http.delete(APP_CONFIG.APIUrl + 'upload/activityimage/' + image.public_id + "/",
+//        {
+//          withCredentials: true
+//        }
+//      )
+//        .catch(function (err) {
+//          console.log(err);
+//        });
 
     };
 
