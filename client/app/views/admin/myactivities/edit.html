@@ -121,6 +121,7 @@
 
     <div class="form-group">
       <label>Description</label>
+
       <!--<div text-angular-->
       <!--ng-model="activity.description">-->
       <!--</div>   -->
@@ -144,7 +145,7 @@
         </cloudinaryimage>
         <div class="img-edit">
           <a class="delete"
-             ng-click="">
+             ng-click="removeImage(image, $index)">
             <span>delete</span>
           </a>
         </div>
@@ -152,75 +153,75 @@
       <uploadform data-images="activity.images"></uploadform>
     </imageselector>
 
- <!--
-    <dropzoneexampleforstylingpreview class="dropzone">
-      <div class="dz-preview dz-file-preview dz-processing">
-        <div class="dz-details">
-          <div class="dz-filename">
-            <span data-dz-name="">_50MB.zip</span>
-          </div>
-          <div class="dz-size"
-               data-dz-size="">
-            <strong>46.4</strong>
-            MiB
-          </div>
-          <img data-dz-thumbnail="">
-        </div>
-        <div class="dz-progress">
-          <span class="dz-upload"
-                data-dz-uploadprogress=""
-                style="width: 26.36409689099568%;"></span>
-        </div>
-        <div class="dz-success-mark">
-          <span>✔</span>
-        </div>
-        <div class="dz-error-mark">
-          <span>✘</span>
-        </div>
-        <div class="dz-error-message">
-          <span data-dz-errormessage=""></span>
-        </div>
-        <a class="dz-remove"
-           href="javascript:undefined;"
-           data-dz-remove="">Cancel upload
-        </a>
-      </div>
+    <!--
+       <dropzoneexampleforstylingpreview class="dropzone">
+         <div class="dz-preview dz-file-preview dz-processing">
+           <div class="dz-details">
+             <div class="dz-filename">
+               <span data-dz-name="">_50MB.zip</span>
+             </div>
+             <div class="dz-size"
+                  data-dz-size="">
+               <strong>46.4</strong>
+               MiB
+             </div>
+             <img data-dz-thumbnail="">
+           </div>
+           <div class="dz-progress">
+             <span class="dz-upload"
+                   data-dz-uploadprogress=""
+                   style="width: 26.36409689099568%;"></span>
+           </div>
+           <div class="dz-success-mark">
+             <span>✔</span>
+           </div>
+           <div class="dz-error-mark">
+             <span>✘</span>
+           </div>
+           <div class="dz-error-message">
+             <span data-dz-errormessage=""></span>
+           </div>
+           <a class="dz-remove"
+              href="javascript:undefined;"
+              data-dz-remove="">Cancel upload
+           </a>
+         </div>
 
-      <div class="dz-preview dz-file-preview dz-processing">
-        <div class="dz-details">
-          <div class="dz-filename">
-            <span data-dz-name="">_50MB.zip</span>
-          </div>
-          <div class="dz-size"
-               data-dz-size="">
-            <strong>46.4</strong>
-            MiB
-          </div>
-          <img data-dz-thumbnail="">
-        </div>
-        <div class="dz-progress">
-          <span class="dz-upload"
-                data-dz-uploadprogress=""
-                style="width: 26.36409689099568%;"></span>
-        </div>
-        <div class="dz-success-mark">
-          <span>✔</span>
-        </div>
-        <div class="dz-error-mark">
-          <span>✘</span>
-        </div>
-        <div class="dz-error-message">
-          <span data-dz-errormessage=""></span>
-        </div>
-        <a class="dz-remove"
-           href="javascript:undefined;"
-           data-dz-remove="">Cancel upload
-        </a>
-      </div>
+         <div class="dz-preview dz-file-preview dz-processing">
+           <div class="dz-details">
+             <div class="dz-filename">
+               <span data-dz-name="">_50MB.zip</span>
+             </div>
+             <div class="dz-size"
+                  data-dz-size="">
+               <strong>46.4</strong>
+               MiB
+             </div>
+             <img data-dz-thumbnail="">
+           </div>
+           <div class="dz-progress">
+             <span class="dz-upload"
+                   data-dz-uploadprogress=""
+                   style="width: 26.36409689099568%;"></span>
+           </div>
+           <div class="dz-success-mark">
+             <span>✔</span>
+           </div>
+           <div class="dz-error-mark">
+             <span>✘</span>
+           </div>
+           <div class="dz-error-message">
+             <span data-dz-errormessage=""></span>
+           </div>
+           <a class="dz-remove"
+              href="javascript:undefined;"
+              data-dz-remove="">Cancel upload
+           </a>
+         </div>
 
 
-    </dropzoneexampleforstylingpreview>
-   -->
+       </dropzoneexampleforstylingpreview>
+      -->
 
   </fieldset>
 

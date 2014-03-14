@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminMyactivitiesEditCtrl', function ($scope, $location, activity, categories, activitybackendmap, $route, $rootScope) {
+  .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, activity, categories, activitybackendmap, $route, $rootScope) {
     $scope.getPagePartial = function () {
       return 'admin/myactivities/edit.html';
     };
@@ -195,5 +195,20 @@ angular.module('anorakApp')
     $scope.selectedAddress = "";
     $scope.getAddress = activitybackendmap.getAddress;
 
+    // image upload functionality
+    $scope.removeImage = function (image, $index) {
+      activity.images.splice($index, 1);
+
+      // delete file from server implemented here
+      $http.delete(APP_CONFIG.APIUrl + 'upload/activityimage/' + image.public_id + "/",
+        {
+          withCredentials: true
+        }
+      )
+        .catch(function (err) {
+          console.log(err);
+        });
+
+    };
 
   });

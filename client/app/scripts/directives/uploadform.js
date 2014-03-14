@@ -44,44 +44,19 @@ angular.module('anorakApp')
           },
           addRemoveLinks: true,
           previewsContainer: $(element).find(".dropzone-previews")[0],
-//          maxFiles: 5,
           thumbnailWidth: 150,
           thumbnailHeight: 150
         });
 
-        myDropzone.on("complete", function (file) {
-          console.log("upload complete");
-        });
-
         myDropzone.on("success", function (file, response) {
-          console.log("Dropzone", myDropzone);
           file.cloudinary_public_id = response.data.public_id;
           file.cloudinary_format = response.data.format;
           file.cloudinary_url = response.data.url;
-
+          // pass file to angular
           addToImagesArray(file);
+          // remove file from Dropzone store
           myDropzone.removeFile(file);
         });
-
-        myDropzone.on("maxfilesreached", function (file) {
-          console.log("maxfilesreached", file);
-        });
-
-        myDropzone.on("maxfilesexceeded", function (file) {
-          console.log("maxfilesexceeded", file);
-        });
-
-//        myDropzone.on("removedfile", function (file) {
-//          // delete file from server implemented here
-//          $http.delete(APP_CONFIG.APIUrl + 'upload/activityimage/' + file.responsedata.data.public_id + "/",
-//            {
-//              withCredentials: true
-//            }
-//          )
-//            .then(function (response) {
-//            });
-//
-//        });
 
         //listen to $destroy event of directive and cancel upload
         scope.$on('$destroy', function () {
