@@ -4953,10 +4953,12 @@ footer {
 .dropzone {
   padding: 0px; }
   .dropzone .dz-preview {
-    margin: 0 30px 10px 15px; }
+    margin: 0 30px 10px 15px;
+    float: left; }
 
 .dropzone-previews .dz-preview {
-  margin: 0 30px 10px 15px; }
+  margin: 0 30px 10px 15px;
+  float: left; }
 
 html {
   overflow-y: scroll;
