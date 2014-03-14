@@ -4215,7 +4215,7 @@ footer {
     position: relative;
     float: left;
     margin-right: 10px;
-    margin-bottom: 10px; }
+    margin-bottom: 32px; }
     .img-selector .img-block img {
       width: 150px;
       height: 150px; }
@@ -4948,6 +4948,15 @@ footer {
 
   100% {
     background-position: -7px -400px; } }
+
+/*custom dropzone styles*/
+.dropzone {
+  padding: 0px; }
+  .dropzone .dz-preview {
+    margin: 0 30px 10px 15px; }
+
+.dropzone-previews .dz-preview {
+  margin: 0 30px 10px 15px; }
 
 html {
   overflow-y: scroll;

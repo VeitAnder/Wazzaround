@@ -6,6 +6,7 @@
       novalidate
       class="activity-edit"
     >
+
   <fieldset>
     <legend>Global Activity Info:</legend>
     <div class="form-group">
@@ -130,23 +131,97 @@
       </textarea>
     </div>
 
-    <div class="form-group img-selector">
+    <imageselector class="form-group img-selector">
       <label>Images</label>
-
-      <uploadform></uploadform>
-
-      <div class="img-block">
-        <img src="http://www.o-solemio.de/wp-content/uploads/Piemont/Locanda_Riziere/Piemont_Langhe.jpg"/>
+      <imageblock class="img-block"
+                  data-ng-repeat="image in activity.images"
+          >
+        <cloudinaryimage data-publicid="{{image.public_id}}"
+                         data-format="{{image.format}}"
+                         data-width="150"
+                         data-height="150"
+            >
+        </cloudinaryimage>
         <div class="img-edit">
           <a class="delete"
-             ng-click=""
-             ng-click="delete()">
+             ng-click="">
             <span>delete</span>
           </a>
         </div>
+      </imageblock>
+      <uploadform data-images="activity.images"></uploadform>
+    </imageselector>
+
+ <!--
+    <dropzoneexampleforstylingpreview class="dropzone">
+      <div class="dz-preview dz-file-preview dz-processing">
+        <div class="dz-details">
+          <div class="dz-filename">
+            <span data-dz-name="">_50MB.zip</span>
+          </div>
+          <div class="dz-size"
+               data-dz-size="">
+            <strong>46.4</strong>
+            MiB
+          </div>
+          <img data-dz-thumbnail="">
+        </div>
+        <div class="dz-progress">
+          <span class="dz-upload"
+                data-dz-uploadprogress=""
+                style="width: 26.36409689099568%;"></span>
+        </div>
+        <div class="dz-success-mark">
+          <span>✔</span>
+        </div>
+        <div class="dz-error-mark">
+          <span>✘</span>
+        </div>
+        <div class="dz-error-message">
+          <span data-dz-errormessage=""></span>
+        </div>
+        <a class="dz-remove"
+           href="javascript:undefined;"
+           data-dz-remove="">Cancel upload
+        </a>
       </div>
 
-    </div>
+      <div class="dz-preview dz-file-preview dz-processing">
+        <div class="dz-details">
+          <div class="dz-filename">
+            <span data-dz-name="">_50MB.zip</span>
+          </div>
+          <div class="dz-size"
+               data-dz-size="">
+            <strong>46.4</strong>
+            MiB
+          </div>
+          <img data-dz-thumbnail="">
+        </div>
+        <div class="dz-progress">
+          <span class="dz-upload"
+                data-dz-uploadprogress=""
+                style="width: 26.36409689099568%;"></span>
+        </div>
+        <div class="dz-success-mark">
+          <span>✔</span>
+        </div>
+        <div class="dz-error-mark">
+          <span>✘</span>
+        </div>
+        <div class="dz-error-message">
+          <span data-dz-errormessage=""></span>
+        </div>
+        <a class="dz-remove"
+           href="javascript:undefined;"
+           data-dz-remove="">Cancel upload
+        </a>
+      </div>
+
+
+    </dropzoneexampleforstylingpreview>
+   -->
+
   </fieldset>
 
   <fieldset>

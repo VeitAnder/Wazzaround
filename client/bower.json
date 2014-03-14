@@ -16,15 +16,14 @@
     "angular-strap": "~2.0.0",
     "textAngular": "~1.1.2",
     "jquery": "~2.1.0",
-    "dropzone": "https://github.com/maximilianschmid/dropzone-patched.git"
+    "dropzone": "https://github.com/maximilianschmid/dropzone-patched.git",
+    "cloudinary-client": "https://github.com/maximilianschmid/cloudinary-client.git"
   },
   "devDependencies": {
     "angular-mocks": "1.2.10",
     "angular-scenario": "1.2.10"
   },
   "resolutions": {
-    "angular": "1.2.10",
-    "jquery": ">= 1.9.0",
-    "bootstrap": "~3.1.0"
+    "angular": "1.2.10"
   }
 }

@@ -54,7 +54,7 @@ angular.module('anorakApp').constant('I18NMESSAGES', {
 });
 
 angular.module('anorakApp')
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
     'use strict';
 
     $locationProvider.html5Mode((function () {
@@ -196,6 +196,35 @@ angular.module('anorakApp')
       .otherwise({
         redirectTo: '/'
       });
+
+    $sceDelegateProvider.resourceUrlWhitelist([
+      // Allow same origin resource loads.
+      'self',
+      // Allow loading from our assets domain.  Notice the difference between * and **.
+      'http://localhost:3000/**',
+      'http://localhost:9000/**',
+      'http://osx.local:3000/**',
+      'http://osx.local:9000/**',
+      'http://0.0.0.0:9000/**',
+      'http://0.0.0.0:3000/**',
+      'http://127.0.0.1:9000/**',
+      'http://127.0.0.1:3000/**',
+      'http://res.cloudinary.com/**'
+    ]);
+
+    // The blacklist overrides the whitelist so the open redirect here is blocked.
+//    $sceDelegateProvider.resourceUrlBlacklist(
+//      [
+//        'http://myapp.example.com/clickThru**'
+//      ]
+//    );
+
+
+
+    // Allows XHR Requests to other domains and includes cookies
+    // DO NOT ENABLE - Causes CORS trouble with google maps
+    // $httpProvider.defaults.withCredentials = true;
+
 
   })
   .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models) {
