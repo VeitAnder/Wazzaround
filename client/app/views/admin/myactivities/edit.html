@@ -122,9 +122,11 @@
 <div class="form-group">
   <label>Description</label>
 
-  <div text-angular
-       ng-model="activity.description">
-  </div>
+  <text-angular
+      ta-toolbar="[['h2','h3', 'p', 'bold','italics','underline', 'ul', 'ol', 'redo', 'undo']]"
+      ng-model="activity.description"
+      >
+  </text-angular>
 </div>
 
 <imageselector class="form-group img-selector">
