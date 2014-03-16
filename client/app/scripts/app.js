@@ -24,6 +24,7 @@
 
 angular.module('anorakApp', [
   'ngRoute',
+  'ngSanitize',
   'google-maps',
   'mgcrea.ngStrap',
   'textAngular',
