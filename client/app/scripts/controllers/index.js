@@ -43,6 +43,7 @@ angular.module('anorakApp')
 
     $scope.map = frontendmap.map;
     frontendmap.showInitialActivities($scope.map, resolvedActivities);
+    $scope.map.zoom = 9;
 
     $scope.windowOptions = {
       "zIndex": 1000
