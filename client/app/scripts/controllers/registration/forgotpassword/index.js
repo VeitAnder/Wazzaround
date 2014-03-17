@@ -1,6 +1,15 @@
-angular.module('forgotpassword', ['services.authentication', 'services.localizedMessages'])
-  .controller('ForgotpasswordPageCtrl', function ($scope, $location, $http, APP_CONFIG, $window, models, $route) {
+angular.module('anorakApp')
+  .controller('ForgotPasswordPageCtrl', function ($scope) {
     'use strict';
+
+    $scope.getPagePartial = function () {
+      return 'registration/forgotpassword/index.html';
+    };
+
+  })
+  .controller('ForgotPasswordCtrl', function ($scope, $location, $http, APP_CONFIG, $window, models, $route) {
+    'use strict';
+
     $scope.user = {};
     $scope.status = {
       resetpassword: !$route.current.params.email && !$route.current.params.token ? false : true

@@ -29,8 +29,6 @@ angular.module('anorakApp', [
   'mgcrea.ngStrap',
   'textAngular',
   'ui.keypress',
-  'registration',
-  'forgotpassword',
   'momentjs',
   'services.authentication',
   'services.i18nNotifications',
@@ -81,8 +79,8 @@ angular.module('anorakApp')
         }
       })
       .when('/registration/forgotpassword/', {
-        templateUrl: 'registration/forgotpassword/forgotpassword_page.tpl.html',
-        controller: 'ForgotpasswordPageCtrl'
+        templateUrl: 'page_basetemplate.html',
+        controller: 'ForgotPasswordPageCtrl'
       })
       .when('/legalnotes', {
         templateUrl: 'page_basetemplate.html',
@@ -97,7 +95,7 @@ angular.module('anorakApp')
         controller: 'WorkwithusCtrl'
       })
       .when('/login', {
-        templateUrl: 'admin/admin_basetemplate.html',
+        templateUrl: 'page_basetemplate.html',
         controller: 'LoginCtrl',
         resolve: {
           resolveCurrentUser: ['currentUser', function (currentUser) {
@@ -105,7 +103,7 @@ angular.module('anorakApp')
           }]
         }
       })
-      .when('/register', {
+      .when('/registration', {
         templateUrl: 'page_basetemplate.html',
         controller: 'RegisterCtrl'
       })
@@ -297,7 +295,7 @@ angular.module('anorakApp')
 
       // if you try to access the register route being authenticated -> redirect to /admin
       if (currentUser.authenticated) {
-        if (next.$$route.originalPath.match(/^\/register/)) {
+        if (next.$$route.originalPath.match(/^\/registration/)) {
           $location.path('/admin');
         }
       }

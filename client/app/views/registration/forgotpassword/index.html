@@ -1,0 +1,120 @@
+<div data-ng-controller="ForgotPasswordCtrl">
+
+  <form name="valForm"
+        novalidate
+        class="registrationform"
+        ui-keyup="{27: 'cancel()'}"
+        ng-hide="status.resetpassword === true"
+      >
+    <div ng-hide="status.passwordrequestsuccess === true">
+      <h1>Forgot password?</h1>
+
+      <label>E-Mail</label>
+
+      <p>
+        <input ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
+               name="email"
+               id="email"
+               placeholder="E-Mail Adresse"
+               ng-model="user.email"
+               required
+            >
+        <span ng-show="showError('valForm', 'email', 'pattern')"
+              class="alert alert-error">Please enter a valid email address.
+        </span>
+        <span ng-show="showError('valForm', 'email', 'required')"
+              class="alert">Please fill out this field.
+        </span>
+      </p>
+      <div class="buttonbar">
+        <button ng-click="requestPasswordReset()"
+                ng-disabled="!canSave()">Request a link to reset your password
+        </button>
+        <a class="cancel"
+           ng-click="cancel()">back to login
+        </a>
+      </div>
+    </div>
+
+    <div ng-show="status.passwordrequestsuccess === true">
+      <p class="alert alert-success">The link to reset your password was successfully sent to {{user.email}}.</p>
+
+      <div class="buttonbar backto">
+        <a ng-click="gotoLogin()">back to login</a>
+      </div>
+    </div>
+
+    <div ng-show="status.passwordrequestsuccess === false">
+      <p class="alert alert-error"
+         ng-show="status.error === 'noUser'">This user does not exist. Check if the email address is correct.</p>
+
+      <p class="alert alert-error"
+         ng-show="status.error === 'error'">An error happened. The email to reset your password could not be
+                                            sent.</p>
+    </div>
+  </form>
+
+  <form name="newPasswordForm"
+        ng-show="status.resetpassword && !status.setnewpasswordsuccess">
+    <p>Enter your new password here</p>
+
+    <p>
+      <label for="password">Password</label>
+      <input name="password"
+             id="password"
+             type="password"
+             ng-model="settingnew.password"
+             required
+             class="input-block-level">
+      <span ng-show="showError('newPasswordForm', 'password', 'required')"
+            class="alert">Please fill out this field.
+      </span>
+    </p>
+
+    <p>
+      <label for="passwordrepeat">Repeat password</label>
+      <input name="passwordrepeat"
+             id="passwordrepeat"
+             type="password"
+             ng-model="settingnew.passwordrepeat"
+             required
+             class="input-block-level"
+             validate-equals="settingnew.password"
+          >
+
+      <span ng-show="showError('newPasswordForm', 'passwordrepeat', 'equal')"
+            class="alert alert-error">Passwords don't match.
+      </span>
+      <span ng-show="showError('newPasswordForm', 'passwordrepeat', 'required')"
+            class="alert">Please fill out this field.
+      </span>
+
+    </p>
+
+    <button class="btn"
+            type="submit"
+            ng-click="setNewPassword()"
+        >
+      Save new password
+    </button>
+  </form>
+
+  <div ng-show="status.setnewpasswordsuccess === true">
+    <p class="alert alert-success">The new password was successfully saved.</p>
+
+    <div class="buttonbar backto">
+      <a ng-href="#/login/">back to login</a>
+    </div>
+  </div>
+
+  <div ng-show="status.setnewpasswordsuccess === false">
+    <p class="alert alert-error">An error happened. The new password could not be saved.</p>
+
+    <div ng-show="status.savepwderror === 'invalidPwd'">
+      <p class="alert alert-error">The password has to contain at least one capital letter, one number and has to have a
+                                   minimum length of 8.
+      </p>
+    </div>
+
+  </div>
+</div>
