@@ -14,6 +14,7 @@ angular.module('anorakApp')
         console.log("ATTRAS", attrs);
         console.log("SCOPE", scope);
 
+        scope.moment = moment;
 
         // scope.events = ["Quadfahren", "Segeln"]
         // scope.events[0].ref() = [{Quadfahren am 1.3., am 1.4., am 1.5.}]
