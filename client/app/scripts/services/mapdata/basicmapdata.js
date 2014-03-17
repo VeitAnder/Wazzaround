@@ -58,10 +58,10 @@ angular.module('anorakApp')
             debug("FOUND ADDRESS!", status, results);
 
             if (status === google.maps.GeocoderStatus.OK) {
-              map.center.latitude = results[0].geometry.location.d;
-              map.center.longitude = results[0].geometry.location.e;
-              map.centerMarker.latitude = results[0].geometry.location.d;
-              map.centerMarker.longitude = results[0].geometry.location.e;
+              map.center.latitude = results[0].geometry.location.k;
+              map.center.longitude = results[0].geometry.location.A;
+              map.centerMarker.latitude = results[0].geometry.location.k;
+              map.centerMarker.longitude = results[0].geometry.location.A;
               map.address = address;
 
               return defer.resolve();

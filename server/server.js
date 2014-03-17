@@ -17,7 +17,7 @@ var logger = require('./lib/logger.js');
 
 var app = express();
 
-//var RestApi = require("./servermodules/restapi.js");
+var RestApi = require("./servermodules/restapi.js");
 
 logger.info("Node environment: NODE_ENV=%s", process.env.NODE_ENV);
 
@@ -75,9 +75,11 @@ if (process.env.NODE_ENV === "production") {
 //require("./servermodules/security.js").useCSRFProtection(app);
 
 //RestApi.manifest(app);
-//RestApi.publicRestApi(app);
-//RestApi.RestApiAuthentication(app);
-//RestApi.privateRestApi(app);
+
+
+
+RestApi.RestApi(app);
+
 
 require("./servermodules/serveclient.js").serveClient(app);
 

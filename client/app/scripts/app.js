@@ -24,6 +24,7 @@
 
 angular.module('anorakApp', [
   'ngRoute',
+  'ngSanitize',
   'google-maps',
   'mgcrea.ngStrap',
   'textAngular',
@@ -38,7 +39,8 @@ angular.module('anorakApp', [
   'templates.app',
   'modelizer',
   'mgcrea.ngStrap',
-  'directives.customvalidation'
+  'directives.customvalidation',
+  'ui.keypress'
 ]);
 
 angular.module('anorakApp').constant('I18NMESSAGES', {
@@ -54,7 +56,7 @@ angular.module('anorakApp').constant('I18NMESSAGES', {
 });
 
 angular.module('anorakApp')
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
     'use strict';
 
     $locationProvider.html5Mode((function () {
@@ -193,9 +195,64 @@ angular.module('anorakApp')
         templateUrl: 'views/admin/editprofile.html',
         controller: 'AdminEditprofileCtrl'
       })
+      .when('/activities/:id/', {
+        templateUrl: 'views/activities/activity.html',
+        controller: 'ActivityCtrl',
+        resolve: {     // TODO shall be included in Operator of Activitymodel!
+          activity: ['$route', 'models', function ($route, models) {
+            return models.ActivityModel.get($route.current.params.id)
+              .then(function (activity) {
+                // load bookable items
+                var loadingBookableItems = [];
+                _.forEach(activity.bookableItems, function (item) {
+                  loadingBookableItems.push(item.load());
+                });
+
+                return Q.all(loadingBookableItems)
+                  .then(function (res) {
+                    console.log("loadingBookableItems", res);
+                    return activity;  // return the activity, when all bookableItems have been loaded
+                  });
+              })
+              .fail(function (err) {
+                console.log("Fail loading activities in the myactivities route", err);
+              })
+              ;
+          }]
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });
+
+    $sceDelegateProvider.resourceUrlWhitelist([
+      // Allow same origin resource loads.
+      'self',
+      // Allow loading from our assets domain.  Notice the difference between * and **.
+      'http://localhost:3000/**',
+      'http://localhost:9000/**',
+      'http://osx.local:3000/**',
+      'http://osx.local:9000/**',
+      'http://0.0.0.0:9000/**',
+      'http://0.0.0.0:3000/**',
+      'http://127.0.0.1:9000/**',
+      'http://127.0.0.1:3000/**',
+      'http://res.cloudinary.com/**'
+    ]);
+
+    // The blacklist overrides the whitelist so the open redirect here is blocked.
+//    $sceDelegateProvider.resourceUrlBlacklist(
+//      [
+//        'http://myapp.example.com/clickThru**'
+//      ]
+//    );
+
+
+
+    // Allows XHR Requests to other domains and includes cookies
+    // DO NOT ENABLE - Causes CORS trouble with google maps
+    // $httpProvider.defaults.withCredentials = true;
+
 
   })
   .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models) {
@@ -213,7 +270,6 @@ angular.module('anorakApp')
     models.BookableItemModel.connection(connector);
     models.BookingsModel.connection(connector);
     models.AccesstokenModel.connection(connector);
-    models.SignatureModel.connection(connector);
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);

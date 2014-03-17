@@ -6,158 +6,224 @@
       novalidate
       class="activity-edit"
     >
+
 <fieldset>
-  <legend>Global Activity Info:</legend>
-  <div class="form-group">
-    <label for="name">Name of Activity</label>
-    <input type="text"
-           class="form-control"
-           id="name"
-           placeholder="Enter name of activity"
-           ng-model="activity.name"
-        >
-  </div>
-
-  <div class="form-group">
-    <label for="company">Company offering this activity</label>
-    <input type="text"
-           class="form-control"
-           id="company"
-           placeholder="Enter company "
-           ng-model="activity.company"
-        >
-  </div>
-
-  <div class="form-group">
-    <label for="address">Address of this activity</label>
-    <input type="text"
-           class="form-control"
-           id="address"
-           placeholder="Enter address "
-           ng-model="activity.address"
-           ng-options="address.formatted_address as address.formatted_address for address in getAddress($viewValue)"
-           bs-typeahead
-        >
-       <br>
-
-    <button type="submit"
-            data-ng-click="setAddressOnMap()">Submit address
-    </button>
-  </div>
-
-  <div style="width:100%; height:400px; overflow:hidden; position:relative;">
-
-    <google-map
-        center='map.center'
-        zoom='map.zoom'
-        draggable='true'
-        events='map.events'
-        options='map.options'
-        >
-
-      <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initialized yet-->
-      <div ng-init="opts = {animation:0}">
-        <marker coords="map.clickedMarker"
-                options="opts"
-                icon='getMarkerIcon()'
-            >
-        </marker>
-        <!--<marker-label content="getMarkerLabel()"-->
-        <!--anchor="44 0"-->
-        <!--class="marker-labels"-->
-        <!--/>-->
-      </div>
-
-    </google-map>
-
-  </div>
-
-  <div class="form-group">
-    <label for="categoryMain">Main Category</label>
-    <select class="form-control"
-            id="categoryMain"
-            required
-            ng-model="activity.category.main"
-        >
-      <option disabled="disabled">Select Main Category</option>
-      <option
-          ng-repeat="category in categories"
-          value="{{category.key}}"
-          ng-selected="activity.category.main === category.key"
-          >{{category.title}}
-      </option>
-    </select>
-  </div>
-
-  <div class="form-group"
-       data-ng-show="activity.category.main"
+<legend>Global Activity Info:</legend>
+<div class="form-group">
+  <label for="name">Name of Activity or Activities</label>
+  <input type="text"
+         class="form-control"
+         id="name"
+         placeholder="Enter name of activity"
+         ng-model="activity.name"
       >
-    <div class="input_label">Sub Category</div>
+  <p>Example: Quad 250cc, Quad 500cc and Quad 750cc</p>
+</div>
 
-    <span class="alert alert-error"
-          data-ng-show="activity.category.subs.length >= 2">You can choose 2 Subcategories at most!
-    </span>
-    <span class="alert alert-error"
-          data-ng-show="activity.category.subs.length === 0">You must choose at least 1 Subcategory!
-    </span>
+<div class="form-group">
+  <label for="company">Company offering this activity</label>
+  <input type="text"
+         class="form-control"
+         id="company"
+         placeholder="Enter company "
+         ng-model="activity.company"
+      >
+</div>
 
-    <div
-        class="checkbox"
-        ng-repeat="subcategory in getSubCategories()"
+<div class="form-group">
+  <label for="address">Address of this activity</label>
+  <input type="text"
+         class="form-control"
+         id="address"
+         placeholder="Enter address "
+         ng-model="activity.address"
+         ng-options="address.formatted_address as address.formatted_address for address in getAddress($viewValue)"
+         bs-typeahead
+      >
+  <br>
+
+  <button type="submit"
+          data-ng-click="setAddressOnMap()"
+          focuson
+      >Submit address
+  </button>
+  <p>Double-Click in map to reposition location of activity</p>
+</div>
+
+<div style="width:100%; height:400px; overflow:hidden; position:relative;">
+
+  <google-map
+      center='map.center'
+      zoom='map.zoom'
+      draggable='true'
+      events='map.events'
+      options='map.options'
+      >
+
+    <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initialized yet-->
+    <div ng-init="opts = {animation:0}">
+      <marker coords="map.clickedMarker"
+              options="opts"
+              icon='getMarkerIcon()'
+          >
+      </marker>
+      <!--<marker-label content="getMarkerLabel()"-->
+      <!--anchor="44 0"-->
+      <!--class="marker-labels"-->
+      <!--/>-->
+    </div>
+
+  </google-map>
+
+</div>
+
+<div class="form-group">
+  <label for="categoryMain">Main Category</label>
+  <select class="form-control"
+          id="categoryMain"
+          required
+          ng-model="activity.category.main"
+      >
+    <option disabled="disabled">Select Main Category</option>
+    <option
+        ng-repeat="category in categories"
+        value="{{category.key}}"
+        ng-selected="activity.category.main === category.key"
+        >{{category.title}}
+    </option>
+  </select>
+</div>
+
+<div class="form-group"
+     data-ng-show="activity.category.main"
+    >
+  <div class="input_label">Sub Category</div>
+
+  <span class="alert alert-error"
+        data-ng-show="activity.category.subs.length >= 2">You can choose 2 Subcategories at most!
+  </span>
+  <span class="alert alert-error"
+        data-ng-show="activity.category.subs.length === 0">You must choose at least 1 Subcategory!
+  </span>
+
+  <div
+      class="checkbox"
+      ng-repeat="subcategory in getSubCategories()"
+      >
+    <label>{{subcategory.title}}
+      <input type="checkbox"
+             ng-model="value$index"
+             data-ng-change="setSubcat(subcategory.title)"
+             ng-true-value="{{subcategory.title}}"
+             ng-false-value=""
+             ng-checked="isTitleInSubcats(subcategory.title)"
+             ng-disabled="!isTitleInSubcats(subcategory.title) && activity.category.subs.length >= 2"
+          />
+    </label>
+  </div>
+</div>
+
+<div class="form-group">
+  <label>Description</label>
+
+  <text-angular
+      ta-toolbar="[['h2','h3', 'p', 'bold','italics','underline', 'ul', 'ol', 'redo', 'undo']]"
+      ng-model="activity.description"
+      >
+  </text-angular>
+</div>
+
+<imageselector class="form-group img-selector">
+  <label>Images</label>
+  <imageblock class="img-block"
+              data-ng-repeat="image in activity.images"
+      >
+    <cloudinaryimage data-publicid="{{image.public_id}}"
+                     data-format="{{image.format}}"
+                     data-width="150"
+                     data-height="150"
         >
-      <label>{{subcategory.title}}
-        <input type="checkbox"
-               ng-model="value$index"
-               data-ng-change="setSubcat(subcategory.title)"
-               ng-true-value="{{subcategory.title}}"
-               ng-false-value=""
-               ng-checked="isTitleInSubcats(subcategory.title)"
-               ng-disabled="!isTitleInSubcats(subcategory.title) && activity.category.subs.length >= 2"
-            />
-      </label>
+    </cloudinaryimage>
+    <div class="img-edit">
+      <a class="delete"
+         ng-click="removeImage(image, $index)">
+        <span>delete</span>
+      </a>
     </div>
-  </div>
+  </imageblock>
+  <uploadform data-images="activity.images"></uploadform>
+</imageselector>
 
-  <div class="form-group">
-    <label>Description</label>
-    <!--<div text-angular-->
-    <!--ng-model="activity.description">-->
-    <!--</div>   -->
+<!--
+   <dropzoneexampleforstylingpreview class="dropzone">
+     <div class="dz-preview dz-file-preview dz-processing">
+       <div class="dz-details">
+         <div class="dz-filename">
+           <span data-dz-name="">_50MB.zip</span>
+         </div>
+         <div class="dz-size"
+              data-dz-size="">
+           <strong>46.4</strong>
+           MiB
+         </div>
+         <img data-dz-thumbnail="">
+       </div>
+       <div class="dz-progress">
+         <span class="dz-upload"
+               data-dz-uploadprogress=""
+               style="width: 26.36409689099568%;"></span>
+       </div>
+       <div class="dz-success-mark">
+         <span>✔</span>
+       </div>
+       <div class="dz-error-mark">
+         <span>✘</span>
+       </div>
+       <div class="dz-error-message">
+         <span data-dz-errormessage=""></span>
+       </div>
+       <a class="dz-remove"
+          href="javascript:undefined;"
+          data-dz-remove="">Cancel upload
+       </a>
+     </div>
 
-    <textarea style="width: 100%;"
-              rows="5"
-              ng-model="activity.description">
-    </textarea>
-  </div>
+     <div class="dz-preview dz-file-preview dz-processing">
+       <div class="dz-details">
+         <div class="dz-filename">
+           <span data-dz-name="">_50MB.zip</span>
+         </div>
+         <div class="dz-size"
+              data-dz-size="">
+           <strong>46.4</strong>
+           MiB
+         </div>
+         <img data-dz-thumbnail="">
+       </div>
+       <div class="dz-progress">
+         <span class="dz-upload"
+               data-dz-uploadprogress=""
+               style="width: 26.36409689099568%;"></span>
+       </div>
+       <div class="dz-success-mark">
+         <span>✔</span>
+       </div>
+       <div class="dz-error-mark">
+         <span>✘</span>
+       </div>
+       <div class="dz-error-message">
+         <span data-dz-errormessage=""></span>
+       </div>
+       <a class="dz-remove"
+          href="javascript:undefined;"
+          data-dz-remove="">Cancel upload
+       </a>
+     </div>
 
-  <div class="form-group img-selector">
-    <label>Images</label>
-    <div class="img-block">
-      <img src="http://www.o-solemio.de/wp-content/uploads/Piemont/Locanda_Riziere/Piemont_Langhe.jpg"/>
-      <div class="img-edit">
-        <a class="delete"
-           ng-click=""
-           ng-click="delete()">
-          <span>delete</span>
-        </a>
-      </div>
-    </div>
-    <div class="img-block">
-      <img src="http://www.welt-atlas.de/datenbank/fotos/1-941/big/1-941-42.jpg"/>
-      <div class="img-edit">
-        <a class="delete"
-           ng-click=""
-           ng-click="delete()">
-          <span>delete</span>
-        </a>
-      </div>
-    </div>
-    <button class="btn-add"
-            ng-click="">
-      <span class="btn-icon-left"></span>
-      add Image
-    </button>
-  </div>
+
+   </dropzoneexampleforstylingpreview>
+  -->
+
 </fieldset>
 
 <fieldset>
@@ -354,6 +420,7 @@
       <div class="listaction cell last">
       </div>
     </div>
+
     <div class="event-row"
          ng-repeat="(idx,event) in bookableItem.ref().events | filter:{mode:'!edit'}">
       <div class="event-date cell first">{{moment(event.start).format("ddd, MMM Do YY")}}</div>
@@ -371,32 +438,7 @@
         </a>
       </div>
     </div>
-    <!--   <div class="event-row">
-         <div class="event-date cell first">24.07.2014</div>
-         <div class="event-time cell">08.30 am</div>
-         <div class="event-quantity cell">2x</div>
-         <div class="listaction cell last">
-           <a class="edit">
-             <span>edit</span>
-           </a>
-           <a class="delete">
-             <span>delete</span>
-           </a>
-         </div>
-       </div>
-       <div class="event-row">
-         <div class="event-date cell first">24.07.2014</div>
-         <div class="event-time cell">11.30 am</div>
-         <div class="event-quantity cell">2x</div>
-         <div class="listaction cell last">
-           <a class="edit">
-             <span>edit</span>
-           </a>
-           <a class="delete">
-             <span>delete</span>
-           </a>
-         </div>
-       </div>-->
+
   </div>
 
   <!-- ######## STATIC LIST END ######## -->

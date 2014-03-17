@@ -2,7 +2,8 @@ angular.module('anorakApp')
   .factory('APP_CONFIG', function ($window) {
     "use strict";
     var hostconfig = {},
-      globalconfig = {};
+      globalconfig = {},
+      apiversion = "/api/v1/";
 
     if ($window.location.hostname === "reacture.anorak.io" || $window.location.hostname === "reactureapp-11359.onmodulus.net") {
       // PRODUCTION SERVER
@@ -11,7 +12,7 @@ angular.module('anorakApp')
           bucket: "",
           accesskey: ""
         },
-        APIUrl: $window.location.protocol + "//" + $window.location.hostname + "/api/v1/",
+        APIUrl: $window.location.protocol + "//" + $window.location.hostname + apiversion,
         debug: false,
         modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/"
       };
@@ -22,7 +23,7 @@ angular.module('anorakApp')
           bucket: "",
           accesskey: ""
         },
-        APIUrl: $window.location.protocol + "//" + $window.location.hostname + "/api/v1/",
+        APIUrl: $window.location.protocol + "//" + $window.location.hostname + apiversion,
         debug: false,
         modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/"
       };
@@ -33,7 +34,7 @@ angular.module('anorakApp')
           bucket: "",
           accesskey: ""
         },
-        APIUrl: $window.location.protocol + "//" + $window.location.hostname + ":3000/api/v1/",
+        APIUrl: $window.location.protocol + "//" + $window.location.hostname + ":3000"+ apiversion,
         debug: true,
         modelizerurl: $window.location.protocol + "//" + $window.location.hostname + ":3000/"
       };

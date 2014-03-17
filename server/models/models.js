@@ -89,7 +89,15 @@ var models = function () {
     address: Attr(Type.string),
 
     description: Attr(Type.string),
-    images: Attr(Type.array),   // urls to images, will contain img name and activity id
+
+    images: [
+      {
+        public_id: Attr(Type.string),
+        format: Attr(Type.string),
+        name: Attr(Type.string),
+        url: Attr(Type.string)
+      }
+    ],
 
     category: {
       main: Attr(Type.string),
@@ -156,18 +164,13 @@ var models = function () {
 
   });
 
-  var SignatureModel = new model("signature", {
-    "generateSignatureObj": Operation()
-  });
-
   return {
     UserModel: UserModel,
     ActivityModel: ActivityModel,
     CategoryModel: CategoryModel,
     BookableItemModel: BookableItemModel,
     BookingsModel: BookingsModel,
-    AccesstokenModel: AccesstokenModel,
-    SignatureModel: SignatureModel
+    AccesstokenModel: AccesstokenModel
   };
 };
 
