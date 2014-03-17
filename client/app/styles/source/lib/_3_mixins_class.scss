@@ -31,7 +31,7 @@ h1{
   line-height:    $fs*$font-size_h2_factor;
   margin:         $fs*$font-size_h2_factor 0;
   color:          $color_main_h2;
-  font-weight:    $font-weight_thin;
+  font-weight:    $font-weight_light;
   @include sysfont_01;
 }
 

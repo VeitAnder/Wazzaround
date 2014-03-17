@@ -909,7 +909,7 @@ h2 {
   line-height: 50px;
   margin: 50px 0;
   color: #b3b3b3;
-  font-weight: 100;
+  font-weight: 200;
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 h3 {
@@ -4355,10 +4355,12 @@ footer {
 .col-left-fixed .accountlink {
   display: none; }
 
-.registrationform .btn, .loginform .btn, .registerform .btn {
-  margin-top: 16px; }
-.registrationform input, .registrationform .alert, .registrationform .buttonbar, .loginform input, .loginform .alert, .loginform .buttonbar, .registerform input, .registerform .alert, .registerform .buttonbar {
-  width: 75%; }
+.standardform {
+  margin-bottom: 100px; }
+  .standardform .btn {
+    margin-top: 16px; }
+  .standardform input, .standardform .alert, .standardform .buttonbar {
+    width: 75%; }
 
 .teaser-section {
   overflow: hidden; }

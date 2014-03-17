@@ -1590,13 +1590,14 @@ $img-block-size: 150px;
 }
 
 
-.registrationform, .loginform, .registerform{
+.standardform{
   .btn{
    margin-top: $fs;
   }
   input, .alert, .buttonbar{
     width: 75%;
   }
+  margin-bottom: 100px;
 }
 
 
