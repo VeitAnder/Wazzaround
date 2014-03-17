@@ -8,7 +8,6 @@ var models = require('../models/models.js');
 models.ActivityModel.readFilter(function (req) {
   // allow global read access
 
-  //TODO: zwischen user und admins unterscheiden
   if (req.session.auth) {  // if logged in
     return true;  // allow global read access
   }
@@ -22,12 +21,12 @@ models.ActivityModel.writeFilter(function (activityObj, req) {
     return false;  // if not logged in don't allow write operations
   }
 
-  if (req.session.user.userType == 'admin') {
+  if (req.session.user.userType === 'admin') {
     return true;  // allow global access to admin-user
   }
 
   // don't allow to save activitys where the user is not the owner
-  if (activityObj._id != undefined && activityObj.owner._reference != req.session.user_id) {
+  if (activityObj._id !== undefined && activityObj.owner._reference !== req.session.user_id) {
     return false;
   }
 
