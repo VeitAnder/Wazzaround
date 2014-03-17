@@ -1,56 +1,86 @@
-<form class="registerform"
-      name="registerform"
-      novalidate
-      autocomplete="on"
-      action=""
-      method="post"
-      target="_self"
-      style="padding-bottom: 100px;"
->
-<!--TODO: Register-->
-  <h2>Account</h2>
+<div ng-controller="RegisterCtrl">
+  <form class="registerform"
+        name="valForm"
+        novalidate
+      >
 
-  <h3>Register</h3>
+    <h2>Account</h2>
 
+    <h3>Register</h3>
 
-  <p>
-    <label for="email">E-mail</label>
-    <input name="email"
-           ng-model="form.email"
-           class="input-block-level"
-           id="email"
-           required
-           autofocus>
-  </p>
-  <p>
-    <label for="password">Password</label>
-    <input name="password"
-           id="password"
-           type="password"
-           ng-model="form.password"
-           required
-           class="input-block-level">
-  </p>
+    <p>
+      <label for="email">E-mail</label>
+      <input name="email"
+             ng-model="registrant.email"
+             class="input-block-level"
+             required
+             autofocus
+             ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
+          >
 
-  <p>
-    <label for="password">Retype Password</label>
-    <input name="repeatPassword"
-           id="repeatPassword"
-           type="password"
-           ng-model="form.password2"
-           required
-           class="input-block-level"
-           validate-equals="form.password">
-  </p>
+      <span ng-show="showError('email', 'required')"
+            class="alert">Please enter your email address.
+      </span>
+      <span ng-show="showError('email', 'pattern')"
+            class="alert alert-error">Please enter a valid email address.
+      </span>
 
-  <div ng-show="state.error">
-    <div class="alert alert-error" ng-show="state.message !== 'invalidPwd'">{{state.message}}</div>
-    <div class="alert alert-error" ng-show="state.message === 'invalidPwd'">The password has to contain at least one capital letter, one number and has to have a minimum length of 8.</div>
-  </div>
+    </p>
+    <p>
+      <label for="password">Password</label>
+      <input name="password"
+             id="password"
+             type="password"
+             ng-model="registrant.password"
+             required
+             class="input-block-level"
+             password-validate
+          >
+    <h4>Password must meet the following requirements:</h4>
+    <ul>
+      <li ng-class="pwdHasUppercaseLetter">{{pwdHasUppercaseLetter}} At least
+        <strong>one uppercase letter</strong>
+      </li>
+      <li ng-class="pwdHasLetter">{{pwdHasLetter}} At least
+        <strong>one letter</strong>
+      </li>
+      <li ng-class="pwdHasNumber">{{pwdHasNumber}} At least
+        <strong>one number</strong>
+      </li>
+      <li ng-class="pwdValidLength">{{pwdValidLength}} At least
+        <strong>8 characters long</strong>
+      </li>
+    </ul>
 
-  <button class="btn"
-          type="submit"
-          ng-click="register()">Register
-  </button>
+    </p>
 
-</form>
+    <p>
+      <label for="passwordRepeat">Retype Password</label>
+      <input name="passwordRepeat"
+             id="passwordRepeat"
+             type="password"
+             ng-model="registrant.passwordRepeat"
+             required
+             class="input-block-level"
+             validate-equals="registrant.password"
+          >
+
+      <span ng-show="showError('passwordRepeat', 'required')"
+            class="alert">Please retype the password.
+      </span>
+
+      <span ng-show="showError('passwordRepeat', 'equal')"
+            class="alert alert-error">The passwords have to match.
+      </span>
+
+    </p>
+
+    <button class="btn"
+            ng-class="{disabled: valForm.$invalid}"
+            type="submit"
+            ng-click="register()">Register
+    </button>
+
+  </form>
+
+</div>

@@ -78,6 +78,10 @@ angular.module('anorakApp')
           }]
         }
       })
+      .when('/registration', {
+        templateUrl: 'page_basetemplate.html',
+        controller: 'RegistrationPageCtrl'
+      })
       .when('/registration/forgotpassword/', {
         templateUrl: 'page_basetemplate.html',
         controller: 'ForgotPasswordPageCtrl'
@@ -102,10 +106,6 @@ angular.module('anorakApp')
             return currentUser.load();
           }]
         }
-      })
-      .when('/registration', {
-        templateUrl: 'page_basetemplate.html',
-        controller: 'RegisterCtrl'
       })
       .when('/admin/myactivities/:id/edit', {
         templateUrl: 'admin/admin_basetemplate.html',
