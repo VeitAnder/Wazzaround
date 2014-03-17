@@ -10,13 +10,14 @@
 <fieldset>
 <legend>Global Activity Info:</legend>
 <div class="form-group">
-  <label for="name">Name of Activity</label>
+  <label for="name">Name of Activity or Activities</label>
   <input type="text"
          class="form-control"
          id="name"
          placeholder="Enter name of activity"
          ng-model="activity.name"
       >
+  <p>Example: Quad 250cc, Quad 500cc and Quad 750cc</p>
 </div>
 
 <div class="form-group">
@@ -46,6 +47,7 @@
           focuson
       >Submit address
   </button>
+  <p>Double-Click in map to reposition location of activity</p>
 </div>
 
 <div style="width:100%; height:400px; overflow:hidden; position:relative;">
