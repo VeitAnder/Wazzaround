@@ -81,6 +81,12 @@
             ng-click="register()">Register
     </button>
 
+    <div class="alert alert-error"
+         ng-show="state.registrationfailed"
+        >
+      {{state.errormessage}}
+    </div>
+
   </form>
 
 </div>

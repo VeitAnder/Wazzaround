@@ -10,7 +10,8 @@ angular.module('anorakApp')
     $scope.registrant = {
     };
     $scope.state = {
-      submitted: false
+      submitted: false,
+      registrationfailed: false
     };
 
     // redirect to amin interface if user is logged in
@@ -30,7 +31,9 @@ angular.module('anorakApp')
             });
           })
           .fail(function (err) {
-            console.log("Login failed", err);
+            $scope.state.registrationfailed = true;
+            $scope.state.errormessage = err.message;
+            $scope.$apply();
           });
       }
     };
