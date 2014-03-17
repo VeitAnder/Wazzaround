@@ -172,9 +172,6 @@ a.link-download{
   color: $color_button_text;
   text-decoration: none;
   font-size: 16px;
-  span{
-    color: $color_button_text;
-  }
 
   &:hover {
     color: $color_button_text_hover;
@@ -255,11 +252,11 @@ button.btn, .btn, a.btn {
     font-size: 14px;
   }
   &.btn-mini{
-    font-size: 12px;
-    line-height: 12px*$line-height_factor;
+    @include font-size_smallest;
     text-transform: uppercase;
     padding: ($fs*0.15) ($fs*0.5);
     border-width: 1px;
+    font-weight: $font-weight_extrabold;
   }
 
 }
@@ -1372,7 +1369,6 @@ header {
   background-color: $color_input_background;
   @include border_all($color_input_border);
   outline-style: none!important;
-  min-width: 75%;
 }
 
 @mixin checkbox_rounded_big{

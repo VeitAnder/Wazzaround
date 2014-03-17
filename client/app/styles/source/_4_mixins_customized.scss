@@ -1589,6 +1589,17 @@ $img-block-size: 150px;
   }
 }
 
+
+.registrationform, .loginform, .registerform{
+  .btn{
+   margin-top: $fs;
+  }
+  input, .alert, .buttonbar{
+    width: 75%;
+  }
+}
+
+
 .teaser-section {
   overflow: hidden;
 }

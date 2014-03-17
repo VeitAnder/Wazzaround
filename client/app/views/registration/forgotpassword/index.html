@@ -6,16 +6,17 @@
         ui-keyup="{27: 'cancel()'}"
         ng-hide="status.resetpassword === true"
       >
+    <h2>Account</h2>
+
+    <h3>Forgot password?</h3>
     <div ng-hide="status.passwordrequestsuccess === true">
-      <h1>Forgot password?</h1>
 
-      <label>E-Mail</label>
-
-      <p>
+      <div class="form-group">
+        <label for="email">E-mail</label>
         <input ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
                name="email"
                id="email"
-               placeholder="E-Mail Adresse"
+               placeholder="Your E-mail address"
                ng-model="user.email"
                required
             >
@@ -25,15 +26,14 @@
         <span ng-show="showError('valForm', 'email', 'required')"
               class="alert">Please fill out this field.
         </span>
-      </p>
-      <div class="buttonbar">
-        <button ng-click="requestPasswordReset()"
-                ng-disabled="!canSave()">Request a link to reset your password
-        </button>
-        <a class="cancel"
-           ng-click="cancel()">back to login
-        </a>
       </div>
+      <button ng-click="requestPasswordReset()"
+              class="btn"
+          >Request a link to reset your password
+      </button>
+      <a class="space-left"
+         ng-click="cancel()">back to login
+      </a>
     </div>
 
     <div ng-show="status.passwordrequestsuccess === true">
@@ -103,7 +103,7 @@
     <p class="alert alert-success">The new password was successfully saved.</p>
 
     <div class="buttonbar backto">
-      <a ng-href="#/login/">back to login</a>
+      <a ng-href="gotoLogin()">back to login</a>
     </div>
   </div>
 

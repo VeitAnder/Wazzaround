@@ -5,34 +5,34 @@
       action=""
       method="post"
       target="_self"
-      style="padding-bottom: 100px;"
->
-<!--TODO: Register-->
+    >
+  <!--TODO: Register-->
   <h2>Account</h2>
 
-  <h3>Register</h3>
+  <h3>Registration</h3>
 
-
-  <p>
+  <div class="form-group">
     <label for="email">E-mail</label>
     <input name="email"
            ng-model="form.email"
            class="input-block-level"
            id="email"
+           placeholder="Your E-mail"
            required
            autofocus>
-  </p>
-  <p>
+  </div>
+  <div class="form-group">
     <label for="password">Password</label>
     <input name="password"
            id="password"
            type="password"
            ng-model="form.password"
            required
+           placeholder="Your Password"
            class="input-block-level">
-  </p>
+  </div>
 
-  <p>
+  <div class="form-group">
     <label for="password">Retype Password</label>
     <input name="repeatPassword"
            id="repeatPassword"
@@ -40,12 +40,18 @@
            ng-model="form.password2"
            required
            class="input-block-level"
+           placeholder="Retype your Password"
            validate-equals="form.password">
-  </p>
+  </div>
 
   <div ng-show="state.error">
-    <div class="alert alert-error" ng-show="state.message !== 'invalidPwd'">{{state.message}}</div>
-    <div class="alert alert-error" ng-show="state.message === 'invalidPwd'">The password has to contain at least one capital letter, one number and has to have a minimum length of 8.</div>
+    <div class="alert alert-error"
+         ng-show="state.message !== 'invalidPwd'">{{state.message}}
+    </div>
+    <div class="alert alert-error"
+         ng-show="state.message === 'invalidPwd'">The password has to contain at least one capital letter, one number
+                                                  and has to have a minimum length of 8.
+    </div>
   </div>
 
   <button class="btn"

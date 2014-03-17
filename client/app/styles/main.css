@@ -887,6 +887,12 @@ hr {
   .padding-60px-vert.no-padding-bottom {
     padding-bottom: 0; }
 
+.space-left {
+  margin-left: 8px; }
+
+.space-right {
+  margin-right: 8px; }
+
 p {
   padding-bottom: 16px; }
 
@@ -1020,8 +1026,6 @@ button.btn, .btn, a.btn {
   color: #FFF;
   text-decoration: none;
   font-size: 16px; }
-  button.btn span, .btn span, a.btn span {
-    color: #FFF; }
   button.btn:hover, .btn:hover, a.btn:hover {
     color: #FFF;
     border-color: #a4d740;
@@ -1083,11 +1087,14 @@ button.btn, .btn, a.btn {
     padding: 2.4px 12px;
     font-size: 14px; }
   button.btn.btn-mini, .btn.btn-mini, a.btn.btn-mini {
-    font-size: 12px;
-    line-height: 16.8px;
+    font-size: 10px;
+    line-height: 14px;
     text-transform: uppercase;
     padding: 2.4px 8px;
-    border-width: 1px; }
+    border-width: 1px;
+    font-weight: 800; }
+    button.btn.btn-mini p, .btn.btn-mini p, a.btn.btn-mini p {
+      padding-bottom: 14px; }
 
 .btn-group {
   margin-bottom: 2px; }
@@ -1125,8 +1132,6 @@ button.btn, .btn, a.btn {
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   border-radius: 6px; }
-  .btn-large-add span {
-    color: #FFF; }
   .btn-large-add:hover {
     color: #FFF;
     border-color: #a4d740;
@@ -1219,8 +1224,6 @@ button.btn, .btn, a.btn {
   color: #FFF;
   text-decoration: none;
   font-size: 16px; }
-  .btn-add span {
-    color: #FFF; }
   .btn-add:hover {
     color: #FFF;
     border-color: #a4d740;
@@ -1916,8 +1919,7 @@ input, textarea, select {
   border-radius: 3px;
   background-color: #FFF;
   border: solid 1px #b3b3b3;
-  outline-style: none !important;
-  min-width: 75%; }
+  outline-style: none !important; }
   .form-inline input, .form-inline textarea, .form-inline select {
     display: inline-block; }
 
@@ -4327,8 +4329,6 @@ footer {
   font-size: 16px;
   background-color: #C83C19;
   border-color: #C83C19; }
-  .col-left-fixed .logoutlink span {
-    color: #FFF; }
   .col-left-fixed .logoutlink:hover {
     color: #FFF;
     border-color: #a4d740;
@@ -4354,6 +4354,11 @@ footer {
 
 .col-left-fixed .accountlink {
   display: none; }
+
+.registrationform .btn, .loginform .btn, .registerform .btn {
+  margin-top: 16px; }
+.registrationform input, .registrationform .alert, .registrationform .buttonbar, .loginform input, .loginform .alert, .loginform .buttonbar, .registerform input, .registerform .alert, .registerform .buttonbar {
+  width: 75%; }
 
 .teaser-section {
   overflow: hidden; }
