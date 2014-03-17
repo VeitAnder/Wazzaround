@@ -887,6 +887,12 @@ hr {
   .padding-60px-vert.no-padding-bottom {
     padding-bottom: 0; }
 
+.space-left {
+  margin-left: 8px; }
+
+.space-right {
+  margin-right: 8px; }
+
 p {
   padding-bottom: 16px; }
 
@@ -903,7 +909,7 @@ h2 {
   line-height: 50px;
   margin: 50px 0;
   color: #b3b3b3;
-  font-weight: 100;
+  font-weight: 200;
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 h3 {
@@ -1020,8 +1026,6 @@ button.btn, .btn, a.btn {
   color: #FFF;
   text-decoration: none;
   font-size: 16px; }
-  button.btn span, .btn span, a.btn span {
-    color: #FFF; }
   button.btn:hover, .btn:hover, a.btn:hover {
     color: #FFF;
     border-color: #a4d740;
@@ -1083,16 +1087,19 @@ button.btn, .btn, a.btn {
     padding: 2.4px 12px;
     font-size: 14px; }
   button.btn.btn-mini, .btn.btn-mini, a.btn.btn-mini {
-    font-size: 12px;
-    line-height: 16.8px;
+    font-size: 10px;
+    line-height: 14px;
     text-transform: uppercase;
     padding: 2.4px 8px;
-    border-width: 1px; }
+    border-width: 1px;
+    font-weight: 800; }
+    button.btn.btn-mini p, .btn.btn-mini p, a.btn.btn-mini p {
+      padding-bottom: 14px; }
 
 .btn-group {
   margin-bottom: 2px; }
   .btn-group .btn {
-    margin-left: 2px; }
+    margin-left: 4px; }
     .btn-group .btn:first-child {
       margin-left: 0; }
 
@@ -1125,8 +1132,6 @@ button.btn, .btn, a.btn {
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   border-radius: 6px; }
-  .btn-large-add span {
-    color: #FFF; }
   .btn-large-add:hover {
     color: #FFF;
     border-color: #a4d740;
@@ -1219,8 +1224,6 @@ button.btn, .btn, a.btn {
   color: #FFF;
   text-decoration: none;
   font-size: 16px; }
-  .btn-add span {
-    color: #FFF; }
   .btn-add:hover {
     color: #FFF;
     border-color: #a4d740;
@@ -1916,8 +1919,7 @@ input, textarea, select {
   border-radius: 3px;
   background-color: #FFF;
   border: solid 1px #b3b3b3;
-  outline-style: none !important;
-  min-width: 75%; }
+  outline-style: none !important; }
   .form-inline input, .form-inline textarea, .form-inline select {
     display: inline-block; }
 
@@ -4327,8 +4329,6 @@ footer {
   font-size: 16px;
   background-color: #C83C19;
   border-color: #C83C19; }
-  .col-left-fixed .logoutlink span {
-    color: #FFF; }
   .col-left-fixed .logoutlink:hover {
     color: #FFF;
     border-color: #a4d740;
@@ -4354,6 +4354,13 @@ footer {
 
 .col-left-fixed .accountlink {
   display: none; }
+
+.standardform {
+  margin-bottom: 100px; }
+  .standardform .btn {
+    margin-top: 16px; }
+  .standardform input, .standardform .alert, .standardform .buttonbar {
+    width: 75%; }
 
 .teaser-section {
   overflow: hidden; }
@@ -4586,16 +4593,74 @@ footer {
   height: 65px; }
 
 .ta-editor {
-  min-height: 300px;
+  min-height: 150px;
   height: auto;
+  padding: 5px;
   overflow: auto;
   font-family: inherit;
-  font-size: 100%;
-  border: 1px solid grey; }
+  font-size: 100%; }
+  .ta-editor:focus {
+    outline: none; }
 
-.ta-root .btn-default {
-  font-size: 14px;
-  padding: 2px 15px; }
+.ta-toolbar {
+  padding: 5px 7px;
+  -webkit-border-radius-topleft: 1px;
+  -khtml-border-radius-topleft: 1px;
+  -moz-border-radius-topleft: 1px;
+  -ms-border-radius-topleft: 1px;
+  -o-border-radius-topleft: 1px;
+  border-radius-topleft: 1px;
+  -webkit-border-top-left-radius: 1px;
+  -khtml-border-top-left-radius: 1px;
+  -moz-border-top-left-radius: 1px;
+  -ms-border-top-left-radius: 1px;
+  -o-border-top-left-radius: 1px;
+  border-top-left-radius: 1px;
+  -webkit-border-radius-topright: 1px;
+  -khtml-border-radius-topright: 1px;
+  -moz-border-radius-topright: 1px;
+  -ms-border-radius-topright: 1px;
+  -o-border-radius-topright: 1px;
+  border-radius-topright: 1px;
+  -webkit-border-top-right-radius: 1px;
+  -khtml-border-top-right-radius: 1px;
+  -moz-border-top-right-radius: 1px;
+  -ms-border-top-right-radius: 1px;
+  -o-border-top-right-radius: 1px;
+  border-top-right-radius: 1px;
+  background-color: #d9d9d9; }
+
+.ta-root {
+  display: block;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #d9d9d9; }
+  .ta-root .btn-default {
+    font-size: 12px;
+    padding: 0px 7px;
+    background: #FFF;
+    border: none;
+    color: #8c8c8c; }
+    .ta-root .btn-default:active {
+      background-color: #e8e8e8; }
+    .ta-root .btn-default.active {
+      background-color: #b3b3b3;
+      color: #FFF; }
+      .ta-root .btn-default.active:hover {
+        background-color: #c0c0c0; }
+      .ta-root .btn-default.active:active {
+        background-color: #c0c0c0; }
+    .ta-root .btn-default[disabled="disabled"]:active, .ta-root .btn-default.disabled:active {
+      background: #FFF; }
+  .ta-root.focussed {
+    border-color: #85C900;
+    box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset, rgba(133, 201, 0, 0.5) 0px 0px 8px; }
+  .ta-root p {
+    margin: 0; }
 
 /*Dropzone styles*/
 /* The MIT License */

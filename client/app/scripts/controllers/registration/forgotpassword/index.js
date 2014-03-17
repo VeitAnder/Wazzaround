@@ -58,16 +58,11 @@ angular.module('anorakApp')
     };
 
     $scope.gotoLogin = function () {
-      // force reload for browser autofill
-      if ($scope.user.email) {
-        $window.location = '/#/login/' + $scope.user.email + '/';
-      } else {
-        $window.location = '/#/login/';
-      }
+      $location.path('/login/');
     };
 
     $scope.cancel = function () {
-      $window.location = '/#/login/';
+      $location.path('/login/');
     };
 
     $scope.settingnew = {

@@ -1,21 +1,22 @@
 <div data-ng-controller="ForgotPasswordCtrl">
+  <h2>Account</h2>
 
   <form name="valForm"
         novalidate
-        class="registrationform"
+        class="standardform registrationform"
         ui-keyup="{27: 'cancel()'}"
         ng-hide="status.resetpassword === true"
       >
+
+    <h3>Forgot password?</h3>
     <div ng-hide="status.passwordrequestsuccess === true">
-      <h1>Forgot password?</h1>
 
-      <label>E-Mail</label>
-
-      <p>
+      <div class="form-group">
+        <label for="email">E-mail</label>
         <input ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
                name="email"
                id="email"
-               placeholder="E-Mail Adresse"
+               placeholder="Your E-mail address"
                ng-model="user.email"
                required
             >
@@ -25,15 +26,14 @@
         <span ng-show="showError('valForm', 'email', 'required')"
               class="alert">Please fill out this field.
         </span>
-      </p>
-      <div class="buttonbar">
-        <button ng-click="requestPasswordReset()"
-                ng-disabled="!canSave()">Request a link to reset your password
-        </button>
-        <a class="cancel"
-           ng-click="cancel()">back to login
-        </a>
       </div>
+      <button ng-click="requestPasswordReset()"
+              class="btn"
+          >Request a link to reset your password
+      </button>
+      <a class="space-left"
+         ng-click="cancel()">back to login
+      </a>
     </div>
 
     <div ng-show="status.passwordrequestsuccess === true">
@@ -55,29 +55,31 @@
   </form>
 
   <form name="newPasswordForm"
-        ng-show="status.resetpassword && !status.setnewpasswordsuccess">
-    <p>Enter your new password here</p>
+        ng-show="status.resetpassword && !status.setnewpasswordsuccess"
+        class="standardform newpasswordform">
+    <h3>Enter your new password</h3>
 
-    <p>
-      <label for="password">Password</label>
+    <div class="form-group">
+      <label for="password">New Password</label>
       <input name="password"
              id="password"
              type="password"
              ng-model="settingnew.password"
              required
+             placeholder="Your new Password"
              class="input-block-level">
       <span ng-show="showError('newPasswordForm', 'password', 'required')"
             class="alert">Please fill out this field.
       </span>
-    </p>
-
-    <p>
-      <label for="passwordrepeat">Repeat password</label>
+    </div>
+    <div class="form-group">
+      <label for="passwordrepeat">Repeat new password</label>
       <input name="passwordrepeat"
              id="passwordrepeat"
              type="password"
              ng-model="settingnew.passwordrepeat"
              required
+             placeholder="Retype your new Password"
              class="input-block-level"
              validate-equals="settingnew.password"
           >
@@ -89,7 +91,7 @@
             class="alert">Please fill out this field.
       </span>
 
-    </p>
+    </div>
 
     <button class="btn"
             type="submit"
@@ -103,7 +105,7 @@
     <p class="alert alert-success">The new password was successfully saved.</p>
 
     <div class="buttonbar backto">
-      <a ng-href="#/login/">back to login</a>
+      <a ng-href="gotoLogin()">back to login</a>
     </div>
   </div>
 
