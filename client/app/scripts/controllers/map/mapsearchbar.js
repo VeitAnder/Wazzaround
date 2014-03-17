@@ -15,4 +15,5 @@ angular.module('anorakApp')
       frontendmap.searchActivities(frontendmap.map, $scope.search.startDate, $scope.search.endDate, $scope.search.address);
     };
 
-  });
+  })
+;
