@@ -109,32 +109,6 @@ angular.module('anorakApp')
         templateUrl: 'page_basetemplate.html',
         controller: 'RegisterCtrl'
       })
-      .when('/activities/:id/bookableitems', {
-        templateUrl: 'activities/all_bookable_items.html',
-        controller: 'AllBookableItemsCtrl',
-        resolve: {
-          activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.get($route.current.params.id)
-              .then(function (activity) {
-                // load bookable items
-                var loadingBookableItems = [];
-                _.forEach(activity.bookableItems, function (item) {
-                  loadingBookableItems.push(item.load());
-                });
-
-                return Q.all(loadingBookableItems)
-                  .then(function (res) {
-                    debug("loadingBookableItems", res);
-                    return activity;  // return the activity, when all bookableItems have been loaded
-                  });
-              })
-              .fail(function (err) {
-                debug("Fail loading activities in the myactivities route", err);
-              })
-              ;
-          }]
-        }
-      })
       .when('/admin/myactivities/:id/edit', {
         templateUrl: 'admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl',
@@ -220,6 +194,32 @@ angular.module('anorakApp')
       .when('/admin/editprofile', {
         templateUrl: 'views/admin/editprofile.html',
         controller: 'AdminEditprofileCtrl'
+      })
+      .when('/activities/:id/', {
+        templateUrl: 'views/activities/activity.html',
+        controller: 'ActivityCtrl',
+        resolve: {     // TODO shall be included in Operator of Activitymodel!
+          activity: ['$route', 'models', function ($route, models) {
+            return models.ActivityModel.get($route.current.params.id)
+              .then(function (activity) {
+                // load bookable items
+                var loadingBookableItems = [];
+                _.forEach(activity.bookableItems, function (item) {
+                  loadingBookableItems.push(item.load());
+                });
+
+                return Q.all(loadingBookableItems)
+                  .then(function (res) {
+                    console.log("loadingBookableItems", res);
+                    return activity;  // return the activity, when all bookableItems have been loaded
+                  });
+              })
+              .fail(function (err) {
+                console.log("Fail loading activities in the myactivities route", err);
+              })
+              ;
+          }]
+        }
       })
       .otherwise({
         redirectTo: '/'
