@@ -418,49 +418,9 @@
       <div class="listaction cell last">
       </div>
     </div>
-    <div class="event-row"
-         ng-repeat="(idx,event) in bookableItem.ref().events | filter:{mode:'!edit'}">
-      <div class="event-date cell first">{{moment(event.start).format("ddd, MMM Do YY")}}</div>
-      <div class="event-time cell">{{moment(event.start).format("h:mm a")}}</div>
-      <!--<div class="event-duration cell">{{event.duration}}h</div>-->
-      <div class="event-quantity cell">{{event.quantity}}x</div>
-      <div class="listaction cell last">
-        <a class="edit"
-           ng-click="event.mode = 'edit'">
-          <span>edit</span>
-        </a>
-        <a class="delete"
-           ng-click="removeEvent(bookableItem.ref(), idx)">
-          <span>delete</span>
-        </a>
-      </div>
-    </div>
-    <!--   <div class="event-row">
-         <div class="event-date cell first">24.07.2014</div>
-         <div class="event-time cell">08.30 am</div>
-         <div class="event-quantity cell">2x</div>
-         <div class="listaction cell last">
-           <a class="edit">
-             <span>edit</span>
-           </a>
-           <a class="delete">
-             <span>delete</span>
-           </a>
-         </div>
-       </div>
-       <div class="event-row">
-         <div class="event-date cell first">24.07.2014</div>
-         <div class="event-time cell">11.30 am</div>
-         <div class="event-quantity cell">2x</div>
-         <div class="listaction cell last">
-           <a class="edit">
-             <span>edit</span>
-           </a>
-           <a class="delete">
-             <span>delete</span>
-           </a>
-         </div>
-       </div>-->
+
+    <div data-ng-include="getAllBookableItems()"></div>
+
   </div>
 
   <!-- ######## STATIC LIST END ######## -->

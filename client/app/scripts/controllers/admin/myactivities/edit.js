@@ -6,6 +6,10 @@ angular.module('anorakApp')
       return 'admin/myactivities/edit.html';
     };
 
+    $scope.getAllBookableItems = function() {
+      return 'activities/all_bookable_items.html';
+    };
+
     //only check once at initialization time
     if ($route.current.$$route.originalPath === "/admin/myactivities/new") {
       $scope.newMode = true;
