@@ -49,9 +49,15 @@ angular.module('anorakApp')
       "zIndex": 1000
     };
 
-    $scope.onMarkerClicked = function (marker) {
-      debug("Marker: lat: " + marker.latitude + ", lon: " + marker.longitude + " clicked!!");
-      marker.showWindow = true;
+    $scope.onMarkerClicked = function (markerClicked) {
+      debug("Marker: lat: " + markerClicked.latitude + ", lon: " + markerClicked.longitude + " clicked!!");
+      _.each($scope.map.markers, function (marker) {
+        if (marker._id === markerClicked._id) {
+          markerClicked.showWindow = true;
+        } else {
+          marker.showWindow = false;
+        }
+      });
     };
 
     $scope.onlySelectedCategories = function (activity) {
