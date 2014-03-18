@@ -1,8 +1,8 @@
 var cloudinary = require('cloudinary');
 var fs = require("fs");
 
-//var ObjectId = require('mongojs').ObjectId;
-//var models = require("../models/models.js");       TODO commenting that in generates modelizer error at the moment and renders client useless
+var ObjectId = require('mongojs').ObjectId;
+var models = require("../models/models.js");
 
 cloudinary.config({ cloud_name: 'dqe7zmb1k', api_key: '619226866778758', api_secret: 'yA_Xv9LXc9aEab05M9YNlEgpQsw' });
 

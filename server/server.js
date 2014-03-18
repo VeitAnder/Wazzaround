@@ -17,8 +17,6 @@ var logger = require('./lib/logger.js');
 
 var app = express();
 
-var RestApi = require("./servermodules/restapi.js");
-
 logger.info("Node environment: NODE_ENV=%s", process.env.NODE_ENV);
 
 //require("./servermodules/mongodb.js").connectToDatabase();
@@ -41,9 +39,9 @@ app.use(express.session({
   store: new express.session.MemoryStore
 }));
 
-
 require("./servermodules/modelizer.js").initModelizer(app);
 
+var RestApi = require("./servermodules/restapi.js");
 
 //app.use(express.cookieParser(config.server.cookieSecret));  // Hash cookies with this secret
 //app.use(express.cookieSession());                           // Store the session in the (secret) cookie
