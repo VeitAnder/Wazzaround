@@ -1,6 +1,7 @@
 'use strict';
 
 var models = function () {
+
   // using the the Modelizer library
   //var model = require('../../../../modelizer/lib/modelizer.js');
   var model = require('modelizer');
@@ -172,7 +173,7 @@ var models = function () {
     BookingsModel: BookingsModel,
     AccesstokenModel: AccesstokenModel
   };
-};
+}();
 
 if (typeof window !== 'undefined') {
   // we run in a browser environment
@@ -183,13 +184,13 @@ if (typeof window !== 'undefined') {
   // The current user.  You can watch this for changes due to logging in and out
   angular.module('modelizer', [])
     .factory('models', function () {
-      var theModels = models();
-      return theModels;
+
+      return models;
     });
 }
 
 if (typeof window === 'undefined') {
   // we don't run in a browser environment
 
-  module.exports = models();
+  module.exports = models;
 }

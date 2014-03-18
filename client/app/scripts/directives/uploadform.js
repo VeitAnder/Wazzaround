@@ -9,9 +9,7 @@ angular.module('anorakApp')
         images: "="
       },
       link: function postLink(scope, element, attrs) {
-        //@TODO store activityid in image
-        var activityid = "1234",
-          addToImagesArray,
+        var addToImagesArray,
           myDropzone;
 
         addToImagesArray = function (file) {
@@ -40,7 +38,6 @@ angular.module('anorakApp')
           acceptedFiles: "image/*",
           withCredentials: true, // For CORS.
           params: {
-            activityid: "1223456"
           },
           addRemoveLinks: true,
           previewsContainer: $(element).find(".dropzone-previews")[0],

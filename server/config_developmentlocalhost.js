@@ -63,13 +63,9 @@ var config = {
     colorize: true
   },
   cloudinary: {
-    cloudName: 'didceanll',
-    apiKey: 749653597734442,
-    apiSecret: '0lScNv44ZV70tKJI_gGj9NV6ga8'
-//    Environment variable: CLOUDINARY_URL=cloudinary://749653597734442:0lScNv44ZV70tKJI_gGj9NV6ga8@didceanll
-//Base delivery URL: http://res.cloudinary.com/didceanll ▼
-//  Secure delivery URL: https://res.cloudinary.com/didceanll ▼
-//  API Base URL: https://api.cloudinary.com/v1_1/didceanll ▼
+    cloud_name: 'dqe7zmb1k',
+    api_key: '619226866778758',
+    api_secret: 'yA_Xv9LXc9aEab05M9YNlEgpQsw'
   }
 };
 
