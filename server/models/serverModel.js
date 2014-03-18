@@ -68,8 +68,7 @@ models.UserModel.operationImpl("register", function (params, req) {
     .then(function () {
       if (params.username == undefined || params.username == "") {
         throw new Error("You have to provide a E-Mail address");
-      }
-      ;
+      };
 
       return models.UserModel.find({username: params.username});  // find all existing users
     })

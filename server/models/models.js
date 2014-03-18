@@ -66,11 +66,12 @@ var models = function () {
     currentUser: Factory()
   });
 
+
   var BookableItemModel = new model("bookableItems", {
     description: Attr(Type.string),
     price: Attr(Type.number),
 
-    events: [
+    events: [  // TODO: this sucks - refactor in own Model
       {
         start: Attr(Type.date),
         duration: Attr(Type.number),
@@ -78,7 +79,7 @@ var models = function () {
       }
     ],
 
-    owner: Ref(UserModel),
+    owner: Ref(UserModel), // TODO: warning: is not beeing set
 
     bookItem: Operation(),
     saveWithRepeatingEvents: Operation()
@@ -127,22 +128,18 @@ var models = function () {
     })
   });
 
-  var BookingsModel = new model('bookings', {
-//    derUserDerBucht: 34,
-//    verweisAufAnbieter :432,
+  var BookingModel = new model('bookings', {
 
-    activityCopy: ActivityModel,
-    bookableItemCopy: BookableItemModel,
-    bookableItemRef: Ref(BookableItemModel),
+    activity : Ref(ActivityModel),
+    item : Ref(BookableItemModel),
+    start: Attr(Type.date),
+    quantity: Attr(Type.number),
 
-    booking: {
-      start: Attr(Type.date),
-      end: Attr(Type.date),
-      quantity: Attr(Type.number),
-      price: Attr(Type.number)
-    },
+    //booker: {},  // TODO: who booked
 
-    cancelBooking: Operation()
+    owner: Ref(UserModel),
+
+    buy : Operation()
   });
 
   var CategoryModel = new model("categories", {
@@ -170,7 +167,7 @@ var models = function () {
     ActivityModel: ActivityModel,
     CategoryModel: CategoryModel,
     BookableItemModel: BookableItemModel,
-    BookingsModel: BookingsModel,
+    BookingModel: BookingModel,
     AccesstokenModel: AccesstokenModel
   };
 }();
