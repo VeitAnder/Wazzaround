@@ -10,7 +10,7 @@
     "passport-local": "~1.0.0",
     "postmark": "~0.2.0",
     "q": "~1.0.1",
-    "handlebars": "~2.0.0-alpha",
+    "handlebars": "~1.3.0",
     "URIjs": "~1.12.1",
     "node-uuid": "~1.4.1",
     "nodetime": "~0.8.15",
@@ -26,7 +26,7 @@
     "js-beautify": "~1.4.2",
     "modelizer": "~0.1.2",
     "underscore": "~1.6.0",
-    "grunt-contrib-handlebars": "~0.6.0",
+    "grunt-contrib-handlebars": "~0.7.0",
     "grunt-contrib-nodeunit": "~0.3.3",
     "mongojs": "~0.10.1",
     "cloudinary": "*"
