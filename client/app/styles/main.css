@@ -1630,14 +1630,14 @@ h1.nomargin, h2.nomargin, h3.nomargin, h4.nomargin, h5.nomargin, h6.nomargin {
   .alert.disabled {
     background-color: #b3b3b3; }
   .alert.alert-error {
-    background-color: #C83C19;
-    color: #f7d9d9; }
+    background-color: #f7d9d9;
+    color: #C83C19; }
   .alert.alert-info {
-    background-color: #8c8c8c;
-    color: #e8e8e8; }
+    background-color: #e8e8e8;
+    color: #8c8c8c; }
   .alert.alert-success {
-    background-color: #85C900;
-    color: #edf7d9; }
+    background-color: #edf7d9;
+    color: #85C900; }
   .alert.alert-large {
     margin: 16px 0;
     font-size: 16px;
@@ -2187,8 +2187,8 @@ footer {
     .window-category-sports .category .category-sub {
       font-weight: 200; }
   .window-category-sports img {
-    float: left;
-    margin: 0 15px 16px 0;
+    float: right;
+    margin: 0 0 16px 15px;
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
@@ -2258,8 +2258,8 @@ footer {
     .window-category-culture .category .category-sub {
       font-weight: 200; }
   .window-category-culture img {
-    float: left;
-    margin: 0 15px 16px 0;
+    float: right;
+    margin: 0 0 16px 15px;
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
@@ -2329,8 +2329,8 @@ footer {
     .window-category-wellness .category .category-sub {
       font-weight: 200; }
   .window-category-wellness img {
-    float: left;
-    margin: 0 15px 16px 0;
+    float: right;
+    margin: 0 0 16px 15px;
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
@@ -4220,7 +4220,13 @@ footer {
     margin-bottom: 32px; }
     .img-selector .img-block img {
       width: 150px;
-      height: 150px; }
+      height: 150px;
+      -webkit-border-radius: 3px;
+      -khtml-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      border-radius: 3px; }
     .img-selector .img-block .img-edit {
       position: absolute;
       top: 5px;

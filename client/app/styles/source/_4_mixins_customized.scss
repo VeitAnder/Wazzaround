@@ -163,8 +163,8 @@ footer {
   }
 
   img {
-    float: left;
-    margin: 0 $bu $fs 0;
+    float: right;
+    margin: 0 0 $fs $bu;
     @include border_all($color_grey_15);
     @include border-radius($border-radius);
     border-width: 7px;
@@ -1518,6 +1518,7 @@ $img-block-size: 150px;
     img {
       width: $img-block-size;
       height: $img-block-size;
+      @include border-radius($border-radius_small);
     }
     .img-edit {
       position: absolute;

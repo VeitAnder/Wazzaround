@@ -14,11 +14,11 @@
     </a>
   </div>
 
-  <p ng-if="activity.published">
-    <b>Your activity is published</b>
+  <p class="alert alert-large alert-success" ng-if="activity.published">
+    <b>Your activity is published!</b>
   </p>
-  <p ng-if="!activity.published">
-    <b>Your activity isn't published yet</b>
+  <p class="alert alert-large alert-error" ng-if="!activity.published">
+    <b>Your activity isn't published yet!</b>
   </p>
 
   <h4>
@@ -26,15 +26,15 @@
     {{activity.name}}
   </h4>
 
-  <h4>
-    <p>
+    <div class="input_label">
       Company offering this activity:
-    </p>
+    </div>
+  <h5 class="no-margin-top">
     {{activity.company}}
-  </h4>
+  </h5>
 
   <div class="location">
-    <div class="input_label">Location</div>
+    <div class="input_label">Location:</div>
 
     <google-map
         center='activity'
@@ -58,12 +58,9 @@
 
   <h5 class="category">
     {{activity.category.main}}
-    <br/>
     <span class="category-sub"
           ng-repeat="subcat in activity.category.subs">
-      <br/>
-      {{subcat.title}}
-      <br/>
+      / {{subcat.title}}
     </span>
   </h5>
 
@@ -75,16 +72,12 @@
       >
   </cloudinaryimage>
 
-  <div class="input_label">Offered by</div>
-  <h5 class="no-margin-top">Activity Inc.</h5>
-
   <div class="description">
-    <div class="input_label">Description</div>
     <div ta-bind ng-model="activity.description"></div>
   </div>
 
   <div class="availability">
-    <div class="input_label">Availability</div>
+    <div class="input_label">Availability:</div>
 
     <div class="availability-list">
 
