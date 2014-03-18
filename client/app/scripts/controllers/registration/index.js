@@ -5,6 +5,9 @@ angular.module('anorakApp')
     $scope.getPagePartial = function () {
       return 'registration/index.html';
     };
+
+
+
   })
   .controller('RegisterCtrl', function ($scope, $routeParams, $location, currentUser) {
     $scope.registrant = {

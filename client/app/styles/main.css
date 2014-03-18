@@ -2068,77 +2068,79 @@ legend {
   border-radius: 6px;
   font-weight: 600; }
 
-.pwdvalidation h6 {
-  margin-bottom: 8px; }
-.pwdvalidation ul li {
-  font-size: 12px;
-  line-height: 16.8px;
-  background: none;
-  padding-left: 0;
-  margin-bottom: 2px; }
-  .pwdvalidation ul li p {
-    padding-bottom: 12px; }
-  .pwdvalidation ul li .icon {
-    display: inline-block;
-    position: relative;
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    background-color: #999999;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border-radius: 10px;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    top: 3px;
-    width: 14px;
-    height: 14px;
-    -webkit-border-radius: 7px;
-    -khtml-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
-    border-radius: 7px;
-    background-position: -72px -22px;
-    background-color: #C83C19;
-    margin-right: 2px; }
-    .svg .pwdvalidation ul li .icon {
-      background-image: url('/img/sprite_icons.svg'); }
-    .no-svg .pwdvalidation ul li .icon {
-      background-image: url('/img/sprite_icons.png'); }
-  .pwdvalidation ul li.valid .icon {
-    display: inline-block;
-    position: relative;
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    background-color: #999999;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border-radius: 10px;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    top: 3px;
-    width: 14px;
-    height: 14px;
-    -webkit-border-radius: 7px;
-    -khtml-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
-    border-radius: 7px;
-    background-position: -47px -21px;
-    background-color: #85C900; }
-    .svg .pwdvalidation ul li.valid .icon {
-      background-image: url('/img/sprite_icons.svg'); }
-    .no-svg .pwdvalidation ul li.valid .icon {
-      background-image: url('/img/sprite_icons.png'); }
+.pwdvalidation {
+  display: block; }
+  .pwdvalidation h6 {
+    margin-bottom: 8px; }
+  .pwdvalidation ul li {
+    font-size: 12px;
+    line-height: 16.8px;
+    background: none;
+    padding-left: 0;
+    margin-bottom: 2px; }
+    .pwdvalidation ul li p {
+      padding-bottom: 12px; }
+    .pwdvalidation ul li .icon {
+      display: inline-block;
+      position: relative;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      background-color: #999999;
+      -webkit-border-radius: 10px;
+      -khtml-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+      border-radius: 10px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      top: 3px;
+      width: 14px;
+      height: 14px;
+      -webkit-border-radius: 7px;
+      -khtml-border-radius: 7px;
+      -moz-border-radius: 7px;
+      -ms-border-radius: 7px;
+      -o-border-radius: 7px;
+      border-radius: 7px;
+      background-position: -72px -22px;
+      background-color: #C83C19;
+      margin-right: 2px; }
+      .svg .pwdvalidation ul li .icon {
+        background-image: url('/img/sprite_icons.svg'); }
+      .no-svg .pwdvalidation ul li .icon {
+        background-image: url('/img/sprite_icons.png'); }
+    .pwdvalidation ul li.valid .icon {
+      display: inline-block;
+      position: relative;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      background-color: #999999;
+      -webkit-border-radius: 10px;
+      -khtml-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+      border-radius: 10px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      top: 3px;
+      width: 14px;
+      height: 14px;
+      -webkit-border-radius: 7px;
+      -khtml-border-radius: 7px;
+      -moz-border-radius: 7px;
+      -ms-border-radius: 7px;
+      -o-border-radius: 7px;
+      border-radius: 7px;
+      background-position: -47px -21px;
+      background-color: #85C900; }
+      .svg .pwdvalidation ul li.valid .icon {
+        background-image: url('/img/sprite_icons.svg'); }
+      .no-svg .pwdvalidation ul li.valid .icon {
+        background-image: url('/img/sprite_icons.png'); }
 
 body {
   position: relative; }

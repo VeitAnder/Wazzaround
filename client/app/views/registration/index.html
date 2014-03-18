@@ -34,8 +34,8 @@
              type="password"
              ng-model="registrant.password"
              required
-             class="input-block-level"
              password-validate
+             class="input-block-level"
              placeholder="Define your password"
           >
       <div class="contentbox pwdvalidation">
@@ -45,11 +45,6 @@
             <span class="icon"></span>
             {{pwdHasUppercaseLetter}} At least
             <strong>one uppercase letter</strong>
-          </li>
-          <li ng-class="pwdHasLetter">
-            <span class="icon"></span>
-            {{pwdHasLetter}} At least
-            <strong>one letter</strong>
           </li>
           <li ng-class="pwdHasNumber">
             <span class="icon"></span>
@@ -71,9 +66,9 @@
              id="passwordRepeat"
              type="password"
              ng-model="registrant.passwordRepeat"
-             required
              class="input-block-level"
-             validate-equals="registrant.password"
+             repeat-password="password"
+             required
              placeholder="Retype your password"
           >
 
@@ -81,18 +76,22 @@
             class="alert">Please retype the password.
       </span>
 
-      <span ng-show="showError('passwordRepeat', 'equal')"
+      <span ng-show="showError('passwordRepeat', 'repeat')"
             class="alert alert-error">The passwords have to match.
       </span>
 
     </div>
+    <div>
+      <button class="btn"
+              ng-class="{disabled: valForm.$invalid}"
+              type="submit"
+              ng-click="register()">Register
+      </button>
 
-    <button class="btn"
-            ng-class="{disabled: valForm.$invalid}"
-            type="submit"
-            ng-click="register()">Register
-    </button>
-
+      <a class="space-left"
+         ng-click="gotoLogin()">back to login
+      </a>
+    </div>
 
     <div class="alert alert-error"
          ng-show="state.registrationfailed"

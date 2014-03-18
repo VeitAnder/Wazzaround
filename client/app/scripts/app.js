@@ -86,6 +86,10 @@ angular.module('anorakApp')
         templateUrl: 'page_basetemplate.html',
         controller: 'ForgotPasswordPageCtrl'
       })
+      .when('/registration/forgotpassword/:token/:email/', {
+        templateUrl: 'page_basetemplate.html',
+        controller: 'ForgotPasswordPageCtrl'
+      })
       .when('/legalnotes', {
         templateUrl: 'page_basetemplate.html',
         controller: 'LegalnotesCtrl'
@@ -307,7 +311,11 @@ angular.module('anorakApp')
 // @TODO check logging if it is neccessary to start via DI?
 // DO not remove logging from DI list!
 angular.module('anorakApp')
-  .controller('AppCtrl', function () {
+  .controller('AppCtrl', function ($scope, $location) {
     'use strict';
+
+    $scope.gotoLogin = function () {
+      $location.path('/login/');
+    };
 
   });
