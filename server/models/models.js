@@ -71,7 +71,7 @@ var models = function () {
     description: Attr(Type.string),
     price: Attr(Type.number),
 
-    events: [
+    events: [  // TODO: this sucks - refactor in own Model
       {
         start: Attr(Type.date),
         duration: Attr(Type.number),
@@ -79,7 +79,7 @@ var models = function () {
       }
     ],
 
-    owner: Ref(UserModel),
+    owner: Ref(UserModel), // TODO: warning: is not beeing set
 
     bookItem: Operation(),
     saveWithRepeatingEvents: Operation()
@@ -134,6 +134,8 @@ var models = function () {
     item : Ref(BookableItemModel),
     start: Attr(Type.date),
     quantity: Attr(Type.number),
+
+    //booker: {},  // TODO: who booked
 
     owner: Ref(UserModel),
 

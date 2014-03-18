@@ -57,19 +57,6 @@ models.UserModel.writeFilter(function (userObj, req) {
   return false;  // else: filter failed -> access denied
 });
 
-
-models.BookingModel.readFilter(function(req) {
-  if (!req.session.auth) {
-    return false;  // if not logged in don't allow write operations
-  }
-
-  return { "owner._reference" : req.session.user_id };
-});
-
-models.BookingModel.writeFilter(function (userObj, req) {
-  return false;  // only server is allowed to make changes
-});
-
 // setup Operations for the model to register an user
 models.UserModel.operationImpl("register", function (params, req) {
   var user = models.UserModel.create();
