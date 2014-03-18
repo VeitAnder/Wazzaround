@@ -1,14 +1,14 @@
 <div ng-controller="RegisterCtrl">
-  <form class="registerform"
+  <form class="standardform registerform"
         name="valForm"
         novalidate
       >
 
     <h2>Account</h2>
 
-    <h3>Register</h3>
+    <h3>Registration</h3>
 
-    <p>
+    <div class="form-group">
       <label for="email">E-mail</label>
       <input name="email"
              ng-model="registrant.email"
@@ -16,17 +16,18 @@
              required
              autofocus
              ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
+             placeholder="Your e-mail address"
           >
 
       <span ng-show="showError('email', 'required')"
-            class="alert">Please enter your email address.
+            class="alert">Please enter your e-mail address.
       </span>
       <span ng-show="showError('email', 'pattern')"
-            class="alert alert-error">Please enter a valid email address.
+            class="alert alert-error">Please enter a valid e-mail address.
       </span>
 
-    </p>
-    <p>
+    </div>
+    <div class="form-group">
       <label for="password">Password</label>
       <input name="password"
              id="password"
@@ -35,26 +36,36 @@
              required
              class="input-block-level"
              password-validate
+             placeholder="Define your password"
           >
-    <h4>Password must meet the following requirements:</h4>
-    <ul>
-      <li ng-class="pwdHasUppercaseLetter">{{pwdHasUppercaseLetter}} At least
-        <strong>one uppercase letter</strong>
-      </li>
-      <li ng-class="pwdHasLetter">{{pwdHasLetter}} At least
-        <strong>one letter</strong>
-      </li>
-      <li ng-class="pwdHasNumber">{{pwdHasNumber}} At least
-        <strong>one number</strong>
-      </li>
-      <li ng-class="pwdValidLength">{{pwdValidLength}} At least
-        <strong>8 characters long</strong>
-      </li>
-    </ul>
+      <div class="contentbox pwdvalidation">
+        <h6>Password must meet the following requirements:</h6>
+        <ul>
+          <li ng-class="pwdHasUppercaseLetter">
+            <span class="icon"></span>
+            {{pwdHasUppercaseLetter}} At least
+            <strong>one uppercase letter</strong>
+          </li>
+          <li ng-class="pwdHasLetter">
+            <span class="icon"></span>
+            {{pwdHasLetter}} At least
+            <strong>one letter</strong>
+          </li>
+          <li ng-class="pwdHasNumber">
+            <span class="icon"></span>
+            {{pwdHasNumber}} At least
+            <strong>one number</strong>
+          </li>
+          <li ng-class="pwdValidLength">
+            <span class="icon"></span>
+            {{pwdValidLength}} At least
+            <strong>8 characters long</strong>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-    </p>
-
-    <p>
+    <div class="form-group">
       <label for="passwordRepeat">Retype Password</label>
       <input name="passwordRepeat"
              id="passwordRepeat"
@@ -63,6 +74,7 @@
              required
              class="input-block-level"
              validate-equals="registrant.password"
+             placeholder="Retype your password"
           >
 
       <span ng-show="showError('passwordRepeat', 'required')"
@@ -73,7 +85,7 @@
             class="alert alert-error">The passwords have to match.
       </span>
 
-    </p>
+    </div>
 
     <button class="btn"
             ng-class="{disabled: valForm.$invalid}"
