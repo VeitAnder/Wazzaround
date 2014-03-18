@@ -2,7 +2,7 @@
 <h3>My Activities</h3>
 
 <div
-    class="activity-detail window-category-{{activity.category.main}}"
+    class="activity-detail detail-category-{{activity.category.main}}"
     >
 
   <div class="buttonbar buttonbar-top">
@@ -64,13 +64,15 @@
     </span>
   </h5>
 
-  <cloudinaryimage ng-show="activity.images.length > 0"
-                   data-publicid="{{activity.images[0].public_id}}"
-                   data-format="{{activity.images[0].format}}"
-                   data-width="250"
-                   data-height="150"
-      >
-  </cloudinaryimage>
+  <div class="img-block img-block-right">
+    <cloudinaryimage ng-show="activity.images.length > 0"
+                     data-publicid="{{activity.images[0].public_id}}"
+                     data-format="{{activity.images[0].format}}"
+                     data-width="250"
+                     data-height="150"
+        >
+    </cloudinaryimage>
+  </div>
 
   <div class="description">
     <div ta-bind ng-model="activity.description"></div>

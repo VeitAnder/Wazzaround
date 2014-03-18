@@ -124,22 +124,8 @@ footer {
   color: $color_wellness;
 }
 
-@mixin window-category {
-  padding: 15px 0;
-  min-width: 400px;
-  max-width: 600px;
-  &.activity-detail {
-    max-width: 100%;
-  }
 
-  p {
-    font-family: $sysfont_01;
-    font-size: $fs;
-    line-height: $fs*$line-height_factor;
-    margin: 0;
-    font-weight: normal;
-  }
-
+@mixin activity-content{
   h4 {
     color: $color_grey;
     margin-top: 0;
@@ -155,24 +141,32 @@ footer {
       margin-right: 5px;
     }
   }
-  .category {
-    text-transform: capitalize;
-    .category-sub {
-      font-weight: $font-weight_light;
+
+  .img-block{
+    &.img-block-left{
+      float: left;
+      margin: 0 $bu $fs 0;
+    }
+    &.img-block-right{
+      float: right;
+      margin: 0 0 $fs $bu;
     }
   }
 
   img {
-    float: right;
-    margin: 0 0 $fs $bu;
     @include border_all($color_grey_15);
     @include border-radius($border-radius);
     border-width: 7px;
     padding: 3px;
-    width: 150px;
-    height: auto;
   }
-
+  .category {
+    @include border(bottom, $color_grey);
+    border-width: 3px;
+    padding-bottom: 5px;
+    .category-sub {
+      font-weight: $font-weight_light;
+    }
+  }
   .description {
     margin-top: $fs;
   }
@@ -184,7 +178,28 @@ footer {
     clear: left;
   }
 
+}
+
+@mixin window-category {
+  @include activity-content;
+  padding: 15px 0;
+  min-width: 400px;
+  max-width: 600px;
+
+  img {
+    width: 150px;
+    height: auto;
+ }
+
   //  Google overwrites
+
+  p {
+    font-family: $sysfont_01;
+    font-size: $fs;
+    line-height: $fs*$line-height_factor;
+    margin: 0;
+    font-weight: normal;
+  }
 
   .availability-header {
     .cell {
@@ -207,8 +222,8 @@ footer {
 
 }
 
-.window-category-sports {
-  @include window-category;
+
+@mixin category-sports{
   h4 {
     .icon {
       border-color: $color_sports;
@@ -216,17 +231,11 @@ footer {
   }
   .category {
     color: $color_sports;
-  }
-  &.activity-detail {
-    padding: 0;
-    img {
-      width: 250px;
-    }
+    border-color: $color_sports;
   }
 }
 
-.window-category-culture {
-  @include window-category;
+@mixin category-culture{
   h4 {
     .icon {
       border-color: $color_culture;
@@ -234,17 +243,11 @@ footer {
   }
   .category {
     color: $color_culture;
-  }
-  &.activity-detail {
-    padding: 0;
-    img {
-      width: 250px;
-    }
+    border-color: $color_culture;
   }
 }
 
-.window-category-wellness {
-  @include window-category;
+@mixin category-wellness{
   h4 {
     .icon {
       border-color: $color_wellness;
@@ -252,14 +255,38 @@ footer {
   }
   .category {
     color: $color_wellness;
-  }
-  &.activity-detail {
-    padding: 0;
-    img {
-      width: 250px;
-    }
+    border-color: $color_wellness;
   }
 }
+
+.window-category-sports {
+  @include window-category;
+  @include category-sports;
+}
+
+.window-category-culture {
+  @include window-category;
+  @include category-culture;
+}
+
+.window-category-wellness {
+  @include window-category;
+  @include category-wellness;
+}
+
+.detail-category-sports{
+  @include activity-content;
+  @include category-sports;
+}
+.detail-category-culture{
+  @include activity-content;
+  @include category-culture;
+}
+.detail-category-wellness{
+  @include activity-content;
+  @include category-wellness;
+}
+
 
 .listaction.cell {
   width: 10%;
@@ -1506,7 +1533,7 @@ $filter-category-arrow-width: 65px;
   }
 }
 
-$img-block-size: 150px;
+$img-selector-imgsize: 150px;
 
 .img-selector {
   overflow: hidden;
@@ -1516,8 +1543,8 @@ $img-block-size: 150px;
     margin-right: 10px;
     margin-bottom: 32px;
     img {
-      width: $img-block-size;
-      height: $img-block-size;
+      width: $img-selector-imgsize;
+      height: $img-selector-imgsize;
       @include border-radius($border-radius_small);
     }
     .img-edit {

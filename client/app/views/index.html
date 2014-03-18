@@ -281,24 +281,26 @@
               {{m.name}}
             </h4>
 
-            <cloudinaryimage ng-show="m.images.length > 0"
-                             data-publicid="{{m.images[0].public_id}}"
-                             data-format="{{m.images[0].format}}"
-                             data-width="100"
-                             data-height="60"
-                >
-            </cloudinaryimage>
+            <div class="img-block img-block-right">
+              <cloudinaryimage ng-show="m.images.length > 0"
+                               data-publicid="{{m.images[0].public_id}}"
+                               data-format="{{m.images[0].format}}"
+                               data-width="100"
+                               data-height="60"
+                  >
+              </cloudinaryimage>
+            </div>
 
-            <div class="input_label">Offered by</div>
+            <div class="input_label">Offered by:</div>
             <h5 class="no-margin-top">{{m.company}}</h5>
 
             <div class="description">
-              <div class="input_label">Description</div>
+              <!--<div class="input_label">Description</div>-->
               <div ta-bind ng-model="m.description"></div>
             </div>
 
             <div class="availability">
-              <div class="input_label">Availability</div>
+              <div class="input_label">Availability:</div>
               <div class="availability-list">
                 <div class="availability-header">
                   <div class="month cell first">Next available Dates</div>
