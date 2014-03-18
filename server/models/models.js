@@ -129,21 +129,15 @@ var models = function () {
   });
 
   var BookingModel = new model('bookings', {
-//    derUserDerBucht: 34,
-//    verweisAufAnbieter :432,
 
-    activityCopy: ActivityModel,
-    bookableItemCopy: BookableItemModel,
-    bookableItemRef: Ref(BookableItemModel),
+    activity : Ref(ActivityModel),
+    item : Ref(BookableItemModel),
+    start: Attr(Type.date),
+    quantity: Attr(Type.number),
 
-    booking: {
-      start: Attr(Type.date),
-      end: Attr(Type.date),
-      quantity: Attr(Type.number),
-      price: Attr(Type.number)
-    },
+    owner: Ref(UserModel),
 
-    cancelBooking: Operation()
+    buy : Operation()
   });
 
   var CategoryModel = new model("categories", {
