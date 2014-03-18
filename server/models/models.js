@@ -1,7 +1,6 @@
 'use strict';
 
 var models = function () {
-  console.log("Execute Model definition");
 
   // using the the Modelizer library
   //var model = require('../../../../modelizer/lib/modelizer.js');
