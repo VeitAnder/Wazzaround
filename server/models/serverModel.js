@@ -8,7 +8,6 @@ var models = require('../models/models.js');
 models.ActivityModel.readFilter(function (req) {
   // allow global read access
 
-  //TODO: zwischen user und admins unterscheiden
   if (req.session.auth) {  // if logged in
     return true;  // allow global read access
   }
