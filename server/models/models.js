@@ -66,6 +66,7 @@ var models = function () {
     currentUser: Factory()
   });
 
+
   var BookableItemModel = new model("bookableItems", {
     description: Attr(Type.string),
     price: Attr(Type.number),
@@ -127,7 +128,7 @@ var models = function () {
     })
   });
 
-  var BookingsModel = new model('bookings', {
+  var BookingModel = new model('bookings', {
 //    derUserDerBucht: 34,
 //    verweisAufAnbieter :432,
 
@@ -170,7 +171,7 @@ var models = function () {
     ActivityModel: ActivityModel,
     CategoryModel: CategoryModel,
     BookableItemModel: BookableItemModel,
-    BookingsModel: BookingsModel,
+    BookingModel: BookingModel,
     AccesstokenModel: AccesstokenModel
   };
 }();
