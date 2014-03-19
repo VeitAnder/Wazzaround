@@ -71,14 +71,42 @@ angular.module('anorakApp')
             return models.CategoryModel.all();
           }],
           resolvedActivities: ['models', function (models) {
-            return models.ActivityModel.all();
+
+//            return models.ActivityModel.all();
+            var defer = Q.defer();
+            var resolvedActivities = [];
+
+            models.ActivityModel.all()
+              .then(function (activities) {
+                resolvedActivities = activities;
+
+                var allBookableItemsInAllActivities = [];
+
+                _.each(activities, function (activity) {
+                  _.forEach(activity.bookableItems, function (item) {
+                    allBookableItemsInAllActivities = allBookableItemsInAllActivities.concat(item.load());
+                  });
+                });
+                return Q.all(allBookableItemsInAllActivities);
+              })
+              .then(function (res) {
+                debug("loadedBookableItems", res);
+                defer.resolve(resolvedActivities);
+              })
+              .fail(function (err) {
+                debug("Fail loading activities in the myactivities route", err);
+                defer.reject(err);
+              });
+
+            return defer.promise;
           }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
           }]
         }
       })
-      .when('/registration', {
+      .
+      when('/registration', {
         templateUrl: 'page_basetemplate.html',
         controller: 'RegistrationPageCtrl'
       })
@@ -129,12 +157,12 @@ angular.module('anorakApp')
 
                 return Q.all(loadingBookableItems)
                   .then(function (res) {
-                    console.log("loadingBookableItems", res);
+                    debug("loadingBookableItems", res);
                     return activity;  // return the activity, when all bookableItems have been loaded
                   });
               })
               .fail(function (err) {
-                console.log("Fail loading activities in the myactivities route", err);
+                debug("Fail loading activities in the myactivities route", err);
               })
               ;
           }]
@@ -242,22 +270,20 @@ angular.module('anorakApp')
       'http://res.cloudinary.com/**'
     ]);
 
-    // The blacklist overrides the whitelist so the open redirect here is blocked.
+// The blacklist overrides the whitelist so the open redirect here is blocked.
 //    $sceDelegateProvider.resourceUrlBlacklist(
 //      [
 //        'http://myapp.example.com/clickThru**'
 //      ]
 //    );
 
-
-
-    // Allows XHR Requests to other domains and includes cookies
-    // DO NOT ENABLE - Causes CORS trouble with google maps
-    // $httpProvider.defaults.withCredentials = true;
-
+// Allows XHR Requests to other domains and includes cookies
+// DO NOT ENABLE - Causes CORS trouble with google maps
+// $httpProvider.defaults.withCredentials = true;
 
   })
-  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models) {
+  .
+  run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models) {
     "use strict";
 
     debug("application run called");
@@ -267,8 +293,8 @@ angular.module('anorakApp')
 
     var connector = Model.AngularConnector(APP_CONFIG.modelizerurl);
 
-    _.forEach(models, function(model) {  // setup connection for each model
-      model.connection(connector)
+    _.forEach(models, function (model) {  // setup connection for each model
+      model.connection(connector);
     });
 
     checkRouteForAuthorization = function () {
