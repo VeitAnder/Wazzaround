@@ -309,41 +309,18 @@
                 <div class="availability-entry"
                      ng-repeat="available in m.availability">
                   <div class="availability-title cell first">
-                    Bookable Item TITLE
+                    {{available.title}}
                   </div>
                   <div class="availability-date cell">
                     {{available.start | momentjs:{format: 'DD.MM.YYYY'} }}
                   </div>
                   <div class="availability-time cell">
-                    <!--{{available.end | momentjs:{format: 'DD.MM.YYYY'} }}-->
-                    Time
+                    {{available.start | momentjs:{format: 'hh:mm a'} }}
                   </div>
                   <div class="availability-quantity cell">
                     {{available.quantity}}x
                   </div>
 
-                  <div class="availability-book cell last align-right">
-                    <a class="btn btn-mini"
-                       href="http://www.paypal.com"
-                       target="_blank"
-                        >Book
-                    </a>
-                  </div>
-                </div>
-
-                <div class="availability-entry">
-                  <div class="availability-title cell first">
-                    Bookable Item TITLE
-                  </div>
-                  <div class="availability-date cell">
-                    19.02.2014
-                  </div>
-                  <div class="availability-time cell">
-                    02.30 pm
-                  </div>
-                  <div class="availability-quantity cell">
-                    4x
-                  </div>
                   <div class="availability-book cell last align-right">
                     <a class="btn btn-mini"
                        href="http://www.paypal.com"

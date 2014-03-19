@@ -205,6 +205,33 @@ angular.module('anorakApp')
 
     $scope.getAddress = frontendmap.getAddress;
 
+    // every activity has bookableItems, like Quadfahren
+    // this bookableItem Quadfahren has events, like 1.3. Quadfahren, 2.3. Quadfahren, 3.3. Quadfahren
+    // sort these events by date and save 3 to be displayed when user klicks on activity in index page
+    $scope.getNextAvailableEvents = function () {
+
+      if ($scope.map.markers.length > 0) {
+
+        _.each($scope.map.markers, function (marker) {
+          var events = [];
+
+          _.each(marker.bookableItems, function (bookableItem) {
+            _.each(bookableItem.ref().events, function (event) {
+              var description = bookableItem.ref().description ? " - " + bookableItem.ref().description : "";
+              var title = marker.name ? marker.name : "";
+              event.title = marker.name + description;
+              events.push(event);
+            });
+          });
+          events = _.sortBy(events, "start");
+          events = events.slice(0, 3);
+          marker.availability = _.clone(events);
+        });
+      }
+
+    };
+    $scope.getNextAvailableEvents();
+
     $rootScope.$on("MapChangeEvent", function (event, message) {
       debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
       angular.forEach($scope.categories, function (mainCat) {
