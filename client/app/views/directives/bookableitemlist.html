@@ -1,24 +1,58 @@
-<div>TESTING
+<div style="margin-bottom:100px;">
 
-  <div ng-repeat="event in events">
-    <p>Event: {{event.ref().description}}</p>
+  <div class="col-left-fixed ng-scope">
 
-    <div class="event-row"
-         ng-repeat="(idx,event) in event.events | filter:{mode:'!edit'}">
-      <div class="event-date cell first">{{moment(event.start).format("ddd, MMM Do YY")}}</div>
-      <div class="event-time cell">{{moment(event.start).format("h:mm a")}}</div>
-      <!--<div class="event-duration cell">{{event.duration}}h</div>-->
-      <div class="event-quantity cell">{{event.quantity}}x</div>
-      <div class="listaction cell last">
-        <a class="edit"
-           ng-click="event.mode = 'edit'">
-          <span>edit</span>
-        </a>
-        <a class="delete"
-           ng-click="removeEvent(bookableItem.ref(), idx)">
-          <span>delete</span>
-        </a>
+    <div data-ng-include="'_language-select.html'"
+         class="ng-scope">
+      <div class="language-select ng-scope"></div>
+    </div>
+
+    <div data-ng-include="'_logo.html'"
+         class="ng-scope">
+      <a href="/#/"
+         id="logo"
+         data-ng-controller="LogoCtrl"
+         data-ng-click="goToHome()"
+         class="ng-scope">
+      </a>
+    </div>
+
+  </div>
+
+  <div class="col-right ng_scope">
+    <div ng-show="events.length === 0">
+      <h3>No events to display yet</h3>
+    </div>
+
+    <!-- maybe include reacture logo here? -->
+
+    <div ng-repeat="event in events">
+      <div ng-show="$index+1 <= itemsperpage">
+        <h3>
+          Event: {{event.ref().description}}
+        </h3>
+
+        <div class="event-list">
+
+          <div class="event-header">
+            <div class="event-date cell first">Date</div>
+            <div class="event-time cell">Time</div>
+            <div class="event-duration cell">Duration</div>
+            <div class="event-quantity cell">Qty.</div>
+          </div>
+
+          <div class="event-row"
+               ng-repeat="(idx,event) in event.ref().events | filter:{mode:'!edit'}">
+            <div class="event-date cell first">{{moment(event.start).format("ddd, MMM Do YY")}}</div>
+            <div class="event-time cell">{{moment(event.start).format("h:mm a")}}</div>
+            <div class="event-duration cell">{{event.duration}}h</div>
+            <div class="event-quantity cell">{{event.quantity}}x</div>
+          </div>
+
+        </div>
+
       </div>
+
     </div>
 
   </div>
