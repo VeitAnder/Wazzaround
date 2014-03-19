@@ -27,7 +27,7 @@ BookingModel.readFilter(function(req) {
     return false;  // if not logged in don't allow write operations
   }
 
-  return { "owner._reference" : req.session.user_id };
+  return { "owner._reference" : ObjectId(req.session.user._id) };
 });
 
 BookingModel.writeFilter(function (obj, req) {
@@ -82,7 +82,7 @@ BookingModel.operationImpl("buy", function (params, req) {
         bookingObj.start = new Date(booking.start);
         bookingObj.quantity = booking.quantity;
 
-        bookingObj.owner = item.owner;
+        bookingObj.owner.setObject(item.owner);
 
         savePromises.push(bookingObj.save());
       });
