@@ -212,4 +212,8 @@ angular.module('anorakApp')
 
     };
 
+    $scope.mainCategoryChanged = function() {
+      $scope.activity.category.subs = [];
+    };
+
   });
