@@ -16,22 +16,23 @@ models.ActivityModel.readFilter(function (req) {
   //return true;
 });
 
-models.ActivityModel.writeFilter(function (activityObj, req) {
+models.ActivityModel.writeFilter(function (doc, req) {
   if (!req.session.auth) {
     return false;  // if not logged in don't allow write operations
   }
 
   if (req.session.user.userType === 'admin') {
+    doc.owner._reference = ObjectId(req.session.user._id);
     return true;  // allow global access to admin-user
   }
 
-  // don't allow to save activitys where the user is not the owner
-  if (activityObj._id !== undefined && activityObj.owner._reference !== req.session.user_id) {
+  // don't allow to save activities where the user is not the owner
+  if (doc._id !== undefined && doc.owner._reference !== req.session.user._id) {
     return false;
   }
 
   // set the owner of the activity
-  activityObj.owner = { _reference: req.session.user_id };
+  doc.owner._reference = ObjectId(req.session.user._id);
   return true;
 });
 
@@ -41,16 +42,16 @@ models.UserModel.readFilter(function (req) {
     return false;  // if not logged in don't allow read operations
   }
 
-  return {_id: ObjectId(req.session.user_id) };  // filter for only your documents (your user id)
+  return {_id: ObjectId(req.session.user._id) };  // filter for only your documents (your user id)
 });
 
-models.UserModel.writeFilter(function (userObj, req) {
+models.UserModel.writeFilter(function (userDoc, req) {
   if (!req.session.auth) {
     return false;  // if not logged in don't allow write operations
   }
 
   // allow the user to save his own User Object
-  if (userObj._id == req.session.user_id) {
+  if (userDoc._id == req.session.user._id) {
     return true;
   }
 
@@ -91,8 +92,6 @@ models.UserModel.operationImpl("login", function (params, req) {
       if (users[0].password == params.password) { // auth successful
         // remember in a session, that auth was successful
         req.session.auth = true;
-        // remember the user in the sesson
-        req.session.user_id = users[0]._id;
         // remeber the user in the session
         req.session.user = users[0];
       } else {
@@ -107,7 +106,7 @@ models.UserModel.operationImpl("login", function (params, req) {
 // logout
 models.UserModel.operationImpl("logout", function (params, req) {
   delete req.session.auth;
-  delete req.session.user_id;
+  delete req.session.user;
 });
 
 models.UserModel.factoryImpl("currentUser", function (params, req) {
@@ -118,9 +117,11 @@ models.UserModel.factoryImpl("currentUser", function (params, req) {
     deferred.reject(err);
     return deferred.promise;
   }
+
   //return models.UserModel.get(ObjectId(req.session.user_id));
-  return models.UserModel.find({ _id: ObjectId(req.session.user_id)})
+  return models.UserModel.find({ _id: ObjectId(req.session.user._id)})
     .then(function (users) {
+      console.log("users", users);
       if (users.length !== 1) throw new Error("User not found");
       return users[0];
     });
@@ -131,108 +132,9 @@ models.ActivityModel.factoryImpl("getMyActivities", function (params, req) {
     return false;  // if not logged operation not allowed
   }
 
-  return models.ActivityModel.find({'owner._reference': req.session.user_id});
+  return models.ActivityModel.find({'owner._reference': ObjectId(req.session.user._id)});
 });
 
-models.BookableItemModel.operationImpl("saveWithRepeatingEvents", function (params, req) {
-  //TODO: muss zum bestehenden objekt hinzugefügt werden...
-
-  // todo auth
-  var deferred = Q.defer();
-
-  console.log("saveWithRepeatingEvents called");
-
-  if (!req.session.auth) {
-    return false;  // if not logged operation not allowed
-  }
-
-  if (typeof params.obj != 'object') {
-    deferred.reject(new Error("no 'obj' parameter"));
-    return deferred.promise;
-  }
-
-  var obj = params.obj;
-
-  console.log('obj', obj);
-
-  var createEventSeries = function (item, obj) {
-
-    item.description = obj.description;
-    item.price = obj.price;
-    item.events = [];
-
-    _.forEach(obj.events, function (event) {
-      // copy the 'first' event
-      item.events.push({
-        start: new Date(event.start),
-        duration: event.duration,
-        quantity: event.quantity
-      });
-    });
-
-    _.forEach(obj.events, function (event) {
-
-      if (event.repeating !== undefined && event.repeating === true) {
-
-        var startDate = moment(event.start); //moment();
-        var duration = event.duration;
-        var quantity = event.quantity;
-        var endDate = moment(event.end).hour(23).minute(59);  //moment().add('days', 14);
-
-        if (moment().subtract('days', 1) > startDate) {
-          console.log("you're trying to add events in the past");
-          deferred.reject(new Error("you're trying to add events in the past"));
-          return deferred.promise;
-        }
-
-        if (endDate.diff(startDate, 'years') > 2) {
-          console.log("you're trying to add events for more than two years");
-          deferred.reject(new Error("you're trying to add events for more than two years"));
-          return deferred.promise;
-        }
-
-        startDate.add('days', 1);  // start Date + 1
-
-        while (startDate <= endDate) {
-          // add new event
-          if (event.dayOfWeek[startDate.format('ddd')]) {  // Wochentag angehakt
-            console.log('Create Event at: ', startDate.format("dddd, MMMM Do YYYY, h:mm:ss a"));
-            item.events.push({
-              start: new Date(startDate.toDate()),
-              duration: duration,
-              quantity: quantity
-            });
-          }
-          startDate.add('days', 1);
-        }
-
-      }
-    });
-
-    console.log("save", item);
-
-    return item.save()
-      .then(function (item) {
-        return { _id: item._id };
-      });
-  }
-
-  if (obj._id != undefined) {  // es exisiert schon ein BoockAble-Item
-    console.log("get existing item");
-    return models.BookableItemModel.get(ObjectId(obj._id))
-      .then(function (item) {
-        console.log("existing item", item);
-
-        return createEventSeries(item, obj);
-      });
-  } else {
-    console.log("create new item");
-    var item = models.BookableItemModel.create();  // create new item
-
-    return createEventSeries(item, obj);
-  }
-
-});
 
 models.ActivityModel.factoryImpl("getActivitiesFilterByTime", function (params, req) {
   console.log("getActivitiesFilterByTime called", params.activitiesIds);

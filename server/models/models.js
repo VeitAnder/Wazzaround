@@ -81,7 +81,7 @@ var models = function () {
 
     owner: Ref(UserModel), // TODO: warning: is not beeing set
 
-    bookItem: Operation(),
+    //bookItem: Operation(),
     saveWithRepeatingEvents: Operation()
   });
 
