@@ -12,18 +12,19 @@
     a[d] = a[d] || b;
   }
 })
-  ((function () {
-    "use strict";
-    try {
-      console.log();
-      return window.console;
-    } catch (a) {
-      return (window.console = {});
-    }
-  })());
+((function () {
+  "use strict";
+  try {
+    console.log();
+    return window.console;
+  } catch (a) {
+    return (window.console = {});
+  }
+})());
 
 angular.module('anorakApp', [
   'ngRoute',
+  'ngCookies',
   'ngSanitize',
   'google-maps',
   'mgcrea.ngStrap',
@@ -38,7 +39,8 @@ angular.module('anorakApp', [
   'modelizer',
   'mgcrea.ngStrap',
   'directives.customvalidation',
-  'ui.keypress'
+  'ui.keypress',
+  'pascalprecht.translate'
 ]);
 
 angular.module('anorakApp').constant('I18NMESSAGES', {
@@ -54,7 +56,7 @@ angular.module('anorakApp').constant('I18NMESSAGES', {
 });
 
 angular.module('anorakApp')
-  .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
+  .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $translateProvider) {
     'use strict';
 
     $locationProvider.html5Mode((function () {
@@ -281,9 +283,42 @@ angular.module('anorakApp')
 // DO NOT ENABLE - Causes CORS trouble with google maps
 // $httpProvider.defaults.withCredentials = true;
 
+    $translateProvider.translations('en', {
+      'TITLE': 'Hello',
+      'FOO': 'Life is beatuifull.'
+    });
+
+    $translateProvider.translations('de', {
+      'TITLE': 'Herzlich Willkommen',
+      'FOO': 'Das Leben ist schön.'
+    });
+
+    $translateProvider.translations('it', {
+      'TITLE': 'bonjorno',
+      'FOO': 'la vita e bella.'
+    });
+
+//    $translateProvider.preferredLanguage('en');
+
+    $translateProvider
+      .translations('en', { /* ... */ })
+      .translations('de', { /* ... */ })
+      .translations('it', { /* ... */ })
+      .registerAvailableLanguageKeys(['en', 'de', 'it'], {
+        'en_US': 'en',
+        'en_UK': 'en',
+        'de_DE': 'de',
+        'de_CH': 'de',
+        'de_AT': 'de',
+        'IT_IT': 'it',
+        'it_IT': 'it'
+      })
+      .determinePreferredLanguage();
+
+    $translateProvider.useLocalStorage();
+
   })
-  .
-  run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models) {
+  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models) {
     "use strict";
 
     debug("application run called");
@@ -335,7 +370,7 @@ angular.module('anorakApp')
 // @TODO check logging if it is neccessary to start via DI?
 // DO not remove logging from DI list!
 angular.module('anorakApp')
-  .controller('AppCtrl', function ($scope, $location) {
+  .controller('AppCtrl', function ($scope, $location, $translate) {
     'use strict';
 
     $scope.gotoLogin = function () {
