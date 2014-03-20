@@ -288,11 +288,11 @@ angular.module('anorakApp')
 // $httpProvider.defaults.withCredentials = true;
 
     $translateProvider.translations('en', {
-      'TITLE': 'Hello',
-      'FOO': 'Life is beatuifull.',
+      // _.footer.html
       'Why reacture': 'Why reacture?',
       'Work with us': 'Work with us!',
       'Contact': 'Contact & Impressum',
+      // index.html
       'Please choose': 'Please choose:',
       'Sports and Activities': 'Sports & Activities',
       'of': 'of',
@@ -326,15 +326,48 @@ angular.module('anorakApp')
       'Beauty': 'Beauty',
       'Medical Treatments': 'Medical Treatments',
       'Spa & Sauna': 'Spa & Sauna',
-      'Your current search location': 'Your current search location'
+      'Your current search location': 'Your current search location',
+      // login.html
+      'Account': 'Account',
+      'Login': 'Login',
+      'Password': 'Password',
+      'Not registered': 'Not registered?',
+      'Forgot password': 'Forgot password?',
+      'Your e-mail address' : 'Your e-mail address',
+      'Your password' : 'Your password',
+      // shoppingcart.html
+      'Shopping Cart': 'Shopping Cart',
+      // why.html
+      'Why reacture reasons': 'Reacture is a great platform for offering and finding activities around you.',
+      'Register': 'Register',
+      // workwithus.html
+      'Quality': 'Quality',
+      'online and offline': 'online and offline',
+      'marketing': 'marketing',
+      'International': 'International',
+      'Plattform': 'Plattform',
+      'One-Stop Philosophy': 'One-Stop Philosophy',
+      'Local': 'Local',
+      'Get': 'Get',
+      'instant bookings': 'instant bookings',
+      'from': 'from',
+      'potential clients': 'potential clients',
+      'in your area' : 'in your area',
+      'No fixed costs': 'No fixed costs',
+      'provision based model': 'provision based model',
+      'No reservation costs': 'No reservation costs',
+      'Secure': 'Secure',
+      'booking': 'booking',
+      'Quality managment': 'Quality managment',
+      'through administrated rating system': 'through administrated rating system'
     });
 
     $translateProvider.translations('de', {
-      'TITLE': 'Herzlich Willkommen',
-      'FOO': 'Das Leben ist schön.',
+      // _.footer.html
       'Why reacture': 'Warum reacture?',
       'Work with us': 'Arbeiten Sie mit uns!',
       'Contact': 'Kontakt & Impressum',
+      // index.html
       'Please choose': 'Bitte wählen Sie:',
       'Sports and Activities': 'Sport & Aktivitäten',
       'of': 'von',
@@ -368,15 +401,48 @@ angular.module('anorakApp')
       'Beauty': 'Schönheit',
       'Medical Treatments': 'Medizinische Behanldungen',
       'Spa & Sauna': 'Spa & Sauna',
-      'Your current search location': 'Ihre Suchposition'
+      'Your current search location': 'Ihre Suchposition',
+      // login.html
+      'Account': 'Account',
+      'Login': 'Login',
+      'Password': 'Passwort',
+      'Not registered': 'Noch nicht registriert?',
+      'Forgot password': 'Passwort vergessen?',
+      'Your e-mail address' : 'Ihre E-Mail Adresse',
+      'Your password' : 'Ihr Passwort',
+      // shoppingcart.html
+      'Shopping Cart': 'Warenkorb',
+      // why.html
+      'Why reacture reasons': 'Reacture ist eine großartige Plattform um Aktivitäten rund um Ihre Location zu finden oder anzubieten.',
+      'Register': 'Registrieren',
+      // workwithus.html
+      'Quality': 'Qualität',
+      'online and offline': 'online und offline',
+      'marketing': 'marketing',
+      'International': 'Internationale',
+      'Plattform': 'Plattform',
+      'One-Stop Philosophy': 'One-Stop Philosophie',
+      'Local': 'Lokal',
+      'Get': 'Erhalten Sie',
+      'instant bookings': 'sofortige Buchungen',
+      'from': 'von',
+      'potential clients': 'potentiellen KundInnen',
+      'in your area': 'in Ihrer Umgebung',
+      'No fixed costs': 'Keine Fixkosten',
+      'provision based model': 'provisionsbasiertes Modell',
+      'No reservation costs': 'Keine Reservierungskosten',
+      'Secure': 'Sicheres',
+      'booking': 'Buchen',
+      'Quality managment': 'Qualitätsmanagement',
+      'through administrated rating system': 'durch ein administriertes Bewertungssystem'
     });
 
     $translateProvider.translations('it', {
-      'TITLE': 'bonjorno',
-      'FOO': 'la vita e bella.',
+      // _.footer.html
       'Why reacture': 'Perche reacture?',
       'Work with us': 'Lavora con noi!',
       'Contact': 'Contattaci',
+      // index.html
       'Please choose': 'Si prega di scegliere',
       'Sports and Activities': 'Sport & Attività',
       'of': 'di',
@@ -410,7 +476,40 @@ angular.module('anorakApp')
       'Beauty': 'Bellezza',
       'Medical Treatments': 'Trattamenti medici',
       'Spa & Sauna': 'Spa & Sauna',
-      'Your current search location': 'Posizione di ricerca'
+      'Your current search location': 'Posizione di ricerca',
+      // login.html
+      'Account': 'Conto',
+      'Login': 'Entra',
+      'Password': 'Password',
+      'Not registered': 'Non registrata?',
+      'Forgot password': 'Dimenticato la password?',
+      'Your e-mail address' : 'Vostro indirizzo email',
+      'Your password' : 'Vostra password',
+      // shoppingcart.html
+      'Shopping Cart': '',
+      // why.html
+      'Why reacture reasons': '',
+      'Register': '',
+      // workwithus.html
+      'Quality': 'Qualità',
+      'online and offline': '',
+      'marketing': '',
+      'International': '',
+      'Plattform': '',
+      'One-Stop Philosophy': '',
+      'Local': '',
+      'Get': '',
+      'instant bookings': '',
+      'from': '',
+      'potential clients': '',
+      'in your area': '',
+      'No fixed costs': '',
+      'provision based model': '',
+      'No reservation costs': '',
+      'Secure': '',
+      'booking': '',
+      'Quality managment': '',
+      'through administrated rating system': ''
     });
 
 //    $translateProvider.preferredLanguage('en');
