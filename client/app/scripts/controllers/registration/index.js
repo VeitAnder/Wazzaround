@@ -1,13 +1,10 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('RegistrationPageCtrl', function ($scope, $routeParams, $location, currentUser) {
+  .controller('RegistrationPageCtrl', function ($scope) {
     $scope.getPagePartial = function () {
       return 'registration/index.html';
     };
-
-
-
   })
   .controller('RegisterCtrl', function ($scope, $routeParams, $location, currentUser) {
     $scope.registrant = {
@@ -26,7 +23,7 @@ angular.module('anorakApp')
       $scope.state.submitted = true;
 
       if ($scope.valForm.$valid) {
-        currentUser.register($scope.registrant.email, $scope.registrant.password)
+        currentUser.register($scope.registrant.email)
           .then(function () {
             // http://stackoverflow.com/questions/19499323/location-path-doesnt-change-in-a-factory-with-angularjs
             $scope.$apply(function () {
