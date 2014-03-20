@@ -112,6 +112,10 @@ angular.module('anorakApp')
         templateUrl: 'page_basetemplate.html',
         controller: 'RegistrationPageCtrl'
       })
+      .when('/registration/registrationforproviders', {
+        templateUrl: 'page_basetemplate.html',
+        controller: 'RegistrationRegistrationforprovidersPageCtrl'
+      })
       .when('/registration/forgotpassword/', {
         templateUrl: 'page_basetemplate.html',
         controller: 'ForgotPasswordPageCtrl'
@@ -257,6 +261,7 @@ angular.module('anorakApp')
         templateUrl: 'views/shoppingcart.html',
         controller: 'ShoppingCartCtrl'
       })
+
       .otherwise({
         redirectTo: '/'
       });
@@ -332,6 +337,7 @@ angular.module('anorakApp')
       'Login': 'Login',
       'Password': 'Password',
       'Not registered': 'Not registered?',
+      'Not registered as Provider': 'Not registered as Provider?',
       'Forgot password': 'Forgot password?',
       'Your e-mail address' : 'Your e-mail address',
       'Your password' : 'Your password',
@@ -407,6 +413,7 @@ angular.module('anorakApp')
       'Login': 'Login',
       'Password': 'Passwort',
       'Not registered': 'Noch nicht registriert?',
+      'Not registered as Provider': 'Noch nicht als Aktivitätenanbieter registriert?',
       'Forgot password': 'Passwort vergessen?',
       'Your e-mail address' : 'Ihre E-Mail Adresse',
       'Your password' : 'Ihr Passwort',
@@ -482,6 +489,7 @@ angular.module('anorakApp')
       'Login': 'Entra',
       'Password': 'Password',
       'Not registered': 'Non registrata?',
+      'Not registered as Provider': 'Noch nicht als Aktivitätenanbieter registriert?',
       'Forgot password': 'Dimenticato la password?',
       'Your e-mail address' : 'Vostro indirizzo email',
       'Your password' : 'Vostra password',
