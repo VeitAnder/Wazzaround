@@ -1658,6 +1658,26 @@ h1.nomargin, h2.nomargin, h3.nomargin, h4.nomargin, h5.nomargin, h6.nomargin {
   margin: 16px 0; }
   .contentbox *:first-child {
     margin-top: 0; }
+  .contentbox.contentbox-green {
+    background-color: #85C900;
+    color: #FFF; }
+    .contentbox.contentbox-green h1, .contentbox.contentbox-green h2, .contentbox.contentbox-green h3, .contentbox.contentbox-green h4, .contentbox.contentbox-green h5, .contentbox.contentbox-green h6 {
+      color: #edf7d9; }
+    .contentbox.contentbox-green .btn {
+      border-color: #666;
+      background-color: #666; }
+      .contentbox.contentbox-green .btn:hover {
+        border-color: #8c8c8c;
+        background-color: #8c8c8c; }
+        .contentbox.contentbox-green .btn:hover:active {
+          border-color: #999999;
+          background-color: #999999; }
+
+.divider {
+  line-height: 1px;
+  height: 1px;
+  border-top: dotted 1px #b3b3b3;
+  margin: 32px 0; }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .inline-screen-sm {
@@ -4617,7 +4637,7 @@ footer {
   margin-bottom: 100px; }
   .standardform .btn {
     margin-top: 16px; }
-  .standardform input, .standardform .alert, .standardform .buttonbar, .standardform .contentbox {
+  .standardform input, .standardform .alert, .standardform .buttonbar, .standardform .contentbox, .standardform .divider {
     width: 75%; }
 
 .teaser-section {
