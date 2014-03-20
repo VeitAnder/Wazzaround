@@ -1622,8 +1622,24 @@ $img-selector-imgsize: 150px;
   .btn{
    margin-top: $fs;
   }
-  input, .alert, .buttonbar, .contentbox, .divider{
+  .form-group-inline-5050{
+    .form-group{
+      width: 35%;
+    }
+  }
+  .form-group-inline-2575{
+    .form-group{
+      width: 52.5%;
+      &:first-child{
+        width: 17.5%;
+      }
+    }
+  }
+  .form-group, .buttonbar, .divider{
     width: 75%;
+    input{
+      width: 100%;
+    }
   }
   margin-bottom: 100px;
 }

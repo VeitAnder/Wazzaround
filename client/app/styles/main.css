@@ -2043,9 +2043,23 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
   width: 100%; }
 
 .form-group {
+  vertical-align: top;
   padding: 10px 0; }
   .form-group .btn {
     margin-top: 8px; }
+
+.form-group-inline .form-group {
+  display: inline-block;
+  margin-left: -4px; }
+  .form-group-inline .form-group:first-child {
+    margin-left: 0;
+    margin-right: 5%; }
+.form-group-inline.form-group-inline-5050 .form-group {
+  width: 47.5%; }
+.form-group-inline.form-group-inline-2575 .form-group {
+  width: 72.5%; }
+  .form-group-inline.form-group-inline-2575 .form-group:first-child {
+    width: 22.5%; }
 
 .input_label, label {
   display: block;
@@ -4638,8 +4652,16 @@ footer {
   margin-bottom: 100px; }
   .standardform .btn {
     margin-top: 16px; }
-  .standardform input, .standardform .alert, .standardform .buttonbar, .standardform .contentbox, .standardform .divider {
+  .standardform .form-group-inline-5050 .form-group {
+    width: 35%; }
+  .standardform .form-group-inline-2575 .form-group {
+    width: 52.5%; }
+    .standardform .form-group-inline-2575 .form-group:first-child {
+      width: 17.5%; }
+  .standardform .form-group, .standardform .buttonbar, .standardform .divider {
     width: 75%; }
+    .standardform .form-group input, .standardform .buttonbar input, .standardform .divider input {
+      width: 100%; }
 
 .teaser-section {
   overflow: hidden; }

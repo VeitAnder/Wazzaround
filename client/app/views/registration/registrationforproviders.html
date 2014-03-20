@@ -86,6 +86,52 @@
     <div class="divider"></div>
 
     <div class="form-group">
+      <label for="company">{{'company' | translate}}</label>
+      <input name="company"
+             ng-model="registrant.profile.company"
+             class="input-block-level"
+             required
+             placeholder="{{ 'Your company' | translate }}"
+          >
+
+      <span ng-show="showError('company', 'required')"
+            class="alert">{{'Please enter your company' | translate}}
+      </span>
+
+    </div>
+    <div class="form-group-inline form-group-inline-5050">
+      <div class="form-group">
+        <label for="firstname">{{'firstname' | translate}}</label>
+        <input name="firstname"
+               ng-model="registrant.profile.firstName"
+               class="input-block-level"
+               required
+               placeholder="{{ 'Your firstname' | translate }}"
+            >
+
+        <span ng-show="showError('firstname', 'required')"
+              class="alert">{{'Please enter your firstname' | translate}}
+        </span>
+
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">{{'lastname' | translate}}</label>
+        <input name="lastname"
+               ng-model="registrant.profile.lastName"
+               class="input-block-level"
+               required
+               placeholder="{{ 'Your lastname' | translate }}"
+            >
+
+        <span ng-show="showError('lastname', 'required')"
+              class="alert">{{'Please enter your lastname' | translate}}
+        </span>
+
+      </div>
+    </div>
+
+    <div class="form-group">
       <label for="tel">{{'Telephone' | translate}}</label>
       <input name="tel"
              ng-model="registrant.profile.tel"
@@ -115,50 +161,7 @@
 
     </div>
 
-    <div class="form-group">
-      <label for="firstname">{{'firstname' | translate}}</label>
-      <input name="firstname"
-             ng-model="registrant.profile.firstName"
-             class="input-block-level"
-             required
-             placeholder="{{ 'Your firstname' | translate }}"
-          >
-
-      <span ng-show="showError('firstname', 'required')"
-            class="alert">{{'Please enter your firstname' | translate}}
-      </span>
-
-    </div>
-
-    <div class="form-group">
-      <label for="lastname">{{'lastname' | translate}}</label>
-      <input name="lastname"
-             ng-model="registrant.profile.lastName"
-             class="input-block-level"
-             required
-             placeholder="{{ 'Your lastname' | translate }}"
-          >
-
-      <span ng-show="showError('lastname', 'required')"
-            class="alert">{{'Please enter your lastname' | translate}}
-      </span>
-
-    </div>
-
-    <div class="form-group">
-      <label for="company">{{'company' | translate}}</label>
-      <input name="company"
-             ng-model="registrant.profile.company"
-             class="input-block-level"
-             required
-             placeholder="{{ 'Your company' | translate }}"
-          >
-
-      <span ng-show="showError('company', 'required')"
-            class="alert">{{'Please enter your company' | translate}}
-      </span>
-
-    </div>
+    <div class="divider"></div>
 
     <div class="form-group">
       <label for="address">{{'address' | translate}}</label>
@@ -175,34 +178,36 @@
 
     </div>
 
-    <div class="form-group">
-      <label for="zip">{{'zip' | translate}}</label>
-      <input name="zip"
-             ng-model="registrant.profile.zip"
-             class="input-block-level"
-             required
-             placeholder="{{ 'Your zip code' | translate }}"
-          >
+    <div class="form-group-inline form-group-inline-2575">
+      <div class="form-group">
+        <label for="zip">{{'zip' | translate}}</label>
+        <input name="zip"
+               ng-model="registrant.profile.zip"
+               class="input-block-level"
+               required
+               placeholder="{{ 'Your zip code' | translate }}"
+            >
 
-      <span ng-show="showError('zip', 'required')"
-            class="alert">{{'Please enter your zip code' | translate}}
-      </span>
+        <span ng-show="showError('zip', 'required')"
+              class="alert">{{'Please enter your zip code' | translate}}
+        </span>
 
-    </div>
+      </div>
 
-    <div class="form-group">
-      <label for="city">{{'city' | translate}}</label>
-      <input name="city"
-             ng-model="registrant.profile.city"
-             class="input-block-level"
-             required
-             placeholder="{{ 'Your city' | translate }}"
-          >
+      <div class="form-group">
+        <label for="city">{{'city' | translate}}</label>
+        <input name="city"
+               ng-model="registrant.profile.city"
+               class="input-block-level"
+               required
+               placeholder="{{ 'Your city' | translate }}"
+            >
 
-      <span ng-show="showError('city', 'required')"
-            class="alert">{{'Please enter your city' | translate}}
-      </span>
+        <span ng-show="showError('city', 'required')"
+              class="alert">{{'Please enter your city' | translate}}
+        </span>
 
+      </div>
     </div>
 
     <div class="form-group">
@@ -216,6 +221,23 @@
 
       <span ng-show="showError('country', 'required')"
             class="alert">{{'Please enter your country' | translate}}
+      </span>
+
+    </div>
+
+    <div class="divider"></div>
+
+     <div class="form-group">
+      <label for="contactpersonname">{{'name of contact person' | translate}}</label>
+      <input name="contactpersonname"
+             ng-model="registrant.profile.contactperson.name"
+             class="input-block-level"
+             placeholder="{{ 'Name of contact person' | translate }}"
+             required
+          >
+
+      <span ng-show="showError('contactpersonname', 'required')"
+            class="alert">{{'Please enter the name of the contact person' | translate}}
       </span>
 
     </div>
@@ -234,20 +256,6 @@
 
     </div>
 
-    <div class="form-group">
-      <label for="contactpersonname">{{'name of contact person' | translate}}</label>
-      <input name="contactpersonname"
-             ng-model="registrant.profile.contactperson.name"
-             class="input-block-level"
-             placeholder="{{ 'Name of contact person' | translate }}"
-             required
-          >
-
-      <span ng-show="showError('contactpersonname', 'required')"
-            class="alert">{{'Please enter the name of the contact person' | translate}}
-      </span>
-
-    </div>
 
     <div>
       <button class="btn"
