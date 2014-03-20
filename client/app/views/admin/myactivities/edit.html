@@ -14,6 +14,20 @@
 <legend>Global Activity Info:</legend>
 <div class="form-group">
   <label for="name">Name of Activity or Activities</label>
+  <div class="language-tabs">
+    <ul>
+      <li class="en">
+        <a ng-click="changeLanguage('en')"><span>EN</span></a>
+      </li>
+      <li class="de active">
+        <a ng-click="changeLanguage('de')"><span>DE</span></a>
+      </li>
+      <li class="it">
+        <a ng-click="changeLanguage('it')"><span>IT</span></a>
+      </li>
+    </ul>
+
+  </div>
   <input type="text"
          class="form-control"
          id="name"
@@ -23,16 +37,15 @@
   de
   <input type="text"
          class="form-control"
-         placeholder="Enter name of activity"
+         placeholder="z.B. Quad Touren (250ccm, 550ccm, 750ccm)"
          ng-model="activity.name.de"
       >
     it
   <input type="text"
          class="form-control"
-         placeholder="Enter name of activity"
+         placeholder="??? IT"
          ng-model="activity.name.it"
       >
-  <p>Example: Quad 250cc, Quad 500cc and Quad 750cc</p>
 </div>
 
     <div class="form-group">

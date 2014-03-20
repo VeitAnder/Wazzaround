@@ -764,9 +764,6 @@ button.btn, .btn, a.btn {
   p:last-child, ul:last-child {
     padding-bottom: 0;
     margin-bottom: 0;
-    @include respond-to(screen-nocols) {
-      padding-bottom: $fs;
-    }
   }
 
   .boxelement + * {
