@@ -2029,6 +2029,7 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
   display: block;
   font-size: 12px;
   line-height: 16.8px;
+  line-height: 21px;
   margin-right: 5px;
   color: #666;
   vertical-align: bottom;
@@ -2862,6 +2863,8 @@ footer {
       .enable_hover .bookableitem-header:hover .btn:hover {
         background-color: #e0f1bf;
         color: #85C900; }
+  .bookableitem-header label {
+    color: #d9d9d9; }
   .bookableitem-header .cell {
     padding-top: 0;
     padding-bottom: 0;
@@ -2876,8 +2879,6 @@ footer {
         display: table; }
       .bookableitem-header .cell.last:after {
         clear: both; }
-  .bookableitem-header label {
-    display: none; }
   .bookableitem-header .buttonbar {
     border-color: #e8e8e8;
     margin: 0;
@@ -4844,7 +4845,8 @@ footer {
     border-color: #b3b3b3; }
 
 .language-tabs {
-  margin-bottom: 8px; }
+  border-bottom: solid 1px #b3b3b3;
+  margin-bottom: 4px; }
   .language-tabs a {
     display: block;
     -webkit-box-sizing: border-box;
@@ -4896,7 +4898,6 @@ footer {
   .language-tabs .active a {
     cursor: default; }
   .language-tabs ul {
-    border-bottom: solid 1px #b3b3b3;
     *zoom: 1; }
     .language-tabs ul:before, .language-tabs ul:after {
       content: " ";
@@ -4942,10 +4943,30 @@ footer {
     border-bottom-color: transparent; }
     fieldset .language-tabs .active a {
       background-color: #f7f7f7; }
+  .bookableitem-header .language-tabs {
+    border-color: #d9d9d9; }
+    .bookableitem-header .language-tabs a span {
+      width: 23px;
+      height: 14px;
+      border: 1px solid #b3b3b3; }
+    .bookableitem-header .language-tabs a:hover {
+      background-color: #b3b3b3;
+      border-color: #b3b3b3;
+      border-bottom-color: #d9d9d9; }
+    .bookableitem-header .language-tabs .active a {
+      background-color: #8c8c8c;
+      border-color: #d9d9d9;
+      border-bottom-color: transparent; }
 
 label + .language-tabs {
-  margin-top: -24px; }
-  label + .language-tabs li {
+  *zoom: 1;
+  margin-top: -26px; }
+  label + .language-tabs:before, label + .language-tabs:after {
+    content: " ";
+    display: table; }
+  label + .language-tabs:after {
+    clear: both; }
+  label + .language-tabs ul {
     float: right; }
 
 .datepicker {
@@ -5056,7 +5077,7 @@ label + .language-tabs {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  border: 1px solid #d9d9d9; }
+  border: 1px solid #b3b3b3; }
   .ta-root .btn-default {
     font-size: 14px;
     padding: 0px 7px;
