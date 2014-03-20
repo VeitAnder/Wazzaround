@@ -1700,25 +1700,17 @@ $img-selector-imgsize: 150px;
   }
 }
 
-.language-select {
-  position: absolute;
-  top: $bu;
-  right: $bu;
+@mixin language-flags{
   a{
     display: block;
     @include box-sizing(border-box);
-    width: 21px + 4px + 2px;
-    height: 12px + 4px + 2px;
-    padding: 1px;
-    background-color: $color_white;
-    border: 2px solid transparent;
     @include hovercursor;
-    @include border-radius($border-radius_small);
-    &:hover{
-      border-color: $color_grey_25;
-    }
+    text-indent: -2000px;
+    line-height: 0;
     span{
-      display: none;
+      display: block;
+      width: 21px;
+      height: 12px;
     }
   }
   ul{
@@ -1726,37 +1718,95 @@ $img-selector-imgsize: 150px;
       background-image: none;
       float: left;
       padding: 0;
-      margin: 0 $fs*0.25 $fs 0;
+      margin: 0 2px 0 0;
       &:last-child{
         margin-right: 0;
       }
       &.de{
-        a{
-          @include sprite_icons(1px, -174px, no-repeat);
+        span{
+          @include sprite_icons(0px, -175px, no-repeat);
         }
       }
       &.en{
-        a{
-          @include sprite_icons(-24px, -174px, no-repeat);
+        span{
+          @include sprite_icons(-25px, -175px, no-repeat);
         }
       }
       &.it{
-        a{
-          @include sprite_icons(-49px, -174px, no-repeat);
+        span{
+          @include sprite_icons(-50px, -175px, no-repeat);
         }
       }
       &.fr{
-        a{
-          @include sprite_icons(-74px, -174px, no-repeat);
-        }
-      }
-      &.active{
-        a{
-          border-color: $color_grey_50;
-          cursor: default;
+        span{
+          @include sprite_icons(-75px, -175px, no-repeat);
         }
       }
     }
+  }
+  .active{
+    a{
+      cursor: default;
+    }
+  }
+}
+
+.language-select {
+  @include language-flags;
+  position: absolute;
+  top: $bu;
+  right: $bu;
+  a{
+    padding: 2px;
+    border: 2px solid transparent;
+    @include border-radius($border-radius_small);
+    &:hover{
+      border-color: $color_grey_25;
+    }
+  }
+  .active{
+    a{
+      border-color: $color_grey_50;
+    }
+  }
+}
+
+.language-tabs{
+  @include language-flags;
+  margin-bottom: $fs*0.5;
+  ul{
+    @include border(bottom, $color_grey_50);
+    @include clearfix;
+    li{
+      margin-bottom: -1px;
+    }
+  }
+  a{
+    padding: 4px;
+    @include border-top-radius($border-radius_small);
+    border: 1px solid transparent;
+    &:hover{
+      background-color: $color_grey_15;
+      border-color: $color_grey_15;
+      border-bottom-color: $color_grey_50;
+    }
+  }
+  .active{
+    a{
+      background-color: $color_white;
+      border: 1px solid $color_grey_50;
+      border-bottom-color: transparent;
+      fieldset &{
+        background-color: $color_grey_05;
+      }
+    }
+  }
+}
+
+label+.language-tabs{
+  margin-top: -24px;
+  li{
+    float: right;
   }
 }
 
