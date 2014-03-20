@@ -48,17 +48,18 @@ UserModel.writeFilter(function (userDoc, req) {
 // setup Operations for the model to register an user
 UserModel.operationImpl("register", function (params, req) {
   var user = models.UserModel.create();
-  user.username = params.username;
+  if (params.username) throw new Error("username muss durch email ersetzt werden!!!!");  // TODO
+  user.email = params.email.toLowerCase();
   user.password = params.password;
 
   // save the new user
   return Q()
     .then(function () {
-      if (params.username == undefined || params.username == "") {
+      if (params.email == undefined || params.email == "") {
         throw new Error("You have to provide a E-Mail address");
       };
 
-      return models.UserModel.find({username: params.username});  // find all existing users
+      return models.UserModel.find({email: params.email});  // find all existing users
     })
     .then(function (users) {
       if (users.length > 0) throw new Error("User already exists");
@@ -71,7 +72,7 @@ UserModel.operationImpl("register", function (params, req) {
 
 // a operation to login a user
 UserModel.operationImpl("login", function (params, req) {
-  return UserModel.find({username: params.username})  // find this user
+  return UserModel.find({email: params.email.toLowerCase()})  // find this user
     .then(function (users) {
       if (users.length < 1) throw new Error("User not found");
       if (users.length > 1) throw new Error("Found more then one user");

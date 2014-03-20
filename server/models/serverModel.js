@@ -118,7 +118,7 @@ models.AccesstokenModel.operationImpl("sendReactivation", function (params, req)
   tokenObj.token = token(32);
   tokenObj.expires = moment().add('days', 1).toDate();
 
-  return models.UserModel.find({ username: params.email })
+  return models.UserModel.find({ email: params.email })
     .then(function (users) {
       console.log("GOT USERS", users);
       if (users.length !== 1) {
@@ -167,7 +167,7 @@ models.AccesstokenModel.operationImpl("setNewPassword", function (params, req) {
     .then(function (user) {
       console.log("Found user", user);
       // token validieren ob es für diesen user ist
-      if (user.username === params.email) {
+      if (user.email === params.email) {
         // reset password
         user.password = params.password;
         return user.save();
