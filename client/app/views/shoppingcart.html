@@ -1,24 +1,22 @@
 <div class="col-left-fixed ng-scope">
 
-  <div data-ng-include="'_language-select.html'"
-       class="ng-scope">
-    <div class="language-select ng-scope"></div>
-  </div>
+  <languageselect></languageselect>
+  <div class="language-select ng-scope"></div>
+</div>
 
-  <div data-ng-include="'_logo.html'"
-       class="ng-scope">
-    <a href="/#/"
-       id="logo"
-       data-ng-controller="LogoCtrl"
-       data-ng-click="goToHome()"
-       class="ng-scope">
-    </a>
-  </div>
+<div data-ng-include="'_logo.html'"
+     class="ng-scope">
+  <a href="/#/"
+     id="logo"
+     data-ng-controller="LogoCtrl"
+     data-ng-click="goToHome()"
+     class="ng-scope">
+  </a>
+</div>
 
 </div>
 
 <div class="col-right ng_scope">
   <h3>Shopping Cart</h3>
-
 
 </div>
