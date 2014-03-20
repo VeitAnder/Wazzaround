@@ -24,12 +24,12 @@ angular.module('anorakApp')
       $scope.state.submitted = true;
 
       if ($scope.valForm.$valid) {
-
+        $scope.registrant.userType = "provider";
         // Hash password
         $scope.registrant.password = CryptoJS.SHA256($scope.registrant.password).toString(CryptoJS.enc.Base64);
 
         models.UserModel.register($scope.registrant)
-          .then(function (res) {
+          .then(function () {
             return currentUser.login($scope.registrant.email, $scope.registrant.password);
           })
           .then(function () {
@@ -42,15 +42,6 @@ angular.module('anorakApp')
             $scope.state.errormessage = err.message;
             $scope.$apply();
           });
-
-        /*        currentUser.register($scope.registrant.email, $scope.registrant.password)
-         .then(function () {
-         // http://stackoverflow.com/questions/19499323/location-path-doesnt-change-in-a-factory-with-angularjs
-         $scope.$apply(function () {
-         $location.path('/admin/');
-         });
-         })*/
-
       }
     };
 
