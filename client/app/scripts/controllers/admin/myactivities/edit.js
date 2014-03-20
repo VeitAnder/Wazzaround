@@ -22,10 +22,13 @@ angular.module('anorakApp')
     };
 
     $scope.removeEvent = function (item, idx) {
-      item.events.splice(idx, 1);
+//      if (item.events[idx].ref) item.events[idx].ref().remove().done();  // if already persisted
+      item.events.splice(idx, 1);  // remove from array
     };
 
     $scope.removeItem = function (item, idx) {
+      //_.forEach(item.events) ..
+
       item.remove().done();
       activity.bookableItems.splice(idx, 1);
     };

@@ -12,8 +12,6 @@ var AccesstokenModel = require('../models.js').AccesstokenModel;
 ///////////////////////
 // read/write filters
 
-// TODO
-
 
 AccesstokenModel.readFilter(function(req) {
   return false;   // only server is allowed to read that
