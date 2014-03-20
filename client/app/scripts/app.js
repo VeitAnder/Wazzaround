@@ -253,6 +253,10 @@ angular.module('anorakApp')
           }]
         }
       })
+      .when('/shoppingcart', {
+        templateUrl: 'views/shoppingcart.html',
+        controller: 'ShoppingCartCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

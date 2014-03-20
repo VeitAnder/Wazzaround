@@ -232,6 +232,10 @@ angular.module('anorakApp')
     };
     $scope.getNextAvailableEvents();
 
+    $scope.putIntoShoppingCart = function(activity, event) {
+      debug("Put into shopping cart", activity, event);
+    };
+
     $rootScope.$on("MapChangeEvent", function (event, message) {
       debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
       angular.forEach($scope.categories, function (mainCat) {
