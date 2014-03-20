@@ -1704,10 +1704,60 @@ $img-selector-imgsize: 150px;
   position: absolute;
   top: $bu;
   right: $bu;
-  width: 76px;
-  height: 11px;
-  background: url(#{$img_path}flags_mont.png) 0 0 no-repeat;
-  @include hovercursor;
+  a{
+    display: block;
+    @include box-sizing(border-box);
+    width: 21px + 4px + 2px;
+    height: 12px + 4px + 2px;
+    padding: 1px;
+    background-color: $color_white;
+    border: 2px solid $color_grey_15;
+    @include hovercursor;
+    @include border-radius($border-radius_small);
+    &:hover{
+      border-color: $color_grey_25;
+    }
+    span{
+      display: none;
+    }
+  }
+  ul{
+    li{
+      background-image: none;
+      float: left;
+      padding: 0;
+      margin: 0 $fs*0.25 $fs 0;
+      &:last-child{
+        margin-right: 0;
+      }
+      &.de{
+        a{
+          @include sprite_icons(1px, -174px, no-repeat);
+        }
+      }
+      &.en{
+        a{
+          @include sprite_icons(-24px, -174px, no-repeat);
+        }
+      }
+      &.it{
+        a{
+          @include sprite_icons(-49px, -174px, no-repeat);
+        }
+      }
+      &.fr{
+        a{
+          @include sprite_icons(-74px, -174px, no-repeat);
+        }
+      }
+      &.active{
+        a{
+          border-color: $color_grey_50;
+          cursor: default;
+        }
+      }
+    }
+  }
 }
 
 .datepicker {
