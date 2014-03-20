@@ -13,7 +13,7 @@
       </div>
 
       <div class="filter">
-        <span class="input_label">Please choose:</span>
+        <span class="input_label">{{ 'Please choose' | translate }}</span>
 
         <div class="filter-category filter-category-sports"
              data-ng-class="{active: areItemsInThisCategorySelected('sports'), open: states.sports.open }"
@@ -21,9 +21,9 @@
           <div class="filter-category-header"
                data-ng-click="toggleFilter('sports')"
               >
-            <h4>Sports & Activities</h4>
+            <h4>{{ 'Sports and Activities' | translate }}</h4>
 
-            <p>{{numberOfSelectedFromCategory('sports')}} of {{totalNumberOfCategory('sports')}}</p>
+            <p>{{numberOfSelectedFromCategory('sports')}} {{ 'of' | translate }} {{totalNumberOfCategory('sports')}}</p>
 
             <div class="filter-category-arrow">
               <span></span>
@@ -38,13 +38,13 @@
                    data-ng-class="{active: allSelectedFromCategory('sports')}"
                    data-ng-click="selectAllFromCategory('sports')"
                   >
-                Select all
+                {{ 'Select all' | translate }}
               </div>
               <div class="filter-toggle-hide"
                    data-ng-class="{active: noneSelectedFromCategory('sports')}"
                    data-ng-click="deSelectAllFromCategory('sports')"
                   >
-                Deselect all
+                {{ 'Deselect all' | translate }}
               </div>
             </div>
 
@@ -64,7 +64,7 @@
                       ng-click="toggleCategorySelection(sportsCategories.db[$index+0])"
                       >
                     <span class="checkbox inline"></span>
-                    {{sportsCategories.db[$index+0].title}}
+                     {{ sportsCategories.db[$index+0].title | translate }}
                   </div>
 
                   <div
@@ -74,7 +74,7 @@
                       ng-click="toggleCategorySelection(sportsCategories.db[$index+1])"
                       >
                     <span class="checkbox inline"></span>
-                    {{sportsCategories.db[$index+1].title}}
+                    {{ sportsCategories.db[$index+1].title | translate }}
                   </div>
                 </div>
 
@@ -91,9 +91,9 @@
         <div class="filter-category-header"
              data-ng-click="toggleFilter('culture')"
             >
-          <h4>Culture</h4>
+          <h4>{{ 'Culture' | translate }}</h4>
 
-          <p>{{numberOfSelectedFromCategory('culture')}} of {{totalNumberOfCategory('culture')}}</p>
+          <p>{{numberOfSelectedFromCategory('culture')}} {{ 'of' | translate }} {{totalNumberOfCategory('culture')}}</p>
 
           <div class="filter-category-arrow">
             <span></span>
@@ -108,13 +108,13 @@
                  data-ng-class="{active: allSelectedFromCategory('culture')}"
                  data-ng-click="selectAllFromCategory('culture')"
                 >
-              Select all
+              {{ 'Select all' | translate }}
             </div>
             <div class="filter-toggle-hide"
                  data-ng-class="{active: noneSelectedFromCategory('culture')}"
                  data-ng-click="deSelectAllFromCategory('culture')"
                 >
-              Deselect all
+              {{ 'Deselect all' | translate }}
             </div>
           </div>
 
@@ -132,7 +132,7 @@
                     ng-click="toggleCategorySelection(cultureCategories.db[$index+0])"
                     >
                   <span class="checkbox inline"></span>
-                  {{cultureCategories.db[$index+0].title}}
+                  {{ cultureCategories.db[$index+0].title | translate }}
                 </div>
 
                 <div
@@ -142,7 +142,7 @@
                     ng-click="toggleCategorySelection(cultureCategories.db[$index+1])"
                     >
                   <span class="checkbox inline"></span>
-                  {{cultureCategories.db[$index+1].title}}
+                  {{ cultureCategories.db[$index+1].title | translate }}
                 </div>
 
               </div>
@@ -160,7 +160,7 @@
             >
           <h4>Wellness & Relax</h4>
 
-          <p>{{numberOfSelectedFromCategory('wellness')}} of {{totalNumberOfCategory('wellness')}}</p>
+          <p>{{numberOfSelectedFromCategory('wellness')}} {{ 'of' | translate }} {{totalNumberOfCategory('wellness')}}</p>
 
           <div class="filter-category-arrow">
             <span></span>
@@ -175,13 +175,13 @@
                  data-ng-class="{active: allSelectedFromCategory('wellness')}"
                  data-ng-click="selectAllFromCategory('wellness')"
                 >
-              Select all
+              {{ 'Select all' | translate }}
             </div>
             <div class="filter-toggle-hide"
                  data-ng-class="{active: noneSelectedFromCategory('wellness')}"
                  data-ng-click="deSelectAllFromCategory('wellness')"
                 >
-              Deselect all
+              {{ 'Deselect all' | translate }}
             </div>
           </div>
 
@@ -199,7 +199,7 @@
                     ng-click="toggleCategorySelection(wellnessCategories.db[$index+0])"
                     >
                   <span class="checkbox inline"></span>
-                  {{wellnessCategories.db[$index+0].title}}
+                  {{ wellnessCategories.db[$index+0].title | translate }}
                 </div>
 
                 <div
@@ -209,7 +209,7 @@
                     ng-click="toggleCategorySelection(wellnessCategories.db[$index+1])"
                     >
                   <span class="checkbox inline"></span>
-                  {{wellnessCategories.db[$index+1].title}}
+                  {{ wellnessCategories.db[$index+1].title | translate }}
                 </div>
 
               </div>
@@ -223,12 +223,12 @@
         <div class="filter-toggle-show"
              data-ng-class="{active: allSelected()}"
              data-ng-click="selectAllCategories()"
-            >Show all
+            >{{ 'Show all' | translate }}
         </div>
         <div class="filter-toggle-hide"
              data-ng-class="{active: noneSelected()}"
              data-ng-click="deSelectAllCategories()"
-            >Hide all
+            >{{ 'Hide all' | translate }}
         </div>
       </div>
 
@@ -293,7 +293,7 @@
               </cloudinaryimage>
             </div>
 
-            <div class="input_label">Offered by:</div>
+            <div class="input_label">{{ 'Offered by' | translate }}</div>
             <h5 class="no-margin-top">{{m.company}}</h5>
 
             <div class="description">
@@ -302,10 +302,10 @@
             </div>
 
             <div class="availability">
-              <div class="input_label">Availability:</div>
+              <div class="input_label">{{ 'Availability' | translate }}</div>
               <div class="availability-list">
                 <div class="availability-header">
-                  <div class="month cell first">Next available Dates</div>
+                  <div class="month cell first">{{ 'Next available Dates' | translate }}</div>
                 </div>
 
                 <div class="availability-entry"
@@ -328,7 +328,7 @@
                        href="#/shoppingcart/"
                        target="_blank"
                        ng-click="putIntoShoppingCart(m, available)"
-                        >Book
+                        >{{ 'Book' | translate }}
                     </a>
                   </div>
                 </div>
@@ -337,20 +337,20 @@
                   <div class="cell first">
                     <a class="btn btn-mini disabled"
                        ng-click=""
-                        >Prev
+                        >{{ 'Prev' | translate }}
                     </a>
                   </div>
                   <div class="cell align-center">
                     <a class="btn btn-mini"
                        ng-click=""
                        href="#/activities/{{m._id}}/"
-                        >Show all Dates
+                        >{{ 'Show all Dates' | translate }}
                     </a>
                   </div>
                   <div class="cell last align-right">
                     <a class="btn btn-mini"
                        ng-click=""
-                        >Next
+                        >{{ 'Next' | translate }}
                     </a>
                   </div>
                 </div>
@@ -371,7 +371,7 @@
       <div ng-init="opts = {animation:0}">
         <marker coords="map.centerMarker"
                 options="opts">
-          <marker-label content="map.centerMarker.title"
+          <marker-label content="map.centerMarker.title | translate"
                         anchor="22 0"
                         class="marker-labels marker-labels-your-location"
               />
