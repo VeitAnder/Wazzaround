@@ -36,96 +36,6 @@ models.ActivityModel.writeFilter(function (doc, req) {
   return true;
 });
 
-// setup filters for the UserModel
-models.UserModel.readFilter(function (req) {
-  if (!req.session.auth) {
-    return false;  // if not logged in don't allow read operations
-  }
-
-  return {_id: ObjectId(req.session.user._id) };  // filter for only your documents (your user id)
-});
-
-models.UserModel.writeFilter(function (userDoc, req) {
-  if (!req.session.auth) {
-    return false;  // if not logged in don't allow write operations
-  }
-
-  // allow the user to save his own User Object
-  if (userDoc._id == req.session.user._id) {
-    return true;
-  }
-
-  return false;  // else: filter failed -> access denied
-});
-
-// setup Operations for the model to register an user
-models.UserModel.operationImpl("register", function (params, req) {
-  var user = models.UserModel.create();
-  user.username = params.username;
-  user.password = params.password;
-
-  // save the new user
-  return Q()
-    .then(function () {
-      if (params.username == undefined || params.username == "") {
-        throw new Error("You have to provide a E-Mail address");
-      };
-
-      return models.UserModel.find({username: params.username});  // find all existing users
-    })
-    .then(function (users) {
-      if (users.length > 0) throw new Error("User already exists");
-      return user.save();  // save the new user
-    })
-    .then(function () {  // if save was ok
-      return {status: "ok"};
-    });
-});
-
-// a operation to login a user
-models.UserModel.operationImpl("login", function (params, req) {
-  return models.UserModel.find({username: params.username})  // find this user
-    .then(function (users) {
-      if (users.length < 1) throw new Error("User not found");
-      if (users.length > 1) throw new Error("Found more then one user");
-
-      if (users[0].password == params.password) { // auth successful
-        // remember in a session, that auth was successful
-        req.session.auth = true;
-        // remeber the user in the session
-        req.session.user = users[0];
-      } else {
-        throw new Error('Invalid Password');
-      }
-    })
-    .then(function () {  // if login was ok
-      return {status: "ok"};
-    });
-});
-
-// logout
-models.UserModel.operationImpl("logout", function (params, req) {
-  delete req.session.auth;
-  delete req.session.user;
-});
-
-models.UserModel.factoryImpl("currentUser", function (params, req) {
-  var deferred = Q.defer();
-  if (!req.session.auth) {
-    var err = new Error("no authorized");
-    err.statusCode = 401;
-    deferred.reject(err);
-    return deferred.promise;
-  }
-
-  //return models.UserModel.get(ObjectId(req.session.user_id));
-  return models.UserModel.find({ _id: ObjectId(req.session.user._id)})
-    .then(function (users) {
-      console.log("users", users);
-      if (users.length !== 1) throw new Error("User not found");
-      return users[0];
-    });
-});
 
 models.ActivityModel.factoryImpl("getMyActivities", function (params, req) {
   if (!req.session.auth) {
@@ -208,7 +118,7 @@ models.AccesstokenModel.operationImpl("sendReactivation", function (params, req)
   tokenObj.token = token(32);
   tokenObj.expires = moment().add('days', 1).toDate();
 
-  return models.UserModel.find({ username: params.email })
+  return models.UserModel.find({ email: params.email })
     .then(function (users) {
       console.log("GOT USERS", users);
       if (users.length !== 1) {
@@ -257,7 +167,7 @@ models.AccesstokenModel.operationImpl("setNewPassword", function (params, req) {
     .then(function (user) {
       console.log("Found user", user);
       // token validieren ob es für diesen user ist
-      if (user.username === params.email) {
+      if (user.email === params.email) {
         // reset password
         user.password = params.password;
         return user.save();

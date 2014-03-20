@@ -14,7 +14,7 @@ angular.module('anorakApp')
     }
 
     $scope.login = function () {
-      currentUser.login($scope.form.username, $scope.form.password)
+      currentUser.login($scope.form.email, $scope.form.password)
         .then(function () {
           // http://stackoverflow.com/questions/19499323/location-path-doesnt-change-in-a-factory-with-angularjs
           $scope.$apply(function () {

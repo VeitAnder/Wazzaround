@@ -14,36 +14,17 @@ var models = function () {
   var Factory = model.Factory;
 
   var validators = {
-    username: function (value) {
-      if (value === undefined || value === null || value === "") { // TODO validate username
-        throw new Error("you have to provide a username");
-      }
-      return value;
-    },
-    password: function (value) {
-      // 1 Grossbuchstabe, 1 Zahl, 8 Stellen 
+    email: function (value) {
       if (value === undefined || value === null || value === "") {
-        throw new Error("you have to provide a password");
-      } else {
-
-        var capitalLetter = /[A-ZÄÖÜ]/g;
-        var capTest = capitalLetter.test(value);
-        var number = /[0-9]/g;
-        var numTest = number.test(value);
-
-        if(!capTest || !numTest || value.length < 8) {
-          console.log("PASSWORD NOT VALID");
-          throw new Error("invalidPwd");
-        }
+        throw new Error("you have to provide a username (it is empty)");
       }
       return value;
     }
   };
 
   var UserModel = new model("users", {
-    email: Attr(Type.string),  // email wird im username gespeichert
-    username: Attr(Type.string, validators.username),
-    password: Attr(Type.string, validators.password),
+    email: Attr(Type.string, validators.email),  // email ist auch username
+    password: Attr(Type.string),
 
     profile: {
       firstName: Attr(Type.string),

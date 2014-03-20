@@ -48,6 +48,7 @@ var initModelizer = function (app) {
   require('../models/serverModel.js');
   require('../models/server/booking');
   require('../models/server/bookableItem');
+  require('../models/server/user');
 
 };
 
