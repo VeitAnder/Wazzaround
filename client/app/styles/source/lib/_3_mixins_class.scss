@@ -1558,6 +1558,9 @@ input[type="checkbox"]:focus {
 
 .form-group {
   padding: 10px 0;
+  .btn{
+    margin-top: $fs*0.5;
+  }
 }
 
 @mixin input_label {
