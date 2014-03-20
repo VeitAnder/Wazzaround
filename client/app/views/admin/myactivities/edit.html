@@ -388,7 +388,7 @@
               <input type="text"
                      size="10"
                      class="form-control"
-                     ng-model="event.start"
+                     ng-model="event.ref().start"
                      data-autoclose="0"
                      placeholder="Date"
                      bs-datepicker>
@@ -397,7 +397,7 @@
               <input type="text"
                      size="8"
                      class="form-control"
-                     ng-model="event.start"
+                     ng-model="event.ref().start"
                      data-autoclose="0"
                      placeholder="Time"
                      bs-timepicker
@@ -408,7 +408,7 @@
                      class="form-control"
                      id="duration"
                      placeholder="Duration (h)"
-                     ng-model="event.duration"
+                     ng-model="event.ref().duration"
                   >
             </div>
             <div class="form-group quantity">
@@ -416,7 +416,7 @@
                      class="form-control"
                      id="quantity"
                      placeholder="Quantity"
-                     ng-model="event.quantity"
+                     ng-model="event.ref().quantity"
                   >
             </div>
 
@@ -424,58 +424,58 @@
               <div class="checkbox">
                 <label>
                   <input type="checkbox"
-                         ng-model="event.repeating">
+                         ng-model="event.ref().repeating">
                   repeating
                 </label>
               </div>
               <div class="repeating"
-                   ng-show="event.repeating">
+                   ng-show="event.ref().repeating">
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
-                           ng-model="event.dayOfWeek.Mon">
+                           ng-model="event.ref().dayOfWeek.Mon">
                     Mon
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
-                           ng-model="event.dayOfWeek.Tue">
+                           ng-model="event.ref().dayOfWeek.Tue">
                     Tue
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
-                           ng-model="event.dayOfWeek.Wed">
+                           ng-model="event.ref().dayOfWeek.Wed">
                     Wed
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
-                           ng-model="event.dayOfWeek.Thu">
+                           ng-model="event.ref().dayOfWeek.Thu">
                     Thu
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
-                           ng-model="event.dayOfWeek.Fri">
+                           ng-model="event.ref().dayOfWeek.Fri">
                     Fri
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
-                           ng-model="event.dayOfWeek.Sat">
+                           ng-model="event.ref().dayOfWeek.Sat">
                     Sat
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
-                           ng-model="event.dayOfWeek.Son">
+                           ng-model="event.ref().dayOfWeek.Son">
                     Son
                   </label>
                 </div>
@@ -483,7 +483,7 @@
                 <div class="form-group date-until">
                   <input type="text"
                          class="form-control"
-                         ng-model="event.end"
+                         ng-model="event.ref().end"
                          data-min-date=""
                          placeholder="Until"
                          bs-datepicker
@@ -505,7 +505,7 @@
 
             <div class="buttonbar">
               <a class="txt-icon-save"
-                 ng-click="event.mode = 'view'"
+                 ng-click="event.mode = 'view'; createEventSeries(bookableItem.ref(), event.ref())"
                   >save
                 <span class="btn-icon-right"></span>
               </a>
@@ -525,10 +525,10 @@
 
             <div class="event-row"
                  ng-repeat="(idx,event) in bookableItem.ref().events | filter:{mode:'!edit'}">
-              <div class="event-date cell first">{{moment(event.start).format("ddd, MMM Do YY")}}</div>
-              <div class="event-time cell">{{moment(event.start).format("h:mm a")}}</div>
-              <!--<div class="event-duration cell">{{event.duration}}h</div>-->
-              <div class="event-quantity cell">{{event.quantity}}x</div>
+              <div class="event-date cell first">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
+              <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
+              <!--<div class="event-duration cell">{{event.ref().duration}}h</div>-->
+              <div class="event-quantity cell">{{event.ref().quantity}}x</div>
               <div class="listaction cell last">
                 <a class="edit"
                    ng-click="event.mode = 'edit'">

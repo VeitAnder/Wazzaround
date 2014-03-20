@@ -15,19 +15,64 @@ angular.module('anorakApp')
 
     $scope.state = {};
 
+
+    $scope.createEventSeries = function (item, event) {
+      console.log("createRepeatingEvents called", item, event);
+
+      if (!event.repeating) return;
+
+      var startDate = moment(event.start);
+      var duration = event.duration;
+      var quantity = event.quantity;
+      var endDate = moment(event.end).hour(23).minute(59);
+
+      if (moment().subtract('days', 1) > startDate) {
+        console.log("you're trying to add events in the past");
+        return;
+      }
+
+       if (endDate.diff(startDate, 'years') > 2) {
+        console.log("you're trying to add events for more than two years");
+        return;
+      }
+
+      startDate.add('days', 1);  // start Date + 1
+
+      while (startDate <= endDate) {
+        // add new event
+        if (event.dayOfWeek[startDate.format('ddd')]) {  // Wochentag angehakt
+          console.log('Create Event at: ', startDate.format("dddd, MMMM Do YYYY, h:mm:ss a"));
+
+          var newEvent = item.createEvents();
+
+          newEvent.start = new Date(startDate.toDate());
+          newEvent.duration = duration;
+          newEvent.quantity = quantity;
+        }
+        startDate.add('days', 1);
+      }
+
+    };
+
+
     $scope.createEvent = function (bookableItem) {
       var event = bookableItem.createEvents();
       event.start = new Date();
-      event.mode = 'edit';
+
+      bookableItem.events[bookableItem.events.length-1].mode = 'edit';
+      //event.mode = 'edit';   // funktionier so leider nicht
     };
 
     $scope.removeEvent = function (item, idx) {
-//      if (item.events[idx].ref) item.events[idx].ref().remove().done();  // if already persisted
+      if (item.events[idx]._reference) item.events[idx].ref().remove().done();  // if already persisted
       item.events.splice(idx, 1);  // remove from array
     };
 
     $scope.removeItem = function (item, idx) {
-      //_.forEach(item.events) ..
+
+      _.forEach(item.events, function(event) {  // remove saved events
+        console.log("TODO: remove this event");   // TODO
+      });
 
       item.remove().done();
       activity.bookableItems.splice(idx, 1);
@@ -130,22 +175,25 @@ angular.module('anorakApp')
         $scope.activity.longitude = $scope.map.clickedMarker.longitude;
       }
 
-      var saveItemsPromises = [];
-
-      _.forEach($scope.activity.bookableItems, function (item) {
-        var itemPromise = $scope.models.BookableItemModel.saveWithRepeatingEvents({
-          obj: item.ref()
-        })
-          .then(function (res) {
-            // recive storage id
-            item.ref()._id = res._id;
+      Q()
+        .then(function(){
+          var saveEventsPromises = [];
+          _.forEach($scope.activity.bookableItems, function (item) {
+            _.forEach(item.ref().events, function(event) {
+              saveEventsPromises.push(event.ref().save());  // save the events
+            });
           });
-        saveItemsPromises.push(itemPromise);
-      });
-
-      Q.all(saveItemsPromises)
-        .then(function (results) {  // all BookableItems are saved
-          debug("all results", results);
+          return Q.all(saveEventsPromises);
+        })
+        .then(function(events){
+          var savePromises = [];
+          _.forEach($scope.activity.bookableItems, function (item) {
+            savePromises.push(item.ref().save());  // save the items
+          });
+          return Q.all(savePromises);
+        })
+        .then(function (items) {  // all BookableItems are saved
+          debug("all results", items);
           return $scope.activity.save();  // save the activity
         })
         .then(function (activity) {

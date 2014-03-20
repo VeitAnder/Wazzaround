@@ -44,7 +44,6 @@ UserModel.writeFilter(function (userDoc, req) {
 
 
 
-
 // setup Operations for the model to register an user
 UserModel.operationImpl("register", function (params, req) {
   var user = models.UserModel.create();

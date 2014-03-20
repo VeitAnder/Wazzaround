@@ -153,17 +153,28 @@ angular.module('anorakApp')
             return models.CategoryModel.all();
           }],
           activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.get($route.current.params.id)
+            return models.ActivityModel.get($route.current.params.id)  // 1. load activity
               .then(function (activity) {
                 // load bookable items
                 var loadingBookableItems = [];
                 _.forEach(activity.bookableItems, function (item) {
-                  loadingBookableItems.push(item.load());
+                  loadingBookableItems.push(item.load());              // 2. load items
                 });
 
                 return Q.all(loadingBookableItems)
-                  .then(function (res) {
-                    debug("loadingBookableItems", res);
+                  .then(function (items) {
+                    var loadingEvents = [];
+                    _.forEach(items, function(item){
+                      _.forEach(item.events, function(event) {
+                        console.log("event", event);
+                        loadingEvents.push(event.load());              // 3. load events
+                      });
+                    });
+
+                    return Q.all(loadingEvents);
+                  })
+                  .then(function (events){
+                    debug("loaded activity", activity);
                     return activity;  // return the activity, when all bookableItems have been loaded
                   });
               })
@@ -553,6 +564,8 @@ angular.module('anorakApp')
     _.forEach(models, function (model) {  // setup connection for each model
       model.connection(connector);
     });
+
+    moment.lang('en');  // setup moment
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);
