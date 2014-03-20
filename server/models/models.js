@@ -61,14 +61,18 @@ var models = function () {
     register: Operation(),
 
     // TODO: add security
-    userType: Attr(Type.string, Type.enum('user', 'admin'), Attr.default('user')),
+    userType: Attr(Type.string, Type.enum('user', 'admin', 'provider'), Attr.default('user')),
 
     currentUser: Factory()
   });
 
 
   var BookableItemModel = new model("bookableItems", {
-    description: Attr(Type.string),
+    description: {
+      en: Attr(Type.string),
+      de: Attr(Type.string),
+      it: Attr(Type.string)
+    },
     price: Attr(Type.number),
 
     events: [  // TODO: this sucks - refactor in own Model
@@ -79,18 +83,26 @@ var models = function () {
       }
     ],
 
-    owner: Ref(UserModel), // TODO: warning: is not beeing set
+    owner: Ref(UserModel),
 
     //bookItem: Operation(),
     saveWithRepeatingEvents: Operation()
   });
 
   var ActivityModel = new model("activities", {
-    name: Attr(Type.string),
+    name: {
+      en: Attr(Type.string),
+      de: Attr(Type.string),
+      it: Attr(Type.string)
+    },
     company: Attr(Type.string),
     address: Attr(Type.string),
 
-    description: Attr(Type.string),
+    description: {
+      en: Attr(Type.string),
+      de: Attr(Type.string),
+      it: Attr(Type.string)
+    },
 
     images: [
       {

@@ -4781,12 +4781,67 @@ footer {
 .language-select {
   position: absolute;
   top: 15px;
-  right: 15px;
-  width: 76px;
-  height: 11px;
-  background: url(/img/flags_mont.png) 0 0 no-repeat; }
-  .language-select:hover {
-    cursor: pointer; }
+  right: 15px; }
+  .language-select a {
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 27px;
+    height: 18px;
+    padding: 1px;
+    background-color: #FFF;
+    border: 2px solid transparent;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px; }
+    .language-select a:hover {
+      cursor: pointer; }
+    .language-select a:hover {
+      border-color: #d9d9d9; }
+    .language-select a span {
+      display: none; }
+  .language-select ul li {
+    background-image: none;
+    float: left;
+    padding: 0;
+    margin: 0 4px 16px 0; }
+    .language-select ul li:last-child {
+      margin-right: 0; }
+    .language-select ul li.de a {
+      background-position: 1px -174px;
+      background-repeat: no-repeat; }
+      .svg .language-select ul li.de a {
+        background-image: url('/img/sprite_icons.svg'); }
+      .no-svg .language-select ul li.de a {
+        background-image: url('/img/sprite_icons.png'); }
+    .language-select ul li.en a {
+      background-position: -24px -174px;
+      background-repeat: no-repeat; }
+      .svg .language-select ul li.en a {
+        background-image: url('/img/sprite_icons.svg'); }
+      .no-svg .language-select ul li.en a {
+        background-image: url('/img/sprite_icons.png'); }
+    .language-select ul li.it a {
+      background-position: -49px -174px;
+      background-repeat: no-repeat; }
+      .svg .language-select ul li.it a {
+        background-image: url('/img/sprite_icons.svg'); }
+      .no-svg .language-select ul li.it a {
+        background-image: url('/img/sprite_icons.png'); }
+    .language-select ul li.fr a {
+      background-position: -74px -174px;
+      background-repeat: no-repeat; }
+      .svg .language-select ul li.fr a {
+        background-image: url('/img/sprite_icons.svg'); }
+      .no-svg .language-select ul li.fr a {
+        background-image: url('/img/sprite_icons.png'); }
+    .language-select ul li.active a {
+      border-color: #b3b3b3;
+      cursor: default; }
 
 .datepicker {
   min-width: 300px;
