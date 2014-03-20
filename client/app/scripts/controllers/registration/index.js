@@ -20,15 +20,15 @@ angular.module('anorakApp')
     }
 
     $scope.register = function () {
+      var user;
       $scope.state.submitted = true;
 
       if ($scope.valForm.$valid) {
-        // Hash password
-        $scope.registrant.password = CryptoJS.SHA256($scope.registrant.password).toString(CryptoJS.enc.Base64);
-
-        models.UserModel.register($scope.registrant)
+        user = angular.copy($scope.registrant);
+        user.password = CryptoJS.SHA256($scope.registrant.password).toString(CryptoJS.enc.Base64);
+        models.UserModel.register(user)
           .then(function () {
-            return currentUser.login($scope.registrant.email, $scope.registrant.password);
+            return currentUser.login(user.email, user.password);
           })
           .then(function () {
             $scope.$apply(function () {

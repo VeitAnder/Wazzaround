@@ -51,7 +51,9 @@ UserModel.operationImpl("register", function (params, req) {
   if (params.username) throw new Error("username muss durch email ersetzt werden!!!!");  // TODO
   user.email = params.email.toLowerCase();
   user.password = params.password;
-  user.profile = params.profile;
+  if (params.profile){
+    user.profile = params.profile;
+  }
 
 
   // save the new user
