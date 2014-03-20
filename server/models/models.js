@@ -31,6 +31,15 @@ var models = function () {
       lastName: Attr(Type.string),
       company: Attr(Type.string),
       address: Attr(Type.string),
+      city: Attr(Type.string),
+      zip: Attr(Type.string),
+      tel: Attr(Type.string),
+      fax: Attr(Type.string),
+      uid: Attr(Type.string),
+      country: Attr(Type.string),
+      contactperson: {
+        name: Attr(Type.string)
+      },
       location: {
         longitude: Attr(Type.number),
         latitude: Attr(Type.number)
@@ -127,8 +136,8 @@ var models = function () {
 
   var BookingModel = new model('bookings', {
 
-    activity : Ref(ActivityModel),
-    item : Ref(BookableItemModel),
+    activity: Ref(ActivityModel),
+    item: Ref(BookableItemModel),
     start: Attr(Type.date),
     quantity: Attr(Type.number),
 
@@ -136,7 +145,7 @@ var models = function () {
 
     owner: Ref(UserModel),
 
-    buy : Operation()
+    buy: Operation()
   });
 
   var CategoryModel = new model("categories", {

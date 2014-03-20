@@ -51,13 +51,14 @@ UserModel.operationImpl("register", function (params, req) {
   if (params.username) throw new Error("username muss durch email ersetzt werden!!!!");  // TODO
   user.email = params.email.toLowerCase();
   user.password = params.password;
+  user.profile = params.profile;
 
   // save the new user
   return Q()
     .then(function () {
       if (params.email == undefined || params.email == "") {
         throw new Error("You have to provide a E-Mail address");
-      };
+      }
 
       return models.UserModel.find({email: params.email});  // find all existing users
     })

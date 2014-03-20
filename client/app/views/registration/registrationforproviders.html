@@ -1,0 +1,244 @@
+<div ng-controller="RegistrationRegistrationforprovidersCtrl">
+  <form class="standardform registerform"
+        name="valForm"
+        novalidate
+      >
+
+    <h2>Account</h2>
+
+    <h3>Registration</h3>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input name="email"
+             ng-model="registrant.email"
+             class="input-block-level"
+             required
+             autofocus
+             ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
+             placeholder="Your e-mail address"
+          >
+
+      <span ng-show="showError('email', 'required')"
+            class="alert">Please enter your e-mail address.
+      </span>
+      <span ng-show="showError('email', 'pattern')"
+            class="alert alert-error">Please enter a valid e-mail address.
+      </span>
+
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input name="password"
+             id="password"
+             type="password"
+             ng-model="registrant.password"
+             required
+             password-validate
+             class="input-block-level"
+             placeholder="Define your password"
+          >
+      <div class="contentbox pwdvalidation">
+        <h6>Password must meet the following requirements:</h6>
+        <ul>
+          <li ng-class="pwdHasUppercaseLetter">
+            <span class="icon"></span>
+            {{pwdHasUppercaseLetter}} At least
+            <strong>one uppercase letter</strong>
+          </li>
+          <li ng-class="pwdHasNumber">
+            <span class="icon"></span>
+            {{pwdHasNumber}} At least
+            <strong>one number</strong>
+          </li>
+          <li ng-class="pwdValidLength">
+            <span class="icon"></span>
+            {{pwdValidLength}} At least
+            <strong>8 characters long</strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="passwordRepeat">Retype Password</label>
+      <input name="passwordRepeat"
+             id="passwordRepeat"
+             type="password"
+             ng-model="registrant.passwordRepeat"
+             class="input-block-level"
+             repeat-password="password"
+             required
+             placeholder="Retype your password"
+          >
+
+      <span ng-show="showError('passwordRepeat', 'required')"
+            class="alert">Please retype the password.
+      </span>
+
+      <span ng-show="showError('passwordRepeat', 'repeat')"
+            class="alert alert-error">The passwords have to match.
+      </span>
+
+    </div>
+
+    <div class="form-group">
+      <label for="tel">{{'Telephone' | translate}}</label>
+      <input name="tel"
+             ng-model="registrant.profile.tel"
+             class="input-block-level"
+             required
+             placeholder="{{ 'Your telephone number' | translate }}"
+          >
+
+      <span ng-show="showError('tel', 'required')"
+            class="alert">{{'Please enter your telephone number' | translate}}
+      </span>
+
+    </div>
+
+    <div class="form-group">
+      <label for="firstname">{{'firstname' | translate}}</label>
+      <input name="firstname"
+             ng-model="registrant.profile.firstName"
+             class="input-block-level"
+             required
+             placeholder="{{ 'Your firstname' | translate }}"
+          >
+
+      <span ng-show="showError('firstname', 'required')"
+            class="alert">{{'Please enter your firstname' | translate}}
+      </span>
+
+    </div>
+
+    <div class="form-group">
+      <label for="lastname">{{'lastname' | translate}}</label>
+      <input name="lastname"
+             ng-model="registrant.profile.lastName"
+             class="input-block-level"
+             required
+             placeholder="{{ 'Your lastname' | translate }}"
+          >
+
+      <span ng-show="showError('lastname', 'required')"
+            class="alert">{{'Please enter your lastname' | translate}}
+      </span>
+
+    </div>
+
+    <div class="form-group">
+      <label for="company">{{'company' | translate}}</label>
+      <input name="company"
+             ng-model="registrant.profile.company"
+             class="input-block-level"
+             required
+             placeholder="{{ 'Your company' | translate }}"
+          >
+
+      <span ng-show="showError('company', 'required')"
+            class="alert">{{'Please enter your company' | translate}}
+      </span>
+
+    </div>
+
+
+    <div class="form-group">
+      <label for="address">{{'address' | translate}}</label>
+      <input name="address"
+             ng-model="registrant.profile.address"
+             class="input-block-level"
+             required
+             placeholder="{{ 'Your address' | translate }}"
+          >
+
+      <span ng-show="showError('address', 'required')"
+            class="alert">{{'Please enter your address' | translate}}
+      </span>
+
+    </div>
+
+    <div class="form-group">
+      <label for="zip">{{'zip' | translate}}</label>
+      <input name="zip"
+             ng-model="registrant.profile.zip"
+             class="input-block-level"
+             required
+             placeholder="{{ 'Your zip code' | translate }}"
+          >
+
+      <span ng-show="showError('zip', 'required')"
+            class="alert">{{'Please enter your zip code' | translate}}
+      </span>
+
+    </div>
+
+    <div class="form-group">
+      <label for="country">{{'country' | translate}}</label>
+      <input name="country"
+             ng-model="registrant.profile.country"
+             class="input-block-level"
+             required
+             placeholder="{{ 'Your country' | translate }}"
+          >
+
+      <span ng-show="showError('country', 'required')"
+            class="alert">{{'Please enter your country' | translate}}
+      </span>
+
+    </div>
+
+
+    <div class="form-group">
+      <label for="uid">{{'UID' | translate}}</label>
+      <input name="uid"
+             ng-model="registrant.profile.uid"
+             class="input-block-level"
+             placeholder="{{ 'Your uid number' | translate }}"
+          >
+
+      <span ng-show="showError('uid', 'required')"
+            class="alert">{{'Please enter your uid number' | translate}}
+      </span>
+
+    </div>
+
+
+    <div class="form-group">
+      <label for="contactpersonname">{{'name of contact person' | translate}}</label>
+      <input name="contactpersonname"
+             ng-model="registrant.profile.contactperson.name"
+             class="input-block-level"
+             placeholder="{{ 'Name of contact person' | translate }}"
+          >
+
+      <span ng-show="showError('contactpersonname', 'required')"
+            class="alert">{{'Please enter the name of the contact person' | translate}}
+      </span>
+
+    </div>
+
+
+
+    <div>
+      <button class="btn"
+              ng-class="{disabled: valForm.$invalid}"
+              type="submit"
+              ng-click="register()">Register
+      </button>
+
+      <a class="space-left"
+         ng-click="gotoLogin()">back to login
+      </a>
+    </div>
+
+    <div class="alert alert-error"
+         ng-show="state.registrationfailed"
+        >
+      {{state.errormessage}}
+    </div>
+
+  </form>
+
+</div>

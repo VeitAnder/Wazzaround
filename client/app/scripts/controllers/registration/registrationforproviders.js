@@ -1,14 +1,15 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('RegistrationPageCtrl', function ($scope) {
+
+  .controller('RegistrationRegistrationforprovidersPageCtrl', function ($scope) {
     $scope.getPagePartial = function () {
-      return 'registration/index.html';
+      return 'registration/registrationforproviders.html';
     };
   })
-  .controller('RegisterCtrl', function ($scope, $routeParams, $location, currentUser) {
-    $scope.registrant = {
-    };
+  .controller('RegistrationRegistrationforprovidersCtrl', function ($scope, $routeParams, $location, models, currentUser) {
+    $scope.registrant = {};
+
     $scope.state = {
       submitted: false,
       registrationfailed: false
@@ -23,10 +24,15 @@ angular.module('anorakApp')
       $scope.state.submitted = true;
 
       if ($scope.valForm.$valid) {
-        var password = CryptoJS.SHA256($scope.registrant.password).toString(CryptoJS.enc.Base64);
-        currentUser.register($scope.registrant.email, password)
+
+        // Hash password
+        $scope.registrant.password = CryptoJS.SHA256($scope.registrant.password).toString(CryptoJS.enc.Base64);
+
+        models.UserModel.register($scope.registrant)
+          .then(function (res) {
+            return currentUser.login($scope.registrant.email, $scope.registrant.password);
+          })
           .then(function () {
-            // http://stackoverflow.com/questions/19499323/location-path-doesnt-change-in-a-factory-with-angularjs
             $scope.$apply(function () {
               $location.path('/admin/');
             });
@@ -36,6 +42,15 @@ angular.module('anorakApp')
             $scope.state.errormessage = err.message;
             $scope.$apply();
           });
+
+        /*        currentUser.register($scope.registrant.email, $scope.registrant.password)
+         .then(function () {
+         // http://stackoverflow.com/questions/19499323/location-path-doesnt-change-in-a-factory-with-angularjs
+         $scope.$apply(function () {
+         $location.path('/admin/');
+         });
+         })*/
+
       }
     };
 
