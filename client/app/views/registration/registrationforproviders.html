@@ -99,6 +99,21 @@
     </div>
 
     <div class="form-group">
+      <label for="fax">{{'fax' | translate}}</label>
+      <input name="fax"
+             ng-model="registrant.profile.fax"
+             class="input-block-level"
+             required
+             placeholder="{{ 'Your fax number' | translate }}"
+          >
+
+      <span ng-show="showError('fax', 'required')"
+            class="alert">{{'Please enter your fax number' | translate}}
+      </span>
+
+    </div>
+
+    <div class="form-group">
       <label for="firstname">{{'firstname' | translate}}</label>
       <input name="firstname"
              ng-model="registrant.profile.firstName"
@@ -143,7 +158,6 @@
 
     </div>
 
-
     <div class="form-group">
       <label for="address">{{'address' | translate}}</label>
       <input name="address"
@@ -175,6 +189,21 @@
     </div>
 
     <div class="form-group">
+      <label for="city">{{'city' | translate}}</label>
+      <input name="city"
+             ng-model="registrant.profile.city"
+             class="input-block-level"
+             required
+             placeholder="{{ 'Your city' | translate }}"
+          >
+
+      <span ng-show="showError('city', 'required')"
+            class="alert">{{'Please enter your city' | translate}}
+      </span>
+
+    </div>
+
+    <div class="form-group">
       <label for="country">{{'country' | translate}}</label>
       <input name="country"
              ng-model="registrant.profile.country"
@@ -189,9 +218,8 @@
 
     </div>
 
-
     <div class="form-group">
-      <label for="uid">{{'UID' | translate}}</label>
+      <label for="uid">{{'UID optional' | translate}}</label>
       <input name="uid"
              ng-model="registrant.profile.uid"
              class="input-block-level"
@@ -204,13 +232,13 @@
 
     </div>
 
-
     <div class="form-group">
       <label for="contactpersonname">{{'name of contact person' | translate}}</label>
       <input name="contactpersonname"
              ng-model="registrant.profile.contactperson.name"
              class="input-block-level"
              placeholder="{{ 'Name of contact person' | translate }}"
+             required
           >
 
       <span ng-show="showError('contactpersonname', 'required')"
@@ -218,8 +246,6 @@
       </span>
 
     </div>
-
-
 
     <div>
       <button class="btn"

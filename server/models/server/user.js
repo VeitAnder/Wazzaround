@@ -50,7 +50,10 @@ UserModel.operationImpl("register", function (params, req) {
   var user = models.UserModel.create();
   user.email = params.email.toLowerCase();
   user.password = params.password;
-  user.profile = params.profile;
+  if (params.profile){
+    user.profile = params.profile;
+  }
+
 
   // save the new user
   return Q()

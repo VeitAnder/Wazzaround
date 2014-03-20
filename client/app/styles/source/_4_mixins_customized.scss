@@ -334,6 +334,9 @@ footer {
   border-bottom: none;
   .bookableitem-add & {
   }
+  label{
+    color: $color_grey_25;
+  }
   .cell {
     padding-top: 0;
     padding-bottom: 0;
@@ -345,9 +348,6 @@ footer {
       padding-right: 0;
       @include clearfix;
     }
-  }
-  label {
-    display: none;
   }
 
   .buttonbar {
@@ -1773,11 +1773,11 @@ $img-selector-imgsize: 150px;
 
 .language-tabs{
   @include language-flags;
-  margin-bottom: $fs*0.5;
+  @include border(bottom, $color_grey_50);
+  margin-bottom: $fs*0.25;
   ul{
-    @include border(bottom, $color_grey_50);
     @include clearfix;
-    li{
+      li{
       margin-bottom: -1px;
     }
   }
@@ -1801,11 +1801,35 @@ $img-selector-imgsize: 150px;
       }
     }
   }
+
+
+  .bookableitem-header &{
+    border-color: $color_grey_25;
+    margin-bottom: $fs*0.25 - 2px;
+    a{
+      span{
+        width: 23px;
+        height: 14px;
+        border: 1px solid $color_grey_50;
+      }
+      &:hover{
+        background-color: $color_grey_50;
+        border-color: $color_grey_50;
+        border-bottom-color: $color_grey_25;
+      }
+    }
+    .active a {
+      background-color: $color_grey_75;
+      border-color: $color_grey_25;
+      border-bottom-color: transparent;
+    }
+  }
 }
 
 label+.language-tabs{
-  margin-top: -24px;
-  li{
+  @include clearfix;
+  margin-top: -26px;
+  ul{
     float: right;
   }
 }
@@ -1888,7 +1912,7 @@ label+.language-tabs{
 .ta-root {
   display: block;
   @include border-radius($border-radius_small);
-  border: 1px solid $color_grey_25;
+  border: 1px solid $color_input_border;
 
   .btn-default {
     font-size: 14px;
