@@ -56,6 +56,12 @@ var models = function () {
     currentUser: Factory()
   });
 
+//  var EventModel = new model("events", {
+//    start: Attr(Type.date),
+//    duration: Attr(Type.number),
+//    quantity: Attr(Type.number)
+//  });
+
   var BookableItemModel = new model("bookableItems", {
     description: {
       en: Attr(Type.string),
@@ -64,13 +70,12 @@ var models = function () {
     },
     price: Attr(Type.number),
 
-    events: [  // TODO: this sucks - refactor in own Model
-      {
-        start: Attr(Type.date),
-        duration: Attr(Type.number),
-        quantity: Attr(Type.number)
-      }
-    ],
+//    events: RefArray(EventModel),
+    events : [{
+      start: Attr(Type.date),
+      duration: Attr(Type.number),
+      quantity: Attr(Type.number)
+    }],
 
     owner: Ref(UserModel),
 
@@ -159,8 +164,7 @@ var models = function () {
     "expires": Attr(Type.date),
     "user": Ref(UserModel),
     "sendReactivation": Operation(),
-    "setNewPassword": Operation() // TODO password encrypted?
-
+    "setNewPassword": Operation()
   });
 
   return {
@@ -169,7 +173,8 @@ var models = function () {
     CategoryModel: CategoryModel,
     BookableItemModel: BookableItemModel,
     BookingModel: BookingModel,
-    AccesstokenModel: AccesstokenModel
+    AccesstokenModel: AccesstokenModel,
+//    EventModel: EventModel
   };
 }();
 

@@ -45,10 +45,11 @@ var initModelizer = function (app) {
 //  models.CategoryModel.serve();
 
   // apply server model
-  require('../models/serverModel.js');
   require('../models/server/booking');
   require('../models/server/bookableItem');
   require('../models/server/user');
+  require('../models/server/activity');
+  require('../models/server/accesstoken')
 
 };
 

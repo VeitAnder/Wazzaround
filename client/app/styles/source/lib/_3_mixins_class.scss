@@ -1563,6 +1563,7 @@ input[type="checkbox"]:focus {
 @mixin input_label {
   display: block;
   @include font-size_small;
+  line-height: 21px;
   margin-right: 5px;
   color: $color_input_text;
   vertical-align: bottom;

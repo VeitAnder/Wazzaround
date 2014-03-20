@@ -1,11 +1,23 @@
+/**
+ * Created by jonathan on 20.03.14.
+ */
+
+
+
 var Q = require('q');
 var moment = require('moment');
 var ObjectId = require('mongojs').ObjectId;
 var _ = require('lodash');
 
-var models = require('../models/models.js');
+var models = require('../models.js');
+var ActivityModel = require('../models.js').ActivityModel;
 
-models.ActivityModel.readFilter(function (req) {
+
+///////////////////////
+// read/write filters
+
+
+ActivityModel.readFilter(function (req) {
   // allow global read access
 
   if (req.session.auth) {  // if logged in
@@ -16,7 +28,7 @@ models.ActivityModel.readFilter(function (req) {
   //return true;
 });
 
-models.ActivityModel.writeFilter(function (doc, req) {
+ActivityModel.writeFilter(function (doc, req) {
   if (!req.session.auth) {
     return false;  // if not logged in don't allow write operations
   }
@@ -37,7 +49,12 @@ models.ActivityModel.writeFilter(function (doc, req) {
 });
 
 
-models.ActivityModel.factoryImpl("getMyActivities", function (params, req) {
+
+///////////////////////
+// Operation Impl.
+
+
+ActivityModel.factoryImpl("getMyActivities", function (params, req) {
   if (!req.session.auth) {
     return false;  // if not logged operation not allowed
   }
@@ -46,7 +63,7 @@ models.ActivityModel.factoryImpl("getMyActivities", function (params, req) {
 });
 
 
-models.ActivityModel.factoryImpl("getActivitiesFilterByTime", function (params, req) {
+ActivityModel.factoryImpl("getActivitiesFilterByTime", function (params, req) {
   console.log("getActivitiesFilterByTime called", params.activitiesIds);
 
   var activities = _.map(params.activitiesIds, function (el) {
@@ -110,82 +127,3 @@ models.ActivityModel.factoryImpl("getActivitiesFilterByTime", function (params, 
     });
 
 });
-
-var token = require('token.js');
-var mail = require('../lib/mail.js');
-models.AccesstokenModel.operationImpl("sendReactivation", function (params, req) {
-  var tokenObj = models.AccesstokenModel.create();
-  tokenObj.token = token(32);
-  tokenObj.expires = moment().add('days', 1).toDate();
-
-  return models.UserModel.find({ email: params.email })
-    .then(function (users) {
-      console.log("GOT USERS", users);
-      if (users.length !== 1) {
-        throw new Error("User not found");
-      }
-      return users[0];
-    })
-
-    .then(function (user) {
-      tokenObj.user.setObject(user);
-      tokenObj.save();
-      return tokenObj;
-    })
-
-    .then(function (tokenObj) {
-      return mail.sendResetPasswordMail(tokenObj.user.ref(), tokenObj.token);
-    })
-
-    .then(function () {
-      return { "status": "OK" };
-    });
-
-});
-
-models.AccesstokenModel.operationImpl("setNewPassword", function (params, req) {
-
-  // got token and user email and pwd in params
-  return models.AccesstokenModel.find({ token: params.token })
-    .then(function (tokenObjs) {
-      console.log("Found token Objs for provided token", tokenObjs);
-      if (tokenObjs.length !== 1) {
-        throw new Error("No tokens found for token id", params.token);
-      }
-      return tokenObjs[0];
-    })
-
-    .then(function (tokenObj) {
-      console.log("Found one tokenObj", tokenObj);
-      // check expiration date, if it's today or before, its already expired
-      if (moment(tokenObj.expires).isBefore(new Date(), 'day')) {
-        throw new Error("This token has expired and cannot be used for setting a new password", tokenObj);
-      }
-      return tokenObj.user.load();
-    })
-
-    .then(function (user) {
-      console.log("Found user", user);
-      // token validieren ob es für diesen user ist
-      if (user.email === params.email) {
-        // reset password
-        user.password = params.password;
-        return user.save();
-      } else {
-        throw new Error("Authorization went wrong, accesstoken and user dont match");
-      }
-    })
-
-    .then(function () {
-      console.log("AFTER SAVING USER");
-      // remove accesstoken after setting new password
-//      return models.AccesstokenModel.remove({ token: params.token });    TODO  Jonathan fragen warum das nicht geht
-//    })
-
-//    .then(function () {
-//      console.log("AFTER ALL DONE");
-      return { "status": "OK" };
-    });
-});
-
-
