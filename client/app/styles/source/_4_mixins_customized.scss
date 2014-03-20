@@ -1711,7 +1711,7 @@ $img-selector-imgsize: 150px;
     height: 12px + 4px + 2px;
     padding: 1px;
     background-color: $color_white;
-    border: 2px solid $color_grey_15;
+    border: 2px solid transparent;
     @include hovercursor;
     @include border-radius($border-radius_small);
     &:hover{
