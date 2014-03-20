@@ -132,20 +132,3 @@ exports.isUserProjectAdminOrProjectOwner = function (userid, projectid) {
       return Q.reject(new restify.errors.NotAuthorizedError("Error while testing user access for " + userid + " (Err: " + err + ")"));
     });
 };
-
-exports.isUserPlanfredUser = function (userid) {
-  return Users.findOneQ({
-    _id: userid
-  })
-
-    .then(function (user) {
-      if (user !== null) {
-        return Q.resolve();
-      }
-      return Q.reject(new restify.errors.NotAuthorizedError("User " + userid + " is not in Planfred DB."));
-
-    })
-    .fail(function (err) {
-      return Q.reject(new restify.errors.NotAuthorizedError("Error while testing user access for " + userid + "Err: " + err));
-    });
-};

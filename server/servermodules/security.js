@@ -1,7 +1,7 @@
 var express = require('express');
 
 // allow Cross Origin Requests for development on localhost
-// yeoman grunt serve runs on port 9000, planfred REST API on port 3000
+// yeoman grunt serve runs on port 9000, reacture REST API on port 3000
 var allowCors = function (app) {
   app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Credentials', true);

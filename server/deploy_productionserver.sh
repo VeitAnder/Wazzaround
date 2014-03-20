@@ -19,7 +19,7 @@ MODULUS_APPNAME=reactureapp
 #
 # check if secret config file is accessible
 if [ ! -f ${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} ]; then
-    echo "${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} file not found! Not ready to deploy. Check your planfred truecrypt volume to be mounted."
+    echo "${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} file not found! Not ready to deploy. Check your reacture truecrypt volume to be mounted."
     exit 0
 fi
 

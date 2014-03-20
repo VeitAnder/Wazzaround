@@ -162,13 +162,13 @@ describe('Testing with simulated login', function () {
   });
 
   // app.post('/' + config.api.apiversion + 'users/mail/support/', mail.sendSupportMail);
-  it("TEST 7: should not be possible to send support mail with an email address that is not the one you used for Planfred registration", function (done) {
+  it("TEST 7: should not be possible to send support mail with an email address that is not the one you used for reacture registration", function (done) {
     console.log("TEST 7");
 
     var body = {
       info: {
         user: {
-          email: "planfredtesterin@anorak.io"
+          email: "reacturetesterin@anorak.io"
         }
       },
       text: "Ich schicke jetzt ein testmail aus den automatisierten Tests",
@@ -190,7 +190,7 @@ describe('Testing with simulated login', function () {
   });
 
   // app.post('/' + config.api.apiversion + 'users/mail/support/', mail.sendSupportMail);
-  it("TEST 8: should be possible to send support mail as Planfred user", function (done) {
+  it("TEST 8: should be possible to send support mail as reacture user", function (done) {
     console.log("TEST 8");
 
     var body = {
@@ -296,7 +296,7 @@ describe('Testing with simulated login', function () {
   });
 
   //app.get('/' + config.api.apiversion + 'projects/new/', projects.newprojectmodel); // get new project model - not stored yet
-  it("TEST 12: should be possible to get a new project model if you are a logged in planfred user", function (done) {
+  it("TEST 12: should be possible to get a new project model if you are a logged in reacture user", function (done) {
     console.log("TEST 12");
     request(testapp)
       .get("/api/v1/projects/new/")
@@ -537,7 +537,7 @@ describe('Testing with simulated login', function () {
   });
 
   // app.post('/' + config.api.apiversion + 'projects', projects.add);
-  it("TEST 22: should be possible to add a new project if you are a planfred user", function (done) {
+  it("TEST 22: should be possible to add a new project if you are a reacture user", function (done) {
     console.log("TEST 22");
     var project = helper.createTestProjectObject();
     project.participants = [
@@ -2297,9 +2297,9 @@ describe('Testing with simulated login', function () {
  TODO should not be possible to set password to empty string
 
  app.post('/' + config.api.apiversion + 'users/mail/support/', mail.sendSupportMail);
- DONE should not be possible to send support mail with an email address that is not the one you used for Planfred registration
- DONE should be possible to send support mail as planfred user
- TODO should not be possible to send if you are no planfred user, maybe duplicate of first DONE
+ DONE should not be possible to send support mail with an email address that is not the one you used for reacture registration
+ DONE should be possible to send support mail as reacture user
+ TODO should not be possible to send if you are no reacture user, maybe duplicate of first DONE
 
  // projects
  app.get('/' + config.api.apiversion + 'projects/', projects.findAll);
@@ -2308,7 +2308,7 @@ describe('Testing with simulated login', function () {
  DONE should be possible to get all projects where you are participant with permission owner
 
  app.get('/' + config.api.apiversion + 'projects/new/', projects.newprojectmodel);
- DONE should be possible to get a new project model if you are a logged in planfred user
+ DONE should be possible to get a new project model if you are a logged in reacture user
 
  app.get('/' + config.api.apiversion + 'projects/:id', projects.findById);
  DONE should not be possible to find project with wrong id
@@ -2327,7 +2327,7 @@ describe('Testing with simulated login', function () {
  TODO validate roles, e.g. no empty roles
 
  app.post('/' + config.api.apiversion + 'projects', projects.add);
- DONE should be possible to add a new project if you are a planfred user
+ DONE should be possible to add a new project if you are a reacture user
  DONE should not be possible to add invalid project (without title)
  TODO should not be possible to add a project if you are not paying, not implemented yet
 
