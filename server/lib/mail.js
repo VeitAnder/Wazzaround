@@ -243,14 +243,14 @@ exports.sendResetPasswordMail = function (user, token) {
     data: {
       user: user,
       token: token,
-      resetpwdurl: config.clienthost + "registration/forgotpassword/" + token + "/" + user.username + "/",
+      resetpwdurl: config.clienthost + "registration/forgotpassword/" + token + "/" + user.email + "/",
       template: {
         resetpassword: true
       }
     },
     postmarkmail: {
       "From": config.postmark.from,
-      "To": user.username, // TODO in reacture email is saved under "username"
+      "To": user.email,
       "Subject": "Reacture - reset your password",
       "Tag": "resetpassword",
       "ReplyTo": config.postmark.replyto

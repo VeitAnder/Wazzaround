@@ -23,7 +23,8 @@ angular.module('anorakApp')
       $scope.state.submitted = true;
 
       if ($scope.valForm.$valid) {
-        currentUser.register($scope.registrant.email)
+        var password = CryptoJS.SHA256($scope.registrant.password).toString(CryptoJS.enc.Base64);
+        currentUser.register($scope.registrant.email, password)
           .then(function () {
             // http://stackoverflow.com/questions/19499323/location-path-doesnt-change-in-a-factory-with-angularjs
             $scope.$apply(function () {

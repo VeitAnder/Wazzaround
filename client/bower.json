@@ -21,7 +21,8 @@
     "dropzone": "https://github.com/maximilianschmid/dropzone-patched.git",
     "cloudinary-client": "https://github.com/maximilianschmid/cloudinary-client.git",
     "angular-translate": "2.0.1",
-    "angular-translate-storage-local": "2.0.0"
+    "angular-translate-storage-local": "2.0.0",
+    "cryptojslib": "~3.1.2"
   },
   "devDependencies": {
     "angular-mocks": "1.2.14",
