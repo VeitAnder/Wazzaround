@@ -48,7 +48,6 @@ UserModel.writeFilter(function (userDoc, req) {
 // setup Operations for the model to register an user
 UserModel.operationImpl("register", function (params, req) {
   var user = models.UserModel.create();
-  if (params.username) throw new Error("username muss durch email ersetzt werden!!!!");  // TODO
   user.email = params.email.toLowerCase();
   user.password = params.password;
   user.profile = params.profile;
