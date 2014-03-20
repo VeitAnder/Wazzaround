@@ -18,8 +18,21 @@
          class="form-control"
          id="name"
          placeholder="i.e. Quad Tours (250ccm, 550ccm, 750ccm)"
-         ng-model="activity.name"
+         ng-model="activity.name.en"
       >
+  de
+  <input type="text"
+         class="form-control"
+         placeholder="Enter name of activity"
+         ng-model="activity.name.de"
+      >
+    it
+  <input type="text"
+         class="form-control"
+         placeholder="Enter name of activity"
+         ng-model="activity.name.it"
+      >
+  <p>Example: Quad 250cc, Quad 500cc and Quad 750cc</p>
 </div>
 
     <div class="form-group">
@@ -27,7 +40,7 @@
       <input type="text"
              class="form-control"
              id="company"
-             placeholder="Your company name"
+             placeholder="Enter company "
              ng-model="activity.company"
           >
     </div>
@@ -133,7 +146,20 @@
 
   <text-angular
       ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
-      ng-model="activity.description"
+      ng-model="activity.description.en"
+      >
+  </text-angular>
+
+  de
+  <text-angular
+      ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
+      ng-model="activity.description.de"
+      >
+  </text-angular>
+    it
+  <text-angular
+      ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
+      ng-model="activity.description.it"
       >
   </text-angular>
 </div>
@@ -250,9 +276,21 @@
     <label for="itemDescription">Description</label>
     <input type="text"
            class="form-control"
+           placeholder="Description of the Item"
+           ng-model="bookableItem.ref().description.en"
+        >
+    de
+    <input type="text"
+           class="form-control"
+           placeholder="Description of the Item"
+           ng-model="bookableItem.ref().description.de"
+        >
+    it
+    <input type="text"
+           class="form-control"
+           ng-model="bookableItem.ref().description.it"
            id="itemDescription"
            placeholder="i.e. 4 hour tour (500ccm)"
-           ng-model="bookableItem.ref().description"
         >
 
   </div>
