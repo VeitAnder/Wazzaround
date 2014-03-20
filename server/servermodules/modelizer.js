@@ -49,7 +49,7 @@ var initModelizer = function (app) {
   require('../models/server/bookableItem');
   require('../models/server/user');
   require('../models/server/activity');
-  require('../models/server/accesstoken')
+  require('../models/server/accesstoken');
 
 };
 
