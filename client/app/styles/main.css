@@ -4944,7 +4944,8 @@ footer {
     fieldset .language-tabs .active a {
       background-color: #f7f7f7; }
   .bookableitem-header .language-tabs {
-    border-color: #d9d9d9; }
+    border-color: #d9d9d9;
+    margin-bottom: 2px; }
     .bookableitem-header .language-tabs a span {
       width: 23px;
       height: 14px;

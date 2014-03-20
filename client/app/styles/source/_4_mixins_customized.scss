@@ -1805,6 +1805,7 @@ $img-selector-imgsize: 150px;
 
   .bookableitem-header &{
     border-color: $color_grey_25;
+    margin-bottom: $fs*0.25 - 2px;
     a{
       span{
         width: 23px;
