@@ -34,15 +34,6 @@ angular.module('services.authentication.current-user', [])
           });
       },
 
-      register: function (email, password) {
-        return models.UserModel.register({
-          email: email,
-          password: password
-        })
-          .then(function (res) {
-            return currentUser.login(email, password);
-          });
-      },
 
       logout: function () {
         return models.UserModel.logout()
