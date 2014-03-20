@@ -2089,7 +2089,8 @@ legend {
   font-weight: 600; }
 
 .pwdvalidation {
-  display: block; }
+  display: block;
+  margin-bottom: 0; }
   .pwdvalidation h6 {
     margin-bottom: 8px; }
   .pwdvalidation ul li {

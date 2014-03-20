@@ -1626,7 +1626,8 @@ legend {
 }
 
 .pwdvalidation {
-  display:block;
+  display: block;
+  margin-bottom: 0;
   h6{
     margin-bottom: $fs*$font-size_h6_factor*0.5;
   }
