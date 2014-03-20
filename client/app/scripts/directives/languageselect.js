@@ -7,8 +7,11 @@ angular.module('anorakApp')
       restrict: 'E',
       replace: true,
       link: function postLink(scope, element, attrs) {
+        scope.activelanguage = $translate.use();
+
         scope.changeLanguage = function (langKey) {
           $translate.use(langKey);
+          scope.activelanguage = $translate.use();
         };
       }
     };
