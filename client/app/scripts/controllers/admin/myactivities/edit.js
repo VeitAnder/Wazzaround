@@ -13,7 +13,14 @@ angular.module('anorakApp')
       $scope.newMode = false;
     }
 
-    $scope.state = {};
+    $scope.state = {
+      formfieldslanguage: {
+        name: {
+
+        }
+      }
+    };
+
 
 
     $scope.createEventSeries = function (item, event) {

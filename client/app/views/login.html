@@ -68,13 +68,21 @@
           ng-click="login()">{{ 'Login' | translate }}
     </button>
 
-  <p>
-    <a href="#/registration">
+    <a ng-href="#/registration"
+        class="space-left">
       {{ 'Not registered' | translate }}</a> |
-    <a href="#/registration/registrationforproviders">
-      {{ 'Not registered as Provider' | translate }}</a> |
-    <a href="#/registration/forgotpassword">
+    <a ng-href="#/registration/forgotpassword">
       {{ 'Forgot password' | translate }}</a>
-  </p>
+
+  <div class="divider"></div>
+
+  <div class="contentbox contentbox-green">
+    <h6 class="no-margin-bottom">You want to put <u>your Activities</u> to reActure?</h6>
+    <a ng-href="#/registration/registrationforproviders"
+       class="btn"
+        >
+      {{ 'Not registered as Provider' | translate }}
+    </a>
+  </div>
 
 </form>
