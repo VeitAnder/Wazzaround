@@ -2024,6 +2024,8 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
 
 .form-group {
   padding: 10px 0; }
+  .form-group .btn {
+    margin-top: 8px; }
 
 .input_label, label {
   display: block;
