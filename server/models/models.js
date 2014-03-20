@@ -39,10 +39,6 @@ var models = function () {
       country: Attr(Type.string),
       contactperson: {
         name: Attr(Type.string)
-      },
-      location: {
-        longitude: Attr(Type.number),
-        latitude: Attr(Type.number)
       }
     },
 

@@ -53,6 +53,7 @@ UserModel.operationImpl("register", function (params, req) {
   user.password = params.password;
   user.profile = params.profile;
 
+
   // save the new user
   return Q()
     .then(function () {
