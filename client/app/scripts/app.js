@@ -359,7 +359,38 @@ angular.module('anorakApp')
       'Secure': 'Secure',
       'booking': 'booking',
       'Quality managment': 'Quality managment',
-      'through administrated rating system': 'through administrated rating system'
+      'through administrated rating system': 'through administrated rating system',
+      // registration/index.html
+      'Registration': 'Registration',
+      'Please enter your e-mail address.': 'Please enter your e-mail address.',
+      'Please enter a valid e-mail address.': 'Please enter a valid e-mail address.',
+      'Password must meet the following requirements:': 'Password must meet the following requirements:',
+      'At least': 'At least',
+      'one uppercase letter': 'one uppercase letter',
+      'one number': 'one number',
+      '8 characters long': '8 characters long',
+      'Retype Password': 'Retype Password',
+      'Please retype the password.': 'Please retype the password.',
+      'The passwords have to match.': 'The passwords have to match.',
+      'back to login': 'back to login',
+      // registration/forgotpassword/setpassword.html
+      'Enter your new password': 'Enter your new password',
+      'New Password': 'New Password',
+      'Password must meet the following requirements': 'Password must meet the following requirements:',
+      'Repeat new password': 'Repeat new password',
+      "Passwords don't match": "Passwords don't match.",
+      'Please fill out this field' : 'Please fill out this field.',
+      'Save new password': 'Save new password',
+      'The new password was successfully saved': 'The new password was successfully saved.',
+      'An error happened. The new password could not be saved': 'An error happened. The new password could not be saved.',
+      'password requirements' : 'The password has to contain at least one capital letter, one number and has to have a minimum length of 8.',
+      'Your new password': 'Your new password',
+      'Retype your new password': 'Retype your new password',
+      // registration/forgotpassword/index.html
+      'Request a link to reset your password': 'Request a link to reset your password',
+      'The link to reset your password was successfully sent to': 'The link to reset your password was successfully sent to',
+      'This user does not exist. Check if the email address is correct': 'This user does not exist. Check if the email address is correct.',
+      'An error happened. The email to reset your password could not be sent': 'An error happened. The email to reset your password could not be sent.'
     });
 
     $translateProvider.translations('de', {
@@ -434,7 +465,38 @@ angular.module('anorakApp')
       'Secure': 'Sicheres',
       'booking': 'Buchen',
       'Quality managment': 'Qualitätsmanagement',
-      'through administrated rating system': 'durch ein administriertes Bewertungssystem'
+      'through administrated rating system': 'durch ein administriertes Bewertungssystem',
+      // registration/index.html
+      'Registration': 'Registrierung',
+      'Please enter your e-mail address.': 'Bitte geben Sie Ihre E-Mail Adresse ein.',
+      'Please enter a valid e-mail address.': 'Bitte geben Sie eine gültige E-Mail Adresse ein.',
+      'Password must meet the following requirements:': 'Das Passwort muss folgende Kriterien erfüllen:',
+      'At least': 'Mindestens',
+      'one uppercase letter': 'ein Großbuchstabe',
+      'one number': 'eine Zahl',
+      '8 characters long': 'eine Länge von 8',
+      'Retype Password': 'Passwort wiederholen',
+      'Please retype the password.': 'Bitte geben Sie das Passwort nochmals ein.',
+      'The passwords have to match.': 'Die Passwörter müssen übereinstimmen.',
+      'back to login': 'Zurück zum Login',
+      // registration/forgotpassword/setpassword.html
+      'Enter your new password': 'Geben Sie Ihr neues Passwort ein',
+      'New Password': 'Neues Passwort',
+      'Password must meet the following requirements': 'Das Passwort muss folgende Kriterien erfüllen:',
+      'Repeat new password': 'Passwort wiederholen',
+      "Passwords don't match": 'Die Passwörter stimmen nicht überein.',
+      'Please fill out this field' : 'Bitte füllen Sie dieses Feld aus.',
+      'Save new password': 'Neues Passwort speichern',
+      'The new password was successfully saved': 'Das neue Passwort wurde erfolgreich gespeichert.',
+      'An error happened. The new password could not be saved': 'Es gab einen Fehler. Das neue Passwort konnte nicht erfolgreich gespeichert werden.',
+      'password requirements' : 'Das Passwort muss zumindest einen Großbuchstaben und eine Zahl enthalten, und aus mindestens 8 Zeichen bestehen.',
+      'Your new password': 'Ihr neues Passwort',
+      'Retype your new password': 'Wiederholen Sie Ihr neues Passwort',
+      // registration/forgotpassword/index.html
+      'Request a link to reset your password': 'Request a link to reset your password',
+      'The link to reset your password was successfully sent to': 'Der Link zum Zurücksetzen des Passworts wurde erfolgreich gesendet an',
+      'This user does not exist. Check if the email address is correct': 'Dieser Account existiert nicht. Überprüfen Sie, ob die E-Mail Adresse stimmt.',
+      'An error happened. The email to reset your password could not be sent': 'Es gab einen Fehler. Der Link zum Zurücksetzen Ihres Passworts konnte nicht versendet werden'
     });
 
     $translateProvider.translations('it', {
@@ -509,7 +571,39 @@ angular.module('anorakApp')
       'Secure': '',
       'booking': '',
       'Quality managment': '',
-      'through administrated rating system': ''
+      'through administrated rating system': '',
+      // registration/index.html
+      'Registration': '',
+      'Please enter your e-mail address.': '',
+      'Please enter a valid e-mail address.': '',
+      'Password must meet the following requirements:': '',
+      'At least': '',
+      'one uppercase letter': '',
+      'one number': '',
+      '8 characters long': '',
+      'Retype Password': '',
+      'Please retype the password.': '',
+      'The passwords have to match.': '',
+      'back to login': '',
+      // registration/forgotpassword/setpassword.html
+      'Enter your new password': '',
+      'New Password': '',
+      'Password must meet the following requirements': '',
+      'Repeat new password': '',
+      "Passwords don't match": '',
+      'Please fill out this field' : '',
+      'Save new password': '',
+      'The new password was successfully saved': '',
+      'An error happened. The new password could not be saved': '',
+      'password requirements' : '',
+      'Your new password': '',
+      'Retype your new password': '',
+      // registration/forgotpassword/index.html
+      'Request a link to reset your password': '',
+      'The link to reset your password was successfully sent to': '',
+      'This user does not exist. Check if the email address is correct': '',
+      'An error happened. The email to reset your password could not be sent': 'An error happened. The email to reset your password could not be sent.'
+
     });
 
 //    $translateProvider.preferredLanguage('en');

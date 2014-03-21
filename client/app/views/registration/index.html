@@ -4,9 +4,9 @@
         novalidate
       >
 
-    <h2>Account</h2>
+    <h2>{{ 'Account' | translate }}</h2>
 
-    <h3>Registration</h3>
+    <h3>{{ 'Registration' | translate }}</h3>
 
     <div class="form-group">
       <label for="email">E-mail</label>
@@ -20,15 +20,15 @@
           >
 
       <span ng-show="showError('email', 'required')"
-            class="alert">Please enter your e-mail address.
+            class="alert">{{ 'Please enter your e-mail address.' | translate }}
       </span>
       <span ng-show="showError('email', 'pattern')"
-            class="alert alert-error">Please enter a valid e-mail address.
+            class="alert alert-error">{{ 'Please enter a valid e-mail address.' | translate }}
       </span>
 
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
+      <label for="password">{{ 'Password' | translate }}</label>
       <input name="password"
              id="password"
              type="password"
@@ -39,29 +39,29 @@
              placeholder="Define your password"
           >
       <div class="contentbox pwdvalidation">
-        <h6>Password must meet the following requirements:</h6>
+        <h6>{{ 'Password must meet the following requirements:' | translate }}</h6>
         <ul>
           <li ng-class="pwdHasUppercaseLetter">
             <span class="icon"></span>
-            {{pwdHasUppercaseLetter}} At least
-            <strong>one uppercase letter</strong>
+            {{pwdHasUppercaseLetter}} {{ 'At least' | translate }}
+            <strong>{{ 'one uppercase letter' | translate }}</strong>
           </li>
           <li ng-class="pwdHasNumber">
             <span class="icon"></span>
-            {{pwdHasNumber}} At least
-            <strong>one number</strong>
+            {{pwdHasNumber}} {{ 'At least' | translate }}
+            <strong>{{ 'one number' | translate }}</strong>
           </li>
           <li ng-class="pwdValidLength">
             <span class="icon"></span>
-            {{pwdValidLength}} At least
-            <strong>8 characters long</strong>
+            {{pwdValidLength}} {{ 'At least' | translate }}
+            <strong>{{ '8 characters long' | translate }}</strong>
           </li>
         </ul>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="passwordRepeat">Retype Password</label>
+      <label for="passwordRepeat">{{ 'Retype Password' | translate }}</label>
       <input name="passwordRepeat"
              id="passwordRepeat"
              type="password"
@@ -73,11 +73,11 @@
           >
 
       <span ng-show="showError('passwordRepeat', 'required')"
-            class="alert">Please retype the password.
+            class="alert">{{ 'Please retype the password.' | translate }}
       </span>
 
       <span ng-show="showError('passwordRepeat', 'repeat')"
-            class="alert alert-error">The passwords have to match.
+            class="alert alert-error">{{ 'The passwords have to match.' | translate }}
       </span>
 
     </div>
@@ -85,11 +85,11 @@
       <button class="btn"
               ng-class="{disabled: valForm.$invalid}"
               type="submit"
-              ng-click="register()">Register
+              ng-click="register()">{{ 'Register' | translate }}
       </button>
 
       <a class="space-left"
-         ng-click="gotoLogin()">back to login
+         ng-click="gotoLogin()">{{ 'back to login' | translate }}
       </a>
     </div>
 
