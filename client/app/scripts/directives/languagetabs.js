@@ -7,15 +7,13 @@ angular.module('anorakApp')
       restrict: 'E',
       replace: true,
       scope: {
-        formfield: "="
+        formfieldlanguage: "="
       },
       link: function postLink(scope, element, attrs) {
-        scope.formfield = $translate.use();
+        scope.formfieldlanguage = $translate.use();
         scope.changeLanguage = function (langkey) {
-          scope.formfield = langkey;
+          scope.formfieldlanguage = langkey;
         };
-
-
       }
     };
   });
