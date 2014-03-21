@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .directive('languageselect', function ($translate) {
     return {
-      templateUrl: 'directives/languageselect.html',
+      templateUrl: 'views/directives/languageselect.html',
       restrict: 'E',
       replace: true,
       link: function postLink(scope, element, attrs) {

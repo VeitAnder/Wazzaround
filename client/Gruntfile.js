@@ -378,7 +378,7 @@ module.exports = function (grunt) {
       html2js: {
         app: {
           options: {
-            base: '<%= yeoman.app %>/views/'
+            base: '<%= yeoman.app %>/'
           },
           src: ['<%= yeoman.app %>/views/**/*.tpl.html', '<%= yeoman.app %>/views/**/*.html'],
           dest: '<%= yeoman.app %>/scripts/templates.js',

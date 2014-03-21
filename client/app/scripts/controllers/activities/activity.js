@@ -1,8 +1,12 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('ActivityCtrl', function ($scope, activity) {
-
-//    $scope.bookableItem = ac
+  .controller('ActivityPageCtrl', function ($scope, activity) {
+    $scope.getPagePartial = function () {
+      return 'views/activities/activity.html';
+    };
     $scope.activity = activity;
+  })
+  .controller('ActivityCtrl', function ($scope) {
+
   });

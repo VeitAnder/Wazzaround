@@ -1,10 +1,10 @@
 angular.module('anorakApp')
   .controller('ForgotPasswordPageCtrl', function ($scope, $route, $location) {
     'use strict';
-    var pagetemplate = 'registration/forgotpassword/index.html';
+    var pagetemplate = 'views/registration/forgotpassword/index.html';
 
     if ($route.current.params.email && $route.current.params.token) {
-      pagetemplate = 'registration/forgotpassword/setpassword.html';
+      pagetemplate = 'views/registration/forgotpassword/setpassword.html';
     }
 
     $scope.getPagePartial = function () {
