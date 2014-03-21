@@ -1584,11 +1584,37 @@ input[type="checkbox"]:focus {
 }
 
 .form-group {
+  vertical-align: top;
   padding: 10px 0;
   .btn{
     margin-top: $fs*0.5;
   }
 }
+
+.form-group-inline{
+  .form-group{
+    display: inline-block;
+    margin-left: -$fs*0.25;
+    &:first-child{
+      margin-left: 0;
+      margin-right: 5%;
+    }
+  }
+  &.form-group-inline-5050{
+    .form-group{
+      width: 47.5%;
+    }
+  }
+  &.form-group-inline-2575{
+    .form-group{
+      width: 72.5%;
+      &:first-child{
+        width: 22.5%;
+      }
+    }
+  }
+}
+
 
 @mixin input_label {
   display: block;
@@ -1626,7 +1652,8 @@ legend {
 }
 
 .pwdvalidation {
-  display:block;
+  display: block;
+  margin-bottom: 0;
   h6{
     margin-bottom: $fs*$font-size_h6_factor*0.5;
   }
