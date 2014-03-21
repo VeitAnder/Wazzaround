@@ -79,6 +79,7 @@ var models = function () {
   });
 
   var ActivityModel = new model("activities", {
+    inputlanguage: Attr(Type.string, Type.enum('en', 'de', 'it', 'manual')),
     name: {
       en: Attr(Type.string),
       de: Attr(Type.string),

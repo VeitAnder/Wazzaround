@@ -33,7 +33,9 @@ ActivityModel.writeFilter(function (doc, req) {
     return false;  // if not logged in don't allow write operations
   }
 
+  // admin is allowed to publish activity
   if (req.session.user.userType === 'admin') {
+    // set owner to current user
     doc.owner._reference = ObjectId(req.session.user._id);
     return true;  // allow global access to admin-user
   }
