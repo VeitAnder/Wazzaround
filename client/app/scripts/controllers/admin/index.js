@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .controller('AdminIndexCtrl', function ($scope, $location) {
     $scope.getPagePartial = function () {
-      return 'admin/index.html';
+      return 'views/admin/index.html';
     };
 
     $location.path("/admin/myactivities/");

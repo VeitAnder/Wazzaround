@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .directive('languagetabs', function ($translate) {
     return {
-      templateUrl: 'directives/languagetabs.html',
+      templateUrl: 'views/directives/languagetabs.html',
       restrict: 'E',
       replace: true,
       scope: {

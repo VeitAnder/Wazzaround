@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .directive('uploadform', function ($timeout, $http, APP_CONFIG) {
     return {
-      templateUrl: 'directives/uploadform.html',
+      templateUrl: 'views/directives/uploadform.html',
       restrict: 'E',
       scope: {
         images: "="

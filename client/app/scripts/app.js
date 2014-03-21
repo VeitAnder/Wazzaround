@@ -66,7 +66,7 @@ angular.module('anorakApp')
     //if no route specified, go to default route
     $routeProvider
       .when('/', {
-        templateUrl: 'index.html',
+        templateUrl: 'views/index.html',
         controller: 'indexCtrl',
         resolve: {
           categories: ['models', function (models) {
@@ -109,35 +109,35 @@ angular.module('anorakApp')
       })
       .
       when('/registration', {
-        templateUrl: 'page_basetemplate.html',
+        templateUrl: 'views/page_basetemplate.html',
         controller: 'RegistrationPageCtrl'
       })
       .when('/registration/registrationforproviders', {
-        templateUrl: 'page_basetemplate.html',
+        templateUrl: 'views/page_basetemplate.html',
         controller: 'RegistrationRegistrationforprovidersPageCtrl'
       })
       .when('/registration/forgotpassword/', {
-        templateUrl: 'page_basetemplate.html',
+        templateUrl: 'views/page_basetemplate.html',
         controller: 'ForgotPasswordPageCtrl'
       })
       .when('/registration/forgotpassword/:token/:email/', {
-        templateUrl: 'page_basetemplate.html',
+        templateUrl: 'views/page_basetemplate.html',
         controller: 'ForgotPasswordPageCtrl'
       })
       .when('/legalnotes', {
-        templateUrl: 'page_basetemplate.html',
+        templateUrl: 'views/page_basetemplate.html',
         controller: 'LegalnotesCtrl'
       })
       .when('/why', {
-        templateUrl: 'page_basetemplate.html',
+        templateUrl: 'views/page_basetemplate.html',
         controller: 'WhyCtrl'
       })
       .when('/workwithus', {
-        templateUrl: 'page_basetemplate.html',
+        templateUrl: 'views/page_basetemplate.html',
         controller: 'WorkwithusCtrl'
       })
       .when('/login', {
-        templateUrl: 'page_basetemplate.html',
+        templateUrl: 'views/page_basetemplate.html',
         controller: 'LoginCtrl',
         resolve: {
           resolveCurrentUser: ['currentUser', function (currentUser) {
@@ -146,7 +146,7 @@ angular.module('anorakApp')
         }
       })
       .when('/admin/myactivities/:id/edit', {
-        templateUrl: 'admin/admin_basetemplate.html',
+        templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
           categories: ['models', function (models) {
@@ -164,8 +164,8 @@ angular.module('anorakApp')
                 return Q.all(loadingBookableItems)
                   .then(function (items) {
                     var loadingEvents = [];
-                    _.forEach(items, function(item){
-                      _.forEach(item.events, function(event) {
+                    _.forEach(items, function (item) {
+                      _.forEach(item.events, function (event) {
                         console.log("event", event);
                         loadingEvents.push(event.load());              // 3. load events
                       });
@@ -173,7 +173,7 @@ angular.module('anorakApp')
 
                     return Q.all(loadingEvents);
                   })
-                  .then(function (events){
+                  .then(function (events) {
                     debug("loaded activity", activity);
                     return activity;  // return the activity, when all bookableItems have been loaded
                   });
@@ -186,7 +186,7 @@ angular.module('anorakApp')
         }
       })
       .when('/admin/myactivities/new', {
-        templateUrl: 'admin/admin_basetemplate.html',
+        templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesEditCtrl',
         resolve: {
           categories: ['models', function (models) {
@@ -198,7 +198,7 @@ angular.module('anorakApp')
         }
       })
       .when('/admin/myactivities/:id/', {
-        templateUrl: 'admin/admin_basetemplate.html',
+        templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesDetailCtrl',
         resolve: {
           activity: ['$route', 'models', function ($route, models) {
@@ -207,11 +207,11 @@ angular.module('anorakApp')
         }
       })
       .when('/admin/', {
-        templateUrl: 'admin/admin_basetemplate.html',
+        templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminIndexCtrl'
       })
       .when('/admin/myactivities/', {
-        templateUrl: 'admin/admin_basetemplate.html',
+        templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesIndexCtrl',
         resolve: {
           myActivitiesList: ['models', function (models) {
@@ -220,8 +220,7 @@ angular.module('anorakApp')
         }
       })
       .when('/admin/allActivities', {
-        //templateUrl: 'views/admin/allactivities.html',
-        templateUrl: 'admin/admin_basetemplate.html',
+        templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminAllactivitiesCtrl',
         resolve: {
           activities: ['models', function (models) {
@@ -230,7 +229,7 @@ angular.module('anorakApp')
         }
       })
       .when('/admin/allActivities/:id/', {
-        templateUrl: 'admin/admin_basetemplate.html',
+        templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesDetailCtrl',
         resolve: {
           activity: ['$route', 'models', function ($route, models) {
@@ -243,8 +242,8 @@ angular.module('anorakApp')
         controller: 'AdminEditprofileCtrl'
       })
       .when('/activities/:id/', {
-        templateUrl: 'views/activities/activity.html',
-        controller: 'ActivityCtrl',
+        templateUrl: 'views/page_basetemplate.html',
+        controller: 'ActivityPageCtrl',
         resolve: {     // TODO shall be included in Operator of Activitymodel!
           activity: ['$route', 'models', function ($route, models) {
             return models.ActivityModel.get($route.current.params.id)
@@ -263,8 +262,7 @@ angular.module('anorakApp')
               })
               .fail(function (err) {
                 console.log("Fail loading activities in the myactivities route", err);
-              })
-              ;
+              });
           }]
         }
       })
@@ -320,7 +318,7 @@ angular.module('anorakApp')
       'Hide all': 'Hide all',
       'Offered by': 'Offered by:',
       'Availability': 'Availability:',
-      'Next available Dates' : 'Next available Dates',
+      'Next available Dates': 'Next available Dates',
       'Book': 'Book',
       'Prev': 'Prev',
       'Show all Dates': 'Show all Dates',
@@ -333,9 +331,9 @@ angular.module('anorakApp')
       'Full day activities': 'Full day activities',
       'Winter Sports': 'Winter Sports',
       'Extreme Sports': 'Extreme Sports',
-      'Degustations: Wine & Food & Cigars' : 'Degustations: Wine & Food & Cigars',
-      'Exhibitions & Fairs' : 'Exhibitions & Fairs',
-      'Music & Film' : 'Music & Film',
+      'Degustations: Wine & Food & Cigars': 'Degustations: Wine & Food & Cigars',
+      'Exhibitions & Fairs': 'Exhibitions & Fairs',
+      'Music & Film': 'Music & Film',
       'Guided Tours': 'Guided Tours',
       'Opera & Theater': 'Opera & Theater',
       'Massages': 'Massages',
@@ -353,8 +351,8 @@ angular.module('anorakApp')
       'Not registered': 'Register as Customer',
       'Not registered as Provider': 'Not registered as provider yet?',
       'Forgot password': 'Forgot password?',
-      'Your e-mail address' : 'Your e-mail address',
-      'Your password' : 'Your password',
+      'Your e-mail address': 'Your e-mail address',
+      'Your password': 'Your password',
       // shoppingcart.html
       'Shopping Cart': 'Shopping Cart',
       // why.html
@@ -372,7 +370,7 @@ angular.module('anorakApp')
       'instant bookings': 'instant bookings',
       'from': 'from',
       'potential clients': 'potential clients',
-      'in your area' : 'in your area',
+      'in your area': 'in your area',
       'No fixed costs': 'No fixed costs',
       'provision based model': 'provision based model',
       'No reservation costs': 'No reservation costs',
@@ -399,11 +397,11 @@ angular.module('anorakApp')
       'Password must meet the following requirements': 'Password must meet the following requirements:',
       'Repeat new password': 'Repeat new password',
       "Passwords don't match": "Passwords don't match.",
-      'Please fill out this field' : 'Please fill out this field.',
+      'Please fill out this field': 'Please fill out this field.',
       'Save new password': 'Save new password',
       'The new password was successfully saved': 'The new password was successfully saved.',
       'An error happened. The new password could not be saved': 'An error happened. The new password could not be saved.',
-      'password requirements' : 'The password has to contain at least one capital letter, one number and has to have a minimum length of 8.',
+      'password requirements': 'The password has to contain at least one capital letter, one number and has to have a minimum length of 8.',
       'Your new password': 'Your new password',
       'Retype your new password': 'Retype your new password',
       // registration/forgotpassword/index.html
@@ -504,7 +502,7 @@ angular.module('anorakApp')
       'Hide all': 'Keine anzeigen',
       'Offered by': 'Angeboten von:',
       'Availability': 'Verfügbarkeit:',
-      'Next available Dates' : 'Nächste Verfügbarkeit',
+      'Next available Dates': 'Nächste Verfügbarkeit',
       'Book': 'Buchen',
       'Prev': 'Früher',
       'Show all Dates': 'Alle Verfügbarkeiten anzeigen',
@@ -517,9 +515,9 @@ angular.module('anorakApp')
       'Full day activities': 'Ganztagsaktivitäten',
       'Winter Sports': 'Wintersport',
       'Extreme Sports': 'Extremsport',
-      'Degustations: Wine & Food & Cigars' : 'Verkostungen: Wein & Delikatessen & Zigarren',
-      'Exhibitions & Fairs' : 'Ausstellungen & Messen',
-      'Music & Film' : 'Musik & Film',
+      'Degustations: Wine & Food & Cigars': 'Verkostungen: Wein & Delikatessen & Zigarren',
+      'Exhibitions & Fairs': 'Ausstellungen & Messen',
+      'Music & Film': 'Musik & Film',
       'Guided Tours': 'Führungen',
       'Opera & Theater': 'Oper & Theater',
       'Massages': 'Massagen',
@@ -537,8 +535,8 @@ angular.module('anorakApp')
       'Not registered': 'Noch nicht registriert?',
       'Not registered as Provider': 'Noch nicht als Aktivitätenanbieter registriert?',
       'Forgot password': 'Passwort vergessen?',
-      'Your e-mail address' : 'Ihre E-Mail Adresse',
-      'Your password' : 'Ihr Passwort',
+      'Your e-mail address': 'Ihre E-Mail Adresse',
+      'Your password': 'Ihr Passwort',
       // shoppingcart.html
       'Shopping Cart': 'Warenkorb',
       // why.html
@@ -583,11 +581,11 @@ angular.module('anorakApp')
       'Password must meet the following requirements': 'Das Passwort muss folgende Kriterien erfüllen:',
       'Repeat new password': 'Passwort wiederholen',
       "Passwords don't match": 'Die Passwörter stimmen nicht überein.',
-      'Please fill out this field' : 'Bitte füllen Sie dieses Feld aus.',
+      'Please fill out this field': 'Bitte füllen Sie dieses Feld aus.',
       'Save new password': 'Neues Passwort speichern',
       'The new password was successfully saved': 'Das neue Passwort wurde erfolgreich gespeichert.',
       'An error happened. The new password could not be saved': 'Es gab einen Fehler. Das neue Passwort konnte nicht erfolgreich gespeichert werden.',
-      'password requirements' : 'Das Passwort muss zumindest einen Großbuchstaben und eine Zahl enthalten, und aus mindestens 8 Zeichen bestehen.',
+      'password requirements': 'Das Passwort muss zumindest einen Großbuchstaben und eine Zahl enthalten, und aus mindestens 8 Zeichen bestehen.',
       'Your new password': 'Ihr neues Passwort',
       'Retype your new password': 'Wiederholen Sie Ihr neues Passwort',
       // registration/forgotpassword/index.html
@@ -689,7 +687,7 @@ angular.module('anorakApp')
       'Hide all': 'Nascondi tutto',
       'Offered by': 'Offerto da:',
       'Availability': 'Disponibilità:',
-      'Next available Dates' : 'Date prossime',
+      'Next available Dates': 'Date prossime',
       'Book': 'Prenota',
       'Prev': 'Prima',
       'Show all Dates': 'Mostra tutte le date',
@@ -702,9 +700,9 @@ angular.module('anorakApp')
       'Full day activities': 'Attività di giorno completo',
       'Winter Sports': 'Sport invernali',
       'Extreme Sports': 'Sport estremi',
-      'Degustations: Wine & Food & Cigars' : 'Degustazioni: Vino & Gastronomia & Sigari',
-      'Exhibitions & Fairs' : 'Mostre & Fiere',
-      'Music & Film' : 'Musica & Cinema',
+      'Degustations: Wine & Food & Cigars': 'Degustazioni: Vino & Gastronomia & Sigari',
+      'Exhibitions & Fairs': 'Mostre & Fiere',
+      'Music & Film': 'Musica & Cinema',
       'Guided Tours': 'Visite guidate',
       'Opera & Theater': 'Opera & Teatro',
       'Massages': 'Massaggi',
@@ -722,8 +720,8 @@ angular.module('anorakApp')
       'Not registered': 'Non registrata?',
       'Not registered as Provider': '?',
       'Forgot password': 'Dimenticato la password?',
-      'Your e-mail address' : 'Vostro indirizzo email',
-      'Your password' : 'Vostra password',
+      'Your e-mail address': 'Vostro indirizzo email',
+      'Your password': 'Vostra password',
       // shoppingcart.html
       'Shopping Cart': '',
       // why.html
@@ -768,11 +766,11 @@ angular.module('anorakApp')
       'Password must meet the following requirements': '',
       'Repeat new password': '',
       "Passwords don't match": '',
-      'Please fill out this field' : '',
+      'Please fill out this field': '',
       'Save new password': '',
       'The new password was successfully saved': '',
       'An error happened. The new password could not be saved': '',
-      'password requirements' : '',
+      'password requirements': '',
       'Your new password': '',
       'Retype your new password': '',
       // registration/forgotpassword/index.html

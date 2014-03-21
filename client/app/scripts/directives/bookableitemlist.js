@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .directive('bookableitemlist', function () {
     return {
-      templateUrl: 'directives/bookableitemlist.html',
+      templateUrl: 'views/directives/bookableitemlist.html',
       restrict: 'E',
       scope: {
         // scope.events = ["Quadfahren", "Segeln"]
