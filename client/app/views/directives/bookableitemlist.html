@@ -23,7 +23,6 @@
 
         <div ng-repeat="(idx,event) in item.ref().events">
           <div class="event-row">
-            <!--ng-repeat="(idx,event) in event.ref().events | filter:{mode:'!edit'}">-->
             <div class="event-date cell first">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
             <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
             <div class="event-duration cell">{{event.ref().duration}}h</div>
