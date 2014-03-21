@@ -15,7 +15,8 @@ angular.module('anorakApp')
 
     $scope.state = {
       formfieldslanguage: {
-        name: ""
+        name: "",
+        description: ""
       }
     };
 
