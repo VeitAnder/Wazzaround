@@ -1,5 +1,5 @@
 <div data-ng-controller="ForgotPasswordCtrl">
-  <h2>Account</h2>
+  <h2>{{'Account' | translate}}</h2>
 
   <form name="valForm"
         novalidate
@@ -7,58 +7,58 @@
         ui-keyup="{27: 'gotoLogin()'}"
       >
 
-    <h3>Forgot password?</h3>
+    <h3>{{'Forgot password' | translate}}</h3>
 
     <div ng-hide="status.passwordrequestsuccess === true">
 
       <div class="form-group">
-        <label for="email">E-mail</label>
+        <label for="email">{{'E-mail' | translate}}</label>
         <input ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
                name="email"
                id="email"
-               placeholder="Your e-mail address"
+               placeholder="{{'Your e-mail address' | translate}}"
                ng-model="user.email"
                required
                autofocus
             >
         <span ng-show="showError('email', 'pattern')"
-              class="alert alert-error">Please enter a valid email address.
+              class="alert alert-error">{{'Please enter a valid email address' | translate}}
         </span>
         <span ng-show="showError('email', 'required')"
-              class="alert">Please fill out this field.
+              class="alert">{{'Please fill out this field' | translate}}
         </span>
       </div>
       <button ng-click="requestPasswordReset()"
               class="btn"
               ng-class="{disabled: valForm.$invalid}"
           >
-        Request a link to reset your password
+        {{'Request a link to reset your password' | translate}}
       </button>
       <a class="space-left"
-         ng-click="gotoLogin()">back to login
+         ng-click="gotoLogin()">{{'back to login
       </a>
     </div>
 
     <div ng-show="status.passwordrequestsuccess === true">
       <p class="alert alert-success">
-        The link to reset your password was successfully sent to {{user.email}}.
+        {{'The link to reset your password was successfully sent to' | translate}} {{user.email}}.
       </p>
 
       <div class="buttonbar backto">
-        <a ng-click="gotoLogin()">back to login</a>
+        <a ng-click="gotoLogin()">{{'back to login' | translate}}</a>
       </div>
     </div>
 
     <div ng-show="status.passwordrequestsuccess === false">
       <p class="alert alert-error"
          ng-show="status.error === 'noUser'">
-        This user does not exist. Check if the email address is correct.
+        {{'This user does not exist. Check if the email address is correct' | translate}}
       </p>
 
       <p class="alert alert-error"
          ng-show="status.error === 'error'">
-        An error happened. The email to reset your password could not be
-        sent.
+        {{'An error happened. The email to reset your password could not be
+        sent' | translate}}
       </p>
     </div>
   </form>

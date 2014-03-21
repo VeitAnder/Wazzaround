@@ -16,8 +16,11 @@ var initModelizer = function (app) {
   // init mongodb database connection
   var mongojs = require('mongojs');
 
-  var db = mongojs('mongodb://'+ config.mongo.username + ':' + config.mongo.password + '@'+ config.mongo.host + '/' + config.mongo.dbName);
-
+  if (!config.mongo.url) {
+    var db = mongojs('mongodb://'+ config.mongo.username + ':' + config.mongo.password + '@'+ config.mongo.host + '/' + config.mongo.dbName);
+  } else {
+    var db = mongojs(config.mongo.url);
+  }
   // get a mongodb database connector
   var connector = model.MongoConnector(db);
 
@@ -50,6 +53,7 @@ var initModelizer = function (app) {
   require('../models/server/user');
   require('../models/server/activity');
   require('../models/server/accesstoken');
+  require('../models/server/event');
 
 };
 

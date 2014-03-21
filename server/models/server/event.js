@@ -1,4 +1,9 @@
 /**
+ * Created by jonathan on 20.03.14.
+ */
+
+
+/**
  * Created by jonathan on 19.03.14.
  */
 
@@ -10,18 +15,18 @@ var ObjectId = require('mongojs').ObjectId;
 var _ = require('lodash');
 
 var models = require('../models.js');
-var BookableItemModel = require('../models.js').BookableItemModel;
+var EventModel = require('../models.js').EventModel;
 
 
 
 ///////////////////////
 // read/write filters
 
-BookableItemModel.readFilter(function(req) {
+EventModel.readFilter(function(req) {
   return true;  // allow global read
 });
 
-BookableItemModel.writeFilter(function (doc, req) {
+EventModel.writeFilter(function (doc, req) {
   if (!req.session.auth) {
     return false;  // if not logged in don't allow write operations
   }

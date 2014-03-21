@@ -52,11 +52,13 @@ var models = function () {
     currentUser: Factory()
   });
 
-//  var EventModel = new model("events", {
-//    start: Attr(Type.date),
-//    duration: Attr(Type.number),
-//    quantity: Attr(Type.number)
-//  });
+  var EventModel = new model("events", {
+    start: Attr(Type.date),
+    duration: Attr(Type.number),
+    quantity: Attr(Type.number),
+
+    owner: Ref(UserModel)   //TODO
+  });
 
   var BookableItemModel = new model("bookableItems", {
     description: {
@@ -66,17 +68,14 @@ var models = function () {
     },
     price: Attr(Type.number),
 
-//    events: RefArray(EventModel),
-    events : [{
-      start: Attr(Type.date),
-      duration: Attr(Type.number),
-      quantity: Attr(Type.number)
-    }],
+    events: RefArray(EventModel),
+//    events : [{
+//      start: Attr(Type.date),
+//      duration: Attr(Type.number),
+//      quantity: Attr(Type.number)
+//    }],
 
-    owner: Ref(UserModel),
-
-    //bookItem: Operation(),
-    saveWithRepeatingEvents: Operation()
+    owner: Ref(UserModel)
   });
 
   var ActivityModel = new model("activities", {
@@ -170,7 +169,7 @@ var models = function () {
     BookableItemModel: BookableItemModel,
     BookingModel: BookingModel,
     AccesstokenModel: AccesstokenModel,
-//    EventModel: EventModel
+    EventModel: EventModel
   };
 }();
 

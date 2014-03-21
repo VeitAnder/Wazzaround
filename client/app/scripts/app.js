@@ -153,17 +153,28 @@ angular.module('anorakApp')
             return models.CategoryModel.all();
           }],
           activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.get($route.current.params.id)
+            return models.ActivityModel.get($route.current.params.id)  // 1. load activity
               .then(function (activity) {
                 // load bookable items
                 var loadingBookableItems = [];
                 _.forEach(activity.bookableItems, function (item) {
-                  loadingBookableItems.push(item.load());
+                  loadingBookableItems.push(item.load());              // 2. load items
                 });
 
                 return Q.all(loadingBookableItems)
-                  .then(function (res) {
-                    debug("loadingBookableItems", res);
+                  .then(function (items) {
+                    var loadingEvents = [];
+                    _.forEach(items, function(item){
+                      _.forEach(item.events, function(event) {
+                        console.log("event", event);
+                        loadingEvents.push(event.load());              // 3. load events
+                      });
+                    });
+
+                    return Q.all(loadingEvents);
+                  })
+                  .then(function (events){
+                    debug("loaded activity", activity);
                     return activity;  // return the activity, when all bookableItems have been loaded
                   });
               })
@@ -365,7 +376,70 @@ angular.module('anorakApp')
       'Secure': 'Secure',
       'booking': 'booking',
       'Quality managment': 'Quality managment',
-      'through administrated rating system': 'through administrated rating system'
+      'through administrated rating system': 'through administrated rating system',
+      // registration/index.html
+      'Registration': 'Registration',
+      'Please enter your e-mail address.': 'Please enter your e-mail address.',
+      'Please enter a valid e-mail address.': 'Please enter a valid e-mail address.',
+      'Password must meet the following requirements:': 'Password must meet the following requirements:',
+      'At least': 'At least',
+      'one uppercase letter': 'one uppercase letter',
+      'one number': 'one number',
+      '8 characters long': '8 characters long',
+      'Retype Password': 'Retype Password',
+      'Please retype the password.': 'Please retype the password.',
+      'The passwords have to match.': 'The passwords have to match.',
+      'back to login': 'back to login',
+      // registration/forgotpassword/setpassword.html
+      'Enter your new password': 'Enter your new password',
+      'New Password': 'New Password',
+      'Password must meet the following requirements': 'Password must meet the following requirements:',
+      'Repeat new password': 'Repeat new password',
+      "Passwords don't match": "Passwords don't match.",
+      'Please fill out this field' : 'Please fill out this field.',
+      'Save new password': 'Save new password',
+      'The new password was successfully saved': 'The new password was successfully saved.',
+      'An error happened. The new password could not be saved': 'An error happened. The new password could not be saved.',
+      'password requirements' : 'The password has to contain at least one capital letter, one number and has to have a minimum length of 8.',
+      'Your new password': 'Your new password',
+      'Retype your new password': 'Retype your new password',
+      // registration/forgotpassword/index.html
+      'Request a link to reset your password': 'Request a link to reset your password',
+      'The link to reset your password was successfully sent to': 'The link to reset your password was successfully sent to',
+      'This user does not exist. Check if the email address is correct': 'This user does not exist. Check if the email address is correct.',
+      'An error happened. The email to reset your password could not be sent': 'An error happened. The email to reset your password could not be sent.',
+      //map/mapsearchbar.html
+      'Your location': 'Your location ...',
+      'Find': 'Find!',
+      'From': 'From',
+      'until': 'until',
+      'Until': 'Until',
+      // directives/bookableitemlist.html
+      'No events to display yet': 'No events to display yet',
+      'Event': 'Event:',
+      'Date': 'Date',
+      'Time': 'Time',
+      'Duration': 'Duration',
+      'Qty': 'Qty.',
+      // directives/loginstatus.html
+      'Logout': 'Logout',
+      // directives/uploadform.html
+      'add Image': 'add Image',
+      // admin/admin_basetemplate.html
+      'My Activities': 'My Activities',
+      'Admin All Activities': 'Admin All Activities',
+      'Edit your Profile': 'Edit your Profile',
+      // admin/allactivities.html
+      'Publish Activities': 'Publish Activities',
+      'This is the admin/allActivities view': 'This is the admin/allActivities view.',
+      'Activity': 'Activity',
+      'Main Category': 'Main Category',
+      'Sub Category': 'Sub Category',
+      'Location': 'Location',
+      'publish': 'publish',
+      'unpublish': 'unpublish',
+      // admin/index.html
+      'Administration overview': 'Administration overview'
     });
 
     $translateProvider.translations('de', {
@@ -441,7 +515,70 @@ angular.module('anorakApp')
       'Secure': 'Sicheres',
       'booking': 'Buchen',
       'Quality managment': 'Qualitätsmanagement',
-      'through administrated rating system': 'durch ein administriertes Bewertungssystem'
+      'through administrated rating system': 'durch ein administriertes Bewertungssystem',
+      // registration/index.html
+      'Registration': 'Registrierung',
+      'Please enter your e-mail address.': 'Bitte geben Sie Ihre E-Mail Adresse ein.',
+      'Please enter a valid e-mail address.': 'Bitte geben Sie eine gültige E-Mail Adresse ein.',
+      'Password must meet the following requirements:': 'Das Passwort muss folgende Kriterien erfüllen:',
+      'At least': 'Mindestens',
+      'one uppercase letter': 'ein Großbuchstabe',
+      'one number': 'eine Zahl',
+      '8 characters long': 'eine Länge von 8',
+      'Retype Password': 'Passwort wiederholen',
+      'Please retype the password.': 'Bitte geben Sie das Passwort nochmals ein.',
+      'The passwords have to match.': 'Die Passwörter müssen übereinstimmen.',
+      'back to login': 'Zurück zum Login',
+      // registration/forgotpassword/setpassword.html
+      'Enter your new password': 'Geben Sie Ihr neues Passwort ein',
+      'New Password': 'Neues Passwort',
+      'Password must meet the following requirements': 'Das Passwort muss folgende Kriterien erfüllen:',
+      'Repeat new password': 'Passwort wiederholen',
+      "Passwords don't match": 'Die Passwörter stimmen nicht überein.',
+      'Please fill out this field' : 'Bitte füllen Sie dieses Feld aus.',
+      'Save new password': 'Neues Passwort speichern',
+      'The new password was successfully saved': 'Das neue Passwort wurde erfolgreich gespeichert.',
+      'An error happened. The new password could not be saved': 'Es gab einen Fehler. Das neue Passwort konnte nicht erfolgreich gespeichert werden.',
+      'password requirements' : 'Das Passwort muss zumindest einen Großbuchstaben und eine Zahl enthalten, und aus mindestens 8 Zeichen bestehen.',
+      'Your new password': 'Ihr neues Passwort',
+      'Retype your new password': 'Wiederholen Sie Ihr neues Passwort',
+      // registration/forgotpassword/index.html
+      'Request a link to reset your password': 'Request a link to reset your password',
+      'The link to reset your password was successfully sent to': 'Der Link zum Zurücksetzen des Passworts wurde erfolgreich gesendet an',
+      'This user does not exist. Check if the email address is correct': 'Dieser Account existiert nicht. Überprüfen Sie, ob die E-Mail Adresse stimmt.',
+      'An error happened. The email to reset your password could not be sent': 'Es gab einen Fehler. Der Link zum Zurücksetzen Ihres Passworts konnte nicht versendet werden',
+      //map/mapsearchbar.html
+      'Your location': 'Dein Ort ...',
+      'Find': 'Suchen!',
+      'From': 'Von',
+      'until': 'bis',
+      'Until': 'Bis',
+      // directives/bookableitemlist.html
+      'No events to display yet': 'Noch keine Events zum Anzeigen vorhanden',
+      'Event': 'Event:',
+      'Date': 'Datum',
+      'Time': 'Zeit',
+      'Duration': 'Dauer',
+      'Qty': 'Menge',
+      // directives/loginstatus.html
+      'Logout': 'Logout',
+      // directives/uploadform.html
+      'add Image': 'Bild hinzufügen',
+      // admin/admin_basetemplate.html
+      'My Activities': 'Meine Aktivitäten',
+      'Admin All Activities': 'Admin Alle Aktivitäten',
+      'Edit your Profile': 'Profil editieren',
+      // admin/allactivities.html
+      'Publish Activities': 'Aktivitäten veröffentlichen',
+      'This is the admin/allActivities view': 'Das ist die Admin / Alle Aktivitäten Ansicht.',
+      'Activity': 'Aktivität',
+      'Main Category': 'Hauptkategorie',
+      'Sub Category': 'Subkategorie',
+      'Location': 'Ort',
+      'publish': 'veröffentlichen',
+      'unpublish': 'auf privat setzen',
+      // admin/index.html
+      'Administration overview': 'Administrations-Übersicht'
     });
 
     $translateProvider.translations('it', {
@@ -517,7 +654,71 @@ angular.module('anorakApp')
       'Secure': '',
       'booking': '',
       'Quality managment': '',
-      'through administrated rating system': ''
+      'through administrated rating system': '',
+      // registration/index.html
+      'Registration': '',
+      'Please enter your e-mail address.': '',
+      'Please enter a valid e-mail address.': '',
+      'Password must meet the following requirements:': '',
+      'At least': '',
+      'one uppercase letter': '',
+      'one number': '',
+      '8 characters long': '',
+      'Retype Password': '',
+      'Please retype the password.': '',
+      'The passwords have to match.': '',
+      'back to login': '',
+      // registration/forgotpassword/setpassword.html
+      'Enter your new password': '',
+      'New Password': '',
+      'Password must meet the following requirements': '',
+      'Repeat new password': '',
+      "Passwords don't match": '',
+      'Please fill out this field' : '',
+      'Save new password': '',
+      'The new password was successfully saved': '',
+      'An error happened. The new password could not be saved': '',
+      'password requirements' : '',
+      'Your new password': '',
+      'Retype your new password': '',
+      // registration/forgotpassword/index.html
+      'Request a link to reset your password': '',
+      'The link to reset your password was successfully sent to': '',
+      'This user does not exist. Check if the email address is correct': '',
+      'An error happened. The email to reset your password could not be sent': 'An error happened. The email to reset your password could not be sent.',
+      //map/mapsearchbar.html
+      'Your location': '',
+      'Find': '',
+      'From': '',
+      'until': '',
+      'Until': '',
+      // directives/bookableitemlist.html
+      'No events to display yet': '',
+      'Event': 'Event',
+      'Date': '',
+      'Time': '',
+      'Duration': '',
+      'Qty': '',
+      // directives/loginstatus.html
+      'Logout': '',
+      // directives/uploadform.html
+      'add Image': '',
+      // admin/admin_basetemplate.html
+      'My Activities': '',
+      'Admin All Activities': '',
+      'Edit your Profile': '',
+      // admin/allactivities.html
+      'Publish Activities': '',
+      'This is the admin/allActivities view': '',
+      'Activity': '',
+      'Main Category': '',
+      'Sub Category': '',
+      'Location': '',
+      'publish': '',
+      'unpublish': '',
+      // admin/index.html
+      'Administration overview': ''
+
     });
 
 //    $translateProvider.preferredLanguage('en');
@@ -553,6 +754,8 @@ angular.module('anorakApp')
     _.forEach(models, function (model) {  // setup connection for each model
       model.connection(connector);
     });
+
+    moment.lang('en');  // setup moment
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);
