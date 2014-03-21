@@ -407,7 +407,24 @@ angular.module('anorakApp')
       'Request a link to reset your password': 'Request a link to reset your password',
       'The link to reset your password was successfully sent to': 'The link to reset your password was successfully sent to',
       'This user does not exist. Check if the email address is correct': 'This user does not exist. Check if the email address is correct.',
-      'An error happened. The email to reset your password could not be sent': 'An error happened. The email to reset your password could not be sent.'
+      'An error happened. The email to reset your password could not be sent': 'An error happened. The email to reset your password could not be sent.',
+      //map/mapsearchbar.html
+      'Your location': 'Your location ...',
+      'Find': 'Find!',
+      'From': 'From',
+      'until': 'until',
+      'Until': 'Until',
+      // directives/bookableitemlist.html
+      'No events to display yet': 'No events to display yet',
+      'Event': 'Event:',
+      'Date': 'Date',
+      'Time': 'Time',
+      'Duration': 'Duration',
+      'Qty': 'Qty.',
+      // directives/loginstatus.html
+      'Logout': 'Logout',
+      // directives/uploadform.html
+      'add Image': 'add Image'
     });
 
     $translateProvider.translations('de', {
@@ -514,7 +531,24 @@ angular.module('anorakApp')
       'Request a link to reset your password': 'Request a link to reset your password',
       'The link to reset your password was successfully sent to': 'Der Link zum Zurücksetzen des Passworts wurde erfolgreich gesendet an',
       'This user does not exist. Check if the email address is correct': 'Dieser Account existiert nicht. Überprüfen Sie, ob die E-Mail Adresse stimmt.',
-      'An error happened. The email to reset your password could not be sent': 'Es gab einen Fehler. Der Link zum Zurücksetzen Ihres Passworts konnte nicht versendet werden'
+      'An error happened. The email to reset your password could not be sent': 'Es gab einen Fehler. Der Link zum Zurücksetzen Ihres Passworts konnte nicht versendet werden',
+      //map/mapsearchbar.html
+      'Your location': 'Dein Ort ...',
+      'Find': 'Suchen!',
+      'From': 'Von',
+      'until': 'bis',
+      'Until': 'Bis',
+      // directives/bookableitemlist.html
+      'No events to display yet': 'Noch keine Events zum Anzeigen vorhanden',
+      'Event': 'Event:',
+      'Date': 'Datum',
+      'Time': 'Zeit',
+      'Duration': 'Dauer',
+      'Qty': 'Menge',
+      // directives/loginstatus.html
+      'Logout': 'Logout',
+      // directives/uploadform.html
+      'add Image': 'Bild hinzufügen'
     });
 
     $translateProvider.translations('it', {
@@ -621,7 +655,24 @@ angular.module('anorakApp')
       'Request a link to reset your password': '',
       'The link to reset your password was successfully sent to': '',
       'This user does not exist. Check if the email address is correct': '',
-      'An error happened. The email to reset your password could not be sent': 'An error happened. The email to reset your password could not be sent.'
+      'An error happened. The email to reset your password could not be sent': 'An error happened. The email to reset your password could not be sent.',
+      //map/mapsearchbar.html
+      'Your location': '',
+      'Find': '',
+      'From': '',
+      'until': '',
+      'Until': '',
+      // directives/bookableitemlist.html
+      'No events to display yet': '',
+      'Event': 'Event',
+      'Date': '',
+      'Time': '',
+      'Duration': '',
+      'Qty': '',
+      // directives/loginstatus.html
+      'Logout': '',
+      // directives/uploadform.html
+      'add Image': ''
 
     });
 
