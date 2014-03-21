@@ -454,7 +454,7 @@ angular.module('anorakApp')
       'edit': 'edit',
       // admin/myactivities/edit.html
       'New activity': 'New activity',
-      'Global Activity Info': 'Global Activity Info:',
+      'Global Activity Info': 'Global Activity Info',
       'Name of Activity or Activities': 'Name of Activity or Activities',
       'Meeting spot of this activity': 'Meeting spot of this activity',
       'Enter address of meeting spot': 'Enter address of meeting spot',
@@ -638,7 +638,7 @@ angular.module('anorakApp')
       'edit': 'bearbeiten',
       // admin/myactivities/edit.html
       'New activity': 'Neue Aktivität',
-      'Global Activity Info': 'Daten der Aktivität:',
+      'Global Activity Info': 'Daten der Aktivität',
       'Name of Activity or Activities': 'Bezeichnung der Aktivität/en',
       'Meeting spot of this activity': 'Treffpunkt für diese Aktivität',
       'Enter address of meeting spot': 'Geben Sie die Adresse des Treffpunktes ein',
