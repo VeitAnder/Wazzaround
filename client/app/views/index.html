@@ -6,14 +6,14 @@
 
       <languageselect></languageselect>
 
-      <div data-ng-include="'_logo.html'"></div>
+      <div data-ng-include="'views/_logo.html'"></div>
 
       <div class="mapsearchbar"
-           data-ng-include="'map/mapsearchbar.html'">
+           data-ng-include="'views/map/mapsearchbar.html'">
       </div>
 
       <div class="filter">
-        <span class="input_label">{{ 'Please choose' | translate }}</span>
+        <span class="input_label">{{ 'Please choose' | translate }}:</span>
 
         <div class="filter-category filter-category-sports"
              data-ng-class="{active: areItemsInThisCategorySelected('sports'), open: states.sports.open }"
@@ -385,6 +385,6 @@
 
 </div>
 
-<div data-ng-include="'_footer.html'"></div>
+<div data-ng-include="'views/_footer.html'"></div>
 
 

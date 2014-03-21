@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .controller('AdminMyactivitiesDetailCtrl', function ($scope, $location, activity, activitybackendmap) {
     $scope.getPagePartial = function () {
-      return 'admin/myactivities/detail.html';
+      return 'views/admin/myactivities/detail.html';
     };
 
     $scope.activity = activity;

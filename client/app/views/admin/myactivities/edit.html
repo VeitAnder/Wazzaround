@@ -1,7 +1,7 @@
-<h2>Account</h2>
+<h2>{{'Account' | translate}}</h2>
 <h3>
-  <span ng-show="activity.name">Activity: {{activity.name}}</span>
-  <span ng-show="!activity.name">New activity</span>
+  <span ng-show="activity.name">{{'Activity' | translate}}: {{activity.name}}</span>
+  <span ng-show="!activity.name">{{'New activity' | translate}}</span>
 </h3>
 
 <form role="form"
@@ -11,9 +11,9 @@
     >
 
   <fieldset>
-    <legend>Global Activity Info:</legend>
+    <legend>{{'Global Activity Info' | translate}}:</legend>
     <div class="form-group">
-      <label for="name">Name of Activity or Activities</label>
+      <label for="name">{{'Name of Activity or Activities' | translate}}</label>
       <languagetabs data-formfield="state.formfieldslanguage.name"></languagetabs>
       <input type="text"
              class="form-control"
@@ -37,21 +37,21 @@
     </div>
 
     <div class="form-group">
-      <label for="company">Company offering this activity</label>
+      <label for="company">{{'Company offering this activity' | translate}}</label>
       <input type="text"
              class="form-control"
              id="company"
-             placeholder="Enter company "
+             placeholder="{{'Enter company' | translate}}"
              ng-model="activity.company"
           >
     </div>
 
     <div class="form-group">
-      <label for="address">Meeting spot of this activity</label>
+      <label for="address">{{'Meeting spot of this activity' | translate}}</label>
       <input type="text"
              class="form-control"
              id="address"
-             placeholder="Enter address of meeting spot"
+             placeholder="{{'Enter address of meeting spot' | translate}}"
              ng-model="activity.address"
              ng-options="address.formatted_address as address.formatted_address for address in getAddress($viewValue)"
              bs-typeahead
@@ -61,7 +61,7 @@
               data-ng-click="setAddressOnMap()"
               class="btn btn-small"
               focuson
-          >Submit address
+          >{{'Submit address' | translate}}
       </button>
     </div>
 
@@ -91,17 +91,17 @@
       </google-map>
 
     </div>
-    <div class="alert">Click in map to reposition location of activity</div>
+    <div class="alert">{{'Click in map to reposition location of activity' | translate}}</div>
 
     <div class="form-group">
-      <label for="categoryMain">Main Category</label>
+      <label for="categoryMain">{{'Main Category' | translate}}</label>
       <select class="form-control"
               id="categoryMain"
               required
               ng-model="activity.category.main"
               ng-change="mainCategoryChanged()"
           >
-        <option disabled="disabled">Select Main Category</option>
+        <option disabled="disabled">{{'Select Main Category' | translate}}</option>
         <option
             ng-repeat="category in categories"
             value="{{category.key}}"
@@ -114,7 +114,7 @@
     <div class="form-group"
          data-ng-show="activity.category.main"
         >
-      <div class="input_label">Sub Category</div>
+      <div class="input_label">{{'Sub Category' | translate}}</div>
 
       <div
           class="checkbox"
@@ -133,16 +133,16 @@
       </div>
 
       <span class="alert alert-warn"
-            data-ng-show="activity.category.subs.length >= 2">You can choose 2 Subcategories at most!
+            data-ng-show="activity.category.subs.length >= 2">{{'You can choose 2 Subcategories at most' | translate}}!
       </span>
       <span class="alert alert-info"
-            data-ng-show="activity.category.subs.length === 0">You must choose at least 1 Subcategory!
+            data-ng-show="activity.category.subs.length === 0">{{'You must choose at least 1 Subcategory!
       </span>
 
     </div>
 
     <div class="form-group">
-      <label>Description</label>
+      <label>{{'Description' | translate}}</label>
       <div class="language-tabs">
         <ul>
           <li class="en">
@@ -184,7 +184,7 @@
     </div>
 
     <imageselector class="form-group img-selector">
-      <label>Images</label>
+      <label>{{'Images' | translate}}</label>
       <imageblock class="img-block"
                   data-ng-repeat="image in activity.images"
           >
@@ -197,7 +197,7 @@
         <div class="img-edit">
           <a class="delete"
              ng-click="removeImage(image, $index)">
-            <span>delete</span>
+            <span>{{'delete' | translate}}</span>
           </a>
         </div>
       </imageblock>
@@ -277,14 +277,14 @@
   </fieldset>
 
   <fieldset>
-    <legend>What can be booked?</legend>
+    <legend>{{'What can be booked' | translate}}?</legend>
 
     <!-- New Stuff -->
     <div class="bookableitems">
       <button class="btn-add"
               ng-click="activity.createBookableItems()">
         <span class="btn-icon-left"></span>
-        create a new Bookable Item
+        {{'create a new event' | translate}}
       </button>
 
       <div class="bookableitem bookableitem-add"
@@ -292,7 +292,7 @@
         <div class="bookableitem-header">
           <div class="bookableitem-name cell first">
 
-            <label for="itemDescription">Description</label>
+            <label for="itemDescription">{{'Description' | translate}}</label>
 
             <div class="language-tabs">
               <ul>
@@ -335,17 +335,17 @@
 
           </div>
           <div class="bookableitem-price cell last">
-            <label for="itemPrice">Price</label>
+            <label for="itemPrice">{{'Price' | translate}}</label>
             <input type="number"
                    class="form-control"
                    id="itemPrice"
-                   placeholder="Price in €"
+                   placeholder="{{'Price in €' | translate}}"
                    ng-model="bookableItem.ref().price"
                 >
           </div>
           <div class="buttonbar">
             <a ng-click="removeItem(bookableItem.ref(), idx)"
-               class="txt-icon-delete">Delete Item
+               class="txt-icon-delete">{{'Delete Item' | translate}}
               <span class="btn-icon-right"></span>
             </a>
           </div>
@@ -357,7 +357,7 @@
             <a class="txt-icon-add"
                ng-click="createEvent(bookableItem.ref())">
               <span class="btn-icon-left"></span>
-              Schedule Event
+              {{'Schedule Event' | translate}}
             </a>
 
           </div>
@@ -371,7 +371,7 @@
                      class="form-control"
                      ng-model="event.ref().start"
                      data-autoclose="0"
-                     placeholder="Date"
+                     placeholder="{{'Date' | translate}}"
                      bs-datepicker>
             </div>
             <div class="form-group time">
@@ -380,7 +380,7 @@
                      class="form-control"
                      ng-model="event.ref().start"
                      data-autoclose="0"
-                     placeholder="Time"
+                     placeholder="{{'Time' | translate}}"
                      bs-timepicker
                   >
             </div>
@@ -388,7 +388,7 @@
               <input type="number"
                      class="form-control"
                      id="duration"
-                     placeholder="Duration (h)"
+                     placeholder="{{'Duration' | translate}} (h)"
                      ng-model="event.ref().duration"
                   >
             </div>
@@ -396,7 +396,7 @@
               <input type="number"
                      class="form-control"
                      id="quantity"
-                     placeholder="Quantity"
+                     placeholder="{{'Quantity' | translate}}"
                      ng-model="event.ref().quantity"
                   >
             </div>
@@ -406,7 +406,7 @@
                 <label>
                   <input type="checkbox"
                          ng-model="event.ref().repeating">
-                  repeating
+                  {{'repeating' | translate}}
                 </label>
               </div>
               <div class="repeating"
@@ -415,49 +415,49 @@
                   <label>
                     <input type="checkbox"
                            ng-model="event.ref().dayOfWeek.Mon">
-                    Mon
+                    {{'Mon' | translate}}
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
                            ng-model="event.ref().dayOfWeek.Tue">
-                    Tue
+                    {{'Tue' | translate}}
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
                            ng-model="event.ref().dayOfWeek.Wed">
-                    Wed
+                    {{'Wed' | translate}}
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
                            ng-model="event.ref().dayOfWeek.Thu">
-                    Thu
+                    {{'Thu' | translate}}
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
                            ng-model="event.ref().dayOfWeek.Fri">
-                    Fri
+                    {{'Fri' | translate}}
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
                            ng-model="event.ref().dayOfWeek.Sat">
-                    Sat
+                    {{'Sat' | translate}}
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"
                            ng-model="event.ref().dayOfWeek.Son">
-                    Son
+                    {{'Sun' | translate}}
                   </label>
                 </div>
 
@@ -466,7 +466,7 @@
                          class="form-control"
                          ng-model="event.ref().end"
                          data-min-date=""
-                         placeholder="Until"
+                         placeholder="{{'Until' | translate}}"
                          bs-datepicker
                          autoclose="true"
                          value=""
@@ -479,7 +479,7 @@
             <div class="buttonbar">
               <a class="txt-icon-delete"
                  ng-click="removeEvent(bookableItem.ref(), idx)"
-                  >remove
+                  >{{'remove' | translate}}
                 <span class="btn-icon-right"></span>
               </a>
             </div>
@@ -487,7 +487,7 @@
             <div class="buttonbar">
               <a class="txt-icon-save"
                  ng-click="event.mode = 'view'; createEventSeries(bookableItem.ref(), event.ref())"
-                  >save
+                  >{{'save' | translate}}
                 <span class="btn-icon-right"></span>
               </a>
             </div>
@@ -496,10 +496,10 @@
 
           <div class="event-list">
             <div class="event-header">
-              <div class="event-date cell first">Date</div>
-              <div class="event-time cell">Time</div>
+              <div class="event-date cell first">{{'Date' | translate}}</div>
+              <div class="event-time cell">{{'Time' | translate}}</div>
               <!--<div class="event-duration cell">Duration</div>-->
-              <div class="event-quantity cell">Qty.</div>
+              <div class="event-quantity cell">{{'Qty' | translate}}.</div>
               <div class="listaction cell last">
               </div>
             </div>
@@ -513,11 +513,11 @@
               <div class="listaction cell last">
                 <a class="edit"
                    ng-click="event.mode = 'edit'">
-                  <span>edit</span>
+                  <span>{{'edit' | translate}}</span>
                 </a>
                 <a class="delete"
                    ng-click="removeEvent(bookableItem.ref(), idx)">
-                  <span>delete</span>
+                  <span>{{'delete' | translate}}</span>
                 </a>
               </div>
             </div>
@@ -543,16 +543,16 @@
 
     <a data-ng-show="!isNewMode()"
        class="btn btn-alert float-left"
-       data-ng-click="delete()">delete
+       data-ng-click="delete()">{{'delete' | translate}}
     </a>
 
     <button class="btn"
             ng-click="save()"
-        >speichern
+        >{{'save' | translate}}
     </button>
     <a class="cancel"
        ng-click="cancel()"
-        >abbrechen
+        >{{'cancel' | translate}}
     </a>
 
   </div>

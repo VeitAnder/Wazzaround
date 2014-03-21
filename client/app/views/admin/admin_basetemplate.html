@@ -1,6 +1,6 @@
 <div class="col-left-fixed">
   <languageselect></languageselect>
-  <div data-ng-include="'_logo.html'"></div>
+  <div data-ng-include="'views/_logo.html'"></div>
   <nav
       data-ng-show="currentUser.authenticated"
       >
@@ -9,15 +9,15 @@
         <!--<a href="#/admin/">Administration overview</a>-->
       <!--</li>-->
       <li>
-        <a href="#/admin/myactivities">My Activities</a>
+        <a href="#/admin/myactivities">{{'My Activities' | translate}}</a>
       </li>
 
       <li ng-show="currentUser.user.userType == 'admin'">
-        <a href="#/admin/allActivities">Admin All Activities</a>
+        <a href="#/admin/allActivities">{{'Admin All Activities' | translate}}</a>
       </li>
       
       <li>
-        <a href="#/admin/editprofile">Edit your Profile</a>
+        <a href="#/admin/editprofile">{{'Edit your Profile' | translate}}</a>
       </li>
 
     </ul>
