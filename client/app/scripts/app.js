@@ -424,7 +424,22 @@ angular.module('anorakApp')
       // directives/loginstatus.html
       'Logout': 'Logout',
       // directives/uploadform.html
-      'add Image': 'add Image'
+      'add Image': 'add Image',
+      // admin/admin_basetemplate.html
+      'My Activities': 'My Activities',
+      'Admin All Activities': 'Admin All Activities',
+      'Edit your Profile': 'Edit your Profile',
+      // admin/allactivities.html
+      'Publish Activities': 'Publish Activities',
+      'This is the admin/allActivities view': 'This is the admin/allActivities view.',
+      'Activity': 'Activity',
+      'Main Category': 'Main Category',
+      'Sub Category': 'Sub Category',
+      'Location': 'Location',
+      'publish': 'publish',
+      'unpublish': 'unpublish',
+      // admin/index.html
+      'Administration overview': 'Administration overview'
     });
 
     $translateProvider.translations('de', {
@@ -548,7 +563,22 @@ angular.module('anorakApp')
       // directives/loginstatus.html
       'Logout': 'Logout',
       // directives/uploadform.html
-      'add Image': 'Bild hinzufügen'
+      'add Image': 'Bild hinzufügen',
+      // admin/admin_basetemplate.html
+      'My Activities': 'Meine Aktivitäten',
+      'Admin All Activities': 'Admin Alle Aktivitäten',
+      'Edit your Profile': 'Profil editieren',
+      // admin/allactivities.html
+      'Publish Activities': 'Aktivitäten veröffentlichen',
+      'This is the admin/allActivities view': 'Das ist die Admin / Alle Aktivitäten Ansicht.',
+      'Activity': 'Aktivität',
+      'Main Category': 'Hauptkategorie',
+      'Sub Category': 'Subkategorie',
+      'Location': 'Ort',
+      'publish': 'veröffentlichen',
+      'unpublish': 'auf privat setzen',
+      // admin/index.html
+      'Administration overview': 'Administrations-Übersicht'
     });
 
     $translateProvider.translations('it', {
@@ -672,7 +702,22 @@ angular.module('anorakApp')
       // directives/loginstatus.html
       'Logout': '',
       // directives/uploadform.html
-      'add Image': ''
+      'add Image': '',
+      // admin/admin_basetemplate.html
+      'My Activities': '',
+      'Admin All Activities': '',
+      'Edit your Profile': '',
+      // admin/allactivities.html
+      'Publish Activities': '',
+      'This is the admin/allActivities view': '',
+      'Activity': '',
+      'Main Category': '',
+      'Sub Category': '',
+      'Location': '',
+      'publish': '',
+      'unpublish': '',
+      // admin/index.html
+      'Administration overview': ''
 
     });
 
