@@ -1635,9 +1635,9 @@ $img-selector-imgsize: 150px;
       }
     }
   }
-  .form-group, .buttonbar, .divider{
+  .form-group, .buttonbar, .divider, .contentbox{
     width: 75%;
-    input{
+    input, .contentbox{
       width: 100%;
     }
   }

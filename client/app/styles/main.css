@@ -4663,9 +4663,9 @@ footer {
     width: 52.5%; }
     .standardform .form-group-inline-2575 .form-group:first-child {
       width: 17.5%; }
-  .standardform .form-group, .standardform .buttonbar, .standardform .divider {
+  .standardform .form-group, .standardform .buttonbar, .standardform .divider, .standardform .contentbox {
     width: 75%; }
-    .standardform .form-group input, .standardform .buttonbar input, .standardform .divider input {
+    .standardform .form-group input, .standardform .form-group .contentbox, .standardform .buttonbar input, .standardform .buttonbar .contentbox, .standardform .divider input, .standardform .divider .contentbox, .standardform .contentbox input, .standardform .contentbox .contentbox {
       width: 100%; }
 
 .teaser-section {
