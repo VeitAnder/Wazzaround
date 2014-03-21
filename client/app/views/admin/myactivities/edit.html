@@ -143,42 +143,23 @@
 
     <div class="form-group">
       <label>{{'Description' | translate}}</label>
-      <div class="language-tabs">
-        <ul>
-          <li class="en">
-            <a ng-click="changeLanguage('en')">
-              <span>EN</span>
-            </a>
-          </li>
-          <li class="de active">
-            <a ng-click="changeLanguage('de')">
-              <span>DE</span>
-            </a>
-          </li>
-          <li class="it">
-            <a ng-click="changeLanguage('it')">
-              <span>IT</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
+      <languagetabs data-formfieldlanguage="state.formfieldslanguage.description"></languagetabs>
       <text-angular
           ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
           ng-model="activity.description.en"
+          ng-show="state.formfieldslanguage.description === 'en'"
           >
       </text-angular>
-
-      de
       <text-angular
           ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
           ng-model="activity.description.de"
+          ng-show="state.formfieldslanguage.description === 'de'"
           >
       </text-angular>
-      it
       <text-angular
           ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
           ng-model="activity.description.it"
+          ng-show="state.formfieldslanguage.description === 'it'"
           >
       </text-angular>
     </div>
