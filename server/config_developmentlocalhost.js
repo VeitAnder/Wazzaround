@@ -18,7 +18,7 @@ var config = {
     username: 'reactureappdev',
     password: 'pGjRLG72qvXBGo',
     dbName: 'reactureappdev',                                // The name of database that contains the security information
-    host: 'ds027419.mongolab.com:27419'//,                         // mongolab mongodb connection url
+    host: 'ds027419.mongolab.com:27419'                         // mongolab mongodb connection url
 //    url : 'mongodb://127.0.0.1/reacture'       /// <--- if a url is provided it is used!!!
   },
   security: {

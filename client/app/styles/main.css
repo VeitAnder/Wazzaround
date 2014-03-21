@@ -2229,8 +2229,13 @@ footer {
   margin: 15px 0 0 40px; }
 
 .mapsearchbar {
-  overflow: hidden;
+  *zoom: 1;
   margin-bottom: 15px; }
+  .mapsearchbar:before, .mapsearchbar:after {
+    content: " ";
+    display: table; }
+  .mapsearchbar:after {
+    clear: both; }
 
 .map-wrap {
   position: relative;
@@ -5014,6 +5019,17 @@ label + .language-tabs {
     clear: both; }
   label + .language-tabs ul {
     float: right; }
+
+.typeahead li {
+  background-image: none !important;
+  margin: 0;
+  padding: 0; }
+  .typeahead li.active a {
+    background-color: #a4d740; }
+    .typeahead li.active a:hover {
+      background-color: #a4d740; }
+  .typeahead li a {
+    text-decoration: none; }
 
 .datepicker {
   min-width: 300px;
