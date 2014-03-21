@@ -200,7 +200,7 @@ exports.sendProjectInvitationMailToAlreadyConfirmedAccount = function (userwhoin
     postmarkmail: {
       "From": config.postmark.from,
       "To": userAccountOfParticipant.email,
-      "Subject": "Planfred – Projekteinladung",
+      "Subject": "reacture – Projekteinladung",
       "Tag": "projectinvitation",
       "ReplyTo": userwhoinvitesparticipant.email
     }
@@ -222,7 +222,7 @@ exports.sendProjectInvitationMailToUnconfirmedAccount = function (userwhoinvites
     postmarkmail: {
       "From": config.postmark.from,
       "To": userAccountOfParticipant.email,
-      "Subject": "Planfred – Projekteinladung",
+      "Subject": "reacture – Projekteinladung",
       "Tag": "projectinvitation",
       "ReplyTo": userwhoinvitesparticipant.email
     }
@@ -243,14 +243,14 @@ exports.sendResetPasswordMail = function (user, token) {
     data: {
       user: user,
       token: token,
-      resetpwdurl: config.clienthost + "registration/forgotpassword/" + token + "/" + user.username + "/",
+      resetpwdurl: config.clienthost + "registration/forgotpassword/" + token + "/" + user.email + "/",
       template: {
         resetpassword: true
       }
     },
     postmarkmail: {
       "From": config.postmark.from,
-      "To": user.username, // TODO in reacture email is saved under "username"
+      "To": user.email,
       "Subject": "Reacture - reset your password",
       "Tag": "resetpassword",
       "ReplyTo": config.postmark.replyto
@@ -273,7 +273,7 @@ exports.sendResetPasswordMail = function (user, token) {
 //    postmarkmail: {
 //      "From": config.postmark.from,
 //      "To": user.email,
-//      "Subject": "Planfred – Neues Passwort",
+//      "Subject": "reacture – Neues Passwort",
 //      "Tag": "resetpassword",
 //      "ReplyTo": config.postmark.replyto
 //    }
@@ -301,7 +301,7 @@ exports.sendActivationTokenEmail = function (user) {
     postmarkmail: {
       "From": config.postmark.from,
       "To": user.email,
-      "Subject": "Planfred – Bestätigung der Registrierung",
+      "Subject": "reacture – Bestätigung der Registrierung",
       "Tag": "accountactivationtoken",
       "ReplyTo": config.postmark.replyto
     }
@@ -316,7 +316,7 @@ exports.sendPlan = function(plan, recipientemail, sender, isNotSilent, downloadl
   var maildata = {
     "From": config.postmark.from,
     "To": recipientemail,
-    "Subject": "Planfred – Plan: " + plan.name + " Index " + plan.revisions[0].index,
+    "Subject": "reacture – Plan: " + plan.name + " Index " + plan.revisions[0].index,
     "ReplyTo": sender.email,
     "Tag": "plansent"
   };

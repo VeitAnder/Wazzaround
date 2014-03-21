@@ -13,7 +13,7 @@
  var nodetime = require('nodetime');
  nodetime.profile({
  accountKey: 'b01f439ac38eb6d06f7c0a52095e89b52c1e62d1',
- appName: 'Planfred Development Application'
+ appName: 'reacture Development Application'
  });
 
  // db connection via mongoose

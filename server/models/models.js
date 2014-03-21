@@ -14,45 +14,31 @@ var models = function () {
   var Factory = model.Factory;
 
   var validators = {
-    username: function (value) {
-      if (value === undefined || value === null || value === "") { // TODO validate username
-        throw new Error("you have to provide a username");
-      }
-      return value;
-    },
-    password: function (value) {
-      // 1 Grossbuchstabe, 1 Zahl, 8 Stellen 
+    email: function (value) {
       if (value === undefined || value === null || value === "") {
-        throw new Error("you have to provide a password");
-      } else {
-
-        var capitalLetter = /[A-ZÄÖÜ]/g;
-        var capTest = capitalLetter.test(value);
-        var number = /[0-9]/g;
-        var numTest = number.test(value);
-
-        if(!capTest || !numTest || value.length < 8) {
-          console.log("PASSWORD NOT VALID");
-          throw new Error("invalidPwd");
-        }
+        throw new Error("you have to provide a username (it is empty)");
       }
       return value;
     }
   };
 
   var UserModel = new model("users", {
-    email: Attr(Type.string),  // email wird im username gespeichert
-    username: Attr(Type.string, validators.username),
-    password: Attr(Type.string, validators.password),
+    email: Attr(Type.string, validators.email),  // email ist auch username
+    password: Attr(Type.string),
 
     profile: {
       firstName: Attr(Type.string),
       lastName: Attr(Type.string),
       company: Attr(Type.string),
       address: Attr(Type.string),
-      location: {
-        longitude: Attr(Type.number),
-        latitude: Attr(Type.number)
+      city: Attr(Type.string),
+      zip: Attr(Type.string),
+      tel: Attr(Type.string),
+      fax: Attr(Type.string),
+      uid: Attr(Type.string),
+      country: Attr(Type.string),
+      contactperson: {
+        name: Attr(Type.string)
       }
     },
 
@@ -66,6 +52,13 @@ var models = function () {
     currentUser: Factory()
   });
 
+  var EventModel = new model("events", {
+    start: Attr(Type.date),
+    duration: Attr(Type.number),
+    quantity: Attr(Type.number),
+
+    owner: Ref(UserModel)   //TODO
+  });
 
   var BookableItemModel = new model("bookableItems", {
     description: {
@@ -75,18 +68,14 @@ var models = function () {
     },
     price: Attr(Type.number),
 
-    events: [  // TODO: this sucks - refactor in own Model
-      {
-        start: Attr(Type.date),
-        duration: Attr(Type.number),
-        quantity: Attr(Type.number)
-      }
-    ],
+    events: RefArray(EventModel),
+//    events : [{
+//      start: Attr(Type.date),
+//      duration: Attr(Type.number),
+//      quantity: Attr(Type.number)
+//    }],
 
-    owner: Ref(UserModel),
-
-    //bookItem: Operation(),
-    saveWithRepeatingEvents: Operation()
+    owner: Ref(UserModel)
   });
 
   var ActivityModel = new model("activities", {
@@ -142,8 +131,8 @@ var models = function () {
 
   var BookingModel = new model('bookings', {
 
-    activity : Ref(ActivityModel),
-    item : Ref(BookableItemModel),
+    activity: Ref(ActivityModel),
+    item: Ref(BookableItemModel),
     start: Attr(Type.date),
     quantity: Attr(Type.number),
 
@@ -151,7 +140,7 @@ var models = function () {
 
     owner: Ref(UserModel),
 
-    buy : Operation()
+    buy: Operation()
   });
 
   var CategoryModel = new model("categories", {
@@ -170,8 +159,7 @@ var models = function () {
     "expires": Attr(Type.date),
     "user": Ref(UserModel),
     "sendReactivation": Operation(),
-    "setNewPassword": Operation() // TODO password encrypted?
-
+    "setNewPassword": Operation()
   });
 
   return {
@@ -180,7 +168,8 @@ var models = function () {
     CategoryModel: CategoryModel,
     BookableItemModel: BookableItemModel,
     BookingModel: BookingModel,
-    AccesstokenModel: AccesstokenModel
+    AccesstokenModel: AccesstokenModel,
+    EventModel: EventModel
   };
 }();
 

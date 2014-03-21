@@ -87,14 +87,13 @@ angular.module('anorakApp')
     $scope.setNewPassword = function () {
       $scope.status.submitted = true;
 
-      console.log("$route", $route);
       if ($scope.valForm.$valid) {
-        // TODO passwort Verschlüsselung???   später implementieren
 
+        var password = CryptoJS.SHA256($scope.userdata.password).toString(CryptoJS.enc.Base64);
         models.AccesstokenModel.setNewPassword({
           "email": $route.current.params.email,
           "token": $route.current.params.token,
-          "password": $scope.userdata.password
+          "password": password
         })
           .then(function () {
             debug("Have set new password");

@@ -27,22 +27,13 @@ angular.module('services.authentication.current-user', [])
 
       user: null,
 
-      login: function (username, password) {
-        return models.UserModel.login({username: username, password: password})
+      login: function (email, password) {
+        return models.UserModel.login({email: email, password: password})
           .then(function (res) {
             return currentUser.load();
           });
       },
 
-      register: function (username, password) {
-        return models.UserModel.register({
-          username: username,
-          password: password
-        })
-          .then(function (res) {
-            return currentUser.login(username, password);
-          });
-      },
 
       logout: function () {
         return models.UserModel.logout()

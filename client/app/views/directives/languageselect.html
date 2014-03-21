@@ -1,13 +1,25 @@
 <div class="language-select">
   <ul>
-    <li class="en">
-      <a ng-click="changeLanguage('en')"><span>EN</span></a>
+    <li class="en"
+        ng-class="{active: activelanguage === 'en'}"
+        >
+      <a ng-click="changeLanguage('en')">
+        <span>EN</span>
+      </a>
     </li>
-    <li class="de active">
-      <a ng-click="changeLanguage('de')"><span>DE</span></a>
+    <li class="de"
+        ng-class="{active: activelanguage === 'de'}"
+        >
+      <a ng-click="changeLanguage('de')">
+        <span>DE</span>
+      </a>
     </li>
-    <li class="it">
-      <a ng-click="changeLanguage('it')"><span>IT</span></a>
+    <li class="it"
+        ng-class="{active: activelanguage === 'it'}"
+        >
+      <a ng-click="changeLanguage('it')">
+        <span>IT</span>
+      </a>
     </li>
   </ul>
 </div>

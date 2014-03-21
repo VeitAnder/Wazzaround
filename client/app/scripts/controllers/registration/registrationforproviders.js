@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('RegistrationPageCtrl', function ($scope) {
+
+  .controller('RegistrationRegistrationforprovidersPageCtrl', function ($scope) {
     $scope.getPagePartial = function () {
-      return 'registration/index.html';
+      return 'registration/registrationforproviders.html';
     };
   })
-  .controller('RegisterCtrl', function ($scope, $routeParams, $location, currentUser, models) {
+  .controller('RegistrationRegistrationforprovidersCtrl', function ($scope, $routeParams, $location, models, currentUser) {
     $scope.registrant = {};
-
     $scope.state = {
       submitted: false,
       registrationfailed: false
@@ -21,11 +21,13 @@ angular.module('anorakApp')
 
     $scope.register = function () {
       var user;
+
       $scope.state.submitted = true;
 
       if ($scope.valForm.$valid) {
         user = angular.copy($scope.registrant);
         user.password = CryptoJS.SHA256($scope.registrant.password).toString(CryptoJS.enc.Base64);
+        user.userType = "provider";
         models.UserModel.register(user)
           .then(function () {
             return currentUser.login(user.email, user.password);

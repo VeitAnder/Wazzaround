@@ -764,9 +764,6 @@ button.btn, .btn, a.btn {
   p:last-child, ul:last-child {
     padding-bottom: 0;
     margin-bottom: 0;
-    @include respond-to(screen-nocols) {
-      padding-bottom: $fs;
-    }
   }
 
   .boxelement + * {
@@ -925,10 +922,37 @@ button.btn, .btn, a.btn {
   *:first-child {
     margin-top: 0;
   }
+  &.contentbox-green{
+    background-color: $color_green;
+    color: $color_white;
+    h1,h2,h3,h4,h5,h6{
+      color: $color_green_15;
+    }
+    .btn{
+      border-color: $color_grey;
+      background-color: $color_grey;
+      &:hover{
+        border-color: $color_grey_75;
+        background-color: $color_grey_75;
+        &:active{
+          border-color: $color_grey_75_l5;
+          background-color: $color_grey_75_l5;
+
+        }
+      }
+    }
+  }
 }
 
 .contentbox {
   @include contentbox;
+}
+
+.divider{
+  line-height: 1px;
+  height: 1px;
+  @include seperator(top, $color_main_seperator);
+  margin: $fs*2.0 0;
 }
 
 @include respond-to(screen-sm) {
@@ -1561,11 +1585,15 @@ input[type="checkbox"]:focus {
 
 .form-group {
   padding: 10px 0;
+  .btn{
+    margin-top: $fs*0.5;
+  }
 }
 
 @mixin input_label {
   display: block;
   @include font-size_small;
+  line-height: 21px;
   margin-right: 5px;
   color: $color_input_text;
   vertical-align: bottom;

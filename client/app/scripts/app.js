@@ -112,6 +112,10 @@ angular.module('anorakApp')
         templateUrl: 'page_basetemplate.html',
         controller: 'RegistrationPageCtrl'
       })
+      .when('/registration/registrationforproviders', {
+        templateUrl: 'page_basetemplate.html',
+        controller: 'RegistrationRegistrationforprovidersPageCtrl'
+      })
       .when('/registration/forgotpassword/', {
         templateUrl: 'page_basetemplate.html',
         controller: 'ForgotPasswordPageCtrl'
@@ -149,17 +153,28 @@ angular.module('anorakApp')
             return models.CategoryModel.all();
           }],
           activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.get($route.current.params.id)
+            return models.ActivityModel.get($route.current.params.id)  // 1. load activity
               .then(function (activity) {
                 // load bookable items
                 var loadingBookableItems = [];
                 _.forEach(activity.bookableItems, function (item) {
-                  loadingBookableItems.push(item.load());
+                  loadingBookableItems.push(item.load());              // 2. load items
                 });
 
                 return Q.all(loadingBookableItems)
-                  .then(function (res) {
-                    debug("loadingBookableItems", res);
+                  .then(function (items) {
+                    var loadingEvents = [];
+                    _.forEach(items, function(item){
+                      _.forEach(item.events, function(event) {
+                        console.log("event", event);
+                        loadingEvents.push(event.load());              // 3. load events
+                      });
+                    });
+
+                    return Q.all(loadingEvents);
+                  })
+                  .then(function (events){
+                    debug("loaded activity", activity);
                     return activity;  // return the activity, when all bookableItems have been loaded
                   });
               })
@@ -257,6 +272,7 @@ angular.module('anorakApp')
         templateUrl: 'views/shoppingcart.html',
         controller: 'ShoppingCartCtrl'
       })
+
       .otherwise({
         redirectTo: '/'
       });
@@ -331,7 +347,8 @@ angular.module('anorakApp')
       'Account': 'Account',
       'Login': 'Login',
       'Password': 'Password',
-      'Not registered': 'Not registered?',
+      'Not registered': 'Register as Customer',
+      'Not registered as Provider': 'Register as Provider',
       'Forgot password': 'Forgot password?',
       'Your e-mail address' : 'Your e-mail address',
       'Your password' : 'Your password',
@@ -438,6 +455,7 @@ angular.module('anorakApp')
       'Login': 'Login',
       'Password': 'Passwort',
       'Not registered': 'Noch nicht registriert?',
+      'Not registered as Provider': 'Noch nicht als Aktivitätenanbieter registriert?',
       'Forgot password': 'Passwort vergessen?',
       'Your e-mail address' : 'Ihre E-Mail Adresse',
       'Your password' : 'Ihr Passwort',
@@ -544,6 +562,7 @@ angular.module('anorakApp')
       'Login': 'Entra',
       'Password': 'Password',
       'Not registered': 'Non registrata?',
+      'Not registered as Provider': 'Noch nicht als Aktivitätenanbieter registriert?',
       'Forgot password': 'Dimenticato la password?',
       'Your e-mail address' : 'Vostro indirizzo email',
       'Your password' : 'Vostra password',
@@ -639,6 +658,8 @@ angular.module('anorakApp')
     _.forEach(models, function (model) {  // setup connection for each model
       model.connection(connector);
     });
+
+    moment.lang('en');  // setup moment
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);
