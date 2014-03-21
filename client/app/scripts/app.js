@@ -305,7 +305,7 @@ angular.module('anorakApp')
 
     $translateProvider.translations('en', {
       // _.footer.html
-      'Why reacture': 'Why reacture',
+      'Why reacture': 'Why reActure',
       'Work with us': 'Work with us',
       'Contact': 'Contact & Impressum',
       // index.html
@@ -344,18 +344,21 @@ angular.module('anorakApp')
       'Spa & Sauna': 'Spa & Sauna',
       'Your current search location': 'Your current search location',
       // login.html
+      'You want to put': 'You want to put',
+      'your Activities': 'your activities',
+      'to reacture': 'to reActure',
       'Account': 'Account',
       'Login': 'Login',
       'Password': 'Password',
       'Not registered': 'Register as Customer',
-      'Not registered as Provider': 'Register as Provider',
+      'Not registered as Provider': 'Not registered as provider yet?',
       'Forgot password': 'Forgot password?',
       'Your e-mail address' : 'Your e-mail address',
       'Your password' : 'Your password',
       // shoppingcart.html
       'Shopping Cart': 'Shopping Cart',
       // why.html
-      'Why reacture reasons': 'Reacture is a great platform for offering and finding activities around you.',
+      'Why reacture reasons': 'ReActure is a great platform for offering and finding activities around you.',
       'Register': 'Register',
       // workwithus.html
       'Quality': 'Quality',
@@ -404,6 +407,8 @@ angular.module('anorakApp')
       'Your new password': 'Your new password',
       'Retype your new password': 'Retype your new password',
       // registration/forgotpassword/index.html
+      'Retype your password': 'Geben Sie Ihr Passwort nochmals ein',
+      'Define your password': 'Enter your password',
       'Request a link to reset your password': 'Request a link to reset your password',
       'The link to reset your password was successfully sent to': 'The link to reset your password was successfully sent to',
       'This user does not exist. Check if the email address is correct': 'This user does not exist. Check if the email address is correct.',
@@ -484,7 +489,7 @@ angular.module('anorakApp')
 
     $translateProvider.translations('de', {
       // _.footer.html
-      'Why reacture': 'Warum reacture',
+      'Why reacture': 'Warum reActure',
       'Work with us': 'Arbeiten Sie mit uns',
       'Contact': 'Kontakt & Impressum',
       // index.html
@@ -523,6 +528,9 @@ angular.module('anorakApp')
       'Spa & Sauna': 'Spa & Sauna',
       'Your current search location': 'Ihre Suchposition',
       // login.html
+      'You want to put': 'Sie wollen',
+      'your Activities': 'Ihre Aktivitäten',
+      'to reacture': 'auf reActure stellen',
       'Account': 'Account',
       'Login': 'Login',
       'Password': 'Passwort',
@@ -534,12 +542,12 @@ angular.module('anorakApp')
       // shoppingcart.html
       'Shopping Cart': 'Warenkorb',
       // why.html
-      'Why reacture reasons': 'Reacture ist eine großartige Plattform um Aktivitäten rund um Ihre Location zu finden oder anzubieten.',
+      'Why reacture reasons': 'ReActure ist eine großartige Plattform um Aktivitäten rund um Ihre Location zu finden oder anzubieten.',
       'Register': 'Registrieren',
       // workwithus.html
       'Quality': 'Qualität',
-      'online and offline': 'online und offline',
-      'marketing': 'marketing',
+      'online and offline': 'im online und offline',
+      'marketing': 'Marketing',
       'International': 'Internationale',
       'Plattform': 'Plattform',
       'One-Stop Philosophy': 'One-Stop Philosophie',
@@ -583,6 +591,8 @@ angular.module('anorakApp')
       'Your new password': 'Ihr neues Passwort',
       'Retype your new password': 'Wiederholen Sie Ihr neues Passwort',
       // registration/forgotpassword/index.html
+      'Retype your password': 'Geben Sie Ihr Passwort nochmals ein',
+      'Define your password': 'Geben Sie Ihr Passwort ein',
       'Request a link to reset your password': 'Request a link to reset your password',
       'The link to reset your password was successfully sent to': 'Der Link zum Zurücksetzen des Passworts wurde erfolgreich gesendet an',
       'This user does not exist. Check if the email address is correct': 'Dieser Account existiert nicht. Überprüfen Sie, ob die E-Mail Adresse stimmt.',
@@ -664,7 +674,7 @@ angular.module('anorakApp')
 
     $translateProvider.translations('it', {
       // _.footer.html
-      'Why reacture': 'Perche reacture',
+      'Why reacture': 'Perche reActure',
       'Work with us': 'Lavora con noi',
       'Contact': 'Contattaci',
       // index.html
@@ -703,11 +713,14 @@ angular.module('anorakApp')
       'Spa & Sauna': 'Spa & Sauna',
       'Your current search location': 'Posizione di ricerca',
       // login.html
+      'You want to put': '',
+      'your Activities': '',
+      'to reacture': '',
       'Account': 'Conto',
       'Login': 'Entra',
       'Password': 'Password',
       'Not registered': 'Non registrata?',
-      'Not registered as Provider': 'Noch nicht als Aktivitätenanbieter registriert?',
+      'Not registered as Provider': '?',
       'Forgot password': 'Dimenticato la password?',
       'Your e-mail address' : 'Vostro indirizzo email',
       'Your password' : 'Vostra password',
@@ -763,6 +776,8 @@ angular.module('anorakApp')
       'Your new password': '',
       'Retype your new password': '',
       // registration/forgotpassword/index.html
+      'Retype your password': 'Geben Sie Ihr Passwort nochmals ein',
+      'Define your password': '',
       'Request a link to reset your password': '',
       'The link to reset your password was successfully sent to': '',
       'This user does not exist. Check if the email address is correct': '',

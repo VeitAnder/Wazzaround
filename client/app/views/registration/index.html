@@ -16,7 +16,7 @@
              required
              autofocus
              ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
-             placeholder="Your e-mail address"
+             placeholder="{{'Your e-mail address' | translate}}"
           >
 
       <span ng-show="showError('email', 'required')"
@@ -36,7 +36,7 @@
              required
              password-validate
              class="input-block-level"
-             placeholder="Define your password"
+             placeholder="{{'Define your password' | translate}}"
           >
       <div class="contentbox pwdvalidation">
         <h6>{{ 'Password must meet the following requirements:' | translate }}</h6>
@@ -69,7 +69,7 @@
              class="input-block-level"
              repeat-password="password"
              required
-             placeholder="Retype your password"
+             placeholder="{{'Retype your password' | translate}}"
           >
 
       <span ng-show="showError('passwordRepeat', 'required')"

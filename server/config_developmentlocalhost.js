@@ -15,11 +15,11 @@ var config = {
   host: "http://localhost:3000/",
   clienthost: "http://localhost:9000/",
   mongo: {
-//    username: 'reactureappdev',
-//    password: 'pGjRLG72qvXBGo',
-//    dbName: 'reactureappdev',                                // The name of database that contains the security information
-//    host: 'ds027419.mongolab.com:27419',                         // mongolab mongodb connection url
-    url : 'mongodb://127.0.0.1/reacture'       /// <--- if a url is provided it is used!!!
+    username: 'reactureappdev',
+    password: 'pGjRLG72qvXBGo',
+    dbName: 'reactureappdev',                                // The name of database that contains the security information
+    host: 'ds027419.mongolab.com:27419'//,                         // mongolab mongodb connection url
+//    url : 'mongodb://127.0.0.1/reacture'       /// <--- if a url is provided it is used!!!
   },
   security: {
     usersCollection: 'users',                                   // The name of the collection contains user information
