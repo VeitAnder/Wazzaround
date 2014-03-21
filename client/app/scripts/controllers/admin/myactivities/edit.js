@@ -15,9 +15,7 @@ angular.module('anorakApp')
 
     $scope.state = {
       formfieldslanguage: {
-        name: {
-
-        }
+        name: ""
       }
     };
 
@@ -26,7 +24,9 @@ angular.module('anorakApp')
     $scope.createEventSeries = function (item, event) {
       console.log("createRepeatingEvents called", item, event);
 
-      if (!event.repeating) return;
+      if (!event.repeating) {
+        return;
+      }
 
       var startDate = moment(event.start);
       var duration = event.duration;
