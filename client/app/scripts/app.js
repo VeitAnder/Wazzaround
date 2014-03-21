@@ -12,15 +12,15 @@
     a[d] = a[d] || b;
   }
 })
-((function () {
-  "use strict";
-  try {
-    console.log();
-    return window.console;
-  } catch (a) {
-    return (window.console = {});
-  }
-})());
+  ((function () {
+    "use strict";
+    try {
+      console.log();
+      return window.console;
+    } catch (a) {
+      return (window.console = {});
+    }
+  })());
 
 angular.module('anorakApp', [
   'ngRoute',
@@ -246,19 +246,32 @@ angular.module('anorakApp')
         controller: 'ActivityPageCtrl',
         resolve: {     // TODO shall be included in Operator of Activitymodel!
           activity: ['$route', 'models', function ($route, models) {
+            var activity;
+
             return models.ActivityModel.get($route.current.params.id)
-              .then(function (activity) {
+              .then(function (activityFromServer) {
+                activity = activityFromServer;
+
                 // load bookable items
                 var loadingBookableItems = [];
                 _.forEach(activity.bookableItems, function (item) {
                   loadingBookableItems.push(item.load());
                 });
-
-                return Q.all(loadingBookableItems)
-                  .then(function (res) {
-                    console.log("loadingBookableItems", res);
-                    return activity;  // return the activity, when all bookableItems have been loaded
+                console.log("LOADIG ITEMS", loadingBookableItems);
+                return Q.all(loadingBookableItems);
+              })
+              .then(function(res) {
+                console.log("loadingBookableItems", res);
+                var loadingEvents = [];
+                _.forEach(activity.bookableItems, function (item) {
+                  _.each(item.ref().events, function (event) {
+                    loadingEvents.push(event.load());
                   });
+                });
+                return Q.all(loadingEvents);
+              })
+              .then(function(res) {
+                return activity;  // return the activity, when all bookableItems and all their events have been loaded
               })
               .fail(function (err) {
                 console.log("Fail loading activities in the myactivities route", err);
@@ -788,7 +801,7 @@ angular.module('anorakApp')
       'Until': '',
       // directives/bookableitemlist.html
       'No events to display yet': '',
-      'Event': 'Event',
+      'Event': '',
       'Date': '',
       'Time': '',
       'Duration': '',
