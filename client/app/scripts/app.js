@@ -305,11 +305,11 @@ angular.module('anorakApp')
 
     $translateProvider.translations('en', {
       // _.footer.html
-      'Why reacture': 'Why reacture?',
-      'Work with us': 'Work with us!',
+      'Why reacture': 'Why reacture',
+      'Work with us': 'Work with us',
       'Contact': 'Contact & Impressum',
       // index.html
-      'Please choose': 'Please choose:',
+      'Please choose': 'Please choose',
       'Sports and Activities': 'Sports & Activities',
       'of': 'of',
       'Select all': 'Select all',
@@ -439,16 +439,56 @@ angular.module('anorakApp')
       'publish': 'publish',
       'unpublish': 'unpublish',
       // admin/index.html
-      'Administration overview': 'Administration overview'
+      'Administration overview': 'Administration overview',
+      // admin/myactivities/detail.html
+      'delete': 'delete',
+      'Your activity is published': 'Your activity is published!',
+      'Your activity isnt published yet': "Your activity isn't published yet!",
+      'Company offering this activity': 'Company offering this activity:',
+      'back to my activities': "Go to 'My Activities'",
+      'edit': 'edit',
+      // admin/myactivities/edit.html
+      'New activity': 'New activity',
+      'Global Activity Info': 'Global Activity Info:',
+      'Name of Activity or Activities': 'Name of Activity or Activities',
+      'Meeting spot of this activity': 'Meeting spot of this activity',
+      'Enter address of meeting spot': 'Enter address of meeting spot',
+      'Submit address': 'Save address',
+      'Click in map to reposition location of activity': 'Click in map to reposition location of activity',
+      'Select Main Category': 'Select Main Category',
+      'You can choose 2 Subcategories at most': 'You can choose 2 Subcategories at most!',
+      'You must choose at least 1 Subcategory': 'You must choose at least 1 Subcategory!',
+      'Description': 'Description',
+      'Images': 'Images',
+      'What can be booked': 'What can be booked?',
+      'create a new event': 'Create a new event',
+      'Price in €': 'Price in €',
+      'Delete Item': 'Delete Item',
+      'Schedule Event': 'Schedule Event',
+      'Quantity': 'Quantity',
+      'repeating': 'repeating',
+      'Mon': 'Mon',
+      'Tue': 'Tue',
+      'Wed': 'Wed',
+      'Thu': 'Thu',
+      'Fri': 'Fri',
+      'Sat': 'Sat',
+      'Sun': 'Sun',
+      'remove': 'remove',
+      'save': 'save',
+      'cancel': '',
+      'Enter company': 'Enter company',
+      // admin/myactivities/index.html
+      'add activity': 'add activity'
     });
 
     $translateProvider.translations('de', {
       // _.footer.html
-      'Why reacture': 'Warum reacture?',
-      'Work with us': 'Arbeiten Sie mit uns!',
+      'Why reacture': 'Warum reacture',
+      'Work with us': 'Arbeiten Sie mit uns',
       'Contact': 'Kontakt & Impressum',
       // index.html
-      'Please choose': 'Bitte wählen Sie:',
+      'Please choose': 'Bitte wählen Sie',
       'Sports and Activities': 'Sport & Aktivitäten',
       'of': 'von',
       'Select all': 'Alle auswählen',
@@ -578,13 +618,54 @@ angular.module('anorakApp')
       'publish': 'veröffentlichen',
       'unpublish': 'auf privat setzen',
       // admin/index.html
-      'Administration overview': 'Administrations-Übersicht'
+      'Administration overview': 'Administrations-Übersicht',
+      // admin/myactivities/detail.html
+      'delete': 'löschen',
+      'Your activity is published': 'Ihre Aktivität wurde veröffentlicht!',
+      'Your activity isnt published yet': "Ihre Aktivität wurde noch nicht veröffentlicht!",
+      'Company offering this activity': 'Anbietende Firma:',
+      'back to my activities': 'Zu "Meine Aktivitäten"',
+      'edit': 'bearbeiten',
+      // admin/myactivities/edit.html
+      'New activity': 'Neue Aktivität',
+      'Global Activity Info': 'Daten der Aktivität:',
+      'Name of Activity or Activities': 'Bezeichnung der Aktivität/en',
+      'Meeting spot of this activity': 'Treffpunkt für diese Aktivität',
+      'Enter address of meeting spot': 'Geben Sie die Adresse des Treffpunktes ein',
+      'Submit address': 'Adresse speichern',
+      'Click in map to reposition location of activity': 'Klicken Sie in die Karte, um den Ort der Aktivität anzupassen',
+      'Select Main Category': 'Hauptkategorie auswählen',
+      'You can choose 2 Subcategories at most': 'Sie können höchstens 2 Subkategorien auswählen!',
+      'You must choose at least 1 Subcategory': 'Sie müssen mindestens 1 Subkategorie auswählen!',
+      'Description': 'Beschreibung',
+      'Images': 'Bilder',
+      'What can be booked': 'Was kann man buchen?',
+      'create a new event': 'Erstellen Sie ein neues Ereignis',
+      'Price in €': 'Preis in €',
+      'Delete Item': 'Event löschen',
+      'Schedule Event': 'Zeitpunkte an denen das Event stattfindet',
+      'Quantity': 'Menge',
+      'repeating': 'regelmäßig',
+      'Mon': 'Mo',
+      'Tue': 'Di',
+      'Wed': 'Mi',
+      'Thu': 'Do',
+      'Fri': 'Fr',
+      'Sat': 'Sa',
+      'Sun': 'So',
+      'remove': 'entfernen',
+      'save': 'speichern',
+      'cancel': 'abbrechen',
+      'Enter company': 'Firma eingeben',
+      // admin/myactivities/index.html
+      'add activity': 'Aktivität  hinzufügen'
+
     });
 
     $translateProvider.translations('it', {
       // _.footer.html
-      'Why reacture': 'Perche reacture?',
-      'Work with us': 'Lavora con noi!',
+      'Why reacture': 'Perche reacture',
+      'Work with us': 'Lavora con noi',
       'Contact': 'Contattaci',
       // index.html
       'Please choose': 'Si prega di scegliere',
@@ -717,8 +798,47 @@ angular.module('anorakApp')
       'publish': '',
       'unpublish': '',
       // admin/index.html
-      'Administration overview': ''
-
+      'Administration overview': '',
+      // admin/myactivities/detail.html
+      'delete': '',
+      'Your activity is published': '',
+      'Your activity isnt published yet': "Your activity isn't published yet!",
+      'Company offering this activity': 'Company offering this activity:',
+      'back to my activities': "",
+      'edit': '',
+      // admin/myactivities/edit.html
+      'New activity': '',
+      'Global Activity Info': '',
+      'Name of Activity or Activities': '',
+      'Meeting spot of this activity': '',
+      'Enter address of meeting spot': '',
+      'Submit address': '',
+      'Click in map to reposition location of activity': '',
+      'Select Main Category': '',
+      'You can choose 2 Subcategories at most': '',
+      'You must choose at least 1 Subcategory': '',
+      'Description': '',
+      'Images': '',
+      'What can be booked': '',
+      'create a new event': '',
+      'Price in €': '',
+      'Delete Item': '',
+      'Schedule Event': '',
+      'Quantity': '',
+      'repeating': '',
+      'Mon': '',
+      'Tue': '',
+      'Wed': '',
+      'Thu': '',
+      'Fri': '',
+      'Sat': '',
+      'Sun': '',
+      'remove': '',
+      'save': '',
+      'cancel': '',
+      'Enter company': '',
+      // admin/myactivities/index.html
+      'add activity': ''
     });
 
 //    $translateProvider.preferredLanguage('en');
