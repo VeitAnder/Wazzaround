@@ -76,7 +76,7 @@ footer {
 }
 
 .mapsearchbar {
-  overflow: hidden;
+  @include clearfix;
   margin-bottom: $bu;
 }
 
@@ -1849,6 +1849,29 @@ label+.language-tabs{
     float: right;
   }
 }
+
+
+
+.typeahead{
+
+  li{
+    background-image: none!important;
+    margin: 0;
+    padding: 0;
+    &.active{
+      a{
+        background-color: $color_green_75;
+        &:hover{
+          background-color: $color_green_75;
+        }
+      }
+    }
+    a{
+      text-decoration: none;
+    }
+  }
+}
+
 
 .datepicker {
   min-width: 300px;
