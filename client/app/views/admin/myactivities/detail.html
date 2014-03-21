@@ -18,7 +18,7 @@
     <b>{{'Your activity is published' | translate}}</b>
   </p>
   <p class="alert alert-large alert-error" ng-if="!activity.published">
-    <b>{{'Your activity isn't published yet' | translate}}</b>
+    <b>{{'Your activity isnt published yet' | translate}}</b>
   </p>
 
   <h4>
@@ -57,7 +57,7 @@
   </div>
 
   <h5 class="category">
-    {{activity.category.main}}
+    {{activity.category.main | translate}}
     <span class="category-sub"
           ng-repeat="subcat in activity.category.subs">
       / {{subcat.title}}

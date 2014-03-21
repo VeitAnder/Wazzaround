@@ -12,15 +12,15 @@
     a[d] = a[d] || b;
   }
 })
-((function () {
-  "use strict";
-  try {
-    console.log();
-    return window.console;
-  } catch (a) {
-    return (window.console = {});
-  }
-})());
+  ((function () {
+    "use strict";
+    try {
+      console.log();
+      return window.console;
+    } catch (a) {
+      return (window.console = {});
+    }
+  })());
 
 angular.module('anorakApp', [
   'ngRoute',
@@ -246,19 +246,31 @@ angular.module('anorakApp')
         controller: 'ActivityPageCtrl',
         resolve: {     // TODO shall be included in Operator of Activitymodel!
           activity: ['$route', 'models', function ($route, models) {
+            var activity;
+
             return models.ActivityModel.get($route.current.params.id)
-              .then(function (activity) {
+              .then(function (activityFromServer) {
+                activity = activityFromServer;
+
                 // load bookable items
                 var loadingBookableItems = [];
                 _.forEach(activity.bookableItems, function (item) {
                   loadingBookableItems.push(item.load());
                 });
-
-                return Q.all(loadingBookableItems)
-                  .then(function (res) {
-                    console.log("loadingBookableItems", res);
-                    return activity;  // return the activity, when all bookableItems have been loaded
+                return Q.all(loadingBookableItems);
+              })
+              .then(function (res) {
+                console.log("loadingBookableItems", res);
+                var loadingEvents = [];
+                _.forEach(activity.bookableItems, function (item) {
+                  _.each(item.ref().events, function (event) {
+                    loadingEvents.push(event.load());
                   });
+                });
+                return Q.all(loadingEvents);
+              })
+              .then(function (res) {
+                return activity;  // return the activity, when all bookableItems and all their events have been loaded
               })
               .fail(function (err) {
                 console.log("Fail loading activities in the myactivities route", err);
@@ -308,6 +320,9 @@ angular.module('anorakApp')
       'Contact': 'Contact & Impressum',
       // index.html
       'Please choose': 'Please choose',
+      'sports': 'Sports & Activities',
+      'culture': 'Culture',
+      'wellness': 'Wellness & Relax',
       'Sports and Activities': 'Sports & Activities',
       'of': 'of',
       'Select all': 'Select all',
@@ -323,6 +338,14 @@ angular.module('anorakApp')
       'Prev': 'Prev',
       'Show all Dates': 'Show all Dates',
       'Next': 'Next',
+      'trekkingbikinghiking': 'Trekking, Biking, Hiking',
+      'adventure': 'Adventure',
+      'yogapilates': 'Yoga & Pilates',
+      'fulldayactivities': 'Full day activities',
+      'watersports': 'Water Sports',
+      'wintersports': 'Sport invernali',
+      'motorizedsports': 'Motorized Sports',
+      'extremesports': 'Extreme Sports',
       'Trekking, Biking, Hiking': 'Trekking, Biking, Hiking',
       'Yoga & Pilates': 'Yoga & Pilates',
       'Water Sports': 'Water Sports',
@@ -331,11 +354,20 @@ angular.module('anorakApp')
       'Full day activities': 'Full day activities',
       'Winter Sports': 'Winter Sports',
       'Extreme Sports': 'Extreme Sports',
+      'degustations': 'Degustations: Wine & Food & Cigars',
+      'guidedtours': 'Guided Tours',
+      'exhibitionsandfairs': 'Exhibitions & Fairs',
+      'operaandtheater': 'Opera & Theater',
+      'musicandfilm': 'Music & Film',
       'Degustations: Wine & Food & Cigars': 'Degustations: Wine & Food & Cigars',
       'Exhibitions & Fairs': 'Exhibitions & Fairs',
       'Music & Film': 'Music & Film',
       'Guided Tours': 'Guided Tours',
       'Opera & Theater': 'Opera & Theater',
+      'massages': 'Massages',
+      'medicaltreatments': 'Medical Treatments',
+      'beauty': 'Beauty',
+      'spaandsauna': 'Spa & Sauna',
       'Massages': 'Massages',
       'Beauty': 'Beauty',
       'Medical Treatments': 'Medical Treatments',
@@ -452,7 +484,7 @@ angular.module('anorakApp')
       'edit': 'edit',
       // admin/myactivities/edit.html
       'New activity': 'New activity',
-      'Global Activity Info': 'Global Activity Info:',
+      'Global Activity Info': 'Global Activity Info',
       'Name of Activity or Activities': 'Name of Activity or Activities',
       'Meeting spot of this activity': 'Meeting spot of this activity',
       'Enter address of meeting spot': 'Enter address of meeting spot',
@@ -492,6 +524,9 @@ angular.module('anorakApp')
       'Contact': 'Kontakt & Impressum',
       // index.html
       'Please choose': 'Bitte wählen Sie',
+      'sports': 'Sport & Aktivitäten',
+      'culture': 'Kultur',
+      'wellness': 'Wellness & Entspannung',
       'Sports and Activities': 'Sport & Aktivitäten',
       'of': 'von',
       'Select all': 'Alle auswählen',
@@ -507,6 +542,14 @@ angular.module('anorakApp')
       'Prev': 'Früher',
       'Show all Dates': 'Alle Verfügbarkeiten anzeigen',
       'Next': 'Später',
+      'trekkingbikinghiking': 'Trekking, Biking, Hiking',
+      'adventure': 'Abenteuer',
+      'yogapilates': 'Yoga & Pilates',
+      'fulldayactivities': 'Ganztagsaktivitäten',
+      'watersports': 'Wassersport',
+      'wintersports': 'Wintersport',
+      'motorizedsports': 'Motorsport',
+      'extremesports': 'Extremsport',
       'Trekking, Biking, Hiking': 'Trekking, Biking, Hiking',
       'Yoga & Pilates': 'Yoga & Pilates',
       'Water Sports': 'Wassersport',
@@ -515,11 +558,20 @@ angular.module('anorakApp')
       'Full day activities': 'Ganztagsaktivitäten',
       'Winter Sports': 'Wintersport',
       'Extreme Sports': 'Extremsport',
+      'degustations': 'Verkostungen: Wein & Delikatessen & Zigarren',
+      'guidedtours': 'Führungen',
+      'exhibitionsandfairs': 'Ausstellungen & Messen',
+      'operaandtheater': 'Oper & Theater',
+      'musicandfilm': 'Musik & Film',
       'Degustations: Wine & Food & Cigars': 'Verkostungen: Wein & Delikatessen & Zigarren',
       'Exhibitions & Fairs': 'Ausstellungen & Messen',
       'Music & Film': 'Musik & Film',
       'Guided Tours': 'Führungen',
       'Opera & Theater': 'Oper & Theater',
+      'massages': 'Massagen',
+      'medicaltreatments': 'Medizinische Behanldungen',
+      'beauty': 'Schönheit',
+      'spaandsauna': 'Spa & Sauna',
       'Massages': 'Massagen',
       'Beauty': 'Schönheit',
       'Medical Treatments': 'Medizinische Behanldungen',
@@ -636,7 +688,7 @@ angular.module('anorakApp')
       'edit': 'bearbeiten',
       // admin/myactivities/edit.html
       'New activity': 'Neue Aktivität',
-      'Global Activity Info': 'Daten der Aktivität:',
+      'Global Activity Info': 'Daten der Aktivität',
       'Name of Activity or Activities': 'Bezeichnung der Aktivität/en',
       'Meeting spot of this activity': 'Treffpunkt für diese Aktivität',
       'Enter address of meeting spot': 'Geben Sie die Adresse des Treffpunktes ein',
@@ -677,6 +729,9 @@ angular.module('anorakApp')
       'Contact': 'Contattaci',
       // index.html
       'Please choose': 'Si prega di scegliere',
+      'sports': 'Sport & Attività',
+      'culture': 'Cultura',
+      'wellness': 'Wellness & Relax',
       'Sports and Activities': 'Sport & Attività',
       'of': 'di',
       'Select all': 'Seleziona tutte',
@@ -692,6 +747,14 @@ angular.module('anorakApp')
       'Prev': 'Prima',
       'Show all Dates': 'Mostra tutte le date',
       'Next': 'Più tardi',
+      'trekkingbikinghiking': 'Trekking, Bicicletta, Escursionismo',
+      'adventure': 'Avventura',
+      'yogapilates': 'Yoga & Pilates',
+      'fulldayactivities': 'Attività di giorno completo',
+      'watersports': 'Sport acquatici',
+      'wintersports': 'Sport invernali',
+      'motorizedsports': 'Sport motorizzati',
+      'extremesports': 'Sport estremi',
       'Trekking, Biking, Hiking': 'Trekking, Bicicletta, Escursionismo',
       'Yoga & Pilates': 'Yoga & Pilates',
       'Water Sports': 'Sport acquatici',
@@ -699,12 +762,21 @@ angular.module('anorakApp')
       'Adventure': 'Avventura',
       'Full day activities': 'Attività di giorno completo',
       'Winter Sports': 'Sport invernali',
-      'Extreme Sports': 'Sport estremi',
+      'Extreme Sports': 'Sport motorizzati',
+      'degustations': 'Degustazioni: Vino & Gastronomia & Sigari',
+      'guidedtours': 'Visite guidate',
+      'exhibitionsandfairs': 'Mostre & Fiere',
+      'operaandtheater': 'Opera & Teatro',
+      'musicandfilm': 'Musica & Cinema',
       'Degustations: Wine & Food & Cigars': 'Degustazioni: Vino & Gastronomia & Sigari',
       'Exhibitions & Fairs': 'Mostre & Fiere',
       'Music & Film': 'Musica & Cinema',
       'Guided Tours': 'Visite guidate',
       'Opera & Theater': 'Opera & Teatro',
+      'massages': 'Massaggi',
+      'medicaltreatments': 'Trattamenti medici',
+      'beauty': 'Bellezza',
+      'spaandsauna': 'Spa & Sauna',
       'Massages': 'Massaggi',
       'Beauty': 'Bellezza',
       'Medical Treatments': 'Trattamenti medici',
@@ -788,7 +860,7 @@ angular.module('anorakApp')
       'Until': '',
       // directives/bookableitemlist.html
       'No events to display yet': '',
-      'Event': 'Event',
+      'Event': '',
       'Date': '',
       'Time': '',
       'Duration': '',
