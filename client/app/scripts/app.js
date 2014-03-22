@@ -559,6 +559,7 @@ angular.module('anorakApp')
       'back to my activities': "Go to 'My Activities'",
       'edit': 'edit',
       // admin/myactivities/edit.html
+      'save event': 'save event',
       'New activity': 'New activity',
       'Global Activity Info': 'Global Activity Info',
       'Name of Activity or Activities': 'Name of Activity or Activities',
@@ -802,6 +803,7 @@ angular.module('anorakApp')
       'back to my activities': 'Gehe zu "Meine Aktivitäten"',
       'edit': 'bearbeiten',
       // admin/myactivities/edit.html
+      'save event': 'Event speichern',
       'New activity': 'Neue Aktivität',
       'Global Activity Info': 'Daten der Aktivität',
       'Name of Activity or Activities': 'Bezeichnung der Aktivität/en',
@@ -1046,6 +1048,7 @@ angular.module('anorakApp')
       'back to my activities': "",
       'edit': '',
       // admin/myactivities/edit.html
+      'save event': '',
       'New activity': '',
       'Global Activity Info': 'Informazioni generali sull attività',
       'Name of Activity or Activities': "Nome dell' attività",

@@ -124,11 +124,11 @@
         <label>{{subcategory.key | translate}}
           <input type="checkbox"
                  ng-model="value$index"
-                 data-ng-change="setSubcat(subcategory.title)"
-                 ng-true-value="{{subcategory.title}}"
+                 data-ng-change="setSubcat(subcategory.key)"
+                 ng-true-value="{{subcategory.key}}"
                  ng-false-value=""
-                 ng-checked="isTitleInSubcats(subcategory.title)"
-                 ng-disabled="!isTitleInSubcats(subcategory.title) && activity.category.subs.length >= 2"
+                 ng-checked="isKeyInSubcats(subcategory.key)"
+                 ng-disabled="!isKeyInSubcats(subcategory.key) && activity.category.subs.length >= 2"
               />
         </label>
       </div>

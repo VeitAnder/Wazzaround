@@ -101,9 +101,9 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.isTitleInSubcats = function (title) {
+    $scope.isKeyInSubcats = function (key) {
       var found = _.filter($scope.activity.category.subs, function (sub) {
-        if (sub.title === title) {
+        if (sub.key === key) {
           return true;
         }
       });
@@ -114,14 +114,14 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.setSubcat = function (title, key) {
+    $scope.setSubcat = function (key) {
       if (!$scope.activity.category.subs) {
         $scope.activity.category.subs = [];
       }
-      if ($scope.isTitleInSubcats(title)) {
-        _.remove($scope.activity.category.subs, { 'title': title });
+      if ($scope.isKeyInSubcats(key)) {
+        _.remove($scope.activity.category.subs, { 'key': key });
       } else {
-        $scope.activity.category.subs.push({ 'title': title });
+        $scope.activity.category.subs.push({ 'key': key });
       }
     };
 
