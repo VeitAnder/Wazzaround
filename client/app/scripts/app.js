@@ -77,7 +77,6 @@ angular.module('anorakApp')
 
             currentUser.load()
               .then(function (user) {
-                debug("Current user", user.user);
 
                 var resolvedActivities = [];
 
@@ -112,7 +111,7 @@ angular.module('anorakApp')
                     // loading events
                     return Q.all(allBookableItemsInAllActivities)
                       .then(function (bookableItems) {
-                        debug("loadedBookableItems", bookableItems);
+//                        debug("loadedBookableItems", bookableItems);
                         if (bookableItems.length === 0) {
                           defer.resolve(resolvedActivities);
 
@@ -125,7 +124,7 @@ angular.module('anorakApp')
                             // all loaded
                             return Q.all(loadingEvents)
                               .then(function (events) {
-                                debug("loaded events", events);
+//                                debug("loaded events", events);
                                 defer.resolve(resolvedActivities);
                               });
 

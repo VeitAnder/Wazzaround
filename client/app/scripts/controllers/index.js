@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, $route) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate) {
 
     $scope.currentUser = currentUser;
 
@@ -247,5 +247,14 @@ angular.module('anorakApp')
     $rootScope.$on('$translateChangeSuccess', function () {
       $route.reload();
     });
+
+    $scope.moment = moment;
+    $scope.moment.lang($translate.use());
+
+    // when language changes globally, reset also in directive
+    $rootScope.$on('$translateChangeSuccess', function () {
+      $scope.moment.lang($translate.use());
+    });
+
 
   });

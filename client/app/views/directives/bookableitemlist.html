@@ -8,7 +8,7 @@
     <div ng-show="$index+1 <= itemsperpage">
 
       <h3>
-        {{'Event' | translate}}:
+        {{'Event' | translate}}
         {{item.ref().description | languagefilter }}
       </h3>
 
@@ -23,7 +23,7 @@
 
         <div ng-repeat="(idx,event) in item.ref().events">
           <div class="event-row">
-            <div class="event-date cell first">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
+            <div class="event-date cell first">{{moment(event.ref().start).format("ddd, MMM Do YYYY")}}</div>
             <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
             <div class="event-duration cell">{{event.ref().duration}}h</div>
             <div class="event-quantity cell">{{event.ref().quantity}}x</div>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('bookableitemlist', function ($translate, $rootScope, models) {
+  .directive('bookableitemlist', function ($translate, $rootScope) {
     return {
       templateUrl: 'views/directives/bookableitemlist.html',
       restrict: 'E',
@@ -14,10 +14,12 @@ angular.module('anorakApp')
       link: function postLink(scope, elem, attrs) {
 
         scope.moment = moment;
+        scope.moment.lang($translate.use());
         scope.lang = $translate.use();
 
         // when language changes globally, reset also in directive
         $rootScope.$on('$translateChangeSuccess', function () {
+          scope.moment.lang($translate.use());
           scope.lang = $translate.use();
         });
 
