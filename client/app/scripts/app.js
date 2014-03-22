@@ -188,7 +188,7 @@ angular.module('anorakApp')
       })
       .when('/admin/myactivities/:id/edit', {
         templateUrl: 'views/admin/admin_basetemplate.html',
-        controller: 'AdminMyactivitiesEditCtrl',
+        controller: 'AdminMyactivitiesEditPageCtrl',
         resolve: {
           categories: ['models', function (models) {
             return models.CategoryModel.all();
@@ -227,7 +227,7 @@ angular.module('anorakApp')
       })
       .when('/admin/myactivities/new', {
         templateUrl: 'views/admin/admin_basetemplate.html',
-        controller: 'AdminMyactivitiesEditCtrl',
+        controller: 'AdminMyactivitiesEditPageCtrl',
         resolve: {
           categories: ['models', function (models) {
             return models.CategoryModel.all();
@@ -594,7 +594,8 @@ angular.module('anorakApp')
       // admin/myactivities/index.html
       'add activity': 'add activity',
       'Profile': 'User profile',
-      'Edit Profile': 'Edit user profile'
+      'Edit Profile': 'Edit user profile',
+      'Bookable item description placeholder': 'i.e. 4 hours tour (500ccm)'
     });
 
     $translateProvider.translations('de', {
@@ -838,8 +839,8 @@ angular.module('anorakApp')
       // admin/myactivities/index.html
       'add activity': 'Aktivität  hinzufügen',
       'Profile': 'Benutzerprofil',
-      'Edit Profile': 'Benutzerprofil editieren'
-
+      'Edit Profile': 'Benutzerprofil editieren',
+      'Bookable item description placeholder': 'z.B. 4 Stunden Tour (500ccm)'
     });
 
     $translateProvider.translations('it', {
@@ -1083,7 +1084,8 @@ angular.module('anorakApp')
       // admin/myactivities/index.html
       'add activity': 'aggiungere attività',
       'Profile': 'Profil',
-      'Edit Profile': 'Edit user profile'
+      'Edit Profile': 'Edit user profile',
+      'Bookable item description placeholder': 'per esempio 4 ore tour (500ccm)'
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
