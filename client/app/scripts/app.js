@@ -69,53 +69,75 @@ angular.module('anorakApp')
         templateUrl: 'views/index.html',
         controller: 'indexCtrl',
         resolve: {
-          categories: ['models', function (models) {
+          categories: ['models', 'currentUser', function (models) {
             return models.CategoryModel.all();
           }],
-          resolvedActivities: ['models', function (models) {
-
+          resolvedActivities: ['models', 'currentUser', function (models, currentUser) {
             var defer = Q.defer();
-            var resolvedActivities = [];
 
-            models.ActivityModel.all()
-              // loading activities, then bookable items of activities
-              .then(function (activities) {
-                resolvedActivities = activities;
-                var allBookableItemsInAllActivities = [];
-                _.each(activities, function (activity) {
-                  _.forEach(activity.bookableItems, function (item) {
-                    allBookableItemsInAllActivities = allBookableItemsInAllActivities.concat(item.load());
-                  });
-                });
+            currentUser.load()
+              .then(function (user) {
+                debug("Current user", user.user);
 
-                // loading events
-                return Q.all(allBookableItemsInAllActivities)
-                  .then(function (bookableItems) {
-                    debug("loadedBookableItems", bookableItems);
-                    if (bookableItems.length === 0) {
-                      defer.resolve(resolvedActivities);
+                var resolvedActivities = [];
 
-                    } else {
-                      var loadingEvents = [];
-                      _.forEach(bookableItems, function (bookableItem) {
-                        _.forEach(bookableItem.events, function (event) {
-                          loadingEvents.push(event.load());              // 3. load events
-                        });
-                        // all loaded
-                        return Q.all(loadingEvents)
-                          .then(function (events) {
-                            debug("loaded events", events);
-                            defer.resolve(resolvedActivities);
-                          });
+                models.ActivityModel.all()
+                  // loading activities, then bookable items of activities
+                  .then(function (activities) {
+                    
+                    // Only admin user sees all activities
+                    resolvedActivities = activities;
 
+                    // Normal user only sees published activities on main page
+                    if (user.user === null || user.user.userType === 'user') {
+                      resolvedActivities = _.filter(resolvedActivities, function (activity) {
+                        return activity.published === true;
                       });
                     }
-                  });
-              })
 
-              .fail(function (err) {
-                debug("Fail loading activities in the myactivities route", err);
-                defer.reject(err);
+                    // Provider user sees all activities where he/she is the owner plus all published of others
+                    else if (user.user.userType === 'provider') {
+                      resolvedActivities = _.filter(resolvedActivities, function (activity) {
+                        return activity.published || activity.owner._reference === user.user._id;
+                      });
+                    }
+
+                    var allBookableItemsInAllActivities = [];
+                    _.each(resolvedActivities, function (activity) {
+                      _.forEach(activity.bookableItems, function (item) {
+                        allBookableItemsInAllActivities = allBookableItemsInAllActivities.concat(item.load());
+                      });
+                    });
+
+                    // loading events
+                    return Q.all(allBookableItemsInAllActivities)
+                      .then(function (bookableItems) {
+                        debug("loadedBookableItems", bookableItems);
+                        if (bookableItems.length === 0) {
+                          defer.resolve(resolvedActivities);
+
+                        } else {
+                          var loadingEvents = [];
+                          _.forEach(bookableItems, function (bookableItem) {
+                            _.forEach(bookableItem.events, function (event) {
+                              loadingEvents.push(event.load());              // 3. load events
+                            });
+                            // all loaded
+                            return Q.all(loadingEvents)
+                              .then(function (events) {
+                                debug("loaded events", events);
+                                defer.resolve(resolvedActivities);
+                              });
+
+                          });
+                        }
+                      });
+                  })
+
+                  .fail(function (err) {
+                    debug("Fail loading activities in the myactivities route", err);
+                    defer.reject(err);
+                  });
               });
 
             return defer.promise;
@@ -821,7 +843,7 @@ angular.module('anorakApp')
 
     $translateProvider.translations('it', {
       // _.footer.html
-      'Why reacture': 'Perche reActure',
+      'Why reacture': 'Perché reActure',
       'Work with us': 'Lavora con noi',
       'Contact': 'Contattaci',
       // index.html
@@ -831,8 +853,8 @@ angular.module('anorakApp')
       'wellness': 'Wellness & Relax',
       'Sports and Activities': 'Sport & Attività',
       'of': 'di',
-      'Select all': 'Seleziona tutte',
-      'Deselect all': 'Deseleziona tutte',
+      'Select all': 'Seleziona tutto',
+      'Deselect all': 'Deseleziona tutto',
       'Culture': 'Cultura',
       'Wellness & Relax': 'Wellness & Relax',
       'Show all': 'Vedi tutto',
@@ -844,39 +866,39 @@ angular.module('anorakApp')
       'Prev': 'Prima',
       'Show all Dates': 'Mostra tutte le date',
       'Next': 'Più tardi',
-      'trekkingbikinghiking': 'Trekking, Bicicletta, Escursionismo',
+      'trekkingbikinghiking': 'Trekking, Bike, Scalata',
       'adventure': 'Avventura',
       'yogapilates': 'Yoga & Pilates',
-      'fulldayactivities': 'Attività di giorno completo',
-      'watersports': 'Sport acquatici',
-      'wintersports': 'Sport invernali',
-      'motorizedsports': 'Sport motorizzati',
-      'extremesports': 'Sport estremi',
-      'Trekking, Biking, Hiking': 'Trekking, Bicicletta, Escursionismo',
+      'fulldayactivities': 'Attività intera giornata',
+      'watersports': 'Sports acquatici',
+      'wintersports': 'Sports invernali',
+      'motorizedsports': 'Sports motoristici',
+      'extremesports': 'Sports estremi',
+      'Trekking, Biking, Hiking': 'Trekking, Bike, Scalata',
       'Yoga & Pilates': 'Yoga & Pilates',
-      'Water Sports': 'Sport acquatici',
-      'Motorized Sports': 'Sport motorizzati',
+      'Water Sports': 'Sports acquatici',
+      'Motorized Sports': 'Sports motoristici',
       'Adventure': 'Avventura',
-      'Full day activities': 'Attività di giorno completo',
-      'Winter Sports': 'Sport invernali',
-      'Extreme Sports': 'Sport motorizzati',
-      'degustations': 'Degustazioni: Vino & Gastronomia & Sigari',
-      'guidedtours': 'Visite guidate',
-      'exhibitionsandfairs': 'Mostre & Fiere',
+      'Full day activities': 'Attività intera giornata',
+      'Winter Sports': 'Sports invernali',
+      'Extreme Sports': 'Sports estremi',
+      'degustations': 'Degustazioni: Vino & Cibo & Sigari',
+      'guidedtours': 'Tour guidati',
+      'exhibitionsandfairs': 'Esposizioni & Fiere',
       'operaandtheater': 'Opera & Teatro',
       'musicandfilm': 'Musica & Cinema',
-      'Degustations: Wine & Food & Cigars': 'Degustazioni: Vino & Gastronomia & Sigari',
-      'Exhibitions & Fairs': 'Mostre & Fiere',
+      'Degustations: Wine & Food & Cigars': 'Degustazioni: Vino & Cibo & Sigari',
+      'Exhibitions & Fairs': 'Esposizioni & Fiere',
       'Music & Film': 'Musica & Cinema',
-      'Guided Tours': 'Visite guidate',
+      'Guided Tours': 'Tour guidati',
       'Opera & Theater': 'Opera & Teatro',
       'massages': 'Massaggi',
-      'medicaltreatments': 'Trattamenti medici',
-      'beauty': 'Bellezza',
+      'medicaltreatments': 'Trattamenti medici specifici',
+      'beauty': 'Beauty',
       'spaandsauna': 'Spa & Sauna',
       'Massages': 'Massaggi',
       'Beauty': 'Bellezza',
-      'Medical Treatments': 'Trattamenti medici',
+      'Medical Treatments': 'Trattamenti medici specifici',
       'Spa & Sauna': 'Spa & Sauna',
       'Your current search location': 'Posizione di ricerca',
       // login.html
@@ -908,7 +930,7 @@ angular.module('anorakApp')
       'Local': '',
       'Get': '',
       'instant bookings': '',
-      'from': '',
+      'from': 'dal',
       'potential clients': '',
       'in your area': '',
       'No fixed costs': '',
@@ -986,11 +1008,11 @@ angular.module('anorakApp')
       'UID optional': '',
       'Your UID number': '',
       //map/mapsearchbar.html
-      'Your location': '',
+      'Your location': 'La tua posizione',
       'Find': '',
       'From': '',
-      'until': '',
-      'Until': '',
+      'until': 'al',
+      'Until': 'Al',
       // directives/bookableitemlist.html
       'No events to display yet': '',
       'Event': '',
@@ -1001,18 +1023,18 @@ angular.module('anorakApp')
       // directives/loginstatus.html
       'Logout': '',
       // directives/uploadform.html
-      'add Image': '',
+      'add Image': 'aggiungere immagini',
       // admin/admin_basetemplate.html
-      'My Activities': '',
+      'My Activities': 'Le mie attività',
       'Admin All Activities': '',
-      'Edit your Profile': '',
+      'Edit your Profile': 'Modifica il tuo profilo',
       // admin/allactivities.html
       'Publish Activities': '',
       'This is the admin/allActivities view': '',
       'Activity': '',
-      'Main Category': '',
-      'Sub Category': '',
-      'Location': '',
+      'Main Category': 'Categoria principale',
+      'Sub Category': 'Sottocategoria',
+      'Location': 'Posizione',
       'publish': '',
       'unpublish': '',
       // admin/index.html
@@ -1021,16 +1043,16 @@ angular.module('anorakApp')
       'delete': '',
       'Your activity is published': '',
       'Your activity isnt published yet': "",
-      'Company offering this activity': '',
+      'Company offering this activity': 'compagnia che offre il servizio/attività',
       'back to my activities': "",
       'edit': '',
       // admin/myactivities/edit.html
       'New activity': '',
-      'Global Activity Info': '',
-      'Name of Activity or Activities': '',
-      'Meeting spot of this activity': '',
+      'Global Activity Info': 'Informazioni generali sull attività',
+      'Name of Activity or Activities': "Nome dell' attività",
+      'Meeting spot of this activity': "Punto d'incontro per questa attività",
       'Enter address of meeting spot': '',
-      'Submit address': '',
+      'Submit address': 'Invia indirizzo',
       'Click in map to reposition location of activity': '',
       'Select Main Category': '',
       'You can choose 2 Subcategories at most': '',
@@ -1038,7 +1060,7 @@ angular.module('anorakApp')
       'Description': '',
       'Images': '',
       'What can be booked': '',
-      'create a new event': '',
+      'create a new event': 'Creare una nuova attività prenotabile',
       'Price in €': '',
       'Delete Item': '',
       'Schedule Event': '',
@@ -1057,11 +1079,14 @@ angular.module('anorakApp')
       'Enter company': '',
       'Access denied': '',
       // admin/myactivities/index.html
-      'add activity': '',
+      'add activity': 'aggiungere attività',
       'Profile': 'Profil',
       'Edit Profile': 'Edit user profile',
       'Bookable item description placeholder': 'per esempio 4 ore tour (500ccm)'
     });
+//    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
+//    double click on the map to locate the activity
+
 
 //    $translateProvider.preferredLanguage('en');
 

@@ -8,11 +8,11 @@
       <!--<li>-->
         <!--<a href="#/admin/">Administration overview</a>-->
       <!--</li>-->
-      <li>
+      <li ng-show="currentUser.user.userType === 'admin' || currentUser.user.userType === 'provider'">
         <a href="#/admin/myactivities">{{'My Activities' | translate}}</a>
       </li>
 
-      <li ng-show="currentUser.user.userType == 'admin'">
+      <li ng-show="currentUser.user.userType === 'admin'">
         <a href="#/admin/allActivities">{{'Admin All Activities' | translate}}</a>
       </li>
       
