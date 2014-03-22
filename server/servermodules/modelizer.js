@@ -48,12 +48,17 @@ var initModelizer = function (app) {
 //  models.CategoryModel.serve();
 
   // apply server model
-  require('../models/server/booking');
-  require('../models/server/bookableItem');
-  require('../models/server/user');
-  require('../models/server/activity');
-  require('../models/server/accesstoken');
-  require('../models/server/event');
+//  require('../models/server/booking');
+//  require('../models/server/bookableItem');
+//  require('../models/server/user');
+//  require('../models/server/activity');
+//  require('../models/server/accesstoken');
+//  require('../models/server/event');
+
+  // load all files in directory
+  require("fs").readdirSync("./models/server/").forEach(function(file) {
+    require("../models/server/" + file);
+  });
 
 };
 
