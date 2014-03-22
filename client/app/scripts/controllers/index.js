@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, $translate) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, $route) {
 
     $scope.currentUser = currentUser;
 
@@ -243,6 +243,11 @@ angular.module('anorakApp')
       angular.forEach($scope.categories, function (mainCat) {
         setSelected(mainCat.key);
       });
+    });
+
+    // when user changes language, reload controller so that all translations are correct
+    $rootScope.$on('$translateChangeSuccess', function () {
+      $route.reload();
     });
 
   });
