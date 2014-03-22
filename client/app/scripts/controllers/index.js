@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, models) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, $translate) {
 
     $scope.currentUser = currentUser;
 
@@ -217,10 +217,12 @@ angular.module('anorakApp')
 
           _.each(marker.bookableItems, function (bookableItem) {
             _.each(bookableItem.ref().events, function (event) {
-              var description = bookableItem.ref().description ? " - " + bookableItem.ref().description : "";
-              var title = marker.name ? marker.name : "";
-              event.title = marker.name + description;
-              events.push(event);
+              event.ref().title = {
+                en: bookableItem.ref().description.en,
+                de: bookableItem.ref().description.de,
+                it: bookableItem.ref().description.it
+              };
+              events.push(event.ref());
             });
           });
           events = _.sortBy(events, "start");

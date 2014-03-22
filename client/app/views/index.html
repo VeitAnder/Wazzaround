@@ -308,11 +308,9 @@
                 <div class="availability-header">
                   <div class="month cell first">{{ 'Next available Dates' | translate }}</div>
                 </div>
-
                 <div class="availability-entry"
                      ng-repeat="available in m.availability">
                   <div class="availability-title cell first">
-                    {{available.title.de}}---
                     {{available.title | languagefilter}}
                   </div>
                   <div class="availability-date cell">
@@ -320,6 +318,9 @@
                   </div>
                   <div class="availability-time cell">
                     {{available.start | momentjs:{format: 'hh:mm a'} }}
+                  </div>
+                  <div class="availability-duration cell">
+                    {{available.duration | momentjs:{format: 'h'} }}h
                   </div>
                   <div class="availability-quantity cell">
                     {{available.quantity}}x

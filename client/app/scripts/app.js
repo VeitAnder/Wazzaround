@@ -74,27 +74,39 @@ angular.module('anorakApp')
           }],
           resolvedActivities: ['models', function (models) {
 
-//            return models.ActivityModel.all();
             var defer = Q.defer();
             var resolvedActivities = [];
 
             models.ActivityModel.all()
+              // loading activities, then bookable items of activities
               .then(function (activities) {
                 resolvedActivities = activities;
-
                 var allBookableItemsInAllActivities = [];
-
                 _.each(activities, function (activity) {
                   _.forEach(activity.bookableItems, function (item) {
                     allBookableItemsInAllActivities = allBookableItemsInAllActivities.concat(item.load());
                   });
                 });
-                return Q.all(allBookableItemsInAllActivities);
+
+                // loading events
+                return Q.all(allBookableItemsInAllActivities)
+                  .then(function (bookableItems) {
+                    debug("loadedBookableItems", bookableItems);
+                    var loadingEvents = [];
+                    _.forEach(bookableItems, function (bookableItem) {
+                      _.forEach(bookableItem.events, function (event) {
+                        loadingEvents.push(event.load());              // 3. load events
+                      });
+                      // all loaded
+                      return Q.all(loadingEvents)
+                        .then(function (events) {
+                          debug("loaded events", events);
+                          defer.resolve(resolvedActivities);
+                        });
+                    });
+                  });
               })
-              .then(function (res) {
-                debug("loadedBookableItems", res);
-                defer.resolve(resolvedActivities);
-              })
+
               .fail(function (err) {
                 debug("Fail loading activities in the myactivities route", err);
                 defer.reject(err);
@@ -166,7 +178,6 @@ angular.module('anorakApp')
                     var loadingEvents = [];
                     _.forEach(items, function (item) {
                       _.forEach(item.events, function (event) {
-                        console.log("event", event);
                         loadingEvents.push(event.load());              // 3. load events
                       });
                     });
@@ -1057,7 +1068,8 @@ angular.module('anorakApp')
     $translateProvider.useLocalStorage();
 
   })
-  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models) {
+  .
+  run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models) {
     "use strict";
 
     debug("application run called");
