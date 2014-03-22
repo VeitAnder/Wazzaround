@@ -1,519 +1,526 @@
-<h2>{{'Account' | translate}}</h2>
-<h3>
-  <span ng-show="activity.name">{{'Activity' | translate}}: {{activity.name | languagefilter}}</span>
-  <span ng-show="!activity.name">{{'New activity' | translate}}</span>
-</h3>
+<div ng-controller="AdminMyactivitiesEditCtrl">
+  <h2>{{'Account' | translate}}</h2>
 
-<form role="form"
-      name="valForm"
-      novalidate
-      class="activity-edit"
-    >
+  <h3>
+    <span ng-show="activity.name">{{'Activity' | translate}}: {{activity.name | languagefilter}}</span>
+    <span ng-show="!activity.name">{{'New activity' | translate}}</span>
+  </h3>
 
-  <fieldset>
-    <legend>{{'Global Activity Info' | translate}}:</legend>
-    <div class="form-group">
-      <label for="name">{{'Name of Activity or Activities' | translate}}</label>
-      <languagetabs data-formfieldlanguage="state.formfieldslanguage.name"></languagetabs>
-      <input type="text"
-             class="form-control"
-             id="name"
-             placeholder="i.e. Quad Tours (250ccm, 550ccm, 750ccm)"
-             ng-model="activity.name.en"
-             ng-show="state.formfieldslanguage.name === 'en'"
-          >
-      <input type="text"
-             class="form-control"
-             placeholder="z.B. Quad Touren (250ccm, 550ccm, 750ccm)"
-             ng-model="activity.name.de"
-             ng-show="state.formfieldslanguage.name === 'de'"
-          >
-      <input type="text"
-             class="form-control"
-             placeholder="ToDo IT >> i.e. Quad Tours (250ccm, 550ccm, 750ccm)"
-             ng-model="activity.name.it"
-             ng-show="state.formfieldslanguage.name === 'it'"
-          >
-    </div>
+  <form name="valForm"
+        class="activity-edit"
+        novalidate
+      >
 
-    <div class="form-group">
-      <label for="company">{{'Company offering this activity' | translate}}</label>
-      <input type="text"
-             class="form-control"
-             id="company"
-             placeholder="{{'Enter company' | translate}}"
-             ng-model="activity.company"
-          >
-    </div>
+    <fieldset>
+      <legend>{{'Global Activity Info' | translate}}:</legend>
+      <div class="form-group">
+        {{activity.name}}
+        <label for="activityname">{{'Name of Activity or Activities' | translate}}</label>
+        <input type="text"
+               class="form-control"
+               id="activityname"
+               name="activityname"
+               placeholder="i.e. Quad Tours (250ccm, 550ccm, 750ccm)"
+               ng-model="activity.name[getInputLanguage()]"
+               required
+            >
+        <span ng-show="showError('activityname', 'required')"
+              class="alert">{{'Please enter the name of the activity/activies.' | translate}}
+        </span>
 
-    <div class="form-group">
-      <label for="address">{{'Meeting spot of this activity' | translate}}</label>
-      <input type="text"
-             class="form-control"
-             id="address"
-             placeholder="{{'Enter address of meeting spot' | translate}}"
-             ng-model="activity.address"
-             ng-options="address.formatted_address as address.formatted_address for address in getAddress($viewValue)"
-             bs-typeahead
-          >
-
-      <button type="submit"
-              data-ng-click="setAddressOnMap()"
-              class="btn btn-small"
-              focuson
-          >{{'Submit address' | translate}}
-      </button>
-    </div>
-
-    <div style="width:100%; height:400px; overflow:hidden; position:relative;">
-
-      <google-map
-          center='map.center'
-          zoom='map.zoom'
-          draggable='true'
-          events='map.events'
-          options='map.options'
-          >
-
-        <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initialized yet-->
-        <div ng-init="opts = {animation:0}">
-          <marker coords="map.clickedMarker"
-                  options="opts"
-                  icon='getMarkerIcon()'
-                  content="activity.name | languagefilter"
-              >
-          </marker>
-          <!--<marker-label content="getMarkerLabel()"-->
-          <!--anchor="44 0"-->
-          <!--class="marker-labels"-->
-          <!--/>-->
-        </div>
-
-      </google-map>
-
-    </div>
-    <div class="alert">{{'Click in map to reposition location of activity' | translate}}</div>
-
-    <div class="form-group">
-      <label for="categoryMain">{{'Main Category' | translate}}</label>
-      <select class="form-control"
-              id="categoryMain"
-              required
-              ng-model="activity.category.main"
-              ng-change="mainCategoryChanged()"
-          >
-        <option disabled="disabled">{{'Select Main Category' | translate}}</option>
-        <option
-            ng-repeat="category in categories"
-            value="{{category.key}}"
-            ng-selected="activity.category.main === category.key"
-            >{{category.key | translate}}
-        </option>
-      </select>
-    </div>
-
-    <div class="form-group"
-         data-ng-show="activity.category.main"
-        >
-      <div class="input_label">{{'Sub Category' | translate}}</div>
-
-      <div
-          class="checkbox"
-          ng-repeat="subcategory in getSubCategories()"
-          >
-        <label>{{subcategory.key | translate}}
-          <input type="checkbox"
-                 ng-model="value$index"
-                 data-ng-change="setSubcat(subcategory.title)"
-                 ng-true-value="{{subcategory.title}}"
-                 ng-false-value=""
-                 ng-checked="isTitleInSubcats(subcategory.title)"
-                 ng-disabled="!isTitleInSubcats(subcategory.title) && activity.category.subs.length >= 2"
-              />
-        </label>
       </div>
 
-      <span class="alert alert-warn"
-            data-ng-show="activity.category.subs.length >= 2">{{'You can choose 2 Subcategories at most' | translate}}!
-      </span>
-      <span class="alert alert-info"
-            data-ng-show="activity.category.subs.length === 0">{{'You must choose at least 1 Subcategory' | translate }}!
-      </span>
-
-    </div>
-
-    <div class="form-group">
-      <label>{{'Description' | translate}}</label>
-      <languagetabs data-formfieldlanguage="state.formfieldslanguage.description"></languagetabs>
-      <text-angular
-          ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
-          ng-model="activity.description.en"
-          ng-show="state.formfieldslanguage.description === 'en'"
-          >
-      </text-angular>
-      <text-angular
-          ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
-          ng-model="activity.description.de"
-          ng-show="state.formfieldslanguage.description === 'de'"
-          >
-      </text-angular>
-      <text-angular
-          ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
-          ng-model="activity.description.it"
-          ng-show="state.formfieldslanguage.description === 'it'"
-          >
-      </text-angular>
-    </div>
-
-    <imageselector class="form-group img-selector">
-      <label>{{'Images' | translate}}</label>
-      <imageblock class="img-block"
-                  data-ng-repeat="image in activity.images"
-          >
-        <cloudinaryimage data-publicid="{{image.public_id}}"
-                         data-format="{{image.format}}"
-                         data-width="150"
-                         data-height="150"
+      <div class="form-group">
+        <label for="company">{{'Company offering this activity' | translate}}</label>
+        <input type="text"
+               class="form-control"
+               id="company"
+               placeholder="{{'Enter company' | translate}}"
+               ng-model="activity.company"
             >
-        </cloudinaryimage>
-        <div class="img-edit">
-          <a class="delete"
-             ng-click="removeImage(image, $index)">
-            <span>{{'delete' | translate}}</span>
-          </a>
+      </div>
+
+      <div class="form-group">
+        <label for="address">{{'Meeting spot of this activity' | translate}}</label>
+        <input type="text"
+               class="form-control"
+               id="address"
+               name="address"
+               placeholder="{{'Enter address of meeting spot' | translate}}"
+               ng-model="activity.address"
+               ng-options="address.formatted_address as address.formatted_address for address in getAddress($viewValue)"
+               bs-typeahead
+               required
+               ng-blur="setAddressOnMap()"
+            >
+
+        <span ng-show="showError('address', 'required')"
+              class="alert">{{'Please select a location.' | translate}}
+        </span>
+
+      </div>
+
+      <div style="width:100%; height:400px; overflow:hidden; position:relative;">
+
+        <google-map
+            center='map.center'
+            zoom='map.zoom'
+            draggable='true'
+            events='map.events'
+            options='map.options'
+            >
+
+          <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initialized yet-->
+          <div ng-init="opts = {animation:0}">
+            <marker coords="map.clickedMarker"
+                    options="opts"
+                    icon='getMarkerIcon()'
+                    content="activity.name | languagefilter"
+                >
+            </marker>
+            <!--<marker-label content="getMarkerLabel()"-->
+            <!--anchor="44 0"-->
+            <!--class="marker-labels"-->
+            <!--/>-->
+          </div>
+
+        </google-map>
+
+      </div>
+      <div class="alert">{{'Click in map to reposition location of activity' | translate}}</div>
+
+      <div class="form-group">
+        <label for="categoryMain">{{'Main Category' | translate}}</label>
+        <select class="form-control"
+                id="categoryMain"
+                name="categoryMain"
+                ng-model="activity.category.main"
+                ng-change="mainCategoryChanged()"
+                required
+            >
+          <option disabled="disabled">{{'Select Main Category' | translate}}</option>
+          <option
+              ng-repeat="category in categories"
+              value="{{category.key}}"
+              ng-selected="activity.category.main === category.key"
+              >
+            {{category.key | translate}}
+          </option>
+        </select>
+
+        <span ng-show="showError('categoryMain', 'required')"
+              class="alert">{{'Please select a category.' | translate}}
+        </span>
+
+      </div>
+
+      <div class="form-group"
+           data-ng-show="activity.category.main"
+          >
+        <div class="input_label">{{'Sub Category' | translate}}</div>
+
+        <div
+            class="checkbox"
+            ng-repeat="subcategory in getSubCategories()"
+            >
+          <label>{{subcategory.key | translate}}
+            <input type="checkbox"
+                   ng-model="value$index"
+                   data-ng-change="setSubcat(subcategory.title)"
+                   ng-true-value="{{subcategory.title}}"
+                   ng-false-value=""
+                   ng-checked="isTitleInSubcats(subcategory.title)"
+                   ng-disabled="!isTitleInSubcats(subcategory.title) && activity.category.subs.length >= 2"
+                />
+          </label>
         </div>
-      </imageblock>
-      <uploadform data-images="activity.images"></uploadform>
-    </imageselector>
 
-    <!--
-       <dropzoneexampleforstylingpreview class="dropzone">
-         <div class="dz-preview dz-file-preview dz-processing">
-           <div class="dz-details">
-             <div class="dz-filename">
-               <span data-dz-name="">_50MB.zip</span>
-             </div>
-             <div class="dz-size"
-                  data-dz-size="">
-               <strong>46.4</strong>
-               MiB
-             </div>
-             <img data-dz-thumbnail="">
-           </div>
-           <div class="dz-progress">
-             <span class="dz-upload"
-                   data-dz-uploadprogress=""
-                   style="width: 26.36409689099568%;"></span>
-           </div>
-           <div class="dz-success-mark">
-             <span>✔</span>
-           </div>
-           <div class="dz-error-mark">
-             <span>✘</span>
-           </div>
-           <div class="dz-error-message">
-             <span data-dz-errormessage=""></span>
-           </div>
-           <a class="dz-remove"
-              href="javascript:undefined;"
-              data-dz-remove="">Cancel upload
-           </a>
-         </div>
+        <span class="alert alert-warn"
+              data-ng-show="activity.category.subs.length >= 2">{{'You can choose 2 Subcategories at most' |
+                                                                translate}}!
+        </span>
+        <span class="alert alert-info"
+              data-ng-show="activity.category.subs.length === 0">{{'You must choose at least 1 Subcategory' | translate
+                                                                 }}!
+        </span>
 
-         <div class="dz-preview dz-file-preview dz-processing">
-           <div class="dz-details">
-             <div class="dz-filename">
-               <span data-dz-name="">_50MB.zip</span>
-             </div>
-             <div class="dz-size"
-                  data-dz-size="">
-               <strong>46.4</strong>
-               MiB
-             </div>
-             <img data-dz-thumbnail="">
-           </div>
-           <div class="dz-progress">
-             <span class="dz-upload"
-                   data-dz-uploadprogress=""
-                   style="width: 26.36409689099568%;"></span>
-           </div>
-           <div class="dz-success-mark">
-             <span>✔</span>
-           </div>
-           <div class="dz-error-mark">
-             <span>✘</span>
-           </div>
-           <div class="dz-error-message">
-             <span data-dz-errormessage=""></span>
-           </div>
-           <a class="dz-remove"
-              href="javascript:undefined;"
-              data-dz-remove="">Cancel upload
-           </a>
-         </div>
+      </div>
 
+      <div class="form-group">
+        <label>{{'Description' | translate}}</label>
+        <text-angular
+            ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
+            ng-model="activity.description[getInputLanguage()]"
+            name="description"
+            ng-required="true"
+            >
+        </text-angular>
 
-       </dropzoneexampleforstylingpreview>
-      -->
+        <span ng-show="showError('description', 'required')"
+              class="alert">{{'Please enter a description.' | translate}}
+        </span>
 
-  </fieldset>
+      </div>
 
-  <fieldset>
-    <legend>{{'What can be booked' | translate}}</legend>
-
-    <!-- New Stuff -->
-    <bookableitems class="bookableitems">
-
-
-      <div class="bookableitem bookableitem-add"
-           ng-repeat="(idx, bookableItem) in activity.bookableItems">
-        <div class="bookableitem-header">
-          <div class="bookableitem-name cell first">
-
-            <label for="itemDescription">{{'Description' | translate}}</label>
-
-            <input type="text"
-                   class="form-control"
-                   placeholder="i.e. 4 hours tour (500ccm)"
-                   ng-model="bookableItem.ref().description.en"
-                >
-
-          </div>
-          <div class="bookableitem-price cell last">
-            <label for="itemPrice">{{'Price' | translate}}</label>
-            <input type="number"
-                   class="form-control"
-                   id="itemPrice"
-                   placeholder="{{'Price in €' | translate}}"
-                   ng-model="bookableItem.ref().price"
-                >
-          </div>
-          <div class="buttonbar">
-            <a ng-click="removeItem(bookableItem.ref(), idx)"
-               class="txt-icon-delete">{{'Delete Item' | translate}}
-              <span class="btn-icon-right"></span>
+      <imageselector class="form-group img-selector">
+        <label>{{'Images' | translate}}</label>
+        <imageblock class="img-block"
+                    data-ng-repeat="image in activity.images"
+            >
+          <cloudinaryimage data-publicid="{{image.public_id}}"
+                           data-format="{{image.format}}"
+                           data-width="150"
+                           data-height="150"
+              >
+          </cloudinaryimage>
+          <div class="img-edit">
+            <a class="delete"
+               ng-click="removeImage(image, $index)">
+              <span>{{'delete' | translate}}</span>
             </a>
           </div>
+        </imageblock>
+        <uploadform data-images="activity.images"></uploadform>
+      </imageselector>
 
-        </div>
+      <span ng-show="!state.additionalformchecks.images"
+            class="alert">{{'Please upload an image.' | translate}}
+      </span>
 
-        <div class="bookableitem-body">
+      <!--
+         <dropzoneexampleforstylingpreview class="dropzone">
+           <div class="dz-preview dz-file-preview dz-processing">
+             <div class="dz-details">
+               <div class="dz-filename">
+                 <span data-dz-name="">_50MB.zip</span>
+               </div>
+               <div class="dz-size"
+                    data-dz-size="">
+                 <strong>46.4</strong>
+                 MiB
+               </div>
+               <img data-dz-thumbnail="">
+             </div>
+             <div class="dz-progress">
+               <span class="dz-upload"
+                     data-dz-uploadprogress=""
+                     style="width: 26.36409689099568%;"></span>
+             </div>
+             <div class="dz-success-mark">
+               <span>✔</span>
+             </div>
+             <div class="dz-error-mark">
+               <span>✘</span>
+             </div>
+             <div class="dz-error-message">
+               <span data-dz-errormessage=""></span>
+             </div>
+             <a class="dz-remove"
+                href="javascript:undefined;"
+                data-dz-remove="">Cancel upload
+             </a>
+           </div>
 
-          <eventlistinlistedit class="event-list">
+           <div class="dz-preview dz-file-preview dz-processing">
+             <div class="dz-details">
+               <div class="dz-filename">
+                 <span data-dz-name="">_50MB.zip</span>
+               </div>
+               <div class="dz-size"
+                    data-dz-size="">
+                 <strong>46.4</strong>
+                 MiB
+               </div>
+               <img data-dz-thumbnail="">
+             </div>
+             <div class="dz-progress">
+               <span class="dz-upload"
+                     data-dz-uploadprogress=""
+                     style="width: 26.36409689099568%;"></span>
+             </div>
+             <div class="dz-success-mark">
+               <span>✔</span>
+             </div>
+             <div class="dz-error-mark">
+               <span>✘</span>
+             </div>
+             <div class="dz-error-message">
+               <span data-dz-errormessage=""></span>
+             </div>
+             <a class="dz-remove"
+                href="javascript:undefined;"
+                data-dz-remove="">Cancel upload
+             </a>
+           </div>
 
-            <div class="event-header">
-              <div class="event-date cell first">{{'Date' | translate}}</div>
-              <div class="event-time cell">{{'Time' | translate}}</div>
-              <!--<div class="event-duration cell">Duration</div>-->
-              <div class="event-quantity cell">{{'Qty' | translate}}.</div>
-              <div class="listaction cell last">
-              </div>
-            </div>
 
+         </dropzoneexampleforstylingpreview>
+        -->
 
-            <eventrow class="event-row"
-                 ng-repeat="(idx,event) in bookableItem.ref().events">
+    </fieldset>
 
-              <eventview ng-show="event.mode != 'edit'">
-                <div class="event-date cell first">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
-                <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
-                <!--<div class="event-duration cell">{{event.ref().duration}}h</div>-->
-                <div class="event-quantity cell">{{event.ref().quantity}}x</div>
-                <div class="listaction cell last">
-                  <a class="edit"
-                     ng-click="event.mode = 'edit'">
-                    <span>{{'edit' | translate}}</span>
-                  </a>
-                  <a class="delete"
-                     ng-click="removeEvent(bookableItem.ref(), idx)">
-                    <span>{{'delete' | translate}}</span>
-                  </a>
-                </div>
-              </eventview>
+    <fieldset>
+      <legend>{{'What can be booked' | translate}}</legend>
 
-              <eventedit class="eventedit"
-                         ng-show="event.mode == 'edit'"
+      <!-- New Stuff -->
+      <bookableitems class="bookableitems">
+
+        <div class="bookableitem bookableitem-add"
+             ng-repeat="(idx, bookableItem) in activity.bookableItems">
+          <div class="bookableitem-header">
+            <div class="bookableitem-name cell first">
+
+              <label for="itemDescription">{{'Description' | translate}}</label>
+
+              <input type="text"
+                     class="form-control"
+                     placeholder="{{'Bookable item description placeholder' | translate}}"
+                     ng-model="bookableItem.ref().description[getInputLanguage()]"
                   >
-                <div class="form-group date-from">
-                  <input type="text"
-                         size="10"
-                         class="form-control"
-                         ng-model="event.ref().start"
-                         data-autoclose="0"
-                         placeholder="{{'Date' | translate}}"
-                         bs-datepicker>
-                </div>
-                <div class="form-group time">
-                  <input type="text"
-                         size="8"
-                         class="form-control"
-                         ng-model="event.ref().start"
-                         data-autoclose="0"
-                         placeholder="{{'Time' | translate}}"
-                         bs-timepicker
-                      >
-                </div>
-                <div class="form-group duration">
-                  <input type="number"
-                         class="form-control"
-                         id="duration"
-                         placeholder="{{'Duration' | translate}} (h)"
-                         ng-model="event.ref().duration"
-                      >
-                </div>
-                <div class="form-group quantity">
-                  <input type="number"
-                         class="form-control"
-                         id="quantity"
-                         placeholder="{{'Quantity' | translate}}"
-                         ng-model="event.ref().quantity"
-                      >
-                </div>
-
-                <div class="event-new-repeat">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"
-                             ng-model="event.ref().repeating">
-                      {{'repeating' | translate}}
-                    </label>
-                  </div>
-                  <div class="repeating"
-                       ng-show="event.ref().repeating">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"
-                               ng-model="event.ref().dayOfWeek.Mon">
-                        {{'Mon' | translate}}
-                      </label>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"
-                               ng-model="event.ref().dayOfWeek.Tue">
-                        {{'Tue' | translate}}
-                      </label>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"
-                               ng-model="event.ref().dayOfWeek.Wed">
-                        {{'Wed' | translate}}
-                      </label>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"
-                               ng-model="event.ref().dayOfWeek.Thu">
-                        {{'Thu' | translate}}
-                      </label>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"
-                               ng-model="event.ref().dayOfWeek.Fri">
-                        {{'Fri' | translate}}
-                      </label>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"
-                               ng-model="event.ref().dayOfWeek.Sat">
-                        {{'Sat' | translate}}
-                      </label>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"
-                               ng-model="event.ref().dayOfWeek.Son">
-                        {{'Sun' | translate}}
-                      </label>
-                    </div>
-
-                    <div class="form-group date-until">
-                      <input type="text"
-                             class="form-control"
-                             ng-model="event.ref().end"
-                             data-min-date=""
-                             placeholder="{{'Until' | translate}}"
-                             bs-datepicker
-                             autoclose="true"
-                             value=""
-                          >
-                    </div>
-                  </div>
-
-                </div>
-
-                <div class="buttonbar">
-                  <a class="txt-icon-delete"
-                     ng-click="removeEvent(bookableItem.ref(), idx)"
-                      >{{'remove' | translate}}
-                    <span class="btn-icon-right"></span>
-                  </a>
-                </div>
-
-                <div class="buttonbar">
-                  <a class="txt-icon-save"
-                     ng-click="event.mode = 'view'; createEventSeries(bookableItem.ref(), event.ref())"
-                      >{{'save event' | translate}}
-                    <span class="btn-icon-right"></span>
-                  </a>
-                </div>
-
-              </eventedit>
-
-            </eventrow>
-
-
-            <div class="event-add">
-              <a class="txt-icon-add"
-                 ng-click="createEvent(bookableItem.ref())">
-                <span class="btn-icon-left"></span>
-                {{'Schedule Event' | translate}}
-              </a>
 
             </div>
+            <div class="bookableitem-price cell last">
+              <label for="itemPrice">{{'Price' | translate}}</label>
+              <input type="number"
+                     class="form-control"
+                     id="itemPrice"
+                     placeholder="{{'Price in €' | translate}}"
+                     ng-model="bookableItem.ref().price"
+                  >
+            </div>
+            <div class="buttonbar">
+              <a ng-click="removeItem(bookableItem.ref(), idx)"
+                 class="txt-icon-delete">{{'Delete Item' | translate}}
+                <span class="btn-icon-right"></span>
+              </a>
+            </div>
 
-          </eventlistinlistedit>
+          </div>
 
-          <!-- ######## STATIC LIST END ######## -->
+          <div class="bookableitem-body">
 
+            <eventlistinlistedit class="event-list">
+
+              <div class="event-header">
+                <div class="event-date cell first">{{'Date' | translate}}</div>
+                <div class="event-time cell">{{'Time' | translate}}</div>
+                <!--<div class="event-duration cell">Duration</div>-->
+                <div class="event-quantity cell">{{'Qty' | translate}}.</div>
+                <div class="listaction cell last">
+                </div>
+              </div>
+
+              <eventrow class="event-row"
+                        ng-repeat="(idx,event) in bookableItem.ref().events">
+
+                <eventview ng-show="event.mode != 'edit'">
+                  <div class="event-date cell first">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
+                  <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
+                  <!--<div class="event-duration cell">{{event.ref().duration}}h</div>-->
+                  <div class="event-quantity cell">{{event.ref().quantity}}x</div>
+                  <div class="listaction cell last">
+                    <a class="edit"
+                       ng-click="event.mode = 'edit'">
+                      <span>{{'edit' | translate}}</span>
+                    </a>
+                    <a class="delete"
+                       ng-click="removeEvent(bookableItem.ref(), idx)">
+                      <span>{{'delete' | translate}}</span>
+                    </a>
+                  </div>
+                </eventview>
+
+                <eventedit class="eventedit"
+                           ng-show="event.mode == 'edit'"
+                    >
+                  <div class="form-group date-from">
+                    <input type="text"
+                           size="10"
+                           class="form-control"
+                           ng-model="event.ref().start"
+                           data-autoclose="0"
+                           placeholder="{{'Date' | translate}}"
+                           bs-datepicker>
+                  </div>
+                  <div class="form-group time">
+                    <input type="text"
+                           size="8"
+                           class="form-control"
+                           ng-model="event.ref().start"
+                           data-autoclose="0"
+                           placeholder="{{'Time' | translate}}"
+                           bs-timepicker
+                        >
+                  </div>
+                  <div class="form-group duration">
+                    <input type="number"
+                           class="form-control"
+                           id="duration"
+                           placeholder="{{'Duration' | translate}} (h)"
+                           ng-model="event.ref().duration"
+                        >
+                  </div>
+                  <div class="form-group quantity">
+                    <input type="number"
+                           class="form-control"
+                           id="quantity"
+                           placeholder="{{'Quantity' | translate}}"
+                           ng-model="event.ref().quantity"
+                        >
+                  </div>
+
+                  <div class="event-new-repeat">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"
+                               ng-model="event.ref().repeating">
+                        {{'repeating' | translate}}
+                      </label>
+                    </div>
+                    <div class="repeating"
+                         ng-show="event.ref().repeating">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"
+                                 ng-model="event.ref().dayOfWeek.Mon">
+                          {{'Mon' | translate}}
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"
+                                 ng-model="event.ref().dayOfWeek.Tue">
+                          {{'Tue' | translate}}
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"
+                                 ng-model="event.ref().dayOfWeek.Wed">
+                          {{'Wed' | translate}}
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"
+                                 ng-model="event.ref().dayOfWeek.Thu">
+                          {{'Thu' | translate}}
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"
+                                 ng-model="event.ref().dayOfWeek.Fri">
+                          {{'Fri' | translate}}
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"
+                                 ng-model="event.ref().dayOfWeek.Sat">
+                          {{'Sat' | translate}}
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"
+                                 ng-model="event.ref().dayOfWeek.Son">
+                          {{'Sun' | translate}}
+                        </label>
+                      </div>
+
+                      <div class="form-group date-until">
+                        <input type="text"
+                               class="form-control"
+                               ng-model="event.ref().end"
+                               data-min-date=""
+                               placeholder="{{'Until' | translate}}"
+                               bs-datepicker
+                               autoclose="true"
+                               value=""
+                            >
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="buttonbar">
+                    <a class="txt-icon-delete"
+                       ng-click="removeEvent(bookableItem.ref(), idx)"
+                        >{{'remove' | translate}}
+                      <span class="btn-icon-right"></span>
+                    </a>
+                  </div>
+
+                  <div class="buttonbar">
+                    <a class="txt-icon-save"
+                       ng-click="event.mode = 'view'; createEventSeries(bookableItem.ref(), event.ref())"
+                        >{{'save event' | translate}}
+                      <span class="btn-icon-right"></span>
+                    </a>
+                  </div>
+
+                </eventedit>
+
+              </eventrow>
+
+              <div class="event-add">
+                <a class="txt-icon-add"
+                   ng-click="createEvent(bookableItem.ref())">
+                  <span class="btn-icon-left"></span>
+                  {{'Schedule Event' | translate}}
+                </a>
+
+              </div>
+
+            </eventlistinlistedit>
+
+            <!-- ######## STATIC LIST END ######## -->
+
+          </div>
+          <br/>
+          <br/>
         </div>
-        <br/><br/>
+
+        <button class="btn-add"
+                ng-click="activity.createBookableItems()">
+          <span class="btn-icon-left"></span>
+          {{'create a new event' | translate}}
+        </button>
+
+        <span ng-show="!state.additionalformchecks.bookableevents"
+              class="alert">{{'Please create bookable events.' | translate}}
+        </span>
+
+      </bookableitems>
+
+    </fieldset>
+
+    <div class="buttonbar margin-top">
+
+      <div ng-show="state.error">
+        <div class="alert alert-error">{{state.message | translate}}</div>
       </div>
 
+      <a data-ng-show="!isNewMode()"
+         class="btn btn-alert float-left"
+         data-ng-click="delete()">{{'delete' | translate}}
+      </a>
 
-      <button class="btn-add"
-              ng-click="activity.createBookableItems()">
-        <span class="btn-icon-left"></span>
-        {{'create a new event' | translate}}
+      <button class="btn"
+              ng-click="save()"
+              ng-class="{disabled: valForm.$invalid || !additionalFormChecks()}"
+          >
+        {{'save' | translate}}
       </button>
+      <a class="cancel"
+         ng-click="cancel()"
+          >
+        {{'cancel' | translate}}
+      </a>
 
-    </bookableitems>
-
-  </fieldset>
-
-  <div class="buttonbar margin-top">
-
-    <div ng-show="state.error">
-      <div class="alert alert-error">{{state.message | translate}}</div>
     </div>
 
-    <a data-ng-show="!isNewMode()"
-       class="btn btn-alert float-left"
-       data-ng-click="delete()">{{'delete' | translate}}
-    </a>
+  </form>
 
-    <button class="btn"
-            ng-click="save()"
-        >{{'save' | translate}}
-    </button>
-    <a class="cancel"
-       ng-click="cancel()"
-        >{{'cancel' | translate}}
-    </a>
-
-  </div>
-
-</form>
+</div>

@@ -1,10 +1,17 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, activity, categories, activitybackendmap, $route, $rootScope) {
+  .controller('AdminMyactivitiesEditPageCtrl', function ($scope, activity, categories) {
+
     $scope.getPagePartial = function () {
       return 'views/admin/myactivities/edit.html';
     };
+
+    $scope.activity = activity;
+    $scope.categories = categories;
+
+  })
+  .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, activitybackendmap, $route, $rootScope, $translate) {
 
     //only check once at initialization time
     if ($route.current.$$route.originalPath === "/admin/myactivities/new") {
@@ -14,11 +21,19 @@ angular.module('anorakApp')
     }
 
     $scope.state = {
+      submitted: false,
       formfieldslanguage: {
         name: "",
         description: ""
+      },
+      additionalformchecks: {
+        images: true,
+        bookableevents: true
       }
     };
+
+    $scope.categories = $scope.$parent.categories;
+    $scope.activity = $scope.$parent.activity;
 
     $scope.createEventSeries = function (item, event) {
       console.log("createRepeatingEvents called", item, event);
@@ -37,7 +52,7 @@ angular.module('anorakApp')
         return;
       }
 
-       if (endDate.diff(startDate, 'years') > 2) {
+      if (endDate.diff(startDate, 'years') > 2) {
         console.log("you're trying to add events for more than two years");
         return;
       }
@@ -64,7 +79,7 @@ angular.module('anorakApp')
       var event = bookableItem.createEvents();
       event.start = new Date();
 
-      bookableItem.events[bookableItem.events.length-1].mode = 'edit';
+      bookableItem.events[bookableItem.events.length - 1].mode = 'edit';
       //event.mode = 'edit';   // funktionier so leider nicht
     };
 
@@ -77,12 +92,12 @@ angular.module('anorakApp')
 
     $scope.removeItem = function (item, idx) {
 
-      _.forEach(item.events, function(event) {  // remove saved events
+      _.forEach(item.events, function (event) {  // remove saved events
         console.log("TODO: remove this event");   // TODO
       });
 
       item.remove().done();
-      activity.bookableItems.splice(idx, 1);
+      $scope.activity.bookableItems.splice(idx, 1);
     };
 
     $scope.moment = moment;
@@ -91,11 +106,24 @@ angular.module('anorakApp')
       return $scope.newMode;
     };
 
-    $scope.categories = categories;
-    $scope.activity = activity;
+    /* handle activity input language */
+    // set language if not already set in activity
+    if (!$scope.activity.inputlanguage) {
+      $scope.activity.inputlanguage = $translate.use();
+    }
+
+    // when language changes globally, reset also in directive
+    $rootScope.$on('$translateChangeSuccess', function () {
+      $scope.activity.inputlanguage = $translate.use();
+    });
+
+    $scope.getInputLanguage = function () {
+      return $scope.activity.inputlanguage;
+    };
+    /* handle activity input language end */
 
     $scope.getSubCategories = function () {
-      var maincategory = _.find(categories, { 'key': $scope.activity.category.main });
+      var maincategory = _.find($scope.categories, { 'key': $scope.activity.category.main });
       if (maincategory) {
         return maincategory.sub;
       }
@@ -171,44 +199,51 @@ angular.module('anorakApp')
     $scope.save = function () {
       debug("save() called", $scope.activity.latitude);
 
-      // check if there was only a marker set or an address entered
-      if (!$scope.activity.latitude) {
-        $scope.activity.latitude = $scope.map.clickedMarker.latitude;
-        $scope.activity.longitude = $scope.map.clickedMarker.longitude;
-      }
+      $scope.state.submitted = true;
 
-      Q()
-        .then(function(){
-          var saveEventsPromises = [];
-          _.forEach($scope.activity.bookableItems, function (item) {
-            _.forEach(item.ref().events, function(event) {
-              saveEventsPromises.push(event.ref().save());  // save the events
+      $scope.additionalFormChecks();
+
+      if ($scope.valForm.$valid && $scope.additionalFormChecks()) {
+
+        // check if there was only a marker set or an address entered
+        if (!$scope.activity.latitude) {
+          $scope.activity.latitude = $scope.map.clickedMarker.latitude;
+          $scope.activity.longitude = $scope.map.clickedMarker.longitude;
+        }
+
+        Q()
+          .then(function () {
+            var saveEventsPromises = [];
+            _.forEach($scope.activity.bookableItems, function (item) {
+              _.forEach(item.ref().events, function (event) {
+                saveEventsPromises.push(event.ref().save());  // save the events
+              });
             });
+            return Q.all(saveEventsPromises);
+          })
+          .then(function (events) {
+            var savePromises = [];
+            _.forEach($scope.activity.bookableItems, function (item) {
+              savePromises.push(item.ref().save());  // save the items
+            });
+            return Q.all(savePromises);
+          })
+          .then(function (items) {  // all BookableItems are saved
+            debug("all results", items);
+            return $scope.activity.save();  // save the activity
+          })
+          .then(function (activity) {
+            debug("SAVED ACTIVITY");
+            $location.path("/admin/myactivities/");
+            $scope.$apply();
+          })
+          .fail(function (err) {
+            debug("Could not save activity");
+            $scope.state.error = true;
+            $scope.state.message = err.message;
+            $scope.$apply();
           });
-          return Q.all(saveEventsPromises);
-        })
-        .then(function(events){
-          var savePromises = [];
-          _.forEach($scope.activity.bookableItems, function (item) {
-            savePromises.push(item.ref().save());  // save the items
-          });
-          return Q.all(savePromises);
-        })
-        .then(function (items) {  // all BookableItems are saved
-          debug("all results", items);
-          return $scope.activity.save();  // save the activity
-        })
-        .then(function (activity) {
-          debug("SAVED ACTIVITY");
-          $location.path("/admin/myactivities/");
-          $scope.$apply();
-        })
-        .fail(function (err) {
-          debug("Could not save activity");
-          $scope.state.error = true;
-          $scope.state.message = err.message;
-          $scope.$apply();
-        });
+      }
     };
 
     $scope.delete = function () {
@@ -250,7 +285,7 @@ angular.module('anorakApp')
 
     // image upload functionality
     $scope.removeImage = function (image, $index) {
-      activity.images.splice($index, 1);
+      $scope.activity.images.splice($index, 1);
 
       // delete file from server implemented here
       // question is when to delete file from server??
@@ -265,8 +300,55 @@ angular.module('anorakApp')
 
     };
 
-    $scope.mainCategoryChanged = function() {
+    $scope.mainCategoryChanged = function () {
       $scope.activity.category.subs = [];
     };
+
+    /**
+     * Whether to show an error message for the specified error
+     * @param {string} fieldName The name of the field on the form, of which we want to know whether to show the error
+     * @param  {string} error - The name of the error as given by a validation directive
+     * @return {Boolean} true if the error should be shown
+     */
+    $scope.showError = function (fieldName, error) {
+      var formName = "valForm";
+      var showerror = false;
+      if ($scope[formName][fieldName].$error[error] && (!$scope[formName][fieldName].$pristine || $scope.state.submitted)) {
+        showerror = true;
+      }
+      return showerror;
+    };
+
+    $scope.additionalFormChecks = function () {
+      var valid = true;
+
+      // check for uploaded images
+      if ($scope.activity.images.length < 1) {
+        $scope.state.additionalformchecks.images = false;
+        valid = false;
+      } else {
+        $scope.state.additionalformchecks.images = true;
+      }
+
+      // check for bookableItems
+      if ($scope.activity.bookableItems && $scope.activity.bookableItems[0]) {
+        $scope.state.additionalformchecks.bookableevents = true;
+      } else {
+        $scope.state.additionalformchecks.bookableevents = false;
+        valid = false;
+      }
+
+      return valid;
+    };
+
+    $scope.$watch(function(){
+      return $scope.activity;
+    }, function (oldVal, newVal) {
+      if ($scope.state.submitted){
+        $scope.additionalFormChecks();
+      }
+    }, true);
+
+
 
   });
