@@ -5,8 +5,6 @@ angular.module('anorakApp')
 
     $scope.currentUser = currentUser;
 
-    debug("resolvedactivities", resolvedActivities);
-
     $scope.states = {
       sports: {
         open: false

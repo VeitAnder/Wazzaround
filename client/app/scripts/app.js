@@ -69,53 +69,75 @@ angular.module('anorakApp')
         templateUrl: 'views/index.html',
         controller: 'indexCtrl',
         resolve: {
-          categories: ['models', function (models) {
+          categories: ['models', 'currentUser', function (models) {
             return models.CategoryModel.all();
           }],
-          resolvedActivities: ['models', function (models) {
-
+          resolvedActivities: ['models', 'currentUser', function (models, currentUser) {
             var defer = Q.defer();
-            var resolvedActivities = [];
 
-            models.ActivityModel.all()
-              // loading activities, then bookable items of activities
-              .then(function (activities) {
-                resolvedActivities = activities;
-                var allBookableItemsInAllActivities = [];
-                _.each(activities, function (activity) {
-                  _.forEach(activity.bookableItems, function (item) {
-                    allBookableItemsInAllActivities = allBookableItemsInAllActivities.concat(item.load());
-                  });
-                });
+            currentUser.load()
+              .then(function (user) {
+                debug("Current user", user.user);
 
-                // loading events
-                return Q.all(allBookableItemsInAllActivities)
-                  .then(function (bookableItems) {
-                    debug("loadedBookableItems", bookableItems);
-                    if (bookableItems.length === 0) {
-                      defer.resolve(resolvedActivities);
+                var resolvedActivities = [];
 
-                    } else {
-                      var loadingEvents = [];
-                      _.forEach(bookableItems, function (bookableItem) {
-                        _.forEach(bookableItem.events, function (event) {
-                          loadingEvents.push(event.load());              // 3. load events
-                        });
-                        // all loaded
-                        return Q.all(loadingEvents)
-                          .then(function (events) {
-                            debug("loaded events", events);
-                            defer.resolve(resolvedActivities);
-                          });
+                models.ActivityModel.all()
+                  // loading activities, then bookable items of activities
+                  .then(function (activities) {
+                    
+                    // Only admin user sees all activities
+                    resolvedActivities = activities;
 
+                    // Normal user only sees published activities on main page
+                    if (user.user === null || user.user.userType === 'user') {
+                      resolvedActivities = _.filter(resolvedActivities, function (activity) {
+                        return activity.published === true;
                       });
                     }
-                  });
-              })
 
-              .fail(function (err) {
-                debug("Fail loading activities in the myactivities route", err);
-                defer.reject(err);
+                    // Provider user sees all activities where he/she is the owner plus all published of others
+                    else if (user.user.userType === 'provider') {
+                      resolvedActivities = _.filter(resolvedActivities, function (activity) {
+                        return activity.published || activity.owner._reference === user.user._id;
+                      });
+                    }
+
+                    var allBookableItemsInAllActivities = [];
+                    _.each(resolvedActivities, function (activity) {
+                      _.forEach(activity.bookableItems, function (item) {
+                        allBookableItemsInAllActivities = allBookableItemsInAllActivities.concat(item.load());
+                      });
+                    });
+
+                    // loading events
+                    return Q.all(allBookableItemsInAllActivities)
+                      .then(function (bookableItems) {
+                        debug("loadedBookableItems", bookableItems);
+                        if (bookableItems.length === 0) {
+                          defer.resolve(resolvedActivities);
+
+                        } else {
+                          var loadingEvents = [];
+                          _.forEach(bookableItems, function (bookableItem) {
+                            _.forEach(bookableItem.events, function (event) {
+                              loadingEvents.push(event.load());              // 3. load events
+                            });
+                            // all loaded
+                            return Q.all(loadingEvents)
+                              .then(function (events) {
+                                debug("loaded events", events);
+                                defer.resolve(resolvedActivities);
+                              });
+
+                          });
+                        }
+                      });
+                  })
+
+                  .fail(function (err) {
+                    debug("Fail loading activities in the myactivities route", err);
+                    defer.reject(err);
+                  });
               });
 
             return defer.promise;
