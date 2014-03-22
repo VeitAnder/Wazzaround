@@ -343,7 +343,7 @@ angular.module('anorakApp')
       'yogapilates': 'Yoga & Pilates',
       'fulldayactivities': 'Full day activities',
       'watersports': 'Water Sports',
-      'wintersports': 'Sport invernali',
+      'wintersports': 'Winter Sports',
       'motorizedsports': 'Motorized Sports',
       'extremesports': 'Extreme Sports',
       'Trekking, Biking, Hiking': 'Trekking, Biking, Hiking',
@@ -451,7 +451,7 @@ angular.module('anorakApp')
       'Until': 'Until',
       // directives/bookableitemlist.html
       'No events to display yet': 'No events to display yet',
-      'Event': 'Event:',
+      'Event': 'Event',
       'Date': 'Date',
       'Time': 'Time',
       'Duration': 'Duration',
@@ -655,7 +655,7 @@ angular.module('anorakApp')
       'Until': 'Bis',
       // directives/bookableitemlist.html
       'No events to display yet': 'Noch keine Events zum Anzeigen vorhanden',
-      'Event': 'Event:',
+      'Event': 'Event',
       'Date': 'Datum',
       'Time': 'Zeit',
       'Duration': 'Dauer',
@@ -684,7 +684,7 @@ angular.module('anorakApp')
       'Your activity is published': 'Ihre Aktivität wurde veröffentlicht!',
       'Your activity isnt published yet': "Ihre Aktivität wurde noch nicht veröffentlicht!",
       'Company offering this activity': 'Anbietende Firma:',
-      'back to my activities': 'Zu "Meine Aktivitäten"',
+      'back to my activities': 'Gehe zu "Meine Aktivitäten"',
       'edit': 'bearbeiten',
       // admin/myactivities/edit.html
       'New activity': 'Neue Aktivität',
@@ -887,8 +887,8 @@ angular.module('anorakApp')
       // admin/myactivities/detail.html
       'delete': '',
       'Your activity is published': '',
-      'Your activity isnt published yet': "Your activity isn't published yet!",
-      'Company offering this activity': 'Company offering this activity:',
+      'Your activity isnt published yet': "",
+      'Company offering this activity': '',
       'back to my activities': "",
       'edit': '',
       // admin/myactivities/edit.html

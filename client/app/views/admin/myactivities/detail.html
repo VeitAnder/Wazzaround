@@ -23,7 +23,7 @@
 
   <h4>
     <span class="icon"></span>
-    {{activity.name}}
+    {{activity.name | languagefilter }}
   </h4>
 
     <div class="input_label">
@@ -46,7 +46,7 @@
           coords='map.center'
           icon='getMarkerIcon()'
           >
-        <marker-label content="activity.name"
+        <marker-label content="activity.name | languagefilter"
                       anchor="22 0"
                       class="marker-labels marker-label-category-{{activity.category.main}}"
             />
@@ -60,7 +60,7 @@
     {{activity.category.main | translate}}
     <span class="category-sub"
           ng-repeat="subcat in activity.category.subs">
-      / {{subcat.title}}
+      / {{subcat.title | translate}}
     </span>
   </h5>
 
@@ -75,12 +75,12 @@
   </div>
 
   <div class="description">
-    <div ta-bind ng-model="activity.description"></div>
+    <div ta-bind ng-model="activity.description[lang]"></div>
   </div>
 
   <div class="availability">
     <div class="input_label">{{'Availability' | translate}}</div>
-
+           TODO
     <div class="availability-list">
 
       <div class="availability-header">

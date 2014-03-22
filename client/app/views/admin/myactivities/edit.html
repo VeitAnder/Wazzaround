@@ -1,6 +1,6 @@
 <h2>{{'Account' | translate}}</h2>
 <h3>
-  <span ng-show="activity.name">{{'Activity' | translate}}: {{activity.name}}</span>
+  <span ng-show="activity.name">{{'Activity' | translate}}: {{activity.name | languagefilter}}</span>
   <span ng-show="!activity.name">{{'New activity' | translate}}</span>
 </h3>
 
@@ -80,6 +80,7 @@
           <marker coords="map.clickedMarker"
                   options="opts"
                   icon='getMarkerIcon()'
+                  content="activity.name | languagefilter"
               >
           </marker>
           <!--<marker-label content="getMarkerLabel()"-->
@@ -104,9 +105,9 @@
         <option disabled="disabled">{{'Select Main Category' | translate}}</option>
         <option
             ng-repeat="category in categories"
-            value="{{category.key}}"
+            value="{{category.key | translate}}"
             ng-selected="activity.category.main === category.key"
-            >{{category.title}}
+            >{{category.key | translate}}
         </option>
       </select>
     </div>
@@ -120,7 +121,7 @@
           class="checkbox"
           ng-repeat="subcategory in getSubCategories()"
           >
-        <label>{{subcategory.title}}
+        <label>{{subcategory.key | translate}}
           <input type="checkbox"
                  ng-model="value$index"
                  data-ng-change="setSubcat(subcategory.title)"
@@ -258,7 +259,7 @@
   </fieldset>
 
   <fieldset>
-    <legend>{{'What can be booked' | translate}}?</legend>
+    <legend>{{'What can be booked' | translate}}</legend>
 
     <!-- New Stuff -->
     <div class="bookableitems">
