@@ -385,6 +385,8 @@ angular.module('anorakApp')
       'Forgot password': 'Forgot password?',
       'Your e-mail address': 'Your e-mail address',
       'Your password': 'Your password',
+      'Invalid Password': 'Invalid password',
+      'User not found': 'This user does not exist',
       // shoppingcart.html
       'Shopping Cart': 'Shopping Cart',
       // why.html
@@ -496,7 +498,7 @@ angular.module('anorakApp')
       'add Image': 'add Image',
       // admin/admin_basetemplate.html
       'My Activities': 'My Activities',
-      'Admin All Activities': 'Admin All Activities',
+      'Admin All Activities': 'Administrate all Activities',
       'Edit your Profile': 'Edit your Profile',
       // admin/allactivities.html
       'Publish Activities': 'Publish Activities',
@@ -547,6 +549,7 @@ angular.module('anorakApp')
       'save': 'save',
       'cancel': '',
       'Enter company': 'Enter company',
+      'Access denied': 'Access denied!',
       // admin/myactivities/index.html
       'add activity': 'add activity'
     });
@@ -623,6 +626,8 @@ angular.module('anorakApp')
       'Forgot password': 'Passwort vergessen?',
       'Your e-mail address': 'Ihre E-Mail Adresse',
       'Your password': 'Ihr Passwort',
+      'Invalid Password': 'Ungültiges Passwort',
+      'User not found': 'Dieser User existiert nicht',
       // shoppingcart.html
       'Shopping Cart': 'Warenkorb',
       // why.html
@@ -734,7 +739,7 @@ angular.module('anorakApp')
       'add Image': 'Bild hinzufügen',
       // admin/admin_basetemplate.html
       'My Activities': 'Meine Aktivitäten',
-      'Admin All Activities': 'Admin Alle Aktivitäten',
+      'Admin All Activities': 'Administration aller Aktivitäten',
       'Edit your Profile': 'Profil editieren',
       // admin/allactivities.html
       'Publish Activities': 'Aktivitäten veröffentlichen',
@@ -785,6 +790,7 @@ angular.module('anorakApp')
       'save': 'speichern',
       'cancel': 'abbrechen',
       'Enter company': 'Firma eingeben',
+      'Access denied': 'Kein Zugriff!',
       // admin/myactivities/index.html
       'add activity': 'Aktivität  hinzufügen'
 
@@ -862,6 +868,8 @@ angular.module('anorakApp')
       'Forgot password': 'Dimenticato la password?',
       'Your e-mail address': 'Vostro indirizzo email',
       'Your password': 'Vostra password',
+      'Invalid Password': '',
+      'User not found': '',
       // shoppingcart.html
       'Shopping Cart': '',
       // why.html
@@ -1024,6 +1032,7 @@ angular.module('anorakApp')
       'save': '',
       'cancel': '',
       'Enter company': '',
+      'Access denied': '',
       // admin/myactivities/index.html
       'add activity': ''
     });

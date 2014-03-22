@@ -20,8 +20,6 @@ angular.module('anorakApp')
       }
     };
 
-
-
     $scope.createEventSeries = function (item, event) {
       console.log("createRepeatingEvents called", item, event);
 
@@ -61,7 +59,6 @@ angular.module('anorakApp')
       }
 
     };
-
 
     $scope.createEvent = function (bookableItem) {
       var event = bookableItem.createEvents();
@@ -125,11 +122,6 @@ angular.module('anorakApp')
         $scope.activity.category.subs.push({ 'title': title });
       }
     };
-
-//    // reset activity.category.sub when activity.category.main changes
-//    $scope.$watch('activity.category.main', function () {
-//      $scope.activity.category.sub = undefined;
-//    });
 
     $scope.map = activitybackendmap.map;
 
