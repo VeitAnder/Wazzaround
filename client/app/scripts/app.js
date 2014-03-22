@@ -559,6 +559,7 @@ angular.module('anorakApp')
       'back to my activities': "Go to 'My Activities'",
       'edit': 'edit',
       // admin/myactivities/edit.html
+      'Please create bookable events.': 'Please create bookable events.',
       'Please enter the name of the activity/activities.': 'Please enter the name of the activity/activities.',
       'Please upload an image.': 'Please upload an image.',
       'save event': 'save event',
@@ -806,6 +807,7 @@ angular.module('anorakApp')
       'back to my activities': 'Gehe zu "Meine Aktivitäten"',
       'edit': 'bearbeiten',
       // admin/myactivities/edit.html
+      'Please create bookable events.': 'Bitte erstellen Sie buchbare Events.',
       'Please upload an image.': 'Bitte laden Sie ein Bild hoch.',
       'Please enter the name of the activity/activities.': 'Bitte geben Sie den/die Namen der Aktivität/en ein.',
       'save event': 'Event speichern',
@@ -1053,6 +1055,7 @@ angular.module('anorakApp')
       'back to my activities': "",
       'edit': '',
       // admin/myactivities/edit.html
+      'Please create bookable events.': '',
       'Please upload an image.': '',
       'Please enter the name of the activity/activities.': '',
       'save event': '',

@@ -68,7 +68,7 @@ angular.module('anorakApp')
       var filteredActivities = [];
       _.each(activity.category.subs, function (subCatInActivity) {
         _.each($scope.getMainCategory(activity.category.main).sub, function (subCatFromCategories) {
-          if (subCatInActivity.title === subCatFromCategories.title && subCatFromCategories.selected === true) {
+          if (subCatInActivity.key === subCatFromCategories.key && subCatFromCategories.selected === true) {
             filteredActivities.push(subCatFromCategories);
           }
         });
@@ -156,7 +156,7 @@ angular.module('anorakApp')
           _.each(activity.category.subs, function (subCatInActivity) {
 
             _.each($scope.getMainCategory(mainCat).sub, function (subCatInCategories) {
-              if (subCatInCategories.title === subCatInActivity.title) {
+              if (subCatInCategories.key === subCatInActivity.key) {
                 catsInActs.push(subCatInCategories.key);
               }
             });
