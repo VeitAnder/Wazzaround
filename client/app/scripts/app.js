@@ -238,8 +238,8 @@ angular.module('anorakApp')
         }
       })
       .when('/admin/editprofile', {
-        templateUrl: 'views/admin/editprofile.html',
-        controller: 'AdminEditprofileCtrl'
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'AdminEditprofilePageCtrl'
       })
       .when('/activities/:id/', {
         templateUrl: 'views/page_basetemplate.html',
@@ -551,7 +551,9 @@ angular.module('anorakApp')
       'Enter company': 'Enter company',
       'Access denied': 'Access denied!',
       // admin/myactivities/index.html
-      'add activity': 'add activity'
+      'add activity': 'add activity',
+      'Profile': 'User profile',
+      'Edit Profile': 'Edit user profile'
     });
 
     $translateProvider.translations('de', {
@@ -792,7 +794,9 @@ angular.module('anorakApp')
       'Enter company': 'Firma eingeben',
       'Access denied': 'Kein Zugriff!',
       // admin/myactivities/index.html
-      'add activity': 'Aktivität  hinzufügen'
+      'add activity': 'Aktivität  hinzufügen',
+      'Profile': 'Benutzerprofil',
+      'Edit Profile': 'Benutzerprofil editieren'
 
     });
 
@@ -1034,7 +1038,9 @@ angular.module('anorakApp')
       'Enter company': '',
       'Access denied': '',
       // admin/myactivities/index.html
-      'add activity': ''
+      'add activity': '',
+      'Profile': 'Profil',
+      'Edit Profile': 'Edit user profile'
     });
 
 //    $translateProvider.preferredLanguage('en');
