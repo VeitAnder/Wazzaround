@@ -92,18 +92,24 @@ angular.module('anorakApp')
                 return Q.all(allBookableItemsInAllActivities)
                   .then(function (bookableItems) {
                     debug("loadedBookableItems", bookableItems);
-                    var loadingEvents = [];
-                    _.forEach(bookableItems, function (bookableItem) {
-                      _.forEach(bookableItem.events, function (event) {
-                        loadingEvents.push(event.load());              // 3. load events
-                      });
-                      // all loaded
-                      return Q.all(loadingEvents)
-                        .then(function (events) {
-                          debug("loaded events", events);
-                          defer.resolve(resolvedActivities);
+                    if (bookableItems.length === 0) {
+                      defer.resolve(resolvedActivities);
+
+                    } else {
+                      var loadingEvents = [];
+                      _.forEach(bookableItems, function (bookableItem) {
+                        _.forEach(bookableItem.events, function (event) {
+                          loadingEvents.push(event.load());              // 3. load events
                         });
-                    });
+                        // all loaded
+                        return Q.all(loadingEvents)
+                          .then(function (events) {
+                            debug("loaded events", events);
+                            defer.resolve(resolvedActivities);
+                          });
+
+                      });
+                    }
                   });
               })
 
@@ -113,7 +119,8 @@ angular.module('anorakApp')
               });
 
             return defer.promise;
-          }],
+          }
+          ],
           resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
           }]
