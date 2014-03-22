@@ -30,7 +30,8 @@
     "grunt-contrib-nodeunit": "0.3.3",
     "mongojs": "0.10.1",
     "cloudinary": "*",
-    "crypto-js": "~3.1.2-2"
+    "crypto-js": "~3.1.2-2",
+    "connect-mongostore": "0.0.10"
   },
   "devDependencies": {
     "grunt-bump": "0.0.13",

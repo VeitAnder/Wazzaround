@@ -11,16 +11,8 @@ var model = require('modelizer');
 
 var config = require('../config.js');
 
-var initModelizer = function (app) {
+var initModelizer = function (app, db) {
 
-  // init mongodb database connection
-  var mongojs = require('mongojs');
-
-  if (!config.mongo.url) {
-    var db = mongojs('mongodb://'+ config.mongo.username + ':' + config.mongo.password + '@'+ config.mongo.host + '/' + config.mongo.dbName);
-  } else {
-    var db = mongojs(config.mongo.url);
-  }
   // get a mongodb database connector
   var connector = model.MongoConnector(db);
 
