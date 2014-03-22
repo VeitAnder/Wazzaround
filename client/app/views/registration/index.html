@@ -43,17 +43,17 @@
         <ul>
           <li ng-class="pwdHasUppercaseLetter">
             <span class="icon"></span>
-            {{pwdHasUppercaseLetter}} {{ 'At least' | translate }}
+            {{ 'At least' | translate }}
             <strong>{{ 'one uppercase letter' | translate }}</strong>
           </li>
           <li ng-class="pwdHasNumber">
             <span class="icon"></span>
-            {{pwdHasNumber}} {{ 'At least' | translate }}
+            {{ 'At least' | translate }}
             <strong>{{ 'one number' | translate }}</strong>
           </li>
           <li ng-class="pwdValidLength">
             <span class="icon"></span>
-            {{pwdValidLength}} {{ 'At least' | translate }}
+            {{ 'At least' | translate }}
             <strong>{{ '8 characters long' | translate }}</strong>
           </li>
         </ul>
@@ -96,7 +96,7 @@
     <div class="alert alert-error"
          ng-show="state.registrationfailed"
         >
-      {{state.errormessage}}
+      {{state.errormessage | translate}}
     </div>
 
   </form>

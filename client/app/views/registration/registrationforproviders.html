@@ -4,12 +4,12 @@
         novalidate
       >
 
-    <h2>Account</h2>
+    <h2>{{'Account' | translate}}</h2>
 
     <h3>{{ 'Registration for Activity Providers' | translate }}</h3>
 
     <div class="form-group">
-      <label for="email">E-mail</label>
+      <label for="email">{{'E-mail' | translate}}</label>
       <input name="email"
              ng-model="registrant.email"
              class="input-block-level"
@@ -20,16 +20,16 @@
           >
 
       <span ng-show="showError('email', 'required')"
-            class="alert">Please enter your e-mail address.
+            class="alert">{{'Please enter your e-mail address.' | translate}}
       </span>
       <span ng-show="showError('email', 'pattern')"
-            class="alert alert-error">Please enter a valid e-mail address.
+            class="alert alert-error">{{'Please enter a valid e-mail address.' | translate}}
       </span>
 
     </div>
 
     <div class="form-group">
-      <label for="password">Password</label>
+      <label for="password">{{'Password' | translate}}</label>
       <input name="password"
              id="password"
              type="password"
@@ -37,32 +37,32 @@
              required
              password-validate
              class="input-block-level"
-             placeholder="Define your password"
+             placeholder="{{'Define your password' | translate}}"
           >
       <div class="contentbox pwdvalidation">
-        <h6>Password must meet the following requirements:</h6>
+        <h6>{{'Password must meet the following requirements:' | translate}}</h6>
         <ul>
           <li ng-class="pwdHasUppercaseLetter">
             <span class="icon"></span>
-            {{pwdHasUppercaseLetter}} At least
-            <strong>one uppercase letter</strong>
+            {{'At least' | translate}}
+            <strong>{{'one uppercase letter' | translate}}</strong>
           </li>
           <li ng-class="pwdHasNumber">
             <span class="icon"></span>
-            {{pwdHasNumber}} At least
-            <strong>one number</strong>
+            {{'At least' | translate}}
+            <strong>{{'one number' | translate}}</strong>
           </li>
           <li ng-class="pwdValidLength">
             <span class="icon"></span>
-            {{pwdValidLength}} At least
-            <strong>8 characters long</strong>
+            {{'At least' | translate}}
+            <strong>{{'8 characters long' | translate}}</strong>
           </li>
         </ul>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="passwordRepeat">Retype Password</label>
+      <label for="passwordRepeat">{{'Retype Password' | translate}}</label>
       <input name="passwordRepeat"
              id="passwordRepeat"
              type="password"
@@ -70,15 +70,15 @@
              class="input-block-level"
              repeat-password="password"
              required
-             placeholder="Retype your password"
+             placeholder="{{'Retype your password' | translate}}"
           >
 
       <span ng-show="showError('passwordRepeat', 'required')"
-            class="alert">Please retype the password.
+            class="alert">{{'Please retype the password.' | translate}}
       </span>
 
       <span ng-show="showError('passwordRepeat', 'repeat')"
-            class="alert alert-error">The passwords have to match.
+            class="alert alert-error">{{'The passwords have to match.' | translate}}
       </span>
 
     </div>
@@ -86,7 +86,7 @@
     <div class="divider"></div>
 
     <div class="form-group">
-      <label for="company">{{'company' | translate}}</label>
+      <label for="company">{{'Company' | translate}}</label>
       <input name="company"
              ng-model="registrant.profile.company"
              class="input-block-level"
@@ -101,31 +101,31 @@
     </div>
     <div class="form-group-inline form-group-inline-5050">
       <div class="form-group">
-        <label for="firstname">{{'firstname' | translate}}</label>
+        <label for="firstname">{{'First name' | translate}}</label>
         <input name="firstname"
                ng-model="registrant.profile.firstName"
                class="input-block-level"
                required
-               placeholder="{{ 'Your firstname' | translate }}"
+               placeholder="{{ 'Your first name' | translate }}"
             >
 
         <span ng-show="showError('firstname', 'required')"
-              class="alert">{{'Please enter your firstname' | translate}}
+              class="alert">{{'Please enter your first name' | translate}}
         </span>
 
       </div>
 
       <div class="form-group">
-        <label for="lastname">{{'lastname' | translate}}</label>
+        <label for="lastname">{{'Last name' | translate}}</label>
         <input name="lastname"
                ng-model="registrant.profile.lastName"
                class="input-block-level"
                required
-               placeholder="{{ 'Your lastname' | translate }}"
+               placeholder="{{ 'Your last name' | translate }}"
             >
 
         <span ng-show="showError('lastname', 'required')"
-              class="alert">{{'Please enter your lastname' | translate}}
+              class="alert">{{'Please enter your last name' | translate}}
         </span>
 
       </div>
@@ -147,24 +147,18 @@
     </div>
 
     <div class="form-group">
-      <label for="fax">{{'fax' | translate}}</label>
+      <label for="fax">{{'Fax' | translate}}</label>
       <input name="fax"
              ng-model="registrant.profile.fax"
              class="input-block-level"
-             required
              placeholder="{{ 'Your fax number' | translate }}"
           >
-
-      <span ng-show="showError('fax', 'required')"
-            class="alert">{{'Please enter your fax number' | translate}}
-      </span>
-
     </div>
 
     <div class="divider"></div>
 
     <div class="form-group">
-      <label for="address">{{'address' | translate}}</label>
+      <label for="address">{{'Address' | translate}}</label>
       <input name="address"
              ng-model="registrant.profile.address"
              class="input-block-level"
@@ -180,7 +174,7 @@
 
     <div class="form-group-inline form-group-inline-2575">
       <div class="form-group">
-        <label for="zip">{{'zip' | translate}}</label>
+        <label for="zip">{{'Zip' | translate}}</label>
         <input name="zip"
                ng-model="registrant.profile.zip"
                class="input-block-level"
@@ -195,7 +189,7 @@
       </div>
 
       <div class="form-group">
-        <label for="city">{{'city' | translate}}</label>
+        <label for="city">{{'City' | translate}}</label>
         <input name="city"
                ng-model="registrant.profile.city"
                class="input-block-level"
@@ -211,7 +205,7 @@
     </div>
 
     <div class="form-group">
-      <label for="country">{{'country' | translate}}</label>
+      <label for="country">{{'Country' | translate}}</label>
       <input name="country"
              ng-model="registrant.profile.country"
              class="input-block-level"
@@ -228,7 +222,7 @@
     <div class="divider"></div>
 
      <div class="form-group">
-      <label for="contactpersonname">{{'name of contact person' | translate}}</label>
+      <label for="contactpersonname">{{'Name of contact person' | translate}}</label>
       <input name="contactpersonname"
              ng-model="registrant.profile.contactperson.name"
              class="input-block-level"
@@ -239,7 +233,6 @@
       <span ng-show="showError('contactpersonname', 'required')"
             class="alert">{{'Please enter the name of the contact person' | translate}}
       </span>
-
     </div>
 
     <div class="form-group">
@@ -247,13 +240,8 @@
       <input name="uid"
              ng-model="registrant.profile.uid"
              class="input-block-level"
-             placeholder="{{ 'Your uid number' | translate }}"
+             placeholder="{{ 'Your UID number' | translate }}"
           >
-
-      <span ng-show="showError('uid', 'required')"
-            class="alert">{{'Please enter your uid number' | translate}}
-      </span>
-
     </div>
 
 
@@ -261,18 +249,18 @@
       <button class="btn"
               ng-class="{disabled: valForm.$invalid}"
               type="submit"
-              ng-click="register()">Register
+              ng-click="register()">{{'Register' | translate}}
       </button>
 
       <a class="space-left"
-         ng-click="gotoLogin()">back to login
+         ng-click="gotoLogin()">{{'back to login' | translate}}
       </a>
     </div>
 
     <div class="alert alert-error"
          ng-show="state.registrationfailed"
         >
-      {{state.errormessage}}
+      {{state.errormessage | translate}}
     </div>
 
   </form>
