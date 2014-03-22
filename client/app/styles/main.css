@@ -3110,7 +3110,7 @@ footer {
   width: 10%; }
 
 
-.event-new {
+.eventedit {
   border: solid 1px #d9d9d9;
   -webkit-border-radius: 6px;
   -khtml-border-radius: 6px;
@@ -3120,22 +3120,22 @@ footer {
   border-radius: 6px;
   padding: 5px 15px;
   margin-top: 15px; }
-  .event-new input {
+  .eventedit input {
     min-width: 0; }
-  .event-new .form-group {
+  .eventedit .form-group {
     margin-right: 4%;
     float: left; }
-    .event-new .form-group.quantity {
+    .eventedit .form-group.quantity {
       margin-right: 0; }
-  .event-new .date-from, .event-new .date-until {
+  .eventedit .date-from, .eventedit .date-until {
     width: 28%; }
-  .event-new .time {
+  .eventedit .time {
     width: 28%; }
-  .event-new .duration {
+  .eventedit .duration {
     width: 16%; }
-  .event-new .quantity {
+  .eventedit .quantity {
     width: 16%; }
-  .event-new .buttonbar {
+  .eventedit .buttonbar {
     border-top: solid 1px #d9d9d9;
     width: auto;
     margin: 15px -15px 0 -15px;

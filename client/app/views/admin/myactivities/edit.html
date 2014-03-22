@@ -262,12 +262,8 @@
     <legend>{{'What can be booked' | translate}}</legend>
 
     <!-- New Stuff -->
-    <div class="bookableitems">
-      <button class="btn-add"
-              ng-click="activity.createBookableItems()">
-        <span class="btn-icon-left"></span>
-        {{'create a new event' | translate}}
-      </button>
+    <bookableitems class="bookableitems">
+
 
       <div class="bookableitem bookableitem-add"
            ng-repeat="(idx, bookableItem) in activity.bookableItems">
@@ -276,43 +272,10 @@
 
             <label for="itemDescription">{{'Description' | translate}}</label>
 
-            <div class="language-tabs">
-              <ul>
-                <li class="en">
-                  <a ng-click="changeLanguage('en')">
-                    <span>EN</span>
-                  </a>
-                </li>
-                <li class="de active">
-                  <a ng-click="changeLanguage('de')">
-                    <span>DE</span>
-                  </a>
-                </li>
-                <li class="it">
-                  <a ng-click="changeLanguage('it')">
-                    <span>IT</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
             <input type="text"
                    class="form-control"
                    placeholder="i.e. 4 hours tour (500ccm)"
                    ng-model="bookableItem.ref().description.en"
-                >
-            de
-            <input type="text"
-                   class="form-control"
-                   placeholder="z.B. 4-Stunden-Tour (500ccm)"
-                   ng-model="bookableItem.ref().description.de"
-                >
-            it
-            <input type="text"
-                   class="form-control"
-                   ng-model="bookableItem.ref().description.it"
-                   id="itemDescription"
-                   placeholder="ToDo IT >> i.e. 4 hours tour (500ccm)"
                 >
 
           </div>
@@ -335,148 +298,9 @@
         </div>
 
         <div class="bookableitem-body">
-          <div class="event-add">
-            <a class="txt-icon-add"
-               ng-click="createEvent(bookableItem.ref())">
-              <span class="btn-icon-left"></span>
-              {{'Schedule Event' | translate}}
-            </a>
 
-          </div>
+          <eventlistinlistedit class="event-list">
 
-          <div class="event-new"
-               ng-repeat="(idx, event) in bookableItem.ref().events | filter:{mode:'edit'}">
-
-            <div class="form-group date-from">
-              <input type="text"
-                     size="10"
-                     class="form-control"
-                     ng-model="event.ref().start"
-                     data-autoclose="0"
-                     placeholder="{{'Date' | translate}}"
-                     bs-datepicker>
-            </div>
-            <div class="form-group time">
-              <input type="text"
-                     size="8"
-                     class="form-control"
-                     ng-model="event.ref().start"
-                     data-autoclose="0"
-                     placeholder="{{'Time' | translate}}"
-                     bs-timepicker
-                  >
-            </div>
-            <div class="form-group duration">
-              <input type="number"
-                     class="form-control"
-                     id="duration"
-                     placeholder="{{'Duration' | translate}} (h)"
-                     ng-model="event.ref().duration"
-                  >
-            </div>
-            <div class="form-group quantity">
-              <input type="number"
-                     class="form-control"
-                     id="quantity"
-                     placeholder="{{'Quantity' | translate}}"
-                     ng-model="event.ref().quantity"
-                  >
-            </div>
-
-            <div class="event-new-repeat">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"
-                         ng-model="event.ref().repeating">
-                  {{'repeating' | translate}}
-                </label>
-              </div>
-              <div class="repeating"
-                   ng-show="event.ref().repeating">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"
-                           ng-model="event.ref().dayOfWeek.Mon">
-                    {{'Mon' | translate}}
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"
-                           ng-model="event.ref().dayOfWeek.Tue">
-                    {{'Tue' | translate}}
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"
-                           ng-model="event.ref().dayOfWeek.Wed">
-                    {{'Wed' | translate}}
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"
-                           ng-model="event.ref().dayOfWeek.Thu">
-                    {{'Thu' | translate}}
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"
-                           ng-model="event.ref().dayOfWeek.Fri">
-                    {{'Fri' | translate}}
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"
-                           ng-model="event.ref().dayOfWeek.Sat">
-                    {{'Sat' | translate}}
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"
-                           ng-model="event.ref().dayOfWeek.Son">
-                    {{'Sun' | translate}}
-                  </label>
-                </div>
-
-                <div class="form-group date-until">
-                  <input type="text"
-                         class="form-control"
-                         ng-model="event.ref().end"
-                         data-min-date=""
-                         placeholder="{{'Until' | translate}}"
-                         bs-datepicker
-                         autoclose="true"
-                         value=""
-                      >
-                </div>
-              </div>
-
-            </div>
-
-            <div class="buttonbar">
-              <a class="txt-icon-delete"
-                 ng-click="removeEvent(bookableItem.ref(), idx)"
-                  >{{'remove' | translate}}
-                <span class="btn-icon-right"></span>
-              </a>
-            </div>
-
-            <div class="buttonbar">
-              <a class="txt-icon-save"
-                 ng-click="event.mode = 'view'; createEventSeries(bookableItem.ref(), event.ref())"
-                  >{{'save' | translate}}
-                <span class="btn-icon-right"></span>
-              </a>
-            </div>
-
-          </div>
-
-          <div class="event-list">
             <div class="event-header">
               <div class="event-date cell first">{{'Date' | translate}}</div>
               <div class="event-time cell">{{'Time' | translate}}</div>
@@ -486,34 +310,187 @@
               </div>
             </div>
 
-            <div class="event-row"
-                 ng-repeat="(idx,event) in bookableItem.ref().events | filter:{mode:'!edit'}">
-              <div class="event-date cell first">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
-              <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
-              <!--<div class="event-duration cell">{{event.ref().duration}}h</div>-->
-              <div class="event-quantity cell">{{event.ref().quantity}}x</div>
-              <div class="listaction cell last">
-                <a class="edit"
-                   ng-click="event.mode = 'edit'">
-                  <span>{{'edit' | translate}}</span>
-                </a>
-                <a class="delete"
-                   ng-click="removeEvent(bookableItem.ref(), idx)">
-                  <span>{{'delete' | translate}}</span>
-                </a>
-              </div>
+
+            <eventrow class="event-row"
+                 ng-repeat="(idx,event) in bookableItem.ref().events">
+
+              <eventview ng-show="event.mode != 'edit'">
+                <div class="event-date cell first">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
+                <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
+                <!--<div class="event-duration cell">{{event.ref().duration}}h</div>-->
+                <div class="event-quantity cell">{{event.ref().quantity}}x</div>
+                <div class="listaction cell last">
+                  <a class="edit"
+                     ng-click="event.mode = 'edit'">
+                    <span>{{'edit' | translate}}</span>
+                  </a>
+                  <a class="delete"
+                     ng-click="removeEvent(bookableItem.ref(), idx)">
+                    <span>{{'delete' | translate}}</span>
+                  </a>
+                </div>
+              </eventview>
+
+              <eventedit class="eventedit"
+                         ng-show="event.mode == 'edit'"
+                  >
+                <div class="form-group date-from">
+                  <input type="text"
+                         size="10"
+                         class="form-control"
+                         ng-model="event.ref().start"
+                         data-autoclose="0"
+                         placeholder="{{'Date' | translate}}"
+                         bs-datepicker>
+                </div>
+                <div class="form-group time">
+                  <input type="text"
+                         size="8"
+                         class="form-control"
+                         ng-model="event.ref().start"
+                         data-autoclose="0"
+                         placeholder="{{'Time' | translate}}"
+                         bs-timepicker
+                      >
+                </div>
+                <div class="form-group duration">
+                  <input type="number"
+                         class="form-control"
+                         id="duration"
+                         placeholder="{{'Duration' | translate}} (h)"
+                         ng-model="event.ref().duration"
+                      >
+                </div>
+                <div class="form-group quantity">
+                  <input type="number"
+                         class="form-control"
+                         id="quantity"
+                         placeholder="{{'Quantity' | translate}}"
+                         ng-model="event.ref().quantity"
+                      >
+                </div>
+
+                <div class="event-new-repeat">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox"
+                             ng-model="event.ref().repeating">
+                      {{'repeating' | translate}}
+                    </label>
+                  </div>
+                  <div class="repeating"
+                       ng-show="event.ref().repeating">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"
+                               ng-model="event.ref().dayOfWeek.Mon">
+                        {{'Mon' | translate}}
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"
+                               ng-model="event.ref().dayOfWeek.Tue">
+                        {{'Tue' | translate}}
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"
+                               ng-model="event.ref().dayOfWeek.Wed">
+                        {{'Wed' | translate}}
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"
+                               ng-model="event.ref().dayOfWeek.Thu">
+                        {{'Thu' | translate}}
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"
+                               ng-model="event.ref().dayOfWeek.Fri">
+                        {{'Fri' | translate}}
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"
+                               ng-model="event.ref().dayOfWeek.Sat">
+                        {{'Sat' | translate}}
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"
+                               ng-model="event.ref().dayOfWeek.Son">
+                        {{'Sun' | translate}}
+                      </label>
+                    </div>
+
+                    <div class="form-group date-until">
+                      <input type="text"
+                             class="form-control"
+                             ng-model="event.ref().end"
+                             data-min-date=""
+                             placeholder="{{'Until' | translate}}"
+                             bs-datepicker
+                             autoclose="true"
+                             value=""
+                          >
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="buttonbar">
+                  <a class="txt-icon-delete"
+                     ng-click="removeEvent(bookableItem.ref(), idx)"
+                      >{{'remove' | translate}}
+                    <span class="btn-icon-right"></span>
+                  </a>
+                </div>
+
+                <div class="buttonbar">
+                  <a class="txt-icon-save"
+                     ng-click="event.mode = 'view'; createEventSeries(bookableItem.ref(), event.ref())"
+                      >{{'save event' | translate}}
+                    <span class="btn-icon-right"></span>
+                  </a>
+                </div>
+
+              </eventedit>
+
+            </eventrow>
+
+
+            <div class="event-add">
+              <a class="txt-icon-add"
+                 ng-click="createEvent(bookableItem.ref())">
+                <span class="btn-icon-left"></span>
+                {{'Schedule Event' | translate}}
+              </a>
+
             </div>
 
-          </div>
+          </eventlistinlistedit>
 
           <!-- ######## STATIC LIST END ######## -->
 
         </div>
+        <br/><br/>
       </div>
-    </div>
 
-    </div>
-    </div>
+
+      <button class="btn-add"
+              ng-click="activity.createBookableItems()">
+        <span class="btn-icon-left"></span>
+        {{'create a new event' | translate}}
+      </button>
+
+    </bookableitems>
 
   </fieldset>
 
@@ -538,8 +515,5 @@
     </a>
 
   </div>
-
-  <br/>
-  <br/>
 
 </form>
