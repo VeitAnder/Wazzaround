@@ -27,6 +27,8 @@ EventModel.readFilter(function(req) {
 });
 
 EventModel.writeFilter(function (doc, req) {
+  console.log("save event", doc);
+
   if (!req.session.auth) {
     return false;  // if not logged in don't allow write operations
   }

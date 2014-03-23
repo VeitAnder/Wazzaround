@@ -197,13 +197,14 @@ angular.module('anorakApp')
 
     // Save the Activiy
     $scope.save = function () {
-      debug("save() called", $scope.activity.latitude);
+      debug("save() called");
 
       $scope.state.submitted = true;
 
       $scope.additionalFormChecks();
 
-      if ($scope.valForm.$valid && $scope.additionalFormChecks()) {
+      // TODO: validierung ist im Arsch!
+//      if ($scope.valForm.$valid && $scope.additionalFormChecks()) {
 
         // check if there was only a marker set or an address entered
         if (!$scope.activity.latitude) {
@@ -242,9 +243,11 @@ angular.module('anorakApp')
             $scope.state.error = true;
             $scope.state.message = err.message;
             $scope.$apply();
+
+            console.log(err.message, err.stack);
           });
       }
-    };
+//    };
 
     $scope.delete = function () {
       var deletePromises = [];

@@ -24,7 +24,7 @@
     "node-logentries": "0.1.3",
     "ua-parser-js": "0.6.2",
     "js-beautify": "1.4.2",
-    "modelizer": "~0.1.9",
+    "modelizer": "~0.2.1",
     "underscore": "1.6.0",
     "grunt-contrib-handlebars": "0.7.0",
     "grunt-contrib-nodeunit": "0.3.3",

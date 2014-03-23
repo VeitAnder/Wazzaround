@@ -2,8 +2,6 @@
 
 var models = function () {
 
-  // using the the Modelizer library
-  //var model = require('../../../../modelizer/lib/modelizer.js');
   var model = require('modelizer');
 
   var Attr = model.Attr;
@@ -107,7 +105,7 @@ var models = function () {
       main: Attr(Type.string),
       subs: [
         {
-          title: Attr(Type.string)
+          key: Attr(Type.string)
         }
       ]
     },
@@ -177,6 +175,7 @@ var models = function () {
 if (typeof window !== 'undefined') {
   // we run in a browser environment
 
+  var Q = require('q');
   // http://stackoverflow.com/questions/17544965/unhandled-rejection-reasons-should-be-empty
   Q.stopUnhandledRejectionTracking();  // why does this happen?
 

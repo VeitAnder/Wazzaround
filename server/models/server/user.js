@@ -74,6 +74,8 @@ UserModel.operationImpl("register", function (params, req) {
 
 // a operation to login a user
 UserModel.operationImpl("login", function (params, req) {
+  if(!params.email || !params.password) throw new Error("No User/Password provided!");
+
   return UserModel.find({email: params.email.toLowerCase()})  // find this user
     .then(function (users) {
       if (users.length < 1) throw new Error("User not found");
