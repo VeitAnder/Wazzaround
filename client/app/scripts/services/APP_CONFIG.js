@@ -5,7 +5,7 @@ angular.module('anorakApp')
       globalconfig = {},
       apiversion = "/api/v1/";
 
-    if ($window.location.hostname === "reacture.anorak.io" || $window.location.hostname === "reactureapp-11359.onmodulus.net") {
+    if ($window.location.hostname === "beta.reacture.com" || $window.location.hostname === "reactureapp-11359.onmodulus.net") {
       // PRODUCTION SERVER
       hostconfig = {
         AmazonS3Config: {

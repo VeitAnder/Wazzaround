@@ -39,10 +39,10 @@ var config = {
     distFolder: '../client/app/',                               // The folder that contains the application files (note that the files are in a different repository) - relative to this file
     cookieSecret: 'QKTNrFTZzX4i3iKXoBjQuRdmZLoD'                // The secret for encrypting the cookie
   },
-  postmark: {  // TODO remove planfred data and generate reacture date
-    apikey: "e5d214d4-f56b-4c2d-9c76-eaf16bccebcf",              // postmark api key
-    from: "kontakt@planfred.com",                                // postmark signed from email addresss
-    replyto: "noreply@planfred.com"
+  postmark: {
+    apikey: "b1af3ea7-b17b-493c-a62c-53d3370a3077",              // postmark api key
+    from: "admin@planfred.com",                                // postmark signed from email addresss
+    replyto: "donotreply@planfred.com"
   },
   api: {
     apiversion: "api/v1/"                                       // don't forget trailing slash
