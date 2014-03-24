@@ -32,7 +32,7 @@ var logMailFromUserToOtherUsers = function (projectid, sender, action, messageDa
 
 };
 
-// user sends a support mail to planfred
+// user sends a support mail to reacture
 // user will receive a copy of the text
 // support will receive a mail with technical details
 exports.sendSupportMail = function (req, res, next) {
@@ -63,7 +63,7 @@ exports.sendSupportMail = function (req, res, next) {
     },
     postmarkmail: {
       "From": config.postmark.from,
-      "To": "support@planfred.com",
+      "To": "support@reacture.com",
       "Subject": req.body.topic,
       "Tag": "supportmail",
       "ReplyTo": req.body.info.user.email

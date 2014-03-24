@@ -1,11 +1,15 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminIndexCtrl', function ($scope, $location) {
+  .controller('AdminIndexCtrl', function ($scope, $location, currentUser) {
     $scope.getPagePartial = function () {
-      return 'admin/index.html';
+      return 'views/admin/index.html';
     };
 
-    $location.path("/admin/myactivities/");
+    if (currentUser.user.userType === 'user') {
+      $location.path('/admin/editprofile/');
+    } else if(currentUser.user.userType === 'admin' || currentUser.user.userType === 'provider') {
+      $location.path("/admin/myactivities/");
+    }
 
   });

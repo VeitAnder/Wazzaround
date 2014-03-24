@@ -19,7 +19,7 @@ MODULUS_APPNAME=reactureapp
 #
 # check if secret config file is accessible
 if [ ! -f ${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} ]; then
-    echo "${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} file not found! Not ready to deploy. Check your planfred truecrypt volume to be mounted."
+    echo "${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} file not found! Not ready to deploy. Check your reacture truecrypt volume to be mounted."
     exit 0
 fi
 
@@ -35,13 +35,13 @@ grunt --version
 
 #build server
 echo "build release of server"
-#grunt --gruntfile ${SCRIPTPATH}/gruntFile.js bump:patch
-grunt --gruntfile ${SCRIPTPATH}/gruntFile.js releasedevelopment
+grunt --gruntfile ${SCRIPTPATH}/gruntFile.js bump:minor
+grunt --gruntfile ${SCRIPTPATH}/gruntFile.js release
 
 #build clientapp
 echo "build release of clientapp"
-grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js build
-#grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js releasedevelopment
+grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js bump:minor
+grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js release
 
 
 #copy clientapp to server dir for deployment
@@ -71,4 +71,4 @@ rm -R ${SCRIPTPATH}/clientapp
 echo "\n\nremove $SECRETCONFIGFILE - contains sensitive access data!!"
 rm ${SCRIPTPATH}/${SECRETCONFIGFILE}
 
-open http://reacture.anorak.io/
+open http://beta.reacture.com

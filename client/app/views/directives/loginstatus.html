@@ -1,7 +1,7 @@
 <div class="loginbutton"
      ng-hide='currentUser.authenticated'
     >
-  <a href="#/login/">Login</a>
+  <a href="#/login/">{{'Login' | translate}}</a>
 </div>
 
 <div class="loginbutton"
@@ -9,9 +9,9 @@
     >
   <a href="#/admin/"
      class="accountlink"
-      >Account (<strong>{{currentUser.user.username}}</strong>)
+      >{{'Account' | translate}} (<strong>{{currentUser.user.email}}</strong>)
   </a>
   <a data-ng-click="logout()"
       class="logoutlink"
-      >Logout</a>
+      >{{'Logout' | translate}}</a>
 </div>

@@ -25,6 +25,8 @@ module.exports = function (grunt) {
         dist: 'dist'
       },
 
+      pkg: grunt.file.readJSON('package.json'),
+
       // Watches files for changes and runs tasks based on the changed files
       watch: {
         js: {
@@ -326,6 +328,9 @@ module.exports = function (grunt) {
 
       // Run some tasks in parallel to speed up the build process
       concurrent: {
+        options: {
+          limit: 50
+        },
         server: [
           'sass:server',
           'html2js'
@@ -378,7 +383,7 @@ module.exports = function (grunt) {
       html2js: {
         app: {
           options: {
-            base: '<%= yeoman.app %>/views/'
+            base: '<%= yeoman.app %>/'
           },
           src: ['<%= yeoman.app %>/views/**/*.tpl.html', '<%= yeoman.app %>/views/**/*.html'],
           dest: '<%= yeoman.app %>/scripts/templates.js',
@@ -445,6 +450,46 @@ module.exports = function (grunt) {
             async: true
           }
         }
+      },
+      replace: {
+        dist: {
+          options: {
+            patterns: [
+              {
+                match: 'buildversion',
+                replacement: '<%= pkg.version %>'
+              },
+              {
+                match: 'timestamp',
+                replacement: '<%= grunt.template.today("dddd, mmmm dS, yyyy, H:MM:ss") %>'
+              }
+            ]
+          },
+          files: [
+            {
+              expand: true,
+              flatten: true,
+              src: ['<%= yeoman.dist %>/index.html'],
+              dest: '<%= yeoman.dist %>/'
+            }
+          ]
+        }
+      },
+      bump: {
+        // checkout https://npmjs.org/package/grunt-bump for options
+        options: {
+          files: ['package.json'],
+          updateConfigs: [],
+          commit: true,
+          commitMessage: 'Client Release v%VERSION%',
+          commitFiles: ['package.json'], // '-a' for all files
+          createTag: true,
+          tagName: 'Client-v%VERSION%',
+          tagMessage: 'Client Version %VERSION%',
+          push: true,
+          pushTo: 'origin',
+          gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' // options to use with '$ git describe'
+        }
       }
 
 
@@ -510,8 +555,7 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin',
-    'favicons'
+    'htmlmin'
   ]);
 
   grunt.registerTask('default', [
@@ -524,6 +568,12 @@ module.exports = function (grunt) {
     'shell:npminstallclient',
     'shell:bowerinstallclient',
     'shell:npminstallserver'
+  ]);
+
+  grunt.registerTask('release', [
+    'build',
+    'favicons',
+    'replace'
   ]);
 
 };

@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .controller('LoginCtrl', function ($scope, $routeParams, $location, currentUser) {
     $scope.getPagePartial = function () {
-      return 'login.html';
+      return 'views/login.html';
     };
 
     $scope.form = {};
@@ -14,7 +14,12 @@ angular.module('anorakApp')
     }
 
     $scope.login = function () {
-      currentUser.login($scope.form.username, $scope.form.password)
+      // dirty hack to grab password and email when autofilled by browser - #28
+      // controller should never access DOM
+      var password = CryptoJS.SHA256($("#password").val()).toString(CryptoJS.enc.Base64);
+      var email = $("#email").val();
+
+      currentUser.login(email, password)
         .then(function () {
           // http://stackoverflow.com/questions/19499323/location-path-doesnt-change-in-a-factory-with-angularjs
           $scope.$apply(function () {
@@ -26,6 +31,7 @@ angular.module('anorakApp')
           $scope.state.message = err.message;
           $scope.$apply();
         });
+
     };
 
     $scope.forgotPassword = function () {

@@ -1,3 +1,6 @@
-<bookableitemlist data-events="activity.bookableItems" data-itemsperpage=5 ></bookableitemlist>
-
-<div data-ng-include="'_footer.html'"></div>
+<div ng-controller="ActivityCtrl">
+  <bookableitemlist data-bookableitems="activity.bookableItems"
+                    data-itemsperpage=5
+      >
+  </bookableitemlist>
+</div>

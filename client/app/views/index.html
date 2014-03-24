@@ -3,15 +3,17 @@
   <div class="section section-map">
 
     <div class="col-left-fixed controlpanel">
-      <div class="language-select"></div>
-      <div data-ng-include="'_logo.html'"></div>
+
+      <languageselect></languageselect>
+
+      <div data-ng-include="'views/_logo.html'"></div>
 
       <div class="mapsearchbar"
-           data-ng-include="'map/mapsearchbar.html'">
+           data-ng-include="'views/map/mapsearchbar.html'">
       </div>
 
       <div class="filter">
-        <span class="input_label">Please choose:</span>
+        <span class="input_label">{{ 'Please choose' | translate }}:</span>
 
         <div class="filter-category filter-category-sports"
              data-ng-class="{active: areItemsInThisCategorySelected('sports'), open: states.sports.open }"
@@ -19,9 +21,9 @@
           <div class="filter-category-header"
                data-ng-click="toggleFilter('sports')"
               >
-            <h4>Sports & Activities</h4>
+            <h4>{{ 'Sports and Activities' | translate }}</h4>
 
-            <p>{{numberOfSelectedFromCategory('sports')}} of {{totalNumberOfCategory('sports')}}</p>
+            <p>{{numberOfSelectedFromCategory('sports')}} {{ 'of' | translate }} {{totalNumberOfCategory('sports')}}</p>
 
             <div class="filter-category-arrow">
               <span></span>
@@ -36,13 +38,13 @@
                    data-ng-class="{active: allSelectedFromCategory('sports')}"
                    data-ng-click="selectAllFromCategory('sports')"
                   >
-                Select all
+                {{ 'Select all' | translate }}
               </div>
               <div class="filter-toggle-hide"
                    data-ng-class="{active: noneSelectedFromCategory('sports')}"
                    data-ng-click="deSelectAllFromCategory('sports')"
                   >
-                Deselect all
+                {{ 'Deselect all' | translate }}
               </div>
             </div>
 
@@ -62,7 +64,7 @@
                       ng-click="toggleCategorySelection(sportsCategories.db[$index+0])"
                       >
                     <span class="checkbox inline"></span>
-                    {{sportsCategories.db[$index+0].title}}
+                     {{ sportsCategories.db[$index+0].key | translate }}
                   </div>
 
                   <div
@@ -72,7 +74,7 @@
                       ng-click="toggleCategorySelection(sportsCategories.db[$index+1])"
                       >
                     <span class="checkbox inline"></span>
-                    {{sportsCategories.db[$index+1].title}}
+                    {{ sportsCategories.db[$index+1].key | translate }}
                   </div>
                 </div>
 
@@ -89,9 +91,9 @@
         <div class="filter-category-header"
              data-ng-click="toggleFilter('culture')"
             >
-          <h4>Culture</h4>
+          <h4>{{ 'Culture' | translate }}</h4>
 
-          <p>{{numberOfSelectedFromCategory('culture')}} of {{totalNumberOfCategory('culture')}}</p>
+          <p>{{numberOfSelectedFromCategory('culture')}} {{ 'of' | translate }} {{totalNumberOfCategory('culture')}}</p>
 
           <div class="filter-category-arrow">
             <span></span>
@@ -106,13 +108,13 @@
                  data-ng-class="{active: allSelectedFromCategory('culture')}"
                  data-ng-click="selectAllFromCategory('culture')"
                 >
-              Select all
+              {{ 'Select all' | translate }}
             </div>
             <div class="filter-toggle-hide"
                  data-ng-class="{active: noneSelectedFromCategory('culture')}"
                  data-ng-click="deSelectAllFromCategory('culture')"
                 >
-              Deselect all
+              {{ 'Deselect all' | translate }}
             </div>
           </div>
 
@@ -130,7 +132,7 @@
                     ng-click="toggleCategorySelection(cultureCategories.db[$index+0])"
                     >
                   <span class="checkbox inline"></span>
-                  {{cultureCategories.db[$index+0].title}}
+                  {{ cultureCategories.db[$index+0].key | translate }}
                 </div>
 
                 <div
@@ -140,7 +142,7 @@
                     ng-click="toggleCategorySelection(cultureCategories.db[$index+1])"
                     >
                   <span class="checkbox inline"></span>
-                  {{cultureCategories.db[$index+1].title}}
+                  {{ cultureCategories.db[$index+1].key | translate }}
                 </div>
 
               </div>
@@ -158,7 +160,7 @@
             >
           <h4>Wellness & Relax</h4>
 
-          <p>{{numberOfSelectedFromCategory('wellness')}} of {{totalNumberOfCategory('wellness')}}</p>
+          <p>{{numberOfSelectedFromCategory('wellness')}} {{ 'of' | translate }} {{totalNumberOfCategory('wellness')}}</p>
 
           <div class="filter-category-arrow">
             <span></span>
@@ -173,13 +175,13 @@
                  data-ng-class="{active: allSelectedFromCategory('wellness')}"
                  data-ng-click="selectAllFromCategory('wellness')"
                 >
-              Select all
+              {{ 'Select all' | translate }}
             </div>
             <div class="filter-toggle-hide"
                  data-ng-class="{active: noneSelectedFromCategory('wellness')}"
                  data-ng-click="deSelectAllFromCategory('wellness')"
                 >
-              Deselect all
+              {{ 'Deselect all' | translate }}
             </div>
           </div>
 
@@ -197,7 +199,7 @@
                     ng-click="toggleCategorySelection(wellnessCategories.db[$index+0])"
                     >
                   <span class="checkbox inline"></span>
-                  {{wellnessCategories.db[$index+0].title}}
+                  {{ wellnessCategories.db[$index+0].key | translate }}
                 </div>
 
                 <div
@@ -207,7 +209,7 @@
                     ng-click="toggleCategorySelection(wellnessCategories.db[$index+1])"
                     >
                   <span class="checkbox inline"></span>
-                  {{wellnessCategories.db[$index+1].title}}
+                  {{ wellnessCategories.db[$index+1].key | translate }}
                 </div>
 
               </div>
@@ -221,12 +223,12 @@
         <div class="filter-toggle-show"
              data-ng-class="{active: allSelected()}"
              data-ng-click="selectAllCategories()"
-            >Show all
+            >{{ 'Show all' | translate }}
         </div>
         <div class="filter-toggle-hide"
              data-ng-class="{active: noneSelected()}"
              data-ng-click="deSelectAllCategories()"
-            >Hide all
+            >{{ 'Hide all' | translate }}
         </div>
       </div>
 
@@ -278,43 +280,47 @@
               >
             <h4>
               <span class="icon"></span>
-              {{m.name}}
+              {{m.name | languagefilter}}
             </h4>
 
-            <cloudinaryimage ng-show="m.images.length > 0"
-                             data-publicid="{{m.images[0].public_id}}"
-                             data-format="{{m.images[0].format}}"
-                             data-width="100"
-                             data-height="60"
-                >
-            </cloudinaryimage>
+            <div class="img-block img-block-right">
+              <cloudinaryimage ng-show="m.images.length > 0"
+                               data-publicid="{{m.images[0].public_id}}"
+                               data-format="{{m.images[0].format}}"
+                               data-width="100"
+                               data-height="60"
+                  >
+              </cloudinaryimage>
+            </div>
 
-            <div class="input_label">Offered by</div>
+            <div class="input_label">{{ 'Offered by' | translate }}</div>
             <h5 class="no-margin-top">{{m.company}}</h5>
 
             <div class="description">
-              <div class="input_label">Description</div>
-              <div ta-bind ng-model="m.description"></div>
+              <!--<div class="input_label">Description</div>-->
+              <!--<div ta-bind ng-model="m.description"></div>-->
+              <div>{{m.description | languagefilter}}</div>
             </div>
 
             <div class="availability">
-              <div class="input_label">Availability</div>
+              <div class="input_label">{{ 'Availability' | translate }}</div>
               <div class="availability-list">
                 <div class="availability-header">
-                  <div class="month cell first">Next available Dates</div>
+                  <div class="month cell first">{{ 'Next available Dates' | translate }}</div>
                 </div>
-
                 <div class="availability-entry"
                      ng-repeat="available in m.availability">
                   <div class="availability-title cell first">
-                    Bookable Item TITLE
+                    {{available.title | languagefilter}}
                   </div>
                   <div class="availability-date cell">
-                    {{available.start | momentjs:{format: 'DD.MM.YYYY'} }}
+                    {{moment(available.start).format('DD. MMM \'YY')}}
                   </div>
                   <div class="availability-time cell">
-                    <!--{{available.end | momentjs:{format: 'DD.MM.YYYY'} }}-->
-                    Time
+                    {{moment(available.start).format('hh:mm a')}}
+                  </div>
+                  <div class="availability-duration cell">
+                    {{moment(available.duration).format('h')}}h
                   </div>
                   <div class="availability-quantity cell">
                     {{available.quantity}}x
@@ -322,31 +328,10 @@
 
                   <div class="availability-book cell last align-right">
                     <a class="btn btn-mini"
-                       href="http://www.paypal.com"
+                       href="#/shoppingcart/"
                        target="_blank"
-                        >Book
-                    </a>
-                  </div>
-                </div>
-
-                <div class="availability-entry">
-                  <div class="availability-title cell first">
-                    Bookable Item TITLE
-                  </div>
-                  <div class="availability-date cell">
-                    19.02.2014
-                  </div>
-                  <div class="availability-time cell">
-                    02.30 pm
-                  </div>
-                  <div class="availability-quantity cell">
-                    4x
-                  </div>
-                  <div class="availability-book cell last align-right">
-                    <a class="btn btn-mini"
-                       href="http://www.paypal.com"
-                       target="_blank"
-                        >Book
+                       ng-click="putIntoShoppingCart(m, available)"
+                        >{{ 'Book' | translate }}
                     </a>
                   </div>
                 </div>
@@ -355,20 +340,20 @@
                   <div class="cell first">
                     <a class="btn btn-mini disabled"
                        ng-click=""
-                        >Prev
+                        >{{ 'Prev' | translate }}
                     </a>
                   </div>
                   <div class="cell align-center">
                     <a class="btn btn-mini"
                        ng-click=""
                        href="#/activities/{{m._id}}/"
-                        >Show all Dates
+                        >{{ 'Show all Dates' | translate }}
                     </a>
                   </div>
                   <div class="cell last align-right">
                     <a class="btn btn-mini"
                        ng-click=""
-                        >Next
+                        >{{ 'Next' | translate }}
                     </a>
                   </div>
                 </div>
@@ -379,7 +364,7 @@
           </div>
 
         </window>
-        <marker-label content="m.name"
+        <marker-label content="m.name | languagefilter"
                       anchor="22 0"
                       class="marker-labels marker-label-category-{{m.category.main}}"
             />
@@ -389,7 +374,7 @@
       <div ng-init="opts = {animation:0}">
         <marker coords="map.centerMarker"
                 options="opts">
-          <marker-label content="map.centerMarker.title"
+          <marker-label content="map.centerMarker.title | translate"
                         anchor="22 0"
                         class="marker-labels marker-labels-your-location"
               />
@@ -403,6 +388,6 @@
 
 </div>
 
-<div data-ng-include="'_footer.html'"></div>
+<div data-ng-include="'views/_footer.html'"></div>
 
 

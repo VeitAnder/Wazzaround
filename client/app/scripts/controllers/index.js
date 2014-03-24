@@ -1,11 +1,9 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, models) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate) {
 
     $scope.currentUser = currentUser;
-
-    debug("resolvedactivities", resolvedActivities);
 
     $scope.states = {
       sports: {
@@ -49,9 +47,15 @@ angular.module('anorakApp')
       "zIndex": 1000
     };
 
-    $scope.onMarkerClicked = function (marker) {
-      debug("Marker: lat: " + marker.latitude + ", lon: " + marker.longitude + " clicked!!");
-      marker.showWindow = true;
+    $scope.onMarkerClicked = function (markerClicked) {
+      debug("Marker: lat: " + markerClicked.latitude + ", lon: " + markerClicked.longitude + " clicked!!");
+      _.each($scope.map.markers, function (marker) {
+        if (marker._id === markerClicked._id) {
+          markerClicked.showWindow = true;
+        } else {
+          marker.showWindow = false;
+        }
+      });
     };
 
     $scope.onlySelectedCategories = function (activity) {
@@ -64,7 +68,7 @@ angular.module('anorakApp')
       var filteredActivities = [];
       _.each(activity.category.subs, function (subCatInActivity) {
         _.each($scope.getMainCategory(activity.category.main).sub, function (subCatFromCategories) {
-          if (subCatInActivity.title === subCatFromCategories.title && subCatFromCategories.selected === true) {
+          if (subCatInActivity.key === subCatFromCategories.key && subCatFromCategories.selected === true) {
             filteredActivities.push(subCatFromCategories);
           }
         });
@@ -152,7 +156,7 @@ angular.module('anorakApp')
           _.each(activity.category.subs, function (subCatInActivity) {
 
             _.each($scope.getMainCategory(mainCat).sub, function (subCatInCategories) {
-              if (subCatInCategories.title === subCatInActivity.title) {
+              if (subCatInCategories.key === subCatInActivity.key) {
                 catsInActs.push(subCatInCategories.key);
               }
             });
@@ -199,11 +203,58 @@ angular.module('anorakApp')
 
     $scope.getAddress = frontendmap.getAddress;
 
+    // every activity has bookableItems, like Quadfahren
+    // this bookableItem Quadfahren has events, like 1.3. Quadfahren, 2.3. Quadfahren, 3.3. Quadfahren
+    // sort these events by date and save 3 to be displayed when user klicks on activity in index page
+    $scope.getNextAvailableEvents = function () {
+
+      if ($scope.map.markers.length > 0) {
+
+        _.each($scope.map.markers, function (marker) {
+          var events = [];
+
+          _.each(marker.bookableItems, function (bookableItem) {
+            _.each(bookableItem.ref().events, function (event) {
+              event.ref().title = {
+                en: bookableItem.ref().description.en,
+                de: bookableItem.ref().description.de,
+                it: bookableItem.ref().description.it
+              };
+              events.push(event.ref());
+            });
+          });
+          events = _.sortBy(events, "start");
+          events = events.slice(0, 3);
+          marker.availability = _.clone(events);
+        });
+      }
+
+    };
+    $scope.getNextAvailableEvents();
+
+    $scope.putIntoShoppingCart = function(activity, event) {
+      debug("Put into shopping cart", activity, event);
+    };
+
     $rootScope.$on("MapChangeEvent", function (event, message) {
       debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
       angular.forEach($scope.categories, function (mainCat) {
         setSelected(mainCat.key);
       });
     });
+
+    // when user changes language, reload controller so that all translations are correct
+    $rootScope.$on('$translateChangeSuccess', function () {
+      $route.reload();
+    });
+
+    $scope.moment = moment;
+    $scope.moment.lang($translate.use());
+
+    // when language changes globally, reset also in directive
+    $rootScope.$on('$translateChangeSuccess', function () {
+      $scope.moment.lang($translate.use());
+    });
+
 
   });

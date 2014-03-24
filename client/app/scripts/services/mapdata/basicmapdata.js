@@ -201,7 +201,7 @@ angular.module('anorakApp')
         },
         getAddress: function (viewValue) {
           var params = {address: viewValue, sensor: false, language: 'en'};
-          return $http.get('http://maps.googleapis.com/maps/api/geocode/json', { params: params })
+          return $http.get('https://maps.googleapis.com/maps/api/geocode/json', { params: params })
             .then(function (res) {
               return res.data.results;
             });
@@ -217,7 +217,7 @@ angular.module('anorakApp')
             "latitude": 45.12199086176226
           },
           centerMarker: {
-            title: 'Your current search location ',
+            title: 'Your current search location',
             "longitude": 8.01177978515625,
             "latitude": 45.12199086176226
           },
@@ -232,7 +232,7 @@ angular.module('anorakApp')
               disableAutoPan: true
             },
             show: true,
-            templateUrl: 'map/templatedinfowindow.html',
+            templateUrl: 'views/map/templatedinfowindow.html',
             templateParameter: {
               message: 'passed in from the opener'
             }

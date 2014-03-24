@@ -1,22 +1,22 @@
-<h2>Account</h2>
-<h3>Publish Activities</h3>
+<h2>{{'Account' | translate}}</h2>
+<h3>{{'Publish Activities' | translate}}</h3>
 
-<p>This is the admin/allActivities view.</p>
+<p>{{'This is the admin/allActivities view' | translate}}</p>
 
 
 <div class="myactivities-list enable_hover">
   <div class="listheader">
     <div class="activity cell first">
-      Activty
+      {{'Activity' | translate}}
     </div>
     <div class="category-main cell">
-      Main Category
+      {{'Main Category' | translate}}
     </div>
     <div class="category-sub cell">
-      Sub Category
+      {{'Sub Category' | translate}}
     </div>
     <div class="location cell">
-      Location
+      {{'Location' | translate}}
     </div>
     <div class="edit cell last">
 
@@ -31,13 +31,13 @@
          data-ng-click="open(activity)"
       >
       <div class="activity cell first">
-        {{activity.name}}
+        {{activity.name | languagefilter}}
       </div>
       <div class="category-main cell">
-        {{activity.category.main}}
+        {{activity.category.main | translate}}
       </div>
       <div class="category-sub cell">
-        <span ng-repeat="subcat in activity.category.subs">{{subcat.title}}<br></span>
+        <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}<br></span>
       </div>
 
       <div class="location cell">
@@ -46,14 +46,13 @@
 
       <div class="edit cell last align-right">
         <span class="btn btn-mini" data-ng-click="toggle(activity); $event.stopPropagation();" ng-switch="activity.published">
-          <span ng-switch-when="false">publish</span>
-          <span ng-switch-when="true">unpublish</span>
+          <span ng-switch-when="false">{{'publish' | translate}}</span>
+          <span ng-switch-when="true">{{'unpublish' | translate}}</span>
           <span ng-switch-default>-</span>
         </span>
       </div>
 
     </div>
-
 
   </div>
 </div>

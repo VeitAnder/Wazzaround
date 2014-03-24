@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminMyactivitiesDetailCtrl', function ($scope, $location, activity, activitybackendmap) {
+  .controller('AdminMyactivitiesDetailCtrl', function ($scope, $location, activity, activitybackendmap, $translate, $rootScope) {
     $scope.getPagePartial = function () {
-      return 'admin/myactivities/detail.html';
+      return 'views/admin/myactivities/detail.html';
     };
 
     $scope.activity = activity;
@@ -16,6 +16,12 @@ angular.module('anorakApp')
       zoom: 9,
       options: activitybackendmap.map.options
     };
+
+    $scope.lang = $translate.use();
+    // when language changes globally, reset also here
+    $rootScope.$on('$translateChangeSuccess', function () {
+      $scope.lang = $translate.use();
+    });
 
     $scope.getMarkerIcon = function () {
       return "/img/mapicons/marker-"+$scope.activity.category.main+".svg";

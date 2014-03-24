@@ -32,14 +32,30 @@ require("./servermodules/serveclient.js").setupStaticAssetsServer(app, (86400000
 app.use(express.bodyParser());
 app.set('json spaces',2);
 
-// todo user mongo store
+
+// init mongodb database connection
+var mongojs = require('mongojs');
+
+var db = mongojs('mongodb://'+ config.mongo.username + ':' + config.mongo.password + '@'+ config.mongo.host + ':' + config.mongo.port  + '/' + config.mongo.dbName);
+
+
+//var MongoStore = require('connect-mongostore')(express);
+
 app.use(express.cookieParser());
 app.use(express.session({
   secret: config.server.cookieSecret,
   store: new express.session.MemoryStore
+//  store: new MongoStore({
+//    'db': config.mongo.dbName,
+//    'collection' : "sessions",
+//    'host' : config.mongo.host,
+//    'port' : config.mongo.port,
+//    'username' : config.mongo.username,
+//    'password' : config.mongo.password
+//  })
 }));
 
-require("./servermodules/modelizer.js").initModelizer(app);
+require("./servermodules/modelizer.js").initModelizer(app, db);
 
 var RestApi = require("./servermodules/restapi.js");
 

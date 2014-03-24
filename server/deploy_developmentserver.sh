@@ -19,7 +19,7 @@ MODULUS_APPNAME=reactureappdev
 #
 # check if secret config file is accessible
 if [ ! -f ${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} ]; then
-    echo "${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} file not found! Not ready to deploy. Check your planfred truecrypt volume to be mounted."
+    echo "${SECRETCONFIGFILEPATH}/${SECRETCONFIGFILE} file not found! Not ready to deploy. Check your reacture truecrypt volume to be mounted."
     exit 0
 fi
 
@@ -35,20 +35,18 @@ grunt --version
 
 #build server
 echo "build release of server"
-#grunt --gruntfile ${SCRIPTPATH}/gruntFile.js bump:patch
-grunt --gruntfile ${SCRIPTPATH}/gruntFile.js releasedevelopment
+grunt --gruntfile ${SCRIPTPATH}/gruntFile.js bump:patch
+grunt --gruntfile ${SCRIPTPATH}/gruntFile.js release
 
 #build clientapp
 echo "build release of clientapp"
-grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js build
-#grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js releasedevelopment
-
+grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js bump:patch
+grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js release
 
 #copy clientapp to server dir for deployment
 echo "rsync clientapp to server dir"
 rsync -av ${SCRIPTPATH}/../client/dist/ ${SCRIPTPATH}/clientapp/
 chmod -R 777 ${SCRIPTPATH}/clientapp/*
-
 
 # get secret config file
 echo "\n\ncopy $SECRETCONFIGFILE"

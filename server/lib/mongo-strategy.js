@@ -73,7 +73,7 @@ MongoDBStrategy.prototype.findByEmail = function (email, done) {
 MongoDBStrategy.prototype.verifyUser = function (email, password, done) {
   this.findByEmail(email, function (err, user) {
     if (!err && user) {
-      //check also for accountconfirmed flag - added by planfred
+      //check also for accountconfirmed flag - added by reacture
       if (user.password !== encrypt(password) || !user.accountconfirmed || !user.enabled) {
         user = null;
       }

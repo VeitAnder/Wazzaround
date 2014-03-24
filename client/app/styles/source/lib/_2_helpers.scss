@@ -140,6 +140,16 @@
   }
 }
 
+@mixin font-size_smallest {
+  font-size: 10px;
+  line-height: 10px*$line-height_factor;
+  p {
+    padding-bottom: 10px*$line-height_factor;
+  }
+}
+
+
+
 // TRANSITIONS
 // ###########################################################################################################################
 // ###########################################################################################################################
@@ -428,6 +438,15 @@
 .padding-60px-vert {
   @include padding-30px-vert;
 }
+
+.space-left{
+  margin-left: $fs*0.5;
+}
+
+.space-right{
+  margin-right: $fs*0.5;
+}
+
 
 @mixin text-white {
   p, h1, h2, h3, h4, h5, h6, li {

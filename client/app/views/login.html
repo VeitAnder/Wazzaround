@@ -1,4 +1,4 @@
-<form class="loginform"
+<form class="standardform loginform"
       name="loginform"
       novalidate
       autocomplete="on"
@@ -6,9 +6,9 @@
       method="post"
       target="_self">
 
-  <h2>Account</h2>
+  <h2>{{ 'Account' | translate }}</h2>
 
-  <h3>Login</h3>
+  <h3>{{ 'Login' | translate }}</h3>
 
   <!--<div ng-show="state.confirmed">
     <p class="alert alert-success">Ihr Benutzerkonto wurde erfolgreich aktiviert.</p>
@@ -37,44 +37,49 @@
     </div>
   </div>  -->
 
-  <p>
+  <div class="form-group">
     <label for="email">E-mail</label>
-    <input name="username"
-           ng-model="form.username"
+    <input name="email"
+           ng-model="form.email"
            class="input-block-level"
            id="email"
+           placeholder="{{'Your e-mail address' | translate}}"
            required
            autofocus>
-  </p>
-  <p>
-    <label for="password">Password</label>
+  </div>
+  <div class="form-group">
+    <label for="password">{{ 'Password' | translate }}</label>
     <input name="password"
            id="password"
            type="password"
            ng-model="form.password"
            required
+           placeholder="{{'Your password' | translate }}"
            class="input-block-level">
-  </p>
-
-  <div ng-show="state.error">
-    <div class="alert alert-error">{{state.message}}</div>
   </div>
 
-  <button class="btn"
-          type="submit"
-          ng-click="login()">Login
-  </button>
+  <div ng-show="state.error">
+    <div class="alert alert-error">{{state.message | translate}}</div>
+  </div>
 
-  <p>
-    <a href="#/register">
-      Not registered?
-    </a>
-  </p>
+  <div class="form-group form-group-btn">
+    <button class="btn"
+            type="submit"
+            ng-click="login()">{{ 'Login' | translate }}
+    </button>
 
-  <p>
-    <a href="#/registration/forgotpassword">
-      Forgot password?
+    <a ng-href="#/registration"
+       class="space-left">
+      {{ 'Not registered' | translate }}
     </a>
-  </p>
+    |
+    <a ng-href="#/registration/forgotpassword">
+      {{ 'Forgot password' | translate }}
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
+  <div ng-include="'views/_registrationforprovidershint.html'"></div>
 
 </form>

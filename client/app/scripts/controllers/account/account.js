@@ -18,12 +18,12 @@ angular.module('anorakApp')
 
     $routeProvider
       .when('/account', {
-        templateUrl: 'account/account_basepagetemplate.tpl.html',
+        templateUrl: 'views/account/account_basepagetemplate.tpl.html',
         controller: 'AccountCtrl',
         resolve: resolve
       })
       .when('/account/payment', {
-        templateUrl: 'account/account_basepagetemplate.tpl.html',
+        templateUrl: 'views/account/account_basepagetemplate.tpl.html',
         controller: 'AccountPaymentCtrl',
         resolve: resolve
       });
@@ -33,7 +33,7 @@ angular.module('anorakApp')
     'use strict';
 
     $scope.getPagePartial = function () {
-      return 'account/account.tpl.html';
+      return 'views/account/account.tpl.html';
     };
     $scope.tabnavlocation = $location.$$path;
 
@@ -110,7 +110,7 @@ angular.module('anorakApp')
     'use strict';
 
     $scope.getPagePartial = function () {
-      return 'account/account_payment.tpl.html';
+      return 'views/account/account_payment.tpl.html';
     };
     $scope.tabnavlocation = $location.$$path;
 
