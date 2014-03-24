@@ -23,6 +23,8 @@ var models = function () {
   var UserModel = new model("users", {
     email: Attr(Type.string, validators.email),  // email ist auch username
     password: Attr(Type.string),
+    registrationdate: Attr(Type.date, Attr.default(new Date())),
+    lastlogindate: Attr(Type.date),
 
     profile: {
       firstName: Attr(Type.string),
@@ -58,10 +60,9 @@ var models = function () {
 
   var EventModel = new model("events", {
     start: Attr(Type.date),
-    duration: Attr(Type.number),
     quantity: Attr(Type.number),
 
-    owner: Ref(UserModel)   //TODO
+    owner: Ref(UserModel)
   });
 
   var BookableItemModel = new model("bookableItems", {
@@ -71,13 +72,9 @@ var models = function () {
       it: Attr(Type.string)
     },
     price: Attr(Type.number),
+    duration: Attr(Type.number),
 
     events: RefArray(EventModel),
-//    events : [{
-//      start: Attr(Type.date),
-//      duration: Attr(Type.number),
-//      quantity: Attr(Type.number)
-//    }],
 
     owner: Ref(UserModel)
   });

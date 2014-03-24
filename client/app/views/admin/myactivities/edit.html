@@ -87,7 +87,7 @@
         </google-map>
 
       </div>
-      <div class="alert">{{'Click in map to reposition location of activity' | translate}}</div>
+      <div class="alert alert-info">{{'Click in map to reposition location of activity' | translate}}</div>
 
       <div class="form-group">
         <label for="categoryMain">{{'Main Category' | translate}}</label>
@@ -307,6 +307,17 @@
                   >
 
             </div>
+
+            <div class="bookableitem-duration cell last">
+              <label for="itemDuration">{{'Duration' | translate}}</label>
+              <input type="number"
+                     class="form-control"
+                     id="itemDuration"
+                     placeholder="{{'Duration in hours' | translate}}"
+                     ng-model="bookableItem.ref().duration"
+                  >
+            </div>
+
             <div class="bookableitem-price cell last">
               <label for="itemPrice">{{'Price' | translate}}</label>
               <input type="number"
@@ -326,7 +337,6 @@
               <div class="event-header">
                 <div class="event-date cell">{{'Date' | translate}}</div>
                 <div class="event-time cell">{{'Time' | translate}}</div>
-                <div class="event-duration cell">{{'Duration' | translate}}</div>
                 <div class="event-quantity cell">{{'Qty' | translate}}</div>
                 <div class="listaction cell">
                 </div>
@@ -338,7 +348,6 @@
                 <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
                   <div class="event-date cell">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
                   <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
-                  <div class="event-duration cell">{{event.ref().duration}}h</div>
                   <div class="event-quantity cell">{{event.ref().quantity}}x</div>
                   <div class="listaction cell">
                     <a class="btn btn-mini btn-ordinary"
@@ -374,14 +383,7 @@
                            bs-timepicker
                         >
                   </div>
-                  <div class="form-group duration">
-                    <input type="number"
-                           class="form-control"
-                           id="duration"
-                           placeholder="{{'Duration' | translate}} (h)"
-                           ng-model="event.ref().duration"
-                        >
-                  </div>
+
                   <div class="form-group quantity">
                     <input type="number"
                            class="form-control"
@@ -473,9 +475,9 @@
                     </a>
 
                     <!--<a ng-show="event.mode == 'edit'"-->
-                       <!--ng-click="event.mode = 'view';"-->
-                       <!--class="space-left">-->
-                      <!--cancel-->
+                    <!--ng-click="event.mode = 'view';"-->
+                    <!--class="space-left">-->
+                    <!--cancel-->
                     <!--</a>-->
 
                     <a ng-show="event.mode == 'new'"
