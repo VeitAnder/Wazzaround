@@ -240,7 +240,33 @@ angular.module('anorakApp')
         controller: 'AdminMyactivitiesDetailCtrl',
         resolve: {
           activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.get($route.current.params.id);
+            return models.ActivityModel.get($route.current.params.id)  // 1. load activity
+              .then(function (activity) {
+                // load bookable items
+                var loadingBookableItems = [];
+                _.forEach(activity.bookableItems, function (item) {
+                  loadingBookableItems.push(item.load());              // 2. load items
+                });
+
+                return Q.all(loadingBookableItems)
+                  .then(function (items) {
+                    var loadingEvents = [];
+                    _.forEach(items, function (item) {
+                      _.forEach(item.events, function (event) {
+                        loadingEvents.push(event.load());              // 3. load events
+                      });
+                    });
+
+                    return Q.all(loadingEvents);
+                  })
+                  .then(function (events) {
+                    debug("loaded activity", activity);
+                    return activity;  // return the activity, when all bookableItems have been loaded
+                  });
+              })
+              .fail(function (err) {
+                debug("Fail loading activities in the myactivities route", err);
+              });
           }]
         }
       })
@@ -578,6 +604,7 @@ angular.module('anorakApp')
       'create a new event': 'Create a new event',
       'create a bookable item': 'Create a bookable Item',
       'Price in €': 'Price in €',
+      'Price': 'Price',
       'Delete Item': 'Delete Item',
       'Schedule Event': 'Schedule Event',
       'Add Event': 'Add Event',
@@ -847,6 +874,7 @@ angular.module('anorakApp')
       'create a new event': 'Erstellen Sie ein neues Ereignis',
       'create a bookable item': 'Erstellen Sie einen buchbaren Artikel',
       'Price in €': 'Preis in €',
+      'Price': 'Preis',
       'Delete Item': 'Event löschen',
       'Schedule Event': 'Zeitpunkte an denen das Event stattfindet',
       'Add Event': 'Termin hinzufügen',
@@ -1116,6 +1144,7 @@ angular.module('anorakApp')
       'create a new event': 'Creare una nuova attività prenotabile',
       'create a bookable item': 'Create a bookable Item',
       'Price in €': '',
+      'Price': '',
       'Delete Item': '',
       'Schedule Event': '',
       'Add Event': '',
