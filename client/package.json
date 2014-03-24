@@ -1,6 +1,6 @@
 {
   "name": "planfred",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "dependencies": {
     "grunt-contrib-htmlmin": "0.1.3",
     "grunt-contrib-coffee": "0.8.2",
