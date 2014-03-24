@@ -11,6 +11,7 @@
     <div class="form-group">
       <label for="email">{{'E-mail' | translate}}</label>
       <input name="email"
+             id="email"
              ng-model="registrant.email"
              class="input-block-level"
              required
@@ -88,6 +89,7 @@
     <div class="form-group">
       <label for="company">{{'Company' | translate}}</label>
       <input name="company"
+             id="company"
              ng-model="registrant.profile.company"
              class="input-block-level"
              required
@@ -103,6 +105,7 @@
       <div class="form-group">
         <label for="firstname">{{'First name' | translate}}</label>
         <input name="firstname"
+               id="firstname"
                ng-model="registrant.profile.firstName"
                class="input-block-level"
                required
@@ -118,6 +121,7 @@
       <div class="form-group">
         <label for="lastname">{{'Last name' | translate}}</label>
         <input name="lastname"
+               id="lastname"
                ng-model="registrant.profile.lastName"
                class="input-block-level"
                required
@@ -134,6 +138,7 @@
     <div class="form-group">
       <label for="tel">{{'Telephone' | translate}}</label>
       <input name="tel"
+             id="tel"
              ng-model="registrant.profile.tel"
              class="input-block-level"
              required
@@ -149,17 +154,47 @@
     <div class="form-group">
       <label for="fax">{{'Fax' | translate}}</label>
       <input name="fax"
+             id="fax"
              ng-model="registrant.profile.fax"
              class="input-block-level"
              placeholder="{{ 'Your fax number' | translate }}"
           >
     </div>
 
-    <div class="divider"></div>
+
+    <div class="form-group">
+      <label for="contactpersonname">{{'Name of contact person' | translate}}</label>
+      <input name="contactpersonname"
+             id="contactpersonname"
+             ng-model="registrant.profile.contactperson.name"
+             class="input-block-level"
+             placeholder="{{ 'Name of contact person' | translate }}"
+             required
+          >
+
+      <span ng-show="showError('contactpersonname', 'required')"
+            class="alert">{{'Please enter the name of the contact person' | translate}}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="uid">{{'UID optional' | translate}}</label>
+      <input name="uid"
+             id="uid"
+             ng-model="registrant.profile.uid"
+             class="input-block-level"
+             placeholder="{{ 'Your UID number' | translate }}"
+          >
+    </div>
+
+    <div class="divider">
+      <span>{{'Address' | translate}}</span>
+    </div>
 
     <div class="form-group">
       <label for="address">{{'Address' | translate}}</label>
       <input name="address"
+             id="address"
              ng-model="registrant.profile.address"
              class="input-block-level"
              required
@@ -176,6 +211,7 @@
       <div class="form-group">
         <label for="zip">{{'Zip' | translate}}</label>
         <input name="zip"
+               id="zip"
                ng-model="registrant.profile.zip"
                class="input-block-level"
                required
@@ -191,6 +227,7 @@
       <div class="form-group">
         <label for="city">{{'City' | translate}}</label>
         <input name="city"
+               id="city"
                ng-model="registrant.profile.city"
                class="input-block-level"
                required
@@ -207,6 +244,7 @@
     <div class="form-group">
       <label for="country">{{'Country' | translate}}</label>
       <input name="country"
+             id="country"
              ng-model="registrant.profile.country"
              class="input-block-level"
              required
@@ -219,31 +257,71 @@
 
     </div>
 
-    <div class="divider"></div>
+    <div class="divider">
+      <span>{{'Bank account' | translate}}</span>
+    </div>
 
-     <div class="form-group">
-      <label for="contactpersonname">{{'Name of contact person' | translate}}</label>
-      <input name="contactpersonname"
-             ng-model="registrant.profile.contactperson.name"
+    <div class="form-group">
+      <label for="bank">{{'Bank' | translate}}</label>
+      <input name="bank"
+             id="bank"
+             ng-model="registrant.profile.bank"
              class="input-block-level"
-             placeholder="{{ 'Name of contact person' | translate }}"
+             placeholder="{{ 'Name of your Bank' | translate }}"
              required
           >
 
-      <span ng-show="showError('contactpersonname', 'required')"
-            class="alert">{{'Please enter the name of the contact person' | translate}}
+      <span ng-show="showError('bank', 'required')"
+            class="alert">{{'Please enter the name of your Bank' | translate}}
       </span>
     </div>
 
     <div class="form-group">
-      <label for="uid">{{'UID optional' | translate}}</label>
-      <input name="uid"
-             ng-model="registrant.profile.uid"
+      <label for="iban">{{'IBAN' | translate}}</label>
+      <input name="iban"
+             id="iban"
+             ng-model="registrant.profile.bank.iban"
              class="input-block-level"
-             placeholder="{{ 'Your UID number' | translate }}"
+             placeholder="{{ 'Your IBAN' | translate }}"
+             required
           >
+
+      <span ng-show="showError('iban', 'required')"
+            class="alert">{{'Please enter your IBAN' | translate}}
+      </span>
     </div>
 
+    <div class="form-group">
+      <label for="bic">{{'BIC' | translate}}</label>
+      <input name="bic"
+             id="bic"
+             ng-model="registrant.profile.bic"
+             class="input-block-level"
+             placeholder="{{ 'Your BIC' | translate }}"
+             required
+          >
+
+      <span ng-show="showError('bic', 'required')"
+            class="alert">{{'Please enter your BIC' | translate}}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="nameofaccountowner">{{'Account owner' | translate}}</label>
+      <input name="nameofaccountowner"
+             id="nameofaccountowner"
+             ng-model="registrant.profile.nameofaccountowner"
+             class="input-block-level"
+             placeholder="{{ 'Name of account owner' | translate }}"
+             required
+          >
+
+      <span ng-show="showError('nameofaccountowner', 'required')"
+            class="alert">{{'Please enter the name of the account owner' | translate}}
+      </span>
+    </div>
+
+    <div class="divider"></div>
 
     <div>
       <button class="btn"
@@ -262,6 +340,7 @@
         >
       {{state.errormessage | translate}}
     </div>
+
 
   </form>
 
