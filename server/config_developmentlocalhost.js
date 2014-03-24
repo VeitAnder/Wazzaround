@@ -41,8 +41,8 @@ var config = {
   },
   postmark: {
     apikey: "b1af3ea7-b17b-493c-a62c-53d3370a3077",              // postmark api key
-    from: "admin@planfred.com",                                // postmark signed from email addresss
-    replyto: "donotreply@planfred.com"
+    from: "admin@reacture.com",                                 // postmark signed from email addresss
+    replyto: "donotreply@reacture.com"
   },
   api: {
     apiversion: "api/v1/"                                       // don't forget trailing slash
