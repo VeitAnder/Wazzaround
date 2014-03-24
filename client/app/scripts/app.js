@@ -37,7 +37,6 @@ angular.module('anorakApp', [
   'services.localizedMessages',
   'templates.app',
   'modelizer',
-  'mgcrea.ngStrap',
   'directives.customvalidation',
   'ui.keypress',
   'pascalprecht.translate'
@@ -83,7 +82,7 @@ angular.module('anorakApp')
                 models.ActivityModel.all()
                   // loading activities, then bookable items of activities
                   .then(function (activities) {
-                    
+
                     // Only admin user sees all activities
                     resolvedActivities = activities;
 
@@ -1098,7 +1097,6 @@ angular.module('anorakApp')
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
 
-
 //    $translateProvider.preferredLanguage('en');
 
     $translateProvider
@@ -1119,8 +1117,7 @@ angular.module('anorakApp')
     $translateProvider.useLocalStorage();
 
   })
-  .
-  run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models) {
+  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate) {
     "use strict";
 
     debug("application run called");
@@ -1134,7 +1131,11 @@ angular.module('anorakApp')
       model.connection(connector);
     });
 
-    moment.lang('en');  // setup moment
+    var lang = $translate.use();
+    if (!lang) {
+      lang = 'en';
+    }
+    moment.lang(lang);  // setup moment language
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);
