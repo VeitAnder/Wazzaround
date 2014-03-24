@@ -434,10 +434,11 @@ footer {
 
 .eventedit {
   display: block;
-  @include border_all($color_grey_25);
+  @include border_all($color_grey_50);
   @include border-radius($border-radius);
   padding: 5px $bu;
   margin: $bu 0;
+  background-color: $color_grey_05;
   input {
     min-width: 0;
   }
@@ -461,8 +462,11 @@ footer {
     width: 16%;
   }
 
+  .btn{
+  }
+
   .buttonbar {
-    @include border(top, $color_grey_25);
+    @include seperator(top, $color_grey_50);
     width: auto;
     margin: $bu (-$bu) 0 (-$bu);
     padding: 5px 10px;
