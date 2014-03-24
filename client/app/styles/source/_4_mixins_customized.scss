@@ -429,7 +429,7 @@ footer {
 }
 
 .event-add {
-  //  padding-top: 10px;
+  margin-top: 10px;
 }
 
 .eventedit {
@@ -437,7 +437,7 @@ footer {
   @include border_all($color_grey_25);
   @include border-radius($border-radius);
   padding: 5px $bu;
-  margin-top: $bu;
+  margin: $bu 0;
   input {
     min-width: 0;
   }

@@ -2878,6 +2878,7 @@ footer {
   -ms-border-top-right-radius: 6px;
   -o-border-top-right-radius: 6px;
   border-top-right-radius: 6px;
+  display: block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3056,6 +3057,7 @@ footer {
     padding: 5px 2.5px; }
 
 .event-row {
+  display: block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3144,6 +3146,8 @@ footer {
 .event-quantity {
   width: 10%; }
 
+.event-add {
+  margin-top: 10px; }
 
 .eventedit {
   display: block;
@@ -3155,7 +3159,7 @@ footer {
   -o-border-radius: 6px;
   border-radius: 6px;
   padding: 5px 15px;
-  margin-top: 15px; }
+  margin: 15px 0; }
   .eventedit input {
     min-width: 0; }
   .eventedit .form-group {
@@ -3247,6 +3251,7 @@ footer {
     padding: 5px 2.5px; }
 
 .availability-entry {
+  display: block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3338,6 +3343,7 @@ footer {
     width: 20%; }
 
 .availability-footer {
+  display: block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -4790,6 +4796,7 @@ footer {
 
 
 .listrow {
+  display: block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
