@@ -576,9 +576,12 @@ angular.module('anorakApp')
       'Images': 'Images',
       'What can be booked': 'What can be booked?',
       'create a new event': 'Create a new event',
+      'create a bookable item': 'Create a bookable Item',
       'Price in €': 'Price in €',
       'Delete Item': 'Delete Item',
       'Schedule Event': 'Schedule Event',
+      'Add Event': 'Add Event',
+      'Add new Event': 'Add new Event',
       'Quantity': 'Quantity',
       'repeating': 'repeating',
       'Mon': 'Mon',
@@ -610,7 +613,10 @@ angular.module('anorakApp')
       'Please enter your BIC': 'Please enter your BIC',
       'Account owner': 'Account owner',
       'Name of account owner': 'Name of account owner',
-      'Please enter the name of the account owner': 'Please enter the name of the account owner'
+      'Please enter the name of the account owner': 'Please enter the name of the account owner',
+      'yes, delete': 'yes, delete',
+      'no': 'no',
+      'Delete bookable item with all events?': 'Delete bookable item with all events?'
 
     });
 
@@ -838,9 +844,12 @@ angular.module('anorakApp')
       'Images': 'Bilder',
       'What can be booked': 'Was kann man buchen?',
       'create a new event': 'Erstellen Sie ein neues Ereignis',
+      'create a bookable item': 'Erstellen Sie einen buchbaren Artikel',
       'Price in €': 'Preis in €',
       'Delete Item': 'Event löschen',
       'Schedule Event': 'Zeitpunkte an denen das Event stattfindet',
+      'Add Event': 'Termin hinzufügen',
+      'Add new Event': 'Neuen Termin hinzufügen',
       'Quantity': 'Menge',
       'repeating': 'regelmäßig',
       'Mon': 'Mo',
@@ -872,7 +881,10 @@ angular.module('anorakApp')
       'Please enter your BIC': 'Please enter your BIC',
       'Account owner': 'Account owner',
       'Name of account owner': 'Name of account owner',
-      'Please enter the name of the account owner': 'Please enter the name of the account owner'
+      'Please enter the name of the account owner': 'Please enter the name of the account owner',
+      'yes, delete': 'yes, delete',
+      'no': 'no',
+      'Delete bookable item with all events?': 'Delete bookable item with all events?'
 
     });
 
@@ -1100,9 +1112,12 @@ angular.module('anorakApp')
       'Images': '',
       'What can be booked': '',
       'create a new event': 'Creare una nuova attività prenotabile',
+      'create a bookable item': 'Create a bookable Item',
       'Price in €': '',
       'Delete Item': '',
       'Schedule Event': '',
+      'Add Event': '',
+      'Add new Event': '',
       'Quantity': '',
       'repeating': '',
       'Mon': '',
@@ -1134,7 +1149,11 @@ angular.module('anorakApp')
       'Please enter your BIC': 'Please enter your BIC',
       'Account owner': 'Account owner',
       'Name of account owner': 'Name of account owner',
-      'Please enter the name of the account owner': 'Please enter the name of the account owner'
+      'Please enter the name of the account owner': 'Please enter the name of the account owner',
+      'yes, delete': 'yes, delete',
+      'no': 'no',
+      'Delete bookable item with all events?': 'Delete bookable item with all events?'
+
 
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata

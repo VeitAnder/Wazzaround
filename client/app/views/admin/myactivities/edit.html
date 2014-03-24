@@ -281,7 +281,7 @@
               </a>
 
               <div ng-show="bookableItem.deletemode">
-                … really delete?
+                {{'Delete bookable item with all events?' | translate}}
                 <a ng-click="removeItem(bookableItem.ref(), idx)"
                    class="btn btn-alert btn-mini space-left"
                     >{{'yes, delete' | translate}}
@@ -327,7 +327,7 @@
                 <div class="event-date cell first">{{'Date' | translate}}</div>
                 <div class="event-time cell">{{'Time' | translate}}</div>
                 <!--<div class="event-duration cell">Duration</div>-->
-                <div class="event-quantity cell">{{'Qty' | translate}}.</div>
+                <div class="event-quantity cell">{{'Qty' | translate}}</div>
                 <div class="listaction cell last">
                 </div>
               </div>
@@ -467,17 +467,9 @@
                   </div>
 
                   <div class="buttonbar">
-                    <a class="txt-icon-delete"
-                       ng-click="removeEvent(bookableItem.ref(), idx)"
-                        >{{'remove' | translate}}
-                      <span class="btn-icon-right"></span>
-                    </a>
-                  </div>
-
-                  <div class="buttonbar">
                     <a class="txt-icon-save"
                        ng-click="event.mode = 'view'; createEventSeries(bookableItem.ref(), event.ref())"
-                        >{{'save event' | translate}}
+                        >{{'Add event' | translate}}
                       <span class="btn-icon-right"></span>
                     </a>
                   </div>
@@ -490,7 +482,7 @@
                 <a class="txt-icon-add"
                    ng-click="createEvent(bookableItem.ref())">
                   <span class="btn-icon-left"></span>
-                  {{'Schedule Event' | translate}}
+                  {{'Add new Event' | translate}}
                 </a>
 
               </div>
@@ -505,7 +497,7 @@
         <button class="btn-add"
                 ng-click="activity.createBookableItems()">
           <span class="btn-icon-left"></span>
-          {{'create a new event' | translate}}
+          {{'create a bookable item' | translate}}
         </button>
 
         <span ng-show="!state.additionalformchecks.bookableevents"
