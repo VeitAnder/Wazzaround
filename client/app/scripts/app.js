@@ -560,6 +560,7 @@ angular.module('anorakApp')
       // admin/myactivities/edit.html
       'Please create bookable events.': 'Please create bookable events.',
       'Please enter the name of the activity/activities.': 'Please enter the name of the activity/activities.',
+      'Please enter the name of your company.': 'Please enter the name of your company.',
       'Please upload an image.': 'Please upload an image.',
       'save event': 'Save event',
       'New activity': 'New activity',
@@ -829,6 +830,7 @@ angular.module('anorakApp')
       'Please create bookable events.': 'Bitte erstellen Sie buchbare Events.',
       'Please upload an image.': 'Bitte laden Sie ein Bild hoch.',
       'Please enter the name of the activity/activities.': 'Bitte geben Sie den/die Namen der Aktivität/en ein.',
+      'Please enter the name of your company.': 'Bitte geben Sie den Namen Ihrer Firma ein.',
       'save event': 'Event speichern',
       'New activity': 'Neue Aktivität',
       'Global Activity Info': 'Daten der Aktivität',
@@ -1097,6 +1099,7 @@ angular.module('anorakApp')
       'Please create bookable events.': '',
       'Please upload an image.': '',
       'Please enter the name of the activity/activities.': '',
+      'Please enter the name of your company.': 'Please enter the name of your company.',
       'save event': '',
       'New activity': '',
       'Global Activity Info': 'Informazioni generali sull attività',

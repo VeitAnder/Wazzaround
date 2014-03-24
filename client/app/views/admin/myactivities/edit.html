@@ -15,7 +15,6 @@
       <legend>{{'Global Activity Info' | translate}}:</legend>
       <div class="form-group">
         <label for="activityname">{{'Name of Activity or Activities' | translate}}</label>
-        <languagetabs data-formfieldlanguage="state.formfieldslanguage.name"></languagetabs>
         <input type="text"
                class="form-control"
                id="activityname"
@@ -35,9 +34,15 @@
         <input type="text"
                class="form-control"
                id="company"
+               name="company"
                placeholder="{{'Enter company' | translate}}"
                ng-model="activity.company"
+               required
             >
+
+        <span ng-show="showError('company', 'required')"
+              class="alert">{{'Please enter the name of your company.' | translate}}
+        </span>
       </div>
 
       <div class="form-group">
@@ -87,7 +92,8 @@
         </google-map>
 
       </div>
-      <div class="alert alert-info">{{'Click in map to reposition location of activity' | translate}}</div>
+      <div class="alert alert-info"
+          >{{'Click in map to reposition location of activity' | translate}}</div>
 
       <div class="form-group">
         <label for="categoryMain">{{'Main Category' | translate}}</label>
@@ -135,11 +141,11 @@
           </label>
         </div>
 
-        <span class="alert alert-warn"
+        <span class="alert alert-info"
               data-ng-show="activity.category.subs.length >= 2">{{'You can choose 2 Subcategories at most' |
                                                                 translate}}!
         </span>
-        <span class="alert alert-info"
+        <span class="alert alert-warn"
               data-ng-show="activity.category.subs.length === 0">{{'You must choose at least 1 Subcategory' | translate
                                                                  }}!
         </span>

@@ -204,7 +204,7 @@ angular.module('anorakApp')
       $scope.additionalFormChecks();
 
       // TODO: validierung ist im Arsch!
-//      if ($scope.valForm.$valid && $scope.additionalFormChecks()) {
+      if ($scope.valForm.$valid && $scope.additionalFormChecks()) {
 
         // check if there was only a marker set or an address entered
         if (!$scope.activity.latitude) {
@@ -247,7 +247,7 @@ angular.module('anorakApp')
             console.log(err.message, err.stack);
           });
       }
-//    };
+    };
 
     $scope.delete = function () {
       var deletePromises = [];
