@@ -1468,7 +1468,7 @@ header {
 
 @mixin fieldformat_form {
   display: block;
-  padding: $fs*0.75;
+  padding: 0 $fs*0.75;
   @include textformat_form;
   @include border-radius($border-radius_small);
   background-color: $color_input_background;
