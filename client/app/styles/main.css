@@ -1678,6 +1678,15 @@ h1.nomargin, h2.nomargin, h3.nomargin, h4.nomargin, h5.nomargin, h6.nomargin {
   height: 1px;
   border-top: dotted 1px #b3b3b3;
   margin: 32px 0; }
+  .divider span {
+    font-size: 16px;
+    line-height: 22.4px;
+    margin: 16px 0;
+    color: #b3b3b3;
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding-top: 8px;
+    margin: 0;
+    float: right; }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .inline-screen-sm {

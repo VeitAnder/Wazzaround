@@ -953,6 +953,12 @@ button.btn, .btn, a.btn {
   height: 1px;
   @include seperator(top, $color_main_seperator);
   margin: $fs*2.0 0;
+  span{
+    @include h6;
+    padding-top: $fs*0.5;
+    margin: 0;
+    float: right;
+  }
 }
 
 @include respond-to(screen-sm) {
