@@ -25,6 +25,8 @@ module.exports = function (grunt) {
         dist: 'dist'
       },
 
+      pkg: grunt.file.readJSON('package.json'),
+
       // Watches files for changes and runs tasks based on the changed files
       watch: {
         js: {
@@ -535,7 +537,7 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
-  grunt.registerTask('build', [
+  grunt.registerTask('release', [
     'clean:dist',
 //    'bower-install', // creates mess with dependencies
     'useminPrepare',
@@ -551,7 +553,8 @@ module.exports = function (grunt) {
     'rev',
     'usemin',
     'htmlmin',
-    'favicons'
+    'favicons',
+    'replace'
   ]);
 
   grunt.registerTask('default', [
