@@ -90,9 +90,14 @@ UserModel.operationImpl("login", function (params, req) {
         req.session.auth = true;
         // remeber the user in the session
         req.session.user = users[0];
+        return users[0];
       } else {
         throw new Error('Invalid Password');
       }
+    })
+    .then(function (user) {  // store last login date
+      user.lastlogindate = new Date();
+      return user.save();
     })
     .then(function () {  // if login was ok
       return {status: "ok"};

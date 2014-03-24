@@ -2687,167 +2687,8 @@ footer {
 .listaction.cell {
   width: 10%;
   text-align: right; }
-  .listaction.cell .delete {
-    display: inline-block;
-    position: relative;
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    background-color: #999999;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border-radius: 10px;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    top: 10px;
-    width: 30px;
-    height: 30px;
-    -webkit-border-radius: 15px;
-    -khtml-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    border-radius: 15px;
-    background-position: -65px 10px;
-    background-repeat: no-repeat;
-    top: 5px; }
-    .svg .listaction.cell .delete {
-      background-image: url('/img/sprite_icons.svg'); }
-    .no-svg .listaction.cell .delete {
-      background-image: url('/img/sprite_icons.png'); }
-    .listaction.cell .delete:hover {
-      background-color: #8c8c8c; }
-    .svg .listaction.cell .delete {
-      background-image: url('/img/sprite_icons.svg'); }
-    .no-svg .listaction.cell .delete {
-      background-image: url('/img/sprite_icons.png'); }
-    .listaction.cell .delete:hover {
-      background-color: #C83C19; }
-    .listaction.cell .delete span {
-      display: none; }
-    .bookableitem-header .listaction.cell .delete {
-      border: 2px solid #FFF;
-      background-position: -67px 8px; }
-  .listaction.cell .add {
-    display: inline-block;
-    position: relative;
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    background-color: #999999;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border-radius: 10px;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    top: 10px;
-    width: 30px;
-    height: 30px;
-    -webkit-border-radius: 15px;
-    -khtml-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    border-radius: 15px;
-    background-position: -90px 10px;
-    background-repeat: no-repeat;
-    top: 5px; }
-    .svg .listaction.cell .add {
-      background-image: url('/img/sprite_icons.svg'); }
-    .no-svg .listaction.cell .add {
-      background-image: url('/img/sprite_icons.png'); }
-    .listaction.cell .add:hover {
-      background-color: #8c8c8c; }
-    .svg .listaction.cell .add {
-      background-image: url('/img/sprite_icons.svg'); }
-    .no-svg .listaction.cell .add {
-      background-image: url('/img/sprite_icons.png'); }
-    .listaction.cell .add:hover {
-      background-color: #85C900; }
-    .listaction.cell .add span {
-      display: none; }
-    .bookableitem-header .listaction.cell .add {
-      border: 2px solid #FFF;
-      background-position: -92px 8px; }
   .event-list .listaction.cell {
     width: 20%; }
-    .event-list .listaction.cell .add {
-      display: inline-block;
-      position: relative;
-      top: 5px;
-      width: 20px;
-      height: 20px;
-      background-color: #999999;
-      -webkit-border-radius: 10px;
-      -khtml-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      border-radius: 10px;
-      background-position: 0 0;
-      background-repeat: no-repeat;
-      background-position: -95px 5px;
-      background-repeat: no-repeat; }
-      .svg .event-list .listaction.cell .add {
-        background-image: url('/img/sprite_icons.svg'); }
-      .no-svg .event-list .listaction.cell .add {
-        background-image: url('/img/sprite_icons.png'); }
-      .event-list .listaction.cell .add:hover {
-        background-color: #8c8c8c; }
-      .svg .event-list .listaction.cell .add {
-        background-image: url('/img/sprite_icons.svg'); }
-      .no-svg .event-list .listaction.cell .add {
-        background-image: url('/img/sprite_icons.png'); }
-      .event-list .listaction.cell .add:hover {
-        background-color: #85C900; }
-      .event-list .listaction.cell .add span {
-        display: none; }
-    .event-list .listaction.cell .delete {
-      display: inline-block;
-      position: relative;
-      top: 5px;
-      width: 20px;
-      height: 20px;
-      background-color: #999999;
-      -webkit-border-radius: 10px;
-      -khtml-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      border-radius: 10px;
-      background-position: 0 0;
-      background-repeat: no-repeat;
-      top: 3px;
-      width: 14px;
-      height: 14px;
-      -webkit-border-radius: 7px;
-      -khtml-border-radius: 7px;
-      -moz-border-radius: 7px;
-      -ms-border-radius: 7px;
-      -o-border-radius: 7px;
-      border-radius: 7px;
-      background-position: -72px -22px;
-      background-repeat: no-repeat; }
-      .svg .event-list .listaction.cell .delete {
-        background-image: url('/img/sprite_icons.svg'); }
-      .no-svg .event-list .listaction.cell .delete {
-        background-image: url('/img/sprite_icons.png'); }
-      .event-list .listaction.cell .delete:hover {
-        background-color: #8c8c8c; }
-      .svg .event-list .listaction.cell .delete {
-        background-image: url('/img/sprite_icons.svg'); }
-      .no-svg .event-list .listaction.cell .delete {
-        background-image: url('/img/sprite_icons.png'); }
-      .event-list .listaction.cell .delete:hover {
-        background-color: #C83C19; }
-      .event-list .listaction.cell .delete span {
-        display: none; }
 
 
 .bookableitem {
@@ -3121,32 +2962,14 @@ footer {
         background-color: #e0f1bf;
         color: #85C900; }
   .event-row .cell {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-text-overflow: ellipsis;
-    -khtml-text-overflow: ellipsis;
-    -moz-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    float: left;
-    vertical-align: middle;
-    min-height: 100%;
-    padding: 10px 5px;
     padding: 5px 2.5px; }
     .event-row .cell.first {
       padding-left: 10px; }
     .event-row .cell.last {
       padding-right: 10px; }
-    .event-row .cell.right {
-      text-align: right; }
-    .event-row .cell.first {
-      padding-left: 10px; }
-    .event-row .cell.last {
-      padding-right: 10px; }
+  .event-row .cell.listaction {
+    white-space: normal;
+    overflow: visible; }
 
 .event-date {
   width: 30%; }
@@ -3316,28 +3139,7 @@ footer {
         background-color: #e0f1bf;
         color: #85C900; }
   .availability-entry .cell {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-text-overflow: ellipsis;
-    -khtml-text-overflow: ellipsis;
-    -moz-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    float: left;
-    vertical-align: middle;
-    min-height: 100%;
-    padding: 10px 5px;
     padding: 5px 2.5px; }
-    .availability-entry .cell.first {
-      padding-left: 10px; }
-    .availability-entry .cell.last {
-      padding-right: 10px; }
-    .availability-entry .cell.right {
-      text-align: right; }
     .availability-entry .cell.first {
       padding-left: 10px; }
     .availability-entry .cell.last {
@@ -3410,28 +3212,7 @@ footer {
         background-color: #e0f1bf;
         color: #85C900; }
   .availability-footer .cell {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-text-overflow: ellipsis;
-    -khtml-text-overflow: ellipsis;
-    -moz-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    float: left;
-    vertical-align: middle;
-    min-height: 100%;
-    padding: 10px 5px;
     padding: 5px 2.5px; }
-    .availability-footer .cell.first {
-      padding-left: 10px; }
-    .availability-footer .cell.last {
-      padding-right: 10px; }
-    .availability-footer .cell.right {
-      text-align: right; }
     .availability-footer .cell.first {
       padding-left: 10px; }
     .availability-footer .cell.last {

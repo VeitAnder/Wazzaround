@@ -1779,7 +1779,6 @@ legend {
 }
 
 @mixin divtable_cell_small {
-  @include divtable_cell;
   padding: 5px 2.5px;
 
   &.first {

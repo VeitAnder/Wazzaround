@@ -291,30 +291,8 @@ footer {
 .listaction.cell {
   width: 10%;
   text-align: right;
-  .delete {
-    @include button_icon_large_delete;
-    top: 5px;
-    .bookableitem-header & {
-      border: 2px solid $color_white;
-      background-position: -67px 8px;
-    }
-  }
-  .add {
-    @include button_icon_large_add;
-    top: 5px;
-    .bookableitem-header & {
-      border: 2px solid $color_white;
-      background-position: -92px 8px;
-    }
-  }
   .event-list & {
     width: 20%;
-    .add {
-      @include button_icon_add;
-    }
-    .delete {
-      @include button_icon_small_delete;
-    }
   }
 }
 
@@ -414,6 +392,12 @@ footer {
 
 .event-row {
   @include divtable_row_small;
+  .cell{
+    &.listaction{
+      white-space: normal;
+      overflow: visible;
+    }
+  }
 }
 
 .event-date {
