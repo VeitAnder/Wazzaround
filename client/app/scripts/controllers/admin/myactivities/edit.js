@@ -79,8 +79,8 @@ angular.module('anorakApp')
       var event = bookableItem.createEvents();
       event.start = new Date();
 
-      bookableItem.events[bookableItem.events.length - 1].mode = 'edit';
-      //event.mode = 'edit';   // funktionier so leider nicht
+      bookableItem.events[bookableItem.events.length - 1].mode = 'new';
+      //event.mode = 'edit';   // funktioniert so leider nicht
     };
 
     $scope.removeEvent = function (item, idx) {

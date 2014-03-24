@@ -326,7 +326,7 @@
               <div class="event-header">
                 <div class="event-date cell">{{'Date' | translate}}</div>
                 <div class="event-time cell">{{'Time' | translate}}</div>
-                <!--<div class="event-duration cell">Duration</div>-->
+                <div class="event-duration cell">{{'Duration' | translate}}</div>
                 <div class="event-quantity cell">{{'Qty' | translate}}</div>
                 <div class="listaction cell">
                 </div>
@@ -335,10 +335,10 @@
               <eventrow class="event-row"
                         ng-repeat="(idx,event) in bookableItem.ref().events">
 
-                <eventview ng-show="event.mode != 'edit'">
+                <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
                   <div class="event-date cell">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
                   <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
-                  <!--<div class="event-duration cell">{{event.ref().duration}}h</div>-->
+                  <div class="event-duration cell">{{event.ref().duration}}h</div>
                   <div class="event-quantity cell">{{event.ref().quantity}}x</div>
                   <div class="listaction cell">
                     <a class="btn btn-mini btn-ordinary"
@@ -353,7 +353,7 @@
                 </eventview>
 
                 <eventedit class="eventedit"
-                           ng-show="event.mode == 'edit'"
+                           ng-show="event.mode == 'edit' || event.mode == 'new'"
                     >
                   <div class="form-group date-from">
                     <input type="text"
@@ -471,6 +471,19 @@
                        ng-click="event.mode = 'view'; createEventSeries(bookableItem.ref(), event.ref())"
                         >{{'save event' | translate}}
                     </a>
+
+                    <!--<a ng-show="event.mode == 'edit'"-->
+                       <!--ng-click="event.mode = 'view';"-->
+                       <!--class="space-left">-->
+                      <!--cancel-->
+                    <!--</a>-->
+
+                    <a ng-show="event.mode == 'new'"
+                       ng-click="removeEvent(bookableItem.ref(), $index)"
+                       class="space-left">
+                      cancel
+                    </a>
+
                   </div>
 
                 </eventedit>
