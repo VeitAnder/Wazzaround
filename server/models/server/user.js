@@ -52,7 +52,11 @@ UserModel.operationImpl("register", function (params, req) {
   if (params.profile){
     user.profile = params.profile;
   }
-
+  // set userType if provided
+  // todo: check validity of userType by checking other required fields e.g. of userType provider
+  if (params.userType){
+    user.userType = params.userType;
+  }
 
   // save the new user
   return Q()
