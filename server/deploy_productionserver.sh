@@ -71,4 +71,4 @@ rm -R ${SCRIPTPATH}/clientapp
 echo "\n\nremove $SECRETCONFIGFILE - contains sensitive access data!!"
 rm ${SCRIPTPATH}/${SECRETCONFIGFILE}
 
-open http://reacture.anorak.io/
+open http://beta.reacture.com
