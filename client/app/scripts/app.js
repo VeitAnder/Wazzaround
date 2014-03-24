@@ -597,7 +597,21 @@ angular.module('anorakApp')
       'add activity': 'add activity',
       'Profile': 'User profile',
       'Edit Profile': 'Edit user profile',
-      'Bookable item description placeholder': 'i.e. 4 hours tour (500ccm)'
+      'Bookable item description placeholder': 'i.e. 4 hours tour (500ccm)',
+      'Bank account': 'Bank account',
+      'Bank': 'Bank',
+      'Name of your Bank': 'Name of your Bank',
+      'Please enter the name of your Bank': 'Please enter the name of your Bank',
+      'IBAN': 'IBAN',
+      'Your IBAN': 'Your IBAN',
+      'Please enter your IBAN': 'Please enter your IBAN',
+      'BIC': 'BIC',
+      'Your BIC': 'Your BIC',
+      'Please enter your BIC': 'Please enter your BIC',
+      'Account owner': 'Account owner',
+      'Name of account owner': 'Name of account owner',
+      'Please enter the name of the account owner': 'Please enter the name of the account owner'
+
     });
 
     $translateProvider.translations('de', {
@@ -845,7 +859,21 @@ angular.module('anorakApp')
       'add activity': 'Aktivität  hinzufügen',
       'Profile': 'Benutzerprofil',
       'Edit Profile': 'Benutzerprofil editieren',
-      'Bookable item description placeholder': 'z.B. 4 Stunden Tour (500ccm)'
+      'Bookable item description placeholder': 'z.B. 4 Stunden Tour (500ccm)',
+      'Bank account': 'Bank account',
+      'Bank': 'Bank',
+      'Name of your Bank': 'Name of your Bank',
+      'Please enter the name of your Bank': 'Please enter the name of your Bank',
+      'IBAN': 'IBAN',
+      'Your IBAN': 'Your IBAN',
+      'Please enter your IBAN': 'Please enter your IBAN',
+      'BIC': 'BIC',
+      'Your BIC': 'Your BIC',
+      'Please enter your BIC': 'Please enter your BIC',
+      'Account owner': 'Account owner',
+      'Name of account owner': 'Name of account owner',
+      'Please enter the name of the account owner': 'Please enter the name of the account owner'
+
     });
 
     $translateProvider.translations('it', {
@@ -1093,7 +1121,21 @@ angular.module('anorakApp')
       'add activity': 'aggiungere attività',
       'Profile': 'Profil',
       'Edit Profile': 'Edit user profile',
-      'Bookable item description placeholder': 'per esempio 4 ore tour (500ccm)'
+      'Bookable item description placeholder': 'per esempio 4 ore tour (500ccm)',
+      'Bank account': 'Bank account',
+      'Bank': 'Bank',
+      'Name of your Bank': 'Name of your Bank',
+      'Please enter the name of your Bank': 'Please enter the name of your Bank',
+      'IBAN': 'IBAN',
+      'Your IBAN': 'Your IBAN',
+      'Please enter your IBAN': 'Please enter your IBAN',
+      'BIC': 'BIC',
+      'Your BIC': 'Your BIC',
+      'Please enter your BIC': 'Please enter your BIC',
+      'Account owner': 'Account owner',
+      'Name of account owner': 'Name of account owner',
+      'Please enter the name of the account owner': 'Please enter the name of the account owner'
+
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
