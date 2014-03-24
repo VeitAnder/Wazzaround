@@ -43,13 +43,10 @@ echo "build release of clientapp"
 grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js bump:patch
 grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js release
 
-
 #copy clientapp to server dir for deployment
 echo "rsync clientapp to server dir"
-grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js release
 rsync -av ${SCRIPTPATH}/../client/dist/ ${SCRIPTPATH}/clientapp/
 chmod -R 777 ${SCRIPTPATH}/clientapp/*
-
 
 # get secret config file
 echo "\n\ncopy $SECRETCONFIGFILE"

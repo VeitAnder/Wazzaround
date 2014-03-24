@@ -328,6 +328,9 @@ module.exports = function (grunt) {
 
       // Run some tasks in parallel to speed up the build process
       concurrent: {
+        options: {
+          limit: 50
+        },
         server: [
           'sass:server',
           'html2js'
@@ -537,7 +540,7 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
-  grunt.registerTask('release', [
+  grunt.registerTask('build', [
     'clean:dist',
 //    'bower-install', // creates mess with dependencies
     'useminPrepare',
@@ -552,9 +555,7 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin',
-    'favicons',
-    'replace'
+    'htmlmin'
   ]);
 
   grunt.registerTask('default', [
@@ -567,6 +568,12 @@ module.exports = function (grunt) {
     'shell:npminstallclient',
     'shell:bowerinstallclient',
     'shell:npminstallserver'
+  ]);
+
+  grunt.registerTask('release', [
+    'build',
+    'favicons',
+    'replace'
   ]);
 
 };
