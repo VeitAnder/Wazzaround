@@ -272,7 +272,7 @@
 
           <div class="bookableitem-header">
 
-            <div class="buttonbar">
+            <div class="buttonbar buttonbar-top">
 
               <a ng-click="bookableItem.deletemode = true"
                  ng-show="!bookableItem.deletemode"
@@ -281,15 +281,15 @@
               </a>
 
               <div ng-show="bookableItem.deletemode">
-                really delete?
+                … really delete?
                 <a ng-click="removeItem(bookableItem.ref(), idx)"
-                   class="txt-icon-delete">{{'Delete Item' | translate}}
-                  <span class="btn-icon-right"></span>
+                   class="btn btn-alert btn-mini space-left"
+                    >{{'yes, delete' | translate}}
                 </a>
 
                 <a ng-click="bookableItem.deletemode = false"
-                   class="txt-icon-delete">{{'cancel' | translate}}
-                  <span class="btn-icon-right"></span>
+                   class="btn btn-mini"
+                    >{{'no' | translate}}
                 </a>
 
               </div>
@@ -500,8 +500,6 @@
             <!-- ######## STATIC LIST END ######## -->
 
           </div>
-          <br/>
-          <br/>
         </div>
 
         <button class="btn-add"

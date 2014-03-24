@@ -323,11 +323,13 @@ footer {
 }
 
 .bookableitem {
-  margin-top: $bu*2.0;
+  margin-bottom: $bu*2.0;
+  border: 2px solid transparent;
+  @include border-radius($border-radius + 2px);
 
   &.deletemode{
-    outline: 2px solid red;
-    outline-offset: -2px;
+    border-color: $color_red;
+    @include box-shadow(rgba($color_red, 1.0) 0px 0px 15px);
   }
 
 }
@@ -357,6 +359,8 @@ footer {
   }
 
   .buttonbar {
+    min-height: 31px;
+    color: $color_grey_15;
     border-color: $color_grey_15;
     margin: 0;
     padding: 5px 0 0 0;
@@ -371,6 +375,15 @@ footer {
           background-color: $color_red;
         }
       }
+    }
+    .btn-mini{
+      position: relative;
+      top: -2px;
+    }
+    &.buttonbar-top{
+      padding: 0 0 5px 0;
+      @include seperator(bottom, $color_white);
+      margin-bottom: $fs*0.5;
     }
   }
 }

@@ -2840,10 +2840,17 @@ footer {
 
 
 .bookableitem {
-  margin-top: 30px; }
+  margin-bottom: 30px;
+  border: 2px solid transparent;
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px; }
   .bookableitem.deletemode {
-    outline: 2px solid red;
-    outline-offset: -2px; }
+    border-color: #C83C19;
+    box-shadow: #c83c19 0px 0px 15px; }
 
 .bookableitem-header {
   background-color: #8c8c8c;
@@ -2941,6 +2948,8 @@ footer {
       .bookableitem-header .cell.last:after {
         clear: both; }
   .bookableitem-header .buttonbar {
+    min-height: 31px;
+    color: #e8e8e8;
     border-color: #e8e8e8;
     margin: 0;
     padding: 5px 0 0 0; }
@@ -2952,6 +2961,13 @@ footer {
         color: #FFF; }
         .bookableitem-header .buttonbar .txt-icon-delete:hover span {
           background-color: #C83C19; }
+    .bookableitem-header .buttonbar .btn-mini {
+      position: relative;
+      top: -2px; }
+    .bookableitem-header .buttonbar.buttonbar-top {
+      padding: 0 0 5px 0;
+      border-bottom: dotted 1px #FFF;
+      margin-bottom: 8px; }
 
 .bookableitem-body {
   padding: 15px;
