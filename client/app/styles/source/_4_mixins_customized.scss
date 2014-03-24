@@ -324,6 +324,12 @@ footer {
 
 .bookableitem {
   margin-top: $bu*2.0;
+
+  &.deletemode{
+    outline: 2px solid red;
+    outline-offset: -2px;
+  }
+
 }
 
 .bookableitem-header {

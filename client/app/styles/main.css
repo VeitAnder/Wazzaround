@@ -2825,6 +2825,9 @@ footer {
 
 .bookableitem {
   margin-top: 30px; }
+  .bookableitem.deletemode {
+    outline: 2px solid red;
+    outline-offset: -2px; }
 
 .bookableitem-header {
   background-color: #8c8c8c;

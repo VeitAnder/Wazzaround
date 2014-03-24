@@ -266,8 +266,36 @@
       <bookableitems class="bookableitems">
 
         <div class="bookableitem bookableitem-add"
-             ng-repeat="(idx, bookableItem) in activity.bookableItems">
+             ng-repeat="(idx, bookableItem) in activity.bookableItems"
+             ng-class="{deletemode: bookableItem.deletemode }"
+            >
+
           <div class="bookableitem-header">
+
+            <div class="buttonbar">
+
+              <a ng-click="bookableItem.deletemode = true"
+                 ng-show="!bookableItem.deletemode"
+                 class="txt-icon-delete">{{'Delete Item' | translate}}
+                <span class="btn-icon-right"></span>
+              </a>
+
+              <div ng-show="bookableItem.deletemode">
+                really delete?
+                <a ng-click="removeItem(bookableItem.ref(), idx)"
+                   class="txt-icon-delete">{{'Delete Item' | translate}}
+                  <span class="btn-icon-right"></span>
+                </a>
+
+                <a ng-click="bookableItem.deletemode = false"
+                   class="txt-icon-delete">{{'Delete Item Cancel' | translate}}
+                  <span class="btn-icon-right"></span>
+                </a>
+
+              </div>
+
+            </div>
+
             <div class="bookableitem-name cell first">
 
               <label for="itemDescription">{{'Description' | translate}}</label>
@@ -287,12 +315,6 @@
                      placeholder="{{'Price in €' | translate}}"
                      ng-model="bookableItem.ref().price"
                   >
-            </div>
-            <div class="buttonbar">
-              <a ng-click="removeItem(bookableItem.ref(), idx)"
-                 class="txt-icon-delete">{{'Delete Item' | translate}}
-                <span class="btn-icon-right"></span>
-              </a>
             </div>
 
           </div>
