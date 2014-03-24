@@ -14,7 +14,11 @@ angular.module('anorakApp')
         },
         APIUrl: $window.location.protocol + "//" + $window.location.hostname + apiversion,
         debug: false,
-        modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/"
+        modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/",
+        cloudinary : {
+          cloud_name: 'www-reacture-com',
+          api_key: '162329319871877'
+        }
       };
     } else if ($window.location.hostname === "reactureappdev-10669.onmodulus.net" || $window.location.hostname === "dev.reacture.anorak.io") {
       // development server
@@ -25,7 +29,11 @@ angular.module('anorakApp')
         },
         APIUrl: $window.location.protocol + "//" + $window.location.hostname + apiversion,
         debug: false,
-        modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/"
+        modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/",
+        cloudinary : {
+          cloud_name: 'dqe7zmb1k',
+          api_key: '619226866778758'
+        }
       };
     } else {
       // localhost dev
@@ -36,7 +44,11 @@ angular.module('anorakApp')
         },
         APIUrl: $window.location.protocol + "//" + $window.location.hostname + ":3000"+ apiversion,
         debug: true,
-        modelizerurl: $window.location.protocol + "//" + $window.location.hostname + ":3000/"
+        modelizerurl: $window.location.protocol + "//" + $window.location.hostname + ":3000/",
+        cloudinary : {
+          cloud_name: 'dqe7zmb1k',
+          api_key: '619226866778758'
+        }
       };
     }
 
