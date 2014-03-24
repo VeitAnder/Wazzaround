@@ -36,12 +36,23 @@ ActivityModel.writeFilter(function (doc, req) {
   // admin is allowed to publish activity
   if (req.session.user.userType === 'admin') {
     // set owner to current user
-    doc.owner._reference = ObjectId(req.session.user._id);
+
+    if (!doc.owner._reference) {  // prevent admin from stealing ownership
+      doc.owner._reference = ObjectId(req.session.user._id);
+    } else { // todo: bug beim speichern von _references: wird als string statt object gespeichert!! :-(
+      doc.owner._reference = ObjectId(doc.owner._reference);
+    }
+
     return true;  // allow global access to admin-user
   }
 
   // don't allow to save activities where the user is not the owner
-  if (doc._id !== undefined && doc.owner._reference !== req.session.user._id) {
+  var ownerRef = doc.owner._reference;
+  if (doc.owner._reference instanceof ObjectId) { // workaround for delete
+    ownerRef = ownerRef.toString();
+  }
+
+  if (doc._id !== undefined && ownerRef !== req.session.user._id) {
     return false;
   }
 
