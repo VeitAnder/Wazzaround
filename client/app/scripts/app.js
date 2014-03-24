@@ -37,7 +37,6 @@ angular.module('anorakApp', [
   'services.localizedMessages',
   'templates.app',
   'modelizer',
-  'mgcrea.ngStrap',
   'directives.customvalidation',
   'ui.keypress',
   'pascalprecht.translate'
@@ -83,7 +82,7 @@ angular.module('anorakApp')
                 models.ActivityModel.all()
                   // loading activities, then bookable items of activities
                   .then(function (activities) {
-                    
+
                     // Only admin user sees all activities
                     resolvedActivities = activities;
 
@@ -241,7 +240,33 @@ angular.module('anorakApp')
         controller: 'AdminMyactivitiesDetailCtrl',
         resolve: {
           activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.get($route.current.params.id);
+            return models.ActivityModel.get($route.current.params.id)  // 1. load activity
+              .then(function (activity) {
+                // load bookable items
+                var loadingBookableItems = [];
+                _.forEach(activity.bookableItems, function (item) {
+                  loadingBookableItems.push(item.load());              // 2. load items
+                });
+
+                return Q.all(loadingBookableItems)
+                  .then(function (items) {
+                    var loadingEvents = [];
+                    _.forEach(items, function (item) {
+                      _.forEach(item.events, function (event) {
+                        loadingEvents.push(event.load());              // 3. load events
+                      });
+                    });
+
+                    return Q.all(loadingEvents);
+                  })
+                  .then(function (events) {
+                    debug("loaded activity", activity);
+                    return activity;  // return the activity, when all bookableItems have been loaded
+                  });
+              })
+              .fail(function (err) {
+                debug("Fail loading activities in the myactivities route", err);
+              });
           }]
         }
       })
@@ -579,6 +604,7 @@ angular.module('anorakApp')
       'create a new event': 'Create a new event',
       'create a bookable item': 'Create a bookable Item',
       'Price in €': 'Price in €',
+      'Price': 'Price',
       'Delete Item': 'Delete Item',
       'Schedule Event': 'Schedule Event',
       'Add Event': 'Add Event',
@@ -848,6 +874,7 @@ angular.module('anorakApp')
       'create a new event': 'Erstellen Sie ein neues Ereignis',
       'create a bookable item': 'Erstellen Sie einen buchbaren Artikel',
       'Price in €': 'Preis in €',
+      'Price': 'Preis',
       'Delete Item': 'Event löschen',
       'Schedule Event': 'Zeitpunkte an denen das Event stattfindet',
       'Add Event': 'Termin hinzufügen',
@@ -1117,6 +1144,7 @@ angular.module('anorakApp')
       'create a new event': 'Creare una nuova attività prenotabile',
       'create a bookable item': 'Create a bookable Item',
       'Price in €': '',
+      'Price': '',
       'Delete Item': '',
       'Schedule Event': '',
       'Add Event': '',
@@ -1162,7 +1190,6 @@ angular.module('anorakApp')
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
 
-
 //    $translateProvider.preferredLanguage('en');
 
     $translateProvider
@@ -1183,8 +1210,7 @@ angular.module('anorakApp')
     $translateProvider.useLocalStorage();
 
   })
-  .
-  run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models) {
+  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate) {
     "use strict";
 
     debug("application run called");
@@ -1199,7 +1225,11 @@ angular.module('anorakApp')
       model.connection(connector);
     });
 
-    moment.lang('en');  // setup moment
+    var lang = $translate.use();
+    if (!lang) {
+      lang = 'en';
+    }
+    moment.lang(lang);  // setup moment language
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);

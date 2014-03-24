@@ -80,27 +80,33 @@
 
   <div class="availability">
     <div class="input_label">{{'Availability' | translate}}</div>
-           TODO   include all events
-    <div class="availability-list">
 
-      <div class="availability-header">
-        <div class="month cell first">February</div>
-      </div>
 
-      <div class="availability-entry"
-           ng-repeat="available in activity.availability">
-        <div class="availability-date cell first">
-          {{available.start | momentjs:{format: 'DD.MM.YYYY'} }}
-        </div>
-        <div class="availability-time cell">
-          {{available.end | momentjs:{format: 'DD.MM.YYYY'} }}
-        </div>
-        <div class="availability-amount cell last align-right">
-          {{available.quantity}}x
-        </div>
-      </div>
+    <!--<div class="availability-list">-->
 
-    </div>
+    <bookableitemlist data-bookableitems="activity.bookableItems"
+                      data-itemsperpage=50000
+        >
+    </bookableitemlist>
+
+      <!--<div class="availability-header">-->
+        <!--<div class="month cell first">February</div>-->
+      <!--</div>-->
+
+      <!--<div class="availability-entry"-->
+           <!--ng-repeat="available in activity.availability">-->
+        <!--<div class="availability-date cell first">-->
+          <!--{{available.start | momentjs:{format: 'DD.MM.YYYY'} }}-->
+        <!--</div>-->
+        <!--<div class="availability-time cell">-->
+          <!--{{available.end | momentjs:{format: 'DD.MM.YYYY'} }}-->
+        <!--</div>-->
+        <!--<div class="availability-amount cell last align-right">-->
+          <!--{{available.quantity}}x-->
+        <!--</div>-->
+      <!--</div>-->
+
+    <!--</div>-->
   </div>
   <div class="buttonbar margin-top">
     <a class="text-link float-left"
