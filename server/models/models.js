@@ -39,13 +39,13 @@ var models = function () {
       country: Attr(Type.string),
       contactperson: {
         name: Attr(Type.string)
-      },
-      bankaccount: {
-        bank: Attr(Type.string),
-        iban: Attr(Type.string),
-        bic: Attr(Type.string),
-        nameofaccountowner: Attr(Type.string)
       }
+//      bankaccount: {
+//        bank: Attr(Type.string),
+//        iban: Attr(Type.string),
+//        bic: Attr(Type.string),
+//        nameofaccountowner: Attr(Type.string)
+//      }
     },
 
     login: Operation(),
