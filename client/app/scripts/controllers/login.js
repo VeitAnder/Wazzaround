@@ -14,8 +14,12 @@ angular.module('anorakApp')
     }
 
     $scope.login = function () {
-      var password = CryptoJS.SHA256($scope.form.password).toString(CryptoJS.enc.Base64);
-      currentUser.login($scope.form.email, password)
+      // dirty hack to grab password and email when autofilled by browser - #28
+      // controller should never access DOM
+      var password = CryptoJS.SHA256($("#password").val()).toString(CryptoJS.enc.Base64);
+      var email = $("#email").val();
+
+      currentUser.login(email, password)
         .then(function () {
           // http://stackoverflow.com/questions/19499323/location-path-doesnt-change-in-a-factory-with-angularjs
           $scope.$apply(function () {
@@ -27,6 +31,7 @@ angular.module('anorakApp')
           $scope.state.message = err.message;
           $scope.$apply();
         });
+
     };
 
     $scope.forgotPassword = function () {

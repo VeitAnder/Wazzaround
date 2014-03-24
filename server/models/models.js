@@ -2,8 +2,6 @@
 
 var models = function () {
 
-  // using the the Modelizer library
-  //var model = require('../../../../modelizer/lib/modelizer.js');
   var model = require('modelizer');
 
   var Attr = model.Attr;
@@ -25,6 +23,8 @@ var models = function () {
   var UserModel = new model("users", {
     email: Attr(Type.string, validators.email),  // email ist auch username
     password: Attr(Type.string),
+    registrationdate: Attr(Type.date, Attr.default(new Date())),
+    lastlogindate: Attr(Type.date),
 
     profile: {
       firstName: Attr(Type.string),
@@ -34,12 +34,18 @@ var models = function () {
       city: Attr(Type.string),
       zip: Attr(Type.string),
       tel: Attr(Type.string),
-      fax: Attr(Type.string),
-      uid: Attr(Type.string),
+      fax: Attr(Type.string, Attr.default('')),
+      uid: Attr(Type.string, Attr.default('')),
       country: Attr(Type.string),
       contactperson: {
         name: Attr(Type.string)
       }
+//      bankaccount: {
+//        bank: Attr(Type.string),
+//        iban: Attr(Type.string),
+//        bic: Attr(Type.string),
+//        nameofaccountowner: Attr(Type.string)
+//      }
     },
 
     login: Operation(),
@@ -54,10 +60,9 @@ var models = function () {
 
   var EventModel = new model("events", {
     start: Attr(Type.date),
-    duration: Attr(Type.number),
     quantity: Attr(Type.number),
 
-    owner: Ref(UserModel)   //TODO
+    owner: Ref(UserModel)
   });
 
   var BookableItemModel = new model("bookableItems", {
@@ -67,13 +72,9 @@ var models = function () {
       it: Attr(Type.string)
     },
     price: Attr(Type.number),
+    duration: Attr(Type.number),
 
     events: RefArray(EventModel),
-//    events : [{
-//      start: Attr(Type.date),
-//      duration: Attr(Type.number),
-//      quantity: Attr(Type.number)
-//    }],
 
     owner: Ref(UserModel)
   });
@@ -107,7 +108,7 @@ var models = function () {
       main: Attr(Type.string),
       subs: [
         {
-          title: Attr(Type.string)
+          key: Attr(Type.string)
         }
       ]
     },
@@ -177,6 +178,7 @@ var models = function () {
 if (typeof window !== 'undefined') {
   // we run in a browser environment
 
+  var Q = require('q');
   // http://stackoverflow.com/questions/17544965/unhandled-rejection-reasons-should-be-empty
   Q.stopUnhandledRejectionTracking();  // why does this happen?
 

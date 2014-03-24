@@ -26,8 +26,12 @@ BookableItemModel.writeFilter(function (doc, req) {
     return false;  // if not logged in don't allow write operations
   }
 
+  var ownerRef = doc.owner._reference;
+  if (doc.owner._reference instanceof ObjectId) { // workaround for delete
+    ownerRef = ownerRef.toString();
+  }
   // don't allow to save activities where the user is not the owner
-  if (doc._id !== undefined && doc.owner._reference !== req.session.user._id) {
+  if (doc._id !== undefined && ownerRef !== req.session.user._id) {
     return false;
   }
 

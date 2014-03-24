@@ -291,30 +291,8 @@ footer {
 .listaction.cell {
   width: 10%;
   text-align: right;
-  .delete {
-    @include button_icon_large_delete;
-    top: 5px;
-    .bookableitem-header & {
-      border: 2px solid $color_white;
-      background-position: -67px 8px;
-    }
-  }
-  .add {
-    @include button_icon_large_add;
-    top: 5px;
-    .bookableitem-header & {
-      border: 2px solid $color_white;
-      background-position: -92px 8px;
-    }
-  }
   .event-list & {
-    width: 20%;
-    .add {
-      @include button_icon_add;
-    }
-    .delete {
-      @include button_icon_small_delete;
-    }
+    width: 30%;
   }
 }
 
@@ -323,7 +301,15 @@ footer {
 }
 
 .bookableitem {
-  margin-top: $bu*2.0;
+  margin-bottom: $bu*2.0;
+  border: 2px solid transparent;
+  @include border-radius($border-radius + 2px);
+
+  &.deletemode{
+    border-color: $color_red;
+    @include box-shadow(rgba($color_red, 1.0) 0px 0px 15px);
+  }
+
 }
 
 .bookableitem-header {
@@ -351,6 +337,8 @@ footer {
   }
 
   .buttonbar {
+    min-height: 31px;
+    color: $color_grey_15;
     border-color: $color_grey_15;
     margin: 0;
     padding: 5px 0 0 0;
@@ -366,6 +354,15 @@ footer {
         }
       }
     }
+    .btn-mini{
+      position: relative;
+      top: -2px;
+    }
+    &.buttonbar-top{
+      padding: 0 0 5px 0;
+      @include seperator(bottom, $color_white);
+      margin-bottom: $fs*0.5;
+    }
   }
 }
 
@@ -376,11 +373,15 @@ footer {
 }
 
 .bookableitem-name {
-  width: 70%;
+  width: 60%;
+}
+
+.bookableitem-duration {
+  width: 25%;
 }
 
 .bookableitem-price {
-  width: 30%;
+  width: 15%;
 }
 
 .event-list {
@@ -395,14 +396,20 @@ footer {
 
 .event-row {
   @include divtable_row_small;
+  .cell{
+    &.listaction{
+      white-space: normal;
+      overflow: visible;
+    }
+  }
 }
 
 .event-date {
-  width: 30%;
+  width: 35%;
 }
 
 .event-time {
-  width: 40%;
+  width: 25%;
 }
 
 .event-quantity {
@@ -410,14 +417,16 @@ footer {
 }
 
 .event-add {
-  //  padding-top: 10px;
+  margin-top: 10px;
 }
 
 .eventedit {
-  @include border_all($color_grey_25);
+  display: block;
+  @include border_all($color_grey_50);
   @include border-radius($border-radius);
   padding: 5px $bu;
-  margin-top: $bu;
+  margin: $bu 0;
+  background-color: $color_grey_05;
   input {
     min-width: 0;
   }
@@ -429,20 +438,20 @@ footer {
     }
   }
   .date-from, .date-until {
-    width: 28%;
+    width: 35%;
   }
   .time {
-    width: 28%;
-  }
-  .duration {
-    width: 16%;
+    width: 35%;
   }
   .quantity {
-    width: 16%;
+    width: 22%;
+  }
+
+  .btn{
   }
 
   .buttonbar {
-    @include border(top, $color_grey_25);
+    @include seperator(top, $color_grey_50);
     width: auto;
     margin: $bu (-$bu) 0 (-$bu);
     padding: 5px 10px;
@@ -1619,9 +1628,6 @@ $img-selector-imgsize: 150px;
 
 
 .standardform{
-  .btn{
-   margin-top: $fs;
-  }
   .form-group-inline-5050{
     .form-group{
       width: 35%;

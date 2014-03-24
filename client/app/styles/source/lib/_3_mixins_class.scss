@@ -122,6 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 @mixin a {
   color: $color_main_link;
   text-decoration: underline;
+  cursor: pointer;
   &:link, &:focus, &:active, &:visited {
     color: $color_main_link;
   }
@@ -251,6 +252,26 @@ button.btn, .btn, a.btn {
       border-color: $color_red_l5;
     }
   }
+  &.btn-ordinary{
+    background-color: $color_white;
+    border-color: $color_grey_50;
+    color: $color_grey_75;
+    &:hover{
+      background-color: $color_green;
+      border-color: $color_green;
+      color: $color_white;
+    }
+    &.btn-alert{
+      background-color: $color_white;
+      border-color: $color_grey_50;
+      color: $color_grey_75;
+      &:hover{
+        background-color: $color_red;
+        border-color: $color_red;
+        color: $color_white;
+      }
+    }
+  }
   &.btn-large {
     padding: ($fs*0.75) ($fs*2.0);
     font-size: 25px;
@@ -259,13 +280,14 @@ button.btn, .btn, a.btn {
   }
 
   &.btn-small {
-    padding: ($fs*0.15) ($fs*0.75);
+    padding: ($fs*0.15) ($fs*0.50);
     font-size: 14px;
+    line-height: 14px * $line-height_factor;
   }
   &.btn-mini {
     @include font-size_smallest;
     text-transform: uppercase;
-    padding: ($fs*0.15) ($fs*0.5);
+    padding: ($fs*0.15) ($fs*0.25);
     border-width: 1px;
     font-weight: $font-weight_extrabold;
   }
@@ -867,7 +889,6 @@ button.btn, .btn, a.btn {
   @include border-radius($border-radius_small);
   @include font-size_small;
   font-weight: $font-weight_bold;
-  @include text-shadow_-1px;
   text-align: center;
   &.disabled {
     background-color: $color_12;
@@ -953,6 +974,12 @@ button.btn, .btn, a.btn {
   height: 1px;
   @include seperator(top, $color_main_seperator);
   margin: $fs*2.0 0;
+  span{
+    @include h6;
+    padding-top: $fs*0.5;
+    margin: 0;
+    float: right;
+  }
 }
 
 @include respond-to(screen-sm) {
@@ -1441,7 +1468,7 @@ header {
 
 @mixin fieldformat_form {
   display: block;
-  padding: $fs*0.75;
+  padding: 0 $fs*0.75;
   @include textformat_form;
   @include border-radius($border-radius_small);
   background-color: $color_input_background;
@@ -1467,8 +1494,8 @@ header {
   @include box-shadow(none);
 }
 
-// font-size + padding + border
-$input_height: $fs + (2*$fs*0.75) + (2*$border-width);
+// line-height + padding + border
+$input_height: $fs*$line-height_factor + (2*$fs*0.75) + (2*$border-width);
 
 input, textarea, select {
   @include fieldformat_form;
@@ -1615,6 +1642,10 @@ input[type="checkbox"]:focus {
   }
 }
 
+.form-group-btn{
+  vertical-align: baseline;
+}
+
 
 @mixin input_label {
   display: block;
@@ -1747,7 +1778,6 @@ legend {
 }
 
 @mixin divtable_cell_small {
-  @include divtable_cell;
   padding: 5px 2.5px;
 
   &.first {
@@ -1759,6 +1789,7 @@ legend {
 }
 
 @mixin divtable_row {
+  display: block;
   @include box-sizing(border-box);
   @include pie-clearfix;
   @include border(bottom, $color_grey_50);
@@ -1862,4 +1893,8 @@ legend {
       @include border(bottom, $color_grey_50);
     }
   }
+}
+
+.cursor-pointer{
+  cursor: pointer;
 }

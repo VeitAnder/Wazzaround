@@ -52,7 +52,11 @@ UserModel.operationImpl("register", function (params, req) {
   if (params.profile){
     user.profile = params.profile;
   }
-
+  // set userType if provided
+  // todo: check validity of userType by checking other required fields e.g. of userType provider
+  if (params.userType){
+    user.userType = params.userType;
+  }
 
   // save the new user
   return Q()
@@ -74,6 +78,8 @@ UserModel.operationImpl("register", function (params, req) {
 
 // a operation to login a user
 UserModel.operationImpl("login", function (params, req) {
+  if(!params.email || !params.password) throw new Error("No User/Password provided!");
+
   return UserModel.find({email: params.email.toLowerCase()})  // find this user
     .then(function (users) {
       if (users.length < 1) throw new Error("User not found");
@@ -84,9 +90,14 @@ UserModel.operationImpl("login", function (params, req) {
         req.session.auth = true;
         // remeber the user in the session
         req.session.user = users[0];
+        return users[0];
       } else {
         throw new Error('Invalid Password');
       }
+    })
+    .then(function (user) {  // store last login date
+      user.lastlogindate = new Date();
+      return user.save();
     })
     .then(function () {  // if login was ok
       return {status: "ok"};

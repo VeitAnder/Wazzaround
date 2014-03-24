@@ -15,7 +15,6 @@
       <legend>{{'Global Activity Info' | translate}}:</legend>
       <div class="form-group">
         <label for="activityname">{{'Name of Activity or Activities' | translate}}</label>
-        <languagetabs data-formfieldlanguage="state.formfieldslanguage.name"></languagetabs>
         <input type="text"
                class="form-control"
                id="activityname"
@@ -35,9 +34,15 @@
         <input type="text"
                class="form-control"
                id="company"
+               name="company"
                placeholder="{{'Enter company' | translate}}"
                ng-model="activity.company"
+               required
             >
+
+        <span ng-show="showError('company', 'required')"
+              class="alert">{{'Please enter the name of your company.' | translate}}
+        </span>
       </div>
 
       <div class="form-group">
@@ -87,7 +92,8 @@
         </google-map>
 
       </div>
-      <div class="alert">{{'Click in map to reposition location of activity' | translate}}</div>
+      <div class="alert alert-info"
+          >{{'Click in map to reposition location of activity' | translate}}</div>
 
       <div class="form-group">
         <label for="categoryMain">{{'Main Category' | translate}}</label>
@@ -135,11 +141,11 @@
           </label>
         </div>
 
-        <span class="alert alert-warn"
+        <span class="alert alert-info"
               data-ng-show="activity.category.subs.length >= 2">{{'You can choose 2 Subcategories at most' |
                                                                 translate}}!
         </span>
-        <span class="alert alert-info"
+        <span class="alert alert-warn"
               data-ng-show="activity.category.subs.length === 0">{{'You must choose at least 1 Subcategory' | translate
                                                                  }}!
         </span>
@@ -266,8 +272,36 @@
       <bookableitems class="bookableitems">
 
         <div class="bookableitem bookableitem-add"
-             ng-repeat="(idx, bookableItem) in activity.bookableItems">
+             ng-repeat="(idx, bookableItem) in activity.bookableItems"
+             ng-class="{deletemode: bookableItem.deletemode }"
+            >
+
           <div class="bookableitem-header">
+
+            <div class="buttonbar buttonbar-top">
+
+              <a ng-click="bookableItem.deletemode = true"
+                 ng-show="!bookableItem.deletemode"
+                 class="txt-icon-delete">{{'Delete Item' | translate}}
+                <span class="btn-icon-right"></span>
+              </a>
+
+              <div ng-show="bookableItem.deletemode">
+                {{'Delete bookable item with all events?' | translate}}
+                <a ng-click="removeItem(bookableItem.ref(), idx)"
+                   class="btn btn-alert btn-mini space-left"
+                    >{{'yes, delete' | translate}}
+                </a>
+
+                <a ng-click="bookableItem.deletemode = false"
+                   class="btn btn-mini space-left"
+                    >{{'no' | translate}}
+                </a>
+
+              </div>
+
+            </div>
+
             <div class="bookableitem-name cell first">
 
               <label for="itemDescription">{{'Description' | translate}}</label>
@@ -279,6 +313,17 @@
                   >
 
             </div>
+
+            <div class="bookableitem-duration cell last">
+              <label for="itemDuration">{{'Duration' | translate}}</label>
+              <input type="number"
+                     class="form-control"
+                     id="itemDuration"
+                     placeholder="{{'Duration in hours' | translate}}"
+                     ng-model="bookableItem.ref().duration"
+                  >
+            </div>
+
             <div class="bookableitem-price cell last">
               <label for="itemPrice">{{'Price' | translate}}</label>
               <input type="number"
@@ -288,12 +333,6 @@
                      ng-model="bookableItem.ref().price"
                   >
             </div>
-            <div class="buttonbar">
-              <a ng-click="removeItem(bookableItem.ref(), idx)"
-                 class="txt-icon-delete">{{'Delete Item' | translate}}
-                <span class="btn-icon-right"></span>
-              </a>
-            </div>
 
           </div>
 
@@ -302,28 +341,26 @@
             <eventlistinlistedit class="event-list">
 
               <div class="event-header">
-                <div class="event-date cell first">{{'Date' | translate}}</div>
+                <div class="event-date cell">{{'Date' | translate}}</div>
                 <div class="event-time cell">{{'Time' | translate}}</div>
-                <!--<div class="event-duration cell">Duration</div>-->
-                <div class="event-quantity cell">{{'Qty' | translate}}.</div>
-                <div class="listaction cell last">
+                <div class="event-quantity cell">{{'Qty' | translate}}</div>
+                <div class="listaction cell">
                 </div>
               </div>
 
               <eventrow class="event-row"
                         ng-repeat="(idx,event) in bookableItem.ref().events">
 
-                <eventview ng-show="event.mode != 'edit'">
-                  <div class="event-date cell first">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
+                <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
+                  <div class="event-date cell">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
                   <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
-                  <!--<div class="event-duration cell">{{event.ref().duration}}h</div>-->
                   <div class="event-quantity cell">{{event.ref().quantity}}x</div>
-                  <div class="listaction cell last">
-                    <a class="edit"
+                  <div class="listaction cell">
+                    <a class="btn btn-mini btn-ordinary"
                        ng-click="event.mode = 'edit'">
                       <span>{{'edit' | translate}}</span>
                     </a>
-                    <a class="delete"
+                    <a class="btn btn-mini btn-alert btn-ordinary"
                        ng-click="removeEvent(bookableItem.ref(), idx)">
                       <span>{{'delete' | translate}}</span>
                     </a>
@@ -331,7 +368,7 @@
                 </eventview>
 
                 <eventedit class="eventedit"
-                           ng-show="event.mode == 'edit'"
+                           ng-show="event.mode == 'edit' || event.mode == 'new'"
                     >
                   <div class="form-group date-from">
                     <input type="text"
@@ -352,14 +389,7 @@
                            bs-timepicker
                         >
                   </div>
-                  <div class="form-group duration">
-                    <input type="number"
-                           class="form-control"
-                           id="duration"
-                           placeholder="{{'Duration' | translate}} (h)"
-                           ng-model="event.ref().duration"
-                        >
-                  </div>
+
                   <div class="form-group quantity">
                     <input type="number"
                            class="form-control"
@@ -445,19 +475,23 @@
                   </div>
 
                   <div class="buttonbar">
-                    <a class="txt-icon-delete"
-                       ng-click="removeEvent(bookableItem.ref(), idx)"
-                        >{{'remove' | translate}}
-                      <span class="btn-icon-right"></span>
-                    </a>
-                  </div>
-
-                  <div class="buttonbar">
-                    <a class="txt-icon-save"
+                    <a class="btn btn-small"
                        ng-click="event.mode = 'view'; createEventSeries(bookableItem.ref(), event.ref())"
                         >{{'save event' | translate}}
-                      <span class="btn-icon-right"></span>
                     </a>
+
+                    <!--<a ng-show="event.mode == 'edit'"-->
+                    <!--ng-click="event.mode = 'view';"-->
+                    <!--class="space-left">-->
+                    <!--cancel-->
+                    <!--</a>-->
+
+                    <a ng-show="event.mode == 'new'"
+                       ng-click="removeEvent(bookableItem.ref(), $index)"
+                       class="space-left">
+                      cancel
+                    </a>
+
                   </div>
 
                 </eventedit>
@@ -468,7 +502,7 @@
                 <a class="txt-icon-add"
                    ng-click="createEvent(bookableItem.ref())">
                   <span class="btn-icon-left"></span>
-                  {{'Schedule Event' | translate}}
+                  {{'Add new Event' | translate}}
                 </a>
 
               </div>
@@ -478,14 +512,12 @@
             <!-- ######## STATIC LIST END ######## -->
 
           </div>
-          <br/>
-          <br/>
         </div>
 
         <button class="btn-add"
                 ng-click="activity.createBookableItems()">
           <span class="btn-icon-left"></span>
-          {{'create a new event' | translate}}
+          {{'create a bookable item' | translate}}
         </button>
 
         <span ng-show="!state.additionalformchecks.bookableevents"

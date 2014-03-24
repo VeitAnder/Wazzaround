@@ -6,10 +6,6 @@ angular.module('anorakApp')
       return 'views/admin/profile/index.html';
     };
   })
-  .controller('AdminEditprofileCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('AdminEditprofileCtrl', function ($scope, currentUser) {
+
   });

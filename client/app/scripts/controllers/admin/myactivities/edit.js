@@ -79,8 +79,8 @@ angular.module('anorakApp')
       var event = bookableItem.createEvents();
       event.start = new Date();
 
-      bookableItem.events[bookableItem.events.length - 1].mode = 'edit';
-      //event.mode = 'edit';   // funktionier so leider nicht
+      bookableItem.events[bookableItem.events.length - 1].mode = 'new';
+      //event.mode = 'edit';   // funktioniert so leider nicht
     };
 
     $scope.removeEvent = function (item, idx) {
@@ -198,12 +198,13 @@ angular.module('anorakApp')
 
     // Save the Activiy
     $scope.save = function () {
-      debug("save() called", $scope.activity.latitude);
+      debug("save() called");
 
       $scope.state.submitted = true;
 
       $scope.additionalFormChecks();
 
+      // TODO: validierung ist im Arsch!
       if ($scope.valForm.$valid && $scope.additionalFormChecks()) {
 
         // check if there was only a marker set or an address entered
@@ -243,6 +244,8 @@ angular.module('anorakApp')
             $scope.state.error = true;
             $scope.state.message = err.message;
             $scope.$apply();
+
+            console.log(err.message, err.stack);
           });
       }
     };

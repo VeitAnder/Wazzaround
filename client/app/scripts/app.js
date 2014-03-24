@@ -419,7 +419,7 @@ angular.module('anorakApp')
       'Login': 'Login',
       'Password': 'Password',
       'Not registered': 'Register as Customer',
-      'Not registered as Provider': 'Not registered as provider yet?',
+      'Not registered as Provider': 'Register as activity provider now!',
       'Forgot password': 'Forgot password?',
       'Your e-mail address': 'Your e-mail address',
       'Your password': 'Your password',
@@ -559,8 +559,9 @@ angular.module('anorakApp')
       // admin/myactivities/edit.html
       'Please create bookable events.': 'Please create bookable events.',
       'Please enter the name of the activity/activities.': 'Please enter the name of the activity/activities.',
+      'Please enter the name of your company.': 'Please enter the name of your company.',
       'Please upload an image.': 'Please upload an image.',
-      'save event': 'save event',
+      'save event': 'Save event',
       'New activity': 'New activity',
       'Global Activity Info': 'Global Activity Info',
       'Name of Activity or Activities': 'Name of Activity or Activities',
@@ -575,9 +576,12 @@ angular.module('anorakApp')
       'Images': 'Images',
       'What can be booked': 'What can be booked?',
       'create a new event': 'Create a new event',
+      'create a bookable item': 'Create a bookable Item',
       'Price in €': 'Price in €',
       'Delete Item': 'Delete Item',
       'Schedule Event': 'Schedule Event',
+      'Add Event': 'Add Event',
+      'Add new Event': 'Add new Event',
       'Quantity': 'Quantity',
       'repeating': 'repeating',
       'Mon': 'Mon',
@@ -589,14 +593,31 @@ angular.module('anorakApp')
       'Sun': 'Sun',
       'remove': 'remove',
       'save': 'save',
-      'cancel': '',
+      'cancel': 'cancel',
       'Enter company': 'Enter company',
       'Access denied': 'Access denied!',
       // admin/myactivities/index.html
       'add activity': 'add activity',
       'Profile': 'User profile',
       'Edit Profile': 'Edit user profile',
-      'Bookable item description placeholder': 'i.e. 4 hours tour (500ccm)'
+      'Bookable item description placeholder': 'i.e. 4 hours tour (500ccm)',
+      'Bank account': 'Bank account',
+      'Bank': 'Bank',
+      'Name of your Bank': 'Name of your Bank',
+      'Please enter the name of your Bank': 'Please enter the name of your Bank',
+      'IBAN': 'IBAN',
+      'Your IBAN': 'Your IBAN',
+      'Please enter your IBAN': 'Please enter your IBAN',
+      'BIC': 'BIC',
+      'Your BIC': 'Your BIC',
+      'Please enter your BIC': 'Please enter your BIC',
+      'Account owner': 'Account owner',
+      'Name of account owner': 'Name of account owner',
+      'Please enter the name of the account owner': 'Please enter the name of the account owner',
+      'yes, delete': 'yes, delete',
+      'no': 'no',
+      'Delete bookable item with all events?': 'Delete bookable item with all events?'
+
     });
 
     $translateProvider.translations('de', {
@@ -667,7 +688,7 @@ angular.module('anorakApp')
       'Login': 'Login',
       'Password': 'Passwort',
       'Not registered': 'Noch nicht registriert?',
-      'Not registered as Provider': 'Noch nicht als Aktivitätenanbieter registriert?',
+      'Not registered as Provider': 'Jetzt als Aktivitäten-Anbieter registrieren!',
       'Forgot password': 'Passwort vergessen?',
       'Your e-mail address': 'Ihre E-Mail Adresse',
       'Your password': 'Ihr Passwort',
@@ -808,6 +829,7 @@ angular.module('anorakApp')
       'Please create bookable events.': 'Bitte erstellen Sie buchbare Events.',
       'Please upload an image.': 'Bitte laden Sie ein Bild hoch.',
       'Please enter the name of the activity/activities.': 'Bitte geben Sie den/die Namen der Aktivität/en ein.',
+      'Please enter the name of your company.': 'Bitte geben Sie den Namen Ihrer Firma ein.',
       'save event': 'Event speichern',
       'New activity': 'Neue Aktivität',
       'Global Activity Info': 'Daten der Aktivität',
@@ -823,9 +845,12 @@ angular.module('anorakApp')
       'Images': 'Bilder',
       'What can be booked': 'Was kann man buchen?',
       'create a new event': 'Erstellen Sie ein neues Ereignis',
+      'create a bookable item': 'Erstellen Sie einen buchbaren Artikel',
       'Price in €': 'Preis in €',
       'Delete Item': 'Event löschen',
       'Schedule Event': 'Zeitpunkte an denen das Event stattfindet',
+      'Add Event': 'Termin hinzufügen',
+      'Add new Event': 'Neuen Termin hinzufügen',
       'Quantity': 'Menge',
       'repeating': 'regelmäßig',
       'Mon': 'Mo',
@@ -844,7 +869,24 @@ angular.module('anorakApp')
       'add activity': 'Aktivität  hinzufügen',
       'Profile': 'Benutzerprofil',
       'Edit Profile': 'Benutzerprofil editieren',
-      'Bookable item description placeholder': 'z.B. 4 Stunden Tour (500ccm)'
+      'Bookable item description placeholder': 'z.B. 4 Stunden Tour (500ccm)',
+      'Bank account': 'Bank account',
+      'Bank': 'Bank',
+      'Name of your Bank': 'Name of your Bank',
+      'Please enter the name of your Bank': 'Please enter the name of your Bank',
+      'IBAN': 'IBAN',
+      'Your IBAN': 'Your IBAN',
+      'Please enter your IBAN': 'Please enter your IBAN',
+      'BIC': 'BIC',
+      'Your BIC': 'Your BIC',
+      'Please enter your BIC': 'Please enter your BIC',
+      'Account owner': 'Account owner',
+      'Name of account owner': 'Name of account owner',
+      'Please enter the name of the account owner': 'Please enter the name of the account owner',
+      'yes, delete': 'yes, delete',
+      'no': 'no',
+      'Delete bookable item with all events?': 'Delete bookable item with all events?'
+
     });
 
     $translateProvider.translations('it', {
@@ -915,7 +957,7 @@ angular.module('anorakApp')
       'Login': 'Entra',
       'Password': 'Password',
       'Not registered': 'Non registrata?',
-      'Not registered as Provider': '?',
+      'Not registered as Provider': 'Register as activity provider now!',
       'Forgot password': 'Dimenticato la password?',
       'Your e-mail address': 'Vostro indirizzo email',
       'Your password': 'Vostra password',
@@ -1056,6 +1098,7 @@ angular.module('anorakApp')
       'Please create bookable events.': '',
       'Please upload an image.': '',
       'Please enter the name of the activity/activities.': '',
+      'Please enter the name of your company.': 'Please enter the name of your company.',
       'save event': '',
       'New activity': '',
       'Global Activity Info': 'Informazioni generali sull attività',
@@ -1071,9 +1114,12 @@ angular.module('anorakApp')
       'Images': '',
       'What can be booked': '',
       'create a new event': 'Creare una nuova attività prenotabile',
+      'create a bookable item': 'Create a bookable Item',
       'Price in €': '',
       'Delete Item': '',
       'Schedule Event': '',
+      'Add Event': '',
+      'Add new Event': '',
       'Quantity': '',
       'repeating': '',
       'Mon': '',
@@ -1092,7 +1138,25 @@ angular.module('anorakApp')
       'add activity': 'aggiungere attività',
       'Profile': 'Profil',
       'Edit Profile': 'Edit user profile',
-      'Bookable item description placeholder': 'per esempio 4 ore tour (500ccm)'
+      'Bookable item description placeholder': 'per esempio 4 ore tour (500ccm)',
+      'Bank account': 'Bank account',
+      'Bank': 'Bank',
+      'Name of your Bank': 'Name of your Bank',
+      'Please enter the name of your Bank': 'Please enter the name of your Bank',
+      'IBAN': 'IBAN',
+      'Your IBAN': 'Your IBAN',
+      'Please enter your IBAN': 'Please enter your IBAN',
+      'BIC': 'BIC',
+      'Your BIC': 'Your BIC',
+      'Please enter your BIC': 'Please enter your BIC',
+      'Account owner': 'Account owner',
+      'Name of account owner': 'Name of account owner',
+      'Please enter the name of the account owner': 'Please enter the name of the account owner',
+      'yes, delete': 'yes, delete',
+      'no': 'no',
+      'Delete bookable item with all events?': 'Delete bookable item with all events?'
+
+
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
@@ -1125,6 +1189,7 @@ angular.module('anorakApp')
     $rootScope.models = models;
     var checkRouteForAuthorization;
 
+    var Model = require('modelizer');
     var connector = Model.AngularConnector(APP_CONFIG.modelizerurl);
 
     _.forEach(models, function (model) {  // setup connection for each model
