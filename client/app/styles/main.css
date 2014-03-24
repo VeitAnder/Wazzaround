@@ -2070,6 +2070,9 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
   .form-group-inline.form-group-inline-2575 .form-group:first-child {
     width: 22.5%; }
 
+.form-group-btn {
+  vertical-align: baseline; }
+
 .input_label, label {
   display: block;
   font-size: 12px;

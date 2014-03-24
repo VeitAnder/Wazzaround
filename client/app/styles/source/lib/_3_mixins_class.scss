@@ -1621,6 +1621,10 @@ input[type="checkbox"]:focus {
   }
 }
 
+.form-group-btn{
+  vertical-align: baseline;
+}
+
 
 @mixin input_label {
   display: block;
