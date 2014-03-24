@@ -292,7 +292,7 @@ footer {
   width: 10%;
   text-align: right;
   .event-list & {
-    width: 20%;
+    width: 30%;
   }
 }
 
@@ -373,11 +373,15 @@ footer {
 }
 
 .bookableitem-name {
-  width: 70%;
+  width: 60%;
+}
+
+.bookableitem-duration {
+  width: 25%;
 }
 
 .bookableitem-price {
-  width: 30%;
+  width: 15%;
 }
 
 .event-list {
@@ -401,11 +405,11 @@ footer {
 }
 
 .event-date {
-  width: 30%;
+  width: 35%;
 }
 
 .event-time {
-  width: 40%;
+  width: 25%;
 }
 
 .event-quantity {
@@ -434,16 +438,13 @@ footer {
     }
   }
   .date-from, .date-until {
-    width: 28%;
+    width: 35%;
   }
   .time {
-    width: 28%;
-  }
-  .duration {
-    width: 16%;
+    width: 35%;
   }
   .quantity {
-    width: 16%;
+    width: 22%;
   }
 
   .btn{
