@@ -324,11 +324,11 @@
             <eventlistinlistedit class="event-list">
 
               <div class="event-header">
-                <div class="event-date cell first">{{'Date' | translate}}</div>
+                <div class="event-date cell">{{'Date' | translate}}</div>
                 <div class="event-time cell">{{'Time' | translate}}</div>
                 <!--<div class="event-duration cell">Duration</div>-->
                 <div class="event-quantity cell">{{'Qty' | translate}}</div>
-                <div class="listaction cell last">
+                <div class="listaction cell">
                 </div>
               </div>
 
@@ -336,11 +336,11 @@
                         ng-repeat="(idx,event) in bookableItem.ref().events">
 
                 <eventview ng-show="event.mode != 'edit'">
-                  <div class="event-date cell first">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
+                  <div class="event-date cell">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
                   <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
                   <!--<div class="event-duration cell">{{event.ref().duration}}h</div>-->
                   <div class="event-quantity cell">{{event.ref().quantity}}x</div>
-                  <div class="listaction cell last">
+                  <div class="listaction cell">
                     <a class="btn btn-mini btn-ordinary"
                        ng-click="event.mode = 'edit'">
                       <span>{{'edit' | translate}}</span>
@@ -467,10 +467,9 @@
                   </div>
 
                   <div class="buttonbar">
-                    <a class="txt-icon-save"
+                    <a class="btn btn-small"
                        ng-click="event.mode = 'view'; createEventSeries(bookableItem.ref(), event.ref())"
                         >{{'save event' | translate}}
-                      <span class="btn-icon-right"></span>
                     </a>
                   </div>
 
