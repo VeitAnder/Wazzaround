@@ -960,7 +960,8 @@ h1.first, h2.first, h3.first, h4.first, h5.first, h6.first {
 
 a {
   color: #85C900;
-  text-decoration: underline; }
+  text-decoration: underline;
+  cursor: pointer; }
   a:link, a:focus, a:active, a:visited {
     color: #85C900; }
   a:hover {
@@ -2189,6 +2190,9 @@ legend {
       .no-svg .pwdvalidation ul li.valid .icon {
         background-image: url('/img/sprite_icons.png'); }
 
+.cursor-pointer {
+  cursor: pointer; }
+
 body {
   position: relative; }
 
@@ -3126,6 +3130,7 @@ footer {
 
 
 .eventedit {
+  display: block;
   border: solid 1px #d9d9d9;
   -webkit-border-radius: 6px;
   -khtml-border-radius: 6px;
