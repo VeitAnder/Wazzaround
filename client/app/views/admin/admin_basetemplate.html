@@ -6,7 +6,7 @@
       >
     <ul>
       <!--<li>-->
-        <!--<a href="#/admin/">Administration overview</a>-->
+      <!--<a href="#/admin/">Administration overview</a>-->
       <!--</li>-->
       <li ng-show="currentUser.user.userType === 'admin' || currentUser.user.userType === 'provider'">
         <a href="#/admin/myactivities">{{'My Activities' | translate}}</a>
@@ -15,7 +15,7 @@
       <li ng-show="currentUser.user.userType === 'admin'">
         <a href="#/admin/allActivities">{{'Admin All Activities' | translate}}</a>
       </li>
-      
+
       <li>
         <a href="#/admin/editprofile">{{'Edit your Profile' | translate}}</a>
       </li>
@@ -23,6 +23,8 @@
     </ul>
     <loginstatus></loginstatus>
   </nav>
+
+  <buildinfo></buildinfo>
 
 </div>
 <div class="col-right">

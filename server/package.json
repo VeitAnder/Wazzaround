@@ -47,7 +47,8 @@
     "URIjs": "1.12.1",
     "grunt-env": "0.4.1",
     "jshint-stylish": "0.1.5",
-    "repl.history": "0.1.1"
+    "repl.history": "0.1.1",
+    "grunt-bump": "0.0.13"
   },
   "scripts": {
     "start": "server.js"
