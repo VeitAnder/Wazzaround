@@ -1067,6 +1067,22 @@ button.btn, .btn, a.btn {
     button.btn.btn-alert:hover, .btn.btn-alert:hover, a.btn.btn-alert:hover {
       background-color: #df401c;
       border-color: #df401c; }
+  button.btn.btn-ordinary, .btn.btn-ordinary, a.btn.btn-ordinary {
+    background-color: #FFF;
+    border-color: #b3b3b3;
+    color: #8c8c8c; }
+    button.btn.btn-ordinary:hover, .btn.btn-ordinary:hover, a.btn.btn-ordinary:hover {
+      background-color: #85C900;
+      border-color: #85C900;
+      color: #FFF; }
+    button.btn.btn-ordinary.btn-alert, .btn.btn-ordinary.btn-alert, a.btn.btn-ordinary.btn-alert {
+      background-color: #FFF;
+      border-color: #b3b3b3;
+      color: #8c8c8c; }
+      button.btn.btn-ordinary.btn-alert:hover, .btn.btn-ordinary.btn-alert:hover, a.btn.btn-ordinary.btn-alert:hover {
+        background-color: #C83C19;
+        border-color: #C83C19;
+        color: #FFF; }
   button.btn.btn-large, .btn.btn-large, a.btn.btn-large {
     padding: 12px 32px;
     font-size: 25px;
@@ -3145,7 +3161,7 @@ footer {
 
 .eventedit {
   display: block;
-  border: solid 1px #d9d9d9;
+  border: solid 1px #b3b3b3;
   -webkit-border-radius: 6px;
   -khtml-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -3153,7 +3169,8 @@ footer {
   -o-border-radius: 6px;
   border-radius: 6px;
   padding: 5px 15px;
-  margin: 15px 0; }
+  margin: 15px 0;
+  background-color: #f7f7f7; }
   .eventedit input {
     min-width: 0; }
   .eventedit .form-group {
@@ -3170,7 +3187,7 @@ footer {
   .eventedit .quantity {
     width: 16%; }
   .eventedit .buttonbar {
-    border-top: solid 1px #d9d9d9;
+    border-top: dotted 1px #b3b3b3;
     width: auto;
     margin: 15px -15px 0 -15px;
     padding: 5px 10px; }

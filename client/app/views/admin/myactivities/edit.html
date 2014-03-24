@@ -341,11 +341,11 @@
                   <!--<div class="event-duration cell">{{event.ref().duration}}h</div>-->
                   <div class="event-quantity cell">{{event.ref().quantity}}x</div>
                   <div class="listaction cell last">
-                    <a class="edit"
+                    <a class="btn btn-mini btn-ordinary"
                        ng-click="event.mode = 'edit'">
                       <span>{{'edit' | translate}}</span>
                     </a>
-                    <a class="delete"
+                    <a class="btn btn-mini btn-alert btn-ordinary"
                        ng-click="removeEvent(bookableItem.ref(), idx)">
                       <span>{{'delete' | translate}}</span>
                     </a>
@@ -469,7 +469,7 @@
                   <div class="buttonbar">
                     <a class="txt-icon-save"
                        ng-click="event.mode = 'view'; createEventSeries(bookableItem.ref(), event.ref())"
-                        >{{'Add event' | translate}}
+                        >{{'save event' | translate}}
                       <span class="btn-icon-right"></span>
                     </a>
                   </div>

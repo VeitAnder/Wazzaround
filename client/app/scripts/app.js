@@ -561,7 +561,7 @@ angular.module('anorakApp')
       'Please create bookable events.': 'Please create bookable events.',
       'Please enter the name of the activity/activities.': 'Please enter the name of the activity/activities.',
       'Please upload an image.': 'Please upload an image.',
-      'save event': 'save event',
+      'save event': 'Save event',
       'New activity': 'New activity',
       'Global Activity Info': 'Global Activity Info',
       'Name of Activity or Activities': 'Name of Activity or Activities',
