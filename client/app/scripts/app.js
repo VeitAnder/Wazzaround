@@ -590,7 +590,7 @@ angular.module('anorakApp')
       'Sun': 'Sun',
       'remove': 'remove',
       'save': 'save',
-      'cancel': '',
+      'cancel': 'cancel',
       'Enter company': 'Enter company',
       'Access denied': 'Access denied!',
       // admin/myactivities/index.html
