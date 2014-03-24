@@ -889,7 +889,6 @@ button.btn, .btn, a.btn {
   @include border-radius($border-radius_small);
   @include font-size_small;
   font-weight: $font-weight_bold;
-  @include text-shadow_-1px;
   text-align: center;
   &.disabled {
     background-color: $color_12;

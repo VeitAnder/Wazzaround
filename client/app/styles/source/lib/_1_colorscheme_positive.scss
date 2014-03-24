@@ -93,6 +93,12 @@ $color_red_75: #d54040; //75%
 
 $color_red_l5: lighten($color_red, 5%);
 
+$color_lightblue: #19abc8; //full tone light blue
+$color_lightblue_15: #ddf2f7; //15%
+$color_lightblue_75: #53c0d6; //75%
+
+$color_lightblue_l5: lighten($color_red, 5%);
+
 
 $color_sports: #C83C19; //100%
 $color_sports_l5: lighten($color_sports, 5%);
@@ -125,8 +131,8 @@ $color_alert_background: $color_notification_background;
 $color_alert_text: $color_notification_text;
 $color_error_background: $color_red_15;
 $color_error_text: $color_red;
-$color_info_background: $color_grey_15;
-$color_info_text: $color_grey_75;
+$color_info_background: $color_lightblue_15;
+$color_info_text: $color_lightblue_75;
 $color_success_background: $color_green_15;
 $color_success_text: $color_green;
 
