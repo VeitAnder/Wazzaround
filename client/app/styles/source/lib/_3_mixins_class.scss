@@ -280,13 +280,14 @@ button.btn, .btn, a.btn {
   }
 
   &.btn-small {
-    padding: ($fs*0.15) ($fs*0.75);
+    padding: ($fs*0.15) ($fs*0.50);
     font-size: 14px;
+    line-height: 14px * $line-height_factor;
   }
   &.btn-mini {
     @include font-size_smallest;
     text-transform: uppercase;
-    padding: ($fs*0.15) ($fs*0.5);
+    padding: ($fs*0.15) ($fs*0.25);
     border-width: 1px;
     font-weight: $font-weight_extrabold;
   }
@@ -1468,7 +1469,7 @@ header {
 
 @mixin fieldformat_form {
   display: block;
-  padding: $fs*0.75;
+  padding: 0 $fs*0.75;
   @include textformat_form;
   @include border-radius($border-radius_small);
   background-color: $color_input_background;
@@ -1494,8 +1495,8 @@ header {
   @include box-shadow(none);
 }
 
-// font-size + padding + border
-$input_height: $fs + (2*$fs*0.75) + (2*$border-width);
+// line-height + padding + border
+$input_height: $fs*$line-height_factor + (2*$fs*0.75) + (2*$border-width);
 
 input, textarea, select {
   @include fieldformat_form;

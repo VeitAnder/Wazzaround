@@ -1095,13 +1095,14 @@ button.btn, .btn, a.btn {
     -o-border-radius: 6px;
     border-radius: 6px; }
   button.btn.btn-small, .btn.btn-small, a.btn.btn-small {
-    padding: 2.4px 12px;
-    font-size: 14px; }
+    padding: 2.4px 8px;
+    font-size: 14px;
+    line-height: 19.6px; }
   button.btn.btn-mini, .btn.btn-mini, a.btn.btn-mini {
     font-size: 10px;
     line-height: 14px;
     text-transform: uppercase;
-    padding: 2.4px 8px;
+    padding: 2.4px 4px;
     border-width: 1px;
     font-weight: 800; }
     button.btn.btn-mini p, .btn.btn-mini p, a.btn.btn-mini p {
@@ -1955,7 +1956,7 @@ header {
 
 input, textarea, select {
   display: block;
-  padding: 12px;
+  padding: 0 12px;
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 22.4px;
@@ -1986,7 +1987,7 @@ input, textarea {
   -moz-transition-property: all;
   transition-property: all;
   outline: 0;
-  height: 42px;
+  height: 48.4px;
   outline: thin dotted \9;
   /* IE6-9 */ }
   input.placeholder, textarea.placeholder {
@@ -2045,7 +2046,7 @@ input[type="radio"], input[type="checkbox"] {
   margin-left: -20px; }
 
 select, input[type="file"] {
-  height: 42px;
+  height: 48.4px;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
   *margin-top: 4px;
   /* For IE7, add top margin to align select with labels */
@@ -4529,7 +4530,7 @@ footer {
   vertical-align: middle; }
   .input-group-btn > .btn {
     position: relative;
-    height: 42px; }
+    height: 48.4px; }
   .input-group-btn:last-child > .btn {
     -webkit-border-radius-topleft: 0;
     -khtml-border-radius-topleft: 0;
