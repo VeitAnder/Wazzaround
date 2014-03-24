@@ -76,13 +76,6 @@
 
   <div class="divider"></div>
 
-  <div class="contentbox contentbox-green">
-    <h6 class="no-margin-bottom">{{'You want to put' | translate}} <u>{{'your Activities' | translate}}</u> {{'to reacture' | translate}}?</h6>
-    <a ng-href="#/registration/registrationforproviders"
-       class="btn"
-        >
-      {{ 'Not registered as Provider' | translate }}
-    </a>
-  </div>
+  <div ng-include="'views/_registrationforprovidershint.html'"></div>
 
 </form>
