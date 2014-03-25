@@ -17,7 +17,7 @@
         <div class="event-header">
           <div class="event-date cell">{{'Date' | translate}}</div>
           <div class="event-time cell">{{'Time' | translate}}</div>
-          <!--<div class="event-duration cell">{{'Duration' | translate}}</div>-->
+          <div class="event-duration cell">{{'Duration' | translate}}</div>
           <div class="event-quantity cell align-right">{{'Qty' | translate}}</div>
         </div>
 
@@ -25,7 +25,7 @@
           <div class="event-row">
             <div class="event-date cell">{{moment(event.ref().start).format("ddd, MMM Do YYYY")}}</div>
             <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
-            <!--<div class="event-duration cell">{{item.ref().duration}}h</div>-->
+            <div class="event-duration cell">{{item.ref().duration}}h</div>
             <div class="event-quantity cell align-right">{{event.ref().quantity}}x</div>
 
           </div>
