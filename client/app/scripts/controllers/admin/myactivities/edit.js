@@ -43,6 +43,8 @@ angular.module('anorakApp')
       }
 
       var startDate = moment(event.start);
+      // ensure that date format is in english to ensure weekday comparison is always against english weekdays
+      startDate.lang('en');
       var duration = event.duration;
       var quantity = event.quantity;
       var endDate = moment(event.end).hour(23).minute(59);
