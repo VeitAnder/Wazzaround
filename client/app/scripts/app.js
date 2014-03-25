@@ -1179,11 +1179,7 @@ angular.module('anorakApp')
       model.connection(connector);
     });
 
-    var lang = $translate.use();
-    if (!lang) {
-      lang = 'en';
-    }
-    moment.lang(lang);  // setup moment language
+    moment.lang($translate.use());  // setup moment language
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);
@@ -1221,8 +1217,8 @@ angular.module('anorakApp')
 //    http://stackoverflow.com/questions/22372902/adding-a-watch-in-an-angularjs-filter
     function filterInput(inputobj) {
       var translated = "";
-      if (inputobj[lang]) {
-        translated = inputobj[lang];
+      if (inputobj[$translate.use()]) {
+        translated = inputobj[$translate.use()];
       } else {
         if (inputobj.en) {
           translated = inputobj.en;

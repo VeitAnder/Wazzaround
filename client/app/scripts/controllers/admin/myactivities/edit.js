@@ -121,7 +121,7 @@ angular.module('anorakApp')
     });
 
     $scope.getInputLanguage = function () {
-      return $scope.activity.inputlanguage;
+      return $translate.use();
     };
     /* handle activity input language end */
 
