@@ -1209,7 +1209,30 @@ angular.module('anorakApp')
 
     });
 
-  });
+//    http://stackoverflow.com/questions/22372902/adding-a-watch-in-an-angularjs-filter
+    function filterInput(inputobj) {
+      var translated = "";
+      if (inputobj[lang]) {
+        translated = inputobj[lang];
+      } else {
+        if (inputobj.en) {
+          translated = inputobj.en;
+        } else if (inputobj.de) {
+          translated = inputobj.de;
+        } else if (inputobj.it) {
+          translated = inputobj.it;
+        }
+      }
+      return translated;
+    }
+
+    $rootScope.translatelangobject = function (inputstr) {
+      return filterInput(inputstr);
+    };
+
+  }
+)
+;
 
 // @TODO check logging if it is neccessary to start via DI?
 // DO not remove logging from DI list!

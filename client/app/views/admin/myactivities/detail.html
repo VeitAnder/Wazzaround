@@ -23,7 +23,7 @@
 
   <h4>
     <span class="icon"></span>
-    {{activity.name | languagefilter }}
+    {{translatetest(activity.name)}}
   </h4>
 
     <div class="input_label">
@@ -46,7 +46,7 @@
           coords='map.center'
           icon='getMarkerIcon()'
           >
-        <marker-label content="activity.name | languagefilter"
+        <marker-label content="translatelangobject(activity.name)"
                       anchor="22 0"
                       class="marker-labels marker-label-category-{{activity.category.main}}"
             />

@@ -1,9 +1,9 @@
 'use strict';
 
-describe('Directive: languagetabs', function () {
+describe('Directive: translate', function () {
 
   // load the directive's module
-  beforeEach(module('anorakApp'));
+  beforeEach(module('reactureApp'));
 
   var element,
     scope;
@@ -13,8 +13,8 @@ describe('Directive: languagetabs', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<languagetabs></languagetabs>');
+    element = angular.element('<translate></translate>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the languagetabs directive');
+    expect(element.text()).toBe('this is the translate directive');
   }));
 });
