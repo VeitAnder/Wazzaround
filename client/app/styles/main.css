@@ -2355,7 +2355,9 @@ footer {
     margin-top: 16px; }
   .window-category-sports .availability {
     margin-top: 32px;
-    clear: left; }
+    clear: both; }
+    .window-category-sports .availability h5 {
+      margin-top: 0; }
   .window-category-sports img {
     width: 150px;
     height: auto; }
@@ -2428,7 +2430,9 @@ footer {
     margin-top: 16px; }
   .window-category-culture .availability {
     margin-top: 32px;
-    clear: left; }
+    clear: both; }
+    .window-category-culture .availability h5 {
+      margin-top: 0; }
   .window-category-culture img {
     width: 150px;
     height: auto; }
@@ -2501,7 +2505,9 @@ footer {
     margin-top: 16px; }
   .window-category-wellness .availability {
     margin-top: 32px;
-    clear: left; }
+    clear: both; }
+    .window-category-wellness .availability h5 {
+      margin-top: 0; }
   .window-category-wellness img {
     width: 150px;
     height: auto; }
@@ -2570,7 +2576,9 @@ footer {
   margin-top: 16px; }
 .detail-category-sports .availability {
   margin-top: 32px;
-  clear: left; }
+  clear: both; }
+  .detail-category-sports .availability h5 {
+    margin-top: 0; }
 .detail-category-sports h4 .icon {
   border-color: #C83C19; }
 .detail-category-sports .category {
@@ -2623,7 +2631,9 @@ footer {
   margin-top: 16px; }
 .detail-category-culture .availability {
   margin-top: 32px;
-  clear: left; }
+  clear: both; }
+  .detail-category-culture .availability h5 {
+    margin-top: 0; }
 .detail-category-culture h4 .icon {
   border-color: #1970C8; }
 .detail-category-culture .category {
@@ -2676,7 +2686,9 @@ footer {
   margin-top: 16px; }
 .detail-category-wellness .availability {
   margin-top: 32px;
-  clear: left; }
+  clear: both; }
+  .detail-category-wellness .availability h5 {
+    margin-top: 0; }
 .detail-category-wellness h4 .icon {
   border-color: #bc913d; }
 .detail-category-wellness .category {
@@ -2689,6 +2701,12 @@ footer {
   .event-list .listaction.cell {
     width: 30%; }
 
+.bookableitems .event-date {
+  width: 40%; }
+.bookableitems .event-time {
+  width: 20%; }
+.bookableitems .event-quantity {
+  width: 10%; }
 
 .bookableitem {
   margin-bottom: 30px;
@@ -2859,9 +2877,14 @@ footer {
   width: 15%; }
 
 .event-list {
+  display: block;
   border-top: dotted 1px #b3b3b3;
   padding-top: 15px;
   margin-top: 15px; }
+  .availability .event-list {
+    margin: 0;
+    padding: 0;
+    border: none; }
 
 .event-header {
   -webkit-user-select: none;
@@ -2974,13 +2997,13 @@ footer {
     overflow: visible; }
 
 .event-date {
-  width: 35%; }
+  width: 40%; }
 
 .event-time {
-  width: 25%; }
+  width: 40%; }
 
 .event-quantity {
-  width: 10%; }
+  width: 20%; }
 
 .event-add {
   margin-top: 10px; }
