@@ -21,13 +21,6 @@ header {
   height: 50px;
 }
 
-footer {
-  position: relative;
-  min-width: $min-width-xxs;
-  p {
-    padding-bottom: 0;
-  }
-}
 
 // MAP ELEMENTS
 // ###########################################################################################################################
@@ -50,6 +43,7 @@ footer {
 .col-left-fixed {
   position: relative;
   padding: $bu*2.0;
+  margin-bottom: $footer-height;
   width: $col-left-width;
   float: left;
 }
@@ -81,11 +75,12 @@ footer {
 }
 
 .map-wrap {
-  position: relative;
+  position: fixed;
+  margin-left: $col-left-width;
   overflow: hidden;
   display: block;
-
   height: 100%;
+  width: 100%;
 
   // setting the height is necessary to avoid a bug of angularmap on route change
   // when switching back from another route, height is initialized with 0
