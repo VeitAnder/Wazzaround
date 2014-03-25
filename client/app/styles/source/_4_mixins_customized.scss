@@ -175,7 +175,10 @@ footer {
   }
   .availability {
     margin-top: $fs*2.0;
-    clear: left;
+    clear: both;
+    h5{
+      margin-top: 0;
+    }
   }
 
 }
@@ -297,7 +300,17 @@ footer {
 }
 
 .bookableitems {
+  .event-date {
+    width: 40%;
+  }
 
+  .event-time {
+    width: 20%;
+  }
+
+  .event-quantity {
+    width: 10%;
+  }
 }
 
 .bookableitem {
@@ -385,9 +398,15 @@ footer {
 }
 
 .event-list {
+  display: block;
   @include seperator(top, $color_grey_50);
   padding-top: $bu;
   margin-top: $bu;
+  .availability &{
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
 }
 
 .event-header {
@@ -405,15 +424,15 @@ footer {
 }
 
 .event-date {
-  width: 35%;
+  width: 40%;
 }
 
 .event-time {
-  width: 25%;
+  width: 40%;
 }
 
 .event-quantity {
-  width: 10%;
+  width: 20%;
 }
 
 .event-add {
