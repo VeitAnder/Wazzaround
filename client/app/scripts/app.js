@@ -1169,7 +1169,8 @@ angular.module('anorakApp')
     var checkRouteForAuthorization;
 
     var Model = require('modelizer');
-    var connector = Model.AngularConnector(APP_CONFIG.modelizerurl);
+//    var connector = Model.AngularConnector(APP_CONFIG.modelizerurl);
+    var connector = Model.ClientConnector(APP_CONFIG.modelizerhost, APP_CONFIG.modelizerport);
 
     _.forEach(models, function (model) {  // setup connection for each model
       model.connection(connector);
