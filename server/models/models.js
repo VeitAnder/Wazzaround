@@ -34,8 +34,8 @@ var models = function () {
       city: Attr(Type.string),
       zip: Attr(Type.string),
       tel: Attr(Type.string),
-      fax: Attr(Type.string, Attr.default('')),
-      uid: Attr(Type.string, Attr.default('')),
+      fax: Attr(Type.string),
+      uid: Attr(Type.string),
       country: Attr(Type.string),
       contactperson: {
         name: Attr(Type.string)

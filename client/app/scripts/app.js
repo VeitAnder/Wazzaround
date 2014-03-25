@@ -262,6 +262,9 @@ angular.module('anorakApp')
                   .then(function (events) {
                     debug("loaded activity", activity);
                     return activity;  // return the activity, when all bookableItems have been loaded
+                  })
+                  .fail(function (err) {
+                    console.log("err", err);
                   });
               })
               .fail(function (err) {
