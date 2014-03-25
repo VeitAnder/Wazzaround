@@ -280,7 +280,7 @@
               >
             <h4>
               <span class="icon"></span>
-              {{m.name | languagefilter}}
+              {{translatelangobject(m.name)}}
             </h4>
 
             <div class="img-block img-block-right">
@@ -299,7 +299,7 @@
             <div class="description">
               <!--<div class="input_label">Description</div>-->
               <!--<div ta-bind ng-model="m.description"></div>-->
-              <div>{{m.description | languagefilter}}</div>
+              <div>{{translatelangobject(m.description)}}</div>
             </div>
 
             <div class="availability">
@@ -311,7 +311,7 @@
                 <div class="availability-entry"
                      ng-repeat="available in m.availability">
                   <div class="availability-title cell first">
-                    {{available.title | languagefilter}}
+                    {{translatelangobject(available.title)}}
                   </div>
                   <div class="availability-date cell">
                     {{moment(available.start).format('DD. MMM \'YY')}}
@@ -364,7 +364,7 @@
           </div>
 
         </window>
-        <marker-label content="m.name | languagefilter"
+        <marker-label content="translatelangobject(m.name)"
                       anchor="22 0"
                       class="marker-labels marker-label-category-{{m.category.main}}"
             />
