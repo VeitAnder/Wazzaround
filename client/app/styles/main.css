@@ -2881,8 +2881,8 @@ header {
   padding-top: 15px;
   margin-top: 15px; }
   .availability .event-list {
-    margin: 0;
-    padding: 0;
+    margin: 0 0 15px;
+    padding: 0 0 15px;
     border: none; }
 
 .event-header {
