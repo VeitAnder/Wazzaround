@@ -1239,7 +1239,9 @@ header {
   min-height: $footer-height;
   width: 100%;
   position: fixed;
+  z-index: 150;
   bottom: 0;
+  @include box-shadow(rgba($color_black, 0.07) 0px -2px 0);
 
   @include outline;
   @include clearfix;

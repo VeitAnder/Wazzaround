@@ -36,7 +36,7 @@
         data-ng-click="open(activity)"
         >
       <div class="activity cell first">
-        {{activity.name | languagefilter}}
+        {{translatelangobject(activity.name)}}
       </div>
       <div class="category-main cell">
         {{activity.category.main | translate}}

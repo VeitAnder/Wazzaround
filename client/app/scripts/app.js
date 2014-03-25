@@ -12,15 +12,15 @@
     a[d] = a[d] || b;
   }
 })
-  ((function () {
-    "use strict";
-    try {
-      console.log();
-      return window.console;
-    } catch (a) {
-      return (window.console = {});
-    }
-  })());
+((function () {
+  "use strict";
+  try {
+    console.log();
+    return window.console;
+  } catch (a) {
+    return (window.console = {});
+  }
+})());
 
 angular.module('anorakApp', [
   'ngRoute',
@@ -262,6 +262,9 @@ angular.module('anorakApp')
                   .then(function (events) {
                     debug("loaded activity", activity);
                     return activity;  // return the activity, when all bookableItems have been loaded
+                  })
+                  .fail(function (err) {
+                    console.log("err", err);
                   });
               })
               .fail(function (err) {
@@ -1137,21 +1140,26 @@ angular.module('anorakApp')
 
 //    $translateProvider.preferredLanguage('en');
 
-    $translateProvider
-      .translations('en', { /* ... */ })
-      .translations('de', { /* ... */ })
-      .translations('it', { /* ... */ })
-      .registerAvailableLanguageKeys(['en', 'de', 'it'], {
-        'en_US': 'en',
-        'en_UK': 'en',
-        'de_DE': 'de',
-        'de_CH': 'de',
-        'de_AT': 'de',
-        'IT_IT': 'it',
-        'it_IT': 'it'
-      })
+    $translateProvider.registerAvailableLanguageKeys(['en', 'de', 'it'], {
+      'en_US': 'en',
+      'en_us': 'en',
+      'en_UK': 'en',
+      'en_uk': 'en',
+      'de_DE': 'de',
+      'de_de': 'de',
+      'de_CH': 'de',
+      'de_ch': 'de',
+      'de_AT': 'de',
+      'de_at': 'de',
+      'IT_IT': 'it',
+      'it_it': 'it',
+      'it_IT': 'it'
+    })
       .determinePreferredLanguage();
-
+    // hint: en_us and en_US are different, is a case-sensitive check bug in angular-translate
+    // is fixed in https://github.com/angular-translate/angular-translate/issues/431
+    // but not released yet
+    $translateProvider.fallbackLanguage('en');
     $translateProvider.useLocalStorage();
 
   })
@@ -1164,7 +1172,8 @@ angular.module('anorakApp')
     var checkRouteForAuthorization;
 
     var Model = require('modelizer');
-    var connector = Model.AngularConnector(APP_CONFIG.modelizerurl);
+//    var connector = Model.AngularConnector(APP_CONFIG.modelizerurl);
+    var connector = Model.ClientConnector(APP_CONFIG.modelizerhost, APP_CONFIG.modelizerport);
 
     _.forEach(models, function (model) {  // setup connection for each model
       model.connection(connector);
@@ -1209,7 +1218,30 @@ angular.module('anorakApp')
 
     });
 
-  });
+//    http://stackoverflow.com/questions/22372902/adding-a-watch-in-an-angularjs-filter
+    function filterInput(inputobj) {
+      var translated = "";
+      if (inputobj[lang]) {
+        translated = inputobj[lang];
+      } else {
+        if (inputobj.en) {
+          translated = inputobj.en;
+        } else if (inputobj.de) {
+          translated = inputobj.de;
+        } else if (inputobj.it) {
+          translated = inputobj.it;
+        }
+      }
+      return translated;
+    }
+
+    $rootScope.translatelangobject = function (inputstr) {
+      return filterInput(inputstr);
+    };
+
+  }
+)
+;
 
 // @TODO check logging if it is neccessary to start via DI?
 // DO not remove logging from DI list!

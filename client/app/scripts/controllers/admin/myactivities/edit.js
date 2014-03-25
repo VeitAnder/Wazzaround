@@ -86,9 +86,9 @@ angular.module('anorakApp')
     };
 
     $scope.removeEvent = function (item, idx) {
-      if (item.events[idx]._reference) {
-        item.events[idx].ref().remove().done();
-      }  // if already persisted
+//      if (item.events[idx]._reference) {
+//        item.events[idx].ref().remove().done();
+//      }  // if already persisted
       item.events.splice(idx, 1);  // remove from array
     };
 
@@ -98,7 +98,7 @@ angular.module('anorakApp')
         console.log("TODO: remove this event");   // TODO
       });
 
-      item.remove().done();
+//      item.remove().done();
       $scope.activity.bookableItems.splice(idx, 1);
     };
 

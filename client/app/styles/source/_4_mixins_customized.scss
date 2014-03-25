@@ -21,13 +21,6 @@ header {
   height: 50px;
 }
 
-footer {
-  position: relative;
-  min-width: $min-width-xxs;
-  p {
-    padding-bottom: 0;
-  }
-}
 
 // MAP ELEMENTS
 // ###########################################################################################################################
@@ -50,6 +43,7 @@ footer {
 .col-left-fixed {
   position: relative;
   padding: $bu*2.0;
+  margin-bottom: $footer-height;
   width: $col-left-width;
   float: left;
 }
@@ -81,11 +75,12 @@ footer {
 }
 
 .map-wrap {
-  position: relative;
+  position: fixed;
+  margin-left: $col-left-width;
   overflow: hidden;
   display: block;
-
   height: 100%;
+  width: 100%;
 
   // setting the height is necessary to avoid a bug of angularmap on route change
   // when switching back from another route, height is initialized with 0
@@ -180,8 +175,8 @@ footer {
       margin-top: 0;
     }
   }
-
 }
+
 
 @mixin window-category {
   @include activity-content;
@@ -403,8 +398,8 @@ footer {
   padding-top: $bu;
   margin-top: $bu;
   .availability &{
-    margin: 0;
-    padding: 0;
+    margin: 0 0 $bu;
+    padding: 0 0 $bu;
     border: none;
   }
 }
@@ -428,7 +423,7 @@ footer {
 }
 
 .event-time {
-  width: 40%;
+  width: 20%;
 }
 
 .event-quantity {
