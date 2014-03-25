@@ -123,15 +123,6 @@
     }, x(""), i = k = null, e._version = d, e._prefixes = m, e.testStyles = u, g.className = g.className.replace(/(^|\s)no-js(\s|$)/, "$1$2") + (f ? " js " + r.join(" ") : ""), e
   }(this, this.document);
 </script>
-<!--Opera 12 SVG detection fix - Opera 12 can't render SVG as CSS background image -->
-<script>
-  if (navigator.userAgent.indexOf("Presto") > 0) {
-    // overrule wrong modernizr svg assumption
-    var opera_headtag = document.getElementsByTagName("html")[0];
-    opera_headtag.className = opera_headtag.className.replace("svg", "no-svg opera12");
-  }
-</script>
-<!--SVG check end-->
 
 <div class="page">
   <div ng-view
@@ -141,11 +132,34 @@
 <!--Browser warnings start-->
 
 <!--[if lt IE 9]>
-<div class="browser-warning ltie9">
+<div class="browser-warning">
+  <h1>Your old  Internet Explorer version is not supported anymore!</h1>
+
+  <h2>reacture strongly recommends you to install a secure and fast alternative browser!</h2>
+
+  <h4>Firefox</h4>
+
+  <a href="http://www.mozilla.org" target="_blank">Firefox free download</a>
+
+  <h4>Google Chrome</h4>
+
+  <a href="http://www.google.com/chrome/" target="_blank">Google Chrome free download</a>
+
+  <h4>Opera</h4>
+
+  <a href="http://www.opera.com/" target="_blank">Opera free download</a>
+
+  <p>Here you can Upgrade your Browser to the latest version:
+    <a href="http://windows.microsoft.com/de-de/internet-explorer/ie-11-worldwide-languages" target="_blank">Internet Explorer free download</a>
+  </p>
 
   <style>
-    .navbar, .container-fluid, .page {
+    .page {
       display: none;
+    }
+
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: block !important;
     }
   </style>
 </div>
