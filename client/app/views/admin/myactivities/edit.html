@@ -2,7 +2,7 @@
   <h2>{{'Account' | translate}}</h2>
 
   <h3>
-    <span ng-show="activity.name">{{'Activity' | translate}}: {{translatelangobject(activity.name)}}</span>
+    <span ng-show="activity.name">{{'Activity' | translate}}: {{activity.name | languageselect}}</span>
     <span ng-show="!activity.name">{{'New activity' | translate}}</span>
   </h3>
 
@@ -80,7 +80,7 @@
             <marker coords="map.clickedMarker"
                     options="opts"
                     icon='getMarkerIcon()'
-                    content="translatelangobject(activity.name)"
+                    content="activity.name[getAvailableTranslationLanguageKey(activity.name)]"
                 >
             </marker>
             <!--<marker-label content="getMarkerLabel()"-->

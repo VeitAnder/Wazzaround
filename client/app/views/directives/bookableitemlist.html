@@ -10,7 +10,7 @@
 
       <h5>
         {{'Event' | translate}}:
-        {{translatelangobject(item.ref().description)}}
+        {{item.ref().description | languageselect}}
       </h5>
 
       <div class="event-header">

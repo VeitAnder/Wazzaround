@@ -1214,30 +1214,27 @@ angular.module('anorakApp')
 
     });
 
-//    http://stackoverflow.com/questions/22372902/adding-a-watch-in-an-angularjs-filter
-    function filterInput(inputobj) {
-      var translated = "";
-      if (inputobj[$translate.use()]) {
-        translated = inputobj[$translate.use()];
+    // service to determine available language in case of ng-model binding in view
+    $rootScope.getAvailableTranslationLanguageKey = function (multilanguageobject) {
+      var availablelangkey = "";
+      if (multilanguageobject[$translate.use()]) {
+        availablelangkey = $translate.use();
       } else {
-        if (inputobj.en) {
-          translated = inputobj.en;
-        } else if (inputobj.de) {
-          translated = inputobj.de;
-        } else if (inputobj.it) {
-          translated = inputobj.it;
+        if (multilanguageobject.en) {
+          availablelangkey = "en";
+        } else if (multilanguageobject.de) {
+          availablelangkey = "de";
+        } else if (multilanguageobject.it) {
+          availablelangkey = "it";
         }
       }
-      return translated;
-    }
-
-    $rootScope.translatelangobject = function (inputstr) {
-      return filterInput(inputstr);
+      return availablelangkey;
     };
 
+
+
   }
-)
-;
+);
 
 // @TODO check logging if it is neccessary to start via DI?
 // DO not remove logging from DI list!
