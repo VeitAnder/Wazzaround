@@ -352,8 +352,8 @@
                         ng-repeat="(idx,event) in bookableItem.ref().events">
 
                 <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
-                  <div class="event-date cell">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
-                  <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
+                  <div class="event-date cell">{{ event.ref().start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
+                  <div class="event-time cell">{{ event.ref().start | momentjs:{format: "h:mm a"} }}</div>
                   <div class="event-quantity cell">{{event.ref().quantity}}x</div>
                   <div class="listaction cell">
                     <a class="btn btn-mini btn-ordinary"

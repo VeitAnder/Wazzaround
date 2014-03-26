@@ -313,13 +313,13 @@
                     {{available.title | languageselect}}
                   </div>
                   <div class="availability-date cell">
-                    {{moment(available.start).format('DD. MMM \'YY')}}
+                    {{ available.start | momentjs:{format: "DD. MMM YY"} }}
                   </div>
                   <div class="availability-time cell">
-                    {{moment(available.start).format('hh:mm a')}}
+                    {{ available.start | momentjs:{format: "hh:mm a"} }}
                   </div>
                   <div class="availability-duration cell">
-                    {{moment(available.duration).format('h')}}h
+                    {{ available.duration | momentjs:{format: "h"} }}h
                   </div>
                   <div class="availability-quantity cell">
                     {{available.quantity}}x

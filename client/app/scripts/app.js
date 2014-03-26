@@ -73,7 +73,6 @@ angular.module('anorakApp')
           }],
           resolvedActivities: ['models', 'currentUser', function (models, currentUser) {
             var defer = Q.defer();
-
             currentUser.load()
               .then(function (user) {
 
@@ -137,17 +136,15 @@ angular.module('anorakApp')
                     defer.reject(err);
                   });
               });
-
+//            deferred.resolve([]);
             return defer.promise;
-          }
-          ],
+          }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
           }]
         }
       })
-      .
-      when('/registration', {
+      .when('/registration', {
         templateUrl: 'views/page_basetemplate.html',
         controller: 'RegistrationPageCtrl'
       })
@@ -1230,8 +1227,6 @@ angular.module('anorakApp')
       }
       return availablelangkey;
     };
-
-
 
   }
 );
