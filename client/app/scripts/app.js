@@ -170,7 +170,7 @@ angular.module('anorakApp')
       })
       .when('/workwithus', {
         templateUrl: 'views/page_basetemplate.html',
-        controller: 'WorkwithusCtrl'
+        controller: 'WorkwithusPageCtrl'
       })
       .when('/login', {
         templateUrl: 'views/page_basetemplate.html',
