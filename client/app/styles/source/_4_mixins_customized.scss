@@ -54,6 +54,7 @@ header {
   overflow: hidden;
   display: block;
   max-width: 1200px - $col-left-width;
+  margin-bottom: 50px;
 }
 
 .controlpanel {
@@ -1661,7 +1662,6 @@ $img-selector-imgsize: 150px;
       width: 100%;
     }
   }
-  margin-bottom: 100px;
 }
 
 

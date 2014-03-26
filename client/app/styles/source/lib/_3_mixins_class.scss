@@ -115,6 +115,17 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.preface{
+  font-size: $fs*$font-size_h5_factor;
+  line-height: $fs*$font-size_h5_factor*$line-height_factor;
+  color: $color_text;
+  strong{
+    color: $color_green;
+  }
+}
+
+
+
 // LINKS
 // ###########################################################################################################################
 // ###########################################################################################################################
@@ -797,56 +808,6 @@ button.btn, .btn, a.btn {
 //mixin textformat_flow
 @include textformat_flow;
 
-// RTE CLASSES
-// ###########################################################################################################################
-
-@mixin rte_classes {
-  .smalltext {
-    @include font-size_small;
-  }
-
-  p.boxelement {
-    padding: $fs;
-    @include border_all($color_main_border);
-    @include border-radius(#{$border-radius_large});
-    background: $color_main_innerwrap_background_highlight;
-  }
-
-  p.preface {
-    font-weight: $font-weight_bold;
-  }
-
-  ul.linklist {
-    @include seperator(bottom, $color_nav2_level02_border);
-    li {
-      @include seperator(top, $color_nav2_level02_border);
-      padding-left: 0 !important;
-      margin: 0 !important;
-      background-image: none !important;
-      overflow: hidden;
-      a, a:link, a:visited {
-        display: block;
-        padding: ($fs*0.5) ($bu*1.0);
-        &:hover {
-          color: $color_main_link;
-          background-color: $color_main_innerwrap_background_hover;
-        }
-      }
-      // a
-    }
-    // li
-  }
-  // ul.linklist
-
-  h1.nomargin, h2.nomargin, h3.nomargin, h4.nomargin, h5.nomargin, h6.nomargin {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
-}
-
-//@mixin rte_classes
-@include rte_classes;
 
 .align-right {
   text-align: right;

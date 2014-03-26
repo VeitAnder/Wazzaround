@@ -952,6 +952,13 @@ h1.first, h2.first, h3.first, h4.first, h5.first, h6.first {
   h6.first {
     margin-top: 16px; } }
 
+.preface {
+  font-size: 20px;
+  line-height: 28px;
+  color: #666; }
+  .preface strong {
+    color: #85C900; }
+
 a {
   color: #85C900;
   text-decoration: underline;
@@ -1542,45 +1549,6 @@ p:last-child, ul:last-child {
 
 .boxelement + * {
   padding-top: 16px; }
-
-.smalltext {
-  font-size: 12px;
-  line-height: 16.8px; }
-  .smalltext p {
-    padding-bottom: 12px; }
-
-p.boxelement {
-  padding: 16px;
-  border: solid 1px #cbff63;
-  -webkit-border-radius: 9px;
-  -khtml-border-radius: 9px;
-  -moz-border-radius: 9px;
-  -ms-border-radius: 9px;
-  -o-border-radius: 9px;
-  border-radius: 9px;
-  background: #cbff63; }
-
-p.preface {
-  font-weight: 600; }
-
-ul.linklist {
-  border-bottom: dotted 1px #85C900; }
-  ul.linklist li {
-    border-top: dotted 1px #85C900;
-    padding-left: 0 !important;
-    margin: 0 !important;
-    background-image: none !important;
-    overflow: hidden; }
-    ul.linklist li a, ul.linklist li a:link, ul.linklist li a:visited {
-      display: block;
-      padding: 8px 15px; }
-      ul.linklist li a:hover, ul.linklist li a:link:hover, ul.linklist li a:visited:hover {
-        color: #85C900;
-        background-color: #cbff63; }
-
-h1.nomargin, h2.nomargin, h3.nomargin, h4.nomargin, h5.nomargin, h6.nomargin {
-  margin-bottom: 0;
-  padding-bottom: 0; }
 
 .align-right {
   text-align: right; }
@@ -2239,7 +2207,8 @@ header {
   position: relative;
   overflow: hidden;
   display: block;
-  max-width: 850px; }
+  max-width: 850px;
+  margin-bottom: 50px; }
 
 .controlpanel {
   background-color: #FFF; }
@@ -4510,18 +4479,16 @@ header {
 .col-left-fixed .accountlink {
   display: none; }
 
-.standardform {
-  margin-bottom: 100px; }
-  .standardform .form-group-inline-5050 .form-group {
-    width: 35%; }
-  .standardform .form-group-inline-2575 .form-group {
-    width: 52.5%; }
-    .standardform .form-group-inline-2575 .form-group:first-child {
-      width: 17.5%; }
-  .standardform .form-group, .standardform .buttonbar, .standardform .divider, .standardform .contentbox {
-    width: 75%; }
-    .standardform .form-group input, .standardform .form-group .contentbox, .standardform .buttonbar input, .standardform .buttonbar .contentbox, .standardform .divider input, .standardform .divider .contentbox, .standardform .contentbox input, .standardform .contentbox .contentbox {
-      width: 100%; }
+.standardform .form-group-inline-5050 .form-group {
+  width: 35%; }
+.standardform .form-group-inline-2575 .form-group {
+  width: 52.5%; }
+  .standardform .form-group-inline-2575 .form-group:first-child {
+    width: 17.5%; }
+.standardform .form-group, .standardform .buttonbar, .standardform .divider, .standardform .contentbox {
+  width: 75%; }
+  .standardform .form-group input, .standardform .form-group .contentbox, .standardform .buttonbar input, .standardform .buttonbar .contentbox, .standardform .divider input, .standardform .divider .contentbox, .standardform .contentbox input, .standardform .contentbox .contentbox {
+    width: 100%; }
 
 .teaser-section {
   overflow: hidden; }
