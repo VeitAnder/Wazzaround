@@ -78,29 +78,19 @@ angular.module('anorakApp')
     };
 
     $scope.createEvent = function (bookableItem) {
-      var event = bookableItem.createEvents();
+      var event = bookableItem.createEvents();  // todo: modelizer bug!
       event.start = new Date();
 
       bookableItem.events[bookableItem.events.length - 1].mode = 'new';
       //event.mode = 'edit';   // funktioniert so leider nicht
     };
 
-    $scope.removeEvent = function (item, idx) {
- //TODO
-//      if (item.events[idx]._reference) {
-//        item.events[idx].ref().remove().done();
-//      }  // if already persisted
-//      item.events.splice(idx, 1);  // remove from array
+    $scope.removeEvent = function (item, event_idx) {
+      item.events.splice(event_idx, 1);  // remove from array
     };
 
-    $scope.removeItem = function (item, idx) {
- //TODO
-//      _.forEach(item.events, function (event) {  // remove saved events
-//        console.log("TODO: remove this event");   // TODO
-//      });
-//
-//      item.remove().done();
-//      $scope.activity.bookableItems.splice(idx, 1);
+    $scope.removeItem = function (activity, item_idx) {
+      activity.bookableItems.splice(item_idx, 1);
     };
 
     $scope.moment = moment;

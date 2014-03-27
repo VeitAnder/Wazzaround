@@ -67,9 +67,8 @@ var models = function () {
 
   var EventModel = new model("events", {
     start: Attr(Type.date),
-    quantity: Attr(Type.number),
+    quantity: Attr(Type.number)
 
-    owner: Ref(UserModel)
   });
 
   var BookableItemModel = new model("bookableItems", {
@@ -81,9 +80,7 @@ var models = function () {
     price: Attr(Type.number),
     duration: Attr(Type.number),
 
-    events: ObjArray(EventModel),
-
-    owner: Ref(UserModel)
+    events: ObjArray(EventModel)
   });
 
   var ActivityModel = new model("activities", {
