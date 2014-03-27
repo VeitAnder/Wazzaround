@@ -2,11 +2,11 @@
   "name": "anorak",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "1.2.14",
-    "angular-animate": "1.2.14",
-    "angular-route": "1.2.14",
-    "angular-sanitize": "1.2.14",
-    "angular-cookies": "1.2.14",
+    "angular": "1.2.15",
+    "angular-animate": "1.2.15",
+    "angular-route": "1.2.15",
+    "angular-sanitize": "1.2.15",
+    "angular-cookies": "1.2.15",
     "ua-parser-js": "https://github.com/planmanager/ua-parser-js.git",
     "lodash": "2.4.1",
     "moment": "2.5.1",
@@ -25,10 +25,7 @@
     "cryptojslib": "~3.1.2"
   },
   "devDependencies": {
-    "angular-mocks": "1.2.14",
-    "angular-scenario": "1.2.14"
-  },
-  "resolutions": {
-    "angular": "1.2.14"
+    "angular-mocks": "1.2.15",
+    "angular-scenario": "1.2.15"
   }
 }

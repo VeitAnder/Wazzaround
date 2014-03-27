@@ -20,16 +20,16 @@
 		<rect x="104" fill="#FFFFFF" width="2" height="10"/>
 	</g>
 	<g>
-		<circle fill="none" stroke="#E6F1C5" stroke-width="2" stroke-miterlimit="10" cx="12" cy="87" r="9"/>
+		<circle fill="none" stroke="#E0F2BF" stroke-width="2" stroke-miterlimit="10" cx="12" cy="87" r="9"/>
 		<g>
-			<path fill="#E6F1C5" d="M12,85.375c0.896,0,1.625,0.729,1.625,1.625S12.896,88.625,12,88.625S10.375,87.896,10.375,87
+			<path fill="#E0F2BF" d="M12,85.375c0.896,0,1.625,0.729,1.625,1.625S12.896,88.625,12,88.625S10.375,87.896,10.375,87
 				S11.104,85.375,12,85.375 M12,84.375c-1.45,0-2.625,1.175-2.625,2.625S10.55,89.625,12,89.625S14.625,88.45,14.625,87
 				S13.45,84.375,12,84.375L12,84.375z"/>
 		</g>
-		<line fill="none" stroke="#E6F1C5" stroke-width="2" stroke-miterlimit="10" x1="12" y1="75" x2="12" y2="82.5"/>
-		<line fill="none" stroke="#E6F1C5" stroke-width="2" stroke-miterlimit="10" x1="12" y1="91.5" x2="12" y2="99"/>
-		<line fill="none" stroke="#E6F1C5" stroke-width="2" stroke-miterlimit="10" x1="24" y1="87" x2="16.5" y2="87"/>
-		<line fill="none" stroke="#E6F1C5" stroke-width="2" stroke-miterlimit="10" x1="7.5" y1="87" x2="0" y2="87"/>
+		<line fill="none" stroke="#E0F2BF" stroke-width="2" stroke-miterlimit="10" x1="12" y1="75" x2="12" y2="82.5"/>
+		<line fill="none" stroke="#E0F2BF" stroke-width="2" stroke-miterlimit="10" x1="12" y1="91.5" x2="12" y2="99"/>
+		<line fill="none" stroke="#E0F2BF" stroke-width="2" stroke-miterlimit="10" x1="24" y1="87" x2="16.5" y2="87"/>
+		<line fill="none" stroke="#E0F2BF" stroke-width="2" stroke-miterlimit="10" x1="7.5" y1="87" x2="0" y2="87"/>
 	</g>
 	<polyline fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" points="1,53 11,63 1,73 	"/>
 	<polyline fill="none" stroke="#666666" stroke-width="2" stroke-miterlimit="10" points="26,63 31,68 26,73 	"/>
@@ -52,30 +52,30 @@
 	</g>
 	<g>
 		<rect y="175" width="21" height="3.999"/>
-		<rect y="178.999" fill="#DA001E" width="21" height="4.001"/>
-		<rect y="183" fill="#F7DE29" width="21" height="4"/>
+		<rect y="178.999" fill="#FE0019" width="21" height="4.001"/>
+		<rect y="183" fill="#FFDF00" width="21" height="4"/>
 	</g>
 	<g>
-		<rect x="25" y="175" fill="#180087" width="21" height="12"/>
+		<rect x="25" y="175" fill="#15008B" width="21" height="12"/>
 		<polygon fill="#FFFFFF" points="46,179 41.263,179 46,176.334 46,175 43.554,175 37,178.639 37,175 34,175 34,178.639 27.336,175 
 			25,175 25,176.334 29.626,179 25,179 25,183 29.627,183 25,185.602 25,187 27.336,187 34,183.299 34,187 37,187 37,183.298 
 			43.554,187 46,187 46,185.602 41.262,183 46,183 		"/>
-		<polygon fill="#DA001E" points="36.49,175 36.49,179.775 46,179.775 46,182.161 36.49,182.161 36.49,187 34.4,187 34.4,182.161 
+		<polygon fill="#FE0019" points="36.49,175 36.49,179.775 46,179.775 46,182.161 36.49,182.161 36.49,187 34.4,187 34.4,182.161 
 			25,182.161 25,179.775 34.4,179.775 34.4,175 		"/>
-		<polygon fill="#DA001E" points="31.963,178.978 30.406,178.978 25,175.891 25,175 		"/>
-		<polygon fill="#DA001E" points="45.889,175 38.927,178.978 37.37,178.978 44.332,175 		"/>
-		<polygon fill="#DA001E" points="46,186.102 40.483,183 38.927,183 46,186.992 		"/>
-		<polygon fill="#DA001E" points="31.963,183 25,186.947 25,187 26.465,187 33.521,183 		"/>
+		<polygon fill="#FE0019" points="31.963,178.978 30.406,178.978 25,175.891 25,175 		"/>
+		<polygon fill="#FE0019" points="45.889,175 38.927,178.978 37.37,178.978 44.332,175 		"/>
+		<polygon fill="#FE0019" points="46,186.102 40.483,183 38.927,183 46,186.992 		"/>
+		<polygon fill="#FE0019" points="31.963,183 25,186.947 25,187 26.465,187 33.521,183 		"/>
 	</g>
 	<g>
-		<rect x="50" y="175" fill="#58B44D" width="7" height="12"/>
+		<rect x="50" y="175" fill="#00B542" width="7" height="12"/>
 		<rect x="57" y="175" fill="#FFFFFF" width="7" height="12"/>
-		<rect x="64" y="175" fill="#DA001E" width="7" height="12"/>
+		<rect x="64" y="175" fill="#FE0019" width="7" height="12"/>
 	</g>
 	<g>
-		<rect x="75" y="175" fill="#180087" width="7" height="12"/>
+		<rect x="75" y="175" fill="#15008B" width="7" height="12"/>
 		<rect x="82" y="175" fill="#FFFFFF" width="7" height="12"/>
-		<rect x="89" y="175" fill="#DA001E" width="7" height="12"/>
+		<rect x="89" y="175" fill="#FE0019" width="7" height="12"/>
 	</g>
 </g>
 <g id="GRID" display="none">
@@ -84,157 +84,157 @@
 	<text transform="matrix(1 0 0 1 -86.3281 -16)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">Y</text>
 	<text transform="matrix(1 0 0 1 -2 -83.6201)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">0</text>
 	<text transform="matrix(1 0 0 1 -22 -83.6201)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">X</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="24.5" x2="718" y2="24.5"/>
-	<text transform="matrix(1 0 0 1 -90.208 26)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">25</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="49.5" x2="718" y2="49.5"/>
-	<text transform="matrix(1 0 0 1 -90.208 51)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">50</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="74.5" x2="718" y2="74.5"/>
-	<text transform="matrix(1 0 0 1 -90.208 76)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">75</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="24.5" x2="718" y2="24.5"/>
+	<text transform="matrix(1 0 0 1 -90.208 26)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">25</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="49.5" x2="718" y2="49.5"/>
+	<text transform="matrix(1 0 0 1 -90.208 51)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">50</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="74.5" x2="718" y2="74.5"/>
+	<text transform="matrix(1 0 0 1 -90.208 76)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">75</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="99.5" x2="718" y2="99.5"/>
 	<text transform="matrix(1 0 0 1 -94.3115 101)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">100</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="124.5" x2="718" y2="124.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 126)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">125</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="149.5" x2="718" y2="149.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 151)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">150</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="174.5" x2="718" y2="174.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 176)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">175</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="124.5" x2="718" y2="124.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 126)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">125</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="149.5" x2="718" y2="149.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 151)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">150</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="174.5" x2="718" y2="174.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 176)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">175</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="199.5" x2="718" y2="199.5"/>
 	<text transform="matrix(1 0 0 1 -94.3115 201)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">200</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="224.5" x2="718" y2="224.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 226)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">225</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="249.5" x2="718" y2="249.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 251)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">250</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="274.5" x2="718" y2="274.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 276)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">275</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="224.5" x2="718" y2="224.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 226)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">225</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="249.5" x2="718" y2="249.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 251)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">250</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="274.5" x2="718" y2="274.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 276)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">275</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="299.5" x2="718" y2="299.5"/>
 	<text transform="matrix(1 0 0 1 -94.3115 301)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">300</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="324.5" x2="718" y2="324.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 326)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">325</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="349.5" x2="718" y2="349.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 351)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">350</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="374.5" x2="718" y2="374.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 376)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">375</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="324.5" x2="718" y2="324.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 326)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">325</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="349.5" x2="718" y2="349.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 351)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">350</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="374.5" x2="718" y2="374.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 376)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">375</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="399.5" x2="718" y2="399.5"/>
 	<text transform="matrix(1 0 0 1 -94.3115 401)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">400</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="424.5" x2="718" y2="424.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 426)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">425</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="449.5" x2="718" y2="449.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 451)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">450</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="474.5" x2="718" y2="474.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 476)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">475</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="424.5" x2="718" y2="424.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 426)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">425</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="449.5" x2="718" y2="449.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 451)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">450</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="474.5" x2="718" y2="474.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 476)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">475</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="499.5" x2="718" y2="499.5"/>
 	<text transform="matrix(1 0 0 1 -94.3115 501)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">500</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="524.5" x2="718" y2="524.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 526)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">525</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="549.5" x2="718" y2="549.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 551)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">550</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="574.5" x2="718" y2="574.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 576)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">575</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="524.5" x2="718" y2="524.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 526)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">525</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="549.5" x2="718" y2="549.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 551)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">550</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="574.5" x2="718" y2="574.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 576)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">575</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="599.5" x2="718" y2="599.5"/>
 	<text transform="matrix(1 0 0 1 -94.3115 601)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">600</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="624.5" x2="718" y2="624.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 626)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">625</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="649.5" x2="718" y2="649.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 651)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">650</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="674.5" x2="718" y2="674.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 676)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">675</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="624.5" x2="718" y2="624.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 626)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">625</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="649.5" x2="718" y2="649.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 651)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">650</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="674.5" x2="718" y2="674.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 676)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">675</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="699.5" x2="718" y2="699.5"/>
 	<text transform="matrix(1 0 0 1 -94.3115 701)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">700</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="724.5" x2="718" y2="724.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 726)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">725</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="749.5" x2="718" y2="749.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 751)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">750</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="774.5" x2="718" y2="774.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 776)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">775</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="724.5" x2="718" y2="724.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 726)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">725</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="749.5" x2="718" y2="749.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 751)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">750</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="774.5" x2="718" y2="774.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 776)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">775</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="799.5" x2="718" y2="799.5"/>
 	<text transform="matrix(1 0 0 1 -94.3115 801)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">800</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="824.5" x2="718" y2="824.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 826)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">825</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="849.5" x2="718" y2="849.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 851)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">850</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="874.5" x2="718" y2="874.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 876)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">875</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="824.5" x2="718" y2="824.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 826)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">825</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="849.5" x2="718" y2="849.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 851)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">850</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="874.5" x2="718" y2="874.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 876)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">875</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="899.5" x2="718" y2="899.5"/>
 	<text transform="matrix(1 0 0 1 -94.3115 901)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">900</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="924.5" x2="718" y2="924.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 926)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">925</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="949.5" x2="718" y2="949.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 951)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">950</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="974.5" x2="718" y2="974.5"/>
-	<text transform="matrix(1 0 0 1 -94.3115 976)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">975</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="924.5" x2="718" y2="924.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 926)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">925</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="949.5" x2="718" y2="949.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 951)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">950</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="974.5" x2="718" y2="974.5"/>
+	<text transform="matrix(1 0 0 1 -94.3115 976)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">975</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="999.5" x2="718" y2="999.5"/>
 	<text transform="matrix(1 0 0 1 -98.4155 1001)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">1000</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1024.5" x2="718" y2="1024.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1026)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1025</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1049.5" x2="718" y2="1049.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1051)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1050</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1074.5" x2="718" y2="1074.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1076)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1075</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1024.5" x2="718" y2="1024.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1026)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1025</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1049.5" x2="718" y2="1049.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1051)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1050</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1074.5" x2="718" y2="1074.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1076)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1075</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="1099.5" x2="718" y2="1099.5"/>
 	<text transform="matrix(1 0 0 1 -98.4155 1101)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">1100</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1124.5" x2="718" y2="1124.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1126)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1125</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1149.5" x2="718" y2="1149.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1151)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1150</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1174.5" x2="718" y2="1174.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1176)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1175</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1124.5" x2="718" y2="1124.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1126)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1125</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1149.5" x2="718" y2="1149.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1151)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1150</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1174.5" x2="718" y2="1174.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1176)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1175</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="1199.5" x2="718" y2="1199.5"/>
 	<text transform="matrix(1 0 0 1 -98.4155 1201)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">1200</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1224.5" x2="718" y2="1224.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1226)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1225</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1249.5" x2="718" y2="1249.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1251)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1250</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1274.5" x2="718" y2="1274.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1276)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1275</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1224.5" x2="718" y2="1224.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1226)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1225</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1249.5" x2="718" y2="1249.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1251)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1250</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1274.5" x2="718" y2="1274.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1276)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1275</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="1299.5" x2="718" y2="1299.5"/>
 	<text transform="matrix(1 0 0 1 -98.4155 1301)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">1300</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1324.5" x2="718" y2="1324.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1326)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1325</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1349.5" x2="718" y2="1349.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1351)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1350</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1374.5" x2="718" y2="1374.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1376)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1375</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1324.5" x2="718" y2="1324.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1326)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1325</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1349.5" x2="718" y2="1349.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1351)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1350</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1374.5" x2="718" y2="1374.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1376)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1375</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="1399.5" x2="718" y2="1399.5"/>
 	<text transform="matrix(1 0 0 1 -98.4155 1401)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">1400</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1424.5" x2="718" y2="1424.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1426)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1425</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1449.5" x2="718" y2="1449.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1451)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1450</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="-80" y1="1474.5" x2="718" y2="1474.5"/>
-	<text transform="matrix(1 0 0 1 -98.4155 1476)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">1475</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1424.5" x2="718" y2="1424.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1426)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1425</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1449.5" x2="718" y2="1449.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1451)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1450</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="-80" y1="1474.5" x2="718" y2="1474.5"/>
+	<text transform="matrix(1 0 0 1 -98.4155 1476)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">1475</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-80" y1="1499.5" x2="718" y2="1499.5"/>
 	<text transform="matrix(1 0 0 1 -98.4155 1501)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">1500</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="-0.5" y1="-80" x2="-0.5" y2="1500"/>
-	<text transform="matrix(1 0 0 1 23 -83.6201)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">25</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="24.5" y1="-80" x2="24.5" y2="1500"/>
-	<text transform="matrix(1 0 0 1 48 -83.6201)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">50</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="49.5" y1="-80" x2="49.5" y2="1500"/>
-	<text transform="matrix(1 0 0 1 73 -83.6201)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">75</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="74.5" y1="-80" x2="74.5" y2="1500"/>
+	<text transform="matrix(1 0 0 1 23 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">25</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="24.5" y1="-80" x2="24.5" y2="1500"/>
+	<text transform="matrix(1 0 0 1 48 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">50</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="49.5" y1="-80" x2="49.5" y2="1500"/>
+	<text transform="matrix(1 0 0 1 73 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">75</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="74.5" y1="-80" x2="74.5" y2="1500"/>
 	<text transform="matrix(1 0 0 1 98 -83.6201)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">100</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="99.5" y1="-79" x2="99.5" y2="1501"/>
-	<text transform="matrix(1 0 0 1 123 -83.6201)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">125</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="124.5" y1="-80" x2="124.5" y2="1500"/>
-	<text transform="matrix(1 0 0 1 148 -83.6201)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">150</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="149.5" y1="-80" x2="149.5" y2="1500"/>
-	<text transform="matrix(1 0 0 1 173 -83.6201)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">175</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="174.5" y1="-80" x2="174.5" y2="1500"/>
+	<text transform="matrix(1 0 0 1 123 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">125</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="124.5" y1="-80" x2="124.5" y2="1500"/>
+	<text transform="matrix(1 0 0 1 148 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">150</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="149.5" y1="-80" x2="149.5" y2="1500"/>
+	<text transform="matrix(1 0 0 1 173 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">175</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="174.5" y1="-80" x2="174.5" y2="1500"/>
 	<text transform="matrix(1 0 0 1 198 -83.6201)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">200</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="199.5" y1="-80" x2="199.5" y2="1500"/>
-	<text transform="matrix(1 0 0 1 223 -83.6201)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">225</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="224.5" y1="-80" x2="224.5" y2="1500"/>
-	<text transform="matrix(1 0 0 1 248 -83.6201)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">250</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="249.5" y1="-80" x2="249.5" y2="1500"/>
-	<text transform="matrix(1 0 0 1 273 -83.6201)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">275</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="274.5" y1="-80" x2="274.5" y2="1500"/>
+	<text transform="matrix(1 0 0 1 223 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">225</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="224.5" y1="-80" x2="224.5" y2="1500"/>
+	<text transform="matrix(1 0 0 1 248 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">250</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="249.5" y1="-80" x2="249.5" y2="1500"/>
+	<text transform="matrix(1 0 0 1 273 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">275</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="274.5" y1="-80" x2="274.5" y2="1500"/>
 	<text transform="matrix(1 0 0 1 298 -83.6201)" display="inline" fill="#00FFFF" font-family="'Silkscreen'" font-size="8">300</text>
 	<line display="inline" fill="none" stroke="#00FFFF" x1="299.5" y1="-80" x2="299.5" y2="1500"/>
-	<text transform="matrix(1 0 0 1 323 -83.6201)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">325</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="324.5" y1="-80" x2="324.5" y2="1500"/>
-	<text transform="matrix(1 0 0 1 348 -83.6201)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">350</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="349.5" y1="-80" x2="349.5" y2="1500"/>
-	<text transform="matrix(1 0 0 1 373 -83.6201)" display="inline" fill="#A6FFFF" font-family="'Silkscreen'" font-size="8">375</text>
-	<line display="inline" fill="none" stroke="#A6FFFF" x1="374.5" y1="-80" x2="374.5" y2="1500"/>
+	<text transform="matrix(1 0 0 1 323 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">325</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="324.5" y1="-80" x2="324.5" y2="1500"/>
+	<text transform="matrix(1 0 0 1 348 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">350</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="349.5" y1="-80" x2="349.5" y2="1500"/>
+	<text transform="matrix(1 0 0 1 373 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">375</text>
+	<line display="inline" fill="none" stroke="#6BFFFF" x1="374.5" y1="-80" x2="374.5" y2="1500"/>
 	<rect x="375" y="124" display="inline" opacity="0.15" fill="#FF00FF" width="149" height="100"/>
 </g>
 </svg>

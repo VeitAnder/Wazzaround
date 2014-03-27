@@ -8,7 +8,14 @@ angular.module('anorakApp')
     };
   })
   .controller('RegistrationRegistrationforprovidersCtrl', function ($scope, $routeParams, $location, models, currentUser) {
-    $scope.registrant = {};
+    // TODO remove monkey patch to prefill fax and uid
+    $scope.registrant = {
+      profile: {
+        fax: " ",
+        uid: " "
+      }
+    };
+
     $scope.state = {
       submitted: false,
       registrationfailed: false

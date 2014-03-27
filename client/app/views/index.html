@@ -280,7 +280,7 @@
               >
             <h4>
               <span class="icon"></span>
-              {{m.name | languagefilter}}
+              {{m.name | languageselect}}
             </h4>
 
             <div class="img-block img-block-right">
@@ -298,8 +298,7 @@
 
             <div class="description">
               <!--<div class="input_label">Description</div>-->
-              <!--<div ta-bind ng-model="m.description"></div>-->
-              <div>{{m.description | languagefilter}}</div>
+              <div ta-bind ng-model="m.description[getAvailableTranslationLanguageKey(m.description)]"></div>
             </div>
 
             <div class="availability">
@@ -311,16 +310,16 @@
                 <div class="availability-entry"
                      ng-repeat="available in m.availability">
                   <div class="availability-title cell first">
-                    {{available.title | languagefilter}}
+                    {{available.title | languageselect}}
                   </div>
                   <div class="availability-date cell">
-                    {{moment(available.start).format('DD. MMM \'YY')}}
+                    {{ available.start | momentjs:{format: "DD. MMM YY"} }}
                   </div>
                   <div class="availability-time cell">
-                    {{moment(available.start).format('hh:mm a')}}
+                    {{ available.start | momentjs:{format: "hh:mm a"} }}
                   </div>
                   <div class="availability-duration cell">
-                    {{moment(available.duration).format('h')}}h
+                    {{ available.duration | momentjs:{format: "h"} }}h
                   </div>
                   <div class="availability-quantity cell">
                     {{available.quantity}}x
@@ -364,7 +363,7 @@
           </div>
 
         </window>
-        <marker-label content="m.name | languagefilter"
+        <marker-label content="m.name[getAvailableTranslationLanguageKey(m.name)]"
                       anchor="22 0"
                       class="marker-labels marker-label-category-{{m.category.main}}"
             />

@@ -2,7 +2,7 @@
   <h2>{{'Account' | translate}}</h2>
 
   <h3>
-    <span ng-show="activity.name">{{'Activity' | translate}}: {{activity.name | languagefilter}}</span>
+    <span ng-show="activity.name">{{'Activity' | translate}}: {{activity.name | languageselect}}</span>
     <span ng-show="!activity.name">{{'New activity' | translate}}</span>
   </h3>
 
@@ -80,7 +80,7 @@
             <marker coords="map.clickedMarker"
                     options="opts"
                     icon='getMarkerIcon()'
-                    content="activity.name | languagefilter"
+                    content="activity.name[getAvailableTranslationLanguageKey(activity.name)]"
                 >
             </marker>
             <!--<marker-label content="getMarkerLabel()"-->
@@ -352,8 +352,8 @@
                         ng-repeat="(idx,event) in bookableItem.events">
 
                 <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
-                  <div class="event-date cell">{{moment(event.start).format("ddd, MMM Do YY")}}</div>
-                  <div class="event-time cell">{{moment(event.start).format("h:mm a")}}</div>
+                  <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
+                  <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
                   <div class="event-quantity cell">{{event.quantity}}x</div>
                   <div class="listaction cell">
                     <a class="btn btn-mini btn-ordinary"

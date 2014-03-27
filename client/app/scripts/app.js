@@ -73,7 +73,6 @@ angular.module('anorakApp')
           }],
           resolvedActivities: ['models', 'currentUser', function (models, currentUser) {
             var defer = Q.defer();
-
             currentUser.load()
               .then(function (user) {
 
@@ -137,17 +136,15 @@ angular.module('anorakApp')
                     defer.reject(err);
                   });
               });
-
+//            deferred.resolve([]);
             return defer.promise;
-          }
-          ],
+          }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
           }]
         }
       })
-      .
-      when('/registration', {
+      .when('/registration', {
         templateUrl: 'views/page_basetemplate.html',
         controller: 'RegistrationPageCtrl'
       })
@@ -173,7 +170,7 @@ angular.module('anorakApp')
       })
       .when('/workwithus', {
         templateUrl: 'views/page_basetemplate.html',
-        controller: 'WorkwithusCtrl'
+        controller: 'WorkwithusPageCtrl'
       })
       .when('/login', {
         templateUrl: 'views/page_basetemplate.html',
@@ -1123,11 +1120,7 @@ angular.module('anorakApp')
       model.connection(connector);
     });
 
-    var lang = $translate.use();
-    if (!lang) {
-      lang = 'en';
-    }
-    moment.lang(lang);  // setup moment language
+    moment.lang($translate.use());  // setup moment language
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);
@@ -1162,7 +1155,25 @@ angular.module('anorakApp')
 
     });
 
-  });
+    // service to determine available language in case of ng-model binding in view
+    $rootScope.getAvailableTranslationLanguageKey = function (multilanguageobject) {
+      var availablelangkey = "";
+      if (multilanguageobject[$translate.use()]) {
+        availablelangkey = $translate.use();
+      } else {
+        if (multilanguageobject.en) {
+          availablelangkey = "en";
+        } else if (multilanguageobject.de) {
+          availablelangkey = "de";
+        } else if (multilanguageobject.it) {
+          availablelangkey = "it";
+        }
+      }
+      return availablelangkey;
+    };
+
+  }
+);
 
 // @TODO check logging if it is neccessary to start via DI?
 // DO not remove logging from DI list!

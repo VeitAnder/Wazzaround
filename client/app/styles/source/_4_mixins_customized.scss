@@ -54,6 +54,7 @@ header {
   overflow: hidden;
   display: block;
   max-width: 1200px - $col-left-width;
+  margin-bottom: 50px;
 }
 
 .controlpanel {
@@ -1661,7 +1662,6 @@ $img-selector-imgsize: 150px;
       width: 100%;
     }
   }
-  margin-bottom: 100px;
 }
 
 
@@ -2208,7 +2208,7 @@ label+.language-tabs{
   -o-transition: opacity 0.3s ease-in-out;
   -ms-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
-  background-image: url("../images/spritemap.png");
+//  background-image: url("../images/spritemap.png");
   background-repeat: no-repeat;
   background-position: 0 0;
   position: absolute;
@@ -2222,7 +2222,7 @@ label+.language-tabs{
 
 @media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5/1), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
   .dropzone .dz-default.dz-message {
-    background-image: url("../images/spritemap@2x.png");
+//    background-image: url("../images/spritemap@2x.png");
     -webkit-background-size: 428px 406px;
     -moz-background-size: 428px 406px;
     background-size: 428px 406px;
@@ -2301,7 +2301,7 @@ label+.language-tabs{
   -o-transition: opacity 0.4s ease-in-out;
   -ms-transition: opacity 0.4s ease-in-out;
   transition: opacity 0.4s ease-in-out;
-  background-image: url("../images/spritemap.png");
+//  background-image: url("../images/spritemap.png");
   background-repeat: no-repeat;
 }
 
@@ -2310,7 +2310,7 @@ label+.language-tabs{
   .dropzone-previews .dz-preview .dz-error-mark,
   .dropzone .dz-preview .dz-success-mark,
   .dropzone-previews .dz-preview .dz-success-mark {
-    background-image: url("../images/spritemap@2x.png");
+//    background-image: url("../images/spritemap@2x.png");
     -webkit-background-size: 428px 406px;
     -moz-background-size: 428px 406px;
     background-size: 428px 406px;
@@ -2353,7 +2353,7 @@ label+.language-tabs{
   left: 0;
   width: 0%;
   height: 100%;
-  background-image: url("../images/spritemap.png");
+//  background-image: url("../images/spritemap.png");
   background-repeat: repeat-x;
   background-position: 0px -400px;
 }
@@ -2361,7 +2361,7 @@ label+.language-tabs{
 @media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5/1), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
   .dropzone .dz-preview .dz-progress .dz-upload,
   .dropzone-previews .dz-preview .dz-progress .dz-upload {
-    background-image: url("../images/spritemap@2x.png");
+//    background-image: url("../images/spritemap@2x.png");
     -webkit-background-size: 428px 406px;
     -moz-background-size: 428px 406px;
     background-size: 428px 406px;

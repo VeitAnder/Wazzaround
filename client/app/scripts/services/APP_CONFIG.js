@@ -16,7 +16,7 @@ angular.module('anorakApp')
         debug: false,
         modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/",
         modelizerhost : $window.location.hostname,
-        modelizerport : 80,
+        modelizerport : 443,
         cloudinary : {
           cloud_name: 'www-reacture-com',
           api_key: '162329319871877'
