@@ -192,34 +192,7 @@ angular.module('anorakApp')
             return models.CategoryModel.all();
           }],
           activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.get($route.current.params.id)  // 1. load activity
-              .then(function (activity) {
-                // load bookable items
-                var loadingBookableItems = [];
-                _.forEach(activity.bookableItems, function (item) {
-                  loadingBookableItems.push(item.load());              // 2. load items
-                });
-
-                return Q.all(loadingBookableItems)
-                  .then(function (items) {
-                    var loadingEvents = [];
-                    _.forEach(items, function (item) {
-                      _.forEach(item.events, function (event) {
-                        loadingEvents.push(event.load());              // 3. load events
-                      });
-                    });
-
-                    return Q.all(loadingEvents);
-                  })
-                  .then(function (events) {
-                    debug("loaded activity", activity);
-                    return activity;  // return the activity, when all bookableItems have been loaded
-                  });
-              })
-              .fail(function (err) {
-                debug("Fail loading activities in the myactivities route", err);
-              })
-              ;
+            return models.ActivityModel.get($route.current.params.id)
           }]
         }
       })
@@ -240,33 +213,7 @@ angular.module('anorakApp')
         controller: 'AdminMyactivitiesDetailCtrl',
         resolve: {
           activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.get($route.current.params.id)  // 1. load activity
-              .then(function (activity) {
-                // load bookable items
-                var loadingBookableItems = [];
-                _.forEach(activity.bookableItems, function (item) {
-                  loadingBookableItems.push(item.load());              // 2. load items
-                });
-
-                return Q.all(loadingBookableItems)
-                  .then(function (items) {
-                    var loadingEvents = [];
-                    _.forEach(items, function (item) {
-                      _.forEach(item.events, function (event) {
-                        loadingEvents.push(event.load());              // 3. load events
-                      });
-                    });
-
-                    return Q.all(loadingEvents);
-                  })
-                  .then(function (events) {
-                    debug("loaded activity", activity);
-                    return activity;  // return the activity, when all bookableItems have been loaded
-                  });
-              })
-              .fail(function (err) {
-                debug("Fail loading activities in the myactivities route", err);
-              });
+            return models.ActivityModel.get($route.current.params.id);
           }]
         }
       })

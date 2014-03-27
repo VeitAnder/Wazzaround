@@ -86,20 +86,21 @@ angular.module('anorakApp')
     };
 
     $scope.removeEvent = function (item, idx) {
-      if (item.events[idx]._reference) {
-        item.events[idx].ref().remove().done();
-      }  // if already persisted
-      item.events.splice(idx, 1);  // remove from array
+ //TODO
+//      if (item.events[idx]._reference) {
+//        item.events[idx].ref().remove().done();
+//      }  // if already persisted
+//      item.events.splice(idx, 1);  // remove from array
     };
 
     $scope.removeItem = function (item, idx) {
-
-      _.forEach(item.events, function (event) {  // remove saved events
-        console.log("TODO: remove this event");   // TODO
-      });
-
-      item.remove().done();
-      $scope.activity.bookableItems.splice(idx, 1);
+ //TODO
+//      _.forEach(item.events, function (event) {  // remove saved events
+//        console.log("TODO: remove this event");   // TODO
+//      });
+//
+//      item.remove().done();
+//      $scope.activity.bookableItems.splice(idx, 1);
     };
 
     $scope.moment = moment;
@@ -206,7 +207,6 @@ angular.module('anorakApp')
 
       $scope.additionalFormChecks();
 
-      // TODO: validierung ist im Arsch!
       if ($scope.valForm.$valid && $scope.additionalFormChecks()) {
 
         // check if there was only a marker set or an address entered
@@ -215,27 +215,7 @@ angular.module('anorakApp')
           $scope.activity.longitude = $scope.map.clickedMarker.longitude;
         }
 
-        Q()
-          .then(function () {
-            var saveEventsPromises = [];
-            _.forEach($scope.activity.bookableItems, function (item) {
-              _.forEach(item.ref().events, function (event) {
-                saveEventsPromises.push(event.ref().save());  // save the events
-              });
-            });
-            return Q.all(saveEventsPromises);
-          })
-          .then(function (events) {
-            var savePromises = [];
-            _.forEach($scope.activity.bookableItems, function (item) {
-              savePromises.push(item.ref().save());  // save the items
-            });
-            return Q.all(savePromises);
-          })
-          .then(function (items) {  // all BookableItems are saved
-            debug("all results", items);
-            return $scope.activity.save();  // save the activity
-          })
+        $scope.activity.save()  // save the activity
           .then(function (activity) {
             debug("SAVED ACTIVITY");
             $location.path("/admin/myactivities/");
@@ -253,15 +233,7 @@ angular.module('anorakApp')
     };
 
     $scope.delete = function () {
-      var deletePromises = [];
-      _.forEach($scope.activity.bookableItems, function (item) {
-        deletePromises.push(item.ref().remove());
-      });
-
-      Q.all(deletePromises)
-        .then(function (results) {
-          return $scope.activity.remove();
-        })
+      $scope.activity.remove()
         .then(function () {
           $location.path("/admin/myactivities/");
           $scope.$apply();

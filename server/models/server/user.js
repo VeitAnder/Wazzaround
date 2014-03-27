@@ -49,8 +49,11 @@ UserModel.operationImpl("register", function (params, req) {
   var user = models.UserModel.create();
   user.email = params.email.toLowerCase();
   user.password = params.password;
-  if (params.profile){
-    user.profile = params.profile;
+  if (params.profile) {
+    for (var i in params.profile) {
+      user.profile[i] = params.profile[i];
+    }
+    //user.profile = params.profile;
   }
   // set userType if provided
   // todo: check validity of userType by checking other required fields e.g. of userType provider

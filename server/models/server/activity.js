@@ -28,6 +28,7 @@ ActivityModel.readFilter(function (req) {
   //return true;
 });
 
+// TODO: das ist nur so kompliziert, weil delete das doc aus der datenbank hohlt...
 ActivityModel.writeFilter(function (doc, req) {
   if (!req.session.auth) {
     return false;  // if not logged in don't allow write operations
@@ -39,18 +40,26 @@ ActivityModel.writeFilter(function (doc, req) {
 
     if (!doc.owner._reference) {  // prevent admin from stealing ownership
       doc.owner._reference = ObjectId(req.session.user._id);
+
     } else { // todo: bug beim speichern von _references: wird als string statt object gespeichert!! :-(
-      doc.owner._reference = ObjectId(doc.owner._reference);
+
+      var ownerRef = doc.owner._reference;
+      if (!(doc.owner._reference instanceof ObjectId)) { // workaround for delete
+        ownerRef = ObjectId(ownerRef);
+      }
+
+      doc.owner._reference = ownerRef;
     }
 
     return true;  // allow global access to admin-user
   }
 
-
   var ownerRef = doc.owner._reference;
   if (doc.owner._reference instanceof ObjectId) { // workaround for delete
     ownerRef = ownerRef.toString();
   }
+
+
   // don't allow to save activities where the user is not the owner
   if (doc._id !== undefined && ownerRef !== req.session.user._id) {
     return false;

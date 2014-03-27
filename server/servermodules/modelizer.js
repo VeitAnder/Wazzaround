@@ -7,7 +7,7 @@
  */
 
 var model = require('modelizer');
-//var model = require('../../../../modelizer/lib/modelizer.js');
+//var model = require('../../../modelizer/lib/modelizer');
 
 var config = require('../config.js');
 

@@ -288,7 +288,7 @@
 
               <div ng-show="bookableItem.deletemode">
                 {{'Delete bookable item with all events?' | translate}}
-                <a ng-click="removeItem(bookableItem.ref(), idx)"
+                <a ng-click="removeItem(bookableItem, idx)"
                    class="btn btn-alert btn-mini space-left"
                     >{{'yes, delete' | translate}}
                 </a>
@@ -309,7 +309,7 @@
               <input type="text"
                      class="form-control"
                      placeholder="{{'Bookable item description placeholder' | translate}}"
-                     ng-model="bookableItem.ref().description[getInputLanguage()]"
+                     ng-model="bookableItem.description[getInputLanguage()]"
                   >
 
             </div>
@@ -320,7 +320,7 @@
                      class="form-control"
                      id="itemDuration"
                      placeholder="{{'Duration in hours' | translate}}"
-                     ng-model="bookableItem.ref().duration"
+                     ng-model="bookableItem.duration"
                   >
             </div>
 
@@ -330,7 +330,7 @@
                      class="form-control"
                      id="itemPrice"
                      placeholder="{{'Price in €' | translate}}"
-                     ng-model="bookableItem.ref().price"
+                     ng-model="bookableItem.price"
                   >
             </div>
 
@@ -349,19 +349,19 @@
               </div>
 
               <eventrow class="event-row"
-                        ng-repeat="(idx,event) in bookableItem.ref().events">
+                        ng-repeat="(idx,event) in bookableItem.events">
 
                 <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
-                  <div class="event-date cell">{{moment(event.ref().start).format("ddd, MMM Do YY")}}</div>
-                  <div class="event-time cell">{{moment(event.ref().start).format("h:mm a")}}</div>
-                  <div class="event-quantity cell">{{event.ref().quantity}}x</div>
+                  <div class="event-date cell">{{moment(event.start).format("ddd, MMM Do YY")}}</div>
+                  <div class="event-time cell">{{moment(event.start).format("h:mm a")}}</div>
+                  <div class="event-quantity cell">{{event.quantity}}x</div>
                   <div class="listaction cell">
                     <a class="btn btn-mini btn-ordinary"
                        ng-click="event.mode = 'edit'">
                       <span>{{'edit' | translate}}</span>
                     </a>
                     <a class="btn btn-mini btn-alert btn-ordinary"
-                       ng-click="removeEvent(bookableItem.ref(), idx)">
+                       ng-click="removeEvent(bookableItem, idx)">
                       <span>{{'delete' | translate}}</span>
                     </a>
                   </div>
@@ -374,7 +374,7 @@
                     <input type="text"
                            size="10"
                            class="form-control"
-                           ng-model="event.ref().start"
+                           ng-model="event.start"
                            data-autoclose="0"
                            placeholder="{{'Date' | translate}}"
                            bs-datepicker>
@@ -383,7 +383,7 @@
                     <input type="text"
                            size="8"
                            class="form-control"
-                           ng-model="event.ref().start"
+                           ng-model="event.start"
                            data-autoclose="0"
                            placeholder="{{'Time' | translate}}"
                            bs-timepicker
@@ -395,7 +395,7 @@
                            class="form-control"
                            id="quantity"
                            placeholder="{{'Quantity' | translate}}"
-                           ng-model="event.ref().quantity"
+                           ng-model="event.quantity"
                         >
                   </div>
 
@@ -403,58 +403,58 @@
                     <div class="checkbox">
                       <label>
                         <input type="checkbox"
-                               ng-model="event.ref().repeating">
+                               ng-model="event.repeating">
                         {{'repeating' | translate}}
                       </label>
                     </div>
                     <div class="repeating"
-                         ng-show="event.ref().repeating">
+                         ng-show="event.repeating">
                       <div class="checkbox">
                         <label>
                           <input type="checkbox"
-                                 ng-model="event.ref().dayOfWeek.Mon">
+                                 ng-model="event.dayOfWeek.Mon">
                           {{'Mon' | translate}}
                         </label>
                       </div>
                       <div class="checkbox">
                         <label>
                           <input type="checkbox"
-                                 ng-model="event.ref().dayOfWeek.Tue">
+                                 ng-model="event.dayOfWeek.Tue">
                           {{'Tue' | translate}}
                         </label>
                       </div>
                       <div class="checkbox">
                         <label>
                           <input type="checkbox"
-                                 ng-model="event.ref().dayOfWeek.Wed">
+                                 ng-model="event.dayOfWeek.Wed">
                           {{'Wed' | translate}}
                         </label>
                       </div>
                       <div class="checkbox">
                         <label>
                           <input type="checkbox"
-                                 ng-model="event.ref().dayOfWeek.Thu">
+                                 ng-model="event.dayOfWeek.Thu">
                           {{'Thu' | translate}}
                         </label>
                       </div>
                       <div class="checkbox">
                         <label>
                           <input type="checkbox"
-                                 ng-model="event.ref().dayOfWeek.Fri">
+                                 ng-model="event.dayOfWeek.Fri">
                           {{'Fri' | translate}}
                         </label>
                       </div>
                       <div class="checkbox">
                         <label>
                           <input type="checkbox"
-                                 ng-model="event.ref().dayOfWeek.Sat">
+                                 ng-model="event.dayOfWeek.Sat">
                           {{'Sat' | translate}}
                         </label>
                       </div>
                       <div class="checkbox">
                         <label>
                           <input type="checkbox"
-                                 ng-model="event.ref().dayOfWeek.Son">
+                                 ng-model="event.dayOfWeek.Son">
                           {{'Sun' | translate}}
                         </label>
                       </div>
@@ -462,7 +462,7 @@
                       <div class="form-group date-until">
                         <input type="text"
                                class="form-control"
-                               ng-model="event.ref().end"
+                               ng-model="event.end"
                                data-min-date="today"
                                placeholder="{{'Until' | translate}}"
                                bs-datepicker
@@ -476,7 +476,7 @@
 
                   <div class="buttonbar">
                     <a class="btn btn-small"
-                       ng-click="event.mode = 'view'; createEventSeries(bookableItem.ref(), event.ref())"
+                       ng-click="event.mode = 'view'; createEventSeries(bookableItem, event)"
                         >{{'save event' | translate}}
                     </a>
 
@@ -487,7 +487,7 @@
                     <!--</a>-->
 
                     <a ng-show="event.mode == 'new'"
-                       ng-click="removeEvent(bookableItem.ref(), $index)"
+                       ng-click="removeEvent(bookableItem, $index)"
                        class="space-left">
                       cancel
                     </a>
@@ -500,7 +500,7 @@
 
               <div class="event-add">
                 <a class="txt-icon-add"
-                   ng-click="createEvent(bookableItem.ref())">
+                   ng-click="createEvent(bookableItem)">
                   <span class="btn-icon-left"></span>
                   {{'Add new Event' | translate}}
                 </a>

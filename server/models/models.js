@@ -2,11 +2,18 @@
 
 var models = function () {
 
+//  if (typeof window === 'undefined') {
+//    var model = require('../../../modelizer/lib/modelizer');
+//  } else {
+//    var model = require('modelizer');
+//  }
   var model = require('modelizer');
+
 
   var Attr = model.Attr;
   var Type = model.Attr.Types;
   var Ref = model.Ref;
+  var ObjArray = model.ObjArray;
   var RefArray = model.RefArray;
   var Operation = model.Operation;
   var Factory = model.Factory;
@@ -34,8 +41,8 @@ var models = function () {
       city: Attr(Type.string),
       zip: Attr(Type.string),
       tel: Attr(Type.string),
-      fax: Attr(Type.string, Attr.default('')),
-      uid: Attr(Type.string, Attr.default('')),
+      fax: Attr(Type.string),
+      uid: Attr(Type.string),
       country: Attr(Type.string),
       contactperson: {
         name: Attr(Type.string)
@@ -74,7 +81,7 @@ var models = function () {
     price: Attr(Type.number),
     duration: Attr(Type.number),
 
-    events: RefArray(EventModel),
+    events: ObjArray(EventModel),
 
     owner: Ref(UserModel)
   });
@@ -116,7 +123,7 @@ var models = function () {
     longitude: Attr(Type.number),
     latitude: Attr(Type.number),
 
-    bookableItems: RefArray(BookableItemModel),
+    bookableItems: ObjArray(BookableItemModel),
 
     // TODO security: der user könnte das hier schon auf true setzten
     published: Attr(Type.boolean, Attr.default(false)),
