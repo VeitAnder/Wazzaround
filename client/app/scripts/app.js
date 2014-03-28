@@ -633,7 +633,9 @@ angular.module('anorakApp')
       "Please enter the name of the account owner": "Please enter the name of the account owner",
       "yes, delete": "yes, delete",
       "no": "no",
-      "Delete bookable item with all events?": "Delete bookable item with all events?"
+      "Delete bookable item with all events?": "Delete bookable item with all events?",
+      "Please select a location.": "Please select a location."
+
     });
 
     $translateProvider.translations('de', {
@@ -879,9 +881,10 @@ angular.module('anorakApp')
       "Account owner": "Account owner",
       "Name of account owner": "Name of account owner",
       "Please enter the name of the account owner": "Please enter the name of the account owner",
-      "yes, delete": "yes, delete",
+      "yes, delete": "ja, löschen",
       "no": "no",
-      "Delete bookable item with all events?": "Delete bookable item with all events?"
+      "Delete bookable item with all events?": "Dieses Event und alle Daten löschen?",
+      "Please select a location.": "Bitte wählen Sie einen Ort."
 
     });
 
@@ -1058,31 +1061,31 @@ angular.module('anorakApp')
       "Edit your Profile": "Modifica il tuo profilo",
       "Publish Activities": "",
       "This is the admin/allActivities view": "",
-      "Activity": "",
+      "Activity": "Attività",
       "Main Category": "Categoria principale",
       "Sub Category": "Sottocategoria",
       "Location": "Posizione",
       "publish": "",
       "unpublish": "",
       "Administration overview": "",
-      "delete": "",
-      "Your activity is published": "",
-      "Your activity isnt published yet": "",
-      "Company offering this activity": "compagnia che offre il servizio/attività",
-      "back to my activities": "",
-      "edit": "",
+      "delete": "cancellare",
+      "Your activity is published": "La vostra attività è pubblicato",
+      "Your activity isnt published yet": "La tua attività non è ancora pubblicato",
+      "Company offering this activity": "Compagnia che offre il servizio/attività",
+      "back to my activities": "torna alle mie attività",
+      "edit": "modifica",
       "Please create bookable events.": "",
       "Please upload an image.": "",
-      "Please enter the name of the activity/activities.": "",
-      "Please enter the name of your company.": "Please enter the name of your company.",
+      "Please enter the name of the activity/activities.": "Si prega di inserire il nome dell'attività",
+      "Please enter the name of your company.": "Si prega d'inserire il  nome dell'attività.",
       "save event": "",
-      "New activity": "",
+      "New activity": "Nuova attività",
       "Global Activity Info": "Informazioni generali sull attività",
       "Name of Activity or Activities": "Nome dell' attività",
       "Meeting spot of this activity": "Punto d'incontro per questa attività",
-      "Enter address of meeting spot": "",
+      "Enter address of meeting spot": "Si prega di inserire l'indirizzo del punto di riunione",
       "Submit address": "Invia indirizzo",
-      "Click in map to reposition location of activity": "",
+      "Click in map to reposition location of activity": "Clicca sulla mappa per riposizionare la localizzazione delle attività",
       "Select Main Category": "",
       "You can choose 2 Subcategories at most": "",
       "You must choose at least 1 Subcategory": "",
@@ -1109,7 +1112,7 @@ angular.module('anorakApp')
       "remove": "",
       "save": "",
       "cancel": "",
-      "Enter company": "",
+      "Enter company": "Inserire ditta",
       "Access denied": "",
       "add activity": "aggiungere attività",
       "Profile": "Profil",
@@ -1125,12 +1128,13 @@ angular.module('anorakApp')
       "BIC": "BIC",
       "Your BIC": "Your BIC",
       "Please enter your BIC": "Please enter your BIC",
-      "Account owner": "Account owner",
+      "Account owner": "Intestatario del conto",
       "Name of account owner": "Name of account owner",
       "Please enter the name of the account owner": "Please enter the name of the account owner",
-      "yes, delete": "yes, delete",
+      "yes, delete": "si, cancellare",
       "no": "no",
-      "Delete bookable item with all events?": "Delete bookable item with all events?"
+      "Delete bookable item with all events?": "Delete bookable item with all events?",
+      "Please select a location.": "Si prega di selezionare una posizione."
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
