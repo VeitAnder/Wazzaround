@@ -822,7 +822,7 @@ angular.module('anorakApp')
       "Account owner": "Account owner",
       "Name of account owner": "Name of account owner",
       "Please enter the name of the account owner": "Please enter the name of the account owner",
-      "yes, delete": "yes, delete",
+      "yes, delete": "ja, löschen",
       "no": "no",
       "Delete bookable item with all events?": "Delete bookable item with all events?"
 
@@ -1009,7 +1009,7 @@ angular.module('anorakApp')
       "publish": "",
       "unpublish": "",
       "Administration overview": "",
-      "delete": "",
+      "delete": "cancellare",
       "Your activity is published": "",
       "Your activity isnt published yet": "",
       "Company offering this activity": "compagnia che offre il servizio/attività",
@@ -1069,10 +1069,10 @@ angular.module('anorakApp')
       "BIC": "BIC",
       "Your BIC": "Your BIC",
       "Please enter your BIC": "Please enter your BIC",
-      "Account owner": "Account owner",
+      "Account owner": "Intestatario del conto",
       "Name of account owner": "Name of account owner",
       "Please enter the name of the account owner": "Please enter the name of the account owner",
-      "yes, delete": "yes, delete",
+      "yes, delete": "si cancellare",
       "no": "no",
       "Delete bookable item with all events?": "Delete bookable item with all events?"
     });
