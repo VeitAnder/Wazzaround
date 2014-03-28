@@ -13,14 +13,23 @@ angular.module('anorakApp')
   })
   .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, activitybackendmap, $route, $rootScope, $translate) {
 
-//    $translate('Your unsaved data will be lost if you leave this page').then(function (leavepagequestion) {
-//      $scope.$on("$locationChangeStart", function (event) {
-//        var leavepage = confirm(leavepagequestion);
-//        if (!leavepage) {
-//          event.preventDefault();
-//        }
-//      });
-//    });
+    $translate('Your unsaved data will be lost if you leave this page').then(function (leavepagequestion) {
+      $scope.$on("$locationChangeStart", function (event) {
+        var leavepage;
+        if (!$scope.noDataEntered() && !$scope.state.saveinprogress) {
+          leavepage = confirm(leavepagequestion);
+          if (!leavepage) {
+            event.preventDefault();
+          }
+        }
+      });
+    });
+
+    $scope.originalActivity = {};
+
+    $scope.noDataEntered = function () {
+      return angular.equals($scope.originalActivity, $scope.activity);
+    };
 
     //only check once at initialization time
     if ($route.current.$$route.originalPath === "/admin/myactivities/new") {
@@ -31,13 +40,16 @@ angular.module('anorakApp')
 
     // don't initialize activity and category if a new one is created
     // otherwise already entered data will vanisch on language change!
-    if (!$scope.newMode){
+    if (!$scope.newMode) {
       $scope.categories = $scope.$parent.categories;
       $scope.activity = $scope.$parent.activity;
+
+      $scope.originalActivity = angular.copy($scope.activity);
     }
 
     $scope.state = {
       submitted: false,
+      saveinprogress: false,
       formfieldslanguage: {
         name: "",
         description: ""
@@ -228,6 +240,8 @@ angular.module('anorakApp')
           $scope.activity.longitude = $scope.map.clickedMarker.longitude;
         }
 
+        $scope.state.saveinprogress = true;
+
         Q()
           .then(function () {
             var saveEventsPromises = [];
@@ -356,7 +370,6 @@ angular.module('anorakApp')
         $scope.state.additionalformchecks.bookableevents = false;
         valid = false;
       }
-
 
       // check for bookableItems
       if ($scope.activity.category && $scope.activity.category.subs.length > 0) {
