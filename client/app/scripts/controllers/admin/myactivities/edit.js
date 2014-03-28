@@ -13,6 +13,8 @@ angular.module('anorakApp')
   })
   .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, activitybackendmap, $route, $rootScope, $translate) {
 
+    console.log("AdminMyactivitiesEditCtrl executed");
+
     $translate('Your unsaved data will be lost if you leave this page').then(function (leavepagequestion) {
       $scope.$on("$locationChangeStart", function (event) {
         var leavepage;
