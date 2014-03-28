@@ -8,13 +8,9 @@ angular.module('anorakApp')
     };
   })
   .controller('RegistrationRegistrationforprovidersCtrl', function ($scope, $routeParams, $location, models, currentUser) {
-    // TODO remove monkey patch to prefill fax and uid
-    $scope.registrant = {
-      profile: {
-        fax: " ",
-        uid: " "
-      }
-    };
+    // don't initalize registrant here - overrides all data when changing language !!
+    // @TODO write test case for this
+    // $scope.registrant = {};
 
     $scope.state = {
       submitted: false,
@@ -32,6 +28,17 @@ angular.module('anorakApp')
       $scope.state.submitted = true;
 
       if ($scope.valForm.$valid) {
+
+        // TODO remove monkey patch to prefill fax and uid
+        if (!$scope.registrant.profile.fax) {
+          $scope.registrant.profile.fax = " ";
+        }
+
+        if (!$scope.registrant.profile.uid) {
+          $scope.registrant.profile.uid = " ";
+        }
+        // end monkey patch
+
         user = angular.copy($scope.registrant);
         user.password = CryptoJS.SHA256($scope.registrant.password).toString(CryptoJS.enc.Base64);
         user.userType = "provider";
