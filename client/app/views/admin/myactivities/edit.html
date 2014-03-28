@@ -282,13 +282,13 @@
 
               <div class="buttonbar buttonbar-top">
 
-              <a ng-click="bookableItem.deletemode = true"
-                 ng-show="!bookableItem.deletemode"
-                 class="txt-icon-delete">{{'Delete Item' | translate}}
-                <span class="btn-icon-right"></span>
-              </a>
+                <a ng-click="bookableItem.deletemode = true"
+                   ng-show="!bookableItem.deletemode"
+                   class="txt-icon-delete">{{'Delete Item' | translate}}
+                  <span class="btn-icon-right"></span>
+                </a>
 
-              <div ng-show="bookableItem.deletemode">
+                <div ng-show="bookableItem.deletemode">
                   {{'Delete bookable item with all events?' | translate}}
                   <a ng-click="removeItem(bookableItem, idx)"
                      class="btn btn-alert btn-mini space-left"
@@ -431,9 +431,6 @@
                       </span>
                     </div>
 
-
-
-
                     <div class="event-new-repeat">
                       <div class="checkbox">
                         <label>
@@ -451,81 +448,79 @@
                             {{'Mon' | translate}}
                           </label>
                         </div>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"
-                                 ng-model="event.dayOfWeek.Tue">
-                          {{'Tue' | translate}}
-                        </label>
-                      </div>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"
-                                 ng-model="event.dayOfWeek.Wed">
-                          {{'Wed' | translate}}
-                        </label>
-                      </div>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"
-                                 ng-model="event.dayOfWeek.Thu">
-                          {{'Thu' | translate}}
-                        </label>
-                      </div>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"
-                                 ng-model="event.dayOfWeek.Fri">
-                          {{'Fri' | translate}}
-                        </label>
-                      </div>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"
-                                 ng-model="event.dayOfWeek.Sat">
-                          {{'Sat' | translate}}
-                        </label>
-                      </div>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"
-                                 ng-model="event.dayOfWeek.Son">
-                          {{'Sun' | translate}}
-                        </label>
-                      </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox"
+                                   ng-model="event.dayOfWeek.Tue">
+                            {{'Tue' | translate}}
+                          </label>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox"
+                                   ng-model="event.dayOfWeek.Wed">
+                            {{'Wed' | translate}}
+                          </label>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox"
+                                   ng-model="event.dayOfWeek.Thu">
+                            {{'Thu' | translate}}
+                          </label>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox"
+                                   ng-model="event.dayOfWeek.Fri">
+                            {{'Fri' | translate}}
+                          </label>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox"
+                                   ng-model="event.dayOfWeek.Sat">
+                            {{'Sat' | translate}}
+                          </label>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox"
+                                   ng-model="event.dayOfWeek.Son">
+                            {{'Sun' | translate}}
+                          </label>
+                        </div>
 
-                      <div class="form-group date-until">
-                        <input type="text"
-                               class="form-control"
-                               ng-model="event.end"
-                               data-min-date="today"
-                               placeholder="{{'Until' | translate}}"
-                               bs-datepicker
-                               autoclose="true"
-                               name="dateuntil"
-                            >
+                        <div class="form-group date-until">
+                          <input type="text"
+                                 class="form-control"
+                                 ng-model="event.end"
+                                 data-min-date="today"
+                                 placeholder="{{'Until' | translate}}"
+                                 bs-datepicker
+                                 autoclose="true"
+                                 name="dateuntil"
+                              >
+                        </div>
+
                       </div>
 
                     </div>
 
-                  </div>
+                    <div class="buttonbar">
+                      <a class="btn btn-small"
+                         ng-click="event.mode = 'view'; createEventSeries(bookableItem, event)"
+                          >{{'save event' | translate}}
+                      </a>
 
-                  <div class="buttonbar">
-                    <a class="btn btn-small"
-                       ng-click="event.mode = 'view'; createEventSeries(bookableItem, event)"
-                        >{{'save event' | translate}}
-                    </a>
+                      <a ng-show="event.mode == 'new'"
+                         ng-click="removeEvent(bookableItem, $index)"
+                         class="space-left">
+                        cancel
+                      </a>
 
+                    </div>
 
-                    <a ng-show="event.mode == 'new'"
-                       ng-click="removeEvent(bookableItem, $index)"
-                       class="space-left">
-                      cancel
-                    </a>
-
-                  </div>
-
-           
                   </ng-form>
                 </eventedit>
 
