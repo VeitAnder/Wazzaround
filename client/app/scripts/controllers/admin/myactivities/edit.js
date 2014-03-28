@@ -29,6 +29,13 @@ angular.module('anorakApp')
       $scope.newMode = false;
     }
 
+    // don't initialize activity and category if a new one is created
+    // otherwise already entered data will vanisch on language change!
+    if (!$scope.newMode){
+      $scope.categories = $scope.$parent.categories;
+      $scope.activity = $scope.$parent.activity;
+    }
+
     $scope.state = {
       submitted: false,
       formfieldslanguage: {
@@ -40,9 +47,6 @@ angular.module('anorakApp')
         bookableevents: true
       }
     };
-
-    $scope.categories = $scope.$parent.categories;
-    $scope.activity = $scope.$parent.activity;
 
     $scope.createEventSeries = function (item, event) {
       console.log("createRepeatingEvents called", item, event);
@@ -350,6 +354,15 @@ angular.module('anorakApp')
         $scope.state.additionalformchecks.bookableevents = true;
       } else {
         $scope.state.additionalformchecks.bookableevents = false;
+        valid = false;
+      }
+
+
+      // check for bookableItems
+      if ($scope.activity.category && $scope.activity.category.subs.length > 0) {
+        $scope.state.additionalformchecks.subcategories = true;
+      } else {
+        $scope.state.additionalformchecks.subcategories = false;
         valid = false;
       }
 
