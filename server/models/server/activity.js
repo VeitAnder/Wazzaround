@@ -22,10 +22,24 @@ ActivityModel.readFilter(function (req) {
 
   if (req.session.auth) {  // if logged in
     return true;  // allow global read access
+
+    if (req.session.user.userType === 'user') {
+      return {published:true};
+    }
+
+    if (req.session.user.userType === 'provider') {
+      return { "$or" : [ {published:true}, {owner : ObjectId(res.session.user._id) }] };
+    }
+
+    if (req.session.user.userType === 'admin') {
+      return true;  // kann alles lesen
+    }
+
+    return false;  //der rest (sollte nicht passieren) kann nix lesen
   }
 
+  // für nicht eingeloggt user:
   return {published:true};  //filter published Activities
-  //return true;
 });
 
 // TODO: das ist nur so kompliziert, weil delete das doc aus der datenbank hohlt...

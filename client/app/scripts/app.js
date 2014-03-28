@@ -72,72 +72,7 @@ angular.module('anorakApp')
             return models.CategoryModel.all();
           }],
           resolvedActivities: ['models', 'currentUser', function (models, currentUser) {
-            var defer = Q.defer();
-            currentUser.load()
-              .then(function (user) {
-
-                var resolvedActivities = [];
-
-                models.ActivityModel.all()
-                  // loading activities, then bookable items of activities
-                  .then(function (activities) {
-
-                    // Only admin user sees all activities
-                    resolvedActivities = activities;
-
-                    // Normal user only sees published activities on main page
-                    if (user.user === null || user.user.userType === 'user') {
-                      resolvedActivities = _.filter(resolvedActivities, function (activity) {
-                        return activity.published === true;
-                      });
-                    }
-
-                    // Provider user sees all activities where he/she is the owner plus all published of others
-                    else if (user.user.userType === 'provider') {
-                      resolvedActivities = _.filter(resolvedActivities, function (activity) {
-                        return activity.published || activity.owner._reference === user.user._id;
-                      });
-                    }
-
-                    var allBookableItemsInAllActivities = [];
-                    _.each(resolvedActivities, function (activity) {
-                      _.forEach(activity.bookableItems, function (item) {
-                        allBookableItemsInAllActivities = allBookableItemsInAllActivities.concat(item.load());
-                      });
-                    });
-
-                    // loading events
-                    return Q.all(allBookableItemsInAllActivities)
-                      .then(function (bookableItems) {
-//                        debug("loadedBookableItems", bookableItems);
-                        if (bookableItems.length === 0) {
-                          defer.resolve(resolvedActivities);
-
-                        } else {
-                          var loadingEvents = [];
-                          _.forEach(bookableItems, function (bookableItem) {
-                            _.forEach(bookableItem.events, function (event) {
-                              loadingEvents.push(event.load());              // 3. load events
-                            });
-                            // all loaded
-                            return Q.all(loadingEvents)
-                              .then(function (events) {
-//                                debug("loaded events", events);
-                                defer.resolve(resolvedActivities);
-                              });
-
-                          });
-                        }
-                      });
-                  })
-
-                  .fail(function (err) {
-                    debug("Fail loading activities in the myactivities route", err);
-                    defer.reject(err);
-                  });
-              });
-//            deferred.resolve([]);
-            return defer.promise;
+            return models.ActivityModel.all();
           }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
@@ -254,35 +189,7 @@ angular.module('anorakApp')
         controller: 'ActivityPageCtrl',
         resolve: {     // TODO shall be included in Operator of Activitymodel!
           activity: ['$route', 'models', function ($route, models) {
-            var activity;
-
-            return models.ActivityModel.get($route.current.params.id)
-              .then(function (activityFromServer) {
-                activity = activityFromServer;
-
-                // load bookable items
-                var loadingBookableItems = [];
-                _.forEach(activity.bookableItems, function (item) {
-                  loadingBookableItems.push(item.load());
-                });
-                return Q.all(loadingBookableItems);
-              })
-              .then(function (res) {
-                console.log("loadingBookableItems", res);
-                var loadingEvents = [];
-                _.forEach(activity.bookableItems, function (item) {
-                  _.each(item.ref().events, function (event) {
-                    loadingEvents.push(event.load());
-                  });
-                });
-                return Q.all(loadingEvents);
-              })
-              .then(function (res) {
-                return activity;  // return the activity, when all bookableItems and all their events have been loaded
-              })
-              .fail(function (err) {
-                console.log("Fail loading activities in the myactivities route", err);
-              });
+            return models.ActivityModel.get($route.current.params.id);
           }]
         }
       })
