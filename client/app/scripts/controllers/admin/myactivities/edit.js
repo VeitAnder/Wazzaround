@@ -13,6 +13,15 @@ angular.module('anorakApp')
   })
   .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, activitybackendmap, $route, $rootScope, $translate) {
 
+//    $translate('Your unsaved data will be lost if you leave this page').then(function (leavepagequestion) {
+//      $scope.$on("$locationChangeStart", function (event) {
+//        var leavepage = confirm(leavepagequestion);
+//        if (!leavepage) {
+//          event.preventDefault();
+//        }
+//      });
+//    });
+
     //only check once at initialization time
     if ($route.current.$$route.originalPath === "/admin/myactivities/new") {
       $scope.newMode = true;
@@ -347,14 +356,12 @@ angular.module('anorakApp')
       return valid;
     };
 
-    $scope.$watch(function(){
+    $scope.$watch(function () {
       return $scope.activity;
     }, function (oldVal, newVal) {
-      if ($scope.state.submitted){
+      if ($scope.state.submitted) {
         $scope.additionalFormChecks();
       }
     }, true);
-
-
 
   });

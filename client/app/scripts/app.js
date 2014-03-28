@@ -634,8 +634,8 @@ angular.module('anorakApp')
       "yes, delete": "yes, delete",
       "no": "no",
       "Delete bookable item with all events?": "Delete bookable item with all events?",
-      "Please select a location.": "Please select a location."
-
+      "Please select a location.": "Please select a location.",
+      "Your unsaved data will be lost if you leave this page": "Your unsaved data will be lost if you leave this page"
     });
 
     $translateProvider.translations('de', {
@@ -882,10 +882,10 @@ angular.module('anorakApp')
       "Name of account owner": "Name of account owner",
       "Please enter the name of the account owner": "Please enter the name of the account owner",
       "yes, delete": "ja, löschen",
-      "no": "no",
+      "no": "nein",
       "Delete bookable item with all events?": "Dieses Event und alle Daten löschen?",
-      "Please select a location.": "Bitte wählen Sie einen Ort."
-
+      "Please select a location.": "Bitte wählen Sie einen Ort.",
+      "Your unsaved data will be lost if you leave this page": "Ihre ungespeicherten Daten gehen verloren wenn Sie diese Seite jetzt verlassen"
     });
 
     $translateProvider.translations('it', {
@@ -1134,7 +1134,8 @@ angular.module('anorakApp')
       "yes, delete": "si, cancellare",
       "no": "no",
       "Delete bookable item with all events?": "Delete bookable item with all events?",
-      "Please select a location.": "Si prega di selezionare una posizione."
+      "Please select a location.": "Si prega di selezionare una posizione.",
+      "Your unsaved data will be lost if you leave this page": "I vostri dati non ancora salvati andranno persi se si lascia questa pagina"
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
