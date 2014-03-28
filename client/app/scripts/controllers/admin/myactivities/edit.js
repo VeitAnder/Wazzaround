@@ -353,6 +353,15 @@ angular.module('anorakApp')
         valid = false;
       }
 
+
+      // check for bookableItems
+      if ($scope.activity.category && $scope.activity.category.subs.length > 0) {
+        $scope.state.additionalformchecks.subcategories = true;
+      } else {
+        $scope.state.additionalformchecks.subcategories = false;
+        valid = false;
+      }
+
       return valid;
     };
 
