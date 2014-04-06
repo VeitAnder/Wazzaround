@@ -89,7 +89,7 @@ ActivityModel.writeFilter(function (doc, req) {
 ///////////////////////
 // Operation Impl.
 
-
+//TODO: braucht man eigentlich nicht mehr... (get alles über all())
 ActivityModel.factoryImpl("getMyActivities", function (params, req) {
   if (!req.session.auth) {
     return false;  // if not logged operation not allowed
@@ -99,6 +99,24 @@ ActivityModel.factoryImpl("getMyActivities", function (params, req) {
 });
 
 
+ActivityModel.factoryImpl("filteredActivities", function (params, req) {
+
+  //var startDate = new Date(params.startDate);
+  //var endDate = new Date(params.endDate);
+
+
+  return models.ActivityModel.find({
+    'longitude': {
+      "$gte": params.from.longitude, "$lt": params.to.longitude
+    },
+    'latitude': {
+      "$gte": params.from.latitude, "$lt": params.to.latitude
+    }
+  });
+
+});
+
+//TODO: funktioniert mit dem neuen Modell eh nicht... brauch man das?
 ActivityModel.factoryImpl("getActivitiesFilterByTime", function (params, req) {
   console.log("getActivitiesFilterByTime called", params.activitiesIds);
 

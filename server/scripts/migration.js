@@ -23,12 +23,20 @@ var modelizer = require('modelizer');
 
 var models = require('../models/models');
 
+//var mongoTrg = {
+//  username: 'reactureappdev',
+//    password: 'pGjRLG72qvXBGo',
+//    dbName: 'reactureappdev',                                // The name of database that contains the security information
+//    host: 'ds027419.mongolab.com',                         // mongolab mongodb connection url
+//    port: '27419'
+//};
+
 var mongoTrg = {
-  username: 'reactureappdev',
-    password: 'pGjRLG72qvXBGo',
-    dbName: 'reactureappdev',                                // The name of database that contains the security information
-    host: 'ds027419.mongolab.com',                         // mongolab mongodb connection url
-    port: '27419'
+  username: 'reactureapp',
+    password: 'pDDbi6FYWsVUftsH9',
+    dbName: 'reacture_migrate',                                // The name of database that contains the security information
+    host: 'ds035557.mongolab.com',                         // mongolab mongodb connection url
+    port: '35557'
 };
 
 var mongoSrc = {
@@ -41,25 +49,26 @@ var mongoSrc = {
 };
 
 var dbTrg = mongojs('mongodb://'+ mongoTrg.username + ':' + mongoTrg.password + '@'+ mongoTrg.host + ':' + mongoTrg.port  + '/' + mongoTrg.dbName);
-//var dbSrc = mongojs('mongodb://'+ mongoSrc.username + ':' + mongoSrc.password + '@'+ mongoSrc.host + ':' + mongoSrc.port  + '/' + mongoSrc.dbName);
-
-var connector = modelizer.MongoConnector(dbTrg);
-models.ActivityModel.connection(connector);
+var dbSrc = mongojs('mongodb://'+ mongoSrc.username + ':' + mongoSrc.password + '@'+ mongoSrc.host + ':' + mongoSrc.port  + '/' + mongoSrc.dbName);
 
 
-//var copyCollection = function(src, trg, col) {
-//
-//  var srcCol = src.collection(col);
-//  var trgCol = trg.collection(col);
-//
-//  trgCol.drop();
-//
-//  srcCol.find({}).forEach(function (err, doc) {
-//    if (!err && doc) {
-//      trgCol.insert(doc);
-//    }
-//  })
-//}
+//var connector = modelizer.MongoConnector(dbTrg);
+//models.ActivityModel.connection(connector);
+
+
+var copyCollection = function(src, trg, col) {
+
+  var srcCol = src.collection(col);
+  var trgCol = trg.collection(col);
+
+  trgCol.drop();
+
+  srcCol.find({}).forEach(function (err, doc) {
+    if (!err && doc) {
+      trgCol.insert(doc);
+    }
+  })
+}
 
 
 /////////// Migration
@@ -67,6 +76,7 @@ models.ActivityModel.connection(connector);
 var Server = require("mongo-sync").Server;
 var serverSrc = new Server(mongoSrc.host + ':' + mongoSrc.port);
 
+/*
 var Fiber = require('fibers');
 Fiber(function() {
 
@@ -124,9 +134,10 @@ Fiber(function() {
   process.exit(1);
 
 }).run();
+*/
 
 
-//copyCollection(dbSrc, dbTrg, "users");
+copyCollection(dbSrc, dbTrg, "users");
 
 
 /*

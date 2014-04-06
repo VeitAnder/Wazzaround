@@ -127,11 +127,23 @@ var models = function () {
 
     owner: Ref(UserModel),
 
-    getMyActivities: Factory(),
-    getActivitiesFilterByTime: Factory({
+    getMyActivities: Factory(),  // Do not use
+
+    getActivitiesFilterByTime: Factory({  // Do not use
       activitiesIds: Type.ObjectId,
       startDate: Type.date,
       endDate: Type.date
+    }),
+
+    filteredActivities : Factory({
+      from: {  // links oben
+        longitude: Attr(Type.number),
+        latitude: Attr(Type.number)
+      },
+      to: {  // rechts unten
+        longitude: Attr(Type.number),
+        latitude: Attr(Type.number)
+      }
     })
   });
 
