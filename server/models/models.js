@@ -9,7 +9,6 @@ var models = function () {
 //  }
   var model = require('modelizer');
 
-
   var Attr = model.Attr;
   var Type = model.Attr.Types;
   var Ref = model.Ref;
@@ -135,7 +134,7 @@ var models = function () {
       endDate: Type.date
     }),
 
-    filteredActivities : Factory({
+    filteredActivities: Factory({
       from: {  // links oben
         longitude: Attr(Type.number),
         latitude: Attr(Type.number)
@@ -143,7 +142,9 @@ var models = function () {
       to: {  // rechts unten
         longitude: Attr(Type.number),
         latitude: Attr(Type.number)
-      }
+      },
+      startDate: Attr(Type.date), // optional
+      endDate: Attr(Type.date) //optional
     })
   });
 
