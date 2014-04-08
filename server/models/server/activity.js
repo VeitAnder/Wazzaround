@@ -89,21 +89,38 @@ ActivityModel.writeFilter(function (doc, req) {
 ///////////////////////
 // Operation Impl.
 
-//TODO: braucht man eigentlich nicht mehr... (get alles über all())
-ActivityModel.factoryImpl("getMyActivities", function (params, req) {
-  if (!req.session.auth) {
-    return false;  // if not logged operation not allowed
-  }
-
-  return models.ActivityModel.find({'owner._reference': ObjectId(req.session.user._id)});
-});
-
-
 ActivityModel.factoryImpl("filteredActivities", function (params, req) {
 
-  //var startDate = new Date(params.startDate);
-  //var endDate = new Date(params.endDate);
+  if (!params.from || !params.to) {
+    console.log("Missing some parameters", params);
+    return;
+  }
 
+  if (params.startDate && params.endDate) {  // search with date-rage
+    var startDate = new Date(params.startDate);
+    var endDate = new Date(params.endDate);
+
+    return models.ActivityModel.find({
+      'longitude': {
+        "$gte": params.from.longitude, "$lt": params.to.longitude
+      },
+      'latitude': {
+        "$gte": params.from.latitude, "$lt": params.to.latitude
+      },
+      bookableItems: {
+        $elemMatch: {
+          events: {
+            $elemMatch: {
+              start: {
+                '$gt' : startDate,
+                '$lt': endDate
+              }
+            }
+          }
+        }
+      }
+    });
+  }
 
   return models.ActivityModel.find({
     'longitude': {
@@ -113,71 +130,5 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
       "$gte": params.from.latitude, "$lt": params.to.latitude
     }
   });
-
-});
-
-//TODO: funktioniert mit dem neuen Modell eh nicht... brauch man das?
-ActivityModel.factoryImpl("getActivitiesFilterByTime", function (params, req) {
-  console.log("getActivitiesFilterByTime called", params.activitiesIds);
-
-  var activities = _.map(params.activitiesIds, function (el) {
-    return { _id: ObjectId(el) };
-  });
-  var startDate = new Date(params.startDate);
-  var endDate = new Date(params.endDate);
-  //var activitiesIds = ["53159ee56733ddc32152606b", "53159f7a6733ddc32152606e"];
-  //var activities = _.map(activitiesIds, function(el) { return {_id:ObjectId(el)};})
-  //var startDate = new Date("2014-04-04T09:37:27.859Z");
-  //var endDate = new Date("2010-06-18T09:37:27.859Z");
-
-  return models.ActivityModel.find({'$or': activities})
-    .then(function (activites) {
-      var activitiesPromises = [];
-      _.forEach(activites, function (activity) {
-        var itemPromises = [];
-
-        _.forEach(activity.bookableItems, function (item) {
-
-          itemPromises.push(
-            models.BookableItemModel.find({
-              _id: ObjectId(item._reference),
-              events: {
-                '$elemMatch': {
-                  start: {
-                    '$gt': startDate,
-                    '$lt': endDate
-                  }
-                }
-              }
-            })
-          );
-        });
-
-        activitiesPromises.push(
-          Q.all(itemPromises)
-            .then(function (items) {
-              var hasAResult = false;
-              _.forEach(items, function (el) {
-                if (Array.isArray(el) && el.length > 0) {
-                  hasAResult = true;
-                }
-              })
-              //console.log("items", items);
-              //console.log("has Result", hasAResult);
-
-              if (hasAResult) {
-                return activity;
-              }
-            })
-        );
-      });
-
-      return Q.all(activitiesPromises)
-        .then(function (activities) {
-          return _.filter(activities, function (el) {
-            return el != undefined;
-          });
-        });
-    });
 
 });
