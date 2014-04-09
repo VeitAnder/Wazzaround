@@ -7,14 +7,11 @@
  * Created by jonathan on 19.03.14.
  */
 
-var Q = require('q');
 var moment = require('moment');
 moment.lang('en');
 
 var ObjectId = require('mongojs').ObjectId;
-var _ = require('lodash');
 
-var models = require('../models.js');
 var EventModel = require('../models.js').EventModel;
 
 
