@@ -256,5 +256,8 @@ angular.module('anorakApp')
       $scope.moment.lang($translate.use());
     });
 
+    // initialize map to set center to user's current location
+    // TODO zusammenführen mit initialize Activities
+    frontendmap.initializeMapWithUserSearchLocation($scope.map);
 
   });

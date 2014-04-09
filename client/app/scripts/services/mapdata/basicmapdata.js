@@ -206,6 +206,23 @@ angular.module('anorakApp')
               return res.data.results;
             });
         },
+        initializeMapWithUserSearchLocation: function (map) {
+
+          function setInitPositionOnMap(position) {
+            map.centerMarker.latitude = position.coords.latitude;
+            map.centerMarker.longitude = position.coords.longitude;
+            map.center.latitude = position.coords.latitude;
+            map.center.longitude = position.coords.longitude;
+            $rootScope.$broadcast("MapChangeEvent");
+          }
+
+          function couldNotGetInitPosition(err) {
+            debug("Could not set initial location, will initialize with default Torino", err);
+          }
+
+          navigator.geolocation.getCurrentPosition(setInitPositionOnMap, couldNotGetInitPosition);
+
+        },
         map: {
           address: "",
           center: {

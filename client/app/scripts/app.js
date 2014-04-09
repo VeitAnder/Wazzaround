@@ -72,72 +72,7 @@ angular.module('anorakApp')
             return models.CategoryModel.all();
           }],
           resolvedActivities: ['models', 'currentUser', function (models, currentUser) {
-            var defer = Q.defer();
-            currentUser.load()
-              .then(function (user) {
-
-                var resolvedActivities = [];
-
-                models.ActivityModel.all()
-                  // loading activities, then bookable items of activities
-                  .then(function (activities) {
-
-                    // Only admin user sees all activities
-                    resolvedActivities = activities;
-
-                    // Normal user only sees published activities on main page
-                    if (user.user === null || user.user.userType === 'user') {
-                      resolvedActivities = _.filter(resolvedActivities, function (activity) {
-                        return activity.published === true;
-                      });
-                    }
-
-                    // Provider user sees all activities where he/she is the owner plus all published of others
-                    else if (user.user.userType === 'provider') {
-                      resolvedActivities = _.filter(resolvedActivities, function (activity) {
-                        return activity.published || activity.owner._reference === user.user._id;
-                      });
-                    }
-
-                    var allBookableItemsInAllActivities = [];
-                    _.each(resolvedActivities, function (activity) {
-                      _.forEach(activity.bookableItems, function (item) {
-                        allBookableItemsInAllActivities = allBookableItemsInAllActivities.concat(item.load());
-                      });
-                    });
-
-                    // loading events
-                    return Q.all(allBookableItemsInAllActivities)
-                      .then(function (bookableItems) {
-//                        debug("loadedBookableItems", bookableItems);
-                        if (bookableItems.length === 0) {
-                          defer.resolve(resolvedActivities);
-
-                        } else {
-                          var loadingEvents = [];
-                          _.forEach(bookableItems, function (bookableItem) {
-                            _.forEach(bookableItem.events, function (event) {
-                              loadingEvents.push(event.load());              // 3. load events
-                            });
-                            // all loaded
-                            return Q.all(loadingEvents)
-                              .then(function (events) {
-//                                debug("loaded events", events);
-                                defer.resolve(resolvedActivities);
-                              });
-
-                          });
-                        }
-                      });
-                  })
-
-                  .fail(function (err) {
-                    debug("Fail loading activities in the myactivities route", err);
-                    defer.reject(err);
-                  });
-              });
-//            deferred.resolve([]);
-            return defer.promise;
+            return models.ActivityModel.all();
           }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
@@ -254,35 +189,7 @@ angular.module('anorakApp')
         controller: 'ActivityPageCtrl',
         resolve: {     // TODO shall be included in Operator of Activitymodel!
           activity: ['$route', 'models', function ($route, models) {
-            var activity;
-
-            return models.ActivityModel.get($route.current.params.id)
-              .then(function (activityFromServer) {
-                activity = activityFromServer;
-
-                // load bookable items
-                var loadingBookableItems = [];
-                _.forEach(activity.bookableItems, function (item) {
-                  loadingBookableItems.push(item.load());
-                });
-                return Q.all(loadingBookableItems);
-              })
-              .then(function (res) {
-                console.log("loadingBookableItems", res);
-                var loadingEvents = [];
-                _.forEach(activity.bookableItems, function (item) {
-                  _.each(item.ref().events, function (event) {
-                    loadingEvents.push(event.load());
-                  });
-                });
-                return Q.all(loadingEvents);
-              })
-              .then(function (res) {
-                return activity;  // return the activity, when all bookableItems and all their events have been loaded
-              })
-              .fail(function (err) {
-                console.log("Fail loading activities in the myactivities route", err);
-              });
+            return models.ActivityModel.get($route.current.params.id);
           }]
         }
       })
@@ -495,6 +402,7 @@ angular.module('anorakApp')
       "Date": "Date",
       "Time": "Time",
       "Duration": "Duration",
+      "Duration in hours": "Duration in hours",
       "Qty": "Qty.",
       "Logout": "Logout",
       "add Image": "add Image",
@@ -575,7 +483,9 @@ angular.module('anorakApp')
       "Please enter the name of the account owner": "Please enter the name of the account owner",
       "yes, delete": "yes, delete",
       "no": "no",
-      "Delete bookable item with all events?": "Delete bookable item with all events?"
+      "Delete bookable item with all events?": "Delete bookable item with all events?",
+      "Please select a location.": "Please select a location.",
+      "Your unsaved data will be lost if you leave this page": "Your unsaved data will be lost if you leave this page"
     });
 
     $translateProvider.translations('de', {
@@ -744,6 +654,7 @@ angular.module('anorakApp')
       "Date": "Datum",
       "Time": "Zeit",
       "Duration": "Dauer",
+      "Duration in hours": "Dauer in Stunden",
       "Qty": "Menge",
       "Logout": "Logout",
       "add Image": "Bild hinzufügen",
@@ -887,123 +798,123 @@ angular.module('anorakApp')
       "Medical Treatments": "Trattamenti medici specifici",
       "Spa & Sauna": "Spa & Sauna",
       "Your current search location": "Posizione di ricerca",
-      "You want to put": "",
-      "your Activities": "",
-      "to reacture": "",
+      "You want to put": "Vuoi mettere",
+      "your Activities": "le vostre attività",
+      "to reacture": "al reActure",
       "Account": "Conto",
       "Login": "Entra",
       "Password": "Password",
       "Not registered": "Non registrata?",
-      "Not registered as Provider": "Register as activity provider now!",
+      "Not registered as Provider": "Registrati come fornitore di attività ora!",
       "Forgot password": "Dimenticato la password?",
       "Your e-mail address": "Vostro indirizzo email",
       "Your password": "Vostra password",
-      "Invalid Password": "",
-      "User not found": "",
-      "Shopping Cart": "",
-      "Why reacture reasons": "",
-      "Register": "",
+      "Invalid Password": "Password non valida",
+      "User not found": "Non trovato",
+      "Shopping Cart": "Carrello della spesa",
+      "Why reacture reasons": "ReActure è una grande piattaforma per l'offerta e trovare le attività intorno a te.",
+      "Register": "Registrati",
       "Quality": "Qualità",
-      "online and offline": "",
-      "marketing": "",
-      "International": "",
-      "Plattform": "",
-      "One-Stop Philosophy": "",
-      "Local": "",
-      "Get": "",
-      "instant bookings": "",
+      "online and offline": "online e offline",
+      "marketing": "marketing",
+      "International": "internazionale",
+      "Plattform": "Piattaforma",
+      "One-Stop Philosophy": "La filosofia One-stop",
+      "Local": "Regionale",
+      "Get": "Ottenere",
+      "instant bookings": "prenota subito",
       "from": "dal",
-      "potential clients": "",
-      "in your area": "",
-      "No fixed costs": "",
-      "provision based model": "",
-      "No reservation costs": "",
-      "Secure": "",
-      "booking": "",
-      "Quality managment": "",
+      "potential clients": "potenziali clienti",
+      "in your area": "nella tua zona",
+      "No fixed costs": "Nessun costo fisso",
+      "provision based model": "Prestazione basato su modello",
+      "No reservation costs": "Nessun costo di prenotazione",
+      "Secure": "Sicura",
+      "booking": "prenotazione",
+      "Quality managment": "gestione della qualità",
       "through administrated rating system": "",
-      "Registration": "",
-      "Please enter your e-mail address.": "",
-      "Please enter a valid e-mail address.": "",
-      "Password must meet the following requirements:": "",
-      "At least": "",
-      "one uppercase letter": "",
-      "one number": "",
-      "8 characters long": "",
-      "Retype Password": "",
-      "Please retype the password.": "",
-      "The passwords have to match.": "",
-      "back to login": "",
-      "User already exists": "",
-      "Enter your new password": "",
-      "New Password": "",
-      "Password must meet the following requirements": "",
-      "Repeat new password": "",
-      "Passwords dont match": "",
-      "Please fill out this field": "",
-      "Save new password": "",
-      "The new password was successfully saved": "",
-      "An error happened. The new password could not be saved": "",
-      "password requirements": "",
-      "Your new password": "",
-      "Retype your new password": "",
-      "Retype your password": "Geben Sie Ihr Passwort nochmals ein",
-      "Define your password": "",
+      "Registration": "Registrazione",
+      "Please enter your e-mail address.": "Si prega di inserire il vostro indirizzo e-mail",
+      "Please enter a valid e-mail address.": "Si prega di inserire un indirizzo e-mail valido",
+      "Password must meet the following requirements:": "La password deve contenere almeno",
+      "At least": "Almen/o",
+      "one uppercase letter": "una lettera maiuscola",
+      "one number": "un numero",
+      "8 characters long": "8 caratteri",
+      "Retype Password": "Ripetere la password",
+      "Please retype the password.": "Si prega di ripetere la password",
+      "The passwords have to match.": "Le password devono corrispondere",
+      "back to login": "torna alla Login",
+      "User already exists": "Esistente già",
+      "Enter your new password": "Inserisca il Suo nuova password",
+      "New Password": "Nuova password",
+      "Repeat new password": "Ripete nuova password",
+      "Passwords dont match": "Le password non corrispondono",
+      "Please fill out this field": "Si prega di compilare questo campo",
+      "Save new password": "Salvare la nuova password",
+      "The new password was successfully saved": "La nuova password è stata salvata con successo",
+      "An error happened. The new password could not be saved": "È accaduto un errore. Impossibile salvare la nuova password",
+      "password requirements": "La password deve contenere almeno una lettera maiuscola, un numero e deve avere una lunghezza minima di 8.",
+      "Your new password": "Il suo nuova password",
+      "Retype your new password": "Ripetere la nuova password",
+      "Retype your password": "Ripetere la password",
+      "Define your password": "Inserire una password",
       "Request a link to reset your password": "",
-      "The link to reset your password was successfully sent to": "",
-      "This user does not exist. Check if the email address is correct": "",
-      "An error happened. The email to reset your password could not be sent": "",
-      "Registration for Activity Providers": "",
-      "Company": "",
-      "Your company": "",
-      "Please enter your company": "",
-      "First name": "",
-      "Your first name": "",
-      "Please enter your first name": "",
-      "Last name": "",
-      "Your last name": "",
-      "Please enter your last name": "",
-      "Telephone": "",
-      "Your telephone number": "",
-      "Please enter your telephone number": "",
-      "Fax": "",
-      "Your fax number": "",
-      "Please enter your fax number": "",
-      "Address": "",
-      "Your address": "",
-      "Please enter your address": "",
-      "Zip": "",
-      "Your zip code": "",
-      "Please enter your zip code": "",
-      "City": "",
-      "Your city": "",
-      "Please enter your city": "",
-      "Country": "",
-      "Your country": "",
-      "Please enter your country": "",
-      "Name of contact person": "",
-      "Please enter the name of the contact person": "",
-      "UID optional": "",
-      "Your UID number": "",
+      "The link to reset your password was successfully sent to": "Il link per reimpostare la password è stata inviata con successo al",
+      "This user does not exist. Check if the email address is correct": "Non esiste. Controllare se l'indirizzo email è corretto",
+      "An error happened. The email to reset your password could not be sent": "È accaduto un errore. L'e-mail per reimpostare la password non ha potuto essere inviato",
+      "Registration for Activity Providers": "Registrazione per fornitori di attività",
+      "Company": "Attività",
+      "Your company": "La vostra attività",
+      "Please enter your company": "Si prega d'inserire la vostra attività",
+      "First name": "Nome",
+      "Your first name": "Il vostro nome",
+      "Please enter your first name": "Si prega d'inserire il vostro nome",
+      "Last name": "Cognome",
+      "Your last name": "Il vostro cognome",
+      "Please enter your last name": "Si prega d'inserire il vostro cognome",
+      "Telephone": "Telefono",
+      "Your telephone number": "Il vostro numero di telefono",
+      "Please enter your telephone number": "Si prega d'inserire il vostro numero di telefono",
+      "Fax": "Fax",
+      "Your fax number": "Il vostro numero di fax",
+      "Please enter your fax number": "Si prega d'inserire il vostro numero di fax",
+      "Address": "Indirizzo",
+      "Your address": "Il vostro indirizzo",
+      "Please enter your address": "Si prega d'inserire il vostro indirizzo",
+      "Zip": "Codice postale",
+      "Your zip code": "Il vostro codice postale",
+      "Please enter your zip code": "Si prega d'inserire il vostro codice postale",
+      "City": "Città",
+      "Your city": "La vostra città",
+      "Please enter your city": "Si prega d'inserire la vostra città",
+      "Country": "Paese",
+      "Your country": "Il vostro paese",
+      "Please enter your country": "Si prega d'inserire il vostro paese",
+      "Name of contact person": "Nome di un contatto",
+      "Please enter the name of the contact person": "Si prega d'inserire un nome di un contatto",
+      "UID optional": "UID opzionale",
+      "Your UID number": "Il vostro UID",
       "Your location": "La tua posizione",
-      "Find": "",
-      "From": "",
+      "Find": "Trovare",
+      "From": "Di",
       "until": "al",
       "Until": "Al",
-      "No events to display yet": "",
-      "Event": "",
-      "Date": "",
-      "Time": "",
-      "Duration": "",
-      "Qty": "",
-      "Logout": "",
+      "No events to display yet": "Non ci sono eventi da visualizzare ancora",
+      "Event": "Evento",
+      "Date": "Data",
+      "Time": "Ora",
+      "Duration": "Durata",
+      "Duration in hours": "Durata in ore",
+      "Qty": "Quantità",
+      "Logout": "Logout",
       "add Image": "aggiungere immagini",
       "My Activities": "Le mie attività",
       "Admin All Activities": "",
       "Edit your Profile": "Modifica il tuo profilo",
-      "Publish Activities": "",
-      "This is the admin/allActivities view": "",
-      "Activity": "",
+      "Publish Activities": "Pubblicare attività",
+      "This is the admin/allActivities view": "Questa è la pagina di admin/tutte le attività",
+      "Activity": "Attività",
       "Main Category": "Categoria principale",
       "Sub Category": "Sottocategoria",
       "Location": "Posizione",
@@ -1025,48 +936,48 @@ angular.module('anorakApp')
       "Global Activity Info": "Informazioni generali sull attività",
       "Name of Activity or Activities": "Nome dell' attività",
       "Meeting spot of this activity": "Punto d'incontro per questa attività",
-      "Enter address of meeting spot": "",
+      "Enter address of meeting spot": "Si prega di inserire l'indirizzo del punto di riunione",
       "Submit address": "Invia indirizzo",
-      "Click in map to reposition location of activity": "",
-      "Select Main Category": "",
-      "You can choose 2 Subcategories at most": "",
-      "You must choose at least 1 Subcategory": "",
-      "Description": "",
-      "Images": "",
-      "What can be booked": "",
+      "Click in map to reposition location of activity": "Clicca sulla mappa per riposizionare la localizzazione delle attività",
+      "Select Main Category": "Seleziona categoria principale",
+      "You can choose 2 Subcategories at most": "È possibile scegliere due sottocategorie al massimo",
+      "You must choose at least 1 Subcategory": "È necessario scegliere almeno 1 Sottocategoria",
+      "Description": "Descrizione",
+      "Images": "Immagini",
+      "What can be booked": "Quali possono essere prenotati",
       "create a new event": "Creare una nuova attività prenotabile",
-      "create a bookable item": "Create a bookable Item",
-      "Price in €": "",
-      "Price": "",
-      "Delete Item": "",
-      "Schedule Event": "",
-      "Add Event": "",
-      "Add new Event": "",
-      "Quantity": "",
-      "repeating": "",
-      "Mon": "",
-      "Tue": "",
-      "Wed": "",
-      "Thu": "",
-      "Fri": "",
-      "Sat": "",
-      "Sun": "",
-      "remove": "",
-      "save": "",
-      "cancel": "",
-      "Enter company": "",
-      "Access denied": "",
+      "create a bookable item": "Creare un elemento prenotabile",
+      "Price in €": "Prezzo in €",
+      "Price": "Prezzo",
+      "Delete Item": "Elimina",
+      "Schedule Event": "Evento Schedule",
+      "Add Event": "Aggiungere evento",
+      "Add new Event": "Aggiungere nuovo evento",
+      "Quantity": "Quantità",
+      "repeating": "ripetere",
+      "Mon": "Lun",
+      "Tue": "Mar",
+      "Wed": "Mer",
+      "Thu": "Gio",
+      "Fri": "Ven",
+      "Sat": "Sab",
+      "Sun": "Dom",
+      "remove": "cancellare",
+      "save": "salvare",
+      "cancel": "cancellare",
+      "Enter company": "Inserire ditta",
+      "Access denied": "Accesso negato",
       "add activity": "aggiungere attività",
       "Profile": "Profil",
-      "Edit Profile": "Edit user profile",
+      "Edit Profile": "Modifica profilo utente",
       "Bookable item description placeholder": "per esempio 4 ore tour (500ccm)",
-      "Bank account": "Bank account",
-      "Bank": "Bank",
-      "Name of your Bank": "Name of your Bank",
-      "Please enter the name of your Bank": "Please enter the name of your Bank",
+      "Bank account": "Conto corrente bancario",
+      "Bank": "Banka",
+      "Name of your Bank": "Nome del vostro Bank",
+      "Please enter the name of your Bank": "Si prega di inserire il nome del vostro Bank",
       "IBAN": "IBAN",
-      "Your IBAN": "Your IBAN",
-      "Please enter your IBAN": "Please enter your IBAN",
+      "Your IBAN": "Il vostro IBAN",
+      "Please enter your IBAN": "Si prega di inserire il vostro IBAN",
       "BIC": "BIC",
       "Your BIC": "Il vostro BIC",
       "Please enter your BIC": "Si prega di inserire il vostro BIC",
@@ -1075,7 +986,9 @@ angular.module('anorakApp')
       "Please enter the name of the account owner": "Si prega di inserire il nome del titolare del conto",
       "yes, delete": "si, cancellare",
       "no": "no",
-      "Delete bookable item with all events?": "Delete bookable item with all events?"
+      "Delete bookable item with all events?": "Elimina voce prenotabile con tutti gli eventi?",
+      "Please select a location.": "Si prega di selezionare una posizione.",
+      "Your unsaved data will be lost if you leave this page": "I vostri dati non ancora salvati andranno persi se si lascia questa pagina"
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
