@@ -9,7 +9,7 @@ angular.module('anorakApp')
     $scope.activities = activities;
 
     $scope.open = function (activity) {
-      $location.path("/admin/allActivities/" + activity._id + "/");
+      $location.path("/admin/allactivities/" + activity._id + "/");
     };
 
     $scope.toggle = function(activity) {

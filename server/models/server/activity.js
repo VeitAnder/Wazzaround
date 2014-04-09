@@ -25,10 +25,12 @@ ActivityModel.readFilter(function (req) {
     }
 
     if (req.session.user.userType === 'provider') {
-      return { "$or": [
-        {published: true},
-        {owner: ObjectId(req.session.user._id) }
-      ] };
+      return {
+        "$or": [
+          { published: true },
+          { "owner._reference": ObjectId(req.session.user._id) }
+        ]
+      };
     }
 
     if (req.session.user.userType === 'admin') {
@@ -95,7 +97,6 @@ ActivityModel.factoryImpl("getMyActivities", function (params, req) {
 
   return models.ActivityModel.find({'owner._reference': ObjectId(req.session.user._id)});
 });
-
 
 ActivityModel.factoryImpl("filteredActivities", function (params, req) {
 
