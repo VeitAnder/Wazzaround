@@ -95,7 +95,9 @@ ActivityModel.factoryImpl("getMyActivities", function (params, req) {
     return false;  // if not logged operation not allowed
   }
 
-  return models.ActivityModel.find({'owner._reference': ObjectId(req.session.user._id)});
+  return models.ActivityModel.find({
+    'owner._reference': ObjectId(req.session.user._id)
+  });
 });
 
 ActivityModel.factoryImpl("filteredActivities", function (params, req) {
