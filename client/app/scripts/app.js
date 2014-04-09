@@ -189,7 +189,7 @@ angular.module('anorakApp')
             return models.CategoryModel.all();
           }],
           activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.get($route.current.params.id)
+            return models.ActivityModel.get($route.current.params.id);
           }]
         }
       })
@@ -227,7 +227,7 @@ angular.module('anorakApp')
           }]
         }
       })
-      .when('/admin/allActivities', {
+      .when('/admin/allactivities', {
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminAllactivitiesCtrl',
         resolve: {
@@ -236,7 +236,7 @@ angular.module('anorakApp')
           }]
         }
       })
-      .when('/admin/allActivities/:id/', {
+      .when('/admin/allactivities/:id/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesDetailCtrl',
         resolve: {

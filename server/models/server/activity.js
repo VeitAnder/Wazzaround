@@ -19,17 +19,18 @@ ActivityModel.readFilter(function (req) {
   // allow global read access
 
   if (req.session.auth) {  // if logged in
-    return true;  // allow global read access
 
     if (req.session.user.userType === 'user') {
       return {published: true};
     }
 
     if (req.session.user.userType === 'provider') {
-      return { "$or": [
-        {published: true},
-        {owner: ObjectId(req.session.user._id) }
-      ] };
+      return {
+        "$or": [
+          { published: true },
+          { "owner._reference": ObjectId(req.session.user._id) }
+        ]
+      };
     }
 
     if (req.session.user.userType === 'admin') {
@@ -88,6 +89,14 @@ ActivityModel.writeFilter(function (doc, req) {
 
 ///////////////////////
 // Operation Impl.
+
+ActivityModel.factoryImpl("getMyActivities", function (params, req) {
+  if (!req.session.auth) {
+    return false;  // if not logged operation not allowed
+  }
+
+  return models.ActivityModel.find({'owner._reference': ObjectId(req.session.user._id)});
+});
 
 ActivityModel.factoryImpl("filteredActivities", function (params, req) {
 
