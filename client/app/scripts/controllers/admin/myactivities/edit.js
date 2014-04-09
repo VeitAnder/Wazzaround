@@ -13,6 +13,26 @@ angular.module('anorakApp')
   })
   .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, activitybackendmap, $route, $rootScope, $translate) {
 
+    console.log("AdminMyactivitiesEditCtrl executed");
+
+    $translate('Your unsaved data will be lost if you leave this page').then(function (leavepagequestion) {
+      $scope.$on("$locationChangeStart", function (event) {
+        var leavepage;
+        if (!$scope.noDataEntered() && !$scope.state.saveinprogress) {
+          leavepage = confirm(leavepagequestion);
+          if (!leavepage) {
+            event.preventDefault();
+          }
+        }
+      });
+    });
+
+    $scope.originalActivity = {};
+
+    $scope.noDataEntered = function () {
+      return angular.equals($scope.originalActivity, $scope.activity);
+    };
+
     //only check once at initialization time
     if ($route.current.$$route.originalPath === "/admin/myactivities/new") {
       $scope.newMode = true;
@@ -20,8 +40,18 @@ angular.module('anorakApp')
       $scope.newMode = false;
     }
 
+    // don't initialize activity and category if a new one is created
+    // otherwise already entered data will vanisch on language change!
+    if (!$scope.newMode) {
+      $scope.categories = $scope.$parent.categories;
+      $scope.activity = $scope.$parent.activity;
+
+      $scope.originalActivity = angular.copy($scope.activity);
+    }
+
     $scope.state = {
       submitted: false,
+      saveinprogress: false,
       formfieldslanguage: {
         name: "",
         description: ""
@@ -31,9 +61,6 @@ angular.module('anorakApp')
         bookableevents: true
       }
     };
-
-    $scope.categories = $scope.$parent.categories;
-    $scope.activity = $scope.$parent.activity;
 
     $scope.createEventSeries = function (item, event) {
       console.log("createRepeatingEvents called", item, event);
@@ -78,7 +105,7 @@ angular.module('anorakApp')
     };
 
     $scope.createEvent = function (bookableItem) {
-      var event = bookableItem.createEvents();  // todo: modelizer bug!
+      var event = bookableItem.createEvents(); 
       event.start = new Date();
 
       bookableItem.events[bookableItem.events.length - 1].mode = 'new';
@@ -205,6 +232,8 @@ angular.module('anorakApp')
           $scope.activity.longitude = $scope.map.clickedMarker.longitude;
         }
 
+        $scope.state.saveinprogress = true;
+
         $scope.activity.save()  // save the activity
           .then(function (activity) {
             debug("SAVED ACTIVITY");
@@ -303,6 +332,14 @@ angular.module('anorakApp')
         $scope.state.additionalformchecks.bookableevents = true;
       } else {
         $scope.state.additionalformchecks.bookableevents = false;
+        valid = false;
+      }
+
+      // check for bookableItems
+      if ($scope.activity.category && $scope.activity.category.subs.length > 0) {
+        $scope.state.additionalformchecks.subcategories = true;
+      } else {
+        $scope.state.additionalformchecks.subcategories = false;
         valid = false;
       }
 

@@ -9,7 +9,7 @@
 
     <h5>
       {{'Event' | translate}}:
-      {{item.ref().description | languageselect}}
+      {{item.description | languageselect}}
     </h5>
 
     <div class="event-header">
@@ -18,13 +18,13 @@
       <div class="event-duration cell">{{'Duration' | translate}}</div>
       <div class="event-quantity cell align-right">{{'Qty' | translate}}</div>
     </div>
-    <div ng-repeat="(idx,event) in item.ref().events"
+    <div ng-repeat="(idx,event) in item.events"
          class="event-body">
       <div class="event-row">
-        <div class="event-date cell">{{ event.ref().start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
-        <div class="event-time cell">{{ event.ref().start | momentjs:{format: "h:mm a"} }}</div>
-        <div class="event-duration cell">{{item.ref().duration}}h</div>
-        <div class="event-quantity cell align-right">{{event.ref().quantity}}x</div>
+        <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
+        <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
+        <div class="event-duration cell">{{item.duration}}h</div>
+        <div class="event-quantity cell align-right">{{event.quantity}}x</div>
       </div>
     </div>
 

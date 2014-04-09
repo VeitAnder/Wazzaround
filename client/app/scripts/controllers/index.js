@@ -214,13 +214,13 @@ angular.module('anorakApp')
           var events = [];
 
           _.each(marker.bookableItems, function (bookableItem) {
-            _.each(bookableItem.ref().events, function (event) {
-              event.ref().title = {
-                en: bookableItem.ref().description.en,
-                de: bookableItem.ref().description.de,
-                it: bookableItem.ref().description.it
+            _.each(bookableItem.events, function (event) {
+              event.title = {
+                en: bookableItem.description.en,
+                de: bookableItem.description.de,
+                it: bookableItem.description.it
               };
-              events.push(event.ref());
+              events.push(event);
             });
           });
           events = _.sortBy(events, "start");
