@@ -3,9 +3,7 @@
  */
 
 var Q = require('q');
-var moment = require('moment');
 var ObjectId = require('mongojs').ObjectId;
-var _ = require('lodash');
 
 var models = require('../models.js');
 var UserModel = require('../models.js').UserModel;
@@ -30,7 +28,7 @@ UserModel.writeFilter(function (userDoc, req) {
   }
 
   // allow the user to save his own User Object
-  if (userDoc._id == req.session.user._id) {
+  if (userDoc._id === req.session.user._id) {
     return true;
   }
 
@@ -64,14 +62,16 @@ UserModel.operationImpl("register", function (params, req) {
   // save the new user
   return Q()
     .then(function () {
-      if (params.email == undefined || params.email == "") {
+      if (params.email === undefined || params.email === "") {
         throw new Error("You have to provide a E-Mail address");
       }
 
       return models.UserModel.find({email: params.email});  // find all existing users
     })
     .then(function (users) {
-      if (users.length > 0) throw new Error("User already exists");
+      if (users.length > 0) {
+        throw new Error("User already exists");
+      }
       return user.save();  // save the new user
     })
     .then(function () {  // if save was ok
@@ -88,7 +88,7 @@ UserModel.operationImpl("login", function (params, req) {
       if (users.length < 1) throw new Error("User not found");
       if (users.length > 1) throw new Error("Found more then one user");
 
-      if (users[0].password == params.password) { // auth successful
+      if (users[0].password === params.password) { // auth successful
         // remember in a session, that auth was successful
         req.session.auth = true;
         // remeber the user in the session

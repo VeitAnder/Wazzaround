@@ -13,7 +13,6 @@ var models = function () {
   var Type = model.Attr.Types;
   var Ref = model.Ref;
   var ObjArray = model.ObjArray;
-  var RefArray = model.RefArray;
   var Operation = model.Operation;
   var Factory = model.Factory;
 

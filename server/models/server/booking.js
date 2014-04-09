@@ -3,7 +3,6 @@
  */
 
 var Q = require('q');
-var moment = require('moment');
 var ObjectId = require('mongojs').ObjectId;
 var _ = require('lodash');
 
