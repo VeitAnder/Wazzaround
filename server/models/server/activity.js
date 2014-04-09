@@ -4,10 +4,7 @@
 
 
 
-var Q = require('q');
-var moment = require('moment');
 var ObjectId = require('mongojs').ObjectId;
-var _ = require('lodash');
 
 var models = require('../models.js');
 var ActivityModel = require('../models.js').ActivityModel;
