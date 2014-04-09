@@ -27,6 +27,10 @@ angular.module('services.authentication.current-user', [])
 
       user: null,
 
+      userQ: function () {
+        return models.UserModel.currentUser();
+      },
+
       login: function (email, password) {
         return models.UserModel.login({email: email, password: password})
           .then(function (res) {

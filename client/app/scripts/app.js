@@ -124,7 +124,7 @@ angular.module('anorakApp')
             return models.CategoryModel.all();
           }],
           activity: ['$route', 'models', function ($route, models) {
-            return models.ActivityModel.get($route.current.params.id)
+            return models.ActivityModel.get($route.current.params.id);
           }]
         }
       })
