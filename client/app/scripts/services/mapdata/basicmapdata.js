@@ -210,21 +210,12 @@ angular.module('anorakApp')
           var deferred = Q.defer();
 
           function setInitPositionOnMap(position) {
-            debug("SET INIT POSITION ON MAP");
             map.centerMarker.latitude = position.coords.latitude;
             map.centerMarker.longitude = position.coords.longitude;
             map.center.latitude = position.coords.latitude;
             map.center.longitude = position.coords.longitude;
 
             deferred.resolve(map);
-
-            Usersessionstates.states = {
-              searchlocation: {
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude
-              }
-            };
-            Usersessionstates.updateSession();
           }
 
           function couldNotGetInitPosition(err) {
@@ -232,12 +223,28 @@ angular.module('anorakApp')
             deferred.resolve(map);
           }
 
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(setInitPositionOnMap, couldNotGetInitPosition);
-          } else {
-            Usersessionstates.loadSession();
+          Usersessionstates.loadSession();
+
+          if (Usersessionstates.states.searchlocation.coords || !navigator.geolocation) {
             setInitPositionOnMap(Usersessionstates.states.searchlocation);
+            if (Usersessionstates.states.zoom) {
+              map.zoom = Usersessionstates.states.zoom;
+            }
+
+          } else {
+            navigator.geolocation.getCurrentPosition(setInitPositionOnMap, couldNotGetInitPosition);
+            Usersessionstates.states = {
+              searchlocation: {
+                coords: {
+                  latitude: map.center.latitude,
+                  longitude: map.center.longitude
+                }
+              },
+              zoom: map.zoom
+            };
           }
+
+          Usersessionstates.updateSession();
           return deferred.promise;
         },
         map: {

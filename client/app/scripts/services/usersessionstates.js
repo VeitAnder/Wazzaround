@@ -1,33 +1,38 @@
 'use strict';
 
 angular.module('anorakApp')
-  .service('Usersessionstates', function Usersessionstates(localStorageService, $routeParams, $rootScope) {
+  .service('Usersessionstates', function Usersessionstates(localStorageService, currentUser) {
 
-    var initialStates = {
-      searchlocation: {
-        coords: {
-          latitude: 45.12199086176226,
-          longitude: 8.01177978515625
-        }
-      }
+//    var initialStates = {
+//      searchlocation: {
+//        coords: {
+//          latitude: 45.12199086176226,
+//          longitude: 8.01177978515625
+//        }
+//      },
+//      zoom: 9
       // category selection
       // map ausschnitt
       // ort suche
       // datum suche
-    };
+//    };
 
+
+    var identifySession = currentUser.user ? currentUser.user._id : "loggedout";
     var Session = {
       updateSession: function () {
         // add session to LocalStorage
-        localStorageService.add('Usersessionstates', Session.states);  // TODO include userid or something
+        localStorageService.add('Usersessionstates_' +  identifySession, Session.states);
       },
       loadSession: function () {
-        if (localStorageService.get('Usersessionstates')) {
-          Session.states = localStorageService.get('Usersessionstates');
-        } else {
-          //initialize values
-          Session.states = angular.copy(initialStates);
+        if (localStorageService.get('Usersessionstates_' + identifySession)) {
+          Session.states = localStorageService.get('Usersessionstates_' + identifySession);
+          console.log("CHECK", Session.states);
         }
+//        else {
+          //initialize values   TODO architectural discussion: values here or in map? I think better in map
+//          Session.states = angular.copy(initialStates);
+//        }
       }
     };
 
