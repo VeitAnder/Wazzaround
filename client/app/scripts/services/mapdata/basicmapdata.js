@@ -7,7 +7,7 @@
  http://stackoverflow.com/questions/13619837/angular-js-inject-new-instance-of-class
  */
 angular.module('anorakApp')
-  .factory('basicmapdata', function ($rootScope, models, $q, $http) {
+  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates) {
 
     var mapdata = function () {
       var geocoder;
@@ -207,21 +207,38 @@ angular.module('anorakApp')
             });
         },
         initializeMapWithUserSearchLocation: function (map) {
+          var deferred = Q.defer();
 
           function setInitPositionOnMap(position) {
+            debug("SET INIT POSITION ON MAP");
             map.centerMarker.latitude = position.coords.latitude;
             map.centerMarker.longitude = position.coords.longitude;
             map.center.latitude = position.coords.latitude;
             map.center.longitude = position.coords.longitude;
-            $rootScope.$broadcast("MapChangeEvent");
+
+            deferred.resolve(map);
+
+            Usersessionstates.states = {
+              searchlocation: {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+              }
+            };
+            Usersessionstates.updateSession();
           }
 
           function couldNotGetInitPosition(err) {
             debug("Could not set initial location, will initialize with default Torino", err);
+            deferred.resolve(map);
           }
 
-          navigator.geolocation.getCurrentPosition(setInitPositionOnMap, couldNotGetInitPosition);
-
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(setInitPositionOnMap, couldNotGetInitPosition);
+          } else {
+            Usersessionstates.loadSession();
+            setInitPositionOnMap(Usersessionstates.states.searchlocation);
+          }
+          return deferred.promise;
         },
         map: {
           address: "",

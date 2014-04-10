@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, resolvedMap, frontendmap, $route, $translate, Usersessionstates) {
 
     $scope.currentUser = currentUser;
 
@@ -39,7 +39,7 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.map = frontendmap.map;
+    $scope.map = resolvedMap;
     frontendmap.showInitialActivities($scope.map, resolvedActivities);
     $scope.map.zoom = 9;
 
@@ -237,7 +237,7 @@ angular.module('anorakApp')
     };
 
     $rootScope.$on("MapChangeEvent", function (event, message) {
-      debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
+//      debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
       angular.forEach($scope.categories, function (mainCat) {
         setSelected(mainCat.key);
       });
@@ -255,9 +255,5 @@ angular.module('anorakApp')
     $rootScope.$on('$translateChangeSuccess', function () {
       $scope.moment.lang($translate.use());
     });
-
-    // initialize map to set center to user's current location
-    // TODO zusammenführen mit initialize Activities
-    frontendmap.initializeMapWithUserSearchLocation($scope.map);
 
   });

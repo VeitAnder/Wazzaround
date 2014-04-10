@@ -12,15 +12,15 @@
     a[d] = a[d] || b;
   }
 })
-((function () {
-  "use strict";
-  try {
-    console.log();
-    return window.console;
-  } catch (a) {
-    return (window.console = {});
-  }
-})());
+  ((function () {
+    "use strict";
+    try {
+      console.log();
+      return window.console;
+    } catch (a) {
+      return (window.console = {});
+    }
+  })());
 
 angular.module('anorakApp', [
   'ngRoute',
@@ -39,7 +39,8 @@ angular.module('anorakApp', [
   'modelizer',
   'directives.customvalidation',
   'ui.keypress',
-  'pascalprecht.translate'
+  'pascalprecht.translate',
+  'LocalStorageModule'
 ]);
 
 angular.module('anorakApp').constant('I18NMESSAGES', {
@@ -76,6 +77,9 @@ angular.module('anorakApp')
           }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
+          }],
+          resolvedMap: ['frontendmap', function (frontendmap) {
+            return frontendmap.initializeMapWithUserSearchLocation(frontendmap.map);
           }]
         }
       })
