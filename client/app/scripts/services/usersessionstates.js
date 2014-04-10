@@ -27,7 +27,6 @@ angular.module('anorakApp')
       loadSession: function () {
         if (localStorageService.get('Usersessionstates_' + identifySession)) {
           Session.states = localStorageService.get('Usersessionstates_' + identifySession);
-          console.log("CHECK", Session.states);
         }
 //        else {
           //initialize values   TODO architectural discussion: values here or in map? I think better in map

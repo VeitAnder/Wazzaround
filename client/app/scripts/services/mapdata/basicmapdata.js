@@ -225,7 +225,8 @@ angular.module('anorakApp')
 
           Usersessionstates.loadSession();
 
-          if (Usersessionstates.states.searchlocation.coords || !navigator.geolocation) {
+          if ((Usersessionstates.states && Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) ||
+            !navigator.geolocation) {
             setInitPositionOnMap(Usersessionstates.states.searchlocation);
             if (Usersessionstates.states.zoom) {
               map.zoom = Usersessionstates.states.zoom;
