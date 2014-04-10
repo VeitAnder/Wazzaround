@@ -12,15 +12,15 @@
     a[d] = a[d] || b;
   }
 })
-((function () {
-  "use strict";
-  try {
-    console.log();
-    return window.console;
-  } catch (a) {
-    return (window.console = {});
-  }
-})());
+  ((function () {
+    "use strict";
+    try {
+      console.log();
+      return window.console;
+    } catch (a) {
+      return (window.console = {});
+    }
+  })());
 
 angular.module('anorakApp', [
   'ngRoute',
@@ -39,7 +39,8 @@ angular.module('anorakApp', [
   'modelizer',
   'directives.customvalidation',
   'ui.keypress',
-  'pascalprecht.translate'
+  'pascalprecht.translate',
+  'LocalStorageModule'
 ]);
 
 angular.module('anorakApp').constant('I18NMESSAGES', {
@@ -76,6 +77,9 @@ angular.module('anorakApp')
           }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
             return currentUser.load();
+          }],
+          resolvedMap: ['frontendmap', function (frontendmap) {
+            return frontendmap.initializeMapWithUserSearchLocation(frontendmap.map);
           }]
         }
       })
@@ -344,6 +348,7 @@ angular.module('anorakApp')
       "User already exists": "User already exists",
       "Enter your new password": "Enter your new password",
       "New Password": "New Password",
+      "Password must meet the following requirements": "Password must meet the following requirements:",
       "Repeat new password": "Repeat new password",
       "Passwords dont match": "Passwords don't match.",
       "Please fill out this field": "Please fill out this field.",
@@ -595,6 +600,7 @@ angular.module('anorakApp')
       "User already exists": "Dieser User existiert bereits",
       "Enter your new password": "Geben Sie Ihr neues Passwort ein",
       "New Password": "Neues Passwort",
+      "Password must meet the following requirements": "Das Passwort muss folgende Kriterien erfüllen:",
       "Repeat new password": "Passwort wiederholen",
       "Passwords dont match": "Die Passwörter stimmen nicht überein.",
       "Please fill out this field": "Bitte füllen Sie dieses Feld aus.",

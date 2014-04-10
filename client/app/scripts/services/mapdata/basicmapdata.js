@@ -7,7 +7,7 @@
  http://stackoverflow.com/questions/13619837/angular-js-inject-new-instance-of-class
  */
 angular.module('anorakApp')
-  .factory('basicmapdata', function ($rootScope, models, $q, $http) {
+  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates) {
 
     var mapdata = function () {
       var geocoder;
@@ -205,6 +205,47 @@ angular.module('anorakApp')
             .then(function (res) {
               return res.data.results;
             });
+        },
+        initializeMapWithUserSearchLocation: function (map) {
+          var deferred = Q.defer();
+
+          function setInitPositionOnMap(position) {
+            map.centerMarker.latitude = position.coords.latitude;
+            map.centerMarker.longitude = position.coords.longitude;
+            map.center.latitude = position.coords.latitude;
+            map.center.longitude = position.coords.longitude;
+
+            deferred.resolve(map);
+          }
+
+          function couldNotGetInitPosition(err) {
+            debug("Could not set initial location, will initialize with default Torino", err);
+            deferred.resolve(map);
+          }
+
+          Usersessionstates.loadSession();
+
+          if (Usersessionstates.states.searchlocation.coords || !navigator.geolocation) {
+            setInitPositionOnMap(Usersessionstates.states.searchlocation);
+            if (Usersessionstates.states.zoom) {
+              map.zoom = Usersessionstates.states.zoom;
+            }
+
+          } else {
+            navigator.geolocation.getCurrentPosition(setInitPositionOnMap, couldNotGetInitPosition);
+            Usersessionstates.states = {
+              searchlocation: {
+                coords: {
+                  latitude: map.center.latitude,
+                  longitude: map.center.longitude
+                }
+              },
+              zoom: map.zoom
+            };
+          }
+
+          Usersessionstates.updateSession();
+          return deferred.promise;
         },
         map: {
           address: "",

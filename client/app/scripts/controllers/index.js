@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, resolvedMap, frontendmap, $route, $translate, Usersessionstates) {
 
     $scope.currentUser = currentUser;
 
@@ -39,9 +39,22 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.map = frontendmap.map;
+    $scope.map = resolvedMap;
     frontendmap.showInitialActivities($scope.map, resolvedActivities);
-    $scope.map.zoom = 9;
+
+    $scope.$watch('map.zoom', function (newZoom, oldZoom) {
+      debug("ZOOM CHANGED", newZoom, oldZoom);
+      if (newZoom !== oldZoom) {
+        Usersessionstates.states.zoom = newZoom;
+        Usersessionstates.updateSession();
+      }
+    });
+
+    $scope.$watch('map.center', function (newCenter, oldCenter) {
+      debug("CENTER CHANGED", newCenter, oldCenter);
+      Usersessionstates.states.searchlocation.coords = newCenter;
+      Usersessionstates.updateSession();
+    }, true);
 
     $scope.windowOptions = {
       "zIndex": 1000
@@ -232,12 +245,12 @@ angular.module('anorakApp')
     };
     $scope.getNextAvailableEvents();
 
-    $scope.putIntoShoppingCart = function(activity, event) {
+    $scope.putIntoShoppingCart = function (activity, event) {
       debug("Put into shopping cart", activity, event);
     };
 
     $rootScope.$on("MapChangeEvent", function (event, message) {
-      debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
+//      debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
       angular.forEach($scope.categories, function (mainCat) {
         setSelected(mainCat.key);
       });
@@ -255,6 +268,5 @@ angular.module('anorakApp')
     $rootScope.$on('$translateChangeSuccess', function () {
       $scope.moment.lang($translate.use());
     });
-
 
   });
