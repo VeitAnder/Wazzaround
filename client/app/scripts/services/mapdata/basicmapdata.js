@@ -80,25 +80,29 @@ angular.module('anorakApp')
 
       // filter activities according to date that the user entered
       // there may be a start date and an end date or only one of them or none
-      var findActivitiesForDateRange = function (map, start, end) {
+      // then filter activities that are within a northeast and southwest lat/lng
+      var findActivitiesForDateRangeAndBetweenBounds = function (map, start, end) {
         var defer = Q.defer();
 
         debug("LOOKING FOR DATE RANGE", start, end);
 
         if (!start && !end) {   // it's not a search for date, so just return all activities
-
           return getAllActivitiesAndSetToMap(map);
-
         } else if (!start) {
           start = new Date();
         } else if (!end) {
-          end = new Date(2099, 1, 1);
+          end = new Date(2099, 1, 1);  // TODO check date magic
         }
 
-        var activitiesIds = _.map(map.markers, '_id');
-
-        models.ActivityModel.getActivitiesFilterByTime({
-          activitiesIds: activitiesIds,
+        models.ActivityModel.filteredActivities({
+          from: {  // links oben = northeast
+            longitude: map.bounds.northeast.longitude,
+            latitude: map.bounds.northeast.latitude
+          },
+          to: {  // rechts unten = southwest
+            longitude: map.bounds.southwest.longitude,
+            latitude: map.bounds.southwest.latitude
+          },
           startDate: start,
           endDate: end
         })
@@ -145,7 +149,7 @@ angular.module('anorakApp')
         searchActivities: function (map, startDate, endDate, address) {
           debug("SEARCHING START", startDate, "END ", endDate, " ADDR ", address);
 
-          findActivitiesForDateRange(map, startDate, endDate)
+          findActivitiesForDateRangeAndBetweenBounds(map, startDate, endDate)
             .then(function () {
               return geoCodeAddress(map, address);
             })
@@ -209,12 +213,12 @@ angular.module('anorakApp')
         initializeMapWithUserSearchLocation: function (map) {
           var deferred = Q.defer();
 
+          // dont update Usersessionstates here, it will overwrite stuff !!!
           function setInitPositionOnMap(position) {
             map.centerMarker.latitude = position.coords.latitude;
             map.centerMarker.longitude = position.coords.longitude;
             map.center.latitude = position.coords.latitude;
             map.center.longitude = position.coords.longitude;
-
             deferred.resolve(map);
           }
 
@@ -225,14 +229,21 @@ angular.module('anorakApp')
 
           Usersessionstates.loadSession();
 
-          if ((Usersessionstates.states && Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) ||
-            !navigator.geolocation) {
+          // if there are Usersessionstates stored, check what is stored and fill into map
+          if ((Usersessionstates.states && Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
             setInitPositionOnMap(Usersessionstates.states.searchlocation);
             if (Usersessionstates.states.zoom) {
               map.zoom = Usersessionstates.states.zoom;
             }
+            if (Usersessionstates.states.bounds) {
+              map.bounds = Usersessionstates.states.bounds;
+            }
 
           } else {
+            // try to get user's position
+            // it works --> map is filled with new data, set that data to Usersessionstates
+            // it fails --> map is filled with standard data, set that data to Usersessionstates
+            // update Usersessionstates
             navigator.geolocation.getCurrentPosition(setInitPositionOnMap, couldNotGetInitPosition);
             Usersessionstates.states = {
               searchlocation: {
@@ -243,13 +254,23 @@ angular.module('anorakApp')
               },
               zoom: map.zoom
             };
+            Usersessionstates.updateSession();
           }
 
-          Usersessionstates.updateSession();
           return deferred.promise;
         },
         map: {
           address: "",
+          bounds: {
+            northeast: {
+              latitude: 0,
+              longitude: 0
+            },
+            southwest: {
+              latitude: 0,
+              longitude: 0
+            }
+          },
           center: {
             "longitude": 8.01177978515625,
             "latitude": 45.12199086176226
@@ -287,6 +308,54 @@ angular.module('anorakApp')
             overviewMapControl: false,
             mapTypeControl: false,
             streetViewControl: false
+          },
+          events: {
+            bounds_changed: function (map) {
+              debug("BOUNDS CHANGED EVENT");
+              debug("NORTHEAST", map.getBounds().getNorthEast());
+              debug("SOUTHWEST", map.getBounds().getSouthWest());
+
+              // bounds contain northeast and southwest lat/lng which we will use to search activities within
+              this.$parent.map.bounds = { // TODO what can we use instead of $parent?
+                northeast: {
+                  latitude: map.getBounds().getNorthEast().k,
+                  longitude: map.getBounds().getNorthEast().A
+                },
+                southwest: {
+                  latitude: map.getBounds().getSouthWest().k,
+                  longitude: map.getBounds().getSouthWest().A
+                }
+              };
+
+              Usersessionstates.states.bounds = {
+                northeast: {
+                  latitude: map.getBounds().getNorthEast().k,
+                  longitude: map.getBounds().getNorthEast().A
+                },
+                southwest: {
+                  latitude: map.getBounds().getSouthWest().k,
+                  longitude: map.getBounds().getSouthWest().A
+                }
+              };
+              Usersessionstates.updateSession();
+
+              $rootScope.$apply(function () {
+                $rootScope.mapInstance = map;
+              });
+            },
+            zoom_changed: function (map) {
+              debug("ZOOM CHANGED EVENT", map.getZoom());
+              // we are sure to have Usersessionstates.states after initializeMapWithUserSearchLocation()
+              Usersessionstates.states.zoom = map.getZoom();
+              Usersessionstates.updateSession();
+            },
+            center_changed: function (map) {
+              debug("CENTER CHANGED", map.getCenter());
+              // we are sure to have Usersessionstates.states.searchlocation.coords.latitude/longitude after initializeMapWithUserSearchLocation()
+              Usersessionstates.states.searchlocation.coords.latitude = map.getCenter().k;
+              Usersessionstates.states.searchlocation.coords.longitude = map.getCenter().A;
+              Usersessionstates.updateSession();
+            }
           }
         }
       };

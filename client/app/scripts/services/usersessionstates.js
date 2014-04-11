@@ -11,10 +11,10 @@ angular.module('anorakApp')
 //        }
 //      },
 //      zoom: 9
-      // category selection
-      // map ausschnitt
-      // ort suche
-      // datum suche
+//      // category selection
+//      // map ausschnitt
+//      // ort suche
+//      // datum suche
 //    };
 
 
@@ -29,7 +29,6 @@ angular.module('anorakApp')
           Session.states = localStorageService.get('Usersessionstates_' + identifySession);
         }
 //        else {
-          //initialize values   TODO architectural discussion: values here or in map? I think better in map
 //          Session.states = angular.copy(initialStates);
 //        }
       }
