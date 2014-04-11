@@ -134,14 +134,13 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
 
   return models.ActivityModel.find({
     'longitude': {
-      "$gte": params.from.longitude,
-      "$lt": params.to.longitude
+      "$lte": params.from.longitude,
+      "$gte": params.to.longitude
+    },
+    'latitude': {
+      "$lte": params.from.latitude,
+      "$gte": params.to.latitude
     }
-//    ,
-//    'latitude': {
-//      "$gte": params.from.latitude,
-//      "$lt": params.to.latitude
-//    }
   });
 
 });

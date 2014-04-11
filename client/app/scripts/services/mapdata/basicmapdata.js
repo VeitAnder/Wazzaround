@@ -75,9 +75,10 @@ angular.module('anorakApp')
             to: {  // rechts unten = southwest
               longitude: map.bounds.southwest.longitude,
               latitude: map.bounds.southwest.latitude
-            },
-            startDate: start,
-            endDate: end
+            }
+//            ,
+//            startDate: start,
+//            endDate: end
           })
             .then(function (activities) {
               debug("GOT DATE FILTERED ACTIVITIES", activities);
