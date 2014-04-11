@@ -158,10 +158,7 @@ header {
   }
 
   img {
-    @include border_all($color_grey_15);
-    @include border-radius($border-radius);
-    border-width: 7px;
-    padding: 3px;
+    @include border-image;
   }
   .category {
     @include border(bottom, $color_grey);
@@ -564,6 +561,126 @@ header {
     }
   }
 }
+
+shoppingcart{
+
+  &.shoppingcart-rightside{
+    position: absolute;
+    top: 0;
+    right: - ($shoppingcart-rightside-width - 3px);
+    @include box-sizing(border-box);
+    width: $shoppingcart-rightside-width;
+    height: 100%;
+    .shoppingcart-toggle{
+      display: block;
+      position: absolute;
+      left: -40px;
+    }
+  }
+}
+
+.shoppingcart{
+  background-color: $color_green;
+  padding: $bu*2.0;
+  @include color-white;
+  height: 100%;
+  .buttonbar{
+    border: none;
+  }
+}
+
+.shoppingcart-toggle{
+  display: none; //hide = standard
+  width: 40px;
+  height: 40px;
+  @include border-left-radius($border-radius-small);
+  background-color: $color_green;
+
+  .shoppingcart-toggle-closed{
+    @include sprite_icons(9px, -88px, no-repeat);
+    height: 40px;
+
+  }
+  .shoppingcart-toggle-open{
+    height: 40px;
+  }
+  .numberofitems{
+    display: inline-block;
+    min-width: 15px;
+    height: 15px;
+    @include border-radius(7.5px);
+    background-color: $color_red;
+    color: $color_white;
+    @include font-size_smallest;
+    text-align: center;
+    font-weight: $font-weight_bold;
+    @include box-shadow_2px;
+  }
+}
+.shoppingcart-header{
+  margin-bottom: $fs;
+  h3{
+    font-weight: $font-weight_light;
+    font-size: $fs*$font-size_h5_factor;
+    line-height: $fs*$font-size_h5_factor*$line-height_headline-factor;
+    margin: 0;
+  }
+}
+.shoppingcart-item{
+  position: relative;
+  @include seperator(top, $color_green_50);
+  padding: $bu 0;
+  h4{
+    font-size: $fs;
+    line-height: $fs*$line-height_factor;
+    margin: 0;
+    padding-right: $bu*2.0;
+  }
+  p{
+    padding-right: $bu*2.0;
+    margin: 0;
+  }
+  img{
+    @include border-image-small;
+    width: 100px;
+    height: auto;
+  }
+  .txt-icon-delete{
+    position: absolute;
+    top: 5px;
+    right: 0;
+  }
+}
+
+.shoppingcart-price{
+  text-align: right;
+  input{
+    height: auto;
+    width: 50px;
+    display: inline-block;
+  }
+  .price{
+    margin-left: $fs;
+  }
+}
+
+.shoppingcart-subtotal{
+  padding: $fs*0.5 0;
+  border-top: 1px solid $color_green_50;
+  border-bottom: 3px solid $color_green_50;
+  font-weight: $font-weight_bold;
+  @include clearfix;
+  .description, .value{
+    display: block;
+    float: left;
+    width: 49%;
+  }
+  .value{
+    text-align: right;
+    margin-left: 2%;
+  }
+}
+
 
 // CONTENT ELEMENTS
 // ###########################################################################################################################

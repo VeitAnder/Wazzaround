@@ -124,7 +124,28 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@mixin border-image{
+  @include border_all($color_grey_15);
+  @include border-radius($border-radius);
+  border-width: 7px;
+  padding: 3px;
+  background-color: $color_white;
+}
 
+@mixin border-image-small{
+  @include border-image;
+  @include border-radius($border-radius);
+  border-width: 5px;
+  padding: 2px;
+}
+
+
+@mixin color-white{
+  color: $color_white;
+  h1, h2, h3, h4, h5, h6, p{
+    color: $color_white;
+  }
+}
 
 // LINKS
 // ###########################################################################################################################
@@ -286,7 +307,6 @@ button.btn, .btn, a.btn {
   &.btn-large {
     padding: ($fs*0.75) ($fs*2.0);
     font-size: 25px;
-    @include webfont_01;
     @include border-radius($border-radius);
   }
 
@@ -301,6 +321,16 @@ button.btn, .btn, a.btn {
     padding: ($fs*0.15) ($fs*0.25);
     border-width: 1px;
     font-weight: $font-weight_extrabold;
+  }
+
+  &.btn-negative{
+    color: $color_green;
+    background-color: $color_white;
+    border-color: $color_white;
+    &:hover{
+      background-color: $color_green_15;
+      border-color: $color_green_15;
+    }
   }
 
   &.btn-shoppingcart{
@@ -549,6 +579,9 @@ button.btn, .btn, a.btn {
     span {
       background-color: $color_red;
     }
+  }
+  .hidden{
+    display: none;
   }
 }
 
@@ -836,6 +869,22 @@ button.btn, .btn, a.btn {
 
 .float-left {
   float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.image-left{
+  float: left;
+  margin-right: $bu;
+  margin-bottom: $fs*$line-height_factor;
+}
+
+.image-right{
+  float: right;
+  margin-left: $bu;
+  margin-bottom: $fs*$line-height_factor;
 }
 
 .footnote {
