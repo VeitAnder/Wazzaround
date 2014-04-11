@@ -64,7 +64,7 @@
                       ng-click="toggleCategorySelection(sportsCategories.db[$index+0])"
                       >
                     <span class="checkbox inline"></span>
-                     {{ sportsCategories.db[$index+0].key | translate }}
+                    {{ sportsCategories.db[$index+0].key | translate }}
                   </div>
 
                   <div
@@ -160,7 +160,8 @@
             >
           <h4>Wellness & Relax</h4>
 
-          <p>{{numberOfSelectedFromCategory('wellness')}} {{ 'of' | translate }} {{totalNumberOfCategory('wellness')}}</p>
+          <p>{{numberOfSelectedFromCategory('wellness')}} {{ 'of' | translate }}
+             {{totalNumberOfCategory('wellness')}}</p>
 
           <div class="filter-category-arrow">
             <span></span>
@@ -298,18 +299,19 @@
 
             <div class="description">
               <!--<div class="input_label">Description</div>-->
-              <div ta-bind ng-model="m.description[getAvailableTranslationLanguageKey(m.description)]"></div>
+              <div ta-bind
+                   ng-model="m.description[getAvailableTranslationLanguageKey(m.description)]"></div>
             </div>
 
             <div class="availability">
               <div class="input_label">{{ 'Availability' | translate }}</div>
               <div class="availability-list">
                 <div class="availability-header">
-                  <div class="month cell first">{{ 'Next available Dates' | translate }}</div>
+                  <div class="month cell">{{ 'Next available Dates' | translate }}</div>
                 </div>
                 <div class="availability-entry"
                      ng-repeat="available in m.availability">
-                  <div class="availability-title cell first">
+                  <div class="availability-title cell">
                     {{available.title | languageselect}}
                   </div>
                   <div class="availability-date cell">
@@ -325,12 +327,14 @@
                     {{available.quantity}}x
                   </div>
 
-                  <div class="availability-book cell last align-right">
-                    <a class="btn btn-mini"
+                  <div class="availability-book cell align-right">
+                    <a class="btn btn-mini btn-shoppingcart"
                        href="#/shoppingcart/"
                        target="_blank"
+                       title="{{ 'Book' | translate }}"
                        ng-click="putIntoShoppingCart(m, available)"
-                        >{{ 'Book' | translate }}
+                        >
+                      <span>{{ 'Book' | translate }}</span>
                     </a>
                   </div>
                 </div>

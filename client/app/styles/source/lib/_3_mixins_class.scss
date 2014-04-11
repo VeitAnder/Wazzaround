@@ -303,6 +303,15 @@ button.btn, .btn, a.btn {
     font-weight: $font-weight_extrabold;
   }
 
+  &.btn-shoppingcart{
+    width: 25px;
+    height: $fs*$line-height_factor*$font-size_small_factor;
+    @include sprite_icons(-32px, -97px, no-repeat);
+    span{
+      display: none;
+    }
+  }
+
 }
 
 @mixin btn-large {
@@ -1133,6 +1142,11 @@ p.inline-screen-sm {
 // PAGE LAYOUT
 // ###########################################################################################################################
 // ###########################################################################################################################
+
+
+html, body, .container-fluid, .page, .col-left-fixed{
+  height: 100%;
+}
 
 .section {
   padding-top: $bu*2.0;

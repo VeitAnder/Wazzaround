@@ -29,10 +29,6 @@ header {
   position: absolute;
   width: 100%;
   height: 100%;
-  //  top:0;
-  //  bottom:0;
-  //  left:0;
-  //  right:0;
   .activity-detail & {
     width: 100%;
     height: 200px;
@@ -42,19 +38,31 @@ header {
 
 .col-left-fixed {
   position: relative;
+  @include box-sizing(border-box);
   padding: $bu*2.0;
-  margin-bottom: $footer-height;
+  padding-bottom: $bu*2.0 + $footer-height;
   width: $col-left-width;
   float: left;
+  @include border(right, $color_main_border);
+  .map-selection-block &{
+    border: none;
+  }
 }
 
 .col-right {
-  padding: $bu*1.0;
+  padding: $bu*1.0 $bu*2.0;
+  padding-bottom: $bu*2.0 + $footer-height;
   position: relative;
   overflow: hidden;
   display: block;
   max-width: 1200px - $col-left-width;
-  margin-bottom: 50px;
+
+  //column height hack
+  @include border(left, $color_main_border);
+  left: -1px;
+  .map-selection-block &{
+    border: none;
+  }
 }
 
 .controlpanel {
@@ -217,6 +225,14 @@ header {
       font-size: 12px;
       padding: ($fs*0.15) ($fs*0.5);
     }
+  }
+  .availability-entry{
+    .cell {
+      .gm-style .gm-style-iw & {
+        line-height: 13px * $line-height_factor;
+      }
+    }
+
   }
 
 }
@@ -506,20 +522,23 @@ header {
 .availability-entry {
   @include divtable_row_small;
   .availability-title {
-    width: 30%;
+    width: 35%;
     white-space: normal;
   }
   .availability-date {
-    width: 20%;
+    width: 17.5%;
   }
   .availability-time {
-    width: 20%;
+    width: 17.5%;
+  }
+  .availability-duration {
+    width: 10%;
   }
   .availability-quantity {
     width: 10%;
   }
   .availability-book {
-    width: 20%;
+    width: 10%;
   }
 }
 
@@ -529,9 +548,12 @@ header {
   border-bottom: none;
   background-color: $color_grey_15;
   .cell {
-    width: (100%)/3;
+    width: 50%;
     padding-top: 10px;
     padding-bottom: 15px;
+    &.last, &.first{
+      width: 25%;
+    }
     .btn {
       background-color: $color_grey_75;
       border-color: $color_grey_75;
@@ -1601,6 +1623,8 @@ $img-selector-imgsize: 150px;
 }
 
 .admin-section {
+  @include box-sizing(border-box);
+  @include border(right, $color_main_border);
   background-color: $color_green;
   width: $col-left-width;
   float: left;
@@ -1680,6 +1704,9 @@ $img-selector-imgsize: 150px;
 
   .teaser-section-2 & {
     width: 50%;
+  }
+  &:first-child{
+    border-left: none;
   }
 }
 

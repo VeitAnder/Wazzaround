@@ -513,7 +513,7 @@ angular.module('anorakApp')
       "Next available Dates": "Nächste Verfügbarkeit",
       "Book": "Buchen",
       "Prev": "Früher",
-      "Show all Dates": "Alle Verfügbarkeiten anzeigen",
+      "Show all Dates": "Alle Termine anzeigen",
       "Next": "Später",
       "trekkingbikinghiking": "Trekking, Biking, Hiking",
       "adventure": "Abenteuer",
