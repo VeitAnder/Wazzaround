@@ -1114,6 +1114,17 @@ button.btn, .btn, a.btn {
     font-weight: 800; }
     button.btn.btn-mini p, .btn.btn-mini p, a.btn.btn-mini p {
       padding-bottom: 14px; }
+  button.btn.btn-shoppingcart, .btn.btn-shoppingcart, a.btn.btn-shoppingcart {
+    width: 25px;
+    height: 16.8px;
+    background-position: -32px -97px;
+    background-repeat: no-repeat; }
+    .svg button.btn.btn-shoppingcart, .svg .btn.btn-shoppingcart, .svg a.btn.btn-shoppingcart {
+      background-image: url('/img/sprite_icons.svg'); }
+    .no-svg button.btn.btn-shoppingcart, .no-svg .btn.btn-shoppingcart, .no-svg a.btn.btn-shoppingcart {
+      background-image: url('/img/sprite_icons.png'); }
+    button.btn.btn-shoppingcart span, .btn.btn-shoppingcart span, a.btn.btn-shoppingcart span {
+      display: none; }
 
 .btn-group {
   margin-bottom: 2px; }
@@ -3155,7 +3166,7 @@ header {
     .availability-entry .cell.last {
       padding-right: 10px; }
   .availability-entry .availability-title {
-    width: 30%;
+    width: 35%;
     white-space: normal; }
   .availability-entry .availability-date {
     width: 17.5%; }
@@ -3164,9 +3175,9 @@ header {
   .availability-entry .availability-duration {
     width: 10%; }
   .availability-entry .availability-quantity {
-    width: 7.5%; }
+    width: 10%; }
   .availability-entry .availability-book {
-    width: 17.5%; }
+    width: 10%; }
 
 .availability-footer {
   display: block;

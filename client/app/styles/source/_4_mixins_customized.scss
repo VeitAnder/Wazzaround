@@ -522,7 +522,7 @@ header {
 .availability-entry {
   @include divtable_row_small;
   .availability-title {
-    width: 30%;
+    width: 35%;
     white-space: normal;
   }
   .availability-date {
@@ -535,10 +535,10 @@ header {
     width: 10%;
   }
   .availability-quantity {
-    width: 7.5%;
+    width: 10%;
   }
   .availability-book {
-    width: 17.5%;
+    width: 10%;
   }
 }
 
