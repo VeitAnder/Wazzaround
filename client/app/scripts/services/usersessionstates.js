@@ -3,44 +3,37 @@
 angular.module('anorakApp')
   .service('Usersessionstates', function Usersessionstates(localStorageService, currentUser) {
 
-//    var initialStates = {
-//      searchlocation: {
-//        coords: {
-//          latitude: 45.12199086176226,
-//          longitude: 8.01177978515625
-//        }
-//      },
-//      zoom: 9
-//      // category selection
-//      // map ausschnitt
-//      // ort suche
-//      // datum suche
-//    };
-
-
-    var identifySession = currentUser.user ? currentUser.user._id : "loggedout";
     var Session = {
       updateSession: function () {
-        // add session to LocalStorage
-        localStorageService.add('Usersessionstates_' +  identifySession, Session.states);
+
+        return currentUser.load()
+          .then(function (currentUser) {
+
+            var identifySession = currentUser.user !== null ? currentUser.user._id : "loggedout";
+
+            // add session to LocalStorage
+            localStorageService.add('Usersessionstates_' + identifySession, Session.states);
+
+            return Q.resolve();
+          });
+
       },
       loadSession: function () {
-        if (localStorageService.get('Usersessionstates_' + identifySession)) {
-          Session.states = localStorageService.get('Usersessionstates_' + identifySession);
-        }
-//        else {
-//          Session.states = angular.copy(initialStates);
-//        }
+
+        return currentUser.load()
+          .then(function (currentUser) {
+
+            var identifySession = currentUser.user !== null ? currentUser.user._id : "loggedout";
+
+            if (localStorageService.get('Usersessionstates_' + identifySession)) {
+              Session.states = localStorageService.get('Usersessionstates_' + identifySession);
+            }
+
+            return Q.resolve(Session);
+          });
       }
     };
 
-    // initial loading of session data
-    Session.loadSession();
-
-    // when project changes, Session data for that project has to be loaded
-//    $rootScope.$on('$routeChangeSuccess', function (next, current) {
-//      Session.loadSession();
-//    });
-
     return Session;
   });
+

@@ -12,37 +12,6 @@ angular.module('anorakApp')
     var mapdata = function () {
       var geocoder;
 
-      // optimized formula for calculation of distance between two points, because lib geometry is missing from angular-google-maps
-      var calculateDistance = function (lat1, lon1, lat2, lon2) {
-        var R = 6371;
-        var a =
-          0.5 - Math.cos((lat2 - lat1) * Math.PI / 180) / 2 +
-            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-              (1 - Math.cos((lon2 - lon1) * Math.PI / 180)) / 2;
-
-        return R * 2 * Math.asin(Math.sqrt(a));
-      };
-
-      // all activities are filtered for a location, with a radius of 30 km.
-      // if the activities are outside, dont display them on the map
-      // TODO what about the zoom level??? Markers numbers should change with the zoom level --> zoom out --> see more markers
-      var setMarkersInRadius = function (map) {
-        var markersInRadius = [];
-        for (var i = 0; i < map.markers.length; i++) {
-          // calculate distance between center and the marker
-          // if distance more than 100km, dont display
-          // TODO later on filter activities(===markers) from db via lat-long range
-          /////Activiews.use.find({...}).then(....)
-
-          var distance = calculateDistance(map.center.latitude, map.center.longitude, map.markers[i].latitude, map.markers[i].longitude);
-          if (distance < 100) {
-            markersInRadius.push(map.markers[i]);
-          }
-        }
-        map.markers = markersInRadius;
-        debug("MARKERS IN RADIUS", markersInRadius.length);
-      };
-
       var geoCodeAddress = function (map, address) {
 
         var defer = $q.defer();
@@ -78,21 +47,25 @@ angular.module('anorakApp')
         return defer.promise;
       };
 
-      // filter activities according to date that the user entered
+      // find activities according to date that the user entered
       // there may be a start date and an end date or only one of them or none
-      // then filter activities that are within a northeast and southwest lat/lng
+      // find only activities that are within a northeast and southwest lat/lng
       var findActivitiesForDateRangeAndBetweenBounds = function (map, start, end) {
         var defer = Q.defer();
 
-        debug("LOOKING FOR DATE RANGE", start, end);
+        // if we have no start date, use now
+        // if we have no end date, use
+//        if (!start) {
+//          start = new Date();
+//        }
+//        if (!end) {
+//          var oneYearLater = new Date();
+//          oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
+//          end = oneYearLater;
+//        }
 
-        if (!start && !end) {   // it's not a search for date, so just return all activities
-          return getAllActivitiesAndSetToMap(map);
-        } else if (!start) {
-          start = new Date();
-        } else if (!end) {
-          end = new Date(2099, 1, 1);  // TODO check date magic
-        }
+        debug("SEARCHING FOR NORTHEAST", map.bounds.northeast.latitude, map.bounds.northeast.longitude);
+        debug("SEARCHING FOR SOUTHWEST", map.bounds.southwest.latitude, map.bounds.southwest.longitude);
 
         models.ActivityModel.filteredActivities({
           from: {  // links oben = northeast
@@ -143,7 +116,6 @@ angular.module('anorakApp')
         // when user first loads the map, we get all activities from controller. They need to be filtered for radius
         showInitialActivities: function (map, activities) {
           map.markers = activities;
-          setMarkersInRadius(map);
           debug("INIT ACTIVITIES");
         },
         searchActivities: function (map, startDate, endDate, address) {
@@ -155,7 +127,6 @@ angular.module('anorakApp')
             })
 
             .then(function () {
-              setMarkersInRadius(map);
               debug("AM DONE SEARCHING IN SERVICE");
               $rootScope.$broadcast("MapChangeEvent");
             })
@@ -227,37 +198,42 @@ angular.module('anorakApp')
             deferred.resolve(map);
           }
 
-          Usersessionstates.loadSession();
+          return Usersessionstates.loadSession()
+            .then(function (Usersessionstates) {
 
-          // if there are Usersessionstates stored, check what is stored and fill into map
-          if ((Usersessionstates.states && Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
-            setInitPositionOnMap(Usersessionstates.states.searchlocation);
-            if (Usersessionstates.states.zoom) {
-              map.zoom = Usersessionstates.states.zoom;
-            }
-            if (Usersessionstates.states.bounds) {
-              map.bounds = Usersessionstates.states.bounds;
-            }
-
-          } else {
-            // try to get user's position
-            // it works --> map is filled with new data, set that data to Usersessionstates
-            // it fails --> map is filled with standard data, set that data to Usersessionstates
-            // update Usersessionstates
-            navigator.geolocation.getCurrentPosition(setInitPositionOnMap, couldNotGetInitPosition);
-            Usersessionstates.states = {
-              searchlocation: {
-                coords: {
-                  latitude: map.center.latitude,
-                  longitude: map.center.longitude
+              // if there are session stored, check what is stored and fill into map
+              if ((Usersessionstates.states && Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
+                setInitPositionOnMap(Usersessionstates.states.searchlocation);
+                if (Usersessionstates.states.zoom) {
+                  map.zoom = Usersessionstates.states.zoom;
                 }
-              },
-              zoom: map.zoom
-            };
-            Usersessionstates.updateSession();
-          }
+                if (Usersessionstates.states.bounds) {
+                  map.bounds = Usersessionstates.states.bounds;
+                }
+                return Q.resolve(map);
 
-          return deferred.promise;
+              } else {
+                // try to get user's position
+                // it works --> map is filled with new data, set that data to Usersessionstates
+                // it fails --> map is filled with standard data, set that data to Usersessionstates
+                // update Usersessionstates
+                navigator.geolocation.getCurrentPosition(setInitPositionOnMap, couldNotGetInitPosition);
+                Usersessionstates.states = {
+                  searchlocation: {
+                    coords: {
+                      latitude: map.center.latitude,
+                      longitude: map.center.longitude
+                    }
+                  },
+                  zoom: map.zoom
+                };
+
+                return Usersessionstates.updateSession()
+                  .then(function () {
+                    return Q.resolve(map);
+                  });
+              }
+            });
         },
         map: {
           address: "",
@@ -311,9 +287,7 @@ angular.module('anorakApp')
           },
           events: {
             bounds_changed: function (map) {
-              debug("BOUNDS CHANGED EVENT");
-              debug("NORTHEAST", map.getBounds().getNorthEast());
-              debug("SOUTHWEST", map.getBounds().getSouthWest());
+              debug("BOUNDS CHANGED EVENT", "NE", map.getBounds().getNorthEast(), "SW", map.getBounds().getSouthWest());
 
               // bounds contain northeast and southwest lat/lng which we will use to search activities within
               this.$parent.map.bounds = { // TODO what can we use instead of $parent?

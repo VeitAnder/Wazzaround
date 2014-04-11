@@ -136,11 +136,12 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
     'longitude': {
       "$gte": params.from.longitude,
       "$lt": params.to.longitude
-    },
-    'latitude': {
-      "$gte": params.from.latitude,
-      "$lt": params.to.latitude
     }
+//    ,
+//    'latitude': {
+//      "$gte": params.from.latitude,
+//      "$lt": params.to.latitude
+//    }
   });
 
 });
