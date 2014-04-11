@@ -1,36 +1,19 @@
 'use strict';
 
 angular.module('anorakApp')
-  .service('Usersessionstates', function Usersessionstates(localStorageService, currentUser) {
+  .service('Usersessionstates', function Usersessionstates(localStorageService) {
 
     var Session = {
       updateSession: function () {
 
-        return currentUser.load()
-          .then(function (currentUser) {
-
-            var identifySession = currentUser.user !== null ? currentUser.user._id : "loggedout";
-
-            // add session to LocalStorage
-            localStorageService.add('Usersessionstates_' + identifySession, Session.states);
-
-            return Q.resolve();
-          });
-
+        // add session to LocalStorage
+        localStorageService.add('Usersessionstates', Session.states);
       },
       loadSession: function () {
 
-        return currentUser.load()
-          .then(function (currentUser) {
-
-            var identifySession = currentUser.user !== null ? currentUser.user._id : "loggedout";
-
-            if (localStorageService.get('Usersessionstates_' + identifySession)) {
-              Session.states = localStorageService.get('Usersessionstates_' + identifySession);
-            }
-
-            return Q.resolve(Session);
-          });
+        if (localStorageService.get('Usersessionstates')) {
+          Session.states = localStorageService.get('Usersessionstates');
+        }
       }
     };
 
