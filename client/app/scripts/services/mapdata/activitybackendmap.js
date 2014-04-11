@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .service('activitybackendmap', function activitybackendmap(basicmapdata, $rootScope) {
 
-    var mapdata = new basicmapdata().mapdata;
+    var mapdata = new basicmapdata();
 
     mapdata.map.clickedMarker = {
       title: 'Location of activity',

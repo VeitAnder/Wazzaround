@@ -40,7 +40,6 @@ angular.module('anorakApp')
     };
 
     $scope.map = resolvedMap;
-    frontendmap.showInitialActivities($scope.map, resolvedActivities);
 
     $scope.windowOptions = {
       "zIndex": 1000

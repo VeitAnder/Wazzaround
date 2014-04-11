@@ -79,7 +79,7 @@ angular.module('anorakApp')
             return currentUser.load();
           }],
           resolvedMap: ['frontendmap', function (frontendmap) {
-            return frontendmap.initializeMapWithUserSearchLocation(frontendmap.map);
+            return frontendmap.initializeMapWithUserSearchLocation();
           }]
         }
       })
