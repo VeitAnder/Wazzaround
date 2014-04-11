@@ -24,21 +24,13 @@ angular.module('services.authentication.current-user', [])
             return currentUser;
           });
       },
-
       user: null,
-
-      userQ: function () {
-        return models.UserModel.currentUser();
-      },
-
       login: function (email, password) {
         return models.UserModel.login({email: email, password: password})
           .then(function (res) {
             return currentUser.load();
           });
       },
-
-
       logout: function () {
         return models.UserModel.logout()
           .then(function (res) {
