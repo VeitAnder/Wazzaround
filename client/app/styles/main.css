@@ -3279,6 +3279,54 @@ header {
         background-color: #999999;
         border-color: #999999; }
 
+.uservoice-custom {
+  z-index: 150;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  background-color: #8c8c8c;
+  -webkit-border-radius-bottomleft: 3px;
+  -khtml-border-radius-bottomleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  -ms-border-radius-bottomleft: 3px;
+  -o-border-radius-bottomleft: 3px;
+  border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -khtml-border-bottom-left-radius: 3px;
+  -moz-border-bottom-left-radius: 3px;
+  -ms-border-bottom-left-radius: 3px;
+  -o-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 0; }
+  .uservoice-custom:hover {
+    cursor: pointer; }
+  .uservoice-custom:hover {
+    background-color: #C83C19; }
+    .uservoice-custom:hover .icon {
+      border-color: #d66d53; }
+  .uservoice-custom a {
+    display: block;
+    height: 35px;
+    line-height: 32px;
+    padding-right: 10px;
+    color: #FFF;
+    text-decoration: none; }
+    .uservoice-custom a:hover {
+      color: #FFF; }
+  .uservoice-custom .icon {
+    display: block;
+    float: left;
+    width: 35px;
+    height: 35px;
+    background-position: -116px 8px;
+    background-repeat: no-repeat;
+    border-right: 1px solid #b3b3b3;
+    margin-right: 10px; }
+    .svg .uservoice-custom .icon {
+      background-image: url('/img/sprite_icons.svg'); }
+    .no-svg .uservoice-custom .icon {
+      background-image: url('/img/sprite_icons.png'); }
+
 shoppingcart.shoppingcart-rightside {
   position: absolute;
   top: 0;
@@ -3317,7 +3365,7 @@ shoppingcart.shoppingcart-rightside {
     -moz-transition-property: background;
     transition-property: background; }
     shoppingcart.shoppingcart-rightside .shoppingcart-toggle .innerwrap {
-      margin-top: 65px; }
+      margin-top: 45px; }
     shoppingcart.shoppingcart-rightside .shoppingcart-toggle:hover {
       background-color: rgba(102, 102, 102, 0.15); }
   shoppingcart.shoppingcart-rightside .shoppingcart-element {

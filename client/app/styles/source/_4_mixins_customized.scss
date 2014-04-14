@@ -559,6 +559,44 @@ header {
   }
 }
 
+
+.uservoice-custom{
+  z-index: 150;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  background-color: $color_grey_75;
+  @include border-bottom-left-radius($border-radius_small);
+  @include hovercursor;
+  @include box-shadow_2px;
+  &:hover{
+    background-color: $color_red;
+    .icon{
+      border-color: $color_red_75;
+    }
+  }
+  a{
+    display: block;
+    height: 35px;
+    line-height: 32px;
+    padding-right: 10px;
+    color: $color_white;
+    text-decoration: none;
+    &:hover{
+      color: $color_white;
+    }
+  }
+  .icon{
+    display: block;
+    float: left;
+    width: 35px;
+    height: 35px;
+    @include sprite_icons(-116px, 8px, no-repeat);
+    border-right: 1px solid $color_grey_50;
+    margin-right: 10px;
+  }
+}
+
 shoppingcart {
 
   &.shoppingcart-rightside {
@@ -579,7 +617,7 @@ shoppingcart {
       height: 100%;
       @include animation_background;
       .innerwrap{
-        margin-top: 65px; // below uservoice
+        margin-top: 45px; // below uservoice
       }
       &:hover{
         background-color: rgba($color_grey, 0.15);
