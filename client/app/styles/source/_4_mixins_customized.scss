@@ -676,7 +676,36 @@ shoppingcart {
     line-height: $fs*$line-height_factor;
     margin: 0;
     padding-right: $bu*2.0;
+    .icon{
+      position: relative;
+      top: 2px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      @include border-radius(7.5px);
+      @include border_all($color_white);
+      border-width: 2px;
+      margin-right: $fs*0.25;
+    }
   }
+  &.category-sports {
+    .icon {
+      background-color: $color_sports;
+    }
+  }
+
+  &.category-culture {
+    .icon {
+      background-color: $color_culture;
+    }
+  }
+
+  &.category-wellness {
+    .icon {
+      background-color: $color_wellness;
+    }
+  }
+
   p {
     padding-right: $bu*2.0;
     margin: 0;

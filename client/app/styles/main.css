@@ -3432,6 +3432,27 @@ shoppingcart.shoppingcart-rightside {
     line-height: 22.4px;
     margin: 0;
     padding-right: 30px; }
+    .shoppingcart-item h4 .icon {
+      position: relative;
+      top: 2px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      -webkit-border-radius: 7.5px;
+      -khtml-border-radius: 7.5px;
+      -moz-border-radius: 7.5px;
+      -ms-border-radius: 7.5px;
+      -o-border-radius: 7.5px;
+      border-radius: 7.5px;
+      border: solid 1px #FFF;
+      border-width: 2px;
+      margin-right: 4px; }
+  .shoppingcart-item.category-sports .icon {
+    background-color: #C83C19; }
+  .shoppingcart-item.category-culture .icon {
+    background-color: #1970C8; }
+  .shoppingcart-item.category-wellness .icon {
+    background-color: #bc913d; }
   .shoppingcart-item p {
     padding-right: 30px;
     margin: 0; }
