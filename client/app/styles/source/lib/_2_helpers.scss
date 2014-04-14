@@ -196,6 +196,14 @@
   }
 }
 
+@mixin animation_position {
+  @if $animation == true{
+    @include animation-defaults;
+    @include transition-property(top, right, bottom, left, width, height);
+  } @else {
+  }
+}
+
 //@animation_textlink
 
 @mixin animation_none {
