@@ -1979,9 +1979,9 @@ input, textarea, select {
 
 input, textarea {
   box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 0 inset;
-  -webkit-transition-duration: 0.15s;
-  -moz-transition-duration: 0.15s;
-  transition-duration: 0.15s;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  transition-duration: 0.25s;
   -webkit-transition-timing-function: ease-in-out;
   -moz-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
@@ -3299,9 +3299,9 @@ shoppingcart.shoppingcart-rightside {
     position: absolute;
     right: -497px;
     width: 500px;
-    -webkit-transition-duration: 0.15s;
-    -moz-transition-duration: 0.15s;
-    transition-duration: 0.15s;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    transition-duration: 0.25s;
     -webkit-transition-timing-function: ease-in-out;
     -moz-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
