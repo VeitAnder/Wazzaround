@@ -104,26 +104,28 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
     return;
   }
 
-  if (params.startDate && params.endDate) {  // search with date-rage
+  if (params.startDate && params.endDate) {  // search with date-range
     var startDate = new Date(params.startDate);
     var endDate = new Date(params.endDate);
 
+    // first case: event has only a start date and takes place once
+    // check for startdate match
     return models.ActivityModel.find({
       'longitude': {
-        "$gte": params.from.longitude,
-        "$lt": params.to.longitude
+        "$lte": params.from.longitude,
+        "$gte": params.to.longitude
       },
       'latitude': {
-        "$gte": params.from.latitude,
-        "$lt": params.to.latitude
+        "$lte": params.from.latitude,
+        "$gte": params.to.latitude
       },
       bookableItems: {
         $elemMatch: {
           events: {
             $elemMatch: {
               start: {
-                '$gt': startDate,
-                '$lt': endDate
+                '$gte': startDate,
+                '$lte': endDate
               }
             }
           }

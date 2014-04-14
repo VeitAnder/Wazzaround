@@ -78,15 +78,15 @@ angular.module('anorakApp')
         var defer = Q.defer();
 
         // if we have no start date, use now
-        // if we have no end date, use
-//        if (!start) {
-//          start = new Date();
-//        }
-//        if (!end) {
-//          var oneYearLater = new Date();
-//          oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
-//          end = oneYearLater;
-//        }
+        // if we have no end date, use one year later than now
+        if (!start) {
+          start = new Date();
+        }
+        if (!end) {
+          var oneYearLater = new Date();
+          oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
+          end = oneYearLater;
+        }
 
         debug("SEARCHING FOR NORTHEAST", map.bounds.northeast.latitude, map.bounds.northeast.longitude);
         debug("SEARCHING FOR SOUTHWEST", map.bounds.southwest.latitude, map.bounds.southwest.longitude);
@@ -99,10 +99,9 @@ angular.module('anorakApp')
           to: {  // rechts unten = southwest
             longitude: map.bounds.southwest.longitude,
             latitude: map.bounds.southwest.latitude
-          }
-//            ,
-//            startDate: start,
-//            endDate: end
+          },
+          startDate: start,
+          endDate: end
         })
           .then(function (activities) {
             debug("GOT DATE FILTERED ACTIVITIES", activities);
@@ -199,13 +198,13 @@ angular.module('anorakApp')
               $rootScope.mapInstance = googleMap;
             });
           },
-          zoom_changed: function (map) {
+          zoom_changed: function () {
             debug("ZOOM CHANGED EVENT", map.getZoom());
             // we are sure to have Usersessionstates.states after initializeMapWithUserSearchLocation()
             Usersessionstates.states.zoom = map.getZoom();
             Usersessionstates.updateSession();
           },
-          center_changed: function (map) {
+          center_changed: function () {
             debug("CENTER CHANGED", map.getCenter());
             // we are sure to have Usersessionstates.states.searchlocation.coords.latitude/longitude after initializeMapWithUserSearchLocation()
             Usersessionstates.states.searchlocation.coords.latitude = map.getCenter().k;
