@@ -44,6 +44,9 @@ angular.module('anorakApp')
     };
     initStatesCategories();
 
+    // user clicks on main category box
+    // this box opens, all other boxes close
+    // all subcategories in this box will be selected
     $scope.toggleFilter = function (category) {
       if ($scope.states[category].open) {
         $scope.states[category].open = false;
@@ -52,6 +55,15 @@ angular.module('anorakApp')
           item.open = false;
         });
         $scope.states[category].open = true;
+
+        // select all subcategories
+        _.each($scope.categories, function (mainCat) {
+          if (mainCat.key === category) {
+            $scope.selectAllFromCategory(mainCat.key);
+          } else {
+            $scope.deSelectAllFromCategory(mainCat.key);
+          }
+        });
       }
 
       Usersessionstates.states.categoryfilter = angular.copy($scope.states);
