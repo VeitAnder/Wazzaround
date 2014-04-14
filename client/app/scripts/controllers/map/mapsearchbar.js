@@ -16,16 +16,16 @@ angular.module('anorakApp')
     };
 
     $scope.$watch('search.startDate', function (newStartDate, oldStartDate) {
-      debug("STARTDATE CHANGED", newStartDate, oldStartDate);
       if (newStartDate !== oldStartDate) {
+        debug("STARTDATE CHANGED", newStartDate, oldStartDate);
         Usersessionstates.states.startdate = newStartDate;
         Usersessionstates.updateSession();
       }
     });
 
     $scope.$watch('search.endDate', function (newEndDate, oldEndDate) {
-      debug("STARTDATE CHANGED", newEndDate, oldEndDate);
       if (newEndDate !== oldEndDate) {
+        debug("ENDDATE CHANGED", newEndDate, oldEndDate);
         Usersessionstates.states.endDate = newEndDate;
         Usersessionstates.updateSession();
       }
