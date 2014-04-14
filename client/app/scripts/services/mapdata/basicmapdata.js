@@ -90,6 +90,7 @@ angular.module('anorakApp')
 
         debug("SEARCHING FOR NORTHEAST", map.bounds.northeast.latitude, map.bounds.northeast.longitude);
         debug("SEARCHING FOR SOUTHWEST", map.bounds.southwest.latitude, map.bounds.southwest.longitude);
+        debug("SEARCHING FOR DATE", start, end);
 
         models.ActivityModel.filteredActivities({
           from: {  // links oben = northeast
@@ -194,40 +195,36 @@ angular.module('anorakApp')
             };
             Usersessionstates.updateSession();
 
-            $rootScope.$apply(function () {
-              $rootScope.mapInstance = googleMap;
-            });
+            console.log("START FROM BOUNDS CHANGED");
+            findActivitiesForDateRangeAndBetweenBounds()
+              .then(function (activities) {
+                map.markers = activities;
+                $rootScope.$apply(function () {
+                  $rootScope.mapInstance = googleMap;
+                });
+                $rootScope.$broadcast("MapChangeEvent");
+              })
+
+              .catch(function (err) {
+                debug("Something went wrong while searching activities", err);
+              });
           },
-          zoom_changed: function () {
-            debug("ZOOM CHANGED EVENT", map.getZoom());
+          zoom_changed: function (googleMap) {
+            debug("ZOOM CHANGED EVENT", googleMap.getZoom());
             // we are sure to have Usersessionstates.states after initializeMapWithUserSearchLocation()
-            Usersessionstates.states.zoom = map.getZoom();
+            Usersessionstates.states.zoom = googleMap.getZoom();
             Usersessionstates.updateSession();
           },
-          center_changed: function () {
-            debug("CENTER CHANGED", map.getCenter());
+          center_changed: function (googleMap) {
+            debug("CENTER CHANGED", googleMap.getCenter());
             // we are sure to have Usersessionstates.states.searchlocation.coords.latitude/longitude after initializeMapWithUserSearchLocation()
-            Usersessionstates.states.searchlocation.coords.latitude = map.getCenter().k;
-            Usersessionstates.states.searchlocation.coords.longitude = map.getCenter().A;
+            Usersessionstates.states.searchlocation.coords.latitude = googleMap.getCenter().k;
+            Usersessionstates.states.searchlocation.coords.longitude = googleMap.getCenter().A;
             Usersessionstates.updateSession();
           }
         }
-      };
-
-//
-//      var findActivitiesForDateRangeAndBetweenBounds = function ()
-//        .then(function (activities) {
-//          map.markers = activities;
-//          debug("AM DONE INITIALIZING ACTIVITIES");
-//          $rootScope.$broadcast("MapChangeEvent");
-//        })
-//
-//        .catch(function (err) {
-//          debug("Something went wrong while searching activities", err);
-//        });
-//
-//      return Q.resolve(map);
-//    };
+      }
+      ;
 
       return {
         // when user first loads the map, we get all activities from controller. They need to be filtered for radius
@@ -240,6 +237,7 @@ angular.module('anorakApp')
 
           // 1. wir suchen das erste Mal ohne Adresse und ohne Datumsangabe,
           // wenn der User die Seite aufruft
+          console.log("START FROM SEARCH");
           findActivitiesForDateRangeAndBetweenBounds(startDate, endDate)
             .then(function () {
               return geoCodeAddress(map, address);
@@ -302,6 +300,9 @@ angular.module('anorakApp')
         },
 
         initializeMapWithUserSearchLocation: function () {
+          var deferred = Q.defer();
+
+          map.markers = [];
 
           // dont update Usersessionstates here, it will overwrite stuff !!!
           function setInitPositionOnMap(position) {
@@ -311,14 +312,11 @@ angular.module('anorakApp')
             map.center.longitude = position.coords.longitude;
           }
 
-          function couldNotGetInitPosition(err) {
-            debug("Could not set initial location, will initialize with default Torino", err);
-          }
-
           Usersessionstates.loadSession();
 
           // if there are session stored, check what is stored and fill into map
           if ((Usersessionstates.states && Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
+            debug("Got Usersessionstates, will set position");
             setInitPositionOnMap(Usersessionstates.states.searchlocation);
             if (Usersessionstates.states.zoom) {
               map.zoom = Usersessionstates.states.zoom;
@@ -326,32 +324,49 @@ angular.module('anorakApp')
             if (Usersessionstates.states.bounds) {
               map.bounds = Usersessionstates.states.bounds;
             }
+            return Q.resolve(map); // TODO why deferred is not working here???
 
           } else {
             // try to get user's position
             // it works --> map is filled with new data, set that data to Usersessionstates
             // it fails --> map is filled with standard data, set that data to Usersessionstates
             // update Usersessionstates
-            navigator.geolocation.getCurrentPosition(setInitPositionOnMap, couldNotGetInitPosition);
-            Usersessionstates.states = {
-              searchlocation: {
-                coords: {
-                  latitude: map.center.latitude,
-                  longitude: map.center.longitude
-                }
-              },
-              zoom: map.zoom
-            };
-          }
+            console.log("Got Nothing, will determine browser postion and set");
+            navigator.geolocation.getCurrentPosition(function (position) {
+              setInitPositionOnMap(position);
+              console.log("do we have bounds", map.bounds.northeast);
+              Usersessionstates.states = {
+                searchlocation: {
+                  coords: {
+                    latitude: map.center.latitude,
+                    longitude: map.center.longitude
+                  }
+                },
+                zoom: map.zoom
+              };
 
-          Usersessionstates.updateSession();
+              Usersessionstates.updateSession();
+              console.log("RESOLVE WITH BROWSER STATE CHECKED");
+              return deferred.resolve(map);
 
-          return findActivitiesForDateRangeAndBetweenBounds()
-            .then(function (activities) {
-              map.markers = activities;
-              return Q.resolve(map);
+            }, function (err) {
+              debug("Could not set initial location, will initialize with default Torino", err);
+              Usersessionstates.states = {
+                searchlocation: {
+                  coords: {
+                    latitude: map.center.latitude,
+                    longitude: map.center.longitude
+                  }
+                },
+                zoom: map.zoom
+              };
+              Usersessionstates.updateSession();
+              console.log("RESOLVE AFTER BROWSER STATE ERR");
+              return deferred.resolve(map);
             });
 
+          }
+          return deferred.promise;
         },
         map: map
       };
@@ -359,5 +374,6 @@ angular.module('anorakApp')
     };
 
     return mapdata;
-  });
+  })
+;
 
