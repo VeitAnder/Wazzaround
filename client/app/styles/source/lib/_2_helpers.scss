@@ -196,6 +196,14 @@
   }
 }
 
+@mixin animation_position {
+  @if $animation == true{
+    @include animation-defaults;
+    @include transition-property(top, right, bottom, left, width, height);
+  } @else {
+  }
+}
+
 //@animation_textlink
 
 @mixin animation_none {
@@ -368,35 +376,35 @@
 }
 
 @mixin box-shadow_2px {
-  @include box-shadow(rgba($color_black, 0.07) 0px 2px 0);
+  box-shadow: rgba($color_black, 0.07) 0px 2px 0;
 }
 
 @mixin box-shadow_4px {
-  @include box-shadow(rgba($color_black, 0.07) 0px 4px 0);
+  box-shadow: rgba($color_black, 0.07) 0px 4px 0;
 }
 
 @mixin box-shadow_2px-inset {
-  @include box-shadow(rgba($color_black, 0.07) 0px 2px 0 inset);
+  box-shadow: rgba($color_black, 0.07) 0px 2px 0 inset;
 }
 
 @mixin text-shadow_4px {
-  @include text-shadow(rgba($color_black, 0.07) 0px 4px 0);
+  text-shadow: rgba($color_black, 0.07) 0px 4px 0;
 }
 
 @mixin text-shadow_2px {
-  @include text-shadow(rgba($color_black, 0.15) 0px 2px 0);
+  text-shadow: rgba($color_black, 0.15) 0px 2px 0;
 }
 
 @mixin text-shadow_-2px {
-  @include text-shadow(rgba($color_black, 0.07) 0px -2px 0);
+  text-shadow: rgba($color_black, 0.07) 0px -2px 0;
 }
 
 @mixin text-shadow_-1px {
-  @include text-shadow(rgba($color_black, 0.15) 0px -1px 0);
+  text-shadow: rgba($color_black, 0.15) 0px -1px 0;
 }
 
 @mixin text-shadow_highlight {
-  @include text-shadow(rgba($color_white, 1.0) 0px -1px 0px);
+  text-shadow: rgba($color_white, 1.0) 0px -1px 0px;
 }
 
 @mixin padding-30px-vert {

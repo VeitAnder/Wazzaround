@@ -559,6 +559,44 @@ header {
   }
 }
 
+
+.uservoice-custom{
+  z-index: 150;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  background-color: $color_grey_75;
+  @include border-bottom-left-radius($border-radius_small);
+  @include hovercursor;
+  @include box-shadow_2px;
+  &:hover{
+    background-color: $color_red;
+    .icon{
+      border-color: $color_red_75;
+    }
+  }
+  a{
+    display: block;
+    height: 35px;
+    line-height: 32px;
+    padding-right: 10px;
+    color: $color_white;
+    text-decoration: none;
+    &:hover{
+      color: $color_white;
+    }
+  }
+  .icon{
+    display: block;
+    float: left;
+    width: 35px;
+    height: 35px;
+    @include sprite_icons(-116px, 8px, no-repeat);
+    border-right: 1px solid $color_grey_50;
+    margin-right: 10px;
+  }
+}
+
 shoppingcart {
 
   &.shoppingcart-rightside {
@@ -567,22 +605,35 @@ shoppingcart {
     right: 0;
     z-index: 100;
     overflow: hidden;
-    width: $shoppingcart-rightside-width + 40px;
+    width: 40px + 5px;
     @include box-sizing(border-box);
     height: 100%;
+    @include animation_position;
     .shoppingcart-toggle {
       display: block;
       position: absolute;
-      top: 65px; // below uservoice
+      top: 0px;
       left: -40px;
+      height: 100%;
+      @include animation_background;
+      .innerwrap{
+        margin-top: 45px; // below uservoice
+      }
+      &:hover{
+        background-color: rgba($color_grey, 0.15);
+      }
+
     }
     .shoppingcart-element {
       position: absolute;
-      right: - ($shoppingcart-rightside-width - 3px);
+      right: - ($shoppingcart-rightside-width - 5px);
       width: $shoppingcart-rightside-width;
-      @include animation_all;
+      @include animation_position;
     }
+
     &.active {
+      width: $shoppingcart-rightside-width + 40px;
+
       .shoppingcart-element {
         right: 0;
       }
@@ -591,7 +642,7 @@ shoppingcart {
     }
     .shoppingcart-header{
 //      padding-top: $fs*0.5;
-      // not necessary in combination with uservoice
+//      not necessary in combination with uservoice
     }
   }
 }
@@ -608,14 +659,17 @@ shoppingcart {
 
 .shoppingcart-toggle {
   display: none; //hide = standard
-  width: 40px;
-  height: 40px;
-  @include border-left-radius($border-radius-small);
-  background-color: $color_green;
-  @include sprite_icons(9px, -88px, no-repeat);
-  text-align: right;
-  padding: 0 3px;
   @include hovercursor;
+
+  .innerwrap {
+    width: 40px;
+    height: 40px;
+    @include border-left-radius($border-radius-small);
+    background-color: $color_green;
+    @include sprite_icons(9px, -88px, no-repeat);
+    text-align: right;
+    padding: 0 3px;
+  }
 
   .numberofitems {
     display: inline-block;
@@ -630,12 +684,14 @@ shoppingcart {
     @include box-shadow_2px;
   }
   .active & {
-    background-color: $color_red;
+    .innerwrap{
+      background-color: $color_red;
+      background-position: -95px 13px;
+      background-size: 600%;
+    }
     .numberofitems {
       display: none;
     }
-    background-position: -95px 13px;
-    background-size: 600%;
   }
 }
 
@@ -658,7 +714,36 @@ shoppingcart {
     line-height: $fs*$line-height_factor;
     margin: 0;
     padding-right: $bu*2.0;
+    .icon{
+      position: relative;
+      top: 2px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      @include border-radius(7.5px);
+      @include border_all($color_white);
+      border-width: 2px;
+      margin-right: $fs*0.25;
+    }
   }
+  &.category-sports {
+    .icon {
+      background-color: $color_sports;
+    }
+  }
+
+  &.category-culture {
+    .icon {
+      background-color: $color_culture;
+    }
+  }
+
+  &.category-wellness {
+    .icon {
+      background-color: $color_wellness;
+    }
+  }
+
   p {
     padding-right: $bu*2.0;
     margin: 0;

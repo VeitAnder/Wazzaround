@@ -132,8 +132,9 @@
 <!--Browser warnings start-->
 
 <!--[if lt IE 10]>
-<div class="browser-warning" style="padding:50px;">
-  <h1>Your old  Internet Explorer version is not supported anymore!</h1>
+<div class="browser-warning"
+     style="padding:50px;">
+  <h1>Your old Internet Explorer version is not supported anymore!</h1>
 
   <h2>reacture strongly recommends you to install a secure and fast alternative browser!</h2>
 
@@ -324,7 +325,7 @@
 
   // Identify the user and pass traits
   // To enable, replace sample data with actual user traits and uncomment the line
-  UserVoice.push(['identify', {
+/*  UserVoice.push(['identify', {
     //email:      'john.doe@example.com', // User’s email address
     //name:       'John Doe', // User’s real name
     //created_at: 1364406966, // Unix timestamp for the date the user signed up
@@ -338,10 +339,12 @@
     //  ltv:          1495.00, // Decimal; lifetime value of the account
     //  plan:         'Enhanced' // Plan name for the account
     //}
-  }]);
+  }]);*/
 
   // Add default trigger to the bottom-right corner of the window:
-  UserVoice.push(['addTrigger', { mode: 'contact', trigger_position: 'top-right' }]);
+/*
+  UserVoice.push(['addTrigger', { trigger_style: 'tab', mode: 'contact', trigger_position: 'top-right' }]);
+*/
 
   // Or, use your own custom trigger:
   //UserVoice.push(['addTrigger', '#id', { mode: 'contact' }]);
@@ -349,6 +352,15 @@
   // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
   UserVoice.push(['autoprompt', {}]);
 </script>
+
+<div class="uservoice-custom"
+     data-uv-trigger
+    >
+  <a href="mailto:dev@reacture.com">
+  <span class="icon"></span>
+  Report a bug!
+  </a>
+</div>
 
 </body>
 </html>
