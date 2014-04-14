@@ -9,7 +9,6 @@ angular.module('anorakApp')
 
     if (Usersessionstates.states && Usersessionstates.states.categoryfilter) {
       $scope.states = angular.copy(Usersessionstates.states.categoryfilter);
-      $scope.$apply();
 
     } else {
       $scope.states = {
@@ -31,7 +30,6 @@ angular.module('anorakApp')
 
       if (Usersessionstates.states && Usersessionstates.states.selectedcategories) {
         $scope.categories = angular.copy(Usersessionstates.states.selectedcategories);
-        $scope.$apply();
 
       } else {
         angular.forEach($scope.categories, function (category) {
@@ -221,6 +219,8 @@ angular.module('anorakApp')
           subCat.selected = false;
         }
       });
+      Usersessionstates.states.selectedcategories = angular.copy($scope.categories);
+      Usersessionstates.updateSession();
     }
 
     function setSelectedFromUsersessionstates() {
@@ -229,9 +229,7 @@ angular.module('anorakApp')
       _.each(Usersessionstates.states.selectedcategories, function (mainCat) {
         filteredSubCats = categoriesInActivities(mainCat.key);
         _.each(mainCat.sub, function (subCat) {
-          if (_.contains(filteredSubCats, subCat.key)) {
-            subCat.selected = subCat.selected;
-          } else {
+          if (!_.contains(filteredSubCats, subCat.key)) {
             subCat.selected = false;
           }
         });
@@ -283,7 +281,13 @@ angular.module('anorakApp')
 
     // TODO there must be a better way to do this
     $rootScope.$on("MapChangeEvent", function (event, message) {
-//      debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
+      debug("MAP CHANGED EVENT");
+//      setSelectedFromUsersessionstates();
+    });
+
+    $rootScope.$on("InitMapBoundsEvent", function (event, message) {
+      debug("INIT MAP BOUNDS EVENT", Usersessionstates.states.selectedcategories);
+
       if (!Usersessionstates.states.selectedcategories) {
         angular.forEach($scope.categories, function (mainCat) {
           setSelected(mainCat.key);

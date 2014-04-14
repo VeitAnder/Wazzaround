@@ -1,0 +1,132 @@
+{"searchlocation": {
+  "coords": {
+    "latitude": 45.04903622633596,
+    "longitude": 7.855756625878939
+  }
+}, "zoom": 12, "selectedcategories": [
+  {
+    "title": "Sports & Activities",
+    "key": "sports",
+    "sub": [
+      {
+        "title": "Trekking, Biking, Hiking",
+        "key": "trekkingbikinghiking",
+        "selected": false
+      },
+      {
+        "title": "Adventure",
+        "key": "adventure",
+        "selected": false
+      },
+      {
+        "title": "Yoga & Pilates",
+        "key": "yogapilates",
+        "selected": false
+      },
+      {
+        "title": "Full day activities",
+        "key": "fulldayactivities",
+        "selected": false
+      },
+      {
+        "title": "Water Sports",
+        "key": "watersports",
+        "selected": false
+      },
+      {
+        "title": "Winter Sports",
+        "key": "wintersports",
+        "selected": false
+      },
+      {
+        "title": "Motorized Sports",
+        "key": "motorizedsports",
+        "selected": false
+      },
+      {
+        "title": "Extreme Sports",
+        "key": "extremesports",
+        "selected": false
+      }
+    ],
+    "_id": "530ce4beee5f21279b2b64eb"
+  },
+  {
+    "title": "Culture & Gourmet",
+    "key": "culture",
+    "sub": [
+      {
+        "title": "Degustations: Wine & Food & Cigars",
+        "key": "degustations",
+        "selected": true
+      },
+      {
+        "title": "Guided Tours",
+        "key": "guidedtours",
+        "selected": true
+      },
+      {
+        "title": "Exhibitions & Fairs",
+        "key": "exhibitionsandfairs",
+        "selected": true
+      },
+      {
+        "title": "Opera & Theater",
+        "key": "operaandtheater",
+        "selected": true
+      },
+      {
+        "title": "Music & Film",
+        "key": "musicandfilm",
+        "selected": true
+      }
+    ],
+    "_id": "530ce4d8ee5f21279b2b64ec"
+  },
+  {
+    "title": "Wellness & Relax",
+    "key": "wellness",
+    "sub": [
+      {
+        "title": "Massages",
+        "key": "massages",
+        "selected": false
+      },
+      {
+        "title": "Medical Treatments",
+        "key": "medicaltreatments",
+        "selected": false
+      },
+      {
+        "title": "Beauty",
+        "key": "beauty",
+        "selected": false
+      },
+      {
+        "title": "SPA & Sauna",
+        "key": "spaandsauna",
+        "selected": false
+      }
+    ],
+    "_id": "530ce4e8ee5f21279b2b64ed"
+  }
+], "bounds": {
+  "northeast": {
+    "latitude": 45.10382806316056,
+    "longitude": 8.10020242666019
+  },
+  "southwest": {
+    "latitude": 44.99419185210162,
+    "longitude": 7.611310825097689
+  }
+}, "categoryfilter": {
+  "sports": {
+    "open": false
+  },
+  "culture": {
+    "open": true
+  },
+  "wellness": {
+    "open": false
+  }
+}}

@@ -105,7 +105,7 @@ angular.module('anorakApp')
           endDate: end
         })
           .then(function (activities) {
-            debug("GOT DATE FILTERED ACTIVITIES", activities);
+            debug("GOT DATE FILTERED ACTIVITIES", activities.length, activities);
             defer.resolve(activities);
           })
           .fail(function (err) {
@@ -171,6 +171,15 @@ angular.module('anorakApp')
           bounds_changed: function (googleMap) {
             debug("BOUNDS CHANGED EVENT", "NE", googleMap.getBounds().getNorthEast(), "SW", googleMap.getBounds().getSouthWest());
 
+            var boundsNotInitialized = false;
+            // bounds have not been initialized yet
+            if(map.bounds.northeast.latitude === 0 &&
+              map.bounds.northeast.longitude === 0 &&
+              map.bounds.southwest.latitude === 0 &&
+              map.bounds.southwest.longitude === 0) {
+              boundsNotInitialized = true;
+            }
+
             // bounds contain northeast and southwest lat/lng which we will use to search activities within
             map.bounds = {
               northeast: {
@@ -195,10 +204,13 @@ angular.module('anorakApp')
             };
             Usersessionstates.updateSession();
 
-            console.log("START FROM BOUNDS CHANGED");
             findActivitiesForDateRangeAndBetweenBounds()
               .then(function (activities) {
                 map.markers = activities;
+                $rootScope.$apply();
+                if(boundsNotInitialized) {
+                  $rootScope.$broadcast("InitMapBoundsEvent");
+                }
                 $rootScope.$broadcast("MapChangeEvent");
               })
 
@@ -233,7 +245,6 @@ angular.module('anorakApp')
 
           // 1. wir suchen das erste Mal ohne Adresse und ohne Datumsangabe,
           // wenn der User die Seite aufruft
-          console.log("START FROM SEARCH");
           findActivitiesForDateRangeAndBetweenBounds(startDate, endDate)
             .then(function () {
               return geoCodeAddress(map, address);
@@ -257,7 +268,7 @@ angular.module('anorakApp')
 
             geoCodeAddress(map, marker.address)
               .then(function () {
-                console.log("DONE GEOCODING ADDRESS");     // TODO set marker on map
+                debug("DONE GEOCODING ADDRESS");     // TODO set marker on map
                 setMarkerOnMap(map, marker);
                 $rootScope.$broadcast("EditMapChangeEvent");
               })
@@ -268,16 +279,16 @@ angular.module('anorakApp')
           }
         },
         findAddressForCoordinates: function (latitude, longitude) {
-          console.log("LOOKING FOR ADDRESS FOR", latitude, longitude);
+          debug("LOOKING FOR ADDRESS FOR", latitude, longitude);
 
           var latlng = new google.maps.LatLng(latitude, longitude);
 
           geocoder = new google.maps.Geocoder();
           geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-            console.log("CODED RESULTS", results, status);
+            debug("CODED RESULTS", results, status);
             if (status === google.maps.GeocoderStatus.OK) {
               if (results[1]) {
-                console.log("SET ADDRESS TO MAP", results[1]);
+                debug("SET ADDRESS TO MAP", results[1]);
                 map.address = results[1].formatted_address;
               } else {
                 debug('No address found for coordinates');
@@ -314,12 +325,11 @@ angular.module('anorakApp')
           if ((Usersessionstates.states && Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
             debug("Got Usersessionstates, will set position");
             setInitPositionOnMap(Usersessionstates.states.searchlocation);
+
             if (Usersessionstates.states.zoom) {
               map.zoom = Usersessionstates.states.zoom;
             }
-            if (Usersessionstates.states.bounds) {
-              map.bounds = Usersessionstates.states.bounds;
-            }
+
             return Q.resolve(map); // TODO why deferred is not working here???
 
           } else {
@@ -327,10 +337,10 @@ angular.module('anorakApp')
             // it works --> map is filled with new data, set that data to Usersessionstates
             // it fails --> map is filled with standard data, set that data to Usersessionstates
             // update Usersessionstates
-            console.log("Got Nothing, will determine browser postion and set");
+            debug("Got Nothing, will determine browser postion and set");
             navigator.geolocation.getCurrentPosition(function (position) {
               setInitPositionOnMap(position);
-              console.log("do we have bounds", map.bounds.northeast);
+              debug("do we have bounds", map.bounds.northeast);
               Usersessionstates.states = {
                 searchlocation: {
                   coords: {
@@ -342,7 +352,7 @@ angular.module('anorakApp')
               };
 
               Usersessionstates.updateSession();
-              console.log("RESOLVE WITH BROWSER STATE CHECKED");
+              debug("RESOLVE WITH BROWSER STATE CHECKED");
               return deferred.resolve(map);
 
             }, function (err) {
@@ -357,7 +367,7 @@ angular.module('anorakApp')
                 zoom: map.zoom
               };
               Usersessionstates.updateSession();
-              console.log("RESOLVE AFTER BROWSER STATE ERR");
+              debug("RESOLVE AFTER BROWSER STATE ERR");
               return deferred.resolve(map);
             });
 
