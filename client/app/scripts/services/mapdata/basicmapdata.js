@@ -199,9 +199,6 @@ angular.module('anorakApp')
             findActivitiesForDateRangeAndBetweenBounds()
               .then(function (activities) {
                 map.markers = activities;
-                $rootScope.$apply(function () {
-                  $rootScope.mapInstance = googleMap;
-                });
                 $rootScope.$broadcast("MapChangeEvent");
               })
 
@@ -223,8 +220,7 @@ angular.module('anorakApp')
             Usersessionstates.updateSession();
           }
         }
-      }
-      ;
+      };
 
       return {
         // when user first loads the map, we get all activities from controller. They need to be filtered for radius

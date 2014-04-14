@@ -53,28 +53,28 @@
                 >
               <div
                   class="div-row"
-                  ng-repeat="category in sportsCategories.db"
+                  ng-repeat="category in getMainCategory('sports').sub"
                   >
 
                 <div data-ng-if="$index % 2 === 0">
                   <div
                       class="filter-category-sub div-cell"
-                      data-ng-if="sportsCategories.db[$index+0]"
-                      ng-class="{selected: sportsCategories.db[$index+0].selected}"
-                      ng-click="toggleCategorySelection(sportsCategories.db[$index+0])"
+                      data-ng-if="getMainCategory('sports').sub[$index+0]"
+                      ng-class="{selected: getMainCategory('sports').sub[$index+0].selected}"
+                      ng-click="toggleCategorySelection(getMainCategory('sports').sub[$index+0])"
                       >
                     <span class="checkbox inline"></span>
-                    {{ sportsCategories.db[$index+0].key | translate }}
+                    {{ getMainCategory('sports').sub[$index+0].key | translate }}
                   </div>
 
                   <div
                       class="filter-category-sub div-cell"
-                      data-ng-if="sportsCategories.db[$index+1]"
-                      ng-class="{selected: sportsCategories.db[$index+1].selected}"
-                      ng-click="toggleCategorySelection(sportsCategories.db[$index+1])"
+                      data-ng-if="getMainCategory('sports').sub[$index+1]"
+                      ng-class="{selected: getMainCategory('sports').sub[$index+1].selected}"
+                      ng-click="toggleCategorySelection(getMainCategory('sports').sub[$index+1])"
                       >
                     <span class="checkbox inline"></span>
-                    {{ sportsCategories.db[$index+1].key | translate }}
+                    {{ getMainCategory('sports').sub[$index+1].key | translate }}
                   </div>
                 </div>
 
@@ -121,28 +121,28 @@
           <div class="innerwrap">
             <div
                 class="div-row"
-                ng-repeat="category in cultureCategories.db"
+                ng-repeat="category in getMainCategory('culture').sub"
                 >
 
               <div data-ng-if="$index % 2 === 0">
                 <div
                     class="filter-category-sub div-cell"
-                    data-ng-if="cultureCategories.db[$index+0]"
-                    ng-class="{selected: cultureCategories.db[$index+0].selected}"
-                    ng-click="toggleCategorySelection(cultureCategories.db[$index+0])"
+                    data-ng-if="getMainCategory('culture').sub[$index+0]"
+                    ng-class="{selected: getMainCategory('culture').sub[$index+0].selected}"
+                    ng-click="toggleCategorySelection(getMainCategory('culture').sub[$index+0])"
                     >
                   <span class="checkbox inline"></span>
-                  {{ cultureCategories.db[$index+0].key | translate }}
+                  {{ getMainCategory('culture').sub[$index+0].key | translate }}
                 </div>
 
                 <div
                     class="filter-category-sub div-cell"
-                    data-ng-if="cultureCategories.db[$index+1]"
-                    ng-class="{selected: cultureCategories.db[$index+1].selected}"
-                    ng-click="toggleCategorySelection(cultureCategories.db[$index+1])"
+                    data-ng-if="getMainCategory('culture').sub[$index+1]"
+                    ng-class="{selected: getMainCategory('culture').sub[$index+1].selected}"
+                    ng-click="toggleCategorySelection(getMainCategory('culture').sub[$index+1])"
                     >
                   <span class="checkbox inline"></span>
-                  {{ cultureCategories.db[$index+1].key | translate }}
+                  {{ getMainCategory('culture').sub[$index+1].key | translate }}
                 </div>
 
               </div>
@@ -189,28 +189,28 @@
           <div class="innerwrap">
             <div
                 class="div-row"
-                ng-repeat="category in wellnessCategories.db"
+                ng-repeat="category in getMainCategory('wellness').sub"
                 >
 
               <div data-ng-if="$index % 2 === 0">
                 <div
-                    data-ng-if="wellnessCategories.db[$index+0]"
+                    data-ng-if="getMainCategory('wellness').sub[$index+0]"
                     class="filter-category-sub div-cell"
-                    ng-class="{selected: wellnessCategories.db[$index+0].selected}"
-                    ng-click="toggleCategorySelection(wellnessCategories.db[$index+0])"
+                    ng-class="{selected: getMainCategory('wellness').sub[$index+0].selected}"
+                    ng-click="toggleCategorySelection(getMainCategory('wellness').sub[$index+0])"
                     >
                   <span class="checkbox inline"></span>
-                  {{ wellnessCategories.db[$index+0].key | translate }}
+                  {{ getMainCategory('wellness').sub[$index+0].key | translate }}
                 </div>
 
                 <div
                     class="filter-category-sub div-cell"
-                    data-ng-if="wellnessCategories.db[$index+1]"
-                    ng-class="{selected: wellnessCategories.db[$index+1].selected}"
-                    ng-click="toggleCategorySelection(wellnessCategories.db[$index+1])"
+                    data-ng-if="getMainCategory('wellness').sub[$index+1]"
+                    ng-class="{selected: getMainCategory('wellness').sub[$index+1].selected}"
+                    ng-click="toggleCategorySelection(getMainCategory('wellness').sub[$index+1])"
                     >
                   <span class="checkbox inline"></span>
-                  {{ wellnessCategories.db[$index+1].key | translate }}
+                  {{ getMainCategory('wellness').sub[$index+1].key | translate }}
                 </div>
 
               </div>

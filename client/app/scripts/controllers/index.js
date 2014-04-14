@@ -9,6 +9,7 @@ angular.module('anorakApp')
 
     if (Usersessionstates.states && Usersessionstates.states.categoryfilter) {
       $scope.states = angular.copy(Usersessionstates.states.categoryfilter);
+      $scope.$apply();
 
     } else {
       $scope.states = {
@@ -30,6 +31,8 @@ angular.module('anorakApp')
 
       if (Usersessionstates.states && Usersessionstates.states.selectedcategories) {
         $scope.categories = angular.copy(Usersessionstates.states.selectedcategories);
+        $scope.$apply();
+
       } else {
         angular.forEach($scope.categories, function (category) {
           angular.forEach(category.sub, function (sub) {
@@ -37,10 +40,8 @@ angular.module('anorakApp')
           });
         });
 
-        if (Usersessionstates.states) {
-          Usersessionstates.states.selectedcategories = angular.copy($scope.categories);
-          Usersessionstates.updateSession();
-        }
+        Usersessionstates.states.selectedcategories = angular.copy($scope.categories);
+        Usersessionstates.updateSession();
       }
     };
     initStatesCategories();
@@ -125,9 +126,6 @@ angular.module('anorakApp')
     $scope.getMainCategory = function (maincategory) {
       return _.find($scope.categories, { 'key': maincategory });
     };
-    $scope.sportsCategories = { db: $scope.getMainCategory('sports').sub };
-    $scope.cultureCategories = { db: $scope.getMainCategory('culture').sub };
-    $scope.wellnessCategories = { db: $scope.getMainCategory('wellness').sub };
 
     // if there is no category that is not selected, then all categories are selected
     $scope.allSelectedFromCategory = function (mainCat) {
@@ -225,6 +223,24 @@ angular.module('anorakApp')
       });
     }
 
+    function setSelectedFromUsersessionstates() {
+      var filteredSubCats;
+
+      _.each(Usersessionstates.states.selectedcategories, function (mainCat) {
+        filteredSubCats = categoriesInActivities(mainCat.key);
+        _.each(mainCat.sub, function (subCat) {
+          if (_.contains(filteredSubCats, subCat.key)) {
+            subCat.selected = subCat.selected;
+          } else {
+            subCat.selected = false;
+          }
+        });
+      });
+      $scope.categories = angular.copy(Usersessionstates.states.selectedcategories);
+      $scope.$apply();
+      Usersessionstates.updateSession();
+    }
+
     // this is the fixed number of categories contained in activities, no matter if selected or not
     $scope.totalNumberOfCategory = function (mainCat) {
       return categoriesInActivities(mainCat).length;
@@ -265,11 +281,16 @@ angular.module('anorakApp')
       debug("Put into shopping cart", activity, event);
     };
 
+    // TODO there must be a better way to do this
     $rootScope.$on("MapChangeEvent", function (event, message) {
 //      debug("MAP CHANGED !!! MARKERS: ", $scope.map.markers);
-      angular.forEach($scope.categories, function (mainCat) {
-        setSelected(mainCat.key);
-      });
+      if (!Usersessionstates.states.selectedcategories) {
+        angular.forEach($scope.categories, function (mainCat) {
+          setSelected(mainCat.key);
+        });
+      } else {
+        setSelectedFromUsersessionstates();
+      }
     });
 
     // when user changes language, reload controller so that all translations are correct
