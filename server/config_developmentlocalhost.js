@@ -11,6 +11,9 @@
 
  */
 
+
+// changed mongo because of heartbleed, login with: reactureapp / 3wHsQJyPjM9MEB
+
 var config = {
   host: "http://localhost:3000/",
   clienthost: "http://localhost:9000/",
