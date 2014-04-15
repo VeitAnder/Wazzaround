@@ -42,11 +42,11 @@ angular.module('anorakApp')
               var bounds = {
                 northeast: {
                   latitude: results[0].geometry.bounds.Ba.j,
-                  longitude: results[0].geometry.bounds.ra.k
+                  longitude: results[0].geometry.bounds.ra.j
                 },
                 southwest: {
                   latitude: results[0].geometry.bounds.Ba.k,
-                  longitude: results[0].geometry.bounds.ra.j
+                  longitude: results[0].geometry.bounds.ra.k
                 }
               };
 
@@ -55,6 +55,7 @@ angular.module('anorakApp')
               Usersessionstates.updateSession();
               // set new bounds to map
               map.bounds = angular.copy(bounds);
+
               console.log("AM DONE GEOCODING ADDRESS");
               return defer.resolve();
 

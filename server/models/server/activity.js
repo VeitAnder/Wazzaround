@@ -111,13 +111,13 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
     // first case: event has only a start date and takes place once
     // check for startdate match
     return models.ActivityModel.find({
-      'longitude': {
-        "$lte": params.from.longitude,
-        "$gte": params.to.longitude
-      },
       'latitude': {
-        "$lte": params.from.latitude,
-        "$gte": params.to.latitude
+        "$gte": params.to.latitude,
+        "$lte": params.from.latitude
+      },
+      'longitude': {
+        "$gte": params.from.longitude,
+        "$lte": params.to.longitude
       },
       bookableItems: {
         $elemMatch: {
