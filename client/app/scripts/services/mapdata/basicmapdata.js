@@ -173,9 +173,9 @@ angular.module('anorakApp')
           streetViewControl: false
         },
         events: {
-          bounds_changed: function (googleMap) {
-            debug("BOUNDS CHANGED EVENT", "NE", googleMap.getBounds().getNorthEast(), "SW", googleMap.getBounds().getSouthWest());
-
+          idle: function (googleMap) {
+            debug("IDLE EVENT", "NE", googleMap.getBounds().getNorthEast(), "SW", googleMap.getBounds().getSouthWest());
+            debug("MAP: ", googleMap);
             var boundsNotInitialized = false;
             // bounds have not been initialized yet
             if (map.bounds.northeast.latitude === 0 &&
@@ -207,6 +207,8 @@ angular.module('anorakApp')
                 longitude: googleMap.getBounds().getSouthWest().A
               }
             };
+            Usersessionstates.states.searchlocation.coords.latitude = googleMap.getCenter().k;
+            Usersessionstates.states.searchlocation.coords.longitude = googleMap.getCenter().A;
             Usersessionstates.updateSession();
 
             // look for activities within these bounds and in a date range from now until one year later
@@ -217,6 +219,7 @@ angular.module('anorakApp')
                 $rootScope.$apply();
                 if (boundsNotInitialized) {
                   $rootScope.$broadcast("InitMapBoundsEvent");
+                  return;
                 }
                 $rootScope.$broadcast("MapChangeEvent");
               })
@@ -229,13 +232,6 @@ angular.module('anorakApp')
             debug("ZOOM CHANGED EVENT", googleMap.getZoom());
             // we are sure to have Usersessionstates.states after initializeMapWithUserSearchLocation()
             Usersessionstates.states.zoom = googleMap.getZoom();
-            Usersessionstates.updateSession();
-          },
-          center_changed: function (googleMap) {
-            debug("CENTER CHANGED", googleMap.getCenter());
-            // we are sure to have Usersessionstates.states.searchlocation.coords.latitude/longitude after initializeMapWithUserSearchLocation()
-            Usersessionstates.states.searchlocation.coords.latitude = googleMap.getCenter().k;
-            Usersessionstates.states.searchlocation.coords.longitude = googleMap.getCenter().A;
             Usersessionstates.updateSession();
           }
         }

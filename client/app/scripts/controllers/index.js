@@ -247,6 +247,7 @@ angular.module('anorakApp')
         });
       });
       $scope.categories = angular.copy(Usersessionstates.states.selectedcategories);
+      $scope.$apply();
       Usersessionstates.updateSession();
     }
 

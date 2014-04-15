@@ -116,8 +116,8 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
         "$lte": params.from.latitude
       },
       'longitude': {
-        "$gte": params.from.longitude,
-        "$lte": params.to.longitude
+        "$gte": params.to.longitude,
+        "$lte": params.from.longitude
       },
       bookableItems: {
         $elemMatch: {
