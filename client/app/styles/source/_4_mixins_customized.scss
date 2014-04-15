@@ -565,7 +565,7 @@ header {
   position: absolute;
   top: 0;
   right: 0px;
-  background-color: $color_grey_75;
+  background-color: rgba($color_grey, 0.75);
   @include border-bottom-left-radius($border-radius_small);
   @include hovercursor;
   @include box-shadow_2px;
