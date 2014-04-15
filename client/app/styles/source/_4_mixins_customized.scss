@@ -571,7 +571,7 @@ header {
   @include box-shadow_2px;
   &:hover{
     background-color: $color_red;
-    .icon{
+    .txt{
       border-color: $color_red_75;
     }
   }
@@ -579,9 +579,9 @@ header {
     display: block;
     height: 35px;
     line-height: 32px;
-    padding-right: 10px;
     color: $color_white;
     text-decoration: none;
+    font-weight: $font-weight_bold;
     &:hover{
       color: $color_white;
     }
@@ -589,11 +589,35 @@ header {
   .icon{
     display: block;
     float: left;
-    width: 35px;
+    width: 18px;
+    height: 16px;
+    margin: 9px;
+    @include sprite_icons(-124px, 0px, no-repeat);
+  }
+  .txt{
+    display: inline-block;
     height: 35px;
-    @include sprite_icons(-116px, 8px, no-repeat);
-    border-right: 1px solid $color_grey_50;
-    margin-right: 10px;
+    border-left: 1px solid $color_grey_50;
+    padding: 0 10px;
+
+  }
+
+  &.small{
+    a{
+      @include font-size_small;
+      line-height: 24px;
+      height: 24px;
+    }
+    .icon{
+      width: 12px;
+      height: 10px;
+      margin: 7px;
+      background-position: -124px -25px;
+    }
+    .txt{
+      height: 24px;
+      padding: 0 7.5px;
+    }
   }
 }
 
