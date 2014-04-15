@@ -294,9 +294,6 @@ angular.module('anorakApp')
     // TODO there must be a better way to do this
     $rootScope.$on("MapChangeEvent", function (event, message) {
       debug("MAP CHANGED EVENT");
-      angular.forEach($scope.categories, function (mainCat) {
-        setSelected(mainCat.key);
-      });
     });
 
     $rootScope.$on("InitMapBoundsEvent", function (event, message) {
