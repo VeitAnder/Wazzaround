@@ -247,7 +247,6 @@ angular.module('anorakApp')
         });
       });
       $scope.categories = angular.copy(Usersessionstates.states.selectedcategories);
-      $scope.$apply();
       Usersessionstates.updateSession();
     }
 
@@ -294,7 +293,9 @@ angular.module('anorakApp')
     // TODO there must be a better way to do this
     $rootScope.$on("MapChangeEvent", function (event, message) {
       debug("MAP CHANGED EVENT");
-      setSelectedFromUsersessionstates();
+      angular.forEach($scope.categories, function (mainCat) {
+        setSelected(mainCat.key);
+      });
     });
 
     $rootScope.$on("InitMapBoundsEvent", function (event, message) {

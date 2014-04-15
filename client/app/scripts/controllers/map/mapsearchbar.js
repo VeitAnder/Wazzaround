@@ -12,7 +12,7 @@ angular.module('anorakApp')
     };
 
     $scope.searchActivities = function () {
-      frontendmap.searchActivities(frontendmap.map, $scope.search.startDate, $scope.search.endDate, $scope.search.address);
+      frontendmap.searchActivities($scope.search.startDate, $scope.search.endDate, $scope.search.address);
     };
 
     $scope.$watch('search.startDate', function (newStartDate, oldStartDate) {

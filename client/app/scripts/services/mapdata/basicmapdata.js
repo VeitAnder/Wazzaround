@@ -38,6 +38,24 @@ angular.module('anorakApp')
               map.centerMarker.longitude = results[0].geometry.location.A;
               map.address = address;
 
+              // TODO check if bounds are right this way
+              var bounds = {
+                northeast: {
+                  latitude: results[0].geometry.bounds.Ba.j,
+                  longitude: results[0].geometry.bounds.ra.k
+                },
+                southwest: {
+                  latitude: results[0].geometry.bounds.Ba.k,
+                  longitude: results[0].geometry.bounds.ra.j
+                }
+              };
+
+              // save new bounds locally
+              Usersessionstates.states.bounds = angular.copy(bounds);
+              Usersessionstates.updateSession();
+              // set new bounds to map
+              map.bounds = angular.copy(bounds);
+              console.log("AM DONE GEOCODING ADDRESS");
               return defer.resolve();
 
             } else {
@@ -55,20 +73,6 @@ angular.module('anorakApp')
       var setMarkerOnMap = function (marker) {
         map.markers = [];
         map.markers.push(marker);
-      };
-
-      var getAllActivitiesAndSetToMap = function () {
-        var defer = Q.defer();
-
-        models.ActivityModel.all()
-          .then(function (activities) {
-            map.markers = activities;
-            defer.resolve();
-          })
-          .catch(function (err) {
-            debug("Could not get all activities", err);
-          });
-        return defer.promise;
       };
 
       // find activities according to date that the user entered
@@ -173,7 +177,7 @@ angular.module('anorakApp')
 
             var boundsNotInitialized = false;
             // bounds have not been initialized yet
-            if(map.bounds.northeast.latitude === 0 &&
+            if (map.bounds.northeast.latitude === 0 &&
               map.bounds.northeast.longitude === 0 &&
               map.bounds.southwest.latitude === 0 &&
               map.bounds.southwest.longitude === 0) {
@@ -204,11 +208,13 @@ angular.module('anorakApp')
             };
             Usersessionstates.updateSession();
 
+            // look for activities within these bounds and in a date range from now until one year later
             findActivitiesForDateRangeAndBetweenBounds()
               .then(function (activities) {
+
                 map.markers = activities;
                 $rootScope.$apply();
-                if(boundsNotInitialized) {
+                if (boundsNotInitialized) {
                   $rootScope.$broadcast("InitMapBoundsEvent");
                 }
                 $rootScope.$broadcast("MapChangeEvent");
@@ -235,22 +241,23 @@ angular.module('anorakApp')
       };
 
       return {
-        // when user first loads the map, we get all activities from controller. They need to be filtered for radius
-//        showInitialActivities: function (activities) {
-//          map.markers = activities;
-//          debug("INIT ACTIVITIES");
-//        },
-        searchActivities: function (startDate, endDate, address) {
-          debug("SEARCHING START", startDate, "END ", endDate, " ADDR ", address);
 
-          // 1. wir suchen das erste Mal ohne Adresse und ohne Datumsangabe,
-          // wenn der User die Seite aufruft
-          findActivitiesForDateRangeAndBetweenBounds(startDate, endDate)
+        // user enters a location and/or a start date and/or an end date, each of these is optional
+        // first address is geocoded and set to map
+        // then map center is updated
+        // then map bounds are updated
+        // now search for activities with date range and bounds
+        searchActivities: function (startDate, endDate, address) {
+          debug("SEARCHING START DATE ", startDate, "END DATE ", endDate, " ADDRESS ", address);
+
+          geoCodeAddress(address)
+
             .then(function () {
-              return geoCodeAddress(map, address);
+              return findActivitiesForDateRangeAndBetweenBounds();
             })
 
-            .then(function () {
+            .then(function (activities) {
+              map.markers = activities;
               debug("AM DONE SEARCHING IN SERVICE");
               $rootScope.$broadcast("MapChangeEvent");
             })

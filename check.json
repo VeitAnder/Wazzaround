@@ -1,9 +1,9 @@
 {"searchlocation": {
   "coords": {
-    "latitude": 45.04903622633596,
-    "longitude": 7.855756625878939
+    "latitude": 45.07098200000001,
+    "longitude": 7.685676000000058
   }
-}, "zoom": 12, "selectedcategories": [
+}, "zoom": 9, "selectedcategories": [
   {
     "title": "Sports & Activities",
     "key": "sports",
@@ -11,42 +11,42 @@
       {
         "title": "Trekking, Biking, Hiking",
         "key": "trekkingbikinghiking",
-        "selected": false
+        "selected": true
       },
       {
         "title": "Adventure",
         "key": "adventure",
-        "selected": false
+        "selected": true
       },
       {
         "title": "Yoga & Pilates",
         "key": "yogapilates",
-        "selected": false
+        "selected": true
       },
       {
         "title": "Full day activities",
         "key": "fulldayactivities",
-        "selected": false
+        "selected": true
       },
       {
         "title": "Water Sports",
         "key": "watersports",
-        "selected": false
+        "selected": true
       },
       {
         "title": "Winter Sports",
         "key": "wintersports",
-        "selected": false
+        "selected": true
       },
       {
         "title": "Motorized Sports",
         "key": "motorizedsports",
-        "selected": false
+        "selected": true
       },
       {
         "title": "Extreme Sports",
         "key": "extremesports",
-        "selected": false
+        "selected": true
       }
     ],
     "_id": "530ce4beee5f21279b2b64eb"
@@ -90,41 +90,41 @@
       {
         "title": "Massages",
         "key": "massages",
-        "selected": false
+        "selected": true
       },
       {
         "title": "Medical Treatments",
         "key": "medicaltreatments",
-        "selected": false
+        "selected": true
       },
       {
         "title": "Beauty",
         "key": "beauty",
-        "selected": false
+        "selected": true
       },
       {
         "title": "SPA & Sauna",
         "key": "spaandsauna",
-        "selected": false
+        "selected": true
       }
     ],
     "_id": "530ce4e8ee5f21279b2b64ed"
   }
 ], "bounds": {
   "northeast": {
-    "latitude": 45.10382806316056,
-    "longitude": 8.10020242666019
+    "latitude": 45.43641318965199,
+    "longitude": 9.641242406250058
   },
   "southwest": {
-    "latitude": 44.99419185210162,
-    "longitude": 7.611310825097689
+    "latitude": 44.70319928926585,
+    "longitude": 5.730109593750058
   }
 }, "categoryfilter": {
   "sports": {
-    "open": false
+    "open": true
   },
   "culture": {
-    "open": true
+    "open": false
   },
   "wellness": {
     "open": false
