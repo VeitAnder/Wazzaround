@@ -235,6 +235,144 @@
 
     </div>
 
+    <div
+        class="map-wrap"
+        windowheight
+        >
+
+      <google-map
+          center='map.center'
+          zoom='map.zoom'
+          draggable='true'
+          events='map.events'
+          options='map.options'
+          >
+        <marker
+            ng-repeat="m in map.markers | filter:onlySelectedCategories"
+            coords='m'
+            click='onMarkerClicked(m)'
+            options='markerOptions'
+            icon='getMarkerIcon(m)'
+            >
+
+          <window
+              show="m.showWindow"
+              closeClick="m.closeClick()"
+              options="windowOptions"
+              >
+
+            <div
+                class="window-category-{{m.category.main}}"
+                >
+              <h4>
+                <span class="icon"></span>
+                {{m.name | languageselect}}
+              </h4>
+
+              <div class="img-block img-block-right">
+                <cloudinaryimage ng-show="m.images.length > 0"
+                                 data-publicid="{{m.images[0].public_id}}"
+                                 data-format="{{m.images[0].format}}"
+                                 data-width="100"
+                                 data-height="60"
+                    >
+                </cloudinaryimage>
+              </div>
+
+              <div class="input_label">{{ 'Offered by' | translate }}</div>
+              <h5 class="no-margin-top">{{m.company}}</h5>
+
+              <div class="description">
+                <!--<div class="input_label">Description</div>-->
+                <div ta-bind
+                     ng-model="m.description[getAvailableTranslationLanguageKey(m.description)]"></div>
+              </div>
+
+              <div class="availability">
+                <div class="input_label">{{ 'Availability' | translate }}</div>
+                <div class="availability-list">
+                  <div class="availability-header">
+                    <div class="month cell">{{ 'Next available Dates' | translate }}</div>
+                  </div>
+                  <div class="availability-entry"
+                       ng-repeat="available in m.availability">
+                    <div class="availability-title cell">
+                      {{available.title | languageselect}}
+                    </div>
+                    <div class="availability-date cell">
+                      {{ available.start | momentjs:{format: "DD. MMM YY"} }}
+                    </div>
+                    <div class="availability-time cell">
+                      {{ available.start | momentjs:{format: "hh:mm a"} }}
+                    </div>
+                    <div class="availability-duration cell">
+                      {{ available.duration | momentjs:{format: "h"} }}h
+                    </div>
+                    <div class="availability-quantity cell">
+                      {{available.quantity}}x
+                    </div>
+
+                    <div class="availability-book cell align-right">
+                      <a class="btn btn-mini btn-shoppingcart"
+                         href="#/shoppingcart/"
+                         target="_blank"
+                         title="{{ 'Book' | translate }}"
+                         ng-click="putIntoShoppingCart(m, available)"
+                          >
+                        <span>{{ 'Book' | translate }}</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="availability-footer">
+                    <div class="cell first">
+                      <a class="btn btn-mini disabled"
+                         ng-click=""
+                          >{{ 'Prev' | translate }}
+                      </a>
+                    </div>
+                    <div class="cell align-center">
+                      <a class="btn btn-mini"
+                         ng-click=""
+                         href="#/activities/{{m._id}}/"
+                          >{{ 'Show all Dates' | translate }}
+                      </a>
+                    </div>
+                    <div class="cell last align-right">
+                      <a class="btn btn-mini"
+                         ng-click=""
+                          >{{ 'Next' | translate }}
+                      </a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+          </window>
+          <marker-label content="m.name[getAvailableTranslationLanguageKey(m.name)]"
+                        anchor="22 0"
+                        class="marker-labels marker-label-category-{{m.category.main}}"
+              />
+        </marker>
+
+        <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
+        <div ng-init="opts = {animation:0}">
+          <marker coords="map.centerMarker"
+                  options="opts">
+            <marker-label content="map.centerMarker.title | translate"
+                          anchor="22 0"
+                          class="marker-labels marker-labels-your-location"
+                />
+          </marker>
+        </div>
+
+      </google-map>
+
+    </div>
+
     <div class="map-debug">
       <strong>Map-Debug:</strong>
       <br/>
@@ -255,145 +393,6 @@
       ng-class="{active: shoppingcart === true}"
       class="shoppingcart-rightside">
   </shoppingcart>
-
-  <div
-      class="map-wrap"
-      windowheight
-      >
-
-    <google-map
-        center='map.center'
-        zoom='map.zoom'
-        draggable='true'
-        events='map.events'
-        options='map.options'
-        >
-      <marker
-          ng-repeat="m in map.markers | filter:onlySelectedCategories"
-          coords='m'
-          click='onMarkerClicked(m)'
-          options='markerOptions'
-          icon='getMarkerIcon(m)'
-          >
-
-        <window
-            show="m.showWindow"
-            closeClick="m.closeClick()"
-            options="windowOptions"
-            >
-
-          <div
-              class="window-category-{{m.category.main}}"
-              >
-            <h4>
-              <span class="icon"></span>
-              {{m.name | languageselect}}
-            </h4>
-
-            <div class="img-block img-block-right">
-              <cloudinaryimage ng-show="m.images.length > 0"
-                               data-publicid="{{m.images[0].public_id}}"
-                               data-format="{{m.images[0].format}}"
-                               data-width="100"
-                               data-height="60"
-                  >
-              </cloudinaryimage>
-            </div>
-
-            <div class="input_label">{{ 'Offered by' | translate }}</div>
-            <h5 class="no-margin-top">{{m.company}}</h5>
-
-            <div class="description">
-              <!--<div class="input_label">Description</div>-->
-              <div ta-bind
-                   ng-model="m.description[getAvailableTranslationLanguageKey(m.description)]"></div>
-            </div>
-
-            <div class="availability">
-              <div class="input_label">{{ 'Availability' | translate }}</div>
-              <div class="availability-list">
-                <div class="availability-header">
-                  <div class="month cell">{{ 'Next available Dates' | translate }}</div>
-                </div>
-                <div class="availability-entry"
-                     ng-repeat="available in m.availability">
-                  <div class="availability-title cell">
-                    {{available.title | languageselect}}
-                  </div>
-                  <div class="availability-date cell">
-                    {{ available.start | momentjs:{format: "DD. MMM YY"} }}
-                  </div>
-                  <div class="availability-time cell">
-                    {{ available.start | momentjs:{format: "hh:mm a"} }}
-                  </div>
-                  <div class="availability-duration cell">
-                    {{ available.duration | momentjs:{format: "h"} }}h
-                  </div>
-                  <div class="availability-quantity cell">
-                    {{available.quantity}}x
-                  </div>
-
-                  <div class="availability-book cell align-right">
-                    <a class="btn btn-mini btn-shoppingcart"
-                       href="#/shoppingcart/"
-                       target="_blank"
-                       title="{{ 'Book' | translate }}"
-                       ng-click="putIntoShoppingCart(m, available)"
-                        >
-                      <span>{{ 'Book' | translate }}</span>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="availability-footer">
-                  <div class="cell first">
-                    <a class="btn btn-mini disabled"
-                       ng-click=""
-                        >{{ 'Prev' | translate }}
-                    </a>
-                  </div>
-                  <div class="cell align-center">
-                    <a class="btn btn-mini"
-                       ng-click=""
-                       href="#/activities/{{m._id}}/"
-                        >{{ 'Show all Dates' | translate }}
-                    </a>
-                  </div>
-                  <div class="cell last align-right">
-                    <a class="btn btn-mini"
-                       ng-click=""
-                        >{{ 'Next' | translate }}
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-        </window>
-        <marker-label content="m.name[getAvailableTranslationLanguageKey(m.name)]"
-                      anchor="22 0"
-                      class="marker-labels marker-label-category-{{m.category.main}}"
-            />
-      </marker>
-
-      <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
-      <div ng-init="opts = {animation:0}">
-        <marker coords="map.centerMarker"
-                options="opts">
-          <marker-label content="map.centerMarker.title | translate"
-                        anchor="22 0"
-                        class="marker-labels marker-labels-your-location"
-              />
-        </marker>
-      </div>
-
-    </google-map>
-
-  </div>
-</div>
 
 </div>
 
