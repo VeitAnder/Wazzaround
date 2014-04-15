@@ -559,8 +559,7 @@ header {
   }
 }
 
-
-.uservoice-custom{
+.uservoice-custom {
   z-index: 150;
   position: absolute;
   top: 0;
@@ -569,24 +568,24 @@ header {
   @include border-bottom-left-radius($border-radius_small);
   @include hovercursor;
   @include box-shadow_2px;
-  &:hover{
+  &:hover {
     background-color: $color_red;
-    .txt{
+    .txt {
       border-color: $color_red_75;
     }
   }
-  a{
+  a {
     display: block;
     height: 35px;
     line-height: 32px;
     color: $color_white;
     text-decoration: none;
     font-weight: $font-weight_bold;
-    &:hover{
+    &:hover {
       color: $color_white;
     }
   }
-  .icon{
+  .icon {
     display: block;
     float: left;
     width: 18px;
@@ -594,7 +593,7 @@ header {
     margin: 9px;
     @include sprite_icons(-124px, 0px, no-repeat);
   }
-  .txt{
+  .txt {
     display: inline-block;
     height: 35px;
     border-left: 1px solid $color_grey_50;
@@ -602,19 +601,19 @@ header {
 
   }
 
-  &.small{
-    a{
+  &.small {
+    a {
       @include font-size_small;
       line-height: 24px;
       height: 24px;
     }
-    .icon{
+    .icon {
       width: 12px;
       height: 10px;
       margin: 7px;
       background-position: -124px -25px;
     }
-    .txt{
+    .txt {
       height: 24px;
       padding: 0 7.5px;
     }
@@ -640,10 +639,10 @@ shoppingcart {
       left: -40px;
       height: 100%;
       @include animation_background;
-      .innerwrap{
+      .innerwrap {
         margin-top: 45px; // below uservoice
       }
-      &:hover{
+      &:hover {
         background-color: rgba($color_grey, 0.15);
       }
 
@@ -661,12 +660,12 @@ shoppingcart {
       .shoppingcart-element {
         right: 0;
       }
-      .shoppingcart-toggle{
+      .shoppingcart-toggle {
       }
     }
-    .shoppingcart-header{
-//      padding-top: $fs*0.5;
-//      not necessary in combination with uservoice
+    .shoppingcart-header {
+      //      padding-top: $fs*0.5;
+      //      not necessary in combination with uservoice
     }
   }
 }
@@ -708,7 +707,7 @@ shoppingcart {
     @include box-shadow_2px;
   }
   .active & {
-    .innerwrap{
+    .innerwrap {
       background-color: $color_red;
       background-position: -95px 13px;
       background-size: 600%;
@@ -738,7 +737,7 @@ shoppingcart {
     line-height: $fs*$line-height_factor;
     margin: 0;
     padding-right: $bu*2.0;
-    .icon{
+    .icon {
       position: relative;
       top: 2px;
       display: inline-block;
@@ -775,19 +774,22 @@ shoppingcart {
   img {
     @include border-image-small;
     border-color: $color_green_50;
-    width: 100px;
+    width: 75px;
     height: auto;
   }
   .txt-icon-delete {
     position: absolute;
     top: 5px;
     right: 0;
-    span{
+    span {
       background-color: $color_grey;
-      &:hover{
+      &:hover {
         background-color: $color_red;
       }
     }
+  }
+  .availability-date, .availability-time{
+    @include font-size_small;
   }
 }
 

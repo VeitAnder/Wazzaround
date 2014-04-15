@@ -3393,8 +3393,8 @@ shoppingcart.shoppingcart-rightside {
       background-color: rgba(102, 102, 102, 0.15); }
   shoppingcart.shoppingcart-rightside .shoppingcart-element {
     position: absolute;
-    right: -495px;
-    width: 500px;
+    right: -345px;
+    width: 350px;
     -webkit-transition-duration: 0.25s;
     -moz-transition-duration: 0.25s;
     transition-duration: 0.25s;
@@ -3406,7 +3406,7 @@ shoppingcart.shoppingcart-rightside {
     -moz-transition-property: top, right, bottom, left, width, height;
     transition-property: top, right, bottom, left, width, height; }
   shoppingcart.shoppingcart-rightside.active {
-    width: 540px; }
+    width: 390px; }
     shoppingcart.shoppingcart-rightside.active .shoppingcart-element {
       right: 0; }
 
@@ -3547,7 +3547,7 @@ shoppingcart.shoppingcart-rightside {
     border-width: 5px;
     padding: 2px;
     border-color: #c2e480;
-    width: 100px;
+    width: 75px;
     height: auto; }
   .shoppingcart-item .txt-icon-delete {
     position: absolute;
@@ -3557,6 +3557,11 @@ shoppingcart.shoppingcart-rightside {
       background-color: #666; }
       .shoppingcart-item .txt-icon-delete span:hover {
         background-color: #C83C19; }
+  .shoppingcart-item .availability-date, .shoppingcart-item .availability-time {
+    font-size: 12px;
+    line-height: 16.8px; }
+    .shoppingcart-item .availability-date p, .shoppingcart-item .availability-time p {
+      padding-bottom: 12px; }
 
 .shoppingcart-price {
   text-align: right; }
