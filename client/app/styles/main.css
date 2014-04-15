@@ -1348,6 +1348,8 @@ button.btn, .btn, a.btn {
     .no-svg .txt-icon-add span {
       background-image: url('/img/sprite_icons.png'); }
     .txt-icon-add span:hover {
+      cursor: pointer; }
+    .txt-icon-add span:hover {
       background-color: #8c8c8c; }
     .svg .txt-icon-add span {
       background-image: url('/img/sprite_icons.svg'); }
@@ -1392,6 +1394,8 @@ button.btn, .btn, a.btn {
       background-image: url('/img/sprite_icons.svg'); }
     .no-svg .txt-icon-delete span {
       background-image: url('/img/sprite_icons.png'); }
+    .txt-icon-delete span:hover {
+      cursor: pointer; }
     .txt-icon-delete span:hover {
       background-color: #8c8c8c; }
     .svg .txt-icon-delete span {
@@ -3523,12 +3527,17 @@ shoppingcart.shoppingcart-rightside {
     border-radius: 6px;
     border-width: 5px;
     padding: 2px;
+    border-color: #c2e480;
     width: 100px;
     height: auto; }
   .shoppingcart-item .txt-icon-delete {
     position: absolute;
     top: 5px;
     right: 0; }
+    .shoppingcart-item .txt-icon-delete span {
+      background-color: #666; }
+      .shoppingcart-item .txt-icon-delete span:hover {
+        background-color: #C83C19; }
 
 .shoppingcart-price {
   text-align: right; }

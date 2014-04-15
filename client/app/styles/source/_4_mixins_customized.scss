@@ -750,6 +750,7 @@ shoppingcart {
   }
   img {
     @include border-image-small;
+    border-color: $color_green_50;
     width: 100px;
     height: auto;
   }
@@ -757,6 +758,12 @@ shoppingcart {
     position: absolute;
     top: 5px;
     right: 0;
+    span{
+      background-color: $color_grey;
+      &:hover{
+        background-color: $color_red;
+      }
+    }
   }
 }
 
