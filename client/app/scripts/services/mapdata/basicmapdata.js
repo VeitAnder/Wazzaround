@@ -215,7 +215,44 @@ angular.module('anorakApp')
             findActivitiesForDateRangeAndBetweenBounds()
               .then(function (activities) {
 
-                map.markers = activities;
+                // we have here a mechanism to remove old activities from the map one by one
+                // otherwise if we do just an assignment, there will be blinking in the map when we move it
+                // this is really ugly but keeps the activities from blinking,
+                // because we have no direct assignment like
+                // map.markers = activities
+                var markersToKeep = [];
+                var newMarkers = [];
+                // all activities must be in map
+                _.each(activities, function (activity) {
+                  var keepThisMarker = _.filter(map.markers, function (existingMarker) {
+                    return activity._id === existingMarker._id;
+                  });
+
+                  if (keepThisMarker.length === 0) {
+                    newMarkers.push(activity);
+                  } else {
+                    markersToKeep = markersToKeep.concat(keepThisMarker);
+                  }
+                });
+
+                _.each(map.markers, function (marker) {
+                  if (marker) {
+
+                    var found = _.filter(markersToKeep, function (markerToKeep) {
+                      return markerToKeep._id === marker._id;
+                    }).length > 0;
+
+                    if (!found) {
+                      var index = _.findIndex(map.markers, function (findmarker) {
+                        return findmarker._id === marker._id;
+                      });
+                      map.markers.splice(index, 1);
+                    }
+                  }
+                });
+
+                map.markers = map.markers.concat(newMarkers);
+
                 $rootScope.$apply();
                 if (boundsNotInitialized) {
                   $rootScope.$broadcast("InitMapBoundsEvent");
