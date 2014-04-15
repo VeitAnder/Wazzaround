@@ -17,6 +17,46 @@ angular.module('anorakApp')
 
       var geocoder;
 
+      var setMarkersWithoutBlinking = function(activities) {
+        // we have here a mechanism to remove old activities from the map one by one
+        // otherwise if we do just an assignment, there will be blinking in the map when we move it
+        // this is really ugly but keeps the activities from blinking,
+        // because we have no direct assignment like
+        // map.markers = activities
+        var markersToKeep = [];
+        var newMarkers = [];
+        // all activities must be in map
+        _.each(activities, function (activity) {
+          var keepThisMarker = _.filter(map.markers, function (existingMarker) {
+            return activity._id === existingMarker._id;
+          });
+
+          if (keepThisMarker.length === 0) {
+            newMarkers.push(activity);
+          } else {
+            markersToKeep = markersToKeep.concat(keepThisMarker);
+          }
+        });
+
+        _.each(map.markers, function (marker) {
+          if (marker) {
+
+            var found = _.filter(markersToKeep, function (markerToKeep) {
+              return markerToKeep._id === marker._id;
+            }).length > 0;
+
+            if (!found) {
+              var index = _.findIndex(map.markers, function (findmarker) {
+                return findmarker._id === marker._id;
+              });
+              map.markers.splice(index, 1);
+            }
+          }
+        });
+
+        map.markers = map.markers.concat(newMarkers);
+      };
+
       var geoCodeAddress = function (address) {
 
         var defer = $q.defer();
@@ -38,15 +78,37 @@ angular.module('anorakApp')
               map.centerMarker.longitude = results[0].geometry.location.A;
               map.address = address;
 
-              // TODO check if bounds are right this way
+              // check if bounds are right this way, seem to be without order when address is found
+              // we set viewport to bounds because there are not always bounds existing
+              // especially when searching for small towns
+              var nelat;
+              var swlat;
+              var nelng;
+              var swlng;
+              if(results[0].geometry.viewport.Ba.j > results[0].geometry.viewport.Ba.k) {
+                nelat = results[0].geometry.viewport.Ba.j;
+                swlat = results[0].geometry.viewport.Ba.k;
+              } else {
+                nelat = results[0].geometry.viewport.Ba.k;
+                swlat = results[0].geometry.viewport.Ba.j;
+              }
+
+              if(results[0].geometry.viewport.ra.j > results[0].geometry.viewport.ra.k) {
+                nelng = results[0].geometry.viewport.ra.j;
+                swlng = results[0].geometry.viewport.ra.k;
+              } else {
+                nelng = results[0].geometry.viewport.ra.k;
+                swlng = results[0].geometry.viewport.ra.j;
+              }
+
               var bounds = {
                 northeast: {
-                  latitude: results[0].geometry.bounds.Ba.j,
-                  longitude: results[0].geometry.bounds.ra.j
+                  latitude: nelat,
+                  longitude: nelng
                 },
                 southwest: {
-                  latitude: results[0].geometry.bounds.Ba.k,
-                  longitude: results[0].geometry.bounds.ra.k
+                  latitude: swlat,
+                  longitude: swlng
                 }
               };
 
@@ -54,7 +116,7 @@ angular.module('anorakApp')
               Usersessionstates.states.bounds = angular.copy(bounds);
               Usersessionstates.updateSession();
               // set new bounds to map
-              map.bounds = angular.copy(bounds);
+              map.bounds = angular.copy(bounds);   // TODO now set viewport to these bounds, there is also a viewport property
 
               console.log("AM DONE GEOCODING ADDRESS");
               return defer.resolve();
@@ -215,50 +277,13 @@ angular.module('anorakApp')
             findActivitiesForDateRangeAndBetweenBounds()
               .then(function (activities) {
 
-                // we have here a mechanism to remove old activities from the map one by one
-                // otherwise if we do just an assignment, there will be blinking in the map when we move it
-                // this is really ugly but keeps the activities from blinking,
-                // because we have no direct assignment like
-                // map.markers = activities
-                var markersToKeep = [];
-                var newMarkers = [];
-                // all activities must be in map
-                _.each(activities, function (activity) {
-                  var keepThisMarker = _.filter(map.markers, function (existingMarker) {
-                    return activity._id === existingMarker._id;
-                  });
-
-                  if (keepThisMarker.length === 0) {
-                    newMarkers.push(activity);
-                  } else {
-                    markersToKeep = markersToKeep.concat(keepThisMarker);
-                  }
-                });
-
-                _.each(map.markers, function (marker) {
-                  if (marker) {
-
-                    var found = _.filter(markersToKeep, function (markerToKeep) {
-                      return markerToKeep._id === marker._id;
-                    }).length > 0;
-
-                    if (!found) {
-                      var index = _.findIndex(map.markers, function (findmarker) {
-                        return findmarker._id === marker._id;
-                      });
-                      map.markers.splice(index, 1);
-                    }
-                  }
-                });
-
-                map.markers = map.markers.concat(newMarkers);
+                setMarkersWithoutBlinking(activities);
 
                 $rootScope.$apply();
                 if (boundsNotInitialized) {
                   $rootScope.$broadcast("InitMapBoundsEvent");
                   return;
                 }
-                $rootScope.$broadcast("MapChangeEvent");
               })
 
               .catch(function (err) {
@@ -291,9 +316,8 @@ angular.module('anorakApp')
             })
 
             .then(function (activities) {
-              map.markers = activities;
+              setMarkersWithoutBlinking(activities);
               debug("AM DONE SEARCHING IN SERVICE");
-              $rootScope.$broadcast("MapChangeEvent");
             })
 
             .catch(function (err) {

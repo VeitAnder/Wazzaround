@@ -291,14 +291,6 @@ angular.module('anorakApp')
       debug("Put into shopping cart", activity, event);
     };
 
-    // TODO there must be a better way to do this
-    $rootScope.$on("MapChangeEvent", function (event, message) {
-      debug("MAP CHANGED EVENT");
-      angular.forEach($scope.categories, function (mainCat) {
-        setSelected(mainCat.key);
-      });
-    });
-
     $rootScope.$on("InitMapBoundsEvent", function (event, message) {
       debug("INIT MAP BOUNDS EVENT", Usersessionstates.states.selectedcategories);
 
@@ -323,5 +315,12 @@ angular.module('anorakApp')
     $rootScope.$on('$translateChangeSuccess', function () {
       $scope.moment.lang($translate.use());
     });
+
+    $scope.googleMap = {};
+    console.log("GOOGLE MAP", $scope.googleMap);
+
+    $scope.$watch("googleMap", function(oldMap, newMap) {
+      console.log("GOOGLE MAP CHANGED", newMap);
+    }, true);
 
   });
