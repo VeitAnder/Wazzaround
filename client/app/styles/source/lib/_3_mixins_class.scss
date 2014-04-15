@@ -414,6 +414,7 @@ button.btn, .btn, a.btn {
 
 @mixin button_icon {
   @include icon;
+  @include hovercursor;
   &:hover {
     background-color: $color_grey_75;
   }
