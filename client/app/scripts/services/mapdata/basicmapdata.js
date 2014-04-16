@@ -10,11 +10,6 @@ angular.module('anorakApp')
   .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates) {
 
     var mapdata = function () {
-
-      var mapdata = this;
-
-      var map;
-
       var geocoder;
 
       var setMarkersWithoutBlinking = function (activities) {
@@ -171,7 +166,7 @@ angular.module('anorakApp')
         return defer.promise;
       };
 
-      map = {
+      var map = {
         address: "",
         bounds: {
           northeast: {
@@ -225,7 +220,6 @@ angular.module('anorakApp')
           idle: function (googleMap) {
             debug("IDLE EVENT", googleMap.getCenter());
 //              "NE", googleMap.getBounds().getNorthEast(), "SW", googleMap.getBounds().getSouthWest());
-            debug("MAP: ", googleMap);
             var boundsNotInitialized = false;
             // bounds have not been initialized yet
             if (map.bounds.northeast.latitude === 0 &&
@@ -305,6 +299,9 @@ angular.module('anorakApp')
 
             .then(function (activities) {
               setMarkersWithoutBlinking(activities);
+              map.zoom = 9;
+              $rootScope.$apply();
+
               debug("AM DONE SEARCHING IN SERVICE");
             })
 
@@ -319,10 +316,10 @@ angular.module('anorakApp')
 
           } else {
 
-            geoCodeAddress(map, marker.address)
+            geoCodeAddress(marker.address)
               .then(function () {
                 debug("DONE GEOCODING ADDRESS");     // TODO set marker on map
-                setMarkerOnMap(map, marker);
+                setMarkerOnMap(marker);
                 $rootScope.$broadcast("EditMapChangeEvent");
               })
 
@@ -433,6 +430,5 @@ angular.module('anorakApp')
     };
 
     return mapdata;
-  })
-;
+  });
 

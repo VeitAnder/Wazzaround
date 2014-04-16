@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, resolvedMap, frontendmap, $route, $translate, Usersessionstates) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates) {
 
     $scope.currentUser = currentUser;
 
@@ -12,7 +12,7 @@ angular.module('anorakApp')
     var initStatesCategories = function () {
 
       // if the object is already initialized, app is already running, dont overwrite
-      if(typeof $scope.states !== undefined && Object.keys($scope.states).length > 0) {
+      if (Object.keys($scope.states).length > 0) {
         return;
       }
 
@@ -30,6 +30,7 @@ angular.module('anorakApp')
           };
           _.each($scope.states[mainCat.key].sub, function (subCat) {
             subCat.selected = true;
+            subCat.wasselected = true;
           });
         });
 
@@ -39,33 +40,48 @@ angular.module('anorakApp')
     };
     initStatesCategories();
 
+    var selectAllSubcategoriesThatHaveActivitiesAndHaveBeenSelectedInActiveMainCategory = function () {
+      console.log("SELECT ALL THAT HAVE BEEN SELECTED IN ACTIVE");
+      _.each($scope.states, function (mainCat) {
+        var catsInActs = categoriesInActivities(mainCat.key);
+
+        angular.forEach($scope.states[mainCat.key].sub, function (subCat) {
+          if (_.contains(catsInActs, subCat.key) && mainCat.open === true) {
+            if (subCat.wasselected === true) {
+              subCat.selected = true;
+            }
+          } else {
+            subCat.selected = false;
+            subCat.wasselected = true;
+          }
+        });
+      });
+    };
+
     // user clicks on main category box
     // this box opens, all other boxes close
-    // all subcategories in this box will be selected
+    // all subcategories in this box will be selected if there are activities for them
     $scope.toggleFilter = function (category) {
       if ($scope.states[category].open) {
         $scope.states[category].open = false;
       } else {
-        angular.forEach($scope.states, function (item) {
-          item.open = false;
-        });
-        $scope.states[category].open = true;
 
-        // select all subcategories
-        _.each($scope.states, function (mainCat) {
-          if (mainCat.key === category) {
-            $scope.selectAllFromCategory(mainCat.key);
+        angular.forEach($scope.states, function (mainCat) {
+          if (category === mainCat.key) {
+            mainCat.open = true;
           } else {
-            $scope.deSelectAllFromCategory(mainCat.key);
+            mainCat.open = false;
           }
         });
+
+        selectAllSubcategoriesThatHaveActivitiesAndHaveBeenSelectedInActiveMainCategory();
       }
 
       Usersessionstates.states.categoryfilter = angular.copy($scope.states);
       Usersessionstates.updateSession();
     };
 
-    $scope.map = resolvedMap;
+    $scope.map = frontendmap.map;
 
     $scope.windowOptions = {
       "zIndex": 1000
@@ -88,10 +104,10 @@ angular.module('anorakApp')
       }
       // array of activity subcats
       // array of subcats from categories
-      // in array of subcats from categories, subcat has to be selected===true and also has to equal at least one subcat from activity subcat array
+      // in array of subcats from categories, category has to occur in activity subcats and has to be selected
       var filteredActivities = [];
       _.each(activity.category.subs, function (subCatInActivity) {
-        _.each($scope.getMainCategory(activity.category.main).sub, function (subCatFromCategories) {
+        _.each($scope.states[activity.category.main].sub, function (subCatFromCategories) {
           if (subCatInActivity.key === subCatFromCategories.key && subCatFromCategories.selected === true) {
             filteredActivities.push(subCatFromCategories);
           }
@@ -102,44 +118,63 @@ angular.module('anorakApp')
 
     $scope.toggleCategorySelection = function (category) {
       category.selected = !category.selected;
+      category.wasselected = category.selected;
 
       Usersessionstates.states.selectedcategories = angular.copy($scope.states);
       Usersessionstates.updateSession();
     };
 
     $scope.selectAllCategories = function () {
-      angular.forEach($scope.states, function (mainCat) {
-        angular.forEach(mainCat.sub, function (subCat) {
-          subCat.selected = true;
-        });
+      _.each($scope.states, function (mainCat) {
+        $scope.selectAllFromCategory(mainCat.key);
       });
-
-      Usersessionstates.states.selectedcategories = angular.copy($scope.states);
-      Usersessionstates.updateSession();
     };
 
     $scope.deSelectAllCategories = function () {
-      angular.forEach($scope.states, function (mainCat) {
-        angular.forEach(mainCat.sub, function (subCat) {
-          subCat.selected = false;
-        });
+      _.each($scope.states, function (mainCat) {
+        $scope.deSelectAllFromCategory(mainCat.key);
       });
-      Usersessionstates.states.selectedcategories = angular.copy($scope.states);
-      Usersessionstates.updateSession();
     };
 
-    $scope.getMainCategory = function (mainCat) {
-      return $scope.states[mainCat];
+    $scope.getSubCategoriesForMainCategory = function (mainCat) {
+      return $scope.states[mainCat].sub;
     };
 
-    // if there is no category that is not selected, then all categories are selected
-    $scope.allSelectedFromCategory = function (mainCat) {
-      return (_.where($scope.getMainCategory(mainCat).sub, { 'selected': false }).length > 0) ? false : true;
+    // check if all subcategories of this maincategory are selected
+    // all categories that have activities must be subCat.selected === true
+    // all categories that have no activities must be subCat.selected === false
+    $scope.allSelectedFromCategory = function (mainCatKey) {
+      var catsInActs = categoriesInActivities(mainCatKey);
+      var countSelected = 0;
+      var subCats = $scope.getSubCategoriesForMainCategory(mainCatKey);
+      angular.forEach(subCats, function (subCat) {
+        if (_.contains(catsInActs, subCat.key)) {
+          if (subCat.selected === true) {
+            countSelected++;
+          }
+        } else if (subCat.selected === false) {
+          countSelected++;
+        }
+      });
+      if (countSelected === subCats.length) {
+        return true;
+      }
+      return false;
     };
 
     // if there is no category that is selected, then all categories are deselected
-    $scope.noneSelectedFromCategory = function (mainCat) {
-      return (_.where($scope.getMainCategory(mainCat).sub, { 'selected': true }).length > 0) ? false : true;
+    $scope.noneSelectedFromCategory = function (mainCatKey) {
+      var countSelected = 0;
+      var subCats = $scope.getSubCategoriesForMainCategory(mainCatKey);
+      angular.forEach(subCats, function (subCat) {
+        if (subCat.selected === true) {
+          countSelected++;
+        }
+      });
+      if (countSelected > 0) {
+        return false;
+      }
+      return true;
     };
 
     $scope.allSelected = function () {
@@ -154,40 +189,53 @@ angular.module('anorakApp')
       return "/img/mapicons/marker-" + activity.category.main + ".svg";
     };
 
-    $scope.areItemsInThisCategorySelected = function (mainCat) {
-      if (_.where($scope.getMainCategory(mainCat).sub, { 'selected': true }).length > 0) {
+    $scope.areItemsInThisCategorySelected = function (mainCatKey) {
+      if (_.where($scope.getSubCategoriesForMainCategory(mainCatKey), { 'selected': true }).length > 0) {
         return true;
       } else {
         return false;
       }
     };
 
-    $scope.selectAllFromCategory = function (mainCat) {
-      angular.forEach($scope.getMainCategory(mainCat).sub, function (category) {
-        category.selected = true;
-      });
+    // select all subcategories from main category
+    // if the subcategory has activities, select them in UI via subCat.selected = true
+    // set that it was selected
+    // if it has no activities, deselect them in UI
+    // but still set that they were selected via subCat.wasselected = true
+    // so if there are later some activities for this category, they will be shown
+    $scope.selectAllFromCategory = function (mainCatKey) {
+      var catsInActs = categoriesInActivities(mainCatKey);
 
+      angular.forEach($scope.getSubCategoriesForMainCategory(mainCatKey), function (subCat) {
+        if (_.contains(catsInActs, subCat.key)) {
+          subCat.selected = true;
+          subCat.wasselected = true;
+        } else {
+          subCat.selected = false;
+          subCat.wasselected = true;
+        }
+      });
       Usersessionstates.states.selectedcategories = angular.copy($scope.states);
       Usersessionstates.updateSession();
     };
 
-    $scope.deSelectAllFromCategory = function (mainCat) {
-      angular.forEach($scope.getMainCategory(mainCat).sub, function (category) {
-        category.selected = false;
+    $scope.deSelectAllFromCategory = function (mainCatKey) {
+      angular.forEach($scope.getSubCategoriesForMainCategory(mainCatKey), function (subCat) {
+        subCat.selected = false;
+        subCat.wasselected = false;
       });
-
       Usersessionstates.states.selectedcategories = angular.copy($scope.states);
       Usersessionstates.updateSession();
     };
 
     // find all categories that are in the activities we get from the map
-    function categoriesInActivities(mainCat) {
+    function categoriesInActivities(mainCatKey) {
       var catsInActs = [];
       angular.forEach($scope.map.markers, function (activity) {
-        if (activity.category.main === mainCat) {
+        if (activity.category.main === mainCatKey) {
           _.each(activity.category.subs, function (subCatInActivity) {
 
-            _.each($scope.getMainCategory(mainCat).sub, function (subCatInCategories) {
+            _.each($scope.getSubCategoriesForMainCategory(mainCatKey), function (subCatInCategories) {
               if (subCatInCategories.key === subCatInActivity.key) {
                 catsInActs.push(subCatInCategories.key);
               }
@@ -198,41 +246,48 @@ angular.module('anorakApp')
       return _.uniq(catsInActs);
     }
 
-    // problem here: what if categories stay selected, but there are none?
-    // then this number is false
-    $scope.numberOfSelectedFromCategory = function (mainCat) {
-      var catsInActs = categoriesInActivities(mainCat);
-      var countSelected = 0;
-      angular.forEach($scope.getMainCategory(mainCat).sub, function (subCat) {
-        if (_.contains(catsInActs, subCat.key)) {
-          if (subCat.selected === true) {
-            countSelected++;
-          }
-        } else {
-          subCat.selected = false;  // TODO DIRTY HACK
+    // count activities that are shown because their maincategory and subcategory/ies are selected
+    $scope.numberOfSelectedFromCategory = function (mainCatKey) {
+      var countActivities = 0;
+      // get selected categories
+      var selectedSubCats = _.where($scope.getSubCategoriesForMainCategory(mainCatKey), {selected: true});
+      // get all the keys of selected categories in an array
+      var selectedSubCatsKeysArray = _.map(selectedSubCats, 'key');
+
+      // now intersect the selectedSubCatsKeysArray with the activitySubCatsKeysArray
+      // if the result has at least length === 1 we have a match, count it
+      var activitiesForThisMainCategory = _.where($scope.map.markers, { category: { main: mainCatKey}});
+      _.each(activitiesForThisMainCategory, function (activity) {
+        var activitySubCatsKeysArray = _.map(activity.category.subs, 'key');
+        var intersection = _.intersection(activitySubCatsKeysArray, selectedSubCatsKeysArray);
+        if (intersection.length > 0) {
+          countActivities++;
         }
       });
-      return countSelected;
+
+      return countActivities;
     };
 
-    // first time coming here, all the categories are selected
-    // after a search:
-    // we find some activities and search for those with the right main category
-    // only the sub-categories of that activities should be selected and counted
-    function setSelected(mainCat) {
-      var filteredSubCats = categoriesInActivities(mainCat);
-      angular.forEach($scope.getMainCategory(mainCat).sub, function (subCat) {
+// first time coming here, all the categories are selected
+// after a search:
+// we find some activities and search for those with the right main category
+// only the sub-categories of that activities should be selected and counted
+    function setSelectedInit(mainCatKey) {
+      var filteredSubCats = categoriesInActivities(mainCatKey);
+      angular.forEach($scope.getSubCategoriesForMainCategory(mainCatKey), function (subCat) {
         if (_.contains(filteredSubCats, subCat.key)) {
           subCat.selected = true;
+          subCat.wasselected = true;
         } else {
           subCat.selected = false;
+          subCat.wasselected = false;
         }
       });
       Usersessionstates.states.selectedcategories = angular.copy($scope.states);
       Usersessionstates.updateSession();
     }
 
-    function setSelectedFromUsersessionstates() {
+    function setSelectedFromUsersessionstatesInit() {
       var filteredSubCats;
 
       _.each(Usersessionstates.states.selectedcategories, function (mainCat) {
@@ -240,6 +295,10 @@ angular.module('anorakApp')
         _.each(mainCat.sub, function (subCat) {
           if (!_.contains(filteredSubCats, subCat.key)) {
             subCat.selected = false;
+          } else {
+            if (subCat.wasselected === true) {
+              subCat.selected = true;
+            }
           }
         });
       });
@@ -248,16 +307,16 @@ angular.module('anorakApp')
       Usersessionstates.updateSession();
     }
 
-    // this is the fixed number of categories contained in activities, no matter if selected or not
-    $scope.totalNumberOfCategory = function (mainCat) {
-      return categoriesInActivities(mainCat).length;
+    // number of activities that have this maincategory
+    $scope.totalNumberOfCategory = function (mainCatKey) {
+      return _.where($scope.map.markers, {category: {main: mainCatKey}}).length;
     };
 
     $scope.getAddress = frontendmap.getAddress;
 
-    // every activity has bookableItems, like Quadfahren
-    // this bookableItem Quadfahren has events, like 1.3. Quadfahren, 2.3. Quadfahren, 3.3. Quadfahren
-    // sort these events by date and save 3 to be displayed when user klicks on activity in index page
+// every activity has bookableItems, like Quadfahren
+// this bookableItem Quadfahren has events, like 1.3. Quadfahren, 2.3. Quadfahren, 3.3. Quadfahren
+// sort these events by date and save 3 to be displayed when user klicks on activity in index page
     $scope.getNextAvailableEvents = function () {
 
       if ($scope.map.markers.length > 0) {
@@ -295,14 +354,14 @@ angular.module('anorakApp')
 
       if (!Usersessionstates.states.selectedcategories) {
         angular.forEach($scope.states, function (mainCat) {
-          setSelected(mainCat.key);
+          setSelectedInit(mainCat.key);
         });
       } else {
-        setSelectedFromUsersessionstates();
+        setSelectedFromUsersessionstatesInit();
       }
     });
 
-    // when user changes language, reload controller so that all translations are correct
+// when user changes language, reload controller so that all translations are correct
     $rootScope.$on('$translateChangeSuccess', function () {
       $route.reload();
     });
@@ -310,7 +369,7 @@ angular.module('anorakApp')
     $scope.moment = moment;
     $scope.moment.lang($translate.use());
 
-    // when language changes globally, reset also in directive
+// when language changes globally, reset also in directive
     $rootScope.$on('$translateChangeSuccess', function () {
       $scope.moment.lang($translate.use());
     });
@@ -326,10 +385,17 @@ angular.module('anorakApp')
 //      console.log("FRONTEND MAP CHANGED", oldMap, newMap);
 //    }, true);
 
-//    $scope.$watch("map.markers", function (oldMapMarkers, newMapMarkers) {
-//      console.log("MAP MARKERS CHANGED", oldMapMarkers.length, newMapMarkers.length, $scope.states);
-//      // TODO select according to last selected
-//
-//    }, true);
+// check if the number of markers in the map has changed
+// if yes select these categories that have markers and have been selected
+// otherwise deselect
+    $scope.$watch("map.markers", function (newMapMarkers, oldMapMarkers) {
+      console.log("MAP MARKERS CHANGED", oldMapMarkers.length, newMapMarkers.length, $scope.states);
 
-  });
+      if (oldMapMarkers.length !== newMapMarkers.length) {
+        selectAllSubcategoriesThatHaveActivitiesAndHaveBeenSelectedInActiveMainCategory();
+      }
+    }, true);
+
+  }
+)
+;

@@ -69,6 +69,7 @@ angular.module('anorakApp')
         templateUrl: 'views/index.html',
         controller: 'indexCtrl',
         resolve: {
+          // @TODO - refactor resolves to improve performance
           categories: ['models', 'currentUser', function (models) {
             return models.CategoryModel.all();
           }],
