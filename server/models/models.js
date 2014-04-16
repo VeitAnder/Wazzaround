@@ -63,18 +63,23 @@ var models = function () {
     currentUser: Factory()
   });
 
+  // @TODO - EventModel braucht _id
   var EventModel = new model("events", {
     start: Attr(Type.date),
     quantity: Attr(Type.number)
-
+    /*,
+    end: Attr(Type.date),
+    price: Attr(Type.number)*/
   });
 
+  // @TODO - BookableItemModel braucht _id
   var BookableItemModel = new model("bookableItems", {
     description: {
       en: Attr(Type.string),
       de: Attr(Type.string),
       it: Attr(Type.string)
     },
+    // @TODO Jonathan: remove price and duration - migration of existing data
     price: Attr(Type.number),
     duration: Attr(Type.number),
 
@@ -148,18 +153,38 @@ var models = function () {
   });
 
   var BookingModel = new model('bookings', {
-
     activity: Ref(ActivityModel),
-    item: Ref(BookableItemModel),
-    start: Attr(Type.date),
+    item: Ref(EventModel),
     quantity: Attr(Type.number),
 
     //booker: {},  // TODO: who booked
-
     owner: Ref(UserModel),
-
     buy: Operation()
   });
+
+/*
+
+  bookings : {
+    _id : 23423
+    name : Hans Joseph,
+      state: Attr(Enum(“booked”, “pending”)),
+    creationdate: Attr(Date)
+  }
+
+  bookedEvents
+  { _id :
+    booking: Ref(bookings),
+      activity: Ref(ActivityModel),
+    event: A,
+    quantity: Attr(Type.number),
+    state: Attr(Enum(“booked”, “pending”)),
+    creationdate: Attr(Date)
+    isBooked() : if booked || pending creation && date < 15min -> true
+  }
+
+  Wenn creationdate älter als 15 min ist, dann kann man booked nicht mehr auf true setzen.
+
+  */
 
   var CategoryModel = new model("categories", {
     title: Attr(Type.string),
