@@ -5,40 +5,35 @@ angular.module('anorakApp')
 
     $scope.currentUser = currentUser;
 
-    $scope.states;
+    $scope.states = {};
 
-    if (Usersessionstates.states && Usersessionstates.states.categoryfilter) {
-      $scope.states = angular.copy(Usersessionstates.states.categoryfilter);
-
-    } else {
-      $scope.states = {
-        sports: {
-          open: false
-        },
-        culture: {
-          open: false
-        },
-        wellness: {
-          open: false
-        }
-      };
-    }
-
-    $scope.categories = categories;
-
+    // set initial state of category selection:
+    // if states are stored, use these, otherwise select all and store locally
     var initStatesCategories = function () {
 
-      if (Usersessionstates.states && Usersessionstates.states.selectedcategories) {
-        $scope.categories = angular.copy(Usersessionstates.states.selectedcategories);
+      // if the object is already initialized, app is already running, dont overwrite
+      if(typeof $scope.states !== undefined && Object.keys($scope.states).length > 0) {
+        return;
+      }
 
-      } else {
-        angular.forEach($scope.categories, function (category) {
-          angular.forEach(category.sub, function (sub) {
-            sub.selected = true;
+      if (Usersessionstates.states && Usersessionstates.states.selectedcategories) {
+        $scope.states = angular.copy(Usersessionstates.states.selectedcategories);
+      }
+      else {
+
+        // initialize category selection: all main categories closed, all subcategories selected
+        _.each(categories, function (mainCat) {
+          $scope.states[mainCat.key] = {
+            open: false,
+            sub: angular.copy(mainCat.sub),
+            key: mainCat.key
+          };
+          _.each($scope.states[mainCat.key].sub, function (subCat) {
+            subCat.selected = true;
           });
         });
 
-        Usersessionstates.states.selectedcategories = angular.copy($scope.categories);
+        Usersessionstates.states.selectedcategories = angular.copy($scope.states);
         Usersessionstates.updateSession();
       }
     };
@@ -57,7 +52,7 @@ angular.module('anorakApp')
         $scope.states[category].open = true;
 
         // select all subcategories
-        _.each($scope.categories, function (mainCat) {
+        _.each($scope.states, function (mainCat) {
           if (mainCat.key === category) {
             $scope.selectAllFromCategory(mainCat.key);
           } else {
@@ -108,33 +103,33 @@ angular.module('anorakApp')
     $scope.toggleCategorySelection = function (category) {
       category.selected = !category.selected;
 
-      Usersessionstates.states.selectedcategories = angular.copy($scope.categories);
+      Usersessionstates.states.selectedcategories = angular.copy($scope.states);
       Usersessionstates.updateSession();
     };
 
     $scope.selectAllCategories = function () {
-      angular.forEach($scope.categories, function (category) {
-        angular.forEach(category.sub, function (sub) {
-          sub.selected = true;
+      angular.forEach($scope.states, function (mainCat) {
+        angular.forEach(mainCat.sub, function (subCat) {
+          subCat.selected = true;
         });
       });
 
-      Usersessionstates.states.selectedcategories = angular.copy($scope.categories);
+      Usersessionstates.states.selectedcategories = angular.copy($scope.states);
       Usersessionstates.updateSession();
     };
 
     $scope.deSelectAllCategories = function () {
-      angular.forEach($scope.categories, function (category) {
-        angular.forEach(category.sub, function (sub) {
-          sub.selected = false;
+      angular.forEach($scope.states, function (mainCat) {
+        angular.forEach(mainCat.sub, function (subCat) {
+          subCat.selected = false;
         });
       });
-      Usersessionstates.states.selectedcategories = angular.copy($scope.categories);
+      Usersessionstates.states.selectedcategories = angular.copy($scope.states);
       Usersessionstates.updateSession();
     };
 
-    $scope.getMainCategory = function (maincategory) {
-      return _.find($scope.categories, { 'key': maincategory });
+    $scope.getMainCategory = function (mainCat) {
+      return $scope.states[mainCat];
     };
 
     // if there is no category that is not selected, then all categories are selected
@@ -172,7 +167,7 @@ angular.module('anorakApp')
         category.selected = true;
       });
 
-      Usersessionstates.states.selectedcategories = angular.copy($scope.categories);
+      Usersessionstates.states.selectedcategories = angular.copy($scope.states);
       Usersessionstates.updateSession();
     };
 
@@ -181,7 +176,7 @@ angular.module('anorakApp')
         category.selected = false;
       });
 
-      Usersessionstates.states.selectedcategories = angular.copy($scope.categories);
+      Usersessionstates.states.selectedcategories = angular.copy($scope.states);
       Usersessionstates.updateSession();
     };
 
@@ -203,6 +198,8 @@ angular.module('anorakApp')
       return _.uniq(catsInActs);
     }
 
+    // problem here: what if categories stay selected, but there are none?
+    // then this number is false
     $scope.numberOfSelectedFromCategory = function (mainCat) {
       var catsInActs = categoriesInActivities(mainCat);
       var countSelected = 0;
@@ -212,7 +209,7 @@ angular.module('anorakApp')
             countSelected++;
           }
         } else {
-          subCat.selected = false;  // DIRTY HACK
+          subCat.selected = false;  // TODO DIRTY HACK
         }
       });
       return countSelected;
@@ -231,7 +228,7 @@ angular.module('anorakApp')
           subCat.selected = false;
         }
       });
-      Usersessionstates.states.selectedcategories = angular.copy($scope.categories);
+      Usersessionstates.states.selectedcategories = angular.copy($scope.states);
       Usersessionstates.updateSession();
     }
 
@@ -246,7 +243,7 @@ angular.module('anorakApp')
           }
         });
       });
-      $scope.categories = angular.copy(Usersessionstates.states.selectedcategories);
+      $scope.states = angular.copy(Usersessionstates.states.selectedcategories);
       $scope.$apply();
       Usersessionstates.updateSession();
     }
@@ -294,8 +291,10 @@ angular.module('anorakApp')
     $rootScope.$on("InitMapBoundsEvent", function (event, message) {
       debug("INIT MAP BOUNDS EVENT", Usersessionstates.states.selectedcategories);
 
+      initStatesCategories();
+
       if (!Usersessionstates.states.selectedcategories) {
-        angular.forEach($scope.categories, function (mainCat) {
+        angular.forEach($scope.states, function (mainCat) {
           setSelected(mainCat.key);
         });
       } else {
@@ -317,10 +316,20 @@ angular.module('anorakApp')
     });
 
     $scope.googleMap = {};
-    console.log("GOOGLE MAP", $scope.googleMap);
+//    console.log("GOOGLE MAP", $scope.googleMap);
 
-    $scope.$watch("googleMap", function(oldMap, newMap) {
-      console.log("GOOGLE MAP CHANGED", newMap);
-    }, true);
+//    $scope.$watch("googleMap", function(oldMap, newMap) {
+//      console.log("GOOGLE MAP CHANGED", newMap);
+//    }, true);
+
+//    $scope.$watch("map.center", function(oldMap, newMap) {
+//      console.log("FRONTEND MAP CHANGED", oldMap, newMap);
+//    }, true);
+
+//    $scope.$watch("map.markers", function (oldMapMarkers, newMapMarkers) {
+//      console.log("MAP MARKERS CHANGED", oldMapMarkers.length, newMapMarkers.length, $scope.states);
+//      // TODO select according to last selected
+//
+//    }, true);
 
   });
