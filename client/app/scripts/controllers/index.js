@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, resolvedMap, frontendmap, $route, $translate, Usersessionstates) {
+  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates) {
 
     $scope.currentUser = currentUser;
 
-    $scope.states;
+    $scope.states = {};
+
 
     if (Usersessionstates.states && Usersessionstates.states.categoryfilter) {
       $scope.states = angular.copy(Usersessionstates.states.categoryfilter);
@@ -70,7 +71,7 @@ angular.module('anorakApp')
       Usersessionstates.updateSession();
     };
 
-    $scope.map = resolvedMap;
+    $scope.map = frontendmap.map;
 
     $scope.windowOptions = {
       "zIndex": 1000
@@ -255,8 +256,6 @@ angular.module('anorakApp')
     $scope.totalNumberOfCategory = function (mainCat) {
       return categoriesInActivities(mainCat).length;
     };
-
-    $scope.getAddress = frontendmap.getAddress;
 
     // every activity has bookableItems, like Quadfahren
     // this bookableItem Quadfahren has events, like 1.3. Quadfahren, 2.3. Quadfahren, 3.3. Quadfahren
