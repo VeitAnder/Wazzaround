@@ -166,6 +166,16 @@ angular.module('anorakApp')
         return defer.promise;
       };
 
+      // standard configs for the map, for trying out
+      var config = {
+        locationsearch: {
+          zoom: 9
+        },
+        maxzoomout: {
+          zoom: 4
+        }
+      };
+
       var map = {
         address: "",
         bounds: {
@@ -274,6 +284,7 @@ angular.module('anorakApp')
           },
           zoom_changed: function (googleMap) {
             debug("ZOOM CHANGED EVENT", googleMap.getZoom());
+
             // we are sure to have Usersessionstates.states after initializeMapWithUserSearchLocation()
             Usersessionstates.states.zoom = googleMap.getZoom();
             Usersessionstates.updateSession();
@@ -294,14 +305,7 @@ angular.module('anorakApp')
           geoCodeAddress(address)
 
             .then(function () {
-              return findActivitiesForDateRangeAndBetweenBounds();
-            })
-
-            .then(function (activities) {
-              setMarkersWithoutBlinking(activities);
-              map.zoom = 9;
-              $rootScope.$apply();
-
+              map.zoom = config.locationsearch.zoom;
               debug("AM DONE SEARCHING IN SERVICE");
             })
 

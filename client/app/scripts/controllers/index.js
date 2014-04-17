@@ -41,17 +41,18 @@ angular.module('anorakApp')
     initStatesCategories();
 
     var selectAllSubcategoriesThatHaveActivitiesAndHaveBeenSelectedInActiveMainCategory = function () {
-      console.log("SELECT ALL THAT HAVE BEEN SELECTED IN ACTIVE");
       _.each($scope.states, function (mainCat) {
         var catsInActs = categoriesInActivities(mainCat.key);
 
-        angular.forEach($scope.states[mainCat.key].sub, function (subCat) {
-          if (_.contains(catsInActs, subCat.key) && mainCat.open === true) {
-            if (subCat.wasselected === true) {
+        angular.forEach($scope.getSubCategoriesForMainCategory(mainCat.key), function (subCat) {
+          if (_.contains(catsInActs, subCat.key)) {
+//            if (subCat.wasselected === true) {
               subCat.selected = true;
-            }
+            subCat.wasselected = true;
+//            }
           } else {
             subCat.selected = false;
+            subCat.wasselected = true;
           }
         });
       });
