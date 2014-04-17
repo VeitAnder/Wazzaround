@@ -10,14 +10,9 @@ angular.module('anorakApp')
   .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates) {
 
     var mapdata = function () {
-
-      var mapdata = this;
-
-      var map;
-
       var geocoder;
 
-      var setMarkersWithoutBlinking = function(activities) {
+      var setMarkersWithoutBlinking = function (activities) {
         // we have here a mechanism to remove old activities from the map one by one
         // otherwise if we do just an assignment, there will be blinking in the map when we move it
         // this is really ugly but keeps the activities from blinking,
@@ -38,23 +33,9 @@ angular.module('anorakApp')
           }
         });
 
-        _.each(map.markers, function (marker) {
-          if (marker) {
-
-            var found = _.filter(markersToKeep, function (markerToKeep) {
-              return markerToKeep._id === marker._id;
-            }).length > 0;
-
-            if (!found) {
-              var index = _.findIndex(map.markers, function (findmarker) {
-                return findmarker._id === marker._id;
-              });
-              map.markers.splice(index, 1);
-            }
-          }
-        });
-
-        map.markers = map.markers.concat(newMarkers);
+        markersToKeep = markersToKeep.concat(newMarkers);
+        map.markers = markersToKeep;
+//        map.markers = map.markers.concat(newMarkers);
       };
 
       var geoCodeAddress = function (address) {
@@ -77,6 +58,7 @@ angular.module('anorakApp')
               map.centerMarker.latitude = results[0].geometry.location.k;
               map.centerMarker.longitude = results[0].geometry.location.A;
               map.address = address;
+              $rootScope.$apply();
 
               // check if bounds are right this way, seem to be without order when address is found
               // we set viewport to bounds because there are not always bounds existing
@@ -85,7 +67,7 @@ angular.module('anorakApp')
               var swlat;
               var nelng;
               var swlng;
-              if(results[0].geometry.viewport.Ba.j > results[0].geometry.viewport.Ba.k) {
+              if (results[0].geometry.viewport.Ba.j > results[0].geometry.viewport.Ba.k) {
                 nelat = results[0].geometry.viewport.Ba.j;
                 swlat = results[0].geometry.viewport.Ba.k;
               } else {
@@ -93,7 +75,7 @@ angular.module('anorakApp')
                 swlat = results[0].geometry.viewport.Ba.j;
               }
 
-              if(results[0].geometry.viewport.ra.j > results[0].geometry.viewport.ra.k) {
+              if (results[0].geometry.viewport.ra.j > results[0].geometry.viewport.ra.k) {
                 nelng = results[0].geometry.viewport.ra.j;
                 swlng = results[0].geometry.viewport.ra.k;
               } else {
@@ -184,7 +166,7 @@ angular.module('anorakApp')
         return defer.promise;
       };
 
-      map = {
+      var map = {
         address: "",
         bounds: {
           northeast: {
@@ -236,8 +218,8 @@ angular.module('anorakApp')
         },
         events: {
           idle: function (googleMap) {
-            debug("IDLE EVENT", "NE", googleMap.getBounds().getNorthEast(), "SW", googleMap.getBounds().getSouthWest());
-            debug("MAP: ", googleMap);
+            debug("IDLE EVENT", googleMap.getCenter());
+//              "NE", googleMap.getBounds().getNorthEast(), "SW", googleMap.getBounds().getSouthWest());
             var boundsNotInitialized = false;
             // bounds have not been initialized yet
             if (map.bounds.northeast.latitude === 0 &&
@@ -317,6 +299,9 @@ angular.module('anorakApp')
 
             .then(function (activities) {
               setMarkersWithoutBlinking(activities);
+              map.zoom = 9;
+              $rootScope.$apply();
+
               debug("AM DONE SEARCHING IN SERVICE");
             })
 
@@ -331,10 +316,10 @@ angular.module('anorakApp')
 
           } else {
 
-            geoCodeAddress(map, marker.address)
+            geoCodeAddress(marker.address)
               .then(function () {
                 debug("DONE GEOCODING ADDRESS");     // TODO set marker on map
-                setMarkerOnMap(map, marker);
+                setMarkerOnMap(marker);
                 $rootScope.$broadcast("EditMapChangeEvent");
               })
 
@@ -445,6 +430,5 @@ angular.module('anorakApp')
     };
 
     return mapdata;
-  })
-;
+  });
 

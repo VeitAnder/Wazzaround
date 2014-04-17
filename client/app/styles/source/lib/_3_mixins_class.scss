@@ -139,6 +139,13 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2px;
 }
 
+@mixin border-image-mini{
+  @include border-image;
+  @include border-radius($border-radius_small);
+  border-width: 3px;
+  padding: 1px;
+}
+
 
 @mixin color-white{
   color: $color_white;
