@@ -8,6 +8,7 @@
     "grunt-contrib-imagemin": "0.4.1"
   },
   "devDependencies": {
+    "express": "3.5.1",
     "grunt": "0.4.2",
     "grunt-cli": "0.1.13",
     "grunt-autoprefixer": "0.6.5",
