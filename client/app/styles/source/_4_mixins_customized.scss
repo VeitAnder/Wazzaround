@@ -623,7 +623,6 @@ shoppingcart {
 
   &.shoppingcart-rightside {
     @include box-sizing(border-box);
-    float: right;
 
     .shoppingcart-toggle {
       display: block;
@@ -641,9 +640,11 @@ shoppingcart {
 
     }
     .shoppingcart-element {
-      position: relative;
+      position: absolute;
+      top: 0;
       right: - ($shoppingcart-rightside-width - 5px);
       width: $shoppingcart-rightside-width;
+      height: 100%;
       @include animation_position;
       padding-bottom: $bu*2.0 + $footer-height;
     }
