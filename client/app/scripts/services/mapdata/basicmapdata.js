@@ -372,7 +372,7 @@ angular.module('anorakApp')
           Usersessionstates.loadSession();
 
           // if there are session stored, check what is stored and fill into map
-          if ((Usersessionstates.states && Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
+          if ((Usersessionstates && Usersessionstates.states && Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
             debug("Got Usersessionstates, will set position");
             setInitPositionOnMap(Usersessionstates.states.searchlocation);
 

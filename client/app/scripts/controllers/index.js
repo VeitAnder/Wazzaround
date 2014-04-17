@@ -52,7 +52,6 @@ angular.module('anorakApp')
             }
           } else {
             subCat.selected = false;
-            subCat.wasselected = true;
           }
         });
       });
