@@ -99,6 +99,8 @@ ActivityModel.factoryImpl("getMyActivities", function (params, req) {
 
 ActivityModel.factoryImpl("filteredActivities", function (params, req) {
 
+  console.log("filteredActivities()", params);
+
   if (!params.from || !params.to) {
     console.log("Missing some parameters", params);
     return;
