@@ -305,7 +305,13 @@ angular.module('anorakApp')
           geoCodeAddress(address)
 
             .then(function () {
-              map.zoom = config.locationsearch.zoom;
+              return findActivitiesForDateRangeAndBetweenBounds();
+            })
+
+            .then(function (activities) {
+              setMarkersWithoutBlinking(activities);
+              map.zoom = 9;
+              $rootScope.$apply();
               debug("AM DONE SEARCHING IN SERVICE");
             })
 

@@ -17,7 +17,6 @@ angular.module('anorakApp')
 
     $scope.$watch('search.startDate', function (newStartDate, oldStartDate) {
       if (newStartDate !== oldStartDate) {
-        debug("STARTDATE CHANGED", newStartDate, oldStartDate);
         Usersessionstates.states.startdate = newStartDate;
         Usersessionstates.updateSession();
       }
@@ -25,7 +24,6 @@ angular.module('anorakApp')
 
     $scope.$watch('search.endDate', function (newEndDate, oldEndDate) {
       if (newEndDate !== oldEndDate) {
-        debug("ENDDATE CHANGED", newEndDate, oldEndDate);
         Usersessionstates.states.endDate = newEndDate;
         Usersessionstates.updateSession();
       }
