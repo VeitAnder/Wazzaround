@@ -325,7 +325,7 @@ header {
 
   &.deletemode {
     border-color: $color_red;
-    @include box-shadow(rgba($color_red, 1.0) 0px 0px 15px);
+    box-shadow: rgba($color_red, 1.0) 0px 0px 15px;
   }
 
 }
@@ -622,15 +622,9 @@ header {
 shoppingcart {
 
   &.shoppingcart-rightside {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 100;
-    overflow: hidden;
-    width: 40px + 5px;
     @include box-sizing(border-box);
-    height: 100%;
-    @include animation_position;
+    float: right;
+
     .shoppingcart-toggle {
       display: block;
       position: absolute;
@@ -639,7 +633,7 @@ shoppingcart {
       height: 100%;
       @include animation_background;
       .innerwrap {
-        margin-top: 45px; // below uservoice
+        margin-top: 35px; // below uservoice
       }
       &:hover {
         background-color: rgba($color_grey, 0.15);
@@ -647,14 +641,14 @@ shoppingcart {
 
     }
     .shoppingcart-element {
-      position: absolute;
+      position: relative;
       right: - ($shoppingcart-rightside-width - 5px);
       width: $shoppingcart-rightside-width;
       @include animation_position;
+      padding-bottom: $bu*2.0 + $footer-height;
     }
 
     &.active {
-      width: $shoppingcart-rightside-width + 40px;
 
       .shoppingcart-element {
         right: 0;
@@ -663,19 +657,21 @@ shoppingcart {
       }
     }
     .shoppingcart-header {
-      //      padding-top: $fs*0.5;
-      //      not necessary in combination with uservoice
+      padding-top: $fs*0.75; // below uservoice
     }
   }
 }
 
 .shoppingcart-element {
   background-color: $color_green;
-  padding: $bu*2.0;
+  padding: $bu*2.0 $bu*1.0;
   @include color-white;
-  height: 100%;
   .buttonbar {
     border: none;
+    .btn{
+      width: 100%;
+      text-align: center;
+    }
   }
 }
 
@@ -730,7 +726,7 @@ shoppingcart {
 .shoppingcart-item {
   position: relative;
   @include seperator(top, $color_green_50);
-  padding: $bu 0;
+  padding: $fs*0.75 0;
   h4 {
     font-size: $fs;
     line-height: $fs*$line-height_factor;
@@ -771,10 +767,13 @@ shoppingcart {
     margin: 0;
   }
   img {
-    @include border-image-small;
+    @include border-image-mini;
     border-color: $color_green_50;
-    width: 75px;
+    width: 60px;
     height: auto;
+    float: left;
+    margin-right: $fs*0.5;
+    margin-bottom: $fs*0.5;
   }
   .txt-icon-delete {
     position: absolute;
@@ -787,21 +786,30 @@ shoppingcart {
       }
     }
   }
-  .availability-date, .availability-time{
-    @include font-size_small;
-  }
 }
 
-.shoppingcart-price {
+.shoppingcart-item-details{
+  @include clearfix;
+  clear: both;
+}
+
+.shoppingcart-item-date{
+  float: left;
+  width: 60%;
+  font-size: $fs*$font-size_small_factor;
+  line-height: 28px;
+}
+
+.shoppingcart-item-qty{
+  float: left;
+  width: 15%;
   text-align: right;
-  input {
-    height: auto;
-    width: 50px;
-    display: inline-block;
-  }
-  .price {
-    margin-left: $fs;
-  }
+}
+
+.shoppingcart-item-price {
+  float: left;
+  width: 25%;
+  text-align: right;
 }
 
 .shoppingcart-subtotal {
@@ -1828,7 +1836,7 @@ $filter-category-arrow-width: 65px;
   vertical-align: middle;
   & > .btn {
     position: relative;
-    height: $input_height;
+    height: $input-height;
   }
   &:last-child > .btn {
     @include border-left-radius(0);
@@ -2277,7 +2285,7 @@ label + .language-tabs {
   }
   &.focussed {
     border-color: $color_input_border_active;
-    @include box-shadow(rgba($color_black, 0.075) 0px 1px 1px inset, rgba($color_input_border_active, 0.5) 0px 0px 8px);
+    box-shadow: rgba($color_black, 0.075) 0px 1px 1px inset, rgba($color_input_border_active, 0.5) 0px 0px 8px;
   }
   p {
     margin: 0;

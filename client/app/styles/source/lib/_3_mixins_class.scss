@@ -143,7 +143,7 @@ h1, h2, h3, h4, h5, h6 {
   @include border-image;
   @include border-radius($border-radius_small);
   border-width: 3px;
-  padding: 1px;
+  padding: 2px;
 }
 
 
@@ -1201,10 +1201,6 @@ p.inline-screen-sm {
 // ###########################################################################################################################
 
 
-html, body, .container-fluid, .page, .col-left-fixed{
-  height: 100%;
-}
-
 .section {
   padding-top: $bu*2.0;
   padding-bottom: $bu*2.0;
@@ -1273,7 +1269,7 @@ header {
   position: fixed;
   z-index: 150;
   bottom: 0;
-  @include box-shadow(rgba($color_black, 0.07) 0px -2px 0);
+  box-shadow: rgba($color_black, 0.07) 0px -2px 0;
 
   @include outline;
   @include clearfix;
@@ -1510,26 +1506,12 @@ header {
   outline-style: none !important;
 }
 
-@mixin checkbox_rounded_big {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  @include border-all($color_12_d10);
-  @include box-shadow_2px-inset;
-  @include border-radius(10px);
-  border-width: 2px;
-  background-color: $color_white;
-}
 
-@mixin checkbox_rounend_big_selected {
-  border-color: $color_white;
-  @include sprite_icons(-22px, -147px, no-repeat);
-  background-color: $color_13;
-  @include box-shadow(none);
-}
 
 // line-height + padding + border
-$input_height: $fs*$line-height_factor + (2*$fs*0.75) + (2*$border-width);
+$input-height: $fs*$line-height_factor + (2*$fs*0.75) + (2*$border-width);
+$input-height-small: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
+$input-height-mini: $fs*$line-height_factor + (2*$fs*0.0) + (2*$border-width);
 
 input, textarea, select {
   @include fieldformat_form;
@@ -1538,13 +1520,24 @@ input, textarea, select {
   }
 }
 
+input{
+  height: $input-height;
+  &.input-small{
+    height: $input-height-small;
+    padding: 0 $fs*0.25;
+  }
+  &.input-mini{
+    height: $input-height-mini;
+    @include font-size_small;
+    padding: 0 $fs*0.0;
+  }
+}
+
 input, textarea {
-  @include box-shadow(rgba($color_black, 0.07) 0px 2px 0 inset);
+  box-shadow: rgba($color_black, 0.07) 0px 2px 0 inset;
   @include animation_all;
   @include input-placeholder($color_form_placeholder);
   outline: 0;
-  height: $input_height;
-
   outline: thin dotted \9;
   /* IE6-9 */
 
@@ -1554,7 +1547,7 @@ input, textarea {
 
   &:focus {
     border-color: $color_input_border_active;
-    @include box-shadow(rgba($color_black, 0.075) 0px 1px 1px inset, rgba($color_input_border_active, 0.5) 0px 0px 8px);
+    box-shadow: rgba($color_black, 0.075) 0px 1px 1px inset, rgba($color_input_border_active, 0.5) 0px 0px 8px;
   }
 }
 
@@ -1564,6 +1557,12 @@ textarea, input[type=checkbox] {
 
 input[type=number] {
   padding: $fs*0.25 $fs*0.75;
+  &.input-small{
+    padding: 0 $fs*0.5;
+  }
+  &.input-mini{
+    padding: 0 $fs*0.25;
+  }
 }
 
 input[type="radio"],
@@ -1615,7 +1614,7 @@ input[type="checkbox"] {
 
 select,
 input[type="file"] {
-  height: $input_height;
+  height: $input-height;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
 
   *margin-top: 4px;
