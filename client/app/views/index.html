@@ -15,34 +15,35 @@
       <div class="filter">
         <span class="input_label">{{ 'Please choose' | translate }}:</span>
 
-        <div class="filter-category filter-category-sports"
-             data-ng-class="{active: areItemsInThisCategorySelected('sports'), open: states.sports.open }"
+        <div class="filter-category filter-category-{{category.key}}"
+             data-ng-class="{active: areItemsInThisCategorySelected(category), open: category.open }"
+             ng-repeat="category in categories"
             >
           <div class="filter-category-header"
-               data-ng-click="toggleFilter('sports')"
+               data-ng-click="toggleFilter(category)"
               >
-            <h4>{{ 'Sports and Activities' | translate }}</h4>
+            <h4>{{category.key | translate}}</h4>
 
-            <p>{{numberOfSelectedFromCategory('sports')}} {{ 'of' | translate }} {{totalNumberOfCategory('sports')}}</p>
+            <p>{{numberOfSelectedFromCategory(category)}} {{ 'of' | translate }} {{totalNumberOfCategory(category)}}</p>
 
             <div class="filter-category-arrow">
               <span></span>
             </div>
           </div>
           <div class="filter-category-body"
-               data-ng-show="states.sports.open"
+               data-ng-show="category.open"
               >
 
             <div class="filter-toggle">
               <div class="filter-toggle-show"
-                   data-ng-class="{active: allSelectedFromCategory('sports')}"
-                   data-ng-click="selectAllFromCategory('sports')"
+                   data-ng-class="{active: allSelectedFromCategory(category)}"
+                   data-ng-click="selectAllFromCategory(category)"
                   >
                 {{ 'Select all' | translate }}
               </div>
               <div class="filter-toggle-hide"
-                   data-ng-class="{active: noneSelectedFromCategory('sports')}"
-                   data-ng-click="deSelectAllFromCategory('sports')"
+                   data-ng-class="{active: noneSelectedFromCategory(category)}"
+                   data-ng-click="deSelectAllFromCategory(category)"
                   >
                 {{ 'Deselect all' | translate }}
               </div>
@@ -53,28 +54,28 @@
                 >
               <div
                   class="div-row"
-                  ng-repeat="category in getSubCategoriesForMainCategory('sports')"
+                  ng-repeat="subcategory in category.sub"
                   >
 
+                <!--show only in pairs - even-->
                 <div data-ng-if="$index % 2 === 0">
                   <div
                       class="filter-category-sub div-cell"
-                      data-ng-if="getSubCategoriesForMainCategory('sports')[$index+0]"
-                      ng-class="{selected: getSubCategoriesForMainCategory('sports')[$index+0].selected}"
-                      ng-click="toggleCategorySelection(getSubCategoriesForMainCategory('sports')[$index+0])"
+                      ng-class="{selected: category.sub[$index+0].selected}"
+                      ng-click="toggleCategorySelection(category.sub[$index+0])"
                       >
                     <span class="checkbox inline"></span>
-                    {{ getSubCategoriesForMainCategory('sports')[$index+0].key | translate }}
+                    {{ category.sub[$index+0].key | translate }}
                   </div>
 
                   <div
                       class="filter-category-sub div-cell"
-                      data-ng-if="getSubCategoriesForMainCategory('sports')[$index+1]"
-                      ng-class="{selected: getSubCategoriesForMainCategory('sports')[$index+1].selected}"
-                      ng-click="toggleCategorySelection(getSubCategoriesForMainCategory('sports')[$index+1])"
+                      data-ng-if="category.sub[$index+1]"
+                      ng-class="{selected: category.sub[$index+1].selected}"
+                      ng-click="toggleCategorySelection(category.sub[$index+1])"
                       >
                     <span class="checkbox inline"></span>
-                    {{ getSubCategoriesForMainCategory('sports')[$index+1].key | translate }}
+                    {{ category.sub[$index+1].key | translate }}
                   </div>
                 </div>
 
@@ -85,140 +86,6 @@
         </div>
       </div>
 
-      <div class="filter-category filter-category-culture"
-           data-ng-class="{active: areItemsInThisCategorySelected('culture'), open: states.culture.open}"
-          >
-        <div class="filter-category-header"
-             data-ng-click="toggleFilter('culture')"
-            >
-          <h4>{{ 'Culture' | translate }}</h4>
-
-          <p>{{numberOfSelectedFromCategory('culture')}} {{ 'of' | translate }} {{totalNumberOfCategory('culture')}}</p>
-
-          <div class="filter-category-arrow">
-            <span></span>
-          </div>
-        </div>
-        <div class="filter-category-body"
-             data-ng-show="states.culture.open"
-            >
-
-          <div class="filter-toggle">
-            <div class="filter-toggle-show"
-                 data-ng-class="{active: allSelectedFromCategory('culture')}"
-                 data-ng-click="selectAllFromCategory('culture')"
-                >
-              {{ 'Select all' | translate }}
-            </div>
-            <div class="filter-toggle-hide"
-                 data-ng-class="{active: noneSelectedFromCategory('culture')}"
-                 data-ng-click="deSelectAllFromCategory('culture')"
-                >
-              {{ 'Deselect all' | translate }}
-            </div>
-          </div>
-
-          <div class="innerwrap">
-            <div
-                class="div-row"
-                ng-repeat="category in getSubCategoriesForMainCategory('culture')"
-                >
-
-              <div data-ng-if="$index % 2 === 0">
-                <div
-                    class="filter-category-sub div-cell"
-                    data-ng-if="getSubCategoriesForMainCategory('culture')[$index+0]"
-                    ng-class="{selected: getSubCategoriesForMainCategory('culture')[$index+0].selected}"
-                    ng-click="toggleCategorySelection(getSubCategoriesForMainCategory('culture')[$index+0])"
-                    >
-                  <span class="checkbox inline"></span>
-                  {{ getSubCategoriesForMainCategory('culture')[$index+0].key | translate }}
-                </div>
-
-                <div
-                    class="filter-category-sub div-cell"
-                    data-ng-if="getSubCategoriesForMainCategory('culture')[$index+1]"
-                    ng-class="{selected: getSubCategoriesForMainCategory('culture')[$index+1].selected}"
-                    ng-click="toggleCategorySelection(getSubCategoriesForMainCategory('culture')[$index+1])"
-                    >
-                  <span class="checkbox inline"></span>
-                  {{ getSubCategoriesForMainCategory('culture')[$index+1].key | translate }}
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="filter-category filter-category-wellness"
-           data-ng-class="{active: areItemsInThisCategorySelected('wellness'), open: states.wellness.open}"
-          >
-        <div class="filter-category-header"
-             data-ng-click="toggleFilter('wellness')"
-            >
-          <h4>Wellness & Relax</h4>
-
-          <p>{{numberOfSelectedFromCategory('wellness')}} {{ 'of' | translate }}
-             {{totalNumberOfCategory('wellness')}}</p>
-
-          <div class="filter-category-arrow">
-            <span></span>
-          </div>
-        </div>
-        <div class="filter-category-body"
-             data-ng-show="states.wellness.open"
-            >
-
-          <div class="filter-toggle">
-            <div class="filter-toggle-show"
-                 data-ng-class="{active: allSelectedFromCategory('wellness')}"
-                 data-ng-click="selectAllFromCategory('wellness')"
-                >
-              {{ 'Select all' | translate }}
-            </div>
-            <div class="filter-toggle-hide"
-                 data-ng-class="{active: noneSelectedFromCategory('wellness')}"
-                 data-ng-click="deSelectAllFromCategory('wellness')"
-                >
-              {{ 'Deselect all' | translate }}
-            </div>
-          </div>
-
-          <div class="innerwrap">
-            <div
-                class="div-row"
-                ng-repeat="category in getSubCategoriesForMainCategory('wellness')"
-                >
-
-              <div data-ng-if="$index % 2 === 0">
-                <div
-                    data-ng-if="getSubCategoriesForMainCategory('wellness')[$index+0]"
-                    class="filter-category-sub div-cell"
-                    ng-class="{selected: getSubCategoriesForMainCategory('wellness')[$index+0].selected}"
-                    ng-click="toggleCategorySelection(getSubCategoriesForMainCategory('wellness')[$index+0])"
-                    >
-                  <span class="checkbox inline"></span>
-                  {{ getSubCategoriesForMainCategory('wellness')[$index+0].key | translate }}
-                </div>
-
-                <div
-                    class="filter-category-sub div-cell"
-                    data-ng-if="getSubCategoriesForMainCategory('wellness')[$index+1]"
-                    ng-class="{selected: getSubCategoriesForMainCategory('wellness')[$index+1].selected}"
-                    ng-click="toggleCategorySelection(getSubCategoriesForMainCategory('wellness')[$index+1])"
-                    >
-                  <span class="checkbox inline"></span>
-                  {{ getSubCategoriesForMainCategory('wellness')[$index+1].key | translate }}
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="filter-toggle">
         <div class="filter-toggle-show"
@@ -249,7 +116,7 @@
           control='googleMap'
           >
         <marker
-            ng-repeat="m in map.markers | filter:onlySelectedCategories"
+            ng-repeat="m in map.markers | filter:selectedCategoryFilter"
             coords='m'
             click='onMarkerClicked(m)'
             options='markerOptions'
