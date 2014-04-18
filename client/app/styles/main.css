@@ -2237,13 +2237,14 @@ header {
   min-width: 300px;
   height: 50px; }
 
-.angular-google-map-container {
-  width: 800px;
-  height: 400px; }
-  .activity-detail .angular-google-map-container {
-    width: 100%;
-    height: 200px;
-    position: relative; }
+googleMap, .angular-google-map, .angular-google-map-container {
+  width: 100%;
+  height: 100%; }
+
+.activity-detail .angular-google-map-container {
+  width: 100%;
+  height: 200px;
+  position: relative; }
 
 .col-left-fixed {
   position: relative;
@@ -2294,18 +2295,10 @@ header {
   margin-left: 350px;
   overflow: hidden;
   display: block;
-  height: 100%;
-  width: 100%;
-  height: 1024px; }
-  @media only screen and (min-height: 1280px) {
-    .map-wrap {
-      height: 1460px; } }
-  @media only screen and (min-height: 769px) and (max-height: 1279px) {
-    .map-wrap {
-      height: 1024px; } }
-  @media only screen and (max-height: 768px) {
-    .map-wrap {
-      height: 768px; } }
+  top: 0;
+  right: 0;
+  bottom: 50px;
+  left: 0; }
 
 .marker-labels {
   padding: 2px 4px;
