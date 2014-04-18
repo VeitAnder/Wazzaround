@@ -56,6 +56,7 @@ angular.module('anorakApp')
               map.centerMarker.latitude = results[0].geometry.location.k;
               map.centerMarker.longitude = results[0].geometry.location.A;
               map.address = address;
+              map.zoom = config.locationsearch.zoom;
 
               $rootScope.$apply();
 
@@ -136,6 +137,48 @@ angular.module('anorakApp')
         return defer.promise;
       };
 
+      var updateActivitiesInMapHandler = function (googleMap) {
+        debug("IDLE EVENT", googleMap.getCenter());
+
+        // bounds contain northeast and southwest lat/lng which we will use to search activities within
+        map.bounds = {
+          northeast: {
+            latitude: googleMap.getBounds().getNorthEast().k,
+            longitude: googleMap.getBounds().getNorthEast().A
+          },
+          southwest: {
+            latitude: googleMap.getBounds().getSouthWest().k,
+            longitude: googleMap.getBounds().getSouthWest().A
+          }
+        };
+
+        Usersessionstates.states.bounds = {
+          northeast: {
+            latitude: googleMap.getBounds().getNorthEast().k,
+            longitude: googleMap.getBounds().getNorthEast().A
+          },
+          southwest: {
+            latitude: googleMap.getBounds().getSouthWest().k,
+            longitude: googleMap.getBounds().getSouthWest().A
+          }
+        };
+
+        Usersessionstates.states.searchlocation.coords.latitude = googleMap.getCenter().k;
+        Usersessionstates.states.searchlocation.coords.longitude = googleMap.getCenter().A;
+        Usersessionstates.states.zoom = googleMap.getZoom();
+        Usersessionstates.updateSession();
+
+        // look for activities within these bounds and in a date range from now until one year later
+        findActivitiesForDateRangeAndBetweenBounds()
+          .then(function (activities) {
+            setMarkersWithoutBlinking(activities);
+            $rootScope.$apply();
+          })
+          .catch(function (err) {
+            debug("Something went wrong while searching activities", err);
+          });
+      };
+
       // standard configs for the map, for trying out
       var config = {
         locationsearch: {
@@ -197,68 +240,7 @@ angular.module('anorakApp')
           streetViewControl: false
         },
         events: {
-          idle: function (googleMap) {
-            debug("IDLE EVENT", googleMap.getCenter());
-//              "NE", googleMap.getBounds().getNorthEast(), "SW", googleMap.getBounds().getSouthWest());
-            var boundsNotInitialized = false;
-            // bounds have not been initialized yet
-            if (map.bounds.northeast.latitude === 0 &&
-              map.bounds.northeast.longitude === 0 &&
-              map.bounds.southwest.latitude === 0 &&
-              map.bounds.southwest.longitude === 0) {
-              boundsNotInitialized = true;
-            }
-
-            // bounds contain northeast and southwest lat/lng which we will use to search activities within
-            map.bounds = {
-              northeast: {
-                latitude: googleMap.getBounds().getNorthEast().k,
-                longitude: googleMap.getBounds().getNorthEast().A
-              },
-              southwest: {
-                latitude: googleMap.getBounds().getSouthWest().k,
-                longitude: googleMap.getBounds().getSouthWest().A
-              }
-            };
-
-            Usersessionstates.states.bounds = {
-              northeast: {
-                latitude: googleMap.getBounds().getNorthEast().k,
-                longitude: googleMap.getBounds().getNorthEast().A
-              },
-              southwest: {
-                latitude: googleMap.getBounds().getSouthWest().k,
-                longitude: googleMap.getBounds().getSouthWest().A
-              }
-            };
-            Usersessionstates.states.searchlocation.coords.latitude = googleMap.getCenter().k;
-            Usersessionstates.states.searchlocation.coords.longitude = googleMap.getCenter().A;
-            Usersessionstates.updateSession();
-
-            // look for activities within these bounds and in a date range from now until one year later
-            findActivitiesForDateRangeAndBetweenBounds()
-              .then(function (activities) {
-
-                setMarkersWithoutBlinking(activities);
-
-                $rootScope.$apply();
-                if (boundsNotInitialized) {
-                  $rootScope.$broadcast("InitMapBoundsEvent");
-                  return;
-                }
-              })
-
-              .catch(function (err) {
-                debug("Something went wrong while searching activities", err);
-              });
-          },
-          zoom_changed: function (googleMap) {
-            debug("ZOOM CHANGED EVENT", googleMap.getZoom());
-
-            // we are sure to have Usersessionstates.states after initializeMapWithUserSearchLocation()
-            Usersessionstates.states.zoom = googleMap.getZoom();
-            Usersessionstates.updateSession();
-          }
+          idle: updateActivitiesInMapHandler
         }
       };
 
@@ -271,45 +253,21 @@ angular.module('anorakApp')
         // now search for activities with date range and bounds
         searchActivities: function (startDate, endDate, address) {
           debug("SEARCHING START DATE ", startDate, "END DATE ", endDate, " ADDRESS ", address);
-
           geoCodeAddress(address)
-
-            .then(function () {
-              // the zoom is correctly configured - return and search with existing map bounds
-              // the zoom is not correct - change to config value,
-              // this triggers an idle_changed event and a map search
-              if (map.zoom !== config.locationsearch.zoom) {
-                map.zoom = config.locationsearch.zoom;
-                // now search will be triggered via idle_changed
-                return([]);
-              } else {
-                return findActivitiesForDateRangeAndBetweenBounds(startDate, endDate);
-              }
-            })
-
-            .then(function (activities) {
-              setMarkersWithoutBlinking(activities);
-              debug("AM DONE SEARCHING IN SERVICE");
-            })
-
             .catch(function (err) {
-              debug("Something went wrong while searching activities", err);
+              debug("Something went wrong while searching address", err);
             });
-
         },
         findAddressOnMap: function (marker) {
           if (!marker.address) {
             debug("FOUND NO ADDRESS");
-
           } else {
-
             geoCodeAddress(marker.address)
               .then(function () {
                 debug("DONE GEOCODING ADDRESS");     // TODO set marker on map
                 setMarkerOnMap(marker);
                 $rootScope.$broadcast("EditMapChangeEvent");
               })
-
               .catch(function (err) {
                 debug("Something went wrong while searching address", err);
               });
@@ -418,6 +376,5 @@ angular.module('anorakApp')
 
     return mapdata;
   }
-)
-;
+);
 

@@ -53,7 +53,7 @@ gulp.task('reload:html', function () {
 gulp.task('watch', function () {
   gulp.watch('app/styles/**/*.scss', ['sass']);
   gulp.watch('app/**/*.html', ['html2js', 'reload:html']);
-  gulp.watch('app/**/*.js', ['reload:html']);
+  gulp.watch(['app/**/*.js', '!app/scripts/templates.js'], ['reload:html']);
 });
 
 gulp.task('serve', ['watch'], function () {
