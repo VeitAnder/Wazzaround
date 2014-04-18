@@ -75,11 +75,6 @@ angular.module('anorakApp')
     // all subcategories in this box will be selected if there are activities for them
     $scope.toggleFilter = function (category) {
       category.open = !category.open;
-
-//        selectAllSubcategoriesThatHaveActivitiesAndHaveBeenSelectedInActiveMainCategory();
-
-      Usersessionstates.states.categoryfilter = angular.copy($scope.states);
-      Usersessionstates.updateSession();
     };
 
     $scope.map = frontendmap.map;
@@ -128,9 +123,6 @@ angular.module('anorakApp')
     $scope.toggleCategorySelection = function (category) {
       category.selected = !category.selected;
       category.wasselected = category.selected;
-
-      Usersessionstates.states.selectedcategories = angular.copy($scope.states);
-      Usersessionstates.updateSession();
     };
 
     $scope.selectAllCategories = function () {
@@ -207,16 +199,12 @@ angular.module('anorakApp')
       _.each(category.sub, function (subCat) {
         subCat.selected = true;
       });
-//      Usersessionstates.states.selectedcategories = angular.copy($scope.states);
-//      Usersessionstates.updateSession();
     };
 
     $scope.deSelectAllFromCategory = function (category) {
       _.each(category.sub, function (subCat) {
         subCat.selected = false;
       });
-//      Usersessionstates.states.selectedcategories = angular.copy($scope.states);
-//      Usersessionstates.updateSession();
     };
 
     // find all categories that are in the activities we get from the map
@@ -265,14 +253,11 @@ angular.module('anorakApp')
         subCat.selected = true;
         subCat.wasselected = true;
       });
-      Usersessionstates.states.selectedcategories = angular.copy($scope.states);
-      Usersessionstates.updateSession();
     }
 
     function setSelectedFromUsersessionstatesInit() {
       $scope.states = angular.copy(Usersessionstates.states.selectedcategories);
       $scope.$apply();
-      Usersessionstates.updateSession();
     }
 
     // number of activities that have this maincategory
@@ -349,6 +334,11 @@ angular.module('anorakApp')
       if (oldMapMarkers.length !== newMapMarkers.length) {
         selectAllSubcategoriesThatHaveActivitiesAndHaveBeenSelectedInActiveMainCategory();
       }
+    }, true);
+
+    $scope.$watch("categories", function(newCats, oldCats) {
+      Usersessionstates.states.selectedcategories = angular.copy($scope.categories);
+      Usersessionstates.updateSession();
     }, true);
 
   });

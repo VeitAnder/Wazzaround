@@ -1,136 +1,105 @@
 {"searchlocation": {
   "coords": {
-    "latitude": 44.423194577277386,
-    "longitude": 9.074928925000014
+    "latitude": 48.044923483753834,
+    "longitude": 24.09232237929689
   }
-}, "zoom": 8, "selectedcategories": {
-  "sports": {
-    "open": false,
+}, "zoom": 5, "selectedcategories": [
+  {
+    "title": "Sports & Activities",
+    "key": "sports",
     "sub": [
       {
         "title": "Trekking, Biking, Hiking",
-        "key": "trekkingbikinghiking",
-        "selected": false,
-        "wasselected": true
+        "key": "trekkingbikinghiking"
       },
       {
         "title": "Adventure",
-        "key": "adventure",
-        "selected": true,
-        "wasselected": true
+        "key": "adventure"
       },
       {
         "title": "Yoga & Pilates",
-        "key": "yogapilates",
-        "selected": true,
-        "wasselected": true
+        "key": "yogapilates"
       },
       {
         "title": "Full day activities",
-        "key": "fulldayactivities",
-        "selected": false,
-        "wasselected": true
+        "key": "fulldayactivities"
       },
       {
         "title": "Water Sports",
-        "key": "watersports",
-        "selected": false,
-        "wasselected": true
+        "key": "watersports"
       },
       {
         "title": "Winter Sports",
-        "key": "wintersports",
-        "selected": false,
-        "wasselected": true
+        "key": "wintersports"
       },
       {
         "title": "Motorized Sports",
-        "key": "motorizedsports",
-        "selected": false,
-        "wasselected": true
+        "key": "motorizedsports"
       },
       {
         "title": "Extreme Sports",
-        "key": "extremesports",
-        "selected": false,
-        "wasselected": true
+        "key": "extremesports"
       }
     ],
-    "key": "sports"
+    "_id": "530ce4beee5f21279b2b64eb"
   },
-  "culture": {
-    "open": false,
+  {
+    "title": "Culture & Gourmet",
+    "key": "culture",
     "sub": [
       {
         "title": "Degustations: Wine & Food & Cigars",
-        "key": "degustations",
-        "selected": true,
-        "wasselected": true
+        "key": "degustations"
       },
       {
         "title": "Guided Tours",
-        "key": "guidedtours",
-        "selected": true,
-        "wasselected": true
+        "key": "guidedtours"
       },
       {
         "title": "Exhibitions & Fairs",
-        "key": "exhibitionsandfairs",
-        "selected": false,
-        "wasselected": true
+        "key": "exhibitionsandfairs"
       },
       {
         "title": "Opera & Theater",
-        "key": "operaandtheater",
-        "selected": false,
-        "wasselected": true
+        "key": "operaandtheater"
       },
       {
         "title": "Music & Film",
-        "key": "musicandfilm",
-        "selected": false,
-        "wasselected": true
+        "key": "musicandfilm"
       }
     ],
-    "key": "culture"
+    "_id": "530ce4d8ee5f21279b2b64ec"
   },
-  "wellness": {
-    "open": false,
+  {
+    "title": "Wellness & Relax",
+    "key": "wellness",
     "sub": [
       {
         "title": "Massages",
-        "key": "massages",
-        "selected": true,
-        "wasselected": true
+        "key": "massages"
       },
       {
         "title": "Medical Treatments",
-        "key": "medicaltreatments",
-        "selected": false,
-        "wasselected": true
+        "key": "medicaltreatments"
       },
       {
         "title": "Beauty",
-        "key": "beauty",
-        "selected": false,
-        "wasselected": true
+        "key": "beauty"
       },
       {
         "title": "SPA & Sauna",
-        "key": "spaandsauna",
-        "selected": true,
-        "wasselected": true
+        "key": "spaandsauna"
       }
     ],
-    "key": "wellness"
+    "_id": "530ce4e8ee5f21279b2b64ed"
   }
-}, "bounds": {
+], "bounds": {
   "northeast": {
-    "latitude": 45.202560391006635,
-    "longitude": 11.272194549999995
+    "latitude": 53.58914300411932,
+    "longitude": 41.67044737929689
   },
   "southwest": {
-    "latitude": 43.633298553094356,
-    "longitude": 6.877663299999995
+    "latitude": 41.83260783544324,
+    "longitude": 6.514197379296888
   }
-}}
+}, "categoryfilter": {}}
