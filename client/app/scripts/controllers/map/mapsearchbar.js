@@ -4,7 +4,8 @@ angular.module('anorakApp')
   .controller('MapsearchbarCtrl', function ($scope, frontendmap, Usersessionstates) {
 
     $scope.search = {
-      minDate: new Date(),
+      minDate: moment().subtract('days', 1).toDate(),
+      maxDate: moment().add('year', 1).toDate(),
       fromDate: new Date(),
       startDate: undefined,
       endDate: undefined,
