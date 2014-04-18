@@ -126,16 +126,27 @@ angular.module('anorakApp')
       var findActivitiesForDateRangeAndBetweenBounds = function (start, end) {
         var defer = Q.defer();
 
-        // if we have no start date, use now
-        // if we have no end date, use one year later than now
-        if (!start) {
+        // if user selected a start date, set time to 00:00:00 so day is complete
+        if(start) {
+          start.setHours(0);
+          start.setMinutes(0);
+          start.setSeconds(0);
+        } else {
+          // if we have no start date, use now
+          // if we have no end date, use one year later than now
+          // will be initialized with current time
           start = new Date();
         }
-        if (!end) {
+
+        if(!end) {
           var oneYearLater = new Date();
           oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
           end = oneYearLater;
         }
+        // set time so that the end date day is complete
+        end.setHours(23);
+        end.setMinutes(59);
+        end.setSeconds(59);
 
         debug("SEARCHING FOR NORTHEAST", map.bounds.northeast.latitude, map.bounds.northeast.longitude);
         debug("SEARCHING FOR SOUTHWEST", map.bounds.southwest.latitude, map.bounds.southwest.longitude);
