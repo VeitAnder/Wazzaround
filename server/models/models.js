@@ -120,6 +120,9 @@ var models = function () {
       ]
     },
 
+    // muss umbennat werden !!!
+    // http://docs.mongodb.org/manual/core/geospatial-indexes/#multi-location-documents-for-2d-indexes
+    // http://myadventuresincoding.wordpress.com/2011/10/02/mongodb-geospatial-queries/
     longitude: Attr(Type.number),
     latitude: Attr(Type.number),
 

@@ -16,6 +16,8 @@ body{
   line-height: $fs*$line-height_factor;
   color: $color_text;
   min-width: 760px;
+
+  overflow: hidden;
   
   //fix ios automatic font sizing
   //checkout http://stackoverflow.com/questions/6210788/how-to-avoid-ios-automatic-font-size-adjustment
