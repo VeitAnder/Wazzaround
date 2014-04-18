@@ -8,6 +8,10 @@
 
       <div data-ng-include="'views/_logo.html'"></div>
 
+      <input ng-model="map.zoom" />
+
+      <input ng-model="map.bounds.northeast.latitude" />
+
       <div class="mapsearchbar"
            data-ng-include="'views/map/mapsearchbar.html'">
       </div>
@@ -246,7 +250,7 @@
           draggable='true'
           events='map.events'
           options='map.options'
-          control="googleMap"
+          control='googleMap'
           >
         <marker
             ng-repeat="m in map.markers | filter:onlySelectedCategories"

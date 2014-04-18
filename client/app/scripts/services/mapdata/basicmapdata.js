@@ -35,7 +35,6 @@ angular.module('anorakApp')
 
         markersToKeep = markersToKeep.concat(newMarkers);
         map.markers = markersToKeep;
-//        map.markers = map.markers.concat(newMarkers);
       };
 
       var geoCodeAddress = function (address) {
@@ -45,7 +44,6 @@ angular.module('anorakApp')
         if (!address) {
           defer.resolve("No address entered");
         } else {
-          debug("GOT ADDRESS", address);
           geocoder = new google.maps.Geocoder();
 
           geocoder.geocode({ 'address': address, 'region': 'it' }, function (results, status) {
@@ -58,47 +56,8 @@ angular.module('anorakApp')
               map.centerMarker.latitude = results[0].geometry.location.k;
               map.centerMarker.longitude = results[0].geometry.location.A;
               map.address = address;
+
               $rootScope.$apply();
-
-              // check if bounds are right this way, seem to be without order when address is found
-              // we set viewport to bounds because there are not always bounds existing
-              // especially when searching for small towns
-              var nelat;
-              var swlat;
-              var nelng;
-              var swlng;
-              if (results[0].geometry.viewport.Ba.j > results[0].geometry.viewport.Ba.k) {
-                nelat = results[0].geometry.viewport.Ba.j;
-                swlat = results[0].geometry.viewport.Ba.k;
-              } else {
-                nelat = results[0].geometry.viewport.Ba.k;
-                swlat = results[0].geometry.viewport.Ba.j;
-              }
-
-              if (results[0].geometry.viewport.ra.j > results[0].geometry.viewport.ra.k) {
-                nelng = results[0].geometry.viewport.ra.j;
-                swlng = results[0].geometry.viewport.ra.k;
-              } else {
-                nelng = results[0].geometry.viewport.ra.k;
-                swlng = results[0].geometry.viewport.ra.j;
-              }
-
-              var bounds = {
-                northeast: {
-                  latitude: nelat,
-                  longitude: nelng
-                },
-                southwest: {
-                  latitude: swlat,
-                  longitude: swlng
-                }
-              };
-
-              // save new bounds locally
-              Usersessionstates.states.bounds = angular.copy(bounds);
-              Usersessionstates.updateSession();
-              // set new bounds to map
-              map.bounds = angular.copy(bounds);   // TODO now set viewport to these bounds, there is also a viewport property
 
               console.log("AM DONE GEOCODING ADDRESS");
               return defer.resolve();
@@ -127,7 +86,7 @@ angular.module('anorakApp')
         var defer = Q.defer();
 
         // if user selected a start date, set time to 00:00:00 so day is complete
-        if(start) {
+        if (start) {
           start.setHours(0);
           start.setMinutes(0);
           start.setSeconds(0);
@@ -138,7 +97,7 @@ angular.module('anorakApp')
           start = new Date();
         }
 
-        if(!end) {
+        if (!end) {
           var oneYearLater = new Date();
           oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
           end = oneYearLater;
@@ -316,13 +275,20 @@ angular.module('anorakApp')
           geoCodeAddress(address)
 
             .then(function () {
-              return findActivitiesForDateRangeAndBetweenBounds();
+              // the zoom is correctly configured - return and search with existing map bounds
+              // the zoom is not correct - change to config value,
+              // this triggers an idle_changed event and a map search
+              if (map.zoom !== config.locationsearch.zoom) {
+                map.zoom = config.locationsearch.zoom;
+                // now search will be triggered via idle_changed
+                return([]);
+              } else {
+                return findActivitiesForDateRangeAndBetweenBounds(startDate, endDate);
+              }
             })
 
             .then(function (activities) {
               setMarkersWithoutBlinking(activities);
-              map.zoom = 9;
-              $rootScope.$apply();
               debug("AM DONE SEARCHING IN SERVICE");
             })
 
@@ -451,5 +417,7 @@ angular.module('anorakApp')
     };
 
     return mapdata;
-  });
+  }
+)
+;
 

@@ -381,9 +381,9 @@ angular.module('anorakApp')
 //      console.log("GOOGLE MAP CHANGED", newMap);
 //    }, true);
 
-//    $scope.$watch("map.center", function(oldMap, newMap) {
-//      console.log("FRONTEND MAP CHANGED", oldMap, newMap);
-//    }, true);
+    $scope.$watch("map.zoom", function(newMap, oldMap) {
+      console.log("MAP ZOOM CHANGED", oldMap, newMap);
+    });
 
 // check if the number of markers in the map has changed
 // if yes select these categories that have markers and have been selected
