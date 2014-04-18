@@ -1,5 +1,5 @@
 {
-  "name": "planfred",
+  "name": "anorak",
   "version": "0.12.0",
   "dependencies": {
     "grunt-contrib-htmlmin": "0.1.3",
