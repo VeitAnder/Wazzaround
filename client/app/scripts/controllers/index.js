@@ -164,6 +164,7 @@ angular.module('anorakApp')
     };
 
     $scope.selectedCategoryFilter = function (activity) {
+      console.log("activity", activity);
       var flag = false;
 
       if (!activity.category.main) {   // this occurs because in edit mode it is allowed to save without selecting a category

@@ -113,7 +113,7 @@
           control='googleMap'
           >
         <marker
-            ng-repeat="m in map.markers | filter:selectedCategoryFilter"
+            ng-repeat="m in map.markers | filter:selectedCategoryFilter | markercoordsfilter"
             coords='m'
             click='onMarkerClicked(m)'
             options='markerOptions'

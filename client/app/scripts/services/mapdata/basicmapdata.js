@@ -35,6 +35,9 @@ angular.module('anorakApp')
 
         markersToKeep = markersToKeep.concat(newMarkers);
         map.markers = markersToKeep;
+
+        // @TODO apply ? move to proper place
+        $rootScope.$apply();
       };
 
       var geoCodeAddress = function (address) {
@@ -174,7 +177,6 @@ angular.module('anorakApp')
         findActivitiesForDateRangeAndBetweenBounds()
           .then(function (activities) {
             setMarkersWithoutBlinking(activities);
-            $rootScope.$apply();
           })
           .catch(function (err) {
             debug("Something went wrong while searching activities", err);
