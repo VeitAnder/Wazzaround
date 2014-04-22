@@ -2245,6 +2245,7 @@ body:before {
     width: 100%;
     position: relative;
     z-index: 1;
+    float: left;
     padding: 15px 30px;
     padding-bottom: 65px;
     max-width: 850px; }
@@ -2403,13 +2404,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
-  .window-category-sports .img-block.img-block-left {
-    float: left;
-    margin: 0 15px 16px 0; }
-  .window-category-sports .img-block.img-block-right {
-    float: right;
-    margin: 0 0 16px 15px; }
-  .window-category-sports img {
+  .window-category-sports .img-block img {
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
@@ -2420,6 +2415,12 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-width: 7px;
     padding: 3px;
     background-color: #FFF; }
+  .window-category-sports .img-block.img-block-left {
+    float: left;
+    margin: 0 15px 16px 0; }
+  .window-category-sports .img-block.img-block-right {
+    float: right;
+    margin: 0 0 16px 15px; }
   .window-category-sports .category {
     border-bottom: solid 1px #666;
     border-width: 3px;
@@ -2481,13 +2482,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
-  .window-category-culture .img-block.img-block-left {
-    float: left;
-    margin: 0 15px 16px 0; }
-  .window-category-culture .img-block.img-block-right {
-    float: right;
-    margin: 0 0 16px 15px; }
-  .window-category-culture img {
+  .window-category-culture .img-block img {
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
@@ -2498,6 +2493,12 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-width: 7px;
     padding: 3px;
     background-color: #FFF; }
+  .window-category-culture .img-block.img-block-left {
+    float: left;
+    margin: 0 15px 16px 0; }
+  .window-category-culture .img-block.img-block-right {
+    float: right;
+    margin: 0 0 16px 15px; }
   .window-category-culture .category {
     border-bottom: solid 1px #666;
     border-width: 3px;
@@ -2559,13 +2560,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
-  .window-category-wellness .img-block.img-block-left {
-    float: left;
-    margin: 0 15px 16px 0; }
-  .window-category-wellness .img-block.img-block-right {
-    float: right;
-    margin: 0 0 16px 15px; }
-  .window-category-wellness img {
+  .window-category-wellness .img-block img {
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
@@ -2576,6 +2571,12 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-width: 7px;
     padding: 3px;
     background-color: #FFF; }
+  .window-category-wellness .img-block.img-block-left {
+    float: left;
+    margin: 0 15px 16px 0; }
+  .window-category-wellness .img-block.img-block-right {
+    float: right;
+    margin: 0 0 16px 15px; }
   .window-category-wellness .category {
     border-bottom: solid 1px #666;
     border-width: 3px;
@@ -2633,13 +2634,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border: solid 1px #666;
     border-width: 3px;
     margin-right: 5px; }
-.detail-category-sports .img-block.img-block-left {
-  float: left;
-  margin: 0 15px 16px 0; }
-.detail-category-sports .img-block.img-block-right {
-  float: right;
-  margin: 0 0 16px 15px; }
-.detail-category-sports img {
+.detail-category-sports .img-block img {
   border: solid 1px #e8e8e8;
   -webkit-border-radius: 6px;
   -khtml-border-radius: 6px;
@@ -2650,6 +2645,12 @@ googleMap, .angular-google-map, .angular-google-map-container {
   border-width: 7px;
   padding: 3px;
   background-color: #FFF; }
+.detail-category-sports .img-block.img-block-left {
+  float: left;
+  margin: 0 15px 16px 0; }
+.detail-category-sports .img-block.img-block-right {
+  float: right;
+  margin: 0 0 16px 15px; }
 .detail-category-sports .category {
   border-bottom: solid 1px #666;
   border-width: 3px;
@@ -2689,13 +2690,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border: solid 1px #666;
     border-width: 3px;
     margin-right: 5px; }
-.detail-category-culture .img-block.img-block-left {
-  float: left;
-  margin: 0 15px 16px 0; }
-.detail-category-culture .img-block.img-block-right {
-  float: right;
-  margin: 0 0 16px 15px; }
-.detail-category-culture img {
+.detail-category-culture .img-block img {
   border: solid 1px #e8e8e8;
   -webkit-border-radius: 6px;
   -khtml-border-radius: 6px;
@@ -2706,6 +2701,12 @@ googleMap, .angular-google-map, .angular-google-map-container {
   border-width: 7px;
   padding: 3px;
   background-color: #FFF; }
+.detail-category-culture .img-block.img-block-left {
+  float: left;
+  margin: 0 15px 16px 0; }
+.detail-category-culture .img-block.img-block-right {
+  float: right;
+  margin: 0 0 16px 15px; }
 .detail-category-culture .category {
   border-bottom: solid 1px #666;
   border-width: 3px;
@@ -2745,13 +2746,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border: solid 1px #666;
     border-width: 3px;
     margin-right: 5px; }
-.detail-category-wellness .img-block.img-block-left {
-  float: left;
-  margin: 0 15px 16px 0; }
-.detail-category-wellness .img-block.img-block-right {
-  float: right;
-  margin: 0 0 16px 15px; }
-.detail-category-wellness img {
+.detail-category-wellness .img-block img {
   border: solid 1px #e8e8e8;
   -webkit-border-radius: 6px;
   -khtml-border-radius: 6px;
@@ -2762,6 +2757,12 @@ googleMap, .angular-google-map, .angular-google-map-container {
   border-width: 7px;
   padding: 3px;
   background-color: #FFF; }
+.detail-category-wellness .img-block.img-block-left {
+  float: left;
+  margin: 0 15px 16px 0; }
+.detail-category-wellness .img-block.img-block-right {
+  float: right;
+  margin: 0 0 16px 15px; }
 .detail-category-wellness .category {
   border-bottom: solid 1px #666;
   border-width: 3px;
@@ -2956,14 +2957,17 @@ googleMap, .angular-google-map, .angular-google-map-container {
   border-bottom-right-radius: 6px; }
 
 .bookableitem-name {
-  width: 60%; }
+  width: 100%; }
 
+/*
 .bookableitem-duration {
-  width: 25%; }
+  width: 25%;
+}
 
 .bookableitem-price {
-  width: 15%; }
-
+  width: 15%;
+}
+*/
 .event-list {
   display: block;
   border-top: dotted 1px #b3b3b3;
@@ -3088,10 +3092,13 @@ googleMap, .angular-google-map, .angular-google-map-container {
   width: 40%; }
 
 .event-time {
-  width: 20%; }
+  width: 30%; }
 
 .event-quantity {
-  width: 20%; }
+  width: 15%; }
+
+.event-duration {
+  width: 15%; }
 
 .event-add {
   margin-top: 10px; }

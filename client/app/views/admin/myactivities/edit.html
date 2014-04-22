@@ -304,7 +304,7 @@
 
               </div>
 
-              <div class="bookableitem-name cell first">
+              <div class="bookableitem-name cell first last">
 
                 <label for="itemDescription">{{'Description' | translate}}</label>
 
@@ -323,7 +323,9 @@
 
               </div>
 
-              <div class="bookableitem-duration cell last">
+<!-- DURATION AND PRICE MOVES TO EVENT!!!
+
+              <div class="bookableitem-duration cell">
                 <label for="itemDuration">{{'Duration in hours' | translate}}</label>
                 <input type="number"
                        class="form-control"
@@ -356,6 +358,7 @@
                 </span>
 
               </div>
+-->
 
             </ng-form>
 
@@ -397,6 +400,7 @@
                     >
                   <ng-form name="eventForm">
                     <div class="form-group date-from">
+                      <label>Start date</label>
                       <input type="text"
                              size="10"
                              class="form-control"
@@ -406,6 +410,7 @@
                              bs-datepicker>
                     </div>
                     <div class="form-group time">
+                      <label>Start time</label>
                       <input type="text"
                              size="8"
                              class="form-control"
@@ -417,6 +422,7 @@
                     </div>
 
                     <div class="form-group quantity">
+                      <label>Quantity</label>
                       <input type="number"
                              class="form-control"
                              id="quantity"
@@ -431,7 +437,41 @@
                       </span>
                     </div>
 
-                    <div class="event-new-repeat">
+<!--TODO >> IMPLEMENTATION duration and price moved from item to event-->
+
+                    <div class="form-group duration">
+                      <label>Duration</label>
+                      <input type="number"
+                             class="form-control"
+                             id="duration"
+                             name="duration"
+                             placeholder="{{'Duration' | translate}}"
+                             ng-model="event.duration"
+                             required
+                          />
+                      <span class="alert">
+                        REQUIRED
+                      </span>
+                    </div>
+
+                    <div class="form-group price">
+                      <label>Price</label>
+                      <input type="number"
+                             class="form-control"
+                             id="price"
+                             name="price"
+                             placeholder="{{'Price' | translate}}"
+                             ng-model="event.price"
+                             required
+                          />
+                      <span class="alert">
+                        REQUIRED
+                      </span>
+                    </div>
+
+<!--TODO END                    -->
+
+                      <div class="event-new-repeat">
                       <div class="checkbox">
                         <label>
                           <input type="checkbox"
