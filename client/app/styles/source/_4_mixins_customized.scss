@@ -5,21 +5,125 @@
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-body {
-  position: relative;
+
+html, body, .page {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1000;
-  padding: 0 10px;
+/* Opera Fix */
+body:before {
+  content: "";
+  height: 100%;
+  float: left;
+  width: 0;
+  margin-top: -32767px;
+}
+
+.page{
   min-width: $min-width-xxs;
-
-  height: 50px;
 }
+
+.col-container{
+  min-height: 100%;
+  margin-left: $col-left-width;
+  margin-bottom: - $footer-height;
+  @include border(left, $color_main_border);
+  @include clearfix;
+
+  .col-left-fixed{
+    margin-left: - ($col-left-width);
+    left: -1px;
+
+    padding-bottom: $bu*2.0;
+  }
+  .col-right{
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    padding: $bu*1.0 $bu*2.0;
+    padding-bottom: $bu*1.0 + $footer-height;
+    max-width: 1200px - $col-left-width;
+  }
+}
+
+.footer{
+  z-index: 2;
+  position: relative;
+  height: $footer-height;
+  width: 100%;
+  margin-top: - ($footer-height);
+  clear: both;
+  &.footer-startpage{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+
+.col-left-fixed {
+  z-index: 1;
+  position: relative;
+  float: left;
+  padding: $bu*2.0;
+  padding-bottom: $bu*2.0 + $footer-height;
+  width: $col-left-width;
+}
+
+
+
+/*
+.container-fluid{
+  height: 100%;
+  height: auto !important;
+  min-height: 100%;
+}
+
+.body{
+  overflow: hidden;
+  height: 100%;
+}
+
+.main{
+  overflow: auto;
+  padding-bottom: $footer-height;
+}
+
+.col-left-fixed {
+  position: relative;
+  float: left;
+  padding: $bu*2.0;
+  width: $col-left-width;
+  @include border(right, $color_main_border);
+  .map-selection-block & {
+    border: none;
+  }
+}
+
+.col-right {
+  margin: 0 0 0 $col-left-width;
+  padding: $bu*1.0 $bu*2.0;
+  max-width: 1200px - $col-left-width;
+}
+
+.footer{
+  position: relative;
+  height: $footer-height;
+  margin-top: - ($footer-height+1px);
+  clear: both;
+  &.footer-startpage{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+*/
+
+
 
 // MAP ELEMENTS
 // ###########################################################################################################################
@@ -38,34 +142,6 @@ googleMap, .angular-google-map, .angular-google-map-container{
   }
 }
 
-.col-left-fixed {
-  position: relative;
-  @include box-sizing(border-box);
-  padding: $bu*2.0;
-  padding-bottom: $bu*2.0 + $footer-height;
-  width: $col-left-width;
-  float: left;
-  @include border(right, $color_main_border);
-  .map-selection-block & {
-    border: none;
-  }
-}
-
-.col-right {
-  padding: $bu*1.0 $bu*2.0;
-  padding-bottom: $bu*2.0 + $footer-height;
-  position: relative;
-  overflow: hidden;
-  display: block;
-  max-width: 1200px - $col-left-width;
-
-  //column height hack
-  @include border(left, $color_main_border);
-  left: -1px;
-  .map-selection-block & {
-    border: none;
-  }
-}
 
 .controlpanel {
   background-color: $color_white;
@@ -200,7 +276,7 @@ googleMap, .angular-google-map, .angular-google-map-container{
       }
     }
   }
-  .input_label {
+  .input-label {
     .gm-style .gm-style-iw & {
       font-weight: $font-weight_bold;
     }
@@ -552,7 +628,7 @@ googleMap, .angular-google-map, .angular-google-map-container{
 
 .uservoice-custom {
   z-index: 150;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0px;
   background-color: rgba($color_grey, 0.75);
@@ -614,13 +690,19 @@ googleMap, .angular-google-map, .angular-google-map-container{
 shoppingcart {
 
   &.shoppingcart-rightside {
-    @include box-sizing(border-box);
-
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    overflow: hidden;
+    width: $shoppingcart-toggle-width + 5px;
+    height: 100%;
+    @include animation_position;
     .shoppingcart-toggle {
       display: block;
       position: absolute;
       top: 0px;
-      left: -40px;
+      left: - $shoppingcart-toggle-width;
       height: 100%;
       @include animation_background;
       .innerwrap {
@@ -633,15 +715,15 @@ shoppingcart {
     }
     .shoppingcart-element {
       position: absolute;
-      top: 0;
       right: - ($shoppingcart-rightside-width - 5px);
       width: $shoppingcart-rightside-width;
       height: 100%;
       @include animation_position;
-      padding-bottom: $bu*2.0 + $footer-height;
     }
 
     &.active {
+
+      width: $shoppingcart-rightside-width + $shoppingcart-toggle-width;
 
       .shoppingcart-element {
         right: 0;
@@ -673,8 +755,8 @@ shoppingcart {
   @include hovercursor;
 
   .innerwrap {
-    width: 40px;
-    height: 40px;
+    width: $shoppingcart-toggle-width;
+    height: $shoppingcart-toggle-width;
     @include border-left-radius($border-radius-small);
     background-color: $color_green;
     @include sprite_icons(9px, -88px, no-repeat);
@@ -784,6 +866,7 @@ shoppingcart {
 .shoppingcart-item-details{
   @include clearfix;
   clear: both;
+  margin-top: $fs*0.5;
 }
 
 .shoppingcart-item-date{
@@ -1537,6 +1620,12 @@ shoppingcart {
 //.sitemap
 
 $filter-category-arrow-width: 65px;
+
+.filter{
+  .input-label{
+    display: none;
+  }
+}
 
 .filter-category {
   position: relative;
