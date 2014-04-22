@@ -118,8 +118,13 @@ var models = function () {
     // muss umbennat werden !!!
     // http://docs.mongodb.org/manual/core/geospatial-indexes/#multi-location-documents-for-2d-indexes
     // http://myadventuresincoding.wordpress.com/2011/10/02/mongodb-geospatial-queries/
-    longitude: Attr(Type.number),
-    latitude: Attr(Type.number),
+
+    // don' forget to create an index via:
+    //  db.activities.ensureIndex( {"location" : "2d"} );
+    location : {
+      lng: Attr(Type.number),
+      lat: Attr(Type.number)
+    },
 
     bookableItems: ObjArray(BookableItemModel),
 
@@ -138,12 +143,12 @@ var models = function () {
 
     filteredActivities: Factory({
       from: {  // links oben
-        longitude: Attr(Type.number),
-        latitude: Attr(Type.number)
+        lng: Attr(Type.number),
+        lat: Attr(Type.number)
       },
       to: {  // rechts unten
-        longitude: Attr(Type.number),
-        latitude: Attr(Type.number)
+        lng: Attr(Type.number),
+        lat: Attr(Type.number)
       },
       startDate: Attr(Type.date), // optional
       endDate: Attr(Type.date) //optional
