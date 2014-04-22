@@ -2091,7 +2091,7 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
 .form-group-btn {
   vertical-align: baseline; }
 
-.input_label, label {
+.input-label, label {
   display: block;
   font-size: 12px;
   line-height: 16.8px;
@@ -2101,7 +2101,7 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
   vertical-align: bottom;
   margin-bottom: 5px;
   font-weight: 600; }
-  .input_label p, label p {
+  .input-label p, label p {
     padding-bottom: 12px; }
 
 fieldset {
@@ -2446,7 +2446,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     font-weight: normal; }
   .gm-style .gm-style-iw .window-category-sports .availability-header .cell {
     font-weight: 600; }
-  .gm-style .gm-style-iw .window-category-sports .input_label {
+  .gm-style .gm-style-iw .window-category-sports .input-label {
     font-weight: 600; }
   .gm-style .gm-style-iw .window-category-sports .btn-mini {
     font-size: 12px;
@@ -2524,7 +2524,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     font-weight: normal; }
   .gm-style .gm-style-iw .window-category-culture .availability-header .cell {
     font-weight: 600; }
-  .gm-style .gm-style-iw .window-category-culture .input_label {
+  .gm-style .gm-style-iw .window-category-culture .input-label {
     font-weight: 600; }
   .gm-style .gm-style-iw .window-category-culture .btn-mini {
     font-size: 12px;
@@ -2602,7 +2602,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     font-weight: normal; }
   .gm-style .gm-style-iw .window-category-wellness .availability-header .cell {
     font-weight: 600; }
-  .gm-style .gm-style-iw .window-category-wellness .input_label {
+  .gm-style .gm-style-iw .window-category-wellness .input-label {
     font-weight: 600; }
   .gm-style .gm-style-iw .window-category-wellness .btn-mini {
     font-size: 12px;
@@ -4398,6 +4398,9 @@ shoppingcart.shoppingcart-rightside {
                   padding: 4px 12px;
                   font-weight: normal;
                   font-style: italic; }
+
+.filter .input-label {
+  display: none; }
 
 .filter-category {
   position: relative;

@@ -1668,7 +1668,7 @@ input[type="checkbox"]:focus {
 }
 
 
-@mixin input_label {
+@mixin input-label {
   display: block;
   @include font-size_small;
   line-height: 21px;
@@ -1679,9 +1679,10 @@ input[type="checkbox"]:focus {
   font-weight: $font-weight_bold;
 }
 
-.input_label, label {
-  @include input_label;
+.input-label, label {
+  @include input-label;
 }
+
 
 fieldset {
   position: relative;

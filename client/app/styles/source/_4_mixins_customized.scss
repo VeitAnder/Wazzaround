@@ -276,7 +276,7 @@ googleMap, .angular-google-map, .angular-google-map-container{
       }
     }
   }
-  .input_label {
+  .input-label {
     .gm-style .gm-style-iw & {
       font-weight: $font-weight_bold;
     }
@@ -1619,6 +1619,12 @@ shoppingcart {
 //.sitemap
 
 $filter-category-arrow-width: 65px;
+
+.filter{
+  .input-label{
+    display: none;
+  }
+}
 
 .filter-category {
   position: relative;
