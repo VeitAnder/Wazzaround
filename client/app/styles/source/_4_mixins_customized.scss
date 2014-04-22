@@ -866,6 +866,7 @@ shoppingcart {
 .shoppingcart-item-details{
   @include clearfix;
   clear: both;
+  margin-top: $fs*0.5;
 }
 
 .shoppingcart-item-date{

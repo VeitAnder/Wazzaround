@@ -3625,7 +3625,8 @@ shoppingcart.shoppingcart-rightside {
 
 .shoppingcart-item-details {
   *zoom: 1;
-  clear: both; }
+  clear: both;
+  margin-top: 8px; }
   .shoppingcart-item-details:before, .shoppingcart-item-details:after {
     content: " ";
     display: table; }
