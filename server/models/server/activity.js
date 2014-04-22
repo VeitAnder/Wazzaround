@@ -111,11 +111,13 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
     var endDate = new Date(params.endDate);
 
     return models.ActivityModel.find({
-      '$geoWithin' : {
-        '$box' : [
-          [ params.from.lng, params.from.lat ],
-          [ params.to.lng, params.to.lat ]
-        ]
+      location : {
+        '$geoWithin' : {
+          '$box' : [
+            [ params.to.lng, params.to.lat ],
+            [ params.from.lng, params.from.lat ]
+          ]
+        }
       },
       bookableItems: {
         $elemMatch: {
