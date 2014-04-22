@@ -66,10 +66,9 @@ var models = function () {
   // @TODO - EventModel braucht _id
   var EventModel = new model("events", {
     start: Attr(Type.date),
-    quantity: Attr(Type.number)
-    /*,
     end: Attr(Type.date),
-    price: Attr(Type.number)*/
+    quantity: Attr(Type.number),
+    price: Attr(Type.number)
   });
 
   // @TODO - BookableItemModel braucht _id
@@ -79,10 +78,6 @@ var models = function () {
       de: Attr(Type.string),
       it: Attr(Type.string)
     },
-    // @TODO Jonathan: remove price and duration - migration of existing data
-    price: Attr(Type.number),
-    duration: Attr(Type.number),
-
     events: ObjArray(EventModel)
   });
 
