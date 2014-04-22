@@ -1766,8 +1766,7 @@ header {
 
 .main {
   color: #666;
-  background-color: #FFF;
-  overflow: hidden; }
+  background-color: #FFF; }
   .main:after {
     content: "";
     display: table;
@@ -1777,26 +1776,13 @@ header {
   background-color: #FFF; }
 
 .footer {
-  min-height: 50px;
-  width: 100%;
-  position: fixed;
-  z-index: 150;
-  bottom: 0;
   box-shadow: rgba(0, 0, 0, 0.07) 0px -2px 0;
-  *zoom: 1;
   color: #b3b3b3;
   background-color: #FFF; }
-  .footer:before, .footer:after {
-    content: " ";
-    display: table; }
-  .footer:after {
-    clear: both; }
   .footer a, .footer a:link, .footer a:focus, .footer a:active {
     color: #b3b3b3; }
     .footer a:hover, .footer a:link:hover, .footer a:focus:hover, .footer a:active:hover {
       color: #8c8c8c; }
-  .footer.footer-startpage {
-    position: relative; }
 
 .skip, .hideme {
   position: absolute;
@@ -2224,19 +2210,113 @@ legend {
 .cursor-pointer {
   cursor: pointer; }
 
-body {
-  position: relative; }
+html, body, .page {
+  height: 100%;
+  padding: 0px;
+  margin: 0px; }
 
-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1000;
-  padding: 0 10px;
-  min-width: 300px;
-  height: 50px; }
+/* Opera Fix */
+body:before {
+  content: "";
+  height: 100%;
+  float: left;
+  width: 0;
+  margin-top: -32767px; }
 
+.page {
+  min-width: 300px; }
+
+.col-container {
+  min-height: 100%;
+  margin-left: 350px;
+  margin-bottom: -50px;
+  border-left: solid 1px #d9d9d9;
+  *zoom: 1; }
+  .col-container:before, .col-container:after {
+    content: " ";
+    display: table; }
+  .col-container:after {
+    clear: both; }
+  .col-container .col-left-fixed {
+    margin-left: -350px;
+    left: -1px;
+    padding-bottom: 30px; }
+  .col-container .col-right {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    padding: 15px 30px;
+    padding-bottom: 65px;
+    max-width: 850px; }
+
+.footer {
+  z-index: 2;
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: -50px;
+  clear: both; }
+  .footer.footer-startpage {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0; }
+
+.col-left-fixed {
+  z-index: 1;
+  position: relative;
+  float: left;
+  padding: 30px;
+  padding-bottom: 80px;
+  width: 350px; }
+
+/*
+.container-fluid{
+  height: 100%;
+  height: auto !important;
+  min-height: 100%;
+}
+
+.body{
+  overflow: hidden;
+  height: 100%;
+}
+
+.main{
+  overflow: auto;
+  padding-bottom: $footer-height;
+}
+
+.col-left-fixed {
+  position: relative;
+  float: left;
+  padding: $bu*2.0;
+  width: $col-left-width;
+  @include border(right, $color_main_border);
+  .map-selection-block & {
+    border: none;
+  }
+}
+
+.col-right {
+  margin: 0 0 0 $col-left-width;
+  padding: $bu*1.0 $bu*2.0;
+  max-width: 1200px - $col-left-width;
+}
+
+.footer{
+  position: relative;
+  height: $footer-height;
+  margin-top: - ($footer-height+1px);
+  clear: both;
+  &.footer-startpage{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+*/
 googleMap, .angular-google-map, .angular-google-map-container {
   width: 100%;
   height: 100%; }
@@ -2245,31 +2325,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   width: 100%;
   height: 200px;
   position: relative; }
-
-.col-left-fixed {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 30px;
-  padding-bottom: 80px;
-  width: 350px;
-  float: left;
-  border-right: solid 1px #d9d9d9; }
-  .map-selection-block .col-left-fixed {
-    border: none; }
-
-.col-right {
-  padding: 15px 30px;
-  padding-bottom: 80px;
-  position: relative;
-  overflow: hidden;
-  display: block;
-  max-width: 850px;
-  border-left: solid 1px #d9d9d9;
-  left: -1px; }
-  .map-selection-block .col-right {
-    border: none; }
 
 .controlpanel {
   background-color: #FFF; }
@@ -3290,7 +3345,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
 .uservoice-custom {
   z-index: 150;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0px;
   background-color: rgba(102, 102, 102, 0.75);
@@ -3356,9 +3411,23 @@ googleMap, .angular-google-map, .angular-google-map-container {
     padding: 0 7.5px; }
 
 shoppingcart.shoppingcart-rightside {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  overflow: hidden;
+  width: 45px;
+  height: 100%;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  text-decoration: none;
+  -webkit-transition-property: top, right, bottom, left, width, height;
+  -moz-transition-property: top, right, bottom, left, width, height;
+  transition-property: top, right, bottom, left, width, height; }
   shoppingcart.shoppingcart-rightside .shoppingcart-toggle {
     display: block;
     position: absolute;
@@ -3381,7 +3450,6 @@ shoppingcart.shoppingcart-rightside {
       background-color: rgba(102, 102, 102, 0.15); }
   shoppingcart.shoppingcart-rightside .shoppingcart-element {
     position: absolute;
-    top: 0;
     right: -345px;
     width: 350px;
     height: 100%;
@@ -3394,10 +3462,11 @@ shoppingcart.shoppingcart-rightside {
     text-decoration: none;
     -webkit-transition-property: top, right, bottom, left, width, height;
     -moz-transition-property: top, right, bottom, left, width, height;
-    transition-property: top, right, bottom, left, width, height;
-    padding-bottom: 80px; }
-  shoppingcart.shoppingcart-rightside.active .shoppingcart-element {
-    right: 0; }
+    transition-property: top, right, bottom, left, width, height; }
+  shoppingcart.shoppingcart-rightside.active {
+    width: 390px; }
+    shoppingcart.shoppingcart-rightside.active .shoppingcart-element {
+      right: 0; }
   shoppingcart.shoppingcart-rightside .shoppingcart-header {
     padding-top: 12px; }
 
@@ -5733,20 +5802,15 @@ html {
   background: #FFF; }
 
 body {
-  position: relative;
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: #FFF;
   font-size: 16px;
   line-height: 22.4px;
   color: #666;
   min-width: 760px;
-  overflow: hidden;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-
-.page {
-  min-width: 300px; }
 
 @page {
   margin: 1cm 1cm 1cm 2cm; }

@@ -1250,7 +1250,6 @@ header {
   @include pie-clearfix;
   color: $color_main_text;
   background-color: $color_main_background;
-  overflow: hidden;
 }
 
 //.main
@@ -1264,15 +1263,8 @@ header {
 // FOOTER
 // ---------------------------------------------------------------------------------------------------------------------------
 .footer {
-  min-height: $footer-height;
-  width: 100%;
-  position: fixed;
-  z-index: 150;
-  bottom: 0;
-  box-shadow: rgba($color_black, 0.07) 0px -2px 0;
-
   @include outline;
-  @include clearfix;
+  box-shadow: rgba($color_black, 0.07) 0px -2px 0;
   color: $color_footer_text;
   background-color: $color_footer_background;
   a, a:link, a:focus, a:active {
@@ -1282,10 +1274,6 @@ header {
     }
   }
   //a
-
-  &.footer-startpage {
-    position: relative;
-  }
 }
 
 //footer
