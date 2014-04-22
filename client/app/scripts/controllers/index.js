@@ -129,8 +129,21 @@ angular.module('anorakApp')
 // user clicks on main category box
 // this box opens, all other boxes close
 // all subcategories in this box will be selected if there are activities for them
+
+    var closeAllFilters = function () {
+      _.each($scope.categories, function (category) {
+        category.open = false;
+      });
+    };
+
     $scope.toggleFilter = function (category) {
-      category.open = !category.open;
+      var currentstate = category.open;
+      closeAllFilters();
+      if (currentstate) {
+        category.open = false;
+      } else {
+        category.open = true;
+      }
     };
 
     $scope.map = frontendmap.map;
