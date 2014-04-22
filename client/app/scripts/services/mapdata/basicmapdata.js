@@ -37,6 +37,11 @@ angular.module('anorakApp')
         map.markers = markersToKeep;
       };
 
+
+
+
+
+
       var geoCodeAddress = function (address) {
 
         var defer = $q.defer();
@@ -74,6 +79,11 @@ angular.module('anorakApp')
         }
         return defer.promise;
       };
+
+
+
+
+
 
       var setMarkerOnMap = function (marker) {
         map.markers = [];
@@ -168,6 +178,11 @@ angular.module('anorakApp')
         Usersessionstates.states.zoom = googleMap.getZoom();
         Usersessionstates.updateSession();
 
+
+
+        // update activities
+
+
         // look for activities within these bounds and in a date range from now until one year later
         findActivitiesForDateRangeAndBetweenBounds()
           .then(function (activities) {
@@ -251,13 +266,21 @@ angular.module('anorakApp')
         // then map center is updated
         // then map bounds are updated
         // now search for activities with date range and bounds
+
         searchActivities: function (startDate, endDate, address) {
           debug("SEARCHING START DATE ", startDate, "END DATE ", endDate, " ADDRESS ", address);
+
           geoCodeAddress(address)
             .catch(function (err) {
               debug("Something went wrong while searching address", err);
             });
+
+
+
+          // activites aktualisieren
+
         },
+
         findAddressOnMap: function (marker) {
           if (!marker.address) {
             debug("FOUND NO ADDRESS");
@@ -273,6 +296,7 @@ angular.module('anorakApp')
               });
           }
         },
+
         findAddressForCoordinates: function (latitude, longitude) {
           debug("LOOKING FOR ADDRESS FOR", latitude, longitude);
 

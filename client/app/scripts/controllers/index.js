@@ -395,5 +395,4 @@ angular.module('anorakApp')
       Usersessionstates.updateSession();
     }, true);
 
-  })
-;
+  });

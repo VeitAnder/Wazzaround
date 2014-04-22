@@ -3,6 +3,11 @@
 angular.module('anorakApp')
   .controller('MapsearchbarCtrl', function ($scope, frontendmap, Usersessionstates) {
 
+    var searchActivities = function () {
+      console.log("search");
+      frontendmap.searchActivities($scope.search.startDate, $scope.search.endDate, $scope.search.address);
+    };
+
     $scope.search = {
       minDate: moment().subtract('days', 1).toDate(),
       maxDate: moment().add('year', 1).toDate(),
@@ -13,13 +18,14 @@ angular.module('anorakApp')
     };
 
     $scope.searchActivities = function () {
-      frontendmap.searchActivities($scope.search.startDate, $scope.search.endDate, $scope.search.address);
+      searchActivities();
     };
 
     $scope.$watch('search.startDate', function (newStartDate, oldStartDate) {
       if (newStartDate !== oldStartDate) {
         Usersessionstates.states.startdate = newStartDate;
         Usersessionstates.updateSession();
+        searchActivities();
       }
     });
 
@@ -27,8 +33,8 @@ angular.module('anorakApp')
       if (newEndDate !== oldEndDate) {
         Usersessionstates.states.endDate = newEndDate;
         Usersessionstates.updateSession();
+        searchActivities();
       }
     });
 
-  })
-;
+  });
