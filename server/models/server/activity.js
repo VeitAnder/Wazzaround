@@ -114,8 +114,8 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
       location : {
         '$geoWithin' : {
           '$box' : [
-            [ params.from.lng, params.from.lat ],
-            [ params.to.lng, params.to.lat ]
+            [ params.to.lng, params.to.lat ],
+            [ params.from.lng, params.from.lat ]
           ]
         }
       },

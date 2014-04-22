@@ -123,13 +123,13 @@ angular.module('anorakApp')
         debug("SEARCHING FOR DATE", start, end);
 
         models.ActivityModel.filteredActivities({
-          from: {  // links oben = northeast
-            longitude: map.bounds.northeast.longitude,
-            latitude: map.bounds.northeast.latitude
+          from: {  // rechts oben = northeast
+            lng: map.bounds.northeast.longitude,
+            lat: map.bounds.northeast.latitude
           },
-          to: {  // rechts unten = southwest
-            longitude: map.bounds.southwest.longitude,
-            latitude: map.bounds.southwest.latitude
+          to: {  // links unten = southwest
+            lng: map.bounds.southwest.longitude,
+            lat: map.bounds.southwest.latitude
           },
           startDate: start,
           endDate: end
