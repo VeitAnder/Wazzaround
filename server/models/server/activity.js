@@ -101,7 +101,7 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
 
   console.log("filteredActivities()", params);
 
-  if (!params.from || !params.to) {
+  if (!params.from || !params.to || !params.startDate || !params.endDate) {
     console.log("Missing some parameters", params);
     return;
   }
@@ -110,12 +110,35 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
     var startDate = new Date(params.startDate);
     var endDate = new Date(params.endDate);
 
+//    console.log("query", JSON.stringify({
+//      location : {
+//        '$geoWithin' : {
+//          '$box' : [
+//            [ params.from.lng, params.from.lat ],
+//            [ params.to.lng, params.to.lat ]
+//          ]
+//        }
+//      },
+//      bookableItems: {
+//        $elemMatch: {
+//          events: {
+//            $elemMatch: {
+//              start: {
+//                '$gte': startDate,
+//                '$lte': endDate
+//              }
+//            }
+//          }
+//        }
+//      }
+//    }));
+
     return models.ActivityModel.find({
       location : {
         '$geoWithin' : {
           '$box' : [
-            [ params.to.lng, params.to.lat ],
-            [ params.from.lng, params.from.lat ]
+            [ params.from.lng, params.from.lat ],
+            [ params.to.lng, params.to.lat ]
           ]
         }
       },
@@ -162,26 +185,4 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
 
     */
   }
-
-  return models.ActivityModel.find({
-    '$geoWithin' : {
-      '$box' : [
-        [ params.from.lng, params.from.lat ],
-        [ params.to.lng, params.to.lat ]
-      ]
-    }
-  });
-
-  /*
-  return models.ActivityModel.find({
-    'longitude': {
-      "$lte": params.from.longitude,
-      "$gte": params.to.longitude
-    },
-    'latitude': {
-      "$lte": params.from.latitude,
-      "$gte": params.to.latitude
-    }
-  });
-  */
 });
