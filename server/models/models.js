@@ -142,11 +142,11 @@ var models = function () {
     }),
 
     filteredActivities: Factory({
-      from: {  // links oben
+      from: {  // <bottom left coordinates>
         lng: Attr(Type.number),
         lat: Attr(Type.number)
       },
-      to: {  // rechts unten
+      to: {  // <upper right coordinates>
         lng: Attr(Type.number),
         lat: Attr(Type.number)
       },

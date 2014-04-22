@@ -110,6 +110,29 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
     var startDate = new Date(params.startDate);
     var endDate = new Date(params.endDate);
 
+    return models.ActivityModel.find({
+      '$geoWithin' : {
+        '$box' : [
+          [ params.from.lng, params.from.lat ],
+          [ params.to.lng, params.to.lat ]
+        ]
+      },
+      bookableItems: {
+        $elemMatch: {
+          events: {
+            $elemMatch: {
+              start: {
+                '$gte': startDate,
+                '$lte': endDate
+              }
+            }
+          }
+        }
+      }
+    });
+
+    /*
+
     // first case: event has only a start date and takes place once
     // check for startdate match
     return models.ActivityModel.find({
@@ -134,8 +157,20 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
         }
       }
     });
+
+    */
   }
 
+  return models.ActivityModel.find({
+    '$geoWithin' : {
+      '$box' : [
+        [ params.from.lng, params.from.lat ],
+        [ params.to.lng, params.to.lat ]
+      ]
+    }
+  });
+
+  /*
   return models.ActivityModel.find({
     'longitude': {
       "$lte": params.from.longitude,
@@ -146,5 +181,5 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
       "$gte": params.to.latitude
     }
   });
-
+  */
 });
