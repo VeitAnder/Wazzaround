@@ -110,6 +110,29 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
     var startDate = new Date(params.startDate);
     var endDate = new Date(params.endDate);
 
+    console.log("query", JSON.stringify({
+      location : {
+        '$geoWithin' : {
+          '$box' : [
+            [ params.from.lng, params.from.lat ],
+            [ params.to.lng, params.to.lat ]
+          ]
+        }
+      },
+      bookableItems: {
+        $elemMatch: {
+          events: {
+            $elemMatch: {
+              start: {
+                '$gte': startDate,
+                '$lte': endDate
+              }
+            }
+          }
+        }
+      }
+    }));
+
     return models.ActivityModel.find({
       location : {
         '$geoWithin' : {
