@@ -388,9 +388,9 @@
                 <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
                   <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
                   <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
-                  <div class="event-duration cell">???</div>
+                  <div class="event-duration cell">{{getTimeDifference(event.start, event.end)}}</div>
                   <div class="event-quantity cell">{{event.quantity}}x</div>
-                  <div class="event-price cell">???</div>
+                  <div class="event-price cell">{{event.price}}</div>
                   <div class="listaction cell">
                     <a class="btn btn-mini btn-ordinary"
                        ng-click="event.mode = 'edit'">
@@ -413,9 +413,12 @@
                              size="10"
                              class="form-control"
                              ng-model="event.start"
+                             data-min-date="today"
+                             data-max-date="{{event.end}}"
                              data-autoclose="0"
                              placeholder="{{'Date' | translate}}"
-                             bs-datepicker>
+                             bs-datepicker
+                          >
                     </div>
                     <div class="form-group time-start">
                       <label>Start time</label>
@@ -438,15 +441,20 @@
                       <input type="text"
                              size="10"
                              class="form-control"
+                             ng-model="event.end"
+                             data-min-date="{{event.start | minusOneDay}}"
                              data-autoclose="0"
                              placeholder="{{'Date' | translate}}"
-                             bs-datepicker>
+                             bs-datepicker
+                          >
                     </div>
                     <div class="form-group time-end last">
                       <label>End time</label>
                       <input type="text"
                              size="8"
                              class="form-control"
+                             ng-model="event.end"
+                             data-min-date="{{event.start}}"
                              data-autoclose="0"
                              placeholder="{{'Time' | translate}}"
                              bs-timepicker
@@ -455,7 +463,9 @@
 
                     <div class="event-duration-block">
                       Event duration:
-                      <strong>2 days</strong>
+                      <strong>
+                        {{getTimeDifference(event.start, event.end)}}
+                      </strong>
                     </div>
 
                     <div class="form-group quantity first">
@@ -478,6 +488,7 @@
                       <label>Price</label>
                       <input type="number"
                              class="form-control"
+                             ng-model="event.price"
                              id="price"
                              name="price"
                              placeholder="{{'Price in €' | translate}}"
