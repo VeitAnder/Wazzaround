@@ -1,6 +1,6 @@
 {
   "name": "anorak",
-  "version": "0.12.3",
+  "version": "0.12.4",
   "dependencies": {
     "grunt-contrib-htmlmin": "0.1.3",
     "grunt-contrib-coffee": "0.8.2",
