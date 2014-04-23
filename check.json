@@ -1,7 +1,7 @@
 {"searchlocation": {
   "coords": {
-    "latitude": 48.2258065,
-    "longitude": 16.369847599999957
+    "latitude": 48.225823999999996,
+    "longitude": 16.369766700000014
   }
 }, "zoom": 9, "selectedcategories": [
   {
@@ -49,6 +49,7 @@
         "selected": true
       }
     ],
+    "_childObjs": {},
     "_id": "530ce4beee5f21279b2b64eb",
     "open": false
   },
@@ -82,6 +83,7 @@
         "selected": true
       }
     ],
+    "_childObjs": {},
     "_id": "530ce4d8ee5f21279b2b64ec",
     "open": false
   },
@@ -110,16 +112,17 @@
         "selected": true
       }
     ],
+    "_childObjs": {},
     "_id": "530ce4e8ee5f21279b2b64ed",
     "open": false
   }
 ], "bounds": {
   "northeast": {
-    "latitude": 48.59045159916071,
-    "longitude": 17.468480412499957
+    "latitude": 48.551395042823756,
+    "longitude": 17.844681250781264
   },
   "southwest": {
-    "latitude": 47.85854485774284,
-    "longitude": 15.271214787499957
+    "latitude": 47.89816872816215,
+    "longitude": 14.894852149218764
   }
 }}

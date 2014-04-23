@@ -60,28 +60,31 @@ angular.module('anorakApp')
         return defer.promise;
       };
 
-      var initializeSearchDates = function () {
-//        // if user selected a start date, set time to 00:00:00 so day is complete
-//        if (start) {
-//          start.setHours(0);
-//          start.setMinutes(0);
-//          start.setSeconds(0);
-//        } else {
-//          // if we have no start date, use now
-//          // if we have no end date, use one year later than now
-//          // will be initialized with current time
-//          start = new Date();
-//        }
-//
-//        if (!end) {
-//          var oneYearLater = new Date();
-//          oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
-//          end = oneYearLater;
-//        }
-//        // set time so that the end date day is complete
-//        end.setHours(23);
-//        end.setMinutes(59);
-//        end.setSeconds(59);
+      var setTimeOnStartAndEndDate = function () {
+
+       // if startdate is today, set current time, otherwise start at 00:00:00
+        var start = moment(map.searchStartDate);
+        var now = moment();
+        var diff = start.diff(now, 'days', true);
+        var round = Math.round(diff);
+
+        // the date is today, if the difference in days is smaller than 1
+        // in this case set current time
+        // if its not today but later, start at 00:00:00
+        if(round < 1) {
+          map.searchStartDate.setHours(now.hours());
+          map.searchStartDate.setMinutes(now.minutes());
+          map.searchStartDate.setSeconds(now.seconds());
+        } else {
+          map.searchStartDate.setHours(0);
+          map.searchStartDate.setMinutes(0);
+          map.searchStartDate.setSeconds(0);
+        }
+
+        // on end date, set last possible time so that the day is completely covered
+        map.searchEndDate.setHours(23);
+        map.searchEndDate.setMinutes(59);
+        map.searchEndDate.setSeconds(59);
       };
 
       var setMarkerOnMap = function (marker) {
@@ -160,6 +163,8 @@ angular.module('anorakApp')
 
       var onSearchChange = function () {
         console.log("search changed");
+
+        setTimeOnStartAndEndDate();
 
         geoCodeAddress(map.searchAddress)
           .then(function (coords) {
@@ -298,7 +303,7 @@ angular.module('anorakApp')
 
           map.markers = [];
 
-          initializeSearchDates();
+          setTimeOnStartAndEndDate();
 
           // dont update Usersessionstates here, it will overwrite stuff !!!
           function setInitPositionOnMap(position) {
