@@ -4885,9 +4885,6 @@ shoppingcart.shoppingcart-rightside {
   overflow: hidden; }
   .img-selector .img-teaser {
     display: none; }
-  .img-selector label + .img-block img {
-    width: 150px;
-    height: 150px; }
   .img-selector label + .img-block .img-teaser {
     display: block;
     position: relative;
@@ -4899,6 +4896,30 @@ shoppingcart.shoppingcart-rightside {
     color: #FFF;
     text-align: center;
     font-weight: 600;
+    -webkit-border-radius-bottomleft: 3px;
+    -khtml-border-radius-bottomleft: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    -ms-border-radius-bottomleft: 3px;
+    -o-border-radius-bottomleft: 3px;
+    border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -khtml-border-bottom-left-radius: 3px;
+    -moz-border-bottom-left-radius: 3px;
+    -ms-border-bottom-left-radius: 3px;
+    -o-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    -webkit-border-radius-bottomright: 3px;
+    -khtml-border-radius-bottomright: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -ms-border-radius-bottomright: 3px;
+    -o-border-radius-bottomright: 3px;
+    border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    -khtml-border-bottom-right-radius: 3px;
+    -moz-border-bottom-right-radius: 3px;
+    -ms-border-bottom-right-radius: 3px;
+    -o-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
     content: "Teaser Image"; }
   .img-selector .img-block {
     position: relative;
@@ -4906,8 +4927,8 @@ shoppingcart.shoppingcart-rightside {
     margin-right: 10px;
     margin-bottom: 32px; }
     .img-selector .img-block img {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
       -webkit-border-radius: 3px;
       -khtml-border-radius: 3px;
       -moz-border-radius: 3px;
