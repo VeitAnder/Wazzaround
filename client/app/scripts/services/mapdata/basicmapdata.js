@@ -41,41 +41,47 @@ angular.module('anorakApp')
       };
 
       var geoCodeAddress = function (address) {
-
         var defer = $q.defer();
-
         if (!address) {
-          defer.resolve("No address entered");
+          defer.resolve(null);
         } else {
           geocoder = new google.maps.Geocoder();
-
           geocoder.geocode({ 'address': address, 'region': 'it' }, function (results, status) {
-
             debug("FOUND ADDRESS!", status, results);
-
             if (status === google.maps.GeocoderStatus.OK) {
-              map.center.latitude = results[0].geometry.location.k;
-              map.center.longitude = results[0].geometry.location.A;
-              map.centerMarker.latitude = results[0].geometry.location.k;
-              map.centerMarker.longitude = results[0].geometry.location.A;
-              map.address = address;
-              map.zoom = config.locationsearch.zoom;
-
-              $rootScope.$apply();
-
-              console.log("AM DONE GEOCODING ADDRESS");
-              return defer.resolve();
-
+              debug("AM DONE GEOCODING ADDRESS");
+              return defer.resolve(results[0].geometry.location);
             } else {
               debug("Status not OK!, failing", status);
-              map.center = map.standardCenter;
-              map.centerMarker = map.standardCenter;
-              map.center = map.standardCenter;
               defer.reject("Could not geocode address", status);
             }
           });
         }
         return defer.promise;
+      };
+
+      var initializeSearchDates = function () {
+//        // if user selected a start date, set time to 00:00:00 so day is complete
+//        if (start) {
+//          start.setHours(0);
+//          start.setMinutes(0);
+//          start.setSeconds(0);
+//        } else {
+//          // if we have no start date, use now
+//          // if we have no end date, use one year later than now
+//          // will be initialized with current time
+//          start = new Date();
+//        }
+//
+//        if (!end) {
+//          var oneYearLater = new Date();
+//          oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
+//          end = oneYearLater;
+//        }
+//        // set time so that the end date day is complete
+//        end.setHours(23);
+//        end.setMinutes(59);
+//        end.setSeconds(59);
       };
 
       var setMarkerOnMap = function (marker) {
@@ -86,36 +92,12 @@ angular.module('anorakApp')
       // find activities according to date that the user entered
       // there may be a start date and an end date or only one of them or none
       // find only activities that are within a northeast and southwest lat/lng
-      var findActivitiesForDateRangeAndBetweenBounds = function (start, end) {
-        var defer = Q.defer();
-
-        // if user selected a start date, set time to 00:00:00 so day is complete
-        if (start) {
-          start.setHours(0);
-          start.setMinutes(0);
-          start.setSeconds(0);
-        } else {
-          // if we have no start date, use now
-          // if we have no end date, use one year later than now
-          // will be initialized with current time
-          start = new Date();
-        }
-
-        if (!end) {
-          var oneYearLater = new Date();
-          oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
-          end = oneYearLater;
-        }
-        // set time so that the end date day is complete
-        end.setHours(23);
-        end.setMinutes(59);
-        end.setSeconds(59);
-
+      var findActivities = function () {
         debug("SEARCHING FOR NORTHEAST", map.bounds.northeast.latitude, map.bounds.northeast.longitude);
         debug("SEARCHING FOR SOUTHWEST", map.bounds.southwest.latitude, map.bounds.southwest.longitude);
-        debug("SEARCHING FOR DATE", start, end);
+        debug("SEARCHING FOR DATE", map.searchStartDate, map.searchEndDate);
 
-        models.ActivityModel.filteredActivities({
+        return models.ActivityModel.filteredActivities({
           from: {  //  <bottom left coordinates>   southwest
             lng: map.bounds.southwest.longitude,
             lat: map.bounds.southwest.latitude
@@ -124,24 +106,17 @@ angular.module('anorakApp')
             lng: map.bounds.northeast.longitude,
             lat: map.bounds.northeast.latitude
           },
-          startDate: start,
-          endDate: end
+          startDate: map.searchStartDate,
+          endDate: map.searchEndDate
         })
           .then(function (activities) {
             debug("GOT DATE FILTERED ACTIVITIES", activities.length, activities);
-            defer.resolve(activities);
-          })
-          .fail(function (err) {
-            debug("Error in date filtering", err);
-            defer.reject();
-          })
-          .done();
-
-        return defer.promise;
+            return activities;
+          });
       };
 
-      var updateActivitiesInMapHandler = function (googleMap) {
-        debug("IDLE EVENT", googleMap.getCenter());
+      var onMapChange = function (googleMap) {
+        debug("onMapChange");
 
         // bounds contain northeast and southwest lat/lng which we will use to search activities within
         map.bounds = {
@@ -174,7 +149,29 @@ angular.module('anorakApp')
         // update activities
 
         // look for activities within these bounds and in a date range from now until one year later
-        findActivitiesForDateRangeAndBetweenBounds()
+        findActivities()
+          .then(function (activities) {
+            setMarkersWithoutBlinking(activities);
+          })
+          .catch(function (err) {
+            debug("Something went wrong while searching activities", err);
+          });
+      };
+
+      var onSearchChange = function () {
+        console.log("search changed");
+
+        geoCodeAddress(map.searchAddress)
+          .then(function (coords) {
+            if (coords !== null) {
+              map.center.latitude = coords.k;
+              map.center.longitude = coords.A;
+              map.centerMarker.latitude = coords.k;
+              map.centerMarker.longitude = coords.A;
+              map.zoom = config.locationsearch.zoom;
+            }
+            return findActivities();
+          })
           .then(function (activities) {
             setMarkersWithoutBlinking(activities);
           })
@@ -194,7 +191,9 @@ angular.module('anorakApp')
       };
 
       var map = {
-        address: "",
+        searchAddress: "",
+        searchStartDate: new Date(),
+        searchEndDate: moment(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDay(), 23, 59, 59)).add('month', 1).toDate(),
         bounds: {
           northeast: {
             latitude: 0,
@@ -244,34 +243,11 @@ angular.module('anorakApp')
           streetViewControl: false
         },
         events: {
-          idle: updateActivitiesInMapHandler
+          idle: onMapChange
         }
       };
 
       return {
-
-        // user enters a location and/or a start date and/or an end date, each of these is optional
-        // first address is geocoded and set to map
-        // then map center is updated
-        // then map bounds are updated
-        // now search for activities with date range and bounds
-
-        updateSearch: function () {
-
-        },
-
-        searchActivities: function (startDate, endDate, address) {
-          debug("SEARCHING START DATE ", startDate, "END DATE ", endDate, " ADDRESS ", address);
-
-          geoCodeAddress(address)
-            .catch(function (err) {
-              debug("Something went wrong while searching address", err);
-            });
-
-          // activites aktualisieren
-
-        },
-
         findAddressOnMap: function (marker) {
           if (!marker.address) {
             debug("FOUND NO ADDRESS");
@@ -308,7 +284,8 @@ angular.module('anorakApp')
             }
           });
         },
-        getAddress: function (viewValue) {
+
+        getGoogleAddressAutoCompletionList: function (viewValue) {
           var params = {address: viewValue, sensor: false, language: 'en'};
           return $http.get('https://maps.googleapis.com/maps/api/geocode/json', { params: params })
             .then(function (res) {
@@ -320,6 +297,8 @@ angular.module('anorakApp')
           var deferred = Q.defer();
 
           map.markers = [];
+
+          initializeSearchDates();
 
           // dont update Usersessionstates here, it will overwrite stuff !!!
           function setInitPositionOnMap(position) {
@@ -384,7 +363,8 @@ angular.module('anorakApp')
           }
           return deferred.promise;
         },
-        map: map
+        map: map,
+        onSearchChange: onSearchChange
       };
 
     };
