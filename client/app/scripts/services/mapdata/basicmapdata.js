@@ -362,7 +362,7 @@ angular.module('anorakApp')
                 zoom: map.zoom
               };
               Usersessionstates.updateSession();
-              debug("RESOLVE AFTER BROWSER STATE ERR");
+              debug("RESOLVE AFTER BROWSER STATE ERR");   // TODO test if activities are searched when map does not change
               return deferred.resolve(map);
             });
 
