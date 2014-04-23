@@ -159,10 +159,20 @@ var models = function () {
 
 
   var BookingModel = new model('bookings', {
-     user  : Ref(UserModel),  // welcher user hat gebucht @TODO kann auch nicht eingeloggt sein
+    user  : Ref(UserModel),  // welcher user hat gebucht @TODO kann auch nicht eingeloggt sein
 
-     state : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
-     date  : Attr(Type.date)
+    state : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
+    date  : Attr(Type.date),
+
+    checkout : Operation({
+      // user : Attr(Type.string) @TODO
+      bookings : [{
+        activity : Attr(Type.objectid),
+        item     : Attr(Type.objectid),
+        event    : Attr(Type.objectid),
+        quantity : Attr(Type.number)
+      }]
+    })  // returns { bookingID : .., state: 'ok' }
   });
 
   // This Model represents the booking of one Event
