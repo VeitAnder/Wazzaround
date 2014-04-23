@@ -107,6 +107,7 @@ angular.module('anorakApp')
     $scope.createEvent = function (bookableItem) {
       var event = bookableItem.createEvents(); 
       event.start = new Date();
+      event.end = moment(event.start).add('hours', 1).toDate();
 
       bookableItem.events[bookableItem.events.length - 1].mode = 'new';
       //event.mode = 'edit';   // funktioniert so leider nicht
@@ -355,5 +356,12 @@ angular.module('anorakApp')
     }, true);
 
 
+    $scope.getTimeDifference = function (start, end) {
+      return moment.duration(start - end).humanize();
+    };
+
+    $scope.getGoogleAddressAutoCompletionList = function (viewValue) {
+      return activitybackendmap.getGoogleAddressAutoCompletionList(viewValue);
+    };
 
   });

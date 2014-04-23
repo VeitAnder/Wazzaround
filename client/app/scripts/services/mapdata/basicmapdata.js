@@ -258,7 +258,7 @@ angular.module('anorakApp')
             debug("FOUND NO ADDRESS");
           } else {
             geoCodeAddress(marker.address)
-              .then(function () {
+              .then(function (coords) {
                 debug("DONE GEOCODING ADDRESS");     // TODO set marker on map
                 setMarkerOnMap(marker);
                 $rootScope.$broadcast("EditMapChangeEvent");
