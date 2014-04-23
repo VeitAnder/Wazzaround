@@ -2959,15 +2959,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
 .bookableitem-name {
   width: 100%; }
 
-/*
-.bookableitem-duration {
-  width: 25%;
-}
-
-.bookableitem-price {
-  width: 15%;
-}
-*/
 .event-list {
   display: block;
   border-top: dotted 1px #b3b3b3;
@@ -3118,16 +3109,105 @@ googleMap, .angular-google-map, .angular-google-map-container {
   .eventedit input {
     min-width: 0; }
   .eventedit .form-group {
-    margin-right: 4%;
-    float: left; }
-    .eventedit .form-group.quantity {
-      margin-right: 0; }
-  .eventedit .date-from, .eventedit .date-until {
-    width: 35%; }
-  .eventedit .time {
-    width: 35%; }
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    float: left;
+    vertical-align: middle;
+    min-height: 100%;
+    padding: 10px 5px; }
+    .eventedit .form-group.first {
+      padding-left: 10px; }
+    .eventedit .form-group.last {
+      padding-right: 10px; }
+    .eventedit .form-group.right {
+      text-align: right; }
+    .eventedit .form-group.first {
+      padding-left: 0; }
+    .eventedit .form-group.last {
+      padding-right: 0; }
+  .eventedit .date-start {
+    width: 25%; }
+  .eventedit .date-end {
+    width: 25%; }
+  .eventedit .time-start {
+    width: 22.5%; }
+  .eventedit .time-end {
+    width: 22.5%; }
   .eventedit .quantity {
-    width: 22%; }
+    width: 25%; }
+  .eventedit .price {
+    width: 25%; }
+  .eventedit .from-until {
+    height: 48.4px;
+    width: 5%;
+    margin-top: 36px;
+    background-color: transparent;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    float: left;
+    vertical-align: middle;
+    min-height: 100%;
+    padding: 10px 5px;
+    padding: 0; }
+    .eventedit .from-until.first {
+      padding-left: 10px; }
+    .eventedit .from-until.last {
+      padding-right: 10px; }
+    .eventedit .from-until.right {
+      text-align: right; }
+    .eventedit .from-until span {
+      margin: 18.2px auto 0;
+      display: block;
+      width: 7px;
+      height: 12px;
+      background-position: -25px -62px;
+      background-repeat: no-repeat; }
+      .svg .eventedit .from-until span {
+        background-image: url('/img/sprite_icons.svg'); }
+      .no-svg .eventedit .from-until span {
+        background-image: url('/img/sprite_icons.png'); }
+  .eventedit .event-duration-block {
+    background-color: #d9d9d9;
+    color: #666;
+    font-size: 12px;
+    line-height: 16.8px;
+    text-align: center;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    padding: 5px 10px;
+    clear: both; }
+    .eventedit .event-duration-block p {
+      padding-bottom: 12px; }
+  .eventedit .date-until {
+    width: 50%; }
   .eventedit .buttonbar {
     border-top: dotted 1px #b3b3b3;
     width: auto;

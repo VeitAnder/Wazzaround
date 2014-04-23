@@ -455,15 +455,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   width: 100%;
 }
 
-/*
-.bookableitem-duration {
-  width: 25%;
-}
-
-.bookableitem-price {
-  width: 15%;
-}
-*/
 
 .event-list {
   display: block;
@@ -522,20 +513,65 @@ googleMap, .angular-google-map, .angular-google-map-container {
     min-width: 0;
   }
   .form-group {
-    margin-right: 4%;
-    float: left;
-    &.quantity {
-      margin-right: 0;
+    @include divtable_cell;
+    &.first{
+      padding-left: 0;
+    }
+    &.last{
+      padding-right: 0;
     }
   }
-  .date-from, .date-until {
-    width: 35%;
+  .date-start {
+    width: 25%;
   }
-  .time {
-    width: 35%;
+  .date-end {
+    width: 25%;
+  }
+  .time-start {
+    width: 22.5%;
+  }
+  .time-end {
+    width: 22.5%;
   }
   .quantity {
-    width: 22%;
+    width: 25%;
+  }
+
+  .price{
+    width: 25%;
+  }
+
+  .from-until{
+    height: $input-height;
+    width: 5%;
+    margin-top: (21px + 5px + 10px);
+    background-color: transparent;
+    @include border-radius($border-radius_small);
+    @include divtable_cell;
+    padding: 0;
+    span{
+      margin: ($input-height*0.5 - 6px) auto 0;
+      display: block;
+      width: 7px;
+      height: 12px;
+      @include sprite_icons(-25px, -62px, no-repeat);
+    }
+  }
+
+  .event-duration-block{
+    background-color: $color_grey_25;
+    color: $color_grey;
+    @include font-size_small;
+    text-align: center;
+    @include border-radius($border-radius_small);
+    padding: 5px 10px;
+    clear: both;
+
+  }
+
+
+  .date-until{
+    width: 50%;
   }
 
   .btn {
