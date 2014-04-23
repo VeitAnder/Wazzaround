@@ -41,6 +41,11 @@ ActivityModel.readFilter(function (req) {
   return {published: true};  //filter published Activities
 });
 
+//ActivityModel.postReadFilter(function (req, obj) {
+//
+//  return obj;
+//});
+
 // TODO: das ist nur so kompliziert, weil delete das doc aus der datenbank hohlt...
 ActivityModel.writeFilter(function (doc, req) {
   var ownerRef;
@@ -131,6 +136,31 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
           }
         }
       }
+    }).then(function(activities) {
+
+      var events = [];
+      _.forEach(activities, function(activity) {
+        _.forEach(activity.bookableItems, function(item) {
+          _.forEach(item.events, function(event) {
+            events.push(event);
+          });
+        });
+      });
+
+      var bookQuantityPromises = [];
+      _.forEach(events, function(event) {
+        bookQuantityPromises.push(
+          models.BookedEventModel.bookedQuantity({event: event._id})
+            .then(function(bookedEvent) {
+              event.bookQuantity = event.quantity - bookedEvent.quantity;
+            })
+        );
+      });
+
+      return Q.all(bookQuantityPromises)  // wait for all changes..
+        .then(function() {
+          return activities;
+        })
     });
   }
 });

@@ -68,6 +68,7 @@ var models = function () {
     start: Attr(Type.date),
     end: Attr(Type.date),
     quantity: Attr(Type.number),
+    //bookQuantity : VirtualAttr(Type.number),  // Ist nur bei filteredActivities verfügbar
     price: Attr(Type.number)
   });
 
@@ -162,7 +163,7 @@ var models = function () {
     user      : Ref(UserModel),  // welcher user hat gebucht - optional falls vorhanden
     bookingId : Attr(Type.string),
     state     : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
-    date      : Attr(Type.date),
+    date      : Attr(Type.date, Attr.default(new Date())),
 
     checkout : Operation({
       bookings : [{
@@ -184,7 +185,11 @@ var models = function () {
 
     state    : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
     date     : Attr(Type.date),                         // wann wurde das event gebucht
-    isBooked : Operation()                              // wurde das Event erfolgreich gebucht?
+
+    bookedQuantity : Operation({    // wie oft wurde das Event gebucht
+      event : Attr(Type.objectid)
+    })  // returns { quantity : X }
+
     // gebucht ist das Event wenn, state = 'booked' oder state = 'pending' und date < 15min
   });
 
