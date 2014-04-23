@@ -455,15 +455,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   width: 100%;
 }
 
-/*
-.bookableitem-duration {
-  width: 25%;
-}
-
-.bookableitem-price {
-  width: 15%;
-}
-*/
 
 .event-list {
   display: block;
@@ -474,6 +465,45 @@ googleMap, .angular-google-map, .angular-google-map-container {
     margin: 0 0 $bu;
     padding: 0 0 $bu;
     border: none;
+  }
+  .event-date {
+    width: 35%;
+  }
+
+  .event-time {
+    width: 25%;
+  }
+
+  .event-quantity {
+    width: 10%;
+    text-align: right;
+  }
+
+  .event-duration {
+    width: 15%;
+    text-align: right;
+  }
+
+  .event-price {
+    width: 15%;
+    text-align: right;
+  }
+
+
+  .event-add {
+    margin-top: 10px;
+  }
+
+  .activity-edit &{
+    .event-date {
+      width: 25%;
+    }
+    .event-time {
+      width: 15%;
+    }
+    .cell.listaction{
+      width: 20%;
+    }
   }
 }
 
@@ -491,26 +521,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
-.event-date {
-  width: 40%;
-}
-
-.event-time {
-  width: 30%;
-}
-
-.event-quantity {
-  width: 15%;
-}
-
-.event-duration {
-  width: 15%;
-}
-
-.event-add {
-  margin-top: 10px;
-}
-
 .eventedit {
   display: block;
   @include border_all($color_grey_50);
@@ -522,20 +532,73 @@ googleMap, .angular-google-map, .angular-google-map-container {
     min-width: 0;
   }
   .form-group {
-    margin-right: 4%;
-    float: left;
-    &.quantity {
-      margin-right: 0;
+    @include divtable_cell;
+    &.first{
+      padding-left: 0;
+    }
+    &.last{
+      padding-right: 0;
     }
   }
-  .date-from, .date-until {
-    width: 35%;
+  .date-start {
+    width: 25%;
   }
-  .time {
-    width: 35%;
+  .date-end {
+    width: 25%;
+  }
+  .time-start {
+    width: 22.5%;
+  }
+  .time-end {
+    width: 22.5%;
   }
   .quantity {
-    width: 22%;
+    width: 50%;
+    input{
+      text-align: right;
+    }
+  }
+
+  .price{
+    width: 50%;
+    input{
+      text-align: right;
+    }
+  }
+
+  .from-until{
+    height: $input-height;
+    width: 5%;
+    margin-top: (21px + 5px + 10px);
+    background-color: transparent;
+    @include border-radius($border-radius_small);
+    @include divtable_cell;
+    padding: 0;
+    span{
+      margin: ($input-height*0.5 - 6px) auto 0;
+      display: block;
+      width: 7px;
+      height: 12px;
+      @include sprite_icons(-25px, -62px, no-repeat);
+    }
+  }
+
+  .event-duration-block{
+    background-color: $color_grey_25;
+    color: $color_grey;
+    @include font-size_small;
+    text-align: center;
+    @include border-radius($border-radius_small);
+    padding: 5px 10px;
+    clear: both;
+  }
+
+  .date-until{
+    width: 50%;
+  }
+
+  .alert{
+    display: block;
   }
 
   .btn {
@@ -878,7 +941,9 @@ shoppingcart {
 .shoppingcart-item-qty {
   float: left;
   width: 15%;
-  text-align: right;
+  input {
+    text-align: right;
+  }
 }
 
 .shoppingcart-item-price {
