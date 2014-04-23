@@ -159,13 +159,12 @@ var models = function () {
 
 
   var BookingModel = new model('bookings', {
-    user  : Ref(UserModel),  // welcher user hat gebucht @TODO kann auch nicht eingeloggt sein
-
+    user  : Ref(UserModel),  // welcher user hat gebucht - optional falls vorhanden
+    kalixabookingid: Attr(Type.string),
     state : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
     date  : Attr(Type.date),
 
     checkout : Operation({
-      // user : Attr(Type.string) @TODO
       bookings : [{
         activity : Attr(Type.objectid),
         item     : Attr(Type.objectid),
