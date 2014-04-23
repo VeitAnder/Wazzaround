@@ -15,7 +15,7 @@ var models = function () {
   var ObjArray = model.ObjArray;
   var Operation = model.Operation;
   var Factory = model.Factory;
-//  var Link = model.Link;  // TODO modelizer 0.4
+  var Link = model.Link;
 
   var validators = {
     email: function (value) {
@@ -159,10 +159,10 @@ var models = function () {
 
 
   var BookingModel = new model('bookings', {
-    user  : Ref(UserModel),  // welcher user hat gebucht - optional falls vorhanden
-    kalixabookingid: Attr(Type.string),
-    state : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
-    date  : Attr(Type.date),
+    user      : Ref(UserModel),  // welcher user hat gebucht - optional falls vorhanden
+    bookingId : Attr(Type.string),
+    state     : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
+    date      : Attr(Type.date),
 
     checkout : Operation({
       bookings : [{
@@ -178,8 +178,8 @@ var models = function () {
   var BookedEventModel = new model('bookedEvents', {
     booking  : Ref(BookingModel),                       // zu dieser Buchung gehört das Event
     activity : Ref(ActivityModel),                      // gebuchte Aktivität
-//    item     : Link(ActivityModel, BookableItemModel),  // gebuchtes Item
-//    event    : Link(ActivityModel, EventModel),         // gebuchtes Event
+    item     : Link(ActivityModel, BookableItemModel),  // gebuchtes Item
+    event    : Link(ActivityModel, EventModel),         // gebuchtes Event
     quantity : Attr(Type.number),                       // gebuchte Menge
 
     state    : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
