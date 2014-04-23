@@ -1989,15 +1989,40 @@ $filter-category-arrow-width: 65px;
   }
 }
 
-$img-selector-imgsize: 150px;
+$img-selector-imgsize: 100px;
+$img-selector-teaserimgsize: 150px;
+$img-selector-teasertxtheight: 35px;
 
 .img-selector {
+  .img-teaser{
+    display: none;
+  }
   overflow: hidden;
+  label + .img-block{
+    img {
+      width: $img-selector-teaserimgsize;
+      height: $img-selector-teaserimgsize;
+    }
+    .img-teaser{
+      display: block;
+      position: relative;
+      top: -$img-selector-teasertxtheight;
+      margin-bottom: -$img-selector-teasertxtheight;
+      height: $img-selector-teasertxtheight;
+      padding: 5px;
+      background-color: rgba($color_black, 0.25);
+      color: $color_white;
+      text-align: center;
+      font-weight: $font-weight_bold;
+      content:"Teaser Image";
+    }
+  }
   .img-block {
     position: relative;
     float: left;
     margin-right: 10px;
     margin-bottom: 32px;
+
     img {
       width: $img-selector-imgsize;
       height: $img-selector-imgsize;
