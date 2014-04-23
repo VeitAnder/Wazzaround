@@ -2968,6 +2968,27 @@ googleMap, .angular-google-map, .angular-google-map-container {
     margin: 0 0 15px;
     padding: 0 0 15px;
     border: none; }
+  .event-list .event-date {
+    width: 35%; }
+  .event-list .event-time {
+    width: 25%; }
+  .event-list .event-quantity {
+    width: 10%;
+    text-align: right; }
+  .event-list .event-duration {
+    width: 15%;
+    text-align: right; }
+  .event-list .event-price {
+    width: 15%;
+    text-align: right; }
+  .event-list .event-add {
+    margin-top: 10px; }
+  .activity-edit .event-list .event-date {
+    width: 25%; }
+  .activity-edit .event-list .event-time {
+    width: 15%; }
+  .activity-edit .event-list .cell.listaction {
+    width: 20%; }
 
 .event-header {
   -webkit-user-select: none;
@@ -3079,21 +3100,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
     white-space: normal;
     overflow: visible; }
 
-.event-date {
-  width: 40%; }
-
-.event-time {
-  width: 30%; }
-
-.event-quantity {
-  width: 15%; }
-
-.event-duration {
-  width: 15%; }
-
-.event-add {
-  margin-top: 10px; }
-
 .eventedit {
   display: block;
   border: solid 1px #b3b3b3;
@@ -3143,9 +3149,13 @@ googleMap, .angular-google-map, .angular-google-map-container {
   .eventedit .time-end {
     width: 22.5%; }
   .eventedit .quantity {
-    width: 25%; }
+    width: 50%; }
+    .eventedit .quantity input {
+      text-align: right; }
   .eventedit .price {
-    width: 25%; }
+    width: 50%; }
+    .eventedit .price input {
+      text-align: right; }
   .eventedit .from-until {
     height: 48.4px;
     width: 5%;
@@ -3208,6 +3218,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
       padding-bottom: 12px; }
   .eventedit .date-until {
     width: 50%; }
+  .eventedit .alert {
+    display: block; }
   .eventedit .buttonbar {
     border-top: dotted 1px #b3b3b3;
     width: auto;

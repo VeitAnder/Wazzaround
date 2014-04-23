@@ -466,6 +466,45 @@ googleMap, .angular-google-map, .angular-google-map-container {
     padding: 0 0 $bu;
     border: none;
   }
+  .event-date {
+    width: 35%;
+  }
+
+  .event-time {
+    width: 25%;
+  }
+
+  .event-quantity {
+    width: 10%;
+    text-align: right;
+  }
+
+  .event-duration {
+    width: 15%;
+    text-align: right;
+  }
+
+  .event-price {
+    width: 15%;
+    text-align: right;
+  }
+
+
+  .event-add {
+    margin-top: 10px;
+  }
+
+  .activity-edit &{
+    .event-date {
+      width: 25%;
+    }
+    .event-time {
+      width: 15%;
+    }
+    .cell.listaction{
+      width: 20%;
+    }
+  }
 }
 
 .event-header {
@@ -480,26 +519,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
       overflow: visible;
     }
   }
-}
-
-.event-date {
-  width: 40%;
-}
-
-.event-time {
-  width: 30%;
-}
-
-.event-quantity {
-  width: 15%;
-}
-
-.event-duration {
-  width: 15%;
-}
-
-.event-add {
-  margin-top: 10px;
 }
 
 .eventedit {
@@ -534,11 +553,17 @@ googleMap, .angular-google-map, .angular-google-map-container {
     width: 22.5%;
   }
   .quantity {
-    width: 25%;
+    width: 50%;
+    input{
+      text-align: right;
+    }
   }
 
   .price{
-    width: 25%;
+    width: 50%;
+    input{
+      text-align: right;
+    }
   }
 
   .from-until{
@@ -566,12 +591,14 @@ googleMap, .angular-google-map, .angular-google-map-container {
     @include border-radius($border-radius_small);
     padding: 5px 10px;
     clear: both;
-
   }
-
 
   .date-until{
     width: 50%;
+  }
+
+  .alert{
+    display: block;
   }
 
   .btn {

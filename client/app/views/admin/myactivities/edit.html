@@ -372,7 +372,9 @@
               <div class="event-header">
                 <div class="event-date cell">{{'Date' | translate}}</div>
                 <div class="event-time cell">{{'Time' | translate}}</div>
+                <div class="event-duration cell">{{'Duration' | translate}}</div>
                 <div class="event-quantity cell">{{'Qty' | translate}}</div>
+                <div class="event-price cell">{{'Price' | translate}}</div>
                 <div class="listaction cell">
                 </div>
               </div>
@@ -383,7 +385,9 @@
                 <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
                   <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
                   <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
+                  <div class="event-duration cell">???</div>
                   <div class="event-quantity cell">{{event.quantity}}x</div>
+                  <div class="event-price cell">???</div>
                   <div class="listaction cell">
                     <a class="btn btn-mini btn-ordinary"
                        ng-click="event.mode = 'edit'">
@@ -422,11 +426,9 @@
                           >
                     </div>
 
-
                     <div class="from-until">
                       <span></span>
                     </div>
-
 
                     <div class="form-group date-end">
                       <label>End date</label>
@@ -449,7 +451,8 @@
                     </div>
 
                     <div class="event-duration-block">
-                      Event duration: <strong>2 days</strong>
+                      Event duration:
+                      <strong>2 days</strong>
                     </div>
 
                     <div class="form-group quantity first">
@@ -494,6 +497,11 @@
                       </div>
                       <div class="repeating"
                            ng-show="event.repeating">
+
+                        <div class="alert alert-info">
+                          Same starting time and duration as above
+                        </div>
+
                         <div class="checkbox">
                           <label>
                             <input type="checkbox"
