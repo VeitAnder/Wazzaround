@@ -3740,8 +3740,9 @@ shoppingcart.shoppingcart-rightside {
 
 .shoppingcart-item-qty {
   float: left;
-  width: 15%;
-  text-align: right; }
+  width: 15%; }
+  .shoppingcart-item-qty input {
+    text-align: right; }
 
 .shoppingcart-item-price {
   float: left;

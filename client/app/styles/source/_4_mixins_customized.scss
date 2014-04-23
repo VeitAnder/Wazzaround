@@ -941,7 +941,9 @@ shoppingcart {
 .shoppingcart-item-qty {
   float: left;
   width: 15%;
-  text-align: right;
+  input {
+    text-align: right;
+  }
 }
 
 .shoppingcart-item-price {
