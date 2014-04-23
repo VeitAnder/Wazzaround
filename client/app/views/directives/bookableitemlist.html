@@ -1,33 +1,31 @@
-<div>
+<div ng-show="bookableitems.length === 0">
+  <h5>{{'No events to display yet' | translate}}</h5>
+</div>
 
-  <div ng-show="bookableitems.length === 0">
-    <h5>{{'No events to display yet' | translate}}</h5>
+<div ng-repeat="item in bookableitems"
+     class="event-list">
+
+  <h5>
+    {{'Event' | translate}}:
+    {{item.description | languageselect}}
+  </h5>
+
+  <div class="event-header">
+    <div class="event-date cell">{{'Date' | translate}}</div>
+    <div class="event-time cell">{{'Time' | translate}}</div>
+    <div class="event-duration cell">{{'Duration' | translate}}</div>
+    <div class="event-quantity cell">{{'Qty' | translate}}</div>
+    <div class="event-price cell">{{'Price' | translate}}</div>
   </div>
-
-  <div ng-repeat="item in bookableitems"
-       class="event-list">
-
-    <h5>
-      {{'Event' | translate}}:
-      {{item.description | languageselect}}
-    </h5>
-
-    <div class="event-header">
-      <div class="event-date cell">{{'Date' | translate}}</div>
-      <div class="event-time cell">{{'Time' | translate}}</div>
-      <div class="event-duration cell">{{'Duration' | translate}}</div>
-      <div class="event-quantity cell align-right">{{'Qty' | translate}}</div>
+  <div ng-repeat="(idx,event) in item.events"
+       class="event-body">
+    <div class="event-row">
+      <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
+      <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
+      <div class="event-duration cell">{{item.duration}}h</div>
+      <div class="event-quantity cell">{{event.quantity}}x</div>
+      <div class="event-price cell">???</div>
     </div>
-    <div ng-repeat="(idx,event) in item.events"
-         class="event-body">
-      <div class="event-row">
-        <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
-        <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
-        <div class="event-duration cell">{{item.duration}}h</div>
-        <div class="event-quantity cell align-right">{{event.quantity}}x</div>
-      </div>
-    </div>
-
   </div>
 
 </div>
