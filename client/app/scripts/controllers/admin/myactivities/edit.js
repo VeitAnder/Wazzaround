@@ -360,4 +360,8 @@ angular.module('anorakApp')
       return moment.duration(start - end).humanize();
     };
 
+    $scope.getGoogleAddressAutoCompletionList = function (viewValue) {
+      return activitybackendmap.getGoogleAddressAutoCompletionList(viewValue);
+    };
+
   });
