@@ -112,7 +112,7 @@
           options='map.options'
           >
         <marker
-            ng-repeat="m in map.markers | filter:selectedCategoryFilter | markercoordsfilter"
+            ng-repeat="m in map.markers | filter:selectedCategoryFilter | markercoordsfilter track by m._id"
             coords='m'
             click='onMarkerClicked(m)'
             options='markerOptions'
