@@ -14,7 +14,8 @@ angular.module('anorakApp')
         if (localStorageService.get('Usersessionstates')) {
           Session.states = localStorageService.get('Usersessionstates');
         }
-      }
+      },
+      states: {}
     };
 
     return Session;

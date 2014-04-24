@@ -1,128 +1,15 @@
 {"searchlocation": {
   "coords": {
-    "latitude": 48.225823999999996,
-    "longitude": 16.369766700000014
+    "latitude": 48.2257968,
+    "longitude": 16.369862799999964
   }
-}, "zoom": 9, "selectedcategories": [
-  {
-    "title": "Sports & Activities",
-    "key": "sports",
-    "sub": [
-      {
-        "title": "Trekking, Biking, Hiking",
-        "key": "trekkingbikinghiking",
-        "selected": true
-      },
-      {
-        "title": "Adventure",
-        "key": "adventure",
-        "selected": true
-      },
-      {
-        "title": "Yoga & Pilates",
-        "key": "yogapilates",
-        "selected": true
-      },
-      {
-        "title": "Full day activities",
-        "key": "fulldayactivities",
-        "selected": true
-      },
-      {
-        "title": "Water Sports",
-        "key": "watersports",
-        "selected": true
-      },
-      {
-        "title": "Winter Sports",
-        "key": "wintersports",
-        "selected": true
-      },
-      {
-        "title": "Motorized Sports",
-        "key": "motorizedsports",
-        "selected": true
-      },
-      {
-        "title": "Extreme Sports",
-        "key": "extremesports",
-        "selected": true
-      }
-    ],
-    "_childObjs": {},
-    "_id": "530ce4beee5f21279b2b64eb",
-    "open": false
-  },
-  {
-    "title": "Culture & Gourmet",
-    "key": "culture",
-    "sub": [
-      {
-        "title": "Degustations: Wine & Food & Cigars",
-        "key": "degustations",
-        "selected": true
-      },
-      {
-        "title": "Guided Tours",
-        "key": "guidedtours",
-        "selected": true
-      },
-      {
-        "title": "Exhibitions & Fairs",
-        "key": "exhibitionsandfairs",
-        "selected": true
-      },
-      {
-        "title": "Opera & Theater",
-        "key": "operaandtheater",
-        "selected": true
-      },
-      {
-        "title": "Music & Film",
-        "key": "musicandfilm",
-        "selected": true
-      }
-    ],
-    "_childObjs": {},
-    "_id": "530ce4d8ee5f21279b2b64ec",
-    "open": false
-  },
-  {
-    "title": "Wellness & Relax",
-    "key": "wellness",
-    "sub": [
-      {
-        "title": "Massages",
-        "key": "massages",
-        "selected": true
-      },
-      {
-        "title": "Medical Treatments",
-        "key": "medicaltreatments",
-        "selected": true
-      },
-      {
-        "title": "Beauty",
-        "key": "beauty",
-        "selected": true
-      },
-      {
-        "title": "SPA & Sauna",
-        "key": "spaandsauna",
-        "selected": true
-      }
-    ],
-    "_childObjs": {},
-    "_id": "530ce4e8ee5f21279b2b64ed",
-    "open": false
-  }
-], "bounds": {
+}, "zoom": 9, "address": "Gaußplatz (Obere Augartenstraße), 1020 Vienna, Austria", "bounds": {
   "northeast": {
-    "latitude": 48.551395042823756,
-    "longitude": 17.844681250781264
+    "latitude": 48.513173608922244,
+    "longitude": 17.844777350781214
   },
   "southwest": {
-    "latitude": 47.89816872816215,
-    "longitude": 14.894852149218764
+    "latitude": 47.93679731760981,
+    "longitude": 14.894948249218714
   }
 }}

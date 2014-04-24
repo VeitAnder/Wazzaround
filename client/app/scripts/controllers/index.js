@@ -112,20 +112,6 @@ angular.module('anorakApp')
     };
     preSelectCategories();
 
-    var selectAllSubcategoriesThatHaveActivitiesAndHaveBeenSelectedInActiveMainCategory = function () {
-      _.each($scope.states, function (mainCat) {
-        var catsInActs = categoriesInActivities(mainCat.key);
-
-        angular.forEach($scope.getSubCategoriesForMainCategory(mainCat.key), function (subCat) {
-          if (_.contains(catsInActs, subCat.key)) {
-            subCat.selected = true;
-          } else {
-            subCat.selected = false;
-          }
-        });
-      });
-    };
-
 // user clicks on main category box
 // this box opens, all other boxes close
 // all subcategories in this box will be selected if there are activities for them
@@ -356,28 +342,14 @@ angular.module('anorakApp')
     };
 
 // when user changes language, reload controller so that all translations are correct
+// when language changes globally, reset also in directive
     $rootScope.$on('$translateChangeSuccess', function () {
       $route.reload();
+      $scope.moment.lang($translate.use());
     });
 
     $scope.moment = moment;
     $scope.moment.lang($translate.use());
-
-// when language changes globally, reset also in directive
-    $rootScope.$on('$translateChangeSuccess', function () {
-      $scope.moment.lang($translate.use());
-    });
-
-// check if the number of markers in the map has changed
-// if yes select these categories that have markers and have been selected
-// otherwise deselect
-    $scope.$watch("map.markers", function (newMapMarkers, oldMapMarkers) {
-      console.log("MAP MARKERS CHANGED", oldMapMarkers.length, newMapMarkers.length, $scope.states);
-
-      if (oldMapMarkers.length !== newMapMarkers.length) {
-        selectAllSubcategoriesThatHaveActivitiesAndHaveBeenSelectedInActiveMainCategory();
-      }
-    }, true);
 
     $scope.$watch("categories", function (newCats, oldCats) {
       Usersessionstates.states.selectedcategories = angular.copy($scope.categories);

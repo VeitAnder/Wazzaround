@@ -62,7 +62,7 @@ angular.module('anorakApp')
 
       var setTimeOnStartAndEndDate = function () {
 
-       // if startdate is today, set current time, otherwise start at 00:00:00
+        // if startdate is today, set current time, otherwise start at 00:00:00
         var start = moment(map.searchStartDate);
         var now = moment();
         var diff = start.diff(now, 'days', true);
@@ -71,7 +71,7 @@ angular.module('anorakApp')
         // the date is today, if the difference in days is smaller than 1
         // in this case set current time
         // if its not today but later, start at 00:00:00
-        if(round < 1) {
+        if (round < 1) {
           map.searchStartDate.setHours(now.hours());
           map.searchStartDate.setMinutes(now.minutes());
           map.searchStartDate.setSeconds(now.seconds());
@@ -144,8 +144,12 @@ angular.module('anorakApp')
           }
         };
 
-        Usersessionstates.states.searchlocation.coords.latitude = googleMap.getCenter().k;
-        Usersessionstates.states.searchlocation.coords.longitude = googleMap.getCenter().A;
+        Usersessionstates.states.searchlocation = {
+          coords: {
+            latitude: googleMap.getCenter().k,
+            longitude: googleMap.getCenter().A
+          }
+        };
         Usersessionstates.states.zoom = googleMap.getZoom();
         Usersessionstates.updateSession();
 
@@ -252,6 +256,30 @@ angular.module('anorakApp')
         }
       };
 
+      var findAddressForCoordinates = function (latitude, longitude) {
+
+        var deferred = Q.defer();
+        debug("LOOKING FOR ADDRESS FOR", latitude, longitude);
+
+        var latlng = new google.maps.LatLng(latitude, longitude);
+
+        geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            if (results[1]) {
+              debug("GOT ADDRESS FROM COORDS", results[1]);
+              deferred.resolve(results[1].formatted_address);
+            } else {
+              debug('No address found for coordinates');
+              deferred.resolve(null);
+            }
+            $rootScope.$broadcast("SetAddressEvent");
+            $rootScope.$apply();
+          }
+        });
+        return deferred.promise;
+      };
+
       return {
         findAddressOnMap: function (marker) {
           if (!marker.address) {
@@ -269,7 +297,7 @@ angular.module('anorakApp')
           }
         },
 
-        findAddressForCoordinates: function (latitude, longitude) {
+        findAddressForCoordinates: function (latitude, longitude) { // TODO refactor this
           debug("LOOKING FOR ADDRESS FOR", latitude, longitude);
 
           var latlng = new google.maps.LatLng(latitude, longitude);
@@ -297,15 +325,13 @@ angular.module('anorakApp')
               return res.data.results;
             });
         },
-
         initializeMapWithUserSearchLocation: function () {
-          var deferred = Q.defer();
 
           map.markers = [];
 
           setTimeOnStartAndEndDate();
 
-          // dont update Usersessionstates here, it will overwrite stuff !!!
+          // don't update Usersessionstates here, it will overwrite stuff !!!
           function setInitPositionOnMap(position) {
             map.centerMarker.latitude = position.coords.latitude;
             map.centerMarker.longitude = position.coords.longitude;
@@ -316,17 +342,23 @@ angular.module('anorakApp')
           Usersessionstates.loadSession();
 
           // if there are session stored, check what is stored and fill into map
-          if ((Usersessionstates && Usersessionstates.states && Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
+          if ((Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
             debug("Got Usersessionstates, will set position");
+
             setInitPositionOnMap(Usersessionstates.states.searchlocation);
 
             if (Usersessionstates.states.zoom) {
               map.zoom = Usersessionstates.states.zoom;
             }
 
-            return Q.resolve(map); // TODO why deferred is not working here???
+            if (Usersessionstates.states.address) {
+              map.searchAddress = Usersessionstates.states.address;
+            }
+
+            return Q.resolve(map);
 
           } else {
+            var deferred = Q.defer();
             // try to get user's position
             // it works --> map is filled with new data, set that data to Usersessionstates
             // it fails --> map is filled with standard data, set that data to Usersessionstates
@@ -334,39 +366,46 @@ angular.module('anorakApp')
             debug("Got Nothing, will determine browser postion and set");
             navigator.geolocation.getCurrentPosition(function (position) {
               setInitPositionOnMap(position);
-              debug("do we have bounds", map.bounds.northeast);
-              Usersessionstates.states = {
-                searchlocation: {
-                  coords: {
-                    latitude: map.center.latitude,
-                    longitude: map.center.longitude
-                  }
-                },
-                zoom: map.zoom
-              };
 
-              Usersessionstates.updateSession();
-              debug("RESOLVE WITH BROWSER STATE CHECKED");
-              return deferred.resolve(map);
+              findAddressForCoordinates(position.coords.latitude, position.coords.longitude)
+
+                .then(function (address) {
+                  if (address !== null) {
+                    map.searchAddress = address;
+                    Usersessionstates.states.address = address;
+                  }
+                  Usersessionstates.states.searchlocation = {
+                    coords: {
+                      latitude: map.center.latitude,
+                      longitude: map.center.longitude
+                    }
+                  };
+                  Usersessionstates.states.zoom = map.zoom;
+                  Usersessionstates.states.address = map.searchAddress;
+
+                  Usersessionstates.updateSession();
+                  debug("RESOLVE WITH BROWSER STATE CHECKED");
+
+                  return deferred.resolve(map);
+                });
 
             }, function (err) {
               debug("Could not set initial location, will initialize with default Torino", err);
-              Usersessionstates.states = {
-                searchlocation: {
-                  coords: {
-                    latitude: map.center.latitude,
-                    longitude: map.center.longitude
-                  }
-                },
-                zoom: map.zoom
+              Usersessionstates.states.searchlocation = {
+                coords: {
+                  latitude: map.center.latitude,
+                  longitude: map.center.longitude
+                }
               };
+              Usersessionstates.states.zoom = map.zoom;
+              Usersessionstates.states.address = map.address;
+
               Usersessionstates.updateSession();
               debug("RESOLVE AFTER BROWSER STATE ERR");
               return deferred.resolve(map);
             });
-
+            return deferred.promise;
           }
-          return deferred.promise;
         },
         map: map,
         onSearchChange: onSearchChange
