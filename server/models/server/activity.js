@@ -111,56 +111,54 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
     return;
   }
 
-  if (params.startDate && params.endDate) {  // search with date-range
-    var startDate = new Date(params.startDate);
-    var endDate = new Date(params.endDate);
+  var startDate = new Date(params.startDate);
+  var endDate = new Date(params.endDate);
 
-    return models.ActivityModel.find({
-      location : {
-        '$geoWithin' : {
-          '$box' : [
-            [ params.from.lng, params.from.lat ],
-            [ params.to.lng, params.to.lat ]
-          ]
-        }
-      },
-      bookableItems: {
-        $elemMatch: {
-          events: {
-            $elemMatch: {
-              start: {
-                '$gte': startDate,
-                '$lte': endDate
-              }
+  return models.ActivityModel.find({
+    location : {
+      '$geoWithin' : {
+        '$box' : [
+          [ params.from.lng, params.from.lat ],
+          [ params.to.lng, params.to.lat ]
+        ]
+      }
+    },
+    bookableItems: {
+      $elemMatch: {
+        events: {
+          $elemMatch: {
+            start: {
+              '$gte': startDate,
+              '$lte': endDate
             }
           }
         }
       }
-    }).then(function(activities) {
+    }
+  });/*.then(function(activities) {
 
-      var events = [];
-      _.forEach(activities, function(activity) {
-        _.forEach(activity.bookableItems, function(item) {
-          _.forEach(item.events, function(event) {
-            events.push(event);
-          });
+    var events = [];
+    _.forEach(activities, function(activity) {
+      _.forEach(activity.bookableItems, function(item) {
+        _.forEach(item.events, function(event) {
+          events.push(event);
         });
       });
-
-      var bookQuantityPromises = [];
-      _.forEach(events, function(event) {
-        bookQuantityPromises.push(
-          models.BookedEventModel.bookedQuantity({event: event._id})
-            .then(function(bookedEvent) {
-              event.bookQuantity = event.quantity - bookedEvent.quantity;
-            })
-        );
-      });
-
-      return Q.all(bookQuantityPromises)  // wait for all changes..
-        .then(function() {
-          return activities;
-        })
     });
-  }
+
+    var bookQuantityPromises = [];
+    _.forEach(events, function(event) {
+      bookQuantityPromises.push(
+        models.BookedEventModel.bookedQuantity({event: event._id})
+          .then(function(bookedEvent) {
+            event.bookQuantity = event.quantity - bookedEvent.quantity;
+          })
+      );
+    });
+
+    return Q.all(bookQuantityPromises)  // wait for all changes..
+      .then(function() {
+        return activities;
+      })
+  });*/
 });

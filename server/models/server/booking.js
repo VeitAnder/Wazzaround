@@ -36,41 +36,59 @@ BookingModel.writeFilter(function (obj, req) {
 BookingModel.operationImpl("checkout", function (params, req) {
   assert(params.bookings && Array.isArray(params.bookings), "you need to provide a bookings-array");
 
-  var booking = BookingModel.create();
+  var bookingPromises = [];
 
-  if (req.session.user) {  // user is loggedin save the user
-    booking.user._reference = ObjectId(req.session.user._id);
-  }
+  _.forEach(params.bookings, function(bookingEvent) {
+    var booking = BookingModel.create();
 
-  return booking.save()
-    .then(function() {  // get an _id
-      /*
-      _.forEach(params.bookings, function(booking) {
-        // check if is avaiable
-        var quantity_total;
-        models.ActivityModel.get(ObjectId(booking.activity))
-          .then(function(activity) {
-            quantity_total = activity.getChild(booking.event).quantity;
+    if (req.session.user) {  // user is loggedin save the user
+      booking.user._reference = ObjectId(req.session.user._id);
+    }
 
-            return models.BookedEventModel.bookedQuantity({event : booking.event});
-          })
-          .then(function(bookedEvents) {
-             var quantity_booked = bookedEvents.quantity;
-            var quantity_availabe = quantity_total - quantity_booked;
-          })
-        // create booked event
-       });
-        */
+    bookingPromises.push(
+      Q()
+        .then(function(){
+          return booking.save();
+        })
+        .then(function() {
+          return model.ActivityModel.get(ObjectId(bookingEvent.activity));
+        })
+        .then(function(activity) {  // get an _id
 
-      var bookedEvent = model.BookedEventModel.create();
-      bookedEvent.booking.setObject(booking);
-      bookedEvent.activity._reference = ObjectId(params.activity);
-      bookedEvent.item._link = ObjectId(params.item);
-      bookedEvent.event._link = ObjectId(params.event);
-      return bookedEvent.save();
+          // todo quantity calculation
+          /*
+           _.forEach(params.bookings, function(booking) {
+           // check if is avaiable
+           var quantity_total;
+           models.ActivityModel.get(ObjectId(booking.activity))
+           .then(function(activity) {
+           quantity_total = activity.getChild(booking.event).quantity;
 
-    }).then(function(){
-      return {state: "ok"};
-    });
+           return models.BookedEventModel.bookedQuantity({event : booking.event});
+           })
+           .then(function(bookedEvents) {
+           var quantity_booked = bookedEvents.quantity;
+           var quantity_availabe = quantity_total - quantity_booked;
+           })
+           // create booked event
+           });
+           */
+
+          var bookedEvent = model.BookedEventModel.create();
+          bookedEvent.booking.setObject(booking);
+          bookedEvent.activity.setObject(activity);
+          bookedEvent.item._link = ObjectId(bookingEvent.item);
+          bookedEvent.event._link = ObjectId(bookingEvent.event);
+
+          bookedEvent.activityCopy = activity;  // kopie der orginal-daten
+          return bookedEvent.save();
+        })
+      );
+
+  });
+
+  Q.all(bookingPromises).then(function() {
+    return {state: "ok"};
+  });
 
 });

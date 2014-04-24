@@ -183,8 +183,10 @@ var models = function () {
     event    : Link(ActivityModel, EventModel),         // gebuchtes Event
     quantity : Attr(Type.number),                       // gebuchte Menge
 
+    activityCopy : Attr(),  // kopie der Aktivität zum Buchungszeitpunkt
+
     state    : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
-    date     : Attr(Type.date),                         // wann wurde das event gebucht
+    date     : Attr(Type.date,  Attr.default(new Date())),  // wann wurde das event gebucht
 
     bookedQuantity : Operation({    // wie oft wurde das Event gebucht
       event : Attr(Type.objectid)
