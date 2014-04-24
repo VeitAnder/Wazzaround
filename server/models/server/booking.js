@@ -42,8 +42,9 @@ BookingModel.operationImpl("checkout", function (params, req) {
     booking.user._reference = ObjectId(req.session.user._id);
   }
 
-  booking.save()
+  return booking.save()
     .then(function() {  // get an _id
+      /*
       _.forEach(params.bookings, function(booking) {
         // check if is avaiable
         var quantity_total;
@@ -58,11 +59,18 @@ BookingModel.operationImpl("checkout", function (params, req) {
             var quantity_availabe = quantity_total - quantity_booked;
           })
         // create booked event
+       });
+        */
 
+      var bookedEvent = model.BookedEventModel.create();
+      bookedEvent.booking.setObject(booking);
+      bookedEvent.activity._reference = ObjectId(params.activity);
+      bookedEvent.item._link = ObjectId(params.item);
+      bookedEvent.event._link = ObjectId(params.event);
+      return bookedEvent.save();
 
-      });
-
-    })
-    .done();
+    }).then(function(){
+      return {state: "ok"};
+    });
 
 });
