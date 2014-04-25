@@ -280,33 +280,22 @@ angular.module('anorakApp')
               debug('No address found for coordinates');
               deferred.resolve(null);
             }
-            $rootScope.$broadcast("SetAddressEvent");
-            $rootScope.$apply();
           }
         });
         return deferred.promise;
       };
 
       return {
-        findAddressForCoordinates: function (latitude, longitude) { // TODO refactor this
-          debug("LOOKING FOR ADDRESS FOR", latitude, longitude);
+        findAddressForCoordinatesAndSetToMap: function (latitude, longitude) {
 
-          var latlng = new google.maps.LatLng(latitude, longitude);
-
-          geocoder = new google.maps.Geocoder();
-          geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-            debug("CODED RESULTS", results, status);
-            if (status === google.maps.GeocoderStatus.OK) {
-              if (results[1]) {
-                debug("SET ADDRESS TO MAP", results[1]);
-                map.searchAddress = results[1].formatted_address;
-              } else {
-                debug('No address found for coordinates');
+          findAddressForCoordinates(latitude, longitude)
+            .then(function (address) {
+              if (address !== null) {
+                map.searchAddress = address;
+//                $rootScope.$broadcast("SetAddressEvent"); TODO not used at the moment in activitylocationselector
+//                $rootScope.$apply();
               }
-              $rootScope.$broadcast("SetAddressEvent");
-              $rootScope.$apply();
-            }
-          });
+            });
         },
 
         getGoogleAddressAutoCompletionList: function (viewValue) {

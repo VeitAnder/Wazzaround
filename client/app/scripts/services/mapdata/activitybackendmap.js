@@ -50,7 +50,7 @@ angular.module('anorakApp')
         console.log("CLICK ACTIVITY", e.latLng.lat());
         mapdata.map.clickedMarker.latitude = e.latLng.lat();
         mapdata.map.clickedMarker.longitude = e.latLng.lng();
-        mapdata.findAddressForCoordinates(mapdata.map, mapdata.map.clickedMarker.latitude, mapdata.map.clickedMarker.longitude);
+        mapdata.findAddressForCoordinatesAndSetToMap(mapdata.map, mapdata.map.clickedMarker.latitude, mapdata.map.clickedMarker.longitude);
       }
     };
 
