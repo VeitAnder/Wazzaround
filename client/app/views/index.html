@@ -222,8 +222,8 @@
               />
         </marker>
 
-        <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
-        <div ng-init="opts = {animation:0}">
+        <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initialized yet-->
+        <div ng-init="opts = {animation:0}" ng-if="!(map.centerMarker.latitude === 200 && map.centerMarker.longitude === 200)">
           <marker coords="map.centerMarker"
                   options="opts">
             <marker-label content="map.centerMarker.title | translate"
