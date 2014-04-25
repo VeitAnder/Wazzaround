@@ -132,6 +132,8 @@ angular.module('anorakApp')
       }
     };
 
+    $scope.frontendmap = frontendmap;
+
     $scope.map = frontendmap.map;
 
     $scope.windowOptions = {
@@ -234,10 +236,6 @@ angular.module('anorakApp')
         }
       });
       return flag;
-    };
-
-    $scope.getMarkerIcon = function (activity) {
-      return "/img/mapicons/marker-" + activity.category.main + ".svg";
     };
 
     $scope.areItemsInThisCategorySelected = function (category) {

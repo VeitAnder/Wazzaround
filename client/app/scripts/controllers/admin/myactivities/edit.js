@@ -27,7 +27,9 @@ angular.module('anorakApp')
       });
     });
 
-    $scope.originalActivity = {};
+    $scope.originalActivity = {
+
+    };
 
     $scope.noDataEntered = function () {
       return angular.equals($scope.originalActivity, $scope.activity);
@@ -47,6 +49,14 @@ angular.module('anorakApp')
       $scope.activity = $scope.$parent.activity;
 
       $scope.originalActivity = angular.copy($scope.activity);
+    } else {
+      //initialize map data to start in Turin, Italy
+      // @TODO more intelligent initialization, eg. coords of last activity added or browser location of user
+      $scope.activity.location = {
+        "lng": 7.686856499999976,
+        "lat": 45.070312
+      };
+      $scope.activity.address = "Turin, Italy";
     }
 
     $scope.state = {
@@ -105,7 +115,7 @@ angular.module('anorakApp')
     };
 
     $scope.createEvent = function (bookableItem) {
-      var event = bookableItem.createEvents(); 
+      var event = bookableItem.createEvents();
       event.start = new Date();
       event.end = moment(event.start).add('hours', 1).toDate();
 
@@ -175,7 +185,6 @@ angular.module('anorakApp')
       }
     };
 
-
     // Save the Activiy
     $scope.save = function () {
       debug("save() called");
@@ -236,7 +245,6 @@ angular.module('anorakApp')
 
      }
      */
-
 
     // image upload functionality
     $scope.removeImage = function (image, $index) {
@@ -304,10 +312,10 @@ angular.module('anorakApp')
       return valid;
     };
 
-    $scope.$watch(function(){
+    $scope.$watch(function () {
       return $scope.activity;
     }, function (oldVal, newVal) {
-      if ($scope.state.submitted){
+      if ($scope.state.submitted) {
         $scope.additionalFormChecks();
       }
     }, true);

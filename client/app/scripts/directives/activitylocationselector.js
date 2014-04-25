@@ -1,77 +1,94 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('activitylocationselector', function (activitybackendmap) {
+  .directive('activitylocationselector', function (activitybackendmap, $timeout) {
     return {
       templateUrl: 'views/directives/activitylocationselector.html',
       restrict: 'E',
       scope: {
-
+        "activity": "=activity"
       },
       compile: function compile(tElement, tAttrs, transclude) {
         return {
           pre: function preLink(scope, iElement, iAttrs, controller) {
+
             scope.activitybackendmap = activitybackendmap;
 
-            scope.setAddressOnMap = function () {
-              console.log("setAddressOnMap");
-              activitybackendmap.findAddressOnMap(activitybackendmap.map, scope.activity);
-//          scope.map = activitybackendmap.map;
+            scope.activitybackendmap.map.zoom = 9;
+
+            // initialize map with data from activity
+            scope.activitybackendmap.map.center = {
+              "longitude": scope.activity.location.lng,
+              "latitude": scope.activity.location.lat
             };
-//
+            scope.activitybackendmap.map.clickedMarker = {
+              "longitude": scope.activity.location.lng,
+              "latitude": scope.activity.location.lat
+            };
+
+            scope.setAddressViaAddressfield = function () {
+              scope.activitybackendmap.geoCodeAddress(scope.activity.address)
+                .then(function (coords) {
+                  if (coords !== null) {
+
+                    scope.activity.location = {
+                      lng: coords.A,
+                      lat: coords.k
+                    };
+
+                    $timeout(function () {
+                      scope.activitybackendmap.map.clickedMarker.latitude = coords.k;
+                      scope.activitybackendmap.map.clickedMarker.longitude = coords.A;
+
+                      scope.activitybackendmap.map.center.latitude = coords.k;
+                      scope.activitybackendmap.map.center.longitude = coords.A;
+                    });
+                  }
+                });
+            };
 
             scope.getGoogleAddressAutoCompletionList = function (viewValue) {
               return activitybackendmap.getGoogleAddressAutoCompletionList(viewValue);
             };
 
-            scope.activitydata = {
-              address: ""
+            scope.activitybackendmap.map.events = {
+              click: function (mapModel, eventName, originalEventArgs) {
+                var e;
+                if (!originalEventArgs) {
+                  e = {
+                    latLng: {
+                      lat: function () {
+                        return scope.activitybackendmap.map.center.latitude;
+                      },
+                      lng: function () {
+                        return scope.activitybackendmap.map.center.longitude;
+                      }
+                    }
+                  };
+                } else {
+                  e = originalEventArgs[0];
+                }
+
+                $timeout(function () {
+                  scope.activitybackendmap.map.clickedMarker.latitude = e.latLng.lat();
+                  scope.activitybackendmap.map.clickedMarker.longitude = e.latLng.lng();
+                });
+
+                scope.activitybackendmap.findAddressForCoordinates(e.latLng.lat(), e.latLng.lng())
+                  .then(function (address) {
+                    $timeout(function () {
+                      scope.activity.address = address;
+                      scope.activity.location = {
+                        lng: e.latLng.lng(),
+                        lat: e.latLng.lat()
+                      };
+                    });
+                  });
+              }
             };
 
           },
           post: function postLink(scope, iElement, iAttrs, controller) {
-
-
-
-//        scope.getAddress = activitybackendmap.getAddress;
-
-//        scope.map = activitybackendmap.map;
-
-//        activitybackendmap.centerMapAndMarker(scope.activity);
-
-//        scope.getMarkerIcon = function () {
-//          if (scope.activity.category.main) {
-//            return "/img/mapicons/marker-" + scope.activity.category.main + ".svg";
-//          } else {
-//            return "/img/mapicons/marker.svg";
-//          }
-//        };
-//
-//        scope.getMarkerLabel = function () {
-//          return "Activity location";
-//        };
-//
-//        // address:
-//        // user enters address
-//        // address will be set on
-
-//        $rootScope.$on("SetAddressEvent", function (event, message) {
-//          if (scope.map.address) {
-//            scope.activity.address = scope.map.address;
-//          }
-//          scope.activity.location.lat = scope.map.clickedMarker.latitude;
-//          scope.activity.location.lng = scope.map.clickedMarker.longitude;
-//        });
-
-//        $rootScope.$on("EditMapChangeEvent", function (event, message) {
-//          debug("EDIT MAP CHANGED !!! MARKERS: ", scope.map.markers);
-//          //update model and set marker to display result to user
-//          scope.activity.location.lat = scope.map.center.latitude;
-//          scope.activity.location.lng = scope.map.center.longitude;
-//          scope.map.clickedMarker.latitude = scope.map.center.latitude; // TODO move to service?
-//          scope.map.clickedMarker.longitude = scope.map.center.longitude;
-//          scope.map.clickedMarker.title = 'Location of activity';
-//        });
 
           }
         };
