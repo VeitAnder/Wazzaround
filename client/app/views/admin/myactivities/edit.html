@@ -429,10 +429,13 @@
                              ng-model="event.quantity"
                              required
                           >
-                      <span ng-show="eventForm.quantity.$invalid && (eventForm.quantity.$dirty || state.submitted)"
-                            class="alert">
+
+                      <span ng-show="eventForm.quantity.$invalid && (eventForm.quantity.$dirty || state.submitted || eventForm.submitted)"
+                            class="alert"
+                          >
                         {{'Please enter a number only.' | translate}}
                       </span>
+
                     </div>
 
                     <div class="form-group price last">
@@ -445,9 +448,12 @@
                              placeholder="{{'Price in €' | translate}}"
                              required
                           />
-                      <span class="alert">
-                        REQUIRED
+
+                      <span ng-show="eventForm.price.$invalid && (eventForm.price.$dirty || state.submitted || eventForm.submitted)"
+                            class="alert">
+                        {{'Please enter a number only.' | translate}}
                       </span>
+
                     </div>
 
                     <!-- REPEATING EVENT begin -->
@@ -538,13 +544,16 @@
 
                     <div class="buttonbar">
                       <a class="btn btn-small"
-                         ng-click="event.mode = 'view'; createEventSeries(bookableItem, event)"
-                          >{{'save event' | translate}}
+                         ng-click="createEventSeries(bookableItem, event, eventForm);"
+                         ng-class="{disabled: eventForm.$invalid}"
+                          >
+                        {{'save event' | translate}}
                       </a>
 
                       <a ng-show="event.mode == 'new'"
                          ng-click="removeEvent(bookableItem, $index)"
-                         class="space-left">
+                         class="space-left"
+                          >
                         cancel
                       </a>
 

@@ -72,18 +72,30 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.createEventSeries = function (item, event) {
-      console.log("createRepeatingEvents called", item, event);
+    $scope.createEventSeries = function (item, event, eventForm) {
 
-      if (!event.repeating) {
+      eventForm.submitted = true;
+
+      if (eventForm.$invalid){
         return;
       }
+      event.mode = 'view';
+
+//      if (!event.repeating) {
+//        return;
+//      }
 
       var startDate = moment(event.start);
       // ensure that date format is in english to ensure weekday comparison is always against english weekdays
       startDate.lang('en');
-      var duration = event.duration;
+      var start = event.start;
+      var end = event.end;
+      var price = event.price;
       var quantity = event.quantity;
+
+
+
+
       var endDate = moment(event.end).hour(23).minute(59);
 
       if (moment().subtract('days', 1) > startDate) {
