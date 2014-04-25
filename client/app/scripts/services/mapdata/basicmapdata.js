@@ -288,22 +288,6 @@ angular.module('anorakApp')
       };
 
       return {
-        findAddressOnMap: function (marker) {
-          if (!marker.address) {
-            debug("FOUND NO ADDRESS");
-          } else {
-            geoCodeAddress(marker.address)
-              .then(function (coords) {
-                debug("DONE GEOCODING ADDRESS");     // TODO set marker on map
-                setMarkerOnMap(marker);
-                $rootScope.$broadcast("EditMapChangeEvent");
-              })
-              .catch(function (err) {
-                debug("Something went wrong while searching address", err);
-              });
-          }
-        },
-
         findAddressForCoordinates: function (latitude, longitude) { // TODO refactor this
           debug("LOOKING FOR ADDRESS FOR", latitude, longitude);
 

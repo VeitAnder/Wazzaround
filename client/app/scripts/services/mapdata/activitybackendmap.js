@@ -54,5 +54,26 @@ angular.module('anorakApp')
       }
     };
 
+    mapdata.findAddressOnMap = function (marker) {
+      console.log("findAddressOnMap");
+
+//      if (!marker.address) {
+//        debug("FOUND NO ADDRESS");
+//      } else {
+//        geoCodeAddress(marker.address)
+//          .then(function (coords) {
+//            debug("DONE GEOCODING ADDRESS");     // TODO set marker on map
+//            setMarkerOnMap(marker);
+//            $rootScope.$broadcast("EditMapChangeEvent");
+//          })
+//          .catch(function (err) {
+//            debug("Something went wrong while searching address", err);
+//          });
+//      }
+    };
+
+
+
+
     return mapdata;
   });
