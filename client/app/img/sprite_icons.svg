@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="200px"
-	 height="200px" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve">
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
+<svg version="1.1" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="250px" height="200px" viewBox="0 0 250 200" xml:space="preserve">
 <g id="BACKGROUND" display="none">
-	<rect display="inline" fill="#808080" width="200" height="1350"/>
+	<rect display="inline" fill="#808080" width="250" height="1350"/>
 </g>
 <g id="ELEMENTS">
 	<g>
@@ -21,11 +21,9 @@
 	</g>
 	<g>
 		<circle fill="none" stroke="#E0F2BF" stroke-width="2" stroke-miterlimit="10" cx="-180" cy="87" r="9"/>
-		<g>
-			<path fill="#E0F2BF" d="M-180,85.375c0.896,0,1.625,0.729,1.625,1.625s-0.729,1.625-1.625,1.625s-1.625-0.729-1.625-1.625
-				S-180.896,85.375-180,85.375 M-180,84.375c-1.45,0-2.625,1.175-2.625,2.625s1.175,2.625,2.625,2.625s2.625-1.175,2.625-2.625
-				S-178.55,84.375-180,84.375L-180,84.375z"/>
-		</g>
+		<path fill="#E0F2BF" d="M-180,85.375c0.896,0,1.625,0.729,1.625,1.625s-0.729,1.625-1.625,1.625s-1.625-0.729-1.625-1.625
+			S-180.896,85.375-180,85.375 M-180,84.375c-1.45,0-2.625,1.175-2.625,2.625s1.175,2.625,2.625,2.625s2.625-1.175,2.625-2.625
+			S-178.55,84.375-180,84.375L-180,84.375z"/>
 		<line fill="none" stroke="#E0F2BF" stroke-width="2" stroke-miterlimit="10" x1="-180" y1="75" x2="-180" y2="82.5"/>
 		<line fill="none" stroke="#E0F2BF" stroke-width="2" stroke-miterlimit="10" x1="-180" y1="91.5" x2="-180" y2="99"/>
 		<line fill="none" stroke="#E0F2BF" stroke-width="2" stroke-miterlimit="10" x1="-168" y1="87" x2="-175.5" y2="87"/>
@@ -67,56 +65,42 @@
 		<rect x="82" y="175" fill="#FFFFFF" width="7" height="12"/>
 		<rect x="89" y="175" fill="#FE0019" width="7" height="12"/>
 	</g>
+	<path fill="#FFFFFF" d="M153,2h-3V0h4l1,2h17l-2,9h-15L153,2z M157.75,12c-0.966,0-1.75,0.784-1.75,1.75s0.784,1.75,1.75,1.75
+		s1.75-0.784,1.75-1.75S158.716,12,157.75,12z M167.25,12c-0.966,0-1.75,0.784-1.75,1.75s0.784,1.75,1.75,1.75s1.75-0.784,1.75-1.75
+		S168.216,12,167.25,12z M160,7h-3.167l0.334,2H160V7z M160,4h-3.667l0.334,2H160V4z M164,7h-3v2h3V7z M164,4h-3v2h3V4z M168.167,7
+		H165v2h2.833L168.167,7z M168.667,4H165v2h3.333L168.667,4z"/>
 	<g>
-		<path fill="#FFFFFF" d="M153,2h-3V0h4l1,2h17l-2,9h-15L153,2z M157.75,12c-0.966,0-1.75,0.784-1.75,1.75s0.784,1.75,1.75,1.75
-			s1.75-0.784,1.75-1.75S158.716,12,157.75,12z M167.25,12c-0.966,0-1.75,0.784-1.75,1.75s0.784,1.75,1.75,1.75
-			s1.75-0.784,1.75-1.75S168.216,12,167.25,12z M160,7h-3.167l0.334,2H160V7z M160,4h-3.667l0.334,2H160V4z M164,7h-3v2h3V7z M164,4
-			h-3v2h3V4z M168.167,7H165v2h2.833L168.167,7z M168.667,4H165v2h3.333L168.667,4z"/>
-	</g>
-	<g>
-		<g>
-			<polygon fill="#85C900" points="-58,133 -48,133 -47,127 -57,127 -58,125 -61,125 -61,127 -59,127 			"/>
-		</g>
+		<polygon fill="#85C900" points="-58,133 -48,133 -47,127 -57,127 -58,125 -61,125 -61,127 -59,127 		"/>
 		<circle fill="#85C900" cx="-55.5" cy="135.5" r="1.5"/>
 		<circle fill="#85C900" cx="-49.5" cy="135.5" r="1.5"/>
 	</g>
-	<g>
-		<path fill="#85C900" d="M178,2h-3V0h4l1,2h17l-2,9h-15L178,2z M182.75,12c-0.966,0-1.75,0.784-1.75,1.75s0.784,1.75,1.75,1.75
-			s1.75-0.784,1.75-1.75S183.716,12,182.75,12z M192.25,12c-0.966,0-1.75,0.784-1.75,1.75s0.784,1.75,1.75,1.75
-			s1.75-0.784,1.75-1.75S193.216,12,192.25,12z M185,7h-3.167l0.334,2H185V7z M185,4h-3.667l0.334,2H185V4z M189,7h-3v2h3V7z M189,4
-			h-3v2h3V4z M193.167,7H190v2h2.833L193.167,7z M193.667,4H190v2h3.333L193.667,4z"/>
-	</g>
+	<path fill="#85C900" d="M178,2h-3V0h4l1,2h17l-2,9h-15L178,2z M182.75,12c-0.966,0-1.75,0.784-1.75,1.75s0.784,1.75,1.75,1.75
+		s1.75-0.784,1.75-1.75S183.716,12,182.75,12z M192.25,12c-0.966,0-1.75,0.784-1.75,1.75s0.784,1.75,1.75,1.75s1.75-0.784,1.75-1.75
+		S193.216,12,192.25,12z M185,7h-3.167l0.334,2H185V7z M185,4h-3.667l0.334,2H185V4z M189,7h-3v2h3V7z M189,4h-3v2h3V4z M193.167,7
+		H190v2h2.833L193.167,7z M193.667,4H190v2h3.333L193.667,4z"/>
 	<g>
 		<g>
-			<g>
-				<polygon fill="#FFFFFF" points="159,31 166,31 167,27 159,27 158.357,25 156,25 156,26 157,26 				"/>
-			</g>
+			<polygon fill="#FFFFFF" points="159,31 166,31 167,27 159,27 158.357,25 156,25 156,26 157,26 			"/>
 			<circle fill="#FFFFFF" cx="160.25" cy="33.25" r="1.25"/>
 			<circle fill="#FFFFFF" cx="164.75" cy="33.25" r="1.25"/>
 		</g>
 		<g>
+			<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="154" y1="29.5" x2="150" y2="29.5"/>
 			<g>
-				<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="154" y1="29.5" x2="150" y2="29.5"/>
-				<g>
-					<polygon fill="#FFFFFF" points="153,27.755 156.022,29.5 153,31.245 					"/>
-				</g>
+				<polygon fill="#FFFFFF" points="153,27.755 156.022,29.5 153,31.245 				"/>
 			</g>
 		</g>
 	</g>
 	<g>
 		<g>
-			<g>
-				<polygon fill="#85C900" points="184,31 191,31 192,27 184,27 183.357,25 181,25 181,26 182,26 				"/>
-			</g>
+			<polygon fill="#85C900" points="184,31 191,31 192,27 184,27 183.357,25 181,25 181,26 182,26 			"/>
 			<circle fill="#85C900" cx="185.25" cy="33.25" r="1.25"/>
 			<circle fill="#85C900" cx="189.75" cy="33.25" r="1.25"/>
 		</g>
 		<g>
+			<line fill="none" stroke="#85C900" stroke-miterlimit="10" x1="179" y1="29.5" x2="175" y2="29.5"/>
 			<g>
-				<line fill="none" stroke="#85C900" stroke-miterlimit="10" x1="179" y1="29.5" x2="175" y2="29.5"/>
-				<g>
-					<polygon fill="#85C900" points="178,27.755 181.022,29.5 178,31.245 					"/>
-				</g>
+				<polygon fill="#85C900" points="178,27.755 181.022,29.5 178,31.245 				"/>
 			</g>
 		</g>
 	</g>
@@ -151,6 +135,24 @@
 			c0.081,0.081,0.121,0.177,0.121,0.287s-0.041,0.206-0.121,0.287l-1.104,1.103v1.875h1.429
 			C135.407,30.306,135.502,30.347,135.583,30.428z M132.643,27.041h-4.082c0-0.565,0.199-1.047,0.597-1.445
 			c0.397-0.397,0.879-0.596,1.444-0.596s1.047,0.199,1.444,0.596C132.444,25.994,132.643,26.476,132.643,27.041z"/>
+	</g>
+	<g>
+		<circle fill="none" stroke="#85C900" stroke-miterlimit="10" cx="299" cy="10.5" r="7.5"/>
+		<path fill="#85C900" d="M299,8.5c1.103,0,2,0.897,2,2s-0.897,2-2,2s-2-0.897-2-2S297.897,8.5,299,8.5 M299,7.5
+			c-1.658,0-3,1.344-3,3c0,1.658,1.342,3,3,3s3-1.342,3-3C302,8.844,300.658,7.5,299,7.5L299,7.5z"/>
+		<line fill="none" stroke="#85C900" stroke-miterlimit="10" x1="299" y1="0.5" x2="299" y2="6.75"/>
+		<line fill="none" stroke="#85C900" stroke-miterlimit="10" x1="299" y1="14.25" x2="299" y2="20.5"/>
+		<line fill="none" stroke="#85C900" stroke-miterlimit="10" x1="309" y1="10.5" x2="302.75" y2="10.5"/>
+		<line fill="none" stroke="#85C900" stroke-miterlimit="10" x1="295.25" y1="10.5" x2="289" y2="10.5"/>
+	</g>
+	<g>
+		<circle fill="none" stroke="#85C900" stroke-width="2" stroke-miterlimit="10" cx="210" cy="10" r="7.5"/>
+		<path fill="#85C900" d="M210,9c0.551,0,1,0.449,1,1s-0.449,1-1,1s-1-0.449-1-1S209.449,9,210,9 M210,7c-1.658,0-3,1.344-3,3
+			c0,1.658,1.342,3,3,3s3-1.342,3-3C213,8.344,211.658,7,210,7L210,7z"/>
+		<line fill="none" stroke="#85C900" stroke-width="2" stroke-miterlimit="10" x1="210" y1="0" x2="210" y2="6.25"/>
+		<line fill="none" stroke="#85C900" stroke-width="2" stroke-miterlimit="10" x1="210" y1="13.75" x2="210" y2="20"/>
+		<line fill="none" stroke="#85C900" stroke-width="2" stroke-miterlimit="10" x1="220" y1="10" x2="213.75" y2="10"/>
+		<line fill="none" stroke="#85C900" stroke-width="2" stroke-miterlimit="10" x1="206.25" y1="10" x2="200" y2="10"/>
 	</g>
 </g>
 <g id="GRID" display="none">
@@ -310,6 +312,13 @@
 	<line display="inline" fill="none" stroke="#6BFFFF" x1="349.5" y1="-80" x2="349.5" y2="1500"/>
 	<text transform="matrix(1 0 0 1 373 -83.6201)" display="inline" fill="#6BFFFF" font-family="'Silkscreen'" font-size="8">375</text>
 	<line display="inline" fill="none" stroke="#6BFFFF" x1="374.5" y1="-80" x2="374.5" y2="1500"/>
-	<rect x="375" y="124" display="inline" opacity="0.15" fill="#FF00FF" width="149" height="100"/>
+	
+		<image display="inline" width="149" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJUAAABkCAYAAACPbHLzAAAACXBIWXMAAAsSAAALEgHS3X78AAAA
+GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAM1JREFUeNrs0kERAAAEAEGE0b8h
+BTw9dyPcXE5MBzwqCTAVpsJUYCpMhanAVJgKU4GpMBWmAlNhKkwFpsJUmApTgakwFaYCU2EqTAWm
+wlSYCkyFqTAVmApTYSpMBabCVJgKTIWpMBWYClNhKjAVpsJUYCpMhanAVJgKU2EqMBWmwlRgKkyF
+qcBUmApTgakwFaYCU2EqTIWpwFSYClOBqTAVpgJTYSpMBabCVJgKTIWpMBWmkgBTYSpMBabCVJgK
+TIWpMBWYClNhKrisAAMAUuEC7GZzIh8AAAAASUVORK5CYII=" transform="matrix(1 0 0 1 375 124)">
+	</image>
 </g>
 </svg>

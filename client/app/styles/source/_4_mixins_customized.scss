@@ -455,7 +455,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   width: 100%;
 }
 
-
 .event-list {
   display: block;
   @include seperator(top, $color_grey_50);
@@ -489,19 +488,18 @@ googleMap, .angular-google-map, .angular-google-map-container {
     text-align: right;
   }
 
-
   .event-add {
     margin-top: 10px;
   }
 
-  .activity-edit &{
+  .activity-edit & {
     .event-date {
       width: 25%;
     }
     .event-time {
       width: 15%;
     }
-    .cell.listaction{
+    .cell.listaction {
       width: 20%;
     }
   }
@@ -533,10 +531,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
   .form-group {
     @include divtable_cell;
-    &.first{
+    &.first {
       padding-left: 0;
     }
-    &.last{
+    &.last {
       padding-right: 0;
     }
   }
@@ -554,19 +552,19 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
   .quantity {
     width: 50%;
-    input{
+    input {
       text-align: right;
     }
   }
 
-  .price{
+  .price {
     width: 50%;
-    input{
+    input {
       text-align: right;
     }
   }
 
-  .from-until{
+  .from-until {
     height: $input-height;
     width: 5%;
     margin-top: (21px + 5px + 10px);
@@ -574,7 +572,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     @include border-radius($border-radius_small);
     @include divtable_cell;
     padding: 0;
-    span{
+    span {
       margin: ($input-height*0.5 - 6px) auto 0;
       display: block;
       width: 7px;
@@ -583,7 +581,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
 
-  .event-duration-block{
+  .event-duration-block {
     background-color: $color_grey_25;
     color: $color_grey;
     @include font-size_small;
@@ -593,11 +591,11 @@ googleMap, .angular-google-map, .angular-google-map-container {
     clear: both;
   }
 
-  .date-until{
+  .date-until {
     width: 50%;
   }
 
-  .alert{
+  .alert {
     display: block;
   }
 
@@ -969,72 +967,86 @@ shoppingcart {
   }
 }
 
-
-
 $activitybar-currentitem-width: 60%;
 $activitybar-height: 200px;
 
 @mixin activitybar-a-imghover {
-  img{
+  img {
     opacity: 0.25;
   }
-  &:hover{
-    img{
+  &:hover {
+    img {
       opacity: 0.50;
     }
   }
 }
 
-
-.activitybar{
+.activitybar {
   position: absolute;
   bottom: 0;
   width: 100%;
   overflow: hidden;
   background-color: $color_grey_25;
 
-  .activitybar-item{
+  .activitybar-item {
     position: relative;
     overflow: hidden;
     height: $activitybar-height;
     float: left;
-    img{
+    img {
       min-height: $activitybar-height;
       width: auto;
     }
 
-    &.activitybar-item-beforeprev{
+    &.activitybar-item-beforeprev {
       @include activitybar-a-imghover;
       width: 10%;
     }
-    &.activitybar-item-prev{
+    &.activitybar-item-prev {
       @include activitybar-a-imghover;
       width: 10%;
     }
-    &.activitybar-item-current{
+    &.activitybar-item-current {
       width: 60%;
-      img{
+      img {
         min-width: 100%;
         height: auto;
       }
+      &:hover {
+        .activity-detail-toggle {
+          background-color: $color_green_75;
+        }
+      }
+      .triangle {
+        position: absolute;
+        display: block;
+        width: 25px;
+        height: 12.5px;
+        top: -50px;
+        @include triangle(50px, $color_white, down);
+        left: 50%;
+        margin-left: -25px;
+        @include animation_all;
+      }
     }
-    &.activitybar-item-next{
+    &.activitybar-item-next {
       @include activitybar-a-imghover;
       width: 10%;
     }
-    &.activitybar-item-afternext{
+    &.activitybar-item-afternext {
       @include activitybar-a-imghover;
       width: 10%;
     }
   }
-  .activity-nav{
+
+  .activity-nav {
     position: absolute;
     top: 50%;
     margin-top: -65px*0.5;
     width: 65px;
     height: 65px;
     background-color: $color_white;
-    span{
+    span {
       display: block;
       margin-top: 20px;
       margin-left: 19px;
@@ -1042,24 +1054,40 @@ $activitybar-height: 200px;
       width: 25px;
       height: 25px;
     }
-    &.activity-nav-next{
+    &.activity-nav-next {
       left: 0;
       @include border-right-radius($border-radius);
     }
-    &.activity-nav-prev{
+    &.activity-nav-prev {
       right: 0;
       @include border-left-radius($border-radius);
-      span{
+      span {
         @include rotate(180deg);
       }
     }
   }
-  .activity-detail-toggle{
+
+  .activity-detail-toggle {
     position: absolute;
     top: $bu;
     right: $bu;
+    width: 30px;
+    height: 30px;
+    @include border-radius(15px);
+    background-color: $color_green;
+    @include rotate(270deg);
+    @include animation_all;
+    span {
+      display: block;
+      width: 15px;
+      height: 15px;
+      margin-top: 7px;
+      margin-left: 7px;
+      @include sprite_icons(-20px, -85px, no-repeat);
+    }
   }
-  .activity-title{
+
+  .activity-title {
     position: absolute;
     bottom: $bu;
     left: $bu;
@@ -1068,16 +1096,62 @@ $activitybar-height: 200px;
     font-weight: $font-weight_extrabold;
     font-size: $fs*$font-size_h5_factor;
   }
-  .activity-distance-element{
+
+  .activity-distance-element {
     position: absolute;
     top: $bu;
     left: $bu;
+    height: 30px;
+    padding: 5px;
+    @include border-radius(15px);
+    background-color: $color_white;
   }
+
+  .current-location {
+    vertical-align: middle;
+    display: block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    @include sprite_icons(-200px, 0, no-repeat);
+  }
+
+  .activity-distance-txt {
+    vertical-align: middle;
+    display: block;
+    float: left;
+    margin: 0 5px;
+    color: $color_text;
+    font-weight: $font-weight_bold;
+    font-size: $fs*$font-size_small_factor;
+    line-height: 20px;
+  }
+
+  .activity-location {
+    @include icon;
+    position: static;
+    display: block;
+    float: left;
+    background-position: -45px 6px;
+    background-color: $color_green;
+  }
+
+  &.activitydetailactive {
+    .activity-detail-toggle {
+      @include rotate(90deg);
+    }
+    .activitybar-item-current{
+      .triangle {
+        top: 0;
+      }
+    }
+  }
+
 }
 
-.activitybar-detail{
+.activitybar-detail {
   position: absolute;
-  bottom: $activitybar-height;
+  bottom: -100%;
   left: 50%;
   margin-left: -$activitybar-currentitem-width*0.5;
   width: $activitybar-currentitem-width;
@@ -1085,10 +1159,14 @@ $activitybar-height: 200px;
   background-color: $color_white;
   @include border-top-radius($border-radius);
   @include activity-content;
-  .txt-icon-delete{
+  @include animation_position;
+  .txt-icon-delete {
     position: absolute;
     top: $bu;
     right: $bu;
+  }
+  &.activitydetailactive {
+    bottom: $activitybar-height;
   }
 }
 
@@ -2117,16 +2195,16 @@ $img-selector-teaserimgsize: 150px;
 $img-selector-teasertxtheight: 35px;
 
 .img-selector {
-  .img-teaser{
+  .img-teaser {
     display: none;
   }
   overflow: hidden;
-  label + .img-block{
+  label + .img-block {
     img {
       width: $img-selector-teaserimgsize;
       height: $img-selector-teaserimgsize;
     }
-    .img-teaser{
+    .img-teaser {
       display: block;
       position: relative;
       top: -$img-selector-teasertxtheight;
@@ -2137,7 +2215,7 @@ $img-selector-teasertxtheight: 35px;
       color: $color_white;
       text-align: center;
       font-weight: $font-weight_bold;
-      content:"Teaser Image";
+      content: "Teaser Image";
     }
   }
   .img-block {

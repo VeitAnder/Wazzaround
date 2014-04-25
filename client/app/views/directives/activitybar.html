@@ -1,6 +1,8 @@
-<activitybardetail class="activitybar-detail detail-category-{{activity.category.main}}">
+<activitybardetail class="activitybar-detail detail-category-{{activity.category.main}}"
+                   ng-class="{activitydetailactive: activitydetail === true}">
 
-  <div class="txt-icon-delete">
+  <div class="txt-icon-delete"
+       ng-click="activitydetail = false">
     <span class="hidden">Close detail view</span>
     <span></span>
   </div>
@@ -40,7 +42,8 @@
 
 </activitybardetail>
 
-<activitybar class="activitybar">
+<activitybar class="activitybar"
+             ng-class="{activitydetailactive: activitydetail === true}">
 
   <div class="activitybar-item activitybar-item-beforeprev">
     <a ng-href="">
@@ -57,18 +60,21 @@
     </a>
   </div>
   <div class="activitybar-item activitybar-item-current">
-    <a ng-href="">
+    <a ng-href=""
+       ng-click="activitydetail = !activitydetail">
       <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg" />
       <div class="activity-detail-toggle">
         <span class="hideme">show/hide activity detail</span>
+        <span></span>
       </div>
       <div class="activity-distance-element">
         <span class="current-location"></span>
-        <span class="activity-distance-txt">XY km</span>
+        <span class="activity-distance-txt">14 km</span>
         <span class="activity-location"></span>
       </div>
       <h4 class="activity-title">Quad-Tours in Canavese</h4>
     </a>
+    <span class="triangle"></span>
   </div>
   <div class="activitybar-item activitybar-item-next">
     <a ng-href="">
