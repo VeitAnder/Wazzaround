@@ -372,41 +372,6 @@ angular.module('anorakApp')
           });
           return deferred.promise;
         }
-
-        this.map = map;
-
-        this.onSearchChange = function () {
-          console.log("search changed");
-
-          setTimeOnStartAndEndDate();
-
-          this.geoCodeAddress(map.searchAddress)
-            .then(function (coords) {
-              if (coords !== null) {
-                map.center.latitude = coords.k;
-                map.center.longitude = coords.A;
-                map.centerMarker.latitude = coords.k;
-                map.centerMarker.longitude = coords.A;
-                map.zoom = config.locationsearch.zoom;
-              }
-              return findActivities();
-            })
-            .then(function (activities) {
-              setMarkers(activities);
-            })
-            .catch(function (err) {
-              debug("Something went wrong while searching activities", err);
-            });
-        };
-
-        this.getMarkerIcon = function (maincategorykey) {
-          if (maincategorykey) {
-            return "/img/mapicons/marker-" + maincategorykey + ".svg";
-          } else {
-            return "/img/mapicons/marker.svg";
-          }
-        };
-
       };
 
       this.onSearchChange = function () {
