@@ -132,7 +132,7 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.map = frontendmap.map;
+    $scope.frontendmap = frontendmap;
 
     $scope.windowOptions = {
       "zIndex": 1000
@@ -140,7 +140,7 @@ angular.module('anorakApp')
 
     $scope.onMarkerClicked = function (markerClicked) {
       debug("Marker: lat: " + markerClicked.latitude + ", lon: " + markerClicked.longitude + " clicked!!");
-      _.each($scope.map.markers, function (marker) {
+      _.each($scope.frontendmap.map.markers, function (marker) {
         if (marker._id === markerClicked._id) {
           markerClicked.showWindow = true;
         } else {
@@ -236,10 +236,6 @@ angular.module('anorakApp')
       return flag;
     };
 
-    $scope.getMarkerIcon = function (activity) {
-      return "/img/mapicons/marker-" + activity.category.main + ".svg";
-    };
-
     $scope.areItemsInThisCategorySelected = function (category) {
       if (_.where(category.sub, { 'selected': true }).length > 0) {
         return true;
@@ -264,7 +260,7 @@ angular.module('anorakApp')
 // find all categories that are in the activities we get from the map
     function categoriesInActivities(mainCatKey) {
       var catsInActs = [];
-      _.each($scope.map.markers, function (activity) {
+      _.each($scope.frontendmap.map.markers, function (activity) {
         if (activity.category.main === mainCatKey) {
           _.each(activity.category.subs, function (subCatInActivity) {
 
@@ -289,7 +285,7 @@ angular.module('anorakApp')
 
       // now intersect the selectedSubCatsKeysArray with the activitySubCatsKeysArray
       // if the result has at least length === 1 we have a match, count it
-      var activitiesForThisMainCategory = _.where($scope.map.markers, { category: { main: category.key}});
+      var activitiesForThisMainCategory = _.where($scope.frontendmap.map.markers, { category: { main: category.key}});
       _.each(activitiesForThisMainCategory, function (activity) {
         var activitySubCatsKeysArray = _.map(activity.category.subs, 'key');
         var intersection = _.intersection(activitySubCatsKeysArray, selectedSubCatsKeysArray);
@@ -303,7 +299,7 @@ angular.module('anorakApp')
 
 // number of activities that have this maincategory
     $scope.totalNumberOfCategory = function (category) {
-      return _.where($scope.map.markers, {category: {main: category.key}}).length;
+      return _.where($scope.frontendmap.map.markers, {category: {main: category.key}}).length;
     };
 
     $scope.getAddress = frontendmap.getAddress;
@@ -311,31 +307,31 @@ angular.module('anorakApp')
 // every activity has bookableItems, like Quadfahren
 // this bookableItem Quadfahren has events, like 1.3. Quadfahren, 2.3. Quadfahren, 3.3. Quadfahren
 // sort these events by date and save 3 to be displayed when user klicks on activity in index page
-    $scope.getNextAvailableEvents = function () {
-
-      if ($scope.map.markers.length > 0) {
-
-        _.each($scope.map.markers, function (marker) {
-          var events = [];
-
-          _.each(marker.bookableItems, function (bookableItem) {
-            _.each(bookableItem.events, function (event) {
-              event.title = {
-                en: bookableItem.description.en,
-                de: bookableItem.description.de,
-                it: bookableItem.description.it
-              };
-              events.push(event);
-            });
-          });
-          events = _.sortBy(events, "start");
-          events = events.slice(0, 3);
-          marker.availability = _.clone(events);
-        });
-      }
-
-    };
-    $scope.getNextAvailableEvents();
+//    $scope.getNextAvailableEvents = function () {
+//
+//      if ($scope.frontendmap.map.markers.length > 0) {
+//
+//        _.each($scope.frontendmap.map.markers, function (marker) {
+//          var events = [];
+//
+//          _.each(marker.bookableItems, function (bookableItem) {
+//            _.each(bookableItem.events, function (event) {
+//              event.title = {
+//                en: bookableItem.description.en,
+//                de: bookableItem.description.de,
+//                it: bookableItem.description.it
+//              };
+//              events.push(event);
+//            });
+//          });
+//          events = _.sortBy(events, "start");
+//          events = events.slice(0, 3);
+//          marker.availability = _.clone(events);
+//        });
+//      }
+//
+//    };
+//    $scope.getNextAvailableEvents();
 
     $scope.putIntoShoppingCart = function (activity, event) {
       debug("Put into shopping cart", activity, event);

@@ -20,8 +20,8 @@
     "jquery": "2.1.0",
     "dropzone": "https://github.com/maximilianschmid/dropzone-patched.git",
     "cloudinary-client": "https://github.com/maximilianschmid/cloudinary-client.git",
-    "angular-translate": "2.0.1",
-    "angular-translate-storage-local": "2.0.0",
+    "angular-translate": "2.1.0",
+    "angular-translate-storage-local": "2.1.0",
     "cryptojslib": "3.1.2"
   },
   "devDependencies": {
@@ -31,6 +31,7 @@
   },
   "resolutions": {
     "angular": "1.3.0-beta.5",
-    "angular-sanitize": "1.3.0-beta.5"
+    "angular-sanitize": "1.3.0-beta.5",
+    "angular-translate": "2.1.0"
   }
 }

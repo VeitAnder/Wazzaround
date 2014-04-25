@@ -7,40 +7,23 @@
  http://stackoverflow.com/questions/13619837/angular-js-inject-new-instance-of-class
  */
 angular.module('anorakApp')
-  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates) {
+  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates, $timeout) {
 
     var mapdata = function () {
       var geocoder;
 
-      var setMarkersWithoutBlinking = function (activities) {
-        // we have here a mechanism to remove old activities from the map one by one
-        // otherwise if we do just an assignment, there will be blinking in the map when we move it
-        // this is really ugly but keeps the activities from blinking,
-        // because we have no direct assignment like
-        // map.markers = activities
-        var markersToKeep = [];
-        var newMarkers = [];
-        // all activities must be in map
-        _.each(activities, function (activity) {
-          var keepThisMarker = _.filter(map.markers, function (existingMarker) {
-            return activity._id === existingMarker._id;
-          });
-
-          if (keepThisMarker.length === 0) {
-            newMarkers.push(activity);
-          } else {
-            markersToKeep = markersToKeep.concat(keepThisMarker);
-          }
+      var setMarkers = function (activities) {
+        $timeout(function () {
+          map.markers = activities;
         });
-
-        markersToKeep = markersToKeep.concat(newMarkers);
-        map.markers = markersToKeep;
-
-        // @TODO apply ? move to proper place
-        $rootScope.$apply();
       };
 
-      var geoCodeAddress = function (address) {
+      var setMapCenter = function (position) {
+        map.center.latitude = position.coords.latitude;
+        map.center.longitude = position.coords.longitude;
+      };
+
+      this.geoCodeAddress = function (address) {
         var defer = $q.defer();
         if (!address) {
           defer.resolve(null);
@@ -61,7 +44,6 @@ angular.module('anorakApp')
       };
 
       var setTimeOnStartAndEndDate = function () {
-
         // if startdate is today, set current time, otherwise start at 00:00:00
         var start = moment(map.searchStartDate);
         var now = moment();
@@ -87,11 +69,6 @@ angular.module('anorakApp')
         map.searchEndDate.setSeconds(59);
       };
 
-      var setMarkerOnMap = function (marker) {
-        map.markers = [];
-        map.markers.push(marker);
-      };
-
       // find activities according to date that the user entered
       // there may be a start date and an end date or only one of them or none
       // find only activities that are within a northeast and southwest lat/lng
@@ -100,6 +77,7 @@ angular.module('anorakApp')
         debug("SEARCHING FOR SOUTHWEST", map.bounds.southwest.latitude, map.bounds.southwest.longitude);
         debug("SEARCHING FOR DATE", map.searchStartDate, map.searchEndDate);
 
+        // @TODO for Jonathan - abort filteredActivities request if new one is fired!
         return models.ActivityModel.filteredActivities({
           from: {  //  <bottom left coordinates>   southwest
             lng: map.bounds.southwest.longitude,
@@ -119,8 +97,6 @@ angular.module('anorakApp')
       };
 
       var onMapChange = function (googleMap) {
-        debug("onMapChange");
-
         // bounds contain northeast and southwest lat/lng which we will use to search activities within
         map.bounds = {
           northeast: {
@@ -133,56 +109,63 @@ angular.module('anorakApp')
           }
         };
 
-        Usersessionstates.states.bounds = {
-          northeast: {
-            latitude: googleMap.getBounds().getNorthEast().k,
-            longitude: googleMap.getBounds().getNorthEast().A
-          },
-          southwest: {
-            latitude: googleMap.getBounds().getSouthWest().k,
-            longitude: googleMap.getBounds().getSouthWest().A
-          }
-        };
-
-        Usersessionstates.states.searchlocation = {
-          coords: {
-            latitude: googleMap.getCenter().k,
-            longitude: googleMap.getCenter().A
-          }
-        };
-        Usersessionstates.states.zoom = googleMap.getZoom();
-        Usersessionstates.updateSession();
-
-        // update activities
+        saveMapStateToUsersession();
 
         // look for activities within these bounds and in a date range from now until one year later
         findActivities()
           .then(function (activities) {
-            setMarkersWithoutBlinking(activities);
+            setMarkers(activities);
           })
           .catch(function (err) {
             debug("Something went wrong while searching activities", err);
           });
       };
 
-      var onSearchChange = function () {
-        console.log("search changed");
+      var saveMapStateToUsersession = function () {
+        Usersessionstates.states.bounds = map.bounds;
+        Usersessionstates.states.searchlocation = {
+          coords: map.center
+        };
+        Usersessionstates.states.zoom = map.zoom;
+        Usersessionstates.states.address = map.searchAddress;
+        Usersessionstates.updateSession();
+      };
+
+      this.onSearchAddressChange = function () {
+        console.log("search address changed");
 
         setTimeOnStartAndEndDate();
 
-        geoCodeAddress(map.searchAddress)
+        this.geoCodeAddress(map.searchAddress)
           .then(function (coords) {
             if (coords !== null) {
+              console.log("CENTER MARKER AFTER SEARCH CHANGE", map.searchAddress);
               map.center.latitude = coords.k;
               map.center.longitude = coords.A;
               map.centerMarker.latitude = coords.k;
               map.centerMarker.longitude = coords.A;
               map.zoom = config.locationsearch.zoom;
+
+              saveMapStateToUsersession();
             }
             return findActivities();
           })
           .then(function (activities) {
-            setMarkersWithoutBlinking(activities);
+            setMarkers(activities);
+          })
+          .catch(function (err) {
+            debug("Something went wrong while searching activities", err);
+          });
+      };
+
+      this.onSearchDateChange = function () {
+        console.log("search date changed");
+
+        setTimeOnStartAndEndDate();
+
+        findActivities()
+          .then(function (activities) {
+            setMarkers(activities);
           })
           .catch(function (err) {
             debug("Something went wrong while searching activities", err);
@@ -256,6 +239,8 @@ angular.module('anorakApp')
         }
       };
 
+      this.map = map;
+
       var findAddressForCoordinates = function (latitude, longitude) {
 
         var deferred = Q.defer();
@@ -273,147 +258,99 @@ angular.module('anorakApp')
               debug('No address found for coordinates');
               deferred.resolve(null);
             }
-            $rootScope.$broadcast("SetAddressEvent");
-            $rootScope.$apply();
           }
         });
         return deferred.promise;
       };
 
-      return {
-        findAddressOnMap: function (marker) {
-          if (!marker.address) {
-            debug("FOUND NO ADDRESS");
-          } else {
-            geoCodeAddress(marker.address)
-              .then(function (coords) {
-                debug("DONE GEOCODING ADDRESS");     // TODO set marker on map
-                setMarkerOnMap(marker);
-                $rootScope.$broadcast("EditMapChangeEvent");
-              })
-              .catch(function (err) {
-                debug("Something went wrong while searching address", err);
-              });
-          }
-        },
+      this.findAddressForCoordinates = findAddressForCoordinates;
 
-        findAddressForCoordinates: function (latitude, longitude) { // TODO refactor this
-          debug("LOOKING FOR ADDRESS FOR", latitude, longitude);
-
-          var latlng = new google.maps.LatLng(latitude, longitude);
-
-          geocoder = new google.maps.Geocoder();
-          geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-            debug("CODED RESULTS", results, status);
-            if (status === google.maps.GeocoderStatus.OK) {
-              if (results[1]) {
-                debug("SET ADDRESS TO MAP", results[1]);
-                map.address = results[1].formatted_address;
-              } else {
-                debug('No address found for coordinates');
-              }
-              $rootScope.$broadcast("SetAddressEvent");
-              $rootScope.$apply();
-            }
+      this.getGoogleAddressAutoCompletionList = function (viewValue) {
+        var params = {address: viewValue, sensor: false, language: 'en'};
+        return $http.get('https://maps.googleapis.com/maps/api/geocode/json', { params: params })
+          .then(function (res) {
+            return res.data.results;
           });
-        },
+      };
 
-        getGoogleAddressAutoCompletionList: function (viewValue) {
-          var params = {address: viewValue, sensor: false, language: 'en'};
-          return $http.get('https://maps.googleapis.com/maps/api/geocode/json', { params: params })
-            .then(function (res) {
-              return res.data.results;
-            });
-        },
-        initializeMapWithUserSearchLocation: function () {
+      this.initializeMapWithUserSearchLocation = function () {
+        map.markers = [];
 
-          map.markers = [];
+        setTimeOnStartAndEndDate();
 
-          setTimeOnStartAndEndDate();
+        Usersessionstates.loadSession();
 
-          // don't update Usersessionstates here, it will overwrite stuff !!!
-          function setInitPositionOnMap(position) {
-            map.centerMarker.latitude = position.coords.latitude;
-            map.centerMarker.longitude = position.coords.longitude;
-            map.center.latitude = position.coords.latitude;
-            map.center.longitude = position.coords.longitude;
+        // if there are session stored, check what is stored and fill into map
+        if ((Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
+          debug("Got Usersessionstates, will set position");
+
+          if (Usersessionstates.states.zoom) {
+            map.zoom = Usersessionstates.states.zoom;
           }
 
-          Usersessionstates.loadSession();
-
-          // if there are session stored, check what is stored and fill into map
-          if ((Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
-            debug("Got Usersessionstates, will set position");
-
-            setInitPositionOnMap(Usersessionstates.states.searchlocation);
-
-            if (Usersessionstates.states.zoom) {
-              map.zoom = Usersessionstates.states.zoom;
-            }
-
-            if (Usersessionstates.states.address) {
-              map.searchAddress = Usersessionstates.states.address;
-            }
-
-            return Q.resolve(map);
-
-          } else {
-            var deferred = Q.defer();
-            // try to get user's position
-            // it works --> map is filled with new data, set that data to Usersessionstates
-            // it fails --> map is filled with standard data, set that data to Usersessionstates
-            // update Usersessionstates
-            debug("Got Nothing, will determine browser postion and set");
-            navigator.geolocation.getCurrentPosition(function (position) {
-              setInitPositionOnMap(position);
-
-              findAddressForCoordinates(position.coords.latitude, position.coords.longitude)
-
-                .then(function (address) {
-                  if (address !== null) {
-                    map.searchAddress = address;
-                    Usersessionstates.states.address = address;
-                  }
-                  Usersessionstates.states.searchlocation = {
+          if (Usersessionstates.states.address) {
+            map.searchAddress = Usersessionstates.states.address;
+            this.geoCodeAddress(map.searchAddress)
+              .then(function (coords) {
+                if (coords !== null) {
+                  var position = {
                     coords: {
-                      latitude: map.center.latitude,
-                      longitude: map.center.longitude
+                      latitude: coords.k,
+                      longitude: coords.A
                     }
                   };
-                  Usersessionstates.states.zoom = map.zoom;
-                  Usersessionstates.states.address = map.searchAddress;
-
-                  Usersessionstates.updateSession();
-                  debug("RESOLVE WITH BROWSER STATE CHECKED");
-
-                  return deferred.resolve(map);
-                });
-
-            }, function (err) {
-              debug("Could not set initial location, will initialize with default Torino", err);
-              Usersessionstates.states.searchlocation = {
-                coords: {
-                  latitude: map.center.latitude,
-                  longitude: map.center.longitude
+                  setMapCenter(position);
+                  map.centerMarker.latitude = coords.k;
+                  map.centerMarker.longitude = coords.A;
                 }
-              };
-              Usersessionstates.states.zoom = map.zoom;
-              Usersessionstates.states.address = map.address;
-
-              Usersessionstates.updateSession();
-              debug("RESOLVE AFTER BROWSER STATE ERR");
-              return deferred.resolve(map);
-            });
-            return deferred.promise;
+                return Q.resolve(map);
+              });
+          } else {
+            setMapCenter(Usersessionstates.states.searchlocation);
+            return Q.resolve(map);
           }
-        },
-        map: map,
-        onSearchChange: onSearchChange
+
+        } else {
+          var deferred = Q.defer();
+          // try to get user's position
+          // it works --> map is filled with new data, set that data to Usersessionstates
+          // it fails --> map is filled with standard data, set that data to Usersessionstates
+          // update Usersessionstates
+          debug("Got Nothing, will determine browser postion and set");
+          navigator.geolocation.getCurrentPosition(function (position) {
+            setMapCenter(position);
+
+            findAddressForCoordinates(position.coords.latitude, position.coords.longitude)
+              .then(function (address) {
+                if (address !== null) {
+                  map.searchAddress = address;
+                  map.centerMarker.latitude = position.coords.latitude;
+                  map.centerMarker.longitude = position.coords.longitude;
+                }
+                saveMapStateToUsersession();
+                return deferred.resolve(map);
+              });
+
+          }, function (err) {
+            debug("Could not set initial location, will initialize with default Torino", err);
+            saveMapStateToUsersession();
+            map.centerMarker.latitude = map.center.latitude;
+            map.centerMarker.longitude = map.center.longitude;
+            return deferred.resolve(map);
+          });
+          return deferred.promise;
+        }
+      };
+
+      this.getMarkerIcon = function (maincategorykey) {
+        if (maincategorykey) {
+          return "/img/mapicons/marker-" + maincategorykey + ".svg";
+        } else {
+          return "/img/mapicons/marker.svg";
+        }
       };
 
     };
 
     return mapdata;
-  }
-);
-
+  });

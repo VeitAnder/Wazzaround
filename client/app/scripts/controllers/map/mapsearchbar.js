@@ -5,10 +5,6 @@ angular.module('anorakApp')
 
     $scope.frontendmap = frontendmap;
 
-    var searchChangeHandler = function () {
-      frontendmap.onSearchChange();
-    };
-
     $scope.search = {
       minDate: moment().subtract('days', 1).toDate(),
       maxDate: moment(frontendmap.map.searchStartDate).add('year', 1).toDate(),
@@ -16,18 +12,18 @@ angular.module('anorakApp')
     };
 
     $scope.searchActivities = function () {
-      searchChangeHandler();
+      frontendmap.onSearchAddressChange();
     };
 
     $scope.$watch('frontendmap.map.searchStartDate', function (newVal, oldVal) {
       if (newVal !== oldVal) {
-        searchChangeHandler();
+        frontendmap.onSearchDateChange();
       }
     });
 
     $scope.$watch('frontendmap.map.searchEndDate', function (newVal, oldVal) {
       if (newVal !== oldVal) {
-        searchChangeHandler();
+        frontendmap.onSearchDateChange();
       }
     });
 
