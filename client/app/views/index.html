@@ -86,7 +86,6 @@
         </div>
       </div>
 
-
       <div class="filter-toggle">
         <div class="filter-toggle-show"
              data-ng-class="{active: allSelected()}"
@@ -223,7 +222,7 @@
         </marker>
 
         <!--marker for clicked position can not put google.frontendmap.map.animations.BOUNCE , since it is not initialized yet-->
-        <div ng-init="opts = {animation:0}" ng-if="!(frontendmap.map.centerMarker.latitude === 200 && frontendmap.map.centerMarker.longitude === 200)">
+        <div ng-init="opts = {animation:0}">
           <marker coords="frontendmap.map.centerMarker"
                   options="opts">
             <marker-label content="frontendmap.map.centerMarker.title | translate"

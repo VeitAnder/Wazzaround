@@ -18,6 +18,11 @@ angular.module('anorakApp')
         });
       };
 
+      var setMapCenter = function (position) {
+        map.center.latitude = position.coords.latitude;
+        map.center.longitude = position.coords.longitude;
+      };
+
       this.geoCodeAddress = function (address) {
         var defer = $q.defer();
         if (!address) {
@@ -39,7 +44,6 @@ angular.module('anorakApp')
       };
 
       var setTimeOnStartAndEndDate = function () {
-
         // if startdate is today, set current time, otherwise start at 00:00:00
         var start = moment(map.searchStartDate);
         var now = moment();
@@ -65,11 +69,6 @@ angular.module('anorakApp')
         map.searchEndDate.setSeconds(59);
       };
 
-      var setMarkerOnMap = function (marker) {
-        map.markers = [];
-        map.markers.push(marker);
-      };
-
       // find activities according to date that the user entered
       // there may be a start date and an end date or only one of them or none
       // find only activities that are within a northeast and southwest lat/lng
@@ -78,6 +77,7 @@ angular.module('anorakApp')
         debug("SEARCHING FOR SOUTHWEST", map.bounds.southwest.latitude, map.bounds.southwest.longitude);
         debug("SEARCHING FOR DATE", map.searchStartDate, map.searchEndDate);
 
+        // @TODO for Jonathan - abort filteredActivities request if new one is fired!
         return models.ActivityModel.filteredActivities({
           from: {  //  <bottom left coordinates>   southwest
             lng: map.bounds.southwest.longitude,
@@ -97,8 +97,6 @@ angular.module('anorakApp')
       };
 
       var onMapChange = function (googleMap) {
-        debug("onMapChange");
-
         // bounds contain northeast and southwest lat/lng which we will use to search activities within
         map.bounds = {
           northeast: {
@@ -111,27 +109,7 @@ angular.module('anorakApp')
           }
         };
 
-        Usersessionstates.states.bounds = {
-          northeast: {
-            latitude: googleMap.getBounds().getNorthEast().k,
-            longitude: googleMap.getBounds().getNorthEast().A
-          },
-          southwest: {
-            latitude: googleMap.getBounds().getSouthWest().k,
-            longitude: googleMap.getBounds().getSouthWest().A
-          }
-        };
-
-        Usersessionstates.states.searchlocation = {
-          coords: {
-            latitude: googleMap.getCenter().k,
-            longitude: googleMap.getCenter().A
-          }
-        };
-        Usersessionstates.states.zoom = googleMap.getZoom();
-        Usersessionstates.updateSession();
-
-        // update activities
+        saveMapStateToUsersession();
 
         // look for activities within these bounds and in a date range from now until one year later
         findActivities()
@@ -143,12 +121,22 @@ angular.module('anorakApp')
           });
       };
 
-      var onSearchChange = function () {
-        console.log("search changed");
+      var saveMapStateToUsersession = function () {
+        Usersessionstates.states.bounds = map.bounds;
+        Usersessionstates.states.searchlocation = {
+          coords: map.center
+        };
+        Usersessionstates.states.zoom = map.zoom;
+        Usersessionstates.states.address = map.searchAddress;
+        Usersessionstates.updateSession();
+      };
+
+      this.onSearchAddressChange = function () {
+        console.log("search address changed");
 
         setTimeOnStartAndEndDate();
 
-        geoCodeAddress(map.searchAddress)
+        this.geoCodeAddress(map.searchAddress)
           .then(function (coords) {
             if (coords !== null) {
               console.log("CENTER MARKER AFTER SEARCH CHANGE", map.searchAddress);
@@ -158,14 +146,24 @@ angular.module('anorakApp')
               map.centerMarker.longitude = coords.A;
               map.zoom = config.locationsearch.zoom;
 
-              Usersessionstates.states.searchlocation.coords = angular.copy(map.center);
-              Usersessionstates.states.zoom = map.zoom;
-              Usersessionstates.states.address = map.searchAddress;
-              Usersessionstates.updateSession();
-
+              saveMapStateToUsersession();
             }
             return findActivities();
           })
+          .then(function (activities) {
+            setMarkers(activities);
+          })
+          .catch(function (err) {
+            debug("Something went wrong while searching activities", err);
+          });
+      };
+
+      this.onSearchDateChange = function () {
+        console.log("search date changed");
+
+        setTimeOnStartAndEndDate();
+
+        findActivities()
           .then(function (activities) {
             setMarkers(activities);
           })
@@ -276,16 +274,9 @@ angular.module('anorakApp')
       };
 
       this.initializeMapWithUserSearchLocation = function () {
-
         map.markers = [];
 
         setTimeOnStartAndEndDate();
-
-        // don't update Usersessionstates here, it will overwrite stuff !!!
-        function setInitPositionOnMap(position) {
-          map.center.latitude = position.coords.latitude;
-          map.center.longitude = position.coords.longitude;
-        }
 
         Usersessionstates.loadSession();
 
@@ -299,7 +290,7 @@ angular.module('anorakApp')
 
           if (Usersessionstates.states.address) {
             map.searchAddress = Usersessionstates.states.address;
-            geoCodeAddress(map.searchAddress)
+            this.geoCodeAddress(map.searchAddress)
               .then(function (coords) {
                 if (coords !== null) {
                   var position = {
@@ -308,14 +299,14 @@ angular.module('anorakApp')
                       longitude: coords.A
                     }
                   };
-                  setInitPositionOnMap(position);
+                  setMapCenter(position);
                   map.centerMarker.latitude = coords.k;
                   map.centerMarker.longitude = coords.A;
                 }
                 return Q.resolve(map);
               });
           } else {
-            setInitPositionOnMap(Usersessionstates.states.searchlocation);
+            setMapCenter(Usersessionstates.states.searchlocation);
             return Q.resolve(map);
           }
 
@@ -327,75 +318,28 @@ angular.module('anorakApp')
           // update Usersessionstates
           debug("Got Nothing, will determine browser postion and set");
           navigator.geolocation.getCurrentPosition(function (position) {
-            setInitPositionOnMap(position);
+            setMapCenter(position);
 
             findAddressForCoordinates(position.coords.latitude, position.coords.longitude)
-
               .then(function (address) {
                 if (address !== null) {
                   map.searchAddress = address;
                   map.centerMarker.latitude = position.coords.latitude;
                   map.centerMarker.longitude = position.coords.longitude;
-                  Usersessionstates.states.address = address;
                 }
-                Usersessionstates.states.searchlocation = {
-                  coords: {
-                    latitude: map.center.latitude,
-                    longitude: map.center.longitude
-                  }
-                };
-                Usersessionstates.states.zoom = map.zoom;
-                Usersessionstates.states.address = map.searchAddress;
-
-                Usersessionstates.updateSession();
-                debug("RESOLVE WITH BROWSER STATE CHECKED");
-
+                saveMapStateToUsersession();
                 return deferred.resolve(map);
               });
 
           }, function (err) {
             debug("Could not set initial location, will initialize with default Torino", err);
-            Usersessionstates.states.searchlocation = {
-              coords: {
-                latitude: map.center.latitude,
-                longitude: map.center.longitude
-              }
-            };
-            Usersessionstates.states.zoom = map.zoom;
-            Usersessionstates.states.address = map.searchAddress;
-            Usersessionstates.updateSession();
-
-            map.centerMarker.latitude = 200;
-            map.centerMarker.longitude = 200;
-            debug("RESOLVE AFTER BROWSER STATE ERR", map.searchAddress);
+            saveMapStateToUsersession();
+            map.centerMarker.latitude = map.center.latitude;
+            map.centerMarker.longitude = map.center.longitude;
             return deferred.resolve(map);
           });
           return deferred.promise;
         }
-      };
-
-      this.onSearchChange = function () {
-        console.log("search changed");
-
-        setTimeOnStartAndEndDate();
-
-        this.geoCodeAddress(map.searchAddress)
-          .then(function (coords) {
-            if (coords !== null) {
-              map.center.latitude = coords.k;
-              map.center.longitude = coords.A;
-              map.centerMarker.latitude = coords.k;
-              map.centerMarker.longitude = coords.A;
-              map.zoom = config.locationsearch.zoom;
-            }
-            return findActivities();
-          })
-          .then(function (activities) {
-            setMarkers(activities);
-          })
-          .catch(function (err) {
-            debug("Something went wrong while searching activities", err);
-          });
       };
 
       this.getMarkerIcon = function (maincategorykey) {
