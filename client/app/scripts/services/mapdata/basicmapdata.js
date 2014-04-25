@@ -7,37 +7,15 @@
  http://stackoverflow.com/questions/13619837/angular-js-inject-new-instance-of-class
  */
 angular.module('anorakApp')
-  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates) {
+  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates, $timeout) {
 
     var mapdata = function () {
       var geocoder;
 
-      var setMarkersWithoutBlinking = function (activities) {
-        // we have here a mechanism to remove old activities from the map one by one
-        // otherwise if we do just an assignment, there will be blinking in the map when we move it
-        // this is really ugly but keeps the activities from blinking,
-        // because we have no direct assignment like
-        // map.markers = activities
-        var markersToKeep = [];
-        var newMarkers = [];
-        // all activities must be in map
-        _.each(activities, function (activity) {
-          var keepThisMarker = _.filter(map.markers, function (existingMarker) {
-            return activity._id === existingMarker._id;
-          });
-
-          if (keepThisMarker.length === 0) {
-            newMarkers.push(activity);
-          } else {
-            markersToKeep = markersToKeep.concat(keepThisMarker);
-          }
+      var setMarkers = function (activities) {
+        $timeout(function () {
+          map.markers = activities;
         });
-
-        markersToKeep = markersToKeep.concat(newMarkers);
-        map.markers = markersToKeep;
-
-        // @TODO apply ? move to proper place
-        $rootScope.$apply();
       };
 
       this.geoCodeAddress = function (address) {
@@ -158,7 +136,7 @@ angular.module('anorakApp')
         // look for activities within these bounds and in a date range from now until one year later
         findActivities()
           .then(function (activities) {
-            setMarkersWithoutBlinking(activities);
+            setMarkers(activities);
           })
           .catch(function (err) {
             debug("Something went wrong while searching activities", err);
@@ -189,7 +167,7 @@ angular.module('anorakApp')
             return findActivities();
           })
           .then(function (activities) {
-            setMarkersWithoutBlinking(activities);
+            setMarkers(activities);
           })
           .catch(function (err) {
             debug("Something went wrong while searching activities", err);
@@ -414,7 +392,7 @@ angular.module('anorakApp')
               return findActivities();
             })
             .then(function (activities) {
-              setMarkersWithoutBlinking(activities);
+              setMarkers(activities);
             })
             .catch(function (err) {
               debug("Something went wrong while searching activities", err);
@@ -448,7 +426,7 @@ angular.module('anorakApp')
             return findActivities();
           })
           .then(function (activities) {
-            setMarkersWithoutBlinking(activities);
+            setMarkers(activities);
           })
           .catch(function (err) {
             debug("Something went wrong while searching activities", err);
