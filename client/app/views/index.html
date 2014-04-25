@@ -105,14 +105,14 @@
     <div class="map-wrap">
 
       <google-map
-          center='map.center'
-          zoom='map.zoom'
+          center='frontendmap.map.center'
+          zoom='frontendmap.map.zoom'
           draggable='true'
-          events='map.events'
-          options='map.options'
+          events='frontendmap.map.events'
+          options='frontendmap.map.options'
           >
         <marker
-            ng-repeat="m in map.markers | filter:selectedCategoryFilter | markercoordsfilter track by m._id"
+            ng-repeat="m in frontendmap.map.markers | filter:selectedCategoryFilter | markercoordsfilter track by m._id"
             coords='m'
             click='onMarkerClicked(m)'
             options='markerOptions'
@@ -222,11 +222,11 @@
               />
         </marker>
 
-        <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
-        <div ng-init="opts = {animation:0}">
-          <marker coords="map.centerMarker"
+        <!--marker for clicked position can not put google.frontendmap.map.animations.BOUNCE , since it is not initialized yet-->
+        <div ng-init="opts = {animation:0}" ng-if="!(frontendmap.map.centerMarker.latitude === 200 && frontendmap.map.centerMarker.longitude === 200)">
+          <marker coords="frontendmap.map.centerMarker"
                   options="opts">
-            <marker-label content="map.centerMarker.title | translate"
+            <marker-label content="frontendmap.map.centerMarker.title | translate"
                           anchor="22 0"
                           class="marker-labels marker-labels-your-location"
                 />
@@ -241,13 +241,13 @@
       <strong>Map-Debug:</strong>
       <br/>
       <u>Map ZOOM:</u>
-      {{ map.zoom }}
+      {{ frontendmap.map.zoom }}
       <br/>
       <u>You clicked here:</u>
       <br/>
-      "longitude": {{ map.clickedMarker.longitude }}
+      "longitude": {{ frontendmap.map.clickedMarker.longitude }}
       <br/>
-      "latitude": {{ map.clickedMarker.latitude }}
+      "latitude": {{ frontendmap.map.clickedMarker.latitude }}
     </div>
 
   </div>

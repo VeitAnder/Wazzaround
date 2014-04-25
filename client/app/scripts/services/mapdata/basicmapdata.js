@@ -41,7 +41,6 @@ angular.module('anorakApp')
       };
 
       this.geoCodeAddress = function (address) {
-        console.log("geoCode Address");
         var defer = $q.defer();
         if (!address) {
           defer.resolve(null);
@@ -166,6 +165,37 @@ angular.module('anorakApp')
           });
       };
 
+      var onSearchChange = function () {
+        console.log("search changed");
+
+        setTimeOnStartAndEndDate();
+
+        geoCodeAddress(map.searchAddress)
+          .then(function (coords) {
+            if (coords !== null) {
+              console.log("CENTER MARKER AFTER SEARCH CHANGE", map.searchAddress);
+              map.center.latitude = coords.k;
+              map.center.longitude = coords.A;
+              map.centerMarker.latitude = coords.k;
+              map.centerMarker.longitude = coords.A;
+              map.zoom = config.locationsearch.zoom;
+
+              Usersessionstates.states.searchlocation.coords = angular.copy(map.center);
+              Usersessionstates.states.zoom = map.zoom;
+              Usersessionstates.states.address = map.searchAddress;
+              Usersessionstates.updateSession();
+
+            }
+            return findActivities();
+          })
+          .then(function (activities) {
+            setMarkersWithoutBlinking(activities);
+          })
+          .catch(function (err) {
+            debug("Something went wrong while searching activities", err);
+          });
+      };
+
       // standard configs for the map, for trying out
       var config = {
         locationsearch: {
@@ -233,6 +263,8 @@ angular.module('anorakApp')
         }
       };
 
+      this.map = map;
+
       var findAddressForCoordinates = function (latitude, longitude) {
 
         var deferred = Q.defer();
@@ -250,8 +282,6 @@ angular.module('anorakApp')
               debug('No address found for coordinates');
               deferred.resolve(null);
             }
-            $rootScope.$broadcast("SetAddressEvent");
-            $rootScope.$apply();
           }
         });
         return deferred.promise;
@@ -275,8 +305,6 @@ angular.module('anorakApp')
 
         // don't update Usersessionstates here, it will overwrite stuff !!!
         function setInitPositionOnMap(position) {
-          map.centerMarker.latitude = position.coords.latitude;
-          map.centerMarker.longitude = position.coords.longitude;
           map.center.latitude = position.coords.latitude;
           map.center.longitude = position.coords.longitude;
         }
@@ -287,17 +315,31 @@ angular.module('anorakApp')
         if ((Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
           debug("Got Usersessionstates, will set position");
 
-          setInitPositionOnMap(Usersessionstates.states.searchlocation);
-
           if (Usersessionstates.states.zoom) {
             map.zoom = Usersessionstates.states.zoom;
           }
 
           if (Usersessionstates.states.address) {
             map.searchAddress = Usersessionstates.states.address;
+            geoCodeAddress(map.searchAddress)
+              .then(function (coords) {
+                if (coords !== null) {
+                  var position = {
+                    coords: {
+                      latitude: coords.k,
+                      longitude: coords.A
+                    }
+                  };
+                  setInitPositionOnMap(position);
+                  map.centerMarker.latitude = coords.k;
+                  map.centerMarker.longitude = coords.A;
+                }
+                return Q.resolve(map);
+              });
+          } else {
+            setInitPositionOnMap(Usersessionstates.states.searchlocation);
+            return Q.resolve(map);
           }
-
-          return Q.resolve(map);
 
         } else {
           var deferred = Q.defer();
@@ -314,6 +356,8 @@ angular.module('anorakApp')
               .then(function (address) {
                 if (address !== null) {
                   map.searchAddress = address;
+                  map.centerMarker.latitude = position.coords.latitude;
+                  map.centerMarker.longitude = position.coords.longitude;
                   Usersessionstates.states.address = address;
                 }
                 Usersessionstates.states.searchlocation = {
@@ -340,17 +384,52 @@ angular.module('anorakApp')
               }
             };
             Usersessionstates.states.zoom = map.zoom;
-            Usersessionstates.states.address = map.address;
-
+            Usersessionstates.states.address = map.searchAddress;
             Usersessionstates.updateSession();
-            debug("RESOLVE AFTER BROWSER STATE ERR");
+
+            map.centerMarker.latitude = 200;
+            map.centerMarker.longitude = 200;
+            debug("RESOLVE AFTER BROWSER STATE ERR", map.searchAddress);
             return deferred.resolve(map);
           });
           return deferred.promise;
         }
-      };
 
-      this.map = map;
+        this.map = map;
+
+        this.onSearchChange = function () {
+          console.log("search changed");
+
+          setTimeOnStartAndEndDate();
+
+          this.geoCodeAddress(map.searchAddress)
+            .then(function (coords) {
+              if (coords !== null) {
+                map.center.latitude = coords.k;
+                map.center.longitude = coords.A;
+                map.centerMarker.latitude = coords.k;
+                map.centerMarker.longitude = coords.A;
+                map.zoom = config.locationsearch.zoom;
+              }
+              return findActivities();
+            })
+            .then(function (activities) {
+              setMarkersWithoutBlinking(activities);
+            })
+            .catch(function (err) {
+              debug("Something went wrong while searching activities", err);
+            });
+        };
+
+        this.getMarkerIcon = function (maincategorykey) {
+          if (maincategorykey) {
+            return "/img/mapicons/marker-" + maincategorykey + ".svg";
+          } else {
+            return "/img/mapicons/marker.svg";
+          }
+        };
+
+      };
 
       this.onSearchChange = function () {
         console.log("search changed");
@@ -388,4 +467,3 @@ angular.module('anorakApp')
 
     return mapdata;
   });
-
