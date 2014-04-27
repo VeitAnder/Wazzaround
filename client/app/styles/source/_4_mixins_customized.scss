@@ -455,6 +455,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   width: 100%;
 }
 
+
 .event-list {
   display: block;
   @include seperator(top, $color_grey_50);
@@ -488,18 +489,19 @@ googleMap, .angular-google-map, .angular-google-map-container {
     text-align: right;
   }
 
+
   .event-add {
     margin-top: 10px;
   }
 
-  .activity-edit & {
+  .activity-edit &{
     .event-date {
       width: 25%;
     }
     .event-time {
       width: 15%;
     }
-    .cell.listaction {
+    .cell.listaction{
       width: 20%;
     }
   }
@@ -531,10 +533,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
   .form-group {
     @include divtable_cell;
-    &.first {
+    &.first{
       padding-left: 0;
     }
-    &.last {
+    &.last{
       padding-right: 0;
     }
   }
@@ -552,19 +554,19 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
   .quantity {
     width: 50%;
-    input {
+    input{
       text-align: right;
     }
   }
 
-  .price {
+  .price{
     width: 50%;
-    input {
+    input{
       text-align: right;
     }
   }
 
-  .from-until {
+  .from-until{
     height: $input-height;
     width: 5%;
     margin-top: (21px + 5px + 10px);
@@ -572,7 +574,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     @include border-radius($border-radius_small);
     @include divtable_cell;
     padding: 0;
-    span {
+    span{
       margin: ($input-height*0.5 - 6px) auto 0;
       display: block;
       width: 7px;
@@ -581,7 +583,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
 
-  .event-duration-block {
+  .event-duration-block{
     background-color: $color_grey_25;
     color: $color_grey;
     @include font-size_small;
@@ -591,11 +593,11 @@ googleMap, .angular-google-map, .angular-google-map-container {
     clear: both;
   }
 
-  .date-until {
+  .date-until{
     width: 50%;
   }
 
-  .alert {
+  .alert{
     display: block;
   }
 
@@ -819,7 +821,7 @@ shoppingcart {
     height: $shoppingcart-toggle-width;
     @include border-left-radius($border-radius-small);
     background-color: $color_green;
-    @include sprite_icons(-141px, 15px, no-repeat);
+    @include sprite_icons(9px, -88px, no-repeat);
     text-align: right;
     padding: 0 3px;
   }
@@ -839,7 +841,7 @@ shoppingcart {
   .active & {
     .innerwrap {
       background-color: $color_red;
-      background-position: -76px 14px;
+      background-position: -95px 13px;
       background-size: 600%;
     }
     .numberofitems {
@@ -964,209 +966,6 @@ shoppingcart {
   .value {
     text-align: right;
     margin-left: 2%;
-  }
-}
-
-$activitybar-currentitem-width: 60%;
-$activitybar-height: 200px;
-
-@mixin activitybar-a-imghover {
-  img {
-    opacity: 0.25;
-  }
-  &:hover {
-    img {
-      opacity: 0.50;
-    }
-  }
-}
-
-.activitybar {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  overflow: hidden;
-  background-color: $color_grey_25;
-
-  .activitybar-item {
-    position: relative;
-    overflow: hidden;
-    height: $activitybar-height;
-    float: left;
-    img {
-      min-height: $activitybar-height;
-      width: auto;
-    }
-
-    &.activitybar-item-beforeprev {
-      @include activitybar-a-imghover;
-      width: 10%;
-    }
-    &.activitybar-item-prev {
-      @include activitybar-a-imghover;
-      width: 10%;
-    }
-    &.activitybar-item-current {
-      width: 60%;
-      img {
-        min-width: 100%;
-        height: auto;
-      }
-      &:hover {
-        .activity-detail-toggle {
-          background-color: $color_green_75;
-        }
-      }
-      .triangle {
-        position: absolute;
-        display: block;
-        width: 25px;
-        height: 12.5px;
-        top: -50px;
-        @include triangle(50px, $color_white, down);
-        left: 50%;
-        margin-left: -25px;
-        @include animation_all;
-      }
-    }
-    &.activitybar-item-next {
-      @include activitybar-a-imghover;
-      width: 10%;
-    }
-    &.activitybar-item-afternext {
-      @include activitybar-a-imghover;
-      width: 10%;
-    }
-  }
-
-  .activity-nav {
-    position: absolute;
-    top: 50%;
-    margin-top: -65px*0.5;
-    width: 65px;
-    height: 65px;
-    background-color: $color_white;
-    span {
-      display: block;
-      margin-top: 20px;
-      margin-left: 19px;
-      @include sprite_icons(7px, -100px, no-repeat);
-      width: 25px;
-      height: 25px;
-    }
-    &.activity-nav-next {
-      left: 0;
-      @include border-right-radius($border-radius);
-    }
-    &.activity-nav-prev {
-      right: 0;
-      @include border-left-radius($border-radius);
-      span {
-        @include rotate(180deg);
-      }
-    }
-  }
-
-  .activity-detail-toggle {
-    position: absolute;
-    top: $bu;
-    right: $bu;
-    width: 30px;
-    height: 30px;
-    @include border-radius(15px);
-    background-color: $color_green;
-    @include rotate(270deg);
-    @include animation_all;
-    span {
-      display: block;
-      width: 15px;
-      height: 15px;
-      margin-top: 7px;
-      margin-left: 7px;
-      @include sprite_icons(-20px, -85px, no-repeat);
-    }
-  }
-
-  .activity-title {
-    position: absolute;
-    bottom: $bu;
-    left: $bu;
-    margin: 0;
-    color: $color_white;
-    font-weight: $font-weight_extrabold;
-    font-size: $fs*$font-size_h5_factor;
-  }
-
-  .activity-distance-element {
-    position: absolute;
-    top: $bu;
-    left: $bu;
-    height: 30px;
-    padding: 5px;
-    @include border-radius(15px);
-    background-color: $color_white;
-  }
-
-  .current-location {
-    vertical-align: middle;
-    display: block;
-    float: left;
-    width: 20px;
-    height: 20px;
-    @include sprite_icons(-200px, 0, no-repeat);
-  }
-
-  .activity-distance-txt {
-    vertical-align: middle;
-    display: block;
-    float: left;
-    margin: 0 5px;
-    color: $color_text;
-    font-weight: $font-weight_bold;
-    font-size: $fs*$font-size_small_factor;
-    line-height: 20px;
-  }
-
-  .activity-location {
-    @include icon;
-    position: static;
-    display: block;
-    float: left;
-    background-position: -45px 6px;
-    background-color: $color_green;
-  }
-
-  &.activitydetailactive {
-    .activity-detail-toggle {
-      @include rotate(90deg);
-    }
-    .activitybar-item-current{
-      .triangle {
-        top: 0;
-      }
-    }
-  }
-
-}
-
-.activitybar-detail {
-  position: absolute;
-  bottom: -100%;
-  left: 50%;
-  margin-left: -$activitybar-currentitem-width*0.5;
-  width: $activitybar-currentitem-width;
-  padding: $bu*2.0;
-  background-color: $color_white;
-  @include border-top-radius($border-radius);
-  @include activity-content;
-  @include animation_position;
-  .txt-icon-delete {
-    position: absolute;
-    top: $bu;
-    right: $bu;
-  }
-  &.activitydetailactive {
-    bottom: $activitybar-height;
   }
 }
 
@@ -2190,21 +1989,16 @@ $filter-category-arrow-width: 65px;
   }
 }
 
-$img-selector-imgsize: 100px;
-$img-selector-teaserimgsize: 150px;
+$img-selector-imgsize: 150px;
 $img-selector-teasertxtheight: 35px;
 
 .img-selector {
-  .img-teaser {
+  .img-teaser{
     display: none;
   }
   overflow: hidden;
-  label + .img-block {
-    img {
-      width: $img-selector-teaserimgsize;
-      height: $img-selector-teaserimgsize;
-    }
-    .img-teaser {
+  label + .img-block{
+    .img-teaser{
       display: block;
       position: relative;
       top: -$img-selector-teasertxtheight;
@@ -2215,7 +2009,8 @@ $img-selector-teasertxtheight: 35px;
       color: $color_white;
       text-align: center;
       font-weight: $font-weight_bold;
-      content: "Teaser Image";
+      @include border-bottom-radius($border-radius_small);
+      content:"Teaser Image";
     }
   }
   .img-block {

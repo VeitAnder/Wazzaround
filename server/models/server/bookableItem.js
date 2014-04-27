@@ -10,7 +10,6 @@ var ObjectId = require('mongojs').ObjectId;
 var BookableItemModel = require('../models.js').BookableItemModel;
 
 
-
 ///////////////////////
 // read/write filters
 
