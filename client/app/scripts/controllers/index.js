@@ -140,11 +140,15 @@ angular.module('anorakApp')
 
     $scope.onMarkerClicked = function (markerClicked) {
       debug("Marker: lat: " + markerClicked.latitude + ", lon: " + markerClicked.longitude + " clicked!!");
+
+      //deselect all except clicked on
       _.each($scope.frontendmap.map.markers, function (marker) {
         if (marker._id === markerClicked._id) {
-          markerClicked.showWindow = true;
+          marker.showWindow = true;
+          marker.selected = true;
         } else {
           marker.showWindow = false;
+          marker.selected = false;
         }
       });
     };
@@ -304,9 +308,12 @@ angular.module('anorakApp')
 
     $scope.getAddress = frontendmap.getAddress;
 
-// every activity has bookableItems, like Quadfahren
-// this bookableItem Quadfahren has events, like 1.3. Quadfahren, 2.3. Quadfahren, 3.3. Quadfahren
-// sort these events by date and save 3 to be displayed when user klicks on activity in index page
+
+//
+//
+////every activity has bookableItems, like Quadfahren
+////this bookableItem Quadfahren has events, like 1.3. Quadfahren, 2.3. Quadfahren, 3.3. Quadfahren
+////sort these events by date and save 3 to be displayed when user klicks on activity in index page
 //    $scope.getNextAvailableEvents = function () {
 //
 //      if ($scope.frontendmap.map.markers.length > 0) {
@@ -332,6 +339,11 @@ angular.module('anorakApp')
 //
 //    };
 //    $scope.getNextAvailableEvents();
+//
+//
+
+
+
 
     $scope.putIntoShoppingCart = function (activity, event) {
       debug("Put into shopping cart", activity, event);

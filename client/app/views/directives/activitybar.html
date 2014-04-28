@@ -9,7 +9,7 @@
 
   <h4>
     <span class="icon"></span>
-    {{activity.name | languageselect}}
+    <!--{{activity.name | languageselect}}-->
   </h4>
   <div class="input-label">
     {{'Company offering this activity' | translate}}
@@ -27,32 +27,33 @@
   </h5>
 
   <div class="description">
-    <div ta-bind
-         ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]"></div>
+    <!--    <div ta-bind
+             ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]">
+        </div>-->
   </div>
 
   <div class="availability">
     <div class="input-label">{{'Availability' | translate}}</div>
 
-    <bookableitemlist data-bookableitems="activity.bookableItems"
-                      data-itemsperpage="5"
-        >
-    </bookableitemlist>
+    <!--<bookableitemlist data-activity="activity">-->
+    <!--</bookableitemlist>-->
   </div>
 
 </activitybardetail>
 
-<activitybar class="activitybar"
-             ng-class="{activitydetailactive: activitydetail === true}">
+
+
+<div class="activitybar"
+     ng-class="{activitydetailactive: activitydetail === true}">
 
   <div class="activitybar-item activitybar-item-beforeprev">
     <a ng-href="">
-      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg" />
+      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg"/>
     </a>
   </div>
   <div class="activitybar-item activitybar-item-prev">
     <a ng-href="">
-      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg" />
+      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg"/>
       <div class="activity-nav activity-nav-prev">
         <span class="hideme">previous activity</span>
         <span></span>
@@ -62,7 +63,7 @@
   <div class="activitybar-item activitybar-item-current">
     <a ng-href=""
        ng-click="activitydetail = !activitydetail">
-      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg" />
+      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg"/>
       <div class="activity-detail-toggle">
         <span class="hideme">show/hide activity detail</span>
         <span></span>
@@ -78,7 +79,7 @@
   </div>
   <div class="activitybar-item activitybar-item-next">
     <a ng-href="">
-      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg" />
+      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg"/>
       <div class="activity-nav activity-nav-next">
         <span class="hideme">next activity</span>
         <span></span>
@@ -87,8 +88,8 @@
   </div>
   <div class="activitybar-item activitybar-item-afternext">
     <a ng-href="">
-      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg" />
+      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg"/>
     </a>
   </div>
 
-</activitybar>
+</div>
