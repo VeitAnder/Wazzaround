@@ -1,10 +1,11 @@
+"use strict";
+
 /*
  IE - if console is not defined, handle it to not block execution in IE <= 9
  */
 // make it safe to use console.log always
 // http://www.jquery4u.com/snippets/safe-console-log/
 (function (a) {
-  "use strict";
   function b() {
   }
 
@@ -13,7 +14,7 @@
   }
 })
 ((function () {
-  "use strict";
+  
   try {
     console.log();
     return window.console;
@@ -57,7 +58,6 @@ angular.module('anorakApp').constant('I18NMESSAGES', {
 
 angular.module('anorakApp')
   .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $translateProvider) {
-    'use strict';
 
     $locationProvider.html5Mode((function () {
       return !!(window.history && history.pushState);
@@ -1030,8 +1030,6 @@ angular.module('anorakApp')
 
   })
   .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate) {
-    "use strict";
-
     debug("application run called");
     $rootScope.debug = debug;
     $rootScope.models = models;
@@ -1104,8 +1102,6 @@ angular.module('anorakApp')
 // DO not remove logging from DI list!
 angular.module('anorakApp')
   .controller('AppCtrl', function ($scope, $location, $translate) {
-    'use strict';
-
     $scope.gotoLogin = function () {
       $location.path('/login/');
     };
