@@ -115,10 +115,16 @@
   </div>
 
   <div class="buttonbar">
-    <a ng-click="shoppingcart.checkout()"
-       class="btn btn-negative">
+    <a ng-click="checkout()"
+       class="btn btn-negative"
+       ng-class="{disabled: states.checkoutinprogress || shoppingcart.getTotal().num < 1}"
+        >
       Checkout (Step 1 of 3)
     </a>
+  </div>
+
+  <div ng-show="states.checkoutinprogress">
+    Checkout in Progress - please fill in your data @ Kalixa.
   </div>
 
 </div>

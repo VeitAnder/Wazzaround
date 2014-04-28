@@ -15,8 +15,6 @@ angular.module('anorakApp')
     var theShoppingCart = {};
     var dictCounter = 0;
 
-    var state = "view";
-
     this.add = function (item) {
       console.log("item", item);
       var idxOfTheItem = dictCounter;
@@ -62,16 +60,13 @@ angular.module('anorakApp')
       for (var i in theShoppingCart) {
         params.push({
           activity : theShoppingCart[i].activityId,
-          item : theShoppingCart[i].itemId,
+          item : theShoppingCart[i].bookableItemId,
           event : theShoppingCart[i].eventId,
           quantity : theShoppingCart[i].quantity
         });
       }
 
-      state = "checkout";
-      models.BookingModel.checkout({'bookings' : params}).then(function(){
-        state = "checkout_complete";
-      }).done();
+      return models.BookingModel.checkout({'bookings' : params});
     };
 
   });

@@ -140,11 +140,15 @@ angular.module('anorakApp')
 
     $scope.onMarkerClicked = function (markerClicked) {
       debug("Marker: lat: " + markerClicked.latitude + ", lon: " + markerClicked.longitude + " clicked!!");
+
+      //deselect all except clicked on
       _.each($scope.frontendmap.map.markers, function (marker) {
         if (marker._id === markerClicked._id) {
-          markerClicked.showWindow = true;
+          marker.showWindow = true;
+          marker.selected = true;
         } else {
           marker.showWindow = false;
+          marker.selected = false;
         }
       });
     };

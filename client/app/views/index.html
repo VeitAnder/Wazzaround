@@ -1,3 +1,5 @@
+
+
 <div class="map-selection-block">
 
   <div class="section section-map">
@@ -103,6 +105,11 @@
 
     <div class="map-wrap">
 
+      states.filteredactivities.length
+      {{states.filteredactivities.length}}
+
+      {{states.filteredactivities[0].selected}}
+
       <google-map
           center='frontendmap.map.center'
           zoom='frontendmap.map.zoom'
@@ -111,7 +118,7 @@
           options='frontendmap.map.options'
           >
         <marker
-            ng-repeat="m in frontendmap.map.markers | filter:selectedCategoryFilter | markercoordsfilter track by m._id"
+            ng-repeat="m in states.filteredactivities = (frontendmap.map.markers | filter:selectedCategoryFilter | markercoordsfilter) track by m._id"
             coords='m'
             click='onMarkerClicked(m)'
             options='markerOptions'
@@ -186,9 +193,12 @@
 
       </google-map>
 
-      <activitybarelement
-          data-ng-include="'views/directives/activitybar.html'">
-      </activitybarelement>
+
+
+
+
+      <activitybar filteredactivities="states.filteredactivities">
+      </activitybar>
 
     </div>
 

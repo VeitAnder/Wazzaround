@@ -11,6 +11,7 @@ angular.module('anorakApp')
       compile: function compile(tElement, tAttrs, transclude) {
         return {
           pre: function preLink(scope, element, attrs, controller) {
+
             scope.addToShoppingCart = function (event, bookableItem, activity) {
               shoppingcart.add({
                 eventId: event._id,
@@ -25,6 +26,7 @@ angular.module('anorakApp')
                 image: activity.images[0]
               });
             };
+
           },
           post: function postLink(scope, iElement, iAttrs, controller) {
 

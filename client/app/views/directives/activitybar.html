@@ -27,9 +27,9 @@
   </h5>
 
   <div class="description">
-<!--    <div ta-bind
-         ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]">
-    </div>-->
+    <!--    <div ta-bind
+             ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]">
+        </div>-->
   </div>
 
   <div class="availability">
@@ -41,8 +41,10 @@
 
 </activitybardetail>
 
-<activitybar class="activitybar"
-             ng-class="{activitydetailactive: activitydetail === true}">
+
+
+<div class="activitybar"
+     ng-class="{activitydetailactive: activitydetail === true}">
 
   <div class="activitybar-item activitybar-item-beforeprev">
     <a ng-href="">
@@ -90,4 +92,4 @@
     </a>
   </div>
 
-</activitybar>
+</div>
