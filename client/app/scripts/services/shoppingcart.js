@@ -1,12 +1,12 @@
 'use strict';
 
-var assert = function (condition, message) {
-  if (!condition) {
-    console.log('Assertion failed', message);
-    console.trace();
-    throw new Error(message || "Assertion failed");
-  }
-};
+//var assert = function (condition, message) {
+//  if (!condition) {
+//    console.log('Assertion failed', message);
+//    console.trace();
+//    throw new Error(message || "Assertion failed");
+//  }
+//};
 
 angular.module('anorakApp')
   .service('shoppingcart', function shoppingcart() {
