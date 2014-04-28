@@ -60,7 +60,7 @@ angular.module('anorakApp')
     this.checkout = function () {
       var params = [];
       for (var i in theShoppingCart) {
-        parms.push({
+        params.push({
           activity : theShoppingCart[i].activityId,
           item : theShoppingCart[i].itemId,
           event : theShoppingCart[i].eventId,
@@ -69,7 +69,7 @@ angular.module('anorakApp')
       }
 
       state = "checkout";
-      models.BookingModel.checkout(parms).then(function(){
+      models.BookingModel.checkout({'bookings' : params}).then(function(){
         state = "checkout_complete";
       }).done();
     };

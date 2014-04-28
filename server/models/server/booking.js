@@ -34,13 +34,18 @@ BookingModel.writeFilter(function (obj, req) {
 // Operation Impl.
 
 BookingModel.operationImpl("checkout", function (params, req) {
-  assert(params.bookings && Array.isArray(params.bookings), "you need to provide a bookings-array");
-
   console.log("In checkout()", params);
+
+  assert(params.bookings && Array.isArray(params.bookings), "you need to provide a bookings-array");
 
   var bookingPromises = [];
 
   _.forEach(params.bookings, function(bookingEvent) {
+    assert(bookingEvent.activity, "provide an activity");
+    assert(bookingEvent.item, "provide an item");
+    assert(bookingEvent.event, "provide an event");
+    assert(bookingEvent.quantity, "provide a quantity");
+
     var booking = BookingModel.create();
 
     if (req.session.user) {  // user is loggedin save the user
