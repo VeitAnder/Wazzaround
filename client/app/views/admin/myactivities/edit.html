@@ -29,22 +29,6 @@
 
       </div>
 
-      <div class="form-group">
-        <label for="company">{{'Company offering this activity' | translate}}</label>
-        <input type="text"
-               class="form-control"
-               id="company"
-               name="company"
-               placeholder="{{'Enter company' | translate}}"
-               ng-model="activity.company"
-               required
-            >
-
-        <span ng-show="showError('company', 'required')"
-              class="alert">{{'Please enter the name of your company.' | translate}}
-        </span>
-      </div>
-
       <activitylocationselector data-activity="activity">
       </activitylocationselector>
 

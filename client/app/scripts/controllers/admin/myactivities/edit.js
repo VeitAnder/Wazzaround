@@ -11,7 +11,7 @@ angular.module('anorakApp')
     $scope.categories = categories;
 
   })
-  .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, $route, $rootScope, $translate) {
+  .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, $route, $rootScope, $translate, currentUser) {
 
     console.log("AdminMyactivitiesEditCtrl executed");
 
@@ -214,6 +214,8 @@ angular.module('anorakApp')
         }
 
         $scope.state.saveinprogress = true;
+
+        $scope.activity.company = currentUser.user.profile.company;
 
         $scope.activity.save()  // save the activity
           .then(function (activity) {
