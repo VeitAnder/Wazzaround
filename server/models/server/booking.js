@@ -36,6 +36,8 @@ BookingModel.writeFilter(function (obj, req) {
 BookingModel.operationImpl("checkout", function (params, req) {
   assert(params.bookings && Array.isArray(params.bookings), "you need to provide a bookings-array");
 
+  console.log("In checkout()", params);
+
   var bookingPromises = [];
 
   _.forEach(params.bookings, function(bookingEvent) {

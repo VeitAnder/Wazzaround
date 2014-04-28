@@ -9,11 +9,13 @@
 //};
 
 angular.module('anorakApp')
-  .service('shoppingcart', function shoppingcart() {
+  .service('shoppingcart', function shoppingcart(models) {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
     var theShoppingCart = {};
     var dictCounter = 0;
+
+    var state = "view";
 
     this.add = function (item) {
       console.log("item", item);
@@ -56,6 +58,20 @@ angular.module('anorakApp')
     };
 
     this.checkout = function () {
+      var params = [];
+      for (var i in theShoppingCart) {
+        parms.push({
+          activity : theShoppingCart[i].activityId,
+          item : theShoppingCart[i].itemId,
+          event : theShoppingCart[i].eventId,
+          quantity : theShoppingCart[i].quantity
+        });
+      }
 
+      state = "checkout";
+      models.BookingModel.checkout(parms).then(function(){
+        state = "checkout_complete";
+      }).done();
     };
+
   });
