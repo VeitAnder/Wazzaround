@@ -339,7 +339,9 @@
                 <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
                   <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
                   <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
-                  <div class="event-duration cell">{{getTimeDifference(event.start, event.end)}}</div>
+                  <div class="event-duration cell">
+                    {{ {start:event.start, end:event.end} | duration }}
+                  </div>
                   <div class="event-quantity cell">{{event.quantity}}x</div>
                   <div class="event-price cell">{{event.price}}</div>
                   <div class="listaction cell">

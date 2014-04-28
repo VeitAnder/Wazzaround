@@ -38,7 +38,7 @@
         <strong>
           {{item.description[getAvailableTranslationLanguageKey(item.description)] }}
         </strong>
-        / {{item.duration}}
+        / {{ {start:item.start, end:item.end} | duration }}
       </h4>
 
       <div class="shoppingcart-item-details">

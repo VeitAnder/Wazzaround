@@ -2,7 +2,6 @@
   <h5>{{'No events to display yet' | translate}}</h5>
 </div>
 
-
 <div ng-repeat="bookableItem in activity.bookableItems"
      class="event-list">
 
@@ -23,7 +22,10 @@
     <div class="event-row">
       <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
       <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
-      <div class="event-duration cell">{{bookableItem.duration}}h</div>
+      <div class="event-duration cell">
+        {{ {start:event.start, end:event.end} | duration }}
+      </div>
+
       <div class="event-quantity cell">{{event.quantity}}x</div>
       <div class="event-price cell">{{event.price}}</div>
 
@@ -32,10 +34,6 @@
     </div>
   </div>
 </div>
-
-
-
-
 
 <div class="availability-footer">
   <div class="cell first">
