@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('bookableitemlist', function (shoppingcart) {
+  .directive('bookableitemlist', function (shoppingcart, $timeout) {
     return {
       templateUrl: 'views/directives/bookableitemlist.html',
       restrict: 'E',
@@ -24,6 +24,10 @@ angular.module('anorakApp')
                 end: event.end,
                 category: activity.category.main,
                 image: activity.images[0]
+              });
+
+              $timeout(function () {
+                scope.$apply();
               });
             };
 
