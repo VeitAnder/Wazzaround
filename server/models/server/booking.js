@@ -22,11 +22,7 @@ function assert(condition, message) {
 // read/write filters
 
 BookingModel.readFilter(function(req) {
-  if (!req.session.auth) {
-    return false;  // if not logged in don't allow write operations
-  }
-
-  return { "owner._reference" : ObjectId(req.session.user._id) };
+  return false;  // only server is allowed to make changes
 });
 
 BookingModel.writeFilter(function (obj, req) {
@@ -37,63 +33,62 @@ BookingModel.writeFilter(function (obj, req) {
 ///////////////////////
 // Operation Impl.
 
-BookingModel.operationImpl("buy", function (params, req) {
-  var checkAvailability = function(booking) {
-    return models.BookableItemModel.get(ObjectId(booking.item))
-      .then(function(item){
-        var event = _.find(item.events, function(event) { return event.start.toISOString() === booking.start; });
-        if (event === undefined) return Q.reject("Event not found");
-        if (event.quantity < booking.quantity) return Q.reject("Not enough booked items available");
-        return Q.resolve(item);
-      });
-  };
+BookingModel.operationImpl("checkout", function (params, req) {
+  assert(params.bookings && Array.isArray(params.bookings), "you need to provide a bookings-array");
 
-  assert(Array.isArray(params.bookings));
+  var bookingPromises = [];
 
-  Q()
-    .then(function(){
-      var availablePromises = [];
-      _.forEach(params.bookings, function(booking){
-        // 1. is Available
-        assert(booking.activity && booking.item && booking.start &&  booking.quantity);
+  _.forEach(params.bookings, function(bookingEvent) {
+    var booking = BookingModel.create();
 
-        availablePromises.push(checkAvailability(booking));
-      });
+    if (req.session.user) {  // user is loggedin save the user
+      booking.user._reference = ObjectId(req.session.user._id);
+    }
 
-      return Q.all(availablePromises);  // wait until all promises are settled
-    })
-    .then(function(items){
-      console.log("items", items);
+    bookingPromises.push(
+      Q()
+        .then(function(){
+          return booking.save();
+        })
+        .then(function() {
+          return model.ActivityModel.get(ObjectId(bookingEvent.activity));
+        })
+        .then(function(activity) {  // get an _id
 
-      var savePromises = [];
-      _.forEach(items, function(item) {
-        var booking = _.find(params.bookings, function(booking){ return booking.item == item._id.toString(); });
-        var event = _.find(item.events, function(event) { return event.start.toISOString() === booking.start; });
-        event.quantity -= booking.quantity; // decrement
+          // todo quantity calculation
+          /*
+           _.forEach(params.bookings, function(booking) {
+           // check if is avaiable
+           var quantity_total;
+           models.ActivityModel.get(ObjectId(booking.activity))
+           .then(function(activity) {
+           quantity_total = activity.getChild(booking.event).quantity;
 
-        savePromises.push(item.save());  // 2. save decrement
+           return models.BookedEventModel.bookedQuantity({event : booking.event});
+           })
+           .then(function(bookedEvents) {
+           var quantity_booked = bookedEvents.quantity;
+           var quantity_availabe = quantity_total - quantity_booked;
+           })
+           // create booked event
+           });
+           */
 
-        // 3. add to booking
-        var bookingObj = BookingModel.create();
+          var bookedEvent = model.BookedEventModel.create();
+          bookedEvent.booking.setObject(booking);
+          bookedEvent.activity.setObject(activity);
+          bookedEvent.item._link = ObjectId(bookingEvent.item);
+          bookedEvent.event._link = ObjectId(bookingEvent.event);
 
-        bookingObj.activity._reference = ObjectId(booking.activity);
-        bookingObj.item.setObject(item);
-        bookingObj.start = new Date(booking.start);
-        bookingObj.quantity = booking.quantity;
+          bookedEvent.activityCopy = activity;  // kopie der orginal-daten
+          return bookedEvent.save();
+        })
+      );
 
-        bookingObj.owner.setObject(item.owner);
+  });
 
-        savePromises.push(bookingObj.save());
-      });
-
-      return Q.all(savePromises);
-    })
-    .fail(function(err){
-      console.log("err", err);
-      // throw err;
-    });
-
-
-  // 4. later: payment
+  Q.all(bookingPromises).then(function() {
+    return {state: "ok"};
+  });
 
 });

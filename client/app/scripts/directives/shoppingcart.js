@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('shoppingcart', function (Shoppingcart) {
+  .directive('shoppingcart', function (shoppingcart) {
     return {
       templateUrl: 'views/directives/shoppingcart.html',
       restrict: 'E',
