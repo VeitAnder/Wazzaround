@@ -15,4 +15,9 @@ angular.module('momentjs', []).
       moment.lang($translate.use());
       return moment(data).format(config.format);
     };
+  })
+  .filter('duration', function () {
+    return function (data, config) {
+      return moment.duration(data.start - data.end).humanize();
+    };
   });

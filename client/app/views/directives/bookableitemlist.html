@@ -2,12 +2,12 @@
   <h5>{{'No events to display yet' | translate}}</h5>
 </div>
 
-<div ng-repeat="item in activity.bookableItems"
+<div ng-repeat="bookableItem in activity.bookableItems"
      class="event-list">
 
   <h5>
     {{'Event' | translate}}:
-    {{item.description | languageselect}}
+    {{bookableItem.description | languageselect}}
   </h5>
 
   <div class="event-header">
@@ -17,24 +17,23 @@
     <div class="event-quantity cell">{{'Qty' | translate}}</div>
     <div class="event-price cell">{{'Price' | translate}}</div>
   </div>
-  <div ng-repeat="(idx,event) in item.events"
+  <div ng-repeat="(idx,event) in bookableItem.events"
        class="event-body">
     <div class="event-row">
       <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
       <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
-      <div class="event-duration cell">{{item.duration}}h</div>
-      <div class="event-quantity cell">{{event.quantity}}x</div>
-      <div class="event-price cell">???</div>
+      <div class="event-duration cell">
+        {{ {start:event.start, end:event.end} | duration }}
+      </div>
 
-      <a ng-click="bookevent(event._id)">book</a>
+      <div class="event-quantity cell">{{event.quantity}}x</div>
+      <div class="event-price cell">{{event.price}}</div>
+
+      <a ng-click="addToShoppingCart(event, bookableItem, activity)">book</a>
 
     </div>
   </div>
 </div>
-
-
-
-
 
 <div class="availability-footer">
   <div class="cell first">

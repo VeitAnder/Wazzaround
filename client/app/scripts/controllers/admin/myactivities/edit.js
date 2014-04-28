@@ -332,8 +332,4 @@ angular.module('anorakApp')
       }
     }, true);
 
-    $scope.getTimeDifference = function (start, end) {
-      return moment.duration(start - end).humanize();
-    };
-
   });
