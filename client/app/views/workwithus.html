@@ -1,113 +1,206 @@
 <div data-ng-controller="WorkwithusCtrl">
 
-  <h2>reActure – {{ 'Work with us' | translate }}!</h2>
-
-  <div data-ng-show="lang == 'en'">
-
-    <p class="preface">
-      You are a tour guide in Paris?
-      You rent out Quads in Asti?
-      You´re having a small dance festival organized in Nevada?
-      Yoga, Pilates, Kapuera?
-      Want to show the world your cooking skills?
-      Or is downhill racing the main interest in your life?
-      <strong>Be part of our startup!</strong>
-    </p>
-
-    <div class="contentbox contentbox-green">
-      <h6>Get in touch with millions of tourists and locals in your area!</h6>
-
-      <a ng-href="#/registration/registrationforproviders"
-         class="btn"
-          >
-        {{ 'Not registered as Provider' | translate }}
-      </a>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>reActure – {{ 'Work with us' | translate }}!</h2>
+      </div>
     </div>
-
-    <br/>
-
-    <ul>
-      <li>Simple, quick and free registration</li>
-      <li>Increase visibility online</li>
-      <li>Get instant bookings from tourists and locals in your area</li>
-      <li>Easy to manage system</li>
-      <li>Comission based model</li>
-    </ul>
-
-    <h4 class="align-right">… get Active!</h4>
-
   </div>
 
-  <div data-ng-show="lang == 'de'">
+  <div class="teaserbox teaserbox-fullimg-txt">
+    <img src="/img/testimages/teaserimage_quad.png"/>
+    <div class="outerwrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-6 textblock">
+            <p class="preface">
+              You are a tour guide in Paris? You rent out Quads in Asti? You´re having a small dance festival organized
+              in Nevada? Yoga, Pilates, Kapuera? Want to show the world your cooking skills? Or is downhill racing the
+              main interest in your life?
+            </p>
 
-    <p class="preface">
-      You are a tour guide in Paris?
-      You rent out Quads in Asti?
-      You´re having a small dance festival organized in Nevada?
-      Yoga, Pilates, Kapuera?
-      Want to show the world your cooking skills?
-      Or is downhill racing the main interest in your life?
-      <strong>Be part of our startup!</strong>
-    </p>
-
-    <div class="contentbox contentbox-green">
-      <h6>Get in touch with millions of tourists and locals in your area!</h6>
-
-      <a ng-href="#/registration/registrationforproviders"
-         class="btn"
-          >
-        {{ 'Not registered as Provider' | translate }}
-      </a>
+            <a class="btn btn-negative">
+              Be part of our startup!
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <br/>
-
-    <ul>
-      <li>Simple, quick and free registration</li>
-      <li>Increase visibility online</li>
-      <li>Get instant bookings from tourists and locals in your area</li>
-      <li>Easy to manage system</li>
-      <li>Comission based model</li>
-    </ul>
-
-    <h4 class="align-right">… get Active!</h4>
-
   </div>
 
-  <div data-ng-show="lang == 'it'">
+  <div class="teaserbox teaserbox-mapdesign">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <span class="listicon"></span>
+          <div class="textblock">
+            <h6>Simple, quick and free registration</h6>
 
-    <p class="preface">
-      You are a tour guide in Paris?
-      You rent out Quads in Asti?
-      You´re having a small dance festival organized in Nevada?
-      Yoga, Pilates, Kapuera?
-      Want to show the world your cooking skills?
-      Or is downhill racing the main interest in your life?
-      <strong>Be part of our startup!</strong>
-    </p>
+            <p>One morning, when Gregor Samsa woke from troubled dreams, </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <span class="listicon"></span>
+          <div class="textblock">
+            <h6>Increase visibility online</h6>
 
-    <div class="contentbox contentbox-green">
-      <h6>Get in touch with millions of tourists and locals in your area!</h6>
+            <p>he found himself transformed in his bed into a horrible vermin.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <span class="listicon"></span>
+          <div class="textblock">
+            <h6>Get instant bookings in your area</h6>
 
-      <a ng-href="#/registration/registrationforproviders"
-         class="btn"
-          >
-        {{ 'Not registered as Provider' | translate }}
-      </a>
+            <p>He lay on his armour-like back,</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <span class="listicon"></span>
+          <div class="textblock">
+            <h6>Easy to manage system</h6>
+
+            <p>slightly domed and divided by arches into stiff sections.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <span class="listicon"></span>
+          <div class="textblock">
+            <h6>Comission based model</h6>
+
+            <p>The bedding was hardly able to cover it and seemed.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h3 class="align-right">… get active!</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row row-large">
+      <div class="col-sm-12 align-center">
+        <h4>Get in touch with
+          <u>millions of tourists and locals</u>
+            in your area!
+        </h4>
+        <a class="btn btn-large">Register as activity provider now!</a>
+      </div>
+    </div>
+  </div>
+
+  <!--  <h2>reActure – {{ 'Work with us' | translate }}!</h2>
+
+    <div data-ng-show="lang == 'en'">
+
+      <p class="preface">
+        You are a tour guide in Paris?
+        You rent out Quads in Asti?
+        You´re having a small dance festival organized in Nevada?
+        Yoga, Pilates, Kapuera?
+        Want to show the world your cooking skills?
+        Or is downhill racing the main interest in your life?
+        <strong>Be part of our startup!</strong>
+      </p>
+
+      <div class="contentbox contentbox-green">
+        <h6>Get in touch with millions of tourists and locals in your area!</h6>
+
+        <a ng-href="#/registration/registrationforproviders"
+           class="btn"
+            >
+          {{ 'Not registered as Provider' | translate }}
+        </a>
+      </div>
+
+      <br/>
+
+      <ul>
+        <li>Simple, quick and free registration</li>
+        <li>Increase visibility online</li>
+        <li>Get instant bookings from tourists and locals in your area</li>
+        <li>Easy to manage system</li>
+        <li>Comission based model</li>
+      </ul>
+
+      <h4 class="align-right">… get Active!</h4>
+
     </div>
 
-    <br/>
+    <div data-ng-show="lang == 'de'">
 
-    <ul>
-      <li>Simple, quick and free registration</li>
-      <li>Increase visibility online</li>
-      <li>Get instant bookings from tourists and locals in your area</li>
-      <li>Easy to manage system</li>
-      <li>Comission based model</li>
-    </ul>
+      <p class="preface">
+        You are a tour guide in Paris?
+        You rent out Quads in Asti?
+        You´re having a small dance festival organized in Nevada?
+        Yoga, Pilates, Kapuera?
+        Want to show the world your cooking skills?
+        Or is downhill racing the main interest in your life?
+        <strong>Be part of our startup!</strong>
+      </p>
 
-    <h4 class="align-right">… get Active!</h4>
+      <div class="contentbox contentbox-green">
+        <h6>Get in touch with millions of tourists and locals in your area!</h6>
 
-  </div>
+        <a ng-href="#/registration/registrationforproviders"
+           class="btn"
+            >
+          {{ 'Not registered as Provider' | translate }}
+        </a>
+      </div>
+
+      <br/>
+
+      <ul>
+        <li>Simple, quick and free registration</li>
+        <li>Increase visibility online</li>
+        <li>Get instant bookings from tourists and locals in your area</li>
+        <li>Easy to manage system</li>
+        <li>Comission based model</li>
+      </ul>
+
+      <h4 class="align-right">… get Active!</h4>
+
+    </div>
+
+    <div data-ng-show="lang == 'it'">
+
+      <p class="preface">
+        You are a tour guide in Paris?
+        You rent out Quads in Asti?
+        You´re having a small dance festival organized in Nevada?
+        Yoga, Pilates, Kapuera?
+        Want to show the world your cooking skills?
+        Or is downhill racing the main interest in your life?
+        <strong>Be part of our startup!</strong>
+      </p>
+
+      <div class="contentbox contentbox-green">
+        <h6>Get in touch with millions of tourists and locals in your area!</h6>
+
+        <a ng-href="#/registration/registrationforproviders"
+           class="btn"
+            >
+          {{ 'Not registered as Provider' | translate }}
+        </a>
+      </div>
+
+      <br/>
+
+      <ul>
+        <li>Simple, quick and free registration</li>
+        <li>Increase visibility online</li>
+        <li>Get instant bookings from tourists and locals in your area</li>
+        <li>Easy to manage system</li>
+        <li>Comission based model</li>
+      </ul>
+
+      <h4 class="align-right">… get Active!</h4>
+
+    </div>-->
 
 </div>

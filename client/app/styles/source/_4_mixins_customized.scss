@@ -42,9 +42,8 @@ body:before {
     position: relative;
     z-index: 1;
     float: left;
-    padding: $bu*1.0 $bu*2.0;
+    padding: $bu*1.0 0;
     padding-bottom: $bu*1.0 + $footer-height;
-    max-width: 1200px - $col-left-width;
   }
 }
 
@@ -119,6 +118,153 @@ body:before {
   }
 }
 */
+
+
+.row-large{
+  padding: $bu*2.0 0;
+}
+
+.teaserbox {
+  &.teaserbox-fullimg-txt {
+    position: relative;
+    max-height: 550px;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+    .outerwrap {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    .container {
+    }
+    .row {
+    }
+    .textblock {
+      padding-top: $bu*2.0;
+      padding-bottom: $bu*2.0;
+      .preface {
+        @include text-shadow_2px;
+        color: $color_white;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    .btn-negative {
+      background-color: transparent;
+      color: $color_white;
+      &:hover {
+        color: $color_green;
+        border-color: $color_green;
+        background-color: transparent;
+      }
+    }
+    @include respond-to(screen-sm){
+      max-height: 100%;
+      .outerwrap {
+        position: relative;
+        .textblock {
+          p {
+            color: $color_grey_75;
+            text-shadow: none;
+          }
+          .btn-negative {
+            @include button;
+          }
+        }
+      }
+    }
+    @include respond-to(screen-nocols){
+      max-height: 100%;
+      .outerwrap {
+        position: relative;
+        .textblock {
+          p {
+            color: $color_grey_75;
+            text-shadow: none;
+          }
+          .btn-negative {
+            @include button;
+          }
+        }
+      }
+    }
+    @include respond-to(screen-md){
+      img{
+        height: 425px;
+        width: auto;
+      }
+    }
+    @include respond-to(screen-lg){
+      .row{
+        padding: $bu*5.0 0;
+      }
+      .textblock{
+        .preface{
+          font-size: $fs*$font-size_h4_factor;
+          line-height: $fs*$font-size_h4_factor*$line-height_headline-factor;
+        }
+        .btn-negative{
+          padding: ($fs*0.75) ($fs*2.0);
+          font-size: 25px;
+          @include border-radius($border-radius);
+        }
+      }
+    }
+  }
+  &.teaserbox-mapdesign {
+    .row {
+      padding-bottom: $bu*3.0;
+      &:first-child {
+        padding-top: $bu*3.0;
+      }
+    }
+    background: url(#{$img_path}reacture-mapdesign.svg) center center;
+    .listicon {
+      display: block;
+      width: 40px;
+      height: 50px;
+      float: left;
+      @include sprite_icons(-50px, -100px, no-repeat);
+      margin-top: -7px;
+    }
+    .textblock {
+      margin: 0 0 0 (40px + $bu);
+      h6 {
+        color: $color_text;
+        margin-top: 0;
+      }
+    }
+    h3 {
+      margin-top: 0;
+    }
+    @include respond-to(screen-sm) {
+      .row, .row:first-child{
+        padding: 0;
+      }
+      .textblock {
+        margin-top: $bu*2.0;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    @include respond-to(screen-nocols) {
+      .row, .row:first-child{
+        padding: 0!important;
+      }
+      .textblock {
+        margin-top: $bu*2.0;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
 
 // MAP ELEMENTS
 // ###########################################################################################################################
@@ -757,7 +903,7 @@ shoppingcart {
     overflow: hidden;
     width: $shoppingcart-toggle-width + 5px;
     height: 100%;
-    @include animation_position;
+    @include animation_all;
     .shoppingcart-toggle {
       display: block;
       position: absolute;
@@ -778,7 +924,7 @@ shoppingcart {
       right: - ($shoppingcart-rightside-width - 5px);
       width: $shoppingcart-rightside-width;
       height: 100%;
-      @include animation_position;
+      @include animation_all;
     }
 
     &.active {
@@ -817,7 +963,7 @@ shoppingcart {
   .innerwrap {
     width: $shoppingcart-toggle-width;
     height: $shoppingcart-toggle-width;
-    @include border-left-radius($border-radius-small);
+    @include border-left-radius($border-radius_small);
     background-color: $color_green;
     @include sprite_icons(-141px, 15px, no-repeat);
     text-align: right;
@@ -1062,7 +1208,7 @@ $activitybar-height: 200px;
       right: 0;
       @include border-left-radius($border-radius);
       span {
-        @include rotate(180deg);
+        @include transform(rotate(180deg));
       }
     }
   }
@@ -1075,7 +1221,7 @@ $activitybar-height: 200px;
     height: 30px;
     @include border-radius(15px);
     background-color: $color_green;
-    @include rotate(270deg);
+    @include transform(rotate(270deg));
     @include animation_all;
     span {
       display: block;
@@ -1138,9 +1284,9 @@ $activitybar-height: 200px;
 
   &.activitydetailactive {
     .activity-detail-toggle {
-      @include rotate(90deg);
+      @include transform(rotate(90deg));
     }
-    .activitybar-item-current{
+    .activitybar-item-current {
       .triangle {
         top: 0;
       }
@@ -1159,7 +1305,7 @@ $activitybar-height: 200px;
   background-color: $color_white;
   @include border-top-radius($border-radius);
   @include activity-content;
-  @include animation_position;
+  @include animation_all;
   .txt-icon-delete {
     position: absolute;
     top: $bu;
@@ -1779,7 +1925,7 @@ $activitybar-height: 200px;
           }
 
           &:last-child {
-            @include border-bottom-radius($border-radius-large - $border-width);
+            @include border-bottom-radius($border-radius_large - $border-width);
             @include border-top-radius(0);
           }
 

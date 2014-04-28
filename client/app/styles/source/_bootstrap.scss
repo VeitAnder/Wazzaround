@@ -1,5 +1,33 @@
 // Core variables and mixins
 @import "bootstrap-sass/lib/_variables.scss";
+
+
+
+
+
+// OVERWRITE BOOTSTRAP VARIABLES
+// --------------------------------------------------
+
+// Container sizes
+// --------------------------------------------------
+
+// Small screen / tablet
+$container-tablet:             (((720px - 350px) + $grid-gutter-width));
+$container-sm:                 $container-tablet;
+
+// Medium screen / desktop
+$container-desktop:            (((940px - 350px) + $grid-gutter-width));
+$container-md:                 $container-desktop;
+
+// Large screen / wide desktop
+$container-large-desktop:      (((1140px - 350px) + $grid-gutter-width));
+$container-lg:                 $container-large-desktop;
+
+
+
+
+
+
 @import "bootstrap-sass/lib/_mixins";
 //
 //// Reset
@@ -7,7 +35,7 @@
 //@import "bootstrap-sass/lib/print";
 //
 //// Core CSS
-@import "bootstrap-sass/lib/_scaffolding";
+//@import "bootstrap-sass/lib/_scaffolding";
 //@import "bootstrap-sass/lib/type";
 //@import "bootstrap-sass/lib/code";
 @import "bootstrap-sass/lib/_grid.scss";

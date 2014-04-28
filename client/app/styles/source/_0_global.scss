@@ -1,5 +1,3 @@
-// welcome to the party bootsrap
-@import "_bootstrap";
 // bourbon sass mixins library
 @import '../../bower_components/bourbon/app/assets/stylesheets/_bourbon';
 // import the good parts of the great compass framework for backward compatibility reasons
@@ -188,3 +186,8 @@ $sprite_mobile-icons: '/img/sprite_mobile-icons';
 
 $img_path: '/img/';
 
+
+
+
+// welcome to the party bootsrap
+@import "_bootstrap";

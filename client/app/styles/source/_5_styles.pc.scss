@@ -1,5 +1,6 @@
 @import "_4_mixins_customized";
 
+
 html {
   // Prevent Firefox Scrollbar Jump - http://davidwalsh.name/css-enhancements-user-experience
   overflow-y: scroll;
@@ -42,12 +43,7 @@ body{
   }
 
   .container {
-    width: 970px !important;
-  }
-  header{
-    min-width: 970px !important;
-    height: 52px;
-    border-bottom: 2px solid #F3F5F5;
+    width: 970px - 350px !important;
   }
   .col-sm-12, .col-sm-11, .col-sm-10, .col-sm-9, .col-sm-8, .col-sm-7, .col-sm-6, .col-sm-5, .col-sm-4, .col-sm-3, .col-sm-2, .col-sm-1{
     float: left;
