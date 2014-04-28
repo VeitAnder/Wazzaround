@@ -25,6 +25,15 @@ angular.module('anorakApp')
         delete theShoppingCart[idxOfTheItem];
       };
 
+      // increase quantity if item is already in the cart
+      for (var i in theShoppingCart) {
+        // already in card
+        if (theShoppingCart[i].eventId === item.eventId) {
+          theShoppingCart[i].quantity += 1;
+          return;
+        }
+      }
+
       theShoppingCart[dictCounter] = item;
       dictCounter += 1;
     };
