@@ -1,2 +1,60 @@
 <h2>{{'Profile' | translate}}</h2>
+
 <h3>{{'Edit Profile' | translate}}</h3>
+
+<div>
+
+  <div class="buttonbar buttonbar-top">
+    <a class="btn btn-small"
+       href="#/admin/profile/edit/">{{'edit' | translate}}
+    </a>
+  </div>
+
+  <fieldset>
+    <legend>{{'Personal data' | translate}}:</legend>
+
+    {{'First name' | translate}}
+    <p>{{userprofile.firstName}}</p>
+
+    {{'Last name' | translate}}
+    <p>{{userprofile.lastName}}</p>
+
+  </fieldset>
+
+  <div ng-show="user.userType === 'admin' || user.userType === 'provider'">
+
+    <fieldset>
+      <legend>{{'Company data' | translate}}:</legend>
+
+      {{'Company' | translate}}
+      <p>{{userprofile.company}}</p>
+
+      {{'Address' | translate}}
+      <p>{{userprofile.address}}</p>
+
+      {{'City' | translate}}
+      <p>{{userprofile.city}}</p>
+
+      {{'Zip' | translate}}
+      <p>{{userprofile.zip}}</p>
+
+      {{'Telephone' | translate}}
+      <p>{{userprofile.tel}}</p>
+
+      {{'Fax' | translate}}
+      <p>{{userprofile.fax}}</p>
+
+      {{'UID optional' | translate}}
+      <p>{{userprofile.uid}}</p>
+
+      {{'Country' | translate}}
+      <p>{{userprofile.country}}</p>
+
+      {{'Name of contact person' | translate}}
+      <p>{{userprofile.contactperson.name}}</p>
+
+    </fieldset>
+  </div>
+
+</div>
+
