@@ -4,15 +4,17 @@ angular.module('anorakApp')
   .filter('languageselect', function ($translate) {
     return function (inputobj) {
       var translated = "";
-      if (inputobj[$translate.use()]) {
-        translated = inputobj[$translate.use()];
-      } else {
-        if (inputobj.en) {
-          translated = inputobj.en;
-        } else if (inputobj.de) {
-          translated = inputobj.de;
-        } else if (inputobj.it) {
-          translated = inputobj.it;
+      if (inputobj){
+        if (inputobj[$translate.use()]) {
+          translated = inputobj[$translate.use()];
+        } else {
+          if (inputobj.en) {
+            translated = inputobj.en;
+          } else if (inputobj.de) {
+            translated = inputobj.de;
+          } else if (inputobj.it) {
+            translated = inputobj.it;
+          }
         }
       }
       return translated;

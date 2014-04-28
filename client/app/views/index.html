@@ -1,5 +1,3 @@
-
-
 <div class="map-selection-block">
 
   <div class="section section-map">
@@ -118,14 +116,14 @@
           options='frontendmap.map.options'
           >
         <marker
-            ng-repeat="m in states.filteredactivities = (frontendmap.map.markers | filter:selectedCategoryFilter | markercoordsfilter) track by m._id"
+            ng-repeat="m in frontendmap.map.markers | filter:selectedCategoryFilter | markercoordsfilter track by m._id"
             coords='m'
             click='onMarkerClicked(m)'
             options='markerOptions'
             icon='frontendmap.getMarkerIcon(m.category.main)'
             >
 
-          <window
+         <!-- <window
               show="m.showWindow"
               closeClick="m.closeClick()"
               options="windowOptions"
@@ -153,7 +151,7 @@
               <h5 class="no-margin-top">{{m.company}}</h5>
 
               <div class="description">
-                <!--<div class="input-label">Description</div>-->
+                &lt;!&ndash;<div class="input-label">Description</div>&ndash;&gt;
                 <div ta-bind
                      ng-model="m.description[getAvailableTranslationLanguageKey(m.description)]"></div>
               </div>
@@ -173,7 +171,7 @@
 
             </div>
 
-          </window>
+          </window>-->
           <marker-label content="m.name[getAvailableTranslationLanguageKey(m.name)]"
                         anchor="22 0"
                         class="marker-labels marker-label-category-{{m.category.main}}"
@@ -193,11 +191,7 @@
 
       </google-map>
 
-
-
-
-
-      <activitybar filteredactivities="states.filteredactivities">
+      <activitybar activities="frontendmap.map.markers">
       </activitybar>
 
     </div>

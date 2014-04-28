@@ -8,7 +8,20 @@ angular.module('anorakApp')
       scope: {
         activities: "=activities"
       },
-      link: function postLink(scope, element, attrs) {
+      compile: function compile(tElement, tAttrs, transclude) {
+        return {
+          pre: function preLink(scope, element, attrs, controller) {
+
+            scope.getCurrentActivity = function () {
+              return _.find(scope.activities, { 'selected': true });
+            };
+
+          },
+          post: function postLink(scope, iElement, iAttrs, controller) {
+
+          }
+        };
+
       }
     };
   });
