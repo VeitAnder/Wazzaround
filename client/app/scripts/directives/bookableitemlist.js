@@ -13,6 +13,7 @@ angular.module('anorakApp')
           pre: function preLink(scope, element, attrs, controller) {
             scope.addToShoppingCart = function (event, bookableItem, activity) {
               shoppingcart.add({
+                eventId: event._id,
                 description: bookableItem.description,
                 price: event.price,
                 quantity: 1,
