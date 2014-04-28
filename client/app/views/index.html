@@ -157,57 +157,9 @@
                   <div class="availability-header">
                     <div class="month cell">{{ 'Next available Dates' | translate }}</div>
                   </div>
-                  <div class="availability-entry"
-                       ng-repeat="available in m.availability">
-                    <div class="availability-title cell">
-                      {{available.title | languageselect}}
-                    </div>
-                    <div class="availability-date cell">
-                      {{ available.start | momentjs:{format: "DD. MMM YY"} }}
-                    </div>
-                    <div class="availability-time cell">
-                      {{ available.start | momentjs:{format: "hh:mm a"} }}
-                    </div>
-                    <div class="availability-duration cell">
-                      {{ available.duration | momentjs:{format: "h"} }}h
-                    </div>
-                    <div class="availability-quantity cell">
-                      {{available.quantity}}x
-                    </div>
 
-                    <div class="availability-book cell align-right">
-                      <a class="btn btn-mini btn-shoppingcart"
-                         href="#/shoppingcart/"
-                         target="_blank"
-                         title="{{ 'Book' | translate }}"
-                         ng-click="putIntoShoppingCart(m, available)"
-                          >
-                        <span>{{ 'Book' | translate }}</span>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="availability-footer">
-                    <div class="cell first">
-                      <a class="btn btn-mini disabled"
-                         ng-click=""
-                          >{{ 'Prev' | translate }}
-                      </a>
-                    </div>
-                    <div class="cell align-center">
-                      <a class="btn btn-mini"
-                         ng-click=""
-                         href="#/activities/{{m._id}}/"
-                          >{{ 'Show all Dates' | translate }}
-                      </a>
-                    </div>
-                    <div class="cell last align-right">
-                      <a class="btn btn-mini"
-                         ng-click=""
-                          >{{ 'Next' | translate }}
-                      </a>
-                    </div>
-                  </div>
+                  <bookableitemlist data-activity="m">
+                  </bookableitemlist>
 
                 </div>
               </div>
@@ -234,12 +186,9 @@
 
       </google-map>
 
-
       <activitybarelement
           data-ng-include="'views/directives/activitybar.html'">
       </activitybarelement>
-
-
 
     </div>
 
