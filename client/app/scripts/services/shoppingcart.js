@@ -16,7 +16,7 @@ angular.module('anorakApp')
     var dictCounter = 0;
 
     this.add = function(item) {
-      var idxOfTheItem = dictConter;
+      var idxOfTheItem = dictCounter;
 
       assert(item.price, "provide a price for the item");
 
@@ -26,23 +26,47 @@ angular.module('anorakApp')
       };
 
       theShoppingCart[dictCounter] = item;
-      dictConter += 1;
+      dictCounter += 1;
     };
 
     this.getCart = function() {
-      var cart = [];
-
-      for (var i in theShoppingCart) {
-        cart.push(theShoppingCart[i])
-      }
-      return cart;
+      return theShoppingCart;
     };
 
     this.getTotal = function() {
       return {
-        numItems : Object.keys(theShoppingCart).length,
-        price : _.reduce(theShoppingCart, function(a, b) { return a.price + b.price })
+        num : Object.keys(theShoppingCart).length,
+        price : _.reduce(theShoppingCart, function(res, value, key) {
+          assert(value.price, "price missing for item in the shoppingcart");
+          assert(value.quantity, "quantity missing for item in the shoppingcart");
+
+          return res + value.price * value.quantity;
+        }, 0 /* init value */)
       };
     };
+
+    this.checkout = function() {
+
+    };
+
+    // TestData
+    this.add({
+      name : "Quad Tour",
+      price : 250,
+      quantity : 2,
+      duration : 4,
+      category : "sports",
+      startDate : new Date()
+    });
+
+    this.add({
+      name : "Guided Tours",
+      price : 150,
+      quantity : 1,
+      duration : 24,
+      category : "culture",
+      startDate : new Date()
+    });
+
 
   });
