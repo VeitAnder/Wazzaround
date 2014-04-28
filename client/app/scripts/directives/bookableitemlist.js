@@ -14,6 +14,8 @@ angular.module('anorakApp')
             scope.addToShoppingCart = function (event, bookableItem, activity) {
               shoppingcart.add({
                 eventId: event._id,
+                bookableItemId: bookableItem._id,
+                activityId: activity._id,
                 description: bookableItem.description,
                 price: event.price,
                 quantity: 1,
