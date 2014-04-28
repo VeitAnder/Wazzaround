@@ -156,7 +156,12 @@ angular.module('anorakApp')
       })
       .when('/admin/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
-        controller: 'AdminIndexCtrl'
+        controller: 'AdminIndexCtrl',
+        resolve: {
+          currentUser: ['currentUser', function (currentUser) {
+            return currentUser.load();
+          }]
+        }
       })
       .when('/admin/myactivities/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
