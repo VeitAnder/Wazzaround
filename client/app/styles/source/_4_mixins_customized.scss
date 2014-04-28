@@ -5,28 +5,127 @@
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-body {
-  position: relative;
+html, body, .page {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1000;
-  padding: 0 10px;
+/* Opera Fix */
+body:before {
+  content: "";
+  height: 100%;
+  float: left;
+  width: 0;
+  margin-top: -32767px;
+}
+
+.page {
   min-width: $min-width-xxs;
-
-  height: 50px;
 }
+
+.col-container {
+  min-height: 100%;
+  margin-left: $col-left-width;
+  margin-bottom: - $footer-height;
+  @include border(left, $color_main_border);
+  @include clearfix;
+
+  .col-left-fixed {
+    margin-left: - ($col-left-width);
+    left: -1px;
+
+    padding-bottom: $bu*2.0;
+  }
+  .col-right {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    float: left;
+    padding: $bu*1.0 $bu*2.0;
+    padding-bottom: $bu*1.0 + $footer-height;
+    max-width: 1200px - $col-left-width;
+  }
+}
+
+.footer {
+  z-index: 2;
+  position: relative;
+  height: $footer-height;
+  width: 100%;
+  margin-top: - ($footer-height);
+  clear: both;
+  &.footer-startpage {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.col-left-fixed {
+  z-index: 1;
+  position: relative;
+  float: left;
+  padding: $bu*2.0;
+  padding-bottom: $bu*2.0 + $footer-height;
+  width: $col-left-width;
+}
+
+/*
+.container-fluid{
+  height: 100%;
+  height: auto !important;
+  min-height: 100%;
+}
+
+.body{
+  overflow: hidden;
+  height: 100%;
+}
+
+.main{
+  overflow: auto;
+  padding-bottom: $footer-height;
+}
+
+.col-left-fixed {
+  position: relative;
+  float: left;
+  padding: $bu*2.0;
+  width: $col-left-width;
+  @include border(right, $color_main_border);
+  .map-selection-block & {
+    border: none;
+  }
+}
+
+.col-right {
+  margin: 0 0 0 $col-left-width;
+  padding: $bu*1.0 $bu*2.0;
+  max-width: 1200px - $col-left-width;
+}
+
+.footer{
+  position: relative;
+  height: $footer-height;
+  margin-top: - ($footer-height+1px);
+  clear: both;
+  &.footer-startpage{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+*/
 
 // MAP ELEMENTS
 // ###########################################################################################################################
 
-googleMap, .angular-google-map, .angular-google-map-container{
-  width:100%;
-  height:100%;
+googleMap, .angular-google-map, .angular-google-map-container {
+  width: 100%;
+  height: 100%;
 }
 
 .angular-google-map-container {
@@ -35,35 +134,6 @@ googleMap, .angular-google-map, .angular-google-map-container{
     width: 100%;
     height: 200px;
     position: relative;
-  }
-}
-
-.col-left-fixed {
-  position: relative;
-  @include box-sizing(border-box);
-  padding: $bu*2.0;
-  padding-bottom: $bu*2.0 + $footer-height;
-  width: $col-left-width;
-  float: left;
-  @include border(right, $color_main_border);
-  .map-selection-block & {
-    border: none;
-  }
-}
-
-.col-right {
-  padding: $bu*1.0 $bu*2.0;
-  padding-bottom: $bu*2.0 + $footer-height;
-  position: relative;
-  overflow: hidden;
-  display: block;
-  max-width: 1200px - $col-left-width;
-
-  //column height hack
-  @include border(left, $color_main_border);
-  left: -1px;
-  .map-selection-block & {
-    border: none;
   }
 }
 
@@ -90,10 +160,10 @@ googleMap, .angular-google-map, .angular-google-map-container{
   margin-left: $col-left-width;
   overflow: hidden;
   display: block;
-  top:0;
-  right:0;
-  bottom:50px;
-  left:0;
+  top: 0;
+  right: 0;
+  bottom: 50px;
+  left: 0;
 }
 
 .marker-labels {
@@ -136,6 +206,9 @@ googleMap, .angular-google-map, .angular-google-map-container{
   }
 
   .img-block {
+    img {
+      @include border-image;
+    }
     &.img-block-left {
       float: left;
       margin: 0 $bu $fs 0;
@@ -144,10 +217,6 @@ googleMap, .angular-google-map, .angular-google-map-container{
       float: right;
       margin: 0 0 $fs $bu;
     }
-  }
-
-  img {
-    @include border-image;
   }
   .category {
     @include border(bottom, $color_grey);
@@ -200,7 +269,7 @@ googleMap, .angular-google-map, .angular-google-map-container{
       }
     }
   }
-  .input_label {
+  .input-label {
     .gm-style .gm-style-iw & {
       font-weight: $font-weight_bold;
     }
@@ -383,16 +452,9 @@ googleMap, .angular-google-map, .angular-google-map-container{
 }
 
 .bookableitem-name {
-  width: 60%;
+  width: 100%;
 }
 
-.bookableitem-duration {
-  width: 25%;
-}
-
-.bookableitem-price {
-  width: 15%;
-}
 
 .event-list {
   display: block;
@@ -403,6 +465,45 @@ googleMap, .angular-google-map, .angular-google-map-container{
     margin: 0 0 $bu;
     padding: 0 0 $bu;
     border: none;
+  }
+  .event-date {
+    width: 35%;
+  }
+
+  .event-time {
+    width: 25%;
+  }
+
+  .event-quantity {
+    width: 10%;
+    text-align: right;
+  }
+
+  .event-duration {
+    width: 15%;
+    text-align: right;
+  }
+
+  .event-price {
+    width: 15%;
+    text-align: right;
+  }
+
+
+  .event-add {
+    margin-top: 10px;
+  }
+
+  .activity-edit &{
+    .event-date {
+      width: 25%;
+    }
+    .event-time {
+      width: 15%;
+    }
+    .cell.listaction{
+      width: 20%;
+    }
   }
 }
 
@@ -420,22 +521,6 @@ googleMap, .angular-google-map, .angular-google-map-container{
   }
 }
 
-.event-date {
-  width: 40%;
-}
-
-.event-time {
-  width: 20%;
-}
-
-.event-quantity {
-  width: 20%;
-}
-
-.event-add {
-  margin-top: 10px;
-}
-
 .eventedit {
   display: block;
   @include border_all($color_grey_50);
@@ -447,20 +532,73 @@ googleMap, .angular-google-map, .angular-google-map-container{
     min-width: 0;
   }
   .form-group {
-    margin-right: 4%;
-    float: left;
-    &.quantity {
-      margin-right: 0;
+    @include divtable_cell;
+    &.first{
+      padding-left: 0;
+    }
+    &.last{
+      padding-right: 0;
     }
   }
-  .date-from, .date-until {
-    width: 35%;
+  .date-start {
+    width: 25%;
   }
-  .time {
-    width: 35%;
+  .date-end {
+    width: 25%;
+  }
+  .time-start {
+    width: 22.5%;
+  }
+  .time-end {
+    width: 22.5%;
   }
   .quantity {
-    width: 22%;
+    width: 50%;
+    input{
+      text-align: right;
+    }
+  }
+
+  .price{
+    width: 50%;
+    input{
+      text-align: right;
+    }
+  }
+
+  .from-until{
+    height: $input-height;
+    width: 5%;
+    margin-top: (21px + 5px + 10px);
+    background-color: transparent;
+    @include border-radius($border-radius_small);
+    @include divtable_cell;
+    padding: 0;
+    span{
+      margin: ($input-height*0.5 - 6px) auto 0;
+      display: block;
+      width: 7px;
+      height: 12px;
+      @include sprite_icons(-25px, -62px, no-repeat);
+    }
+  }
+
+  .event-duration-block{
+    background-color: $color_grey_25;
+    color: $color_grey;
+    @include font-size_small;
+    text-align: center;
+    @include border-radius($border-radius_small);
+    padding: 5px 10px;
+    clear: both;
+  }
+
+  .date-until{
+    width: 50%;
+  }
+
+  .alert{
+    display: block;
   }
 
   .btn {
@@ -552,7 +690,7 @@ googleMap, .angular-google-map, .angular-google-map-container{
 
 .uservoice-custom {
   z-index: 150;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0px;
   background-color: rgba($color_grey, 0.75);
@@ -614,13 +752,19 @@ googleMap, .angular-google-map, .angular-google-map-container{
 shoppingcart {
 
   &.shoppingcart-rightside {
-    @include box-sizing(border-box);
-
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    overflow: hidden;
+    width: $shoppingcart-toggle-width + 5px;
+    height: 100%;
+    @include animation_position;
     .shoppingcart-toggle {
       display: block;
       position: absolute;
       top: 0px;
-      left: -40px;
+      left: - $shoppingcart-toggle-width;
       height: 100%;
       @include animation_background;
       .innerwrap {
@@ -633,15 +777,15 @@ shoppingcart {
     }
     .shoppingcart-element {
       position: absolute;
-      top: 0;
       right: - ($shoppingcart-rightside-width - 5px);
       width: $shoppingcart-rightside-width;
       height: 100%;
       @include animation_position;
-      padding-bottom: $bu*2.0 + $footer-height;
     }
 
     &.active {
+
+      width: $shoppingcart-rightside-width + $shoppingcart-toggle-width;
 
       .shoppingcart-element {
         right: 0;
@@ -661,7 +805,7 @@ shoppingcart {
   @include color-white;
   .buttonbar {
     border: none;
-    .btn{
+    .btn {
       width: 100%;
       text-align: center;
     }
@@ -673,8 +817,8 @@ shoppingcart {
   @include hovercursor;
 
   .innerwrap {
-    width: 40px;
-    height: 40px;
+    width: $shoppingcart-toggle-width;
+    height: $shoppingcart-toggle-width;
     @include border-left-radius($border-radius-small);
     background-color: $color_green;
     @include sprite_icons(9px, -88px, no-repeat);
@@ -781,22 +925,25 @@ shoppingcart {
   }
 }
 
-.shoppingcart-item-details{
+.shoppingcart-item-details {
   @include clearfix;
   clear: both;
+  margin-top: $fs*0.5;
 }
 
-.shoppingcart-item-date{
+.shoppingcart-item-date {
   float: left;
   width: 60%;
   font-size: $fs*$font-size_small_factor;
   line-height: 28px;
 }
 
-.shoppingcart-item-qty{
+.shoppingcart-item-qty {
   float: left;
   width: 15%;
-  text-align: right;
+  input {
+    text-align: right;
+  }
 }
 
 .shoppingcart-item-price {
@@ -1538,6 +1685,12 @@ shoppingcart {
 
 $filter-category-arrow-width: 65px;
 
+.filter {
+  .input-label {
+    display: none;
+  }
+}
+
 .filter-category {
   position: relative;
   z-index: 100;
@@ -1837,14 +1990,35 @@ $filter-category-arrow-width: 65px;
 }
 
 $img-selector-imgsize: 150px;
+$img-selector-teasertxtheight: 35px;
 
 .img-selector {
+  .img-teaser{
+    display: none;
+  }
   overflow: hidden;
+  label + .img-block{
+    .img-teaser{
+      display: block;
+      position: relative;
+      top: -$img-selector-teasertxtheight;
+      margin-bottom: -$img-selector-teasertxtheight;
+      height: $img-selector-teasertxtheight;
+      padding: 5px;
+      background-color: rgba($color_black, 0.25);
+      color: $color_white;
+      text-align: center;
+      font-weight: $font-weight_bold;
+      @include border-bottom-radius($border-radius_small);
+      content:"Teaser Image";
+    }
+  }
   .img-block {
     position: relative;
     float: left;
     margin-right: 10px;
     margin-bottom: 32px;
+
     img {
       width: $img-selector-imgsize;
       height: $img-selector-imgsize;

@@ -129,8 +129,21 @@ angular.module('anorakApp')
 // user clicks on main category box
 // this box opens, all other boxes close
 // all subcategories in this box will be selected if there are activities for them
+
+    var closeAllFilters = function () {
+      _.each($scope.categories, function (category) {
+        category.open = false;
+      });
+    };
+
     $scope.toggleFilter = function (category) {
-      category.open = !category.open;
+      var currentstate = category.open;
+      closeAllFilters();
+      if (currentstate) {
+        category.open = false;
+      } else {
+        category.open = true;
+      }
     };
 
     $scope.map = frontendmap.map;
@@ -355,17 +368,6 @@ angular.module('anorakApp')
       $scope.moment.lang($translate.use());
     });
 
-    $scope.googleMap = {};
-//    console.log("GOOGLE MAP", $scope.googleMap);
-
-//    $scope.$watch("googleMap", function(oldMap, newMap) {
-//      console.log("GOOGLE MAP CHANGED", newMap);
-//    }, true);
-
-    $scope.$watch("map.zoom", function (newMap, oldMap) {
-      console.log("MAP ZOOM CHANGED", oldMap, newMap);
-    });
-
 // check if the number of markers in the map has changed
 // if yes select these categories that have markers and have been selected
 // otherwise deselect
@@ -382,5 +384,4 @@ angular.module('anorakApp')
       Usersessionstates.updateSession();
     }, true);
 
-  })
-;
+  });

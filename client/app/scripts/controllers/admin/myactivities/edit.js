@@ -202,15 +202,15 @@ angular.module('anorakApp')
       if ($scope.map.address) {
         $scope.activity.address = $scope.map.address;
       }
-      $scope.activity.latitude = $scope.map.clickedMarker.latitude;
-      $scope.activity.longitude = $scope.map.clickedMarker.longitude;
+      $scope.activity.location.lat = $scope.map.clickedMarker.latitude;
+      $scope.activity.location.lng = $scope.map.clickedMarker.longitude;
     });
 
     $rootScope.$on("EditMapChangeEvent", function (event, message) {
       debug("EDIT MAP CHANGED !!! MARKERS: ", $scope.map.markers);
       //update model and set marker to display result to user
-      $scope.activity.latitude = $scope.map.center.latitude;
-      $scope.activity.longitude = $scope.map.center.longitude;
+      $scope.activity.location.lat = $scope.map.center.latitude;
+      $scope.activity.location.lng = $scope.map.center.longitude;
       $scope.map.clickedMarker.latitude = $scope.map.center.latitude; // TODO move to service?
       $scope.map.clickedMarker.longitude = $scope.map.center.longitude;
       $scope.map.clickedMarker.title = 'Location of activity';
@@ -227,9 +227,9 @@ angular.module('anorakApp')
       if ($scope.valForm.$valid && $scope.additionalFormChecks()) {
 
         // check if there was only a marker set or an address entered
-        if (!$scope.activity.latitude) {
-          $scope.activity.latitude = $scope.map.clickedMarker.latitude;
-          $scope.activity.longitude = $scope.map.clickedMarker.longitude;
+        if (!$scope.activity.location.lat) {
+          $scope.activity.location.lat = $scope.map.clickedMarker.latitude;
+          $scope.activity.location.lng = $scope.map.clickedMarker.longitude;
         }
 
         $scope.state.saveinprogress = true;

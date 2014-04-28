@@ -13,7 +13,7 @@
       </div>
 
       <div class="filter">
-        <span class="input_label">{{ 'Please choose' | translate }}:</span>
+        <span class="input-label">{{ 'Please choose' | translate }}:</span>
 
         <div class="filter-category filter-category-{{category.key}}"
              data-ng-class="{active: areItemsInThisCategorySelected(category), open: category.open }"
@@ -24,7 +24,7 @@
               >
             <h4>{{category.key | translate}}</h4>
 
-            <p>{{numberOfSelectedFromCategory(category)}} {{ 'of' | translate }} {{totalNumberOfCategory(category)}}</p>
+            <p>{{numberOfSelectedFromCategory(category)}} {{ 'activities found' | translate }} </p>
 
             <div class="filter-category-arrow">
               <span></span>
@@ -110,10 +110,9 @@
           draggable='true'
           events='map.events'
           options='map.options'
-          control='googleMap'
           >
         <marker
-            ng-repeat="m in map.markers | filter:selectedCategoryFilter"
+            ng-repeat="m in map.markers | filter:selectedCategoryFilter | markercoordsfilter"
             coords='m'
             click='onMarkerClicked(m)'
             options='markerOptions'
@@ -144,17 +143,17 @@
                 </cloudinaryimage>
               </div>
 
-              <div class="input_label">{{ 'Offered by' | translate }}</div>
+              <div class="input-label">{{ 'Offered by' | translate }}</div>
               <h5 class="no-margin-top">{{m.company}}</h5>
 
               <div class="description">
-                <!--<div class="input_label">Description</div>-->
+                <!--<div class="input-label">Description</div>-->
                 <div ta-bind
                      ng-model="m.description[getAvailableTranslationLanguageKey(m.description)]"></div>
               </div>
 
               <div class="availability">
-                <div class="input_label">{{ 'Availability' | translate }}</div>
+                <div class="input-label">{{ 'Availability' | translate }}</div>
                 <div class="availability-list">
                   <div class="availability-header">
                     <div class="month cell">{{ 'Next available Dates' | translate }}</div>
@@ -261,6 +260,7 @@
 
 </div>
 
-<div data-ng-include="'views/_footer.html'"></div>
+<div data-ng-include="'views/_footer.html'"
+     class="footer footer-startpage"></div>
 
 

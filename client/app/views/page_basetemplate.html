@@ -1,16 +1,45 @@
-<div class="col-left-fixed">
-  <languageselect></languageselect>
-  <div data-ng-include="'views/_logo.html'"></div>
-</div>
-<div class="col-right">
-  <div data-ng-include="getPagePartial()"></div>
+<div class="col-container">
+  <div class="col-left-fixed">
+    <languageselect></languageselect>
+    <div data-ng-include="'views/_logo.html'"></div>
+  </div>
+  <div class="col-right">
+    <div data-ng-include="getPagePartial()"></div>
+  </div>
 </div>
 
-<div data-ng-include="'views/_footer.html'"></div>
-
+<div data-ng-include="'views/_footer.html'"
+     class="footer"></div>
 
 <shoppingcart
-  data-ng-include="'views/directives/shoppingcart.html'"
-  ng-class="{active: shoppingcart}"
-  class="shoppingcart-rightside">
+    data-ng-include="'views/directives/shoppingcart.html'"
+    ng-class="{active: shoppingcart}"
+    class="shoppingcart-rightside">
 </shoppingcart>
+
+
+
+<!--
+<div class="container-fluid">
+  <div class="main">
+    <div class="body">
+      <div class="col-left-fixed">
+        <languageselect></languageselect>
+        <div data-ng-include="'views/_logo.html'"></div>
+      </div>
+      <div class="col-right">
+        <div data-ng-include="getPagePartial()"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div data-ng-include="'views/_footer.html'"
+     class="footer"></div>
+
+<shoppingcart
+    data-ng-include="'views/directives/shoppingcart.html'"
+    ng-class="{active: shoppingcart}"
+    class="shoppingcart-rightside">
+</shoppingcart>
+-->

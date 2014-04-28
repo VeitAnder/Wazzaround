@@ -12,15 +12,15 @@
     a[d] = a[d] || b;
   }
 })
-  ((function () {
-    "use strict";
-    try {
-      console.log();
-      return window.console;
-    } catch (a) {
-      return (window.console = {});
-    }
-  })());
+((function () {
+  "use strict";
+  try {
+    console.log();
+    return window.console;
+  } catch (a) {
+    return (window.console = {});
+  }
+})());
 
 angular.module('anorakApp', [
   'ngRoute',
@@ -456,7 +456,7 @@ angular.module('anorakApp')
       "Add Event": "Add Event",
       "Add new Event": "Add new Event",
       "Quantity": "Quantity",
-      "repeating": "repeating",
+      "repeating Event": "repeating Event",
       "Mon": "Mon",
       "Tue": "Tue",
       "Wed": "Wed",
@@ -490,7 +490,8 @@ angular.module('anorakApp')
       "no": "no",
       "Delete bookable item with all events?": "Delete bookable item with all events?",
       "Please select a location.": "Please select a location.",
-      "Your unsaved data will be lost if you leave this page": "Your unsaved data will be lost if you leave this page"
+      "Your unsaved data will be lost if you leave this page": "Your unsaved data will be lost if you leave this page",
+      "activities found": "activities found"
     });
 
     $translateProvider.translations('de', {
@@ -708,7 +709,7 @@ angular.module('anorakApp')
       "Add Event": "Termin hinzufügen",
       "Add new Event": "Neuen Termin hinzufügen",
       "Quantity": "Menge",
-      "repeating": "regelmäßig",
+      "repeating Event": "regelmäßiger Termin",
       "Mon": "Mo",
       "Tue": "Di",
       "Wed": "Mi",
@@ -742,7 +743,8 @@ angular.module('anorakApp')
       "no": "nein",
       "Delete bookable item with all events?": "Dieses Event und alle Daten löschen?",
       "Please select a location.": "Bitte wählen Sie einen Ort.",
-      "Your unsaved data will be lost if you leave this page": "Ihre ungespeicherten Daten gehen verloren wenn Sie diese Seite jetzt verlassen"
+      "Your unsaved data will be lost if you leave this page": "Ihre ungespeicherten Daten gehen verloren wenn Sie diese Seite jetzt verlassen",
+      "activities found": "activities found"
     });
 
     $translateProvider.translations('it', {
@@ -959,7 +961,7 @@ angular.module('anorakApp')
       "Add Event": "Aggiungere evento",
       "Add new Event": "Aggiungere nuovo evento",
       "Quantity": "Quantità",
-      "repeating": "ripetere",
+      "repeating Event": "ripetere",
       "Mon": "Lun",
       "Tue": "Mar",
       "Wed": "Mer",
@@ -993,7 +995,8 @@ angular.module('anorakApp')
       "no": "no",
       "Delete bookable item with all events?": "Elimina voce prenotabile con tutti gli eventi?",
       "Please select a location.": "Si prega di selezionare una posizione.",
-      "Your unsaved data will be lost if you leave this page": "I vostri dati non ancora salvati andranno persi se si lascia questa pagina"
+      "Your unsaved data will be lost if you leave this page": "I vostri dati non ancora salvati andranno persi se si lascia questa pagina",
+      "activities found": "activities found"
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity

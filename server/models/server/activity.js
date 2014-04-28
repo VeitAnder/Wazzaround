@@ -41,6 +41,11 @@ ActivityModel.readFilter(function (req) {
   return {published: true};  //filter published Activities
 });
 
+//ActivityModel.postReadFilter(function (req, obj) {
+//
+//  return obj;
+//});
+
 // TODO: das ist nur so kompliziert, weil delete das doc aus der datenbank hohlt...
 ActivityModel.writeFilter(function (doc, req) {
   var ownerRef;
@@ -101,50 +106,59 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
 
   console.log("filteredActivities()", params);
 
-  if (!params.from || !params.to) {
+  if (!params.from || !params.to || !params.startDate || !params.endDate) {
     console.log("Missing some parameters", params);
     return;
   }
 
-  if (params.startDate && params.endDate) {  // search with date-range
-    var startDate = new Date(params.startDate);
-    var endDate = new Date(params.endDate);
+  var startDate = new Date(params.startDate);
+  var endDate = new Date(params.endDate);
 
-    // first case: event has only a start date and takes place once
-    // check for startdate match
-    return models.ActivityModel.find({
-      'latitude': {
-        "$gte": params.to.latitude,
-        "$lte": params.from.latitude
-      },
-      'longitude': {
-        "$gte": params.to.longitude,
-        "$lte": params.from.longitude
-      },
-      bookableItems: {
-        $elemMatch: {
-          events: {
-            $elemMatch: {
-              start: {
-                '$gte': startDate,
-                '$lte': endDate
-              }
+  return models.ActivityModel.find({
+    location : {
+      '$geoWithin' : {
+        '$box' : [
+          [ params.from.lng, params.from.lat ],
+          [ params.to.lng, params.to.lat ]
+        ]
+      }
+    },
+    bookableItems: {
+      $elemMatch: {
+        events: {
+          $elemMatch: {
+            start: {
+              '$gte': startDate,
+              '$lte': endDate
             }
           }
         }
       }
-    });
-  }
-
-  return models.ActivityModel.find({
-    'longitude': {
-      "$lte": params.from.longitude,
-      "$gte": params.to.longitude
-    },
-    'latitude': {
-      "$lte": params.from.latitude,
-      "$gte": params.to.latitude
     }
-  });
+  });/*.then(function(activities) {
 
+    var events = [];
+    _.forEach(activities, function(activity) {
+      _.forEach(activity.bookableItems, function(item) {
+        _.forEach(item.events, function(event) {
+          events.push(event);
+        });
+      });
+    });
+
+    var bookQuantityPromises = [];
+    _.forEach(events, function(event) {
+      bookQuantityPromises.push(
+        models.BookedEventModel.bookedQuantity({event: event._id})
+          .then(function(bookedEvent) {
+            event.bookQuantity = event.quantity - bookedEvent.quantity;
+          })
+      );
+    });
+
+    return Q.all(bookQuantityPromises)  // wait for all changes..
+      .then(function() {
+        return activities;
+      })
+  });*/
 });

@@ -57,6 +57,7 @@
                bs-typeahead
                required
                ng-blur="setAddressOnMap()"
+               select-on-click
             >
 
         <span ng-show="showError('address', 'required')"
@@ -124,7 +125,7 @@
       <div class="form-group"
            data-ng-show="activity.category.main"
           >
-        <div class="input_label">{{'Sub Category' | translate}}</div>
+        <div class="input-label">{{'Sub Category' | translate}}</div>
 
         <div
             class="checkbox"
@@ -185,6 +186,9 @@
                ng-click="removeImage(image, $index)">
               <span>{{'delete' | translate}}</span>
             </a>
+          </div>
+          <div class="img-teaser">
+            Teaser image
           </div>
         </imageblock>
         <uploadform data-images="activity.images"></uploadform>
@@ -304,7 +308,7 @@
 
               </div>
 
-              <div class="bookableitem-name cell first">
+              <div class="bookableitem-name cell first last">
 
                 <label for="itemDescription">{{'Description' | translate}}</label>
 
@@ -323,39 +327,42 @@
 
               </div>
 
-              <div class="bookableitem-duration cell last">
-                <label for="itemDuration">{{'Duration in hours' | translate}}</label>
-                <input type="number"
-                       class="form-control"
-                       id="itemDuration"
-                       name="itemDuration"
-                       placeholder="{{'Duration in hours' | translate}}"
-                       ng-model="bookableItem.duration"
-                       required
-                    >
-                <span ng-show="bookableItemForm.itemDuration.$invalid && (bookableItemForm.itemDuration.$dirty || state.submitted)"
-                      class="alert">
-                  {{'Please enter a number only.' | translate}}
-                </span>
-              </div>
+              <!-- DURATION AND PRICE MOVES TO EVENT!!!
 
-              <div class="bookableitem-price cell last">
-                <label for="itemPrice">{{'Price' | translate}} €</label>
-                <input type="number"
-                       class="form-control"
-                       id="itemPrice"
-                       name="itemPrice"
-                       placeholder="{{'Price in €' | translate}}"
-                       ng-model="bookableItem.price"
-                       required
-                    >
+                            <div class="bookableitem-duration cell">
+                              <label for="itemDuration">{{'Duration in hours' | translate}}</label>
+                              <input type="number"
+                                     class="form-control"
+                                     id="itemDuration"
+                                     name="itemDuration"
+                                     placeholder="{{'Duration in hours' | translate}}"
+                                     ng-model="bookableItem.duration"
+                                     required
+                                  >
+                              <span ng-show="bookableItemForm.itemDuration.$invalid && (bookableItemForm.itemDuration.$dirty || state.submitted)"
+                                    class="alert">
+                                {{'Please enter a number only.' | translate}}
+                              </span>
+                            </div>
 
-                <span ng-show="bookableItemForm.itemPrice.$invalid && (bookableItemForm.itemPrice.$dirty || state.submitted)"
-                      class="alert">
-                  {{'Please enter a number only.' | translate}}
-                </span>
+                            <div class="bookableitem-price cell last">
+                              <label for="itemPrice">{{'Price' | translate}} €</label>
+                              <input type="number"
+                                     class="form-control"
+                                     id="itemPrice"
+                                     name="itemPrice"
+                                     placeholder="{{'Price in €' | translate}}"
+                                     ng-model="bookableItem.price"
+                                     required
+                                  >
 
-              </div>
+                              <span ng-show="bookableItemForm.itemPrice.$invalid && (bookableItemForm.itemPrice.$dirty || state.submitted)"
+                                    class="alert">
+                                {{'Please enter a number only.' | translate}}
+                              </span>
+
+                            </div>
+              -->
 
             </ng-form>
 
@@ -368,7 +375,9 @@
               <div class="event-header">
                 <div class="event-date cell">{{'Date' | translate}}</div>
                 <div class="event-time cell">{{'Time' | translate}}</div>
+                <div class="event-duration cell">{{'Duration' | translate}}</div>
                 <div class="event-quantity cell">{{'Qty' | translate}}</div>
+                <div class="event-price cell">{{'Price' | translate}}</div>
                 <div class="listaction cell">
                 </div>
               </div>
@@ -379,7 +388,9 @@
                 <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
                   <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
                   <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
+                  <div class="event-duration cell">???</div>
                   <div class="event-quantity cell">{{event.quantity}}x</div>
+                  <div class="event-price cell">???</div>
                   <div class="listaction cell">
                     <a class="btn btn-mini btn-ordinary"
                        ng-click="event.mode = 'edit'">
@@ -396,7 +407,8 @@
                            ng-show="event.mode == 'edit' || event.mode == 'new'"
                     >
                   <ng-form name="eventForm">
-                    <div class="form-group date-from">
+                    <div class="form-group date-start first">
+                      <label>Start date</label>
                       <input type="text"
                              size="10"
                              class="form-control"
@@ -405,7 +417,8 @@
                              placeholder="{{'Date' | translate}}"
                              bs-datepicker>
                     </div>
-                    <div class="form-group time">
+                    <div class="form-group time-start">
+                      <label>Start time</label>
                       <input type="text"
                              size="8"
                              class="form-control"
@@ -416,7 +429,37 @@
                           >
                     </div>
 
-                    <div class="form-group quantity">
+                    <div class="from-until">
+                      <span></span>
+                    </div>
+
+                    <div class="form-group date-end">
+                      <label>End date</label>
+                      <input type="text"
+                             size="10"
+                             class="form-control"
+                             data-autoclose="0"
+                             placeholder="{{'Date' | translate}}"
+                             bs-datepicker>
+                    </div>
+                    <div class="form-group time-end last">
+                      <label>End time</label>
+                      <input type="text"
+                             size="8"
+                             class="form-control"
+                             data-autoclose="0"
+                             placeholder="{{'Time' | translate}}"
+                             bs-timepicker
+                          >
+                    </div>
+
+                    <div class="event-duration-block">
+                      Event duration:
+                      <strong>2 days</strong>
+                    </div>
+
+                    <div class="form-group quantity first">
+                      <label>Quantity</label>
                       <input type="number"
                              class="form-control"
                              id="quantity"
@@ -431,16 +474,37 @@
                       </span>
                     </div>
 
+                    <div class="form-group price last">
+                      <label>Price</label>
+                      <input type="number"
+                             class="form-control"
+                             id="price"
+                             name="price"
+                             placeholder="{{'Price in €' | translate}}"
+                             required
+                          />
+                      <span class="alert">
+                        REQUIRED
+                      </span>
+                    </div>
+
+                    <!-- REPEATING EVENT begin -->
+
                     <div class="event-new-repeat">
                       <div class="checkbox">
                         <label>
                           <input type="checkbox"
                                  ng-model="event.repeating">
-                          {{'repeating' | translate}}
+                          {{'repeating Event' | translate}}
                         </label>
                       </div>
                       <div class="repeating"
                            ng-show="event.repeating">
+
+                        <div class="alert alert-info">
+                          Same starting time and duration as above
+                        </div>
+
                         <div class="checkbox">
                           <label>
                             <input type="checkbox"
@@ -491,12 +555,13 @@
                           </label>
                         </div>
 
-                        <div class="form-group date-until">
+                        <div class="form-group date-until first">
+                          <label>Last start date</label>
                           <input type="text"
                                  class="form-control"
                                  ng-model="event.end"
                                  data-min-date="today"
-                                 placeholder="{{'Until' | translate}}"
+                                 placeholder="{{'Date' | translate}}"
                                  bs-datepicker
                                  autoclose="true"
                                  name="dateuntil"
@@ -506,6 +571,8 @@
                       </div>
 
                     </div>
+
+                    <!-- REPEATING EVENT endn -->
 
                     <div class="buttonbar">
                       <a class="btn btn-small"

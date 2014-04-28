@@ -1,34 +1,37 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('MapsearchbarCtrl', function ($scope, frontendmap, Usersessionstates) {
+  .controller('MapsearchbarCtrl', function ($scope, frontendmap) {
+
+    $scope.frontendmap = frontendmap;
+
+    var searchChangeHandler = function () {
+      frontendmap.onSearchChange();
+    };
 
     $scope.search = {
       minDate: moment().subtract('days', 1).toDate(),
-      maxDate: moment().add('year', 1).toDate(),
-      fromDate: new Date(),
-      startDate: undefined,
-      endDate: undefined,
-      address: undefined
+      maxDate: moment(frontendmap.map.searchStartDate).add('year', 1).toDate(),
+      fromDate: new Date()
     };
 
     $scope.searchActivities = function () {
-      frontendmap.searchActivities($scope.search.startDate, $scope.search.endDate, $scope.search.address);
+      searchChangeHandler();
     };
 
-    $scope.$watch('search.startDate', function (newStartDate, oldStartDate) {
-      if (newStartDate !== oldStartDate) {
-        Usersessionstates.states.startdate = newStartDate;
-        Usersessionstates.updateSession();
+    $scope.$watch('frontendmap.map.searchStartDate', function (newVal, oldVal) {
+      if (newVal !== oldVal) {
+        searchChangeHandler();
       }
     });
 
-    $scope.$watch('search.endDate', function (newEndDate, oldEndDate) {
-      if (newEndDate !== oldEndDate) {
-        Usersessionstates.states.endDate = newEndDate;
-        Usersessionstates.updateSession();
+    $scope.$watch('frontendmap.map.searchEndDate', function (newVal, oldVal) {
+      if (newVal !== oldVal) {
+        searchChangeHandler();
       }
     });
 
-  })
-;
+    $scope.getGoogleAddressAutoCompletionList = function (viewValue) {
+      return frontendmap.getGoogleAddressAutoCompletionList(viewValue);
+    };
+  });

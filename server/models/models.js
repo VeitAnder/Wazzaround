@@ -15,6 +15,7 @@ var models = function () {
   var ObjArray = model.ObjArray;
   var Operation = model.Operation;
   var Factory = model.Factory;
+  var Link = model.Link;
 
   var validators = {
     email: function (value) {
@@ -63,26 +64,20 @@ var models = function () {
     currentUser: Factory()
   });
 
-  // @TODO - EventModel braucht _id
   var EventModel = new model("events", {
     start: Attr(Type.date),
-    quantity: Attr(Type.number)
-    /*,
     end: Attr(Type.date),
-    price: Attr(Type.number)*/
+    quantity: Attr(Type.number),
+    //bookQuantity : VirtualAttr(Type.number),  // Ist nur bei filteredActivities verfügbar
+    price: Attr(Type.number)
   });
 
-  // @TODO - BookableItemModel braucht _id
   var BookableItemModel = new model("bookableItems", {
     description: {
       en: Attr(Type.string),
       de: Attr(Type.string),
       it: Attr(Type.string)
     },
-    // @TODO Jonathan: remove price and duration - migration of existing data
-    price: Attr(Type.number),
-    duration: Attr(Type.number),
-
     events: ObjArray(EventModel)
   });
 
@@ -120,11 +115,14 @@ var models = function () {
       ]
     },
 
-    // muss umbennat werden !!!
     // http://docs.mongodb.org/manual/core/geospatial-indexes/#multi-location-documents-for-2d-indexes
     // http://myadventuresincoding.wordpress.com/2011/10/02/mongodb-geospatial-queries/
-    longitude: Attr(Type.number),
-    latitude: Attr(Type.number),
+    // don' forget to create an index via:
+    //  db.activities.ensureIndex( {"location" : "2d"} );
+    location : {
+      lng: Attr(Type.number),
+      lat: Attr(Type.number)
+    },
 
     bookableItems: ObjArray(BookableItemModel),
 
@@ -133,61 +131,70 @@ var models = function () {
 
     owner: Ref(UserModel),
 
-    getMyActivities: Factory(),  // Do not use
-
-    getActivitiesFilterByTime: Factory({  // Do not use
-      activitiesIds: Type.ObjectId,
-      startDate: Type.date,
-      endDate: Type.date
-    }),
+    getMyActivities: Factory(),
 
     filteredActivities: Factory({
-      from: {  // links oben
-        longitude: Attr(Type.number),
-        latitude: Attr(Type.number)
+      from: {  // <bottom left coordinates>
+        lng: Attr(Type.number),
+        lat: Attr(Type.number)
       },
-      to: {  // rechts unten
-        longitude: Attr(Type.number),
-        latitude: Attr(Type.number)
+      to: {  // <upper right coordinates>
+        lng: Attr(Type.number),
+        lat: Attr(Type.number)
       },
-      startDate: Attr(Type.date), // optional
-      endDate: Attr(Type.date) //optional
+      startDate: Attr(Type.date),
+      endDate: Attr(Type.date)
     })
   });
 
-  var BookingModel = new model('bookings', {
-    activity: Ref(ActivityModel),
-    item: Ref(EventModel),
-    quantity: Attr(Type.number),
+//  // old do remove
+//  var BookingModel = new model('bookings', {
+//    activity: Ref(ActivityModel),
+//    item: Ref(EventModel),
+//    quantity: Attr(Type.number),
+//
+//    //booker: {},  // TODO: who booked
+//    owner: Ref(UserModel),
+//    buy: Operation()
+//  });
 
-    //booker: {},  // TODO: who booked
-    owner: Ref(UserModel),
-    buy: Operation()
+
+  var BookingModel = new model('bookings', {
+    user      : Ref(UserModel),  // welcher user hat gebucht - optional falls vorhanden
+    bookingId : Attr(Type.string),
+    state     : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
+    date      : Attr(Type.date, Attr.default(new Date())),
+
+    checkout : Operation({
+      bookings : [{
+        activity : Attr(Type.objectid),
+        item     : Attr(Type.objectid),
+        event    : Attr(Type.objectid),
+        quantity : Attr(Type.number)
+      }]
+    })  // returns { bookingID : .., state: 'ok' }
   });
 
-/*
+  // This Model represents the booking of one Event
+  var BookedEventModel = new model('bookedEvents', {
+    booking  : Ref(BookingModel),                       // zu dieser Buchung gehört das Event
+    activity : Ref(ActivityModel),                      // gebuchte Aktivität
+    item     : Link(ActivityModel, BookableItemModel),  // gebuchtes Item
+    event    : Link(ActivityModel, EventModel),         // gebuchtes Event
+    quantity : Attr(Type.number),                       // gebuchte Menge
 
-  bookings : {
-    _id : 23423
-    name : Hans Joseph,
-      state: Attr(Enum(“booked”, “pending”)),
-    creationdate: Attr(Date)
-  }
+    activityCopy : Attr(),  // kopie der Aktivität zum Buchungszeitpunkt
 
-  bookedEvents
-  { _id :
-    booking: Ref(bookings),
-      activity: Ref(ActivityModel),
-    event: A,
-    quantity: Attr(Type.number),
-    state: Attr(Enum(“booked”, “pending”)),
-    creationdate: Attr(Date)
-    isBooked() : if booked || pending creation && date < 15min -> true
-  }
+    state    : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
+    date     : Attr(Type.date,  Attr.default(new Date())),  // wann wurde das event gebucht
 
-  Wenn creationdate älter als 15 min ist, dann kann man booked nicht mehr auf true setzen.
+    bookedQuantity : Operation({    // wie oft wurde das Event gebucht
+      event : Attr(Type.objectid)
+    })  // returns { quantity : X }
 
-  */
+    // gebucht ist das Event wenn, state = 'booked' oder state = 'pending' und date < 15min
+  });
+
 
   var CategoryModel = new model("categories", {
     title: Attr(Type.string),
@@ -215,7 +222,8 @@ var models = function () {
     BookableItemModel: BookableItemModel,
     BookingModel: BookingModel,
     AccesstokenModel: AccesstokenModel,
-    EventModel: EventModel
+    EventModel: EventModel,
+    BookedEventModel : BookedEventModel
   };
 }();
 
