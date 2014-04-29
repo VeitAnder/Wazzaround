@@ -1006,7 +1006,7 @@ angular.module('anorakApp')
       "Enter company": "Inserire ditta",
       "Access denied": "Accesso negato",
       "add activity": "aggiungere attività",
-      "Profile": "Profil",
+      "Profile": "Profilo",
       "Edit Profile": "Modifica profilo utente",
       "Bookable item description placeholder": "per esempio 4 ore tour (500ccm)",
       "Bank account": "Conto corrente bancario",
