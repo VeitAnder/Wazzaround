@@ -12,27 +12,15 @@
         <!--<a href="#/admin/">Administration overview</a>-->
         <!--</li>-->
         <li ng-show="currentUser.user.userType === 'admin' || currentUser.user.userType === 'provider'">
-          <a href="#/admin/myactivities">
-            <span>
-              {{'My Activities' | translate}}
-            </span>
-          </a>
+          <a href="#/admin/myactivities">{{'My Activities' | translate}}</a>
         </li>
 
         <li ng-show="currentUser.user.userType === 'admin'">
-          <a href="#/admin/allactivities">
-            <span>
-              {{'Admin All Activities' | translate}}
-            </span>
-          </a>
+          <a href="#/admin/allactivities">{{'Admin All Activities' | translate}}</a>
         </li>
 
         <li>
-          <a href="#/admin/editprofile">
-            <span>
-              {{'Edit your Profile' | translate}}
-            </span>
-          </a>
+          <a href="#/admin/profile">{{'Edit your Profile' | translate}}</a>
         </li>
 
       </ul>

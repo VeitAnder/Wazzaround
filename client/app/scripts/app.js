@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /*
  IE - if console is not defined, handle it to not block execution in IE <= 9
@@ -190,9 +190,23 @@ angular.module('anorakApp')
           }]
         }
       })
-      .when('/admin/editprofile', {
+      .when('/admin/profile', {
         templateUrl: 'views/admin/admin_basetemplate.html',
-        controller: 'AdminEditprofilePageCtrl'
+        controller: 'AdminProfilePageCtrl',
+        resolve: {
+          currentUser: ['currentUser', function (currentUser) {
+            return currentUser.load();
+          }]
+        }
+      })
+      .when('/admin/profile/edit', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'AdminProfileEditCtrl',
+        resolve: {
+          currentUser: ['currentUser', function (currentUser) {
+            return currentUser.load();
+          }]
+        }
       })
       .when('/activities/:id/', {
         templateUrl: 'views/page_basetemplate.html',
@@ -497,6 +511,11 @@ angular.module('anorakApp')
       "Please select a location.": "Please select a location.",
       "Your unsaved data will be lost if you leave this page": "Your unsaved data will be lost if you leave this page",
       "activities found": "activities found",
+      "Personal data": "personal data",
+      "Company data": "Company data",
+      "Your changes have been saved": "Your changes have been saved",
+      "Your changes could not be saved": "Your changes could not be saved",
+      "Please fill out the form correctly": "Please fill out the form correctly",
       "All dates from activity": "All dates from activity"
     });
 
@@ -751,6 +770,11 @@ angular.module('anorakApp')
       "Please select a location.": "Bitte wählen Sie einen Ort.",
       "Your unsaved data will be lost if you leave this page": "Ihre ungespeicherten Daten gehen verloren wenn Sie diese Seite jetzt verlassen",
       "activities found": "activities found",
+      "Personal data": "Persönliche Daten",
+      "Company data": "Firmendaten",
+      "Your changes have been saved": "Ihre Änderungen wurden gespeichert",
+      "Your changes could not be saved": "Ihre Änderungen konnten nicht gespeichert werden",
+      "Please fill out the form correctly": "Bitte füllen Sie das Formular korrekt aus",
       "All dates from activity": "All dates from activity"
     });
 
@@ -1004,7 +1028,12 @@ angular.module('anorakApp')
       "Please select a location.": "Si prega di selezionare una posizione.",
       "Your unsaved data will be lost if you leave this page": "I vostri dati non ancora salvati andranno persi se si lascia questa pagina",
       "activities found": "activities found",
-      "All dates from activity": "All dates from activity"
+      "All dates from activity": "All dates from activity",
+      "Personal data": "Dati personali",
+      "Company data": "Dati aziendali",
+      "Your changes have been saved": "Le modifiche sono state salvate",
+      "Your changes could not be saved": "Le modifiche non potevano essere salvate",
+      "Please fill out the form correctly": "Si prega di compilare correttamente il modulo"
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
