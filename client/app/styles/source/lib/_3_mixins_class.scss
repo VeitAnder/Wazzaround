@@ -598,10 +598,11 @@ button.btn, .btn, a.btn {
   clear: both;
   width: 100%;
   margin: 10px 0;
-  padding: 10px 0;
+  padding: $bu;
   text-align: right;
-  @include seperator(top, $color_grey_75);
   text-align: right;
+  background-color: $color_grey_05;
+  @include border-radius($border-radius);
 
   @include user-select(none);
 
