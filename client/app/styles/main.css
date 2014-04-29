@@ -1645,6 +1645,9 @@ p:last-child, ul:last-child {
 p.inline-screen-sm {
   padding-bottom: 0; }
 
+img {
+  vertical-align: middle; }
+
 @media only screen and (max-width: 767px) {
   .img-responsive-offset {
     display: block;

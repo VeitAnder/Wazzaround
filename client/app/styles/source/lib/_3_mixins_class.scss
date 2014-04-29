@@ -1029,6 +1029,12 @@ p.inline-screen-sm {
   padding-bottom: 0;
 }
 
+// Images
+
+img {
+  vertical-align: middle;
+}
+
 .img-responsive-offset {
   @include respond-to(screen-nocols) {
     display: block;
