@@ -1,62 +1,71 @@
-<h2>{{'Account' | translate}}</h2>
-<h3>{{'My Activities' | translate}}</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
 
-<p class="align-right">
-  <a class="btn btn-add"
-     href="/#/admin/myactivities/new/"
-      >
-    {{'add activity' | translate}}
-  </a>
-</p>
+      <h2>{{'Account' | translate}}</h2>
 
-<div class="myactivities-list enable_hover">
-  <div class="listheader">
-    <div class="activity cell first">
-      {{'Activity' | translate}}
-    </div>
-    <div class="category-main cell">
-      {{'Main Category' | translate}}
-    </div>
-    <div class="category-sub cell">
-      {{'Sub Category' | translate}}
-    </div>
-    <div class="location cell">
-      {{'Location' | translate}}
-    </div>
-    <div class="edit cell last">
+      <h3>{{'My Activities' | translate}}</h3>
 
-    </div>
-  </div>
+      <p class="align-right">
+        <a class="btn btn-add"
+           href="/#/admin/myactivities/new/"
+            >
+          {{'add activity' | translate}}
+        </a>
+      </p>
 
-  <div class="listbody">
+      <div class="myactivities-list enable_hover">
+        <div class="listheader">
+          <div class="activity cell first">
+            {{'Activity' | translate}}
+          </div>
+          <div class="category-main cell">
+            {{'Main Category' | translate}}
+          </div>
+          <div class="category-sub cell">
+            {{'Sub Category' | translate}}
+          </div>
+          <div class="location cell">
+            {{'Location' | translate}}
+          </div>
+          <div class="edit cell last">
 
-
-    <div class="listrow"
-        ng-repeat="activity in activities"
-        data-ng-click="open(activity)"
-        >
-      <div class="activity cell first">
-        {{activity.name | languageselect}}
-      </div>
-      <div class="category-main cell">
-        {{activity.category.main | translate}}
-      </div>
-      <div class="category-sub cell">
-        <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}<br></span>
-      </div>
-
-      <div class="location cell">
-        {{activity.address}}
-      </div>
-
-      <div class="edit cell last align-right">
-      <a class="btn btn-mini"
-         ng-href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
-      </a>
+          </div>
         </div>
 
+        <div class="listbody">
+
+          <div class="listrow"
+               ng-repeat="activity in activities"
+               data-ng-click="open(activity)"
+              >
+            <div class="activity cell first">
+              {{activity.name | languageselect}}
+            </div>
+            <div class="category-main cell">
+              {{activity.category.main | translate}}
+            </div>
+            <div class="category-sub cell">
+              <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}
+                <br>
+              </span>
+            </div>
+
+            <div class="location cell">
+              {{activity.address}}
+            </div>
+
+            <div class="edit cell last align-right">
+              <a class="btn btn-mini"
+                 ng-href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
     </div>
-
-
   </div>
 </div>
