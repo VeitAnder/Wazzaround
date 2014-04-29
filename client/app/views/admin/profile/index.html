@@ -1,11 +1,61 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
+<h2>{{'Profile' | translate}}</h2>
 
-      <h2>{{'Profile' | translate}}</h2>
+<h3>{{'Edit Profile' | translate}}</h3>
 
-      <h3>{{'Edit Profile' | translate}}</h3>
+<div>
 
-    </div>
+  <div class="buttonbar buttonbar-top">
+    <a class="btn btn-small"
+       href="#/admin/profile/edit/">{{'edit' | translate}}
+    </a>
   </div>
+
+  <fieldset>
+    <legend>{{'Personal data' | translate}}:</legend>
+
+    {{'First name' | translate}}
+    <p>{{user.profile.firstName}}</p>
+
+    {{'Last name' | translate}}
+    <p>{{user.profile.lastName}}</p>
+
+  </fieldset>
+
+  <div ng-show="user.userType === 'provider' || user.userType === 'admin'"> REMOVE ADMIN AFTER TESTING
+
+    <fieldset>
+      <legend>{{'Company data' | translate}}:</legend>
+
+      {{'Company' | translate}}
+      <p>{{user.profile.company}}</p>
+
+      {{'Address' | translate}}
+      <p>{{user.profile.address}}</p>
+
+      {{'City' | translate}}
+      <p>{{user.profile.city}}</p>
+
+      {{'Zip' | translate}}
+      <p>{{user.profile.zip}}</p>
+
+      {{'Telephone' | translate}}
+      <p>{{user.profile.tel}}</p>
+
+      {{'Fax' | translate}}
+      <p>{{user.profile.fax}}</p>
+
+      {{'UID optional' | translate}}
+      <p>{{user.profile.uid}}</p>
+
+      {{'Country' | translate}}
+      <p>{{user.profile.country}}</p>
+
+      {{'Name of contact person' | translate}}
+      <p>{{user.profile.contactperson.name}}</p>
+
+    </fieldset>
+
+  </div>
+
 </div>
+

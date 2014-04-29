@@ -26,6 +26,11 @@ var models = function () {
     }
   };
 
+  // TODO alle properties die im Client required sind,
+  // custom validator schreiben:
+  // check auf userType, wenn provider sind bestimmte Felder aus profile required,
+  // bei normalem User kein profile nötig
+  // Businesslogic, Methode zur Validierung schreiben
   var UserModel = new model("users", {
     email: Attr(Type.string, validators.email),  // email ist auch username
     password: Attr(Type.string),
@@ -57,7 +62,7 @@ var models = function () {
     login: Operation(),
     logout: Operation(),
     register: Operation(),
-
+    saveUserProfile: Operation(),
     // TODO: add security
     userType: Attr(Type.string, Type.enum('user', 'admin', 'provider'), Attr.default('user')),
 
