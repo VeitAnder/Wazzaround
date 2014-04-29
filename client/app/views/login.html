@@ -1,85 +1,93 @@
-<form class="standardform loginform"
-      name="loginform"
-      novalidate
-      autocomplete="on"
-      action=""
-      method="post"
-      target="_self">
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
 
-  <h2>{{ 'Account' | translate }}</h2>
+      <form class="standardform loginform"
+            name="loginform"
+            novalidate
+            autocomplete="on"
+            action=""
+            method="post"
+            target="_self">
 
-  <h3>{{ 'Login' | translate }}</h3>
+        <h2>{{ 'Account' | translate }}</h2>
 
-  <!--<div ng-show="state.confirmed">
-    <p class="alert alert-success">Ihr Benutzerkonto wurde erfolgreich aktiviert.</p>
-  </div>
+        <h3>{{ 'Login' | translate }}</h3>
 
-  <div ng-show="state.alreadyconfirmed">
-    <p class="alert">Ihr Benutzerkonto ist bereits aktiviert worden.</p>
-  </div>
+        <!--<div ng-show="state.confirmed">
+          <p class="alert alert-success">Ihr Benutzerkonto wurde erfolgreich aktiviert.</p>
+        </div>
 
-  <div data-ng-switch="state.autherrortype">
-    <div ng-switch-when="invalidcredentials" class="alert alert-error">
-      Bitte überprüfen Sie E-Mail und Passwort.
+        <div ng-show="state.alreadyconfirmed">
+          <p class="alert">Ihr Benutzerkonto ist bereits aktiviert worden.</p>
+        </div>
+
+        <div data-ng-switch="state.autherrortype">
+          <div ng-switch-when="invalidcredentials" class="alert alert-error">
+            Bitte überprüfen Sie E-Mail und Passwort.
+          </div>
+          <div ng-switch-when="userupdateerror" class="alert alert-error">
+            Es gab einen Fehler beim Login.
+          </div>
+          <div ng-switch-when="loginerror" class="alert alert-error">
+            Es gab einen Fehler beim Login.
+          </div>
+          <div ng-switch-when="usernotloggedin" class="alert alert-error">
+            Sie sind nicht eingeloggt.
+          </div>
+          <div ng-switch-when="sessionExpired" class="alert alert-error">
+            Bitte loggen Sie sich ein.<br>
+            ( Entweder ist Ihre Session abgelaufen, oder Sie waren noch nicht angemeldet. )
+          </div>
+        </div>  -->
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input name="email"
+                 ng-model="form.email"
+                 class="input-block-level"
+                 id="email"
+                 placeholder="{{'Your e-mail address' | translate}}"
+                 required
+                 autofocus>
+        </div>
+        <div class="form-group">
+          <label for="password">{{ 'Password' | translate }}</label>
+          <input name="password"
+                 id="password"
+                 type="password"
+                 ng-model="form.password"
+                 required
+                 placeholder="{{'Your password' | translate }}"
+                 class="input-block-level">
+        </div>
+
+        <div ng-show="state.error">
+          <div class="alert alert-error">{{state.message | translate}}</div>
+        </div>
+
+        <div class="form-group form-group-btn">
+          <button class="btn"
+                  type="submit"
+                  ng-click="login()">{{ 'Login' | translate }}
+          </button>
+
+          <a ng-href="#/registration"
+             class="space-left">
+            {{ 'Not registered' | translate }}
+          </a>
+          |
+          <a ng-href="#/registration/forgotpassword">
+            {{ 'Forgot password' | translate }}
+          </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <div ng-include="'views/_registrationforprovidershint.html'"></div>
+
+      </form>
+
     </div>
-    <div ng-switch-when="userupdateerror" class="alert alert-error">
-      Es gab einen Fehler beim Login.
-    </div>
-    <div ng-switch-when="loginerror" class="alert alert-error">
-      Es gab einen Fehler beim Login.
-    </div>
-    <div ng-switch-when="usernotloggedin" class="alert alert-error">
-      Sie sind nicht eingeloggt.
-    </div>
-    <div ng-switch-when="sessionExpired" class="alert alert-error">
-      Bitte loggen Sie sich ein.<br>
-      ( Entweder ist Ihre Session abgelaufen, oder Sie waren noch nicht angemeldet. )
-    </div>
-  </div>  -->
-
-  <div class="form-group">
-    <label for="email">E-mail</label>
-    <input name="email"
-           ng-model="form.email"
-           class="input-block-level"
-           id="email"
-           placeholder="{{'Your e-mail address' | translate}}"
-           required
-           autofocus>
   </div>
-  <div class="form-group">
-    <label for="password">{{ 'Password' | translate }}</label>
-    <input name="password"
-           id="password"
-           type="password"
-           ng-model="form.password"
-           required
-           placeholder="{{'Your password' | translate }}"
-           class="input-block-level">
-  </div>
-
-  <div ng-show="state.error">
-    <div class="alert alert-error">{{state.message | translate}}</div>
-  </div>
-
-  <div class="form-group form-group-btn">
-    <button class="btn"
-            type="submit"
-            ng-click="login()">{{ 'Login' | translate }}
-    </button>
-
-    <a ng-href="#/registration"
-       class="space-left">
-      {{ 'Not registered' | translate }}
-    </a>
-    |
-    <a ng-href="#/registration/forgotpassword">
-      {{ 'Forgot password' | translate }}
-    </a>
-  </div>
-
-  <div class="divider"></div>
-
-  <div ng-include="'views/_registrationforprovidershint.html'"></div>
-
-</form>
+</div>

@@ -11,6 +11,10 @@ var UserModel = require('../models.js').UserModel;
 ///////////////////////
 // read/write filters
 
+var updateCompanyInActivities = function(user) {
+  // TODO
+}
+
 // setup filters for the UserModel
 UserModel.readFilter(function (req) {
   if (!req.session.auth) {

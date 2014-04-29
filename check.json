@@ -1,7 +1,7 @@
 {"searchlocation": {
   "coords": {
-    "latitude": 48.2258065,
-    "longitude": 16.369847599999957
+    "latitude": 44.9983525,
+    "longitude": 7.680287799999974
   }
 }, "zoom": 9, "selectedcategories": [
   {
@@ -49,6 +49,7 @@
         "selected": true
       }
     ],
+    "_childObjs": {},
     "_id": "530ce4beee5f21279b2b64eb",
     "open": false
   },
@@ -82,6 +83,7 @@
         "selected": true
       }
     ],
+    "_childObjs": {},
     "_id": "530ce4d8ee5f21279b2b64ec",
     "open": false
   },
@@ -110,16 +112,17 @@
         "selected": true
       }
     ],
+    "_childObjs": {},
     "_id": "530ce4e8ee5f21279b2b64ed",
     "open": false
   }
 ], "bounds": {
   "northeast": {
-    "latitude": 48.59045159916071,
-    "longitude": 17.468480412499957
+    "latitude": 45.38450790148686,
+    "longitude": 9.155202350781224
   },
   "southwest": {
-    "latitude": 47.85854485774284,
-    "longitude": 15.271214787499957
+    "latitude": 44.60957703572166,
+    "longitude": 6.205373249218724
   }
-}}
+}, "address": "Moncalieri Turin, Italy"}

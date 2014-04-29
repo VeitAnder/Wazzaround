@@ -86,7 +86,6 @@
         </div>
       </div>
 
-
       <div class="filter-toggle">
         <div class="filter-toggle-show"
              data-ng-class="{active: allSelected()}"
@@ -104,22 +103,27 @@
 
     <div class="map-wrap">
 
+      states.filteredactivities.length
+      {{states.filteredactivities.length}}
+
+      {{states.filteredactivities[0].selected}}
+
       <google-map
-          center='map.center'
-          zoom='map.zoom'
+          center='frontendmap.map.center'
+          zoom='frontendmap.map.zoom'
           draggable='true'
-          events='map.events'
-          options='map.options'
+          events='frontendmap.map.events'
+          options='frontendmap.map.options'
           >
         <marker
-            ng-repeat="m in map.markers | filter:selectedCategoryFilter | markercoordsfilter"
+            ng-repeat="m in frontendmap.map.markers | filter:selectedCategoryFilter | markercoordsfilter track by m._id"
             coords='m'
             click='onMarkerClicked(m)'
             options='markerOptions'
-            icon='getMarkerIcon(m)'
+            icon='frontendmap.getMarkerIcon(m.category.main)'
             >
 
-          <window
+         <!-- <window
               show="m.showWindow"
               closeClick="m.closeClick()"
               options="windowOptions"
@@ -147,7 +151,7 @@
               <h5 class="no-margin-top">{{m.company}}</h5>
 
               <div class="description">
-                <!--<div class="input-label">Description</div>-->
+                &lt;!&ndash;<div class="input-label">Description</div>&ndash;&gt;
                 <div ta-bind
                      ng-model="m.description[getAvailableTranslationLanguageKey(m.description)]"></div>
               </div>
@@ -158,75 +162,27 @@
                   <div class="availability-header">
                     <div class="month cell">{{ 'Next available Dates' | translate }}</div>
                   </div>
-                  <div class="availability-entry"
-                       ng-repeat="available in m.availability">
-                    <div class="availability-title cell">
-                      {{available.title | languageselect}}
-                    </div>
-                    <div class="availability-date cell">
-                      {{ available.start | momentjs:{format: "DD. MMM YY"} }}
-                    </div>
-                    <div class="availability-time cell">
-                      {{ available.start | momentjs:{format: "hh:mm a"} }}
-                    </div>
-                    <div class="availability-duration cell">
-                      {{ available.duration | momentjs:{format: "h"} }}h
-                    </div>
-                    <div class="availability-quantity cell">
-                      {{available.quantity}}x
-                    </div>
 
-                    <div class="availability-book cell align-right">
-                      <a class="btn btn-mini btn-shoppingcart"
-                         href="#/shoppingcart/"
-                         target="_blank"
-                         title="{{ 'Book' | translate }}"
-                         ng-click="putIntoShoppingCart(m, available)"
-                          >
-                        <span>{{ 'Book' | translate }}</span>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="availability-footer">
-                    <div class="cell first">
-                      <a class="btn btn-mini disabled"
-                         ng-click=""
-                          >{{ 'Prev' | translate }}
-                      </a>
-                    </div>
-                    <div class="cell align-center">
-                      <a class="btn btn-mini"
-                         ng-click=""
-                         href="#/activities/{{m._id}}/"
-                          >{{ 'Show all Dates' | translate }}
-                      </a>
-                    </div>
-                    <div class="cell last align-right">
-                      <a class="btn btn-mini"
-                         ng-click=""
-                          >{{ 'Next' | translate }}
-                      </a>
-                    </div>
-                  </div>
+                  <bookableitemlist data-activity="m">
+                  </bookableitemlist>
 
                 </div>
               </div>
 
             </div>
 
-          </window>
+          </window>-->
           <marker-label content="m.name[getAvailableTranslationLanguageKey(m.name)]"
                         anchor="22 0"
                         class="marker-labels marker-label-category-{{m.category.main}}"
               />
         </marker>
 
-        <!--marker for clicked position can not put google.map.animations.BOUNCE , since it is not initiaized yet-->
+        <!--marker for clicked position can not put google.frontendmap.map.animations.BOUNCE , since it is not initialized yet-->
         <div ng-init="opts = {animation:0}">
-          <marker coords="map.centerMarker"
+          <marker coords="frontendmap.map.centerMarker"
                   options="opts">
-            <marker-label content="map.centerMarker.title | translate"
+            <marker-label content="frontendmap.map.centerMarker.title | translate"
                           anchor="22 0"
                           class="marker-labels marker-labels-your-location"
                 />
@@ -235,27 +191,30 @@
 
       </google-map>
 
+      <activitybar activities="frontendmap.map.markers">
+      </activitybar>
+
     </div>
 
     <div class="map-debug">
       <strong>Map-Debug:</strong>
       <br/>
       <u>Map ZOOM:</u>
-      {{ map.zoom }}
+      {{ frontendmap.map.zoom }}
       <br/>
       <u>You clicked here:</u>
       <br/>
-      "longitude": {{ map.clickedMarker.longitude }}
+      "longitude": {{ frontendmap.map.clickedMarker.longitude }}
       <br/>
-      "latitude": {{ map.clickedMarker.latitude }}
+      "latitude": {{ frontendmap.map.clickedMarker.latitude }}
     </div>
 
   </div>
 
   <shoppingcart
-      data-ng-include="'views/directives/shoppingcart.html'"
       ng-class="{active: shoppingcart}"
-      class="shoppingcart-rightside">
+      class="shoppingcart-rightside"
+      >
   </shoppingcart>
 
 </div>

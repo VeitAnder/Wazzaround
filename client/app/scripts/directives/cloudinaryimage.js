@@ -3,18 +3,20 @@
 angular.module('anorakApp')
   .directive('cloudinaryimage', function (APP_CONFIG) {
     return {
-      template: '<img ng-src="{{cloudinaryurl}}" />',
+      template: '<img ng-src="{{getCloudinaryurl()}}" />',
       restrict: 'E',
       scope: {
-        "publicid": "@",
+        "publicid": "@publicid",
         "width": "@",
         "height": "@",
-        "format": "@"
+        "format": "@format"
       },
       replace: true,
       link: function postLink(scope, element, attrs) {
         $.cloudinary.config({ cloud_name: APP_CONFIG.cloudinary.cloud_name, api_key: APP_CONFIG.cloudinary.api_key});
-        scope.cloudinaryurl = $.cloudinary.url(scope.publicid + "." + scope.format, { width: scope.width, height: scope.height, crop: 'fill' });
+        scope.getCloudinaryurl = function () {
+          return $.cloudinary.url(scope.publicid + "." + scope.format, { width: scope.width, height: scope.height, crop: 'fill' });
+        };
       }
     };
   });
