@@ -566,6 +566,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-color: $color_grey_15;
     margin: 0;
     padding: 5px 0 0 0;
+    background-color: transparent;
+    @include border-radius(0);
     .txt-icon-delete {
       color: $color_grey_15;
       span {
@@ -947,7 +949,8 @@ shoppingcart {
   padding: $bu*2.0 $bu*1.0;
   @include color-white;
   .buttonbar {
-    border: none;
+    background-color: transparent;
+    padding: 0;
     .btn {
       width: 100%;
       text-align: center;
@@ -1575,8 +1578,28 @@ $activitybar-height: 200px;
 // SUBMENU
 // ###########################################################################################################################
 // ###########################################################################################################################
+
+
 .nav-sub {
   @include tmenu_class;
+
+  .nav-icon{
+    .icon{
+      position: relative;
+      top: 1px;
+      display: block;
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin-right: $bu*0.5;
+      @include sprite_icons(50px, 50px, no-repeat);
+    }
+    &.nav-icon-map {
+      .icon {
+        background-position: -200px 0;
+      }
+    }
+  }
 
   &.nav-sub-user{
     span{

@@ -191,6 +191,11 @@ $img_path: '/img/';
   @include user-select(none);
 }
 
+// Images
+img {
+  vertical-align: middle;
+}
+
 
 
 // welcome to the party bootsrap

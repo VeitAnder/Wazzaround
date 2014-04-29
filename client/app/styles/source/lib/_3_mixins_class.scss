@@ -598,7 +598,7 @@ button.btn, .btn, a.btn {
   clear: both;
   width: 100%;
   margin: 10px 0;
-  padding: $bu;
+  padding: $bu*0.5;
   text-align: right;
   text-align: right;
   background-color: $color_grey_05;
@@ -1030,11 +1030,6 @@ p.inline-screen-sm {
   padding-bottom: 0;
 }
 
-// Images
-
-img {
-  vertical-align: middle;
-}
 
 .img-responsive-offset {
   @include respond-to(screen-nocols) {
