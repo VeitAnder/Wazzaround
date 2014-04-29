@@ -42,7 +42,7 @@ body:before {
     position: relative;
     z-index: 1;
     float: left;
-    padding: $bu*1.0 0;
+    padding: 23px 0 0 0; //fullwidht image and nav on same height
     padding-bottom: $bu*1.0 + $footer-height;
   }
 }
@@ -158,7 +158,7 @@ body:before {
       &:hover {
         color: $color_green;
         border-color: $color_green;
-        background-color: transparent;
+        background-color: rgba($color_white, 0.25);
       }
     }
     @include respond-to(screen-sm) {
@@ -1482,54 +1482,6 @@ $activitybar-height: 200px;
   }
 }
 
-.nav-logo {
-  float: left;
-  a {
-    //@include logo-monochrome;
-    display: block;
-    padding: 15px 15px 13px;
-    background-color: $color_nav1_background;
-    i {
-      width: 24px;
-      background-position: -275px 0;
-    }
-    &:hover {
-      background-color: $color_nav1_background_hover;
-    }
-  }
-  @include respond-to(screen-nocols) {
-    margin-left: -10px;
-    a {
-      i {
-        width: 100px;
-        background-position: -200px 0;
-      }
-    }
-  }
-}
-
-.nav-toggle-btn {
-  display: none;
-  padding: 13px 5px;
-  a {
-    display: block;
-    width: 30px;
-    height: 24px;
-    float: right;
-    background-color: $color_grey_50;
-    @include border-radius($border-radius_small);
-    @include sprite_icons(-244px, -19px, no-repeat);
-    &:hover {
-      background-color: $color_grey_50_l5;
-    }
-    span {
-      display: none;
-    }
-  }
-  @include respond-to(screen-nocols) {
-    display: block;
-  }
-}
 
 .nav-main {
   @include tmenu_class;
@@ -1618,24 +1570,29 @@ $activitybar-height: 200px;
 
 //.nav-main
 
-.nav-right {
-  float: right;
-  @include respond-to(screen-nocols) {
-    .nav-main & {
-      display: none;
-    }
-    float: none;
-  }
-}
+
 
 // SUBMENU
 // ###########################################################################################################################
 // ###########################################################################################################################
 .nav-sub {
   @include tmenu_class;
-  @include seperator(bottom, $color_nav2_level01_border);
-  margin-bottom: $fs*2.0;
 
+  &.nav-sub-user{
+    span{
+      font-weight: $font-weight_bold;
+    }
+  }
+
+  ul {
+    @include seperator(bottom, $color_nav2_level01_border);
+    margin-bottom: $fs*2.0;
+  }
+
+  a{
+    text-decoration: none;
+
+  }
   .current, .currentandsub {
     a:link, a:visited, a:hover {
       background-color: transparent;
@@ -1665,7 +1622,7 @@ $activitybar-height: 200px;
   // ---------------------------------------------------------------------------------------------------------------------------
   ul {
     li {
-      @include border(top, $color_nav2_level01_border);
+      @include seperator(top, $color_nav2_level01_border);
       a {
         display: block;
 
@@ -2419,12 +2376,6 @@ $img-selector-teasertxtheight: 35px;
   }
 }
 
-.loginbutton {
-  .col-left-fixed & {
-    padding-top: $bu;
-    @include seperator(top, $color_main_seperator);
-  }
-}
 
 .logoutlink {
   .admin-section & {

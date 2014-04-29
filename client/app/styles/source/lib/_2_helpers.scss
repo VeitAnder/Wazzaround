@@ -243,7 +243,12 @@
 }
 
 @mixin border($type, $color) {
-  border-#{$type}: $border-style $border-width #{$color};
+  @if $type == all{
+    border: $border-style $border-width #{$color};
+  }
+  @else {
+    border-#{$type}: $border-style $border-width #{$color};
+  }
 }
 
 @mixin border_all($color) {

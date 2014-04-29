@@ -1689,6 +1689,34 @@ input[type="checkbox"]:focus {
   @include input-label;
 }
 
+@mixin input-content{
+}
+
+.input-content{
+  @include input-content;
+}
+
+
+.formdata-display{
+  overflow: hidden;
+  @include seperator(bottom, $color_grey_25);
+  margin-bottom: $fs;
+
+  .input-label, .input-content{
+    display: inline-block;
+    float: left;
+  }
+  .input-label{
+    width: 20%;
+    margin: 0;
+  }
+  .input-content{
+    width: 75%;
+    margin-left: 5%;
+  }
+}
+
+
 
 fieldset {
   position: relative;
