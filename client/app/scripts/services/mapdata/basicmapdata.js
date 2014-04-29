@@ -43,6 +43,17 @@ angular.module('anorakApp')
         return defer.promise;
       };
 
+      // if end date is before start date, set to 1h after start date
+      var setEndDateDependingOnStartDate = function() {
+        var start = moment(map.searchStartDate);
+        var end = moment(map.searchEndDate);
+
+        if(start.isAfter(end)) {
+          end = moment(start).add('hours', 1);
+          map.searchEndDate = end.toDate();
+        }
+      };
+
       var setTimeOnStartAndEndDate = function () {
         // if startdate is today, set current time, otherwise start at 00:00:00
         var start = moment(map.searchStartDate);
@@ -161,6 +172,7 @@ angular.module('anorakApp')
       this.onSearchDateChange = function () {
         console.log("search date changed");
 
+        setEndDateDependingOnStartDate();
         setTimeOnStartAndEndDate();
 
         findActivities()
