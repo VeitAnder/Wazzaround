@@ -119,8 +119,7 @@ body:before {
 }
 */
 
-
-.row-large{
+.row-large {
   padding: $bu*2.0 0;
 }
 
@@ -162,7 +161,7 @@ body:before {
         background-color: transparent;
       }
     }
-    @include respond-to(screen-sm){
+    @include respond-to(screen-sm) {
       max-height: 100%;
       .outerwrap {
         position: relative;
@@ -177,7 +176,7 @@ body:before {
         }
       }
     }
-    @include respond-to(screen-nocols){
+    @include respond-to(screen-nocols) {
       max-height: 100%;
       .outerwrap {
         position: relative;
@@ -192,22 +191,22 @@ body:before {
         }
       }
     }
-    @include respond-to(screen-md){
-      img{
+    @include respond-to(screen-md) {
+      img {
         height: 425px;
         width: auto;
       }
     }
-    @include respond-to(screen-lg){
-      .row{
+    @include respond-to(screen-lg) {
+      .row {
         padding: $bu*5.0 0;
       }
-      .textblock{
-        .preface{
+      .textblock {
+        .preface {
           font-size: $fs*$font-size_h4_factor;
           line-height: $fs*$font-size_h4_factor*$line-height_headline-factor;
         }
-        .btn-negative{
+        .btn-negative {
           padding: ($fs*0.75) ($fs*2.0);
           font-size: 25px;
           @include border-radius($border-radius);
@@ -242,7 +241,7 @@ body:before {
       margin-top: 0;
     }
     @include respond-to(screen-sm) {
-      .row, .row:first-child{
+      .row, .row:first-child {
         padding: 0;
       }
       .textblock {
@@ -253,8 +252,8 @@ body:before {
       }
     }
     @include respond-to(screen-nocols) {
-      .row, .row:first-child{
-        padding: 0!important;
+      .row, .row:first-child {
+        padding: 0 !important;
       }
       .textblock {
         margin-top: $bu*2.0;
@@ -985,8 +984,8 @@ shoppingcart {
   .active & {
     .innerwrap {
       background-color: $color_red;
-      background-position: -76px 14px;
-      background-size: 600%;
+      background-position: -82px 13px;
+      background-size: 800%;
     }
     .numberofitems {
       display: none;
@@ -2450,22 +2449,19 @@ $img-selector-teasertxtheight: 35px;
 .standardform {
   .form-group-inline-5050 {
     .form-group {
-      width: 35%;
+      width: 47.5%;
     }
   }
   .form-group-inline-2575 {
     .form-group {
-      width: 52.5%;
+      width: 72.5%;
       &:first-child {
-        width: 17.5%;
+        width: 22.5%;
       }
     }
   }
-  .form-group, .buttonbar, .divider, .contentbox {
-    width: 75%;
-    input, .contentbox {
-      width: 100%;
-    }
+  input, .contentbox {
+    width: 100%;
   }
 }
 

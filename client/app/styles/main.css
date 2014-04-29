@@ -3689,8 +3689,8 @@ shoppingcart.shoppingcart-rightside {
       padding-bottom: 14px; }
   .active .shoppingcart-toggle .innerwrap {
     background-color: #C83C19;
-    background-position: -76px 14px;
-    background-size: 600%; }
+    background-position: -82px 13px;
+    background-size: 800%; }
   .active .shoppingcart-toggle .numberofitems {
     display: none; }
 
@@ -5195,15 +5195,13 @@ shoppingcart.shoppingcart-rightside {
   display: none; }
 
 .standardform .form-group-inline-5050 .form-group {
-  width: 35%; }
+  width: 47.5%; }
 .standardform .form-group-inline-2575 .form-group {
-  width: 52.5%; }
+  width: 72.5%; }
   .standardform .form-group-inline-2575 .form-group:first-child {
-    width: 17.5%; }
-.standardform .form-group, .standardform .buttonbar, .standardform .divider, .standardform .contentbox {
-  width: 75%; }
-  .standardform .form-group input, .standardform .form-group .contentbox, .standardform .buttonbar input, .standardform .buttonbar .contentbox, .standardform .divider input, .standardform .divider .contentbox, .standardform .contentbox input, .standardform .contentbox .contentbox {
-    width: 100%; }
+    width: 22.5%; }
+.standardform input, .standardform .contentbox {
+  width: 100%; }
 
 .teaser-section {
   overflow: hidden; }
