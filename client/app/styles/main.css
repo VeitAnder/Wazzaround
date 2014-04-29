@@ -2178,7 +2178,7 @@ body:before {
     position: relative;
     z-index: 1;
     float: left;
-    padding: 15px 0;
+    padding: 23px 0 0 0;
     padding-bottom: 65px; }
 
 .footer {
@@ -4482,6 +4482,8 @@ shoppingcart.shoppingcart-rightside {
       cursor: default; }
     .nav-sub ul .currentandsub li a:hover {
       cursor: pointer; }
+.nav-sub.nav-sub-user span {
+  font-weight: 600; }
 .nav-sub ul {
   border-bottom: dotted 1px #b3b3b3;
   margin-bottom: 32px; }
@@ -4504,8 +4506,7 @@ shoppingcart.shoppingcart-rightside {
   .nav-sub ul li a {
     display: block; }
     .nav-sub ul li a:link span, .nav-sub ul li a:visited span {
-      color: #666;
-      font-weight: 600; }
+      color: #666; }
     .nav-sub ul li a:hover {
       background-color: #FFF; }
       .nav-sub ul li a:hover span {
