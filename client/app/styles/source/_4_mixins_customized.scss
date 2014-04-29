@@ -307,7 +307,18 @@ googleMap, .angular-google-map, .angular-google-map-container {
   display: block;
   top: 0;
   right: 0;
-  bottom: 50px;
+  bottom: $footer-height;
+  left: 0;
+}
+
+.map-innerwrap {
+  position: fixed;
+  margin-left: $col-left-width;
+  overflow: hidden;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 200px + $footer-height;
   left: 0;
 }
 

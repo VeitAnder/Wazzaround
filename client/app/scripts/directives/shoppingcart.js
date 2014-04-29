@@ -6,6 +6,16 @@ angular.module('anorakApp')
       templateUrl: 'views/directives/shoppingcart.html',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
+
+        var setToggleClass = function () {
+          if (shoppingcart.states.open) {
+            element.addClass("active");
+          } else {
+            element.removeClass("active");
+          }
+        };
+        setToggleClass();
+
         scope.shoppingcart = shoppingcart;
 
         scope.states = {
@@ -13,13 +23,8 @@ angular.module('anorakApp')
         };
 
         scope.toggleShoppingCart = function () {
-          shoppingcart.open = !shoppingcart.open;
-
-          if (shoppingcart.open) {
-            element.addClass("active");
-          } else {
-            element.removeClass("active");
-          }
+          shoppingcart.states.open = !shoppingcart.states.open;
+          setToggleClass();
         };
 
         scope.checkout = function () {
