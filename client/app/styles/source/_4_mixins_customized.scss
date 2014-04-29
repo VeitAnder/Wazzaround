@@ -1621,6 +1621,7 @@ $activitybar-height: 200px;
         &:link, &:visited {
           span {
             color: $color_nav2_level01_link;
+            font-weight: $font-weight_bold;
           }
         }
 

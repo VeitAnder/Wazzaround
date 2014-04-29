@@ -2,42 +2,10 @@
 
   <div class="col-left-fixed">
     <languageselect></languageselect>
+
     <div data-ng-include="'views/_logo.html'"></div>
-    <nav
-        data-ng-show="currentUser.authenticated"
-        class="nav-sub"
-        >
-      <ul>
-        <!--<li>-->
-        <!--<a href="#/admin/">Administration overview</a>-->
-        <!--</li>-->
-        <li ng-show="currentUser.user.userType === 'admin' || currentUser.user.userType === 'provider'">
-          <a href="#/admin/myactivities">
-            <span>
-              {{'My Activities' | translate}}
-            </span>
-          </a>
-        </li>
-
-        <li ng-show="currentUser.user.userType === 'admin'">
-          <a href="#/admin/allactivities">
-            <span>
-              {{'Admin All Activities' | translate}}
-            </span>
-          </a>
-        </li>
-
-        <li>
-          <a href="#/admin/profile">
-            <span>
-              {{'Edit your Profile' | translate}}
-            </span>
-          </a>
-        </li>
-
-      </ul>
-      <loginstatus></loginstatus>
-    </nav>
+    <div data-ng-include="'views/directives/navglobal.html'"></div>
+    <div data-ng-include="'views/directives/navuser.html'"></div>
 
     <buildinfo></buildinfo>
 

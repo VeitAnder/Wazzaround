@@ -4504,7 +4504,8 @@ shoppingcart.shoppingcart-rightside {
   .nav-sub ul li a {
     display: block; }
     .nav-sub ul li a:link span, .nav-sub ul li a:visited span {
-      color: #666; }
+      color: #666;
+      font-weight: 600; }
     .nav-sub ul li a:hover {
       background-color: #FFF; }
       .nav-sub ul li a:hover span {
