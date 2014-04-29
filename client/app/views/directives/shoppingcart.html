@@ -1,10 +1,9 @@
-<div class="shoppingcart-element"
-    >
+<div class="shoppingcart-element">
   <div class="shoppingcart-toggle"
-       ng-click="shoppingcart = !shoppingcart"
+       ng-click="toggleShoppingCart()"
       >
     <div class="innerwrap">
-      <span class="numberofitems">2</span>
+      <span class="numberofitems">{{shoppingcart.getTotal().num}}</span>
       <span class="hideme">Open Shoppingcart</span>
     </div>
   </div>
