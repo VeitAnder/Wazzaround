@@ -6,7 +6,6 @@ angular.module('anorakApp')
       return 'views/admin/profile/index.html';
     };
 
-    $scope.userprofile = currentUser.user.profile;
     $scope.user = currentUser.user;
 
     $scope.edit = function () {
@@ -14,32 +13,32 @@ angular.module('anorakApp')
     };
 
   })
+
   .controller('AdminProfileEditCtrl', function ($scope, currentUser, models, $location) {
 
     $scope.getPagePartial = function () {
       return 'views/admin/profile/edit.html';
     };
 
-    $scope.userprofile = currentUser.user.profile;
+    $scope.user = currentUser.user;
 
     $scope.saveUserProfile = function () {
 
-      $scope.state.submitted = true;
+//      $scope.state.submitted = true;
 
       if ($scope.valForm.$valid) {
 
-        models.UserModel.saveUserProfile(currentUser.user)   // TODO we are lacking a method to save user profile only
-          .then(function () {
+        $scope.user.save()
+          .then(function (asdf) {
+            debug("Saved user", asdf);
             $location.path("/admin/profile");  // TODO message das speichern erfolgreich
           })
           .fail(function (err) {       // TODO fail message
-            debug("Could not save user profile");
+            debug("Could not save user profile", err);
+            $scope.state.savesuccess = false;
           });
+
       }
     };
-
-//    $scope.cancel = function() {
-//      $location.path = "/admin/profile";
-//    };
 
   });

@@ -8,8 +8,6 @@ var ObjectId = require('mongojs').ObjectId;
 var models = require('../models.js');
 var UserModel = require('../models.js').UserModel;
 
-
-
 ///////////////////////
 // read/write filters
 
@@ -22,10 +20,44 @@ UserModel.readFilter(function (req) {
   return {_id: ObjectId(req.session.user._id) };  // filter for only your documents (your user id)
 });
 
+function checkRequiredFieldsForUserType(userDoc) {
+  if (userDoc.userType === 'provider') {
+    if(!userDoc.company ||
+      !userDoc.firstName ||
+      !userDoc.lastName ||
+      !userDoc.tel ||
+      !userDoc.contactperson.name ||
+      !userDoc.address ||
+      !userDoc.zip ||
+      !userDoc.city ||
+      !userDoc.country) {
+
+      return false;
+
+    } else {
+      return true;
+    }
+  }
+}
+
 UserModel.writeFilter(function (userDoc, req) {
   if (!req.session.auth) {
     return false;  // if not logged in don't allow write operations
   }
+
+  if(checkRequiredFieldsForUserType(userDoc) === false) {
+    return false;
+  }
+
+  // fields that may not be overwritten, get from db and write to userdoc
+  models.UserModel.find({email: userDoc.email})
+    .then(function(user) {
+      console.log("CHECK NEW FIELDS");
+      userDoc.email = user.email;
+      userDoc.registrationdate = user.registrationdate;
+      userDoc.lastlogindate = user.lastlogindate;
+      userDoc.userType = user.userType;
+    });
 
   // allow the user to save his own User Object
   if (userDoc._id === req.session.user._id) {
@@ -35,12 +67,8 @@ UserModel.writeFilter(function (userDoc, req) {
   return false;  // else: filter failed -> access denied
 });
 
-
-
 ///////////////////////
 // Operation Impl.
-
-
 
 // setup Operations for the model to register an user
 UserModel.operationImpl("register", function (params, req) {
@@ -55,7 +83,7 @@ UserModel.operationImpl("register", function (params, req) {
   }
   // set userType if provided
   // todo: check validity of userType by checking other required fields e.g. of userType provider
-  if (params.userType){
+  if (params.userType) {
     user.userType = params.userType;
   }
 
@@ -81,7 +109,7 @@ UserModel.operationImpl("register", function (params, req) {
 
 // a operation to login a user
 UserModel.operationImpl("login", function (params, req) {
-  if(!params.email || !params.password) throw new Error("No User/Password provided!");
+  if (!params.email || !params.password) throw new Error("No User/Password provided!");
 
   return UserModel.find({email: params.email.toLowerCase()})  // find this user
     .then(function (users) {
@@ -130,4 +158,3 @@ UserModel.factoryImpl("currentUser", function (params, req) {
       return users[0];
     });
 });
-

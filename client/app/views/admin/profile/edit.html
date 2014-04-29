@@ -17,8 +17,8 @@
                class="form-control"
                id="firstname"
                name="firstname"
-               placeholder="userprofile.firstName"
-               ng-model="userprofile.firstName"
+               placeholder="{{'First name' | translate}}"
+               ng-model="user.profile.firstName"
                required
             >
         <span ng-show="showError('firstname', 'required')"
@@ -32,8 +32,8 @@
                class="form-control"
                id="lastname"
                name="lastname"
-               placeholder="userprofile.lastName"
-               ng-model="userprofile.lastName"
+               placeholder="{{'Last name' | translate}}"
+               ng-model="user.profile.lastName"
                required
             >
         <span ng-show="showError('lastname', 'required')"
@@ -50,8 +50,8 @@
                class="form-control"
                id="company"
                name="company"
-               placeholder="userprofile.company"
-               ng-model="userprofile.company"
+               placeholder="{{'Company' | translate}}"
+               ng-model="user.profile.company"
                required
             >
         <span ng-show="showError('company', 'required')"
@@ -65,8 +65,8 @@
                class="form-control"
                id="address"
                name="address"
-               placeholder="{{'Please enter your address' | translate}}"
-               ng-model="userprofile.address"
+               placeholder="{{'Address' | translate}}"
+               ng-model="user.profile.address"
                required
             >
         <span ng-show="showError('address', 'required')"
@@ -80,8 +80,8 @@
                class="form-control"
                id="city"
                name="city"
-               placeholder="userprofile.city"
-               ng-model="userprofile.city"
+               placeholder="{{'City' | translate}}"
+               ng-model="user.profile.city"
                required
             >
         <span ng-show="showError('city', 'required')"
@@ -95,8 +95,8 @@
                class="form-control"
                id="zip"
                name="zip"
-               placeholder="userprofile.zip"
-               ng-model="userprofile.zip"
+               placeholder="{{'Zip' | translate}}"
+               ng-model="user.profile.zip"
                required
             >
         <span ng-show="showError('zip', 'required')"
@@ -110,8 +110,8 @@
                class="form-control"
                id="tel"
                name="tel"
-               placeholder="userprofile.tel"
-               ng-model="userprofile.tel"
+               placeholder="{{'Telephone' | translate}}"
+               ng-model="user.profile.tel"
                required
             >
         <span ng-show="showError('tel', 'required')"
@@ -125,8 +125,8 @@
                class="form-control"
                id="fax"
                name="fax"
-               placeholder="userprofile.fax"
-               ng-model="userprofile.fax"
+               placeholder="{{'Fax' | translate}}"
+               ng-model="user.profile.fax"
             >
       </div>
 
@@ -136,8 +136,8 @@
                class="form-control"
                id="uid"
                name="uid"
-               placeholder="userprofile.uid"
-               ng-model="userprofile.uid"
+               placeholder="{{'UID optional' | translate}}"
+               ng-model="user.profile.uid"
             >
       </div>
 
@@ -147,8 +147,8 @@
                class="form-control"
                id="country"
                name="country"
-               placeholder="userprofile.country"
-               ng-model="userprofile.country"
+               placeholder="{{'Country' | translate}}"
+               ng-model="user.profile.country"
                required
             >
         <span ng-show="showError('country', 'required')"
@@ -162,16 +162,25 @@
                class="form-control"
                id="contactpersonname"
                name="contactpersonname"
-               placeholder="userprofile.contactperson.name"
-               ng-model="userprofile.contactperson.name"
+               placeholder="{{'Name of contact person' | translate}}"
+               ng-model="user.profile.contactperson.name"
+               placeholder="{{'Please enter the name of the contact person' | translate}}"
                required
             >
+
         <span ng-show="showError('contactpersonname', 'required')"
               class="alert">{{'Please enter the name of the contact person' | translate}}
         </span>
       </div>
 
     </fieldset>
+
+    <p class="alert alert-large alert-error" ng-if="valForm.$valid === false">
+      <b>{{'Please fill out the form correctly' | translate}}</b>
+    </p>
+    <p class="alert alert-large alert-error" ng-if="state.savesuccess === false">
+      <b>{{'Your changes could not be saved' | translate}}</b>
+    </p>
 
     <div class="buttonbar">
       <a class="btn btn-small"
