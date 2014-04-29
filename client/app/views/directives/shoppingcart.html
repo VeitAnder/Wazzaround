@@ -1,7 +1,5 @@
 <div class="shoppingcart-element"
     >
-
-
   <div class="shoppingcart-toggle"
        ng-click="shoppingcart = !shoppingcart"
       >
@@ -13,25 +11,39 @@
 
   <div class="shoppingcart-header">
     <h3>
-      <strong>2 Activities</strong>
+      <strong>{{shoppingcart.getTotal().num}} Activities</strong>
       in shopping cart
     </h3>
   </div>
-  <div class="shoppingcart-content">
+  <div class="shoppingcart-content"
+       ng-repeat="item in shoppingcart.getCart()">
 
     <!--SHOPPINGCART ITEM #1-->
+    <div class="shoppingcart-item"
+         data-ng-class="{
+      'category-sports' : item.category === 'sports',
+      'category-culture' : item.category === 'culture',
+      'category-wellness' : item.category === 'wellness',
+    }">
 
-    <div class="shoppingcart-item category-sports">
-      <img src="https://i68.photobucket.com/albums/i33/richardcharrington/6a7b1dd3.jpg"/>
+      <cloudinaryimage data-publicid="{{item.image.public_id}}"
+                       data-format="{{item.image.format}}"
+                       data-width="100"
+                       data-height="60"
+          >
+      </cloudinaryimage>
+
       <h4>
         <span class="icon"></span>
-        <strong>Quad Tour</strong>
-        / 4 hours
+        <strong>
+          {{item.description[getAvailableTranslationLanguageKey(item.description)] }}
+        </strong>
+        / {{ {start:item.start, end:item.end} | duration }}
       </h4>
 
       <div class="shoppingcart-item-details">
         <div class="shoppingcart-item-date">
-          Thu, Mar 20th 14, 02:30 pm
+          {{ item.start | momentjs:{format: "ddd, MMM Do YYYY"} }}
         </div>
         <div class="shoppingcart-item-qty">
           <input type="number"
@@ -42,55 +54,56 @@
                  min="1"
                  max="99"
                  maxlength="2"
+                 ng-model="item.quantity"
                  required
               >
         </div>
         <div class="shoppingcart-item-price">
-          € 250,–
+          € {{item.price}}
         </div>
       </div>
 
-      <div class="txt-icon-delete">
+      <div class="txt-icon-delete"
+           ng-click="item.remove()">
         <span class="hidden">Delete item</span>
         <span></span>
       </div>
     </div>
 
-    <!--SHOPPINGCART ITEM #2-->
+    <!--&lt;!&ndash;SHOPPINGCART ITEM #2&ndash;&gt;-->
 
-    <div class="shoppingcart-item category-culture">
-      <img src="https://cdn.zmescience.com/wp-content/uploads/2013/03/stonehenge2.jpg"/>
-      <h4>
-        <span class="icon"></span>
-        <strong>Guided Tours</strong>
-        / 1-Day-Trip
-      </h4>
+    <!--<div class="shoppingcart-item category-culture">-->
+    <!--<img src="https://cdn.zmescience.com/wp-content/uploads/2013/03/stonehenge2.jpg"/>-->
+    <!--<h4>-->
+    <!--<span class="icon"></span>-->
+    <!--<strong>Guided Tours</strong>-->
+    <!--/ 1-Day-Trip-->
+    <!--</h4>-->
 
-      <div class="shoppingcart-item-details">
-        <div class="shoppingcart-item-date">Wed, Mar 19th 14, 10:30 am</div>
-        <div class="shoppingcart-item-qty">
-          <input type="number"
-                 class="form-control input-mini"
-                 id="shoppingcartItemAmount2"
-                 name="shoppingcartItemAmount2"
-                 value="1"
-                 min="1"
-                 max="99"
-                 maxlength="2"
-                 required
-              >
-        </div>
-        <div class="shoppingcart-item-price">
-          € 250,–
-        </div>
-      </div>
+    <!--<div class="shoppingcart-item-details">-->
+    <!--<div class="shoppingcart-item-date">Wed, Mar 19th 14, 10:30 am</div>-->
+    <!--<div class="shoppingcart-item-qty">-->
+    <!--<input type="number"-->
+    <!--class="form-control input-mini"-->
+    <!--id="shoppingcartItemAmount2"-->
+    <!--name="shoppingcartItemAmount2"-->
+    <!--value="1"-->
+    <!--min="1"-->
+    <!--max="99"-->
+    <!--maxlength="2"-->
+    <!--required-->
+    <!--</div>-->
+    <!--<div class="shoppingcart-item-price">-->
+    <!--€ 250,–-->
+    <!--</div>-->
+    <!--</div>-->
 
-      <div class="txt-icon-delete">
-        <span class="hidden">Delete item</span>
-        <span></span>
-      </div>
+    <!--<div class="txt-icon-delete">-->
+    <!--<span class="hidden">Delete item</span>-->
+    <!--<span></span>-->
+    <!--</div>-->
 
-    </div>
+    <!--</div>-->
 
   </div>
 
@@ -98,14 +111,20 @@
 
   <div class="shoppingcart-subtotal">
     <span class="description">Subtotal</span>
-    <span class="value">€ 500,–</span>
+    <span class="value">€ {{shoppingcart.getTotal().price}}</span>
   </div>
 
   <div class="buttonbar">
-    <a ng-href="checkout"
-       class="btn btn-negative">
+    <a ng-click="checkout()"
+       class="btn btn-negative"
+       ng-class="{disabled: states.checkoutinprogress || shoppingcart.getTotal().num < 1}"
+        >
       Checkout (Step 1 of 3)
     </a>
+  </div>
+
+  <div ng-show="states.checkoutinprogress">
+    Checkout in Progress - please fill in your data @ Kalixa.
   </div>
 
 </div>

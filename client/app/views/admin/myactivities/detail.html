@@ -1,123 +1,133 @@
-<h2>{{'Account' | translate}}</h2>
-<h3>{{'My Activities' | translate}}</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
 
-<div
-    class="activity-detail detail-category-{{activity.category.main}}"
-    >
+      <h2>{{'Account' | translate}}</h2>
 
-  <div class="buttonbar buttonbar-top">
-    <a class="btn btn-small"
-       href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
-    </a>
-    <a class="btn btn-alert btn-small"
-       data-ng-click="delete()">{{'delete' | translate}}
-    </a>
-  </div>
+      <h3>{{'My Activities' | translate}}</h3>
 
-  <p class="alert alert-large alert-success" ng-if="activity.published">
-    <b>{{'Your activity is published' | translate}}</b>
-  </p>
-  <p class="alert alert-large alert-error" ng-if="!activity.published">
-    <b>{{'Your activity isnt published yet' | translate}}</b>
-  </p>
-
-  <h4>
-    <span class="icon"></span>
-    {{activity.name | languageselect}}
-  </h4>
-
-    <div class="input-label">
-      {{'Company offering this activity' | translate}}
-    </div>
-  <h5 class="no-margin-top">
-    {{activity.company}}
-  </h5>
-
-  <div class="location">
-    <div class="input-label">{{'Location' | translate}}</div>
-
-    <google-map
-        center='activity'
-        zoom='map.zoom'
-        draggable='true'
-        options='map.options'
-        >
-      <marker
-          coords='map.center'
-          icon='getMarkerIcon()'
+      <div
+          class="activity-detail detail-category-{{activity.category.main}}"
           >
-        <marker-label content="activity.name[getAvailableTranslationLanguageKey(activity.name)]"
-                      anchor="22 0"
-                      class="marker-labels marker-label-category-{{activity.category.main}}"
-            />
-      </marker>
 
-    </google-map>
+        <div class="buttonbar buttonbar-top">
+          <a class="btn btn-small"
+             href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
+          </a>
+          <a class="btn btn-alert btn-small"
+             data-ng-click="delete()">{{'delete' | translate}}
+          </a>
+        </div>
 
-  </div>
+        <p class="alert alert-large alert-success"
+           ng-if="activity.published">
+          <b>{{'Your activity is published' | translate}}</b>
+        </p>
+        <p class="alert alert-large alert-error"
+           ng-if="!activity.published">
+          <b>{{'Your activity isnt published yet' | translate}}</b>
+        </p>
 
-  <h5 class="category">
-    {{activity.category.main | translate}}
-    <span class="category-sub"
-          ng-repeat="subcat in activity.category.subs">
-      / {{subcat.key | translate}}
-    </span>
-  </h5>
+        <h4>
+          <span class="icon"></span>
+          {{activity.name | languageselect}}
+        </h4>
 
-  <div class="img-block img-block-right">
-    <cloudinaryimage ng-show="activity.images.length > 0"
-                     data-publicid="{{activity.images[0].public_id}}"
-                     data-format="{{activity.images[0].format}}"
-                     data-width="250"
-                     data-height="150"
-        >
-    </cloudinaryimage>
-  </div>
+        <div class="input-label">
+          {{'Company offering this activity' | translate}}
+        </div>
+        <h5 class="no-margin-top">
+          {{activity.company}}
+        </h5>
 
-  <div class="description">
-    <div ta-bind ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]"></div>
-  </div>
+        <div class="location">
+          <div class="input-label">{{'Location' | translate}}</div>
 
-  <div class="availability">
-    <div class="input-label">{{'Availability' | translate}}</div>
+          <google-map
+              center='map.center'
+              zoom='map.zoom'
+              draggable='true'
+              options='map.options'
+              >
+            <marker
+                coords='map.center'
+                icon='getMarkerIcon()'
+                >
+              <marker-label content="activity.name[getAvailableTranslationLanguageKey(activity.name)]"
+                            anchor="22 0"
+                            class="marker-labels marker-label-category-{{activity.category.main}}"
+                  />
+            </marker>
 
+          </google-map>
 
-    <!--<div class="availability-list">-->
+        </div>
 
-    <bookableitemlist data-bookableitems="activity.bookableItems"
-                      data-itemsperpage="1"
-        >
-    </bookableitemlist>
+        <h5 class="category">
+          {{activity.category.main | translate}}
+          <span class="category-sub"
+                ng-repeat="subcat in activity.category.subs">
+            / {{subcat.key | translate}}
+          </span>
+        </h5>
 
-      <!--<div class="availability-header">-->
-        <!--<div class="month cell first">February</div>-->
-      <!--</div>-->
+        <div class="img-block img-block-right">
+          <cloudinaryimage ng-show="activity.images.length > 0"
+                           data-publicid="{{activity.images[0].public_id}}"
+                           data-format="{{activity.images[0].format}}"
+                           data-width="250"
+                           data-height="150"
+              >
+          </cloudinaryimage>
+        </div>
 
-      <!--<div class="availability-entry"-->
-           <!--ng-repeat="available in activity.availability">-->
-        <!--<div class="availability-date cell first">-->
+        <div class="description">
+          <div ta-bind
+               ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]"></div>
+        </div>
+
+        <div class="availability">
+          <div class="input-label">{{'Availability' | translate}}</div>
+
+          <!--<div class="availability-list">-->
+
+          <bookableitemlist data-activity="activity"
+              >
+          </bookableitemlist>
+
+          <!--<div class="availability-header">-->
+          <!--<div class="month cell first">February</div>-->
+          <!--</div>-->
+
+          <!--<div class="availability-entry"-->
+          <!--ng-repeat="available in activity.availability">-->
+          <!--<div class="availability-date cell first">-->
           <!--{{available.start | momentjs:{format: 'DD.MM.YYYY'} }}-->
-        <!--</div>-->
-        <!--<div class="availability-time cell">-->
+          <!--</div>-->
+          <!--<div class="availability-time cell">-->
           <!--{{available.end | momentjs:{format: 'DD.MM.YYYY'} }}-->
-        <!--</div>-->
-        <!--<div class="availability-amount cell last align-right">-->
+          <!--</div>-->
+          <!--<div class="availability-amount cell last align-right">-->
           <!--{{available.quantity}}x-->
-        <!--</div>-->
-      <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
 
-    <!--</div>-->
-  </div>
-  <div class="buttonbar margin-top">
-    <a class="text-link float-left"
-       href="#/admin/myactivities/">{{'back to my activities' | translate}}
-    </a>
-    <a class="btn btn-small"
-       href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
-    </a>
-    <a class="btn btn-alert btn-small"
-       data-ng-click="delete()">{{'delete' | translate}}
-    </a>
-  </div>
+          <!--</div>-->
+        </div>
+        <div class="buttonbar margin-top">
+          <a class="text-link float-left"
+             href="#/admin/myactivities/">{{'back to my activities' | translate}}
+          </a>
+          <a class="btn btn-small"
+             href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
+          </a>
+          <a class="btn btn-alert btn-small"
+             data-ng-click="delete()">{{'delete' | translate}}
+          </a>
+        </div>
 
+      </div>
+
+    </div>
+  </div>
 </div>

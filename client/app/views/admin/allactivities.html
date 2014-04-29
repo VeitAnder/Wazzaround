@@ -1,58 +1,68 @@
-<h2>{{'Account' | translate}}</h2>
-<h3>{{'Publish Activities' | translate}}</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
 
-<p>{{'This is the admin/allActivities view' | translate}}</p>
+      <h2>{{'Account' | translate}}</h2>
 
+      <h3>{{'Publish Activities' | translate}}</h3>
 
-<div class="myactivities-list enable_hover">
-  <div class="listheader">
-    <div class="activity cell first">
-      {{'Activity' | translate}}
-    </div>
-    <div class="category-main cell">
-      {{'Main Category' | translate}}
-    </div>
-    <div class="category-sub cell">
-      {{'Sub Category' | translate}}
-    </div>
-    <div class="location cell">
-      {{'Location' | translate}}
-    </div>
-    <div class="edit cell last">
+      <p>{{'This is the admin/allActivities view' | translate}}</p>
 
-    </div>
-  </div>
+      <div class="myactivities-list enable_hover">
+        <div class="listheader">
+          <div class="activity cell first">
+            {{'Activity' | translate}}
+          </div>
+          <div class="category-main cell">
+            {{'Main Category' | translate}}
+          </div>
+          <div class="category-sub cell">
+            {{'Sub Category' | translate}}
+          </div>
+          <div class="location cell">
+            {{'Location' | translate}}
+          </div>
+          <div class="edit cell last">
 
-  <div class="listbody">
+          </div>
+        </div>
 
+        <div class="listbody">
 
-    <div class="listrow"
-         ng-repeat="activity in activities"
-         data-ng-click="open(activity)"
-      >
-      <div class="activity cell first">
-        {{activity.name | languageselect}}
+          <div class="listrow"
+               ng-repeat="activity in activities"
+               data-ng-click="open(activity)"
+              >
+            <div class="activity cell first">
+              {{activity.name | languageselect}}
+            </div>
+            <div class="category-main cell">
+              {{activity.category.main | translate}}
+            </div>
+            <div class="category-sub cell">
+              <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}
+                <br>
+              </span>
+            </div>
+
+            <div class="location cell">
+              {{activity.address}}
+            </div>
+
+            <div class="edit cell last align-right">
+              <span class="btn btn-mini"
+                    data-ng-click="toggle(activity); $event.stopPropagation();"
+                    ng-switch="activity.published">
+                <span ng-switch-when="false">{{'publish' | translate}}</span>
+                <span ng-switch-when="true">{{'unpublish' | translate}}</span>
+                <span ng-switch-default>-</span>
+              </span>
+            </div>
+
+          </div>
+        </div>
       </div>
-      <div class="category-main cell">
-        {{activity.category.main | translate}}
-      </div>
-      <div class="category-sub cell">
-        <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}<br></span>
-      </div>
-
-      <div class="location cell">
-        {{activity.address}}
-      </div>
-
-      <div class="edit cell last align-right">
-        <span class="btn btn-mini" data-ng-click="toggle(activity); $event.stopPropagation();" ng-switch="activity.published">
-          <span ng-switch-when="false">{{'publish' | translate}}</span>
-          <span ng-switch-when="true">{{'unpublish' | translate}}</span>
-          <span ng-switch-default>-</span>
-        </span>
-      </div>
 
     </div>
-
   </div>
 </div>

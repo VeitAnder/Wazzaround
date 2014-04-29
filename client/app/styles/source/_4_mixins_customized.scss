@@ -42,9 +42,8 @@ body:before {
     position: relative;
     z-index: 1;
     float: left;
-    padding: $bu*1.0 $bu*2.0;
+    padding: $bu*1.0 0;
     padding-bottom: $bu*1.0 + $footer-height;
-    max-width: 1200px - $col-left-width;
   }
 }
 
@@ -119,6 +118,152 @@ body:before {
   }
 }
 */
+
+.row-large {
+  padding: $bu*2.0 0;
+}
+
+.teaserbox {
+  &.teaserbox-fullimg-txt {
+    position: relative;
+    max-height: 550px;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+    .outerwrap {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    .container {
+    }
+    .row {
+    }
+    .textblock {
+      padding-top: $bu*2.0;
+      padding-bottom: $bu*2.0;
+      .preface {
+        @include text-shadow_2px;
+        color: $color_white;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    .btn-negative {
+      background-color: transparent;
+      color: $color_white;
+      &:hover {
+        color: $color_green;
+        border-color: $color_green;
+        background-color: transparent;
+      }
+    }
+    @include respond-to(screen-sm) {
+      max-height: 100%;
+      .outerwrap {
+        position: relative;
+        .textblock {
+          p {
+            color: $color_grey_75;
+            text-shadow: none;
+          }
+          .btn-negative {
+            @include button;
+          }
+        }
+      }
+    }
+    @include respond-to(screen-nocols) {
+      max-height: 100%;
+      .outerwrap {
+        position: relative;
+        .textblock {
+          p {
+            color: $color_grey_75;
+            text-shadow: none;
+          }
+          .btn-negative {
+            @include button;
+          }
+        }
+      }
+    }
+    @include respond-to(screen-md) {
+      img {
+        height: 425px;
+        width: auto;
+      }
+    }
+    @include respond-to(screen-lg) {
+      .row {
+        padding: $bu*5.0 0;
+      }
+      .textblock {
+        .preface {
+          font-size: $fs*$font-size_h4_factor;
+          line-height: $fs*$font-size_h4_factor*$line-height_headline-factor;
+        }
+        .btn-negative {
+          padding: ($fs*0.75) ($fs*2.0);
+          font-size: 25px;
+          @include border-radius($border-radius);
+        }
+      }
+    }
+  }
+  &.teaserbox-mapdesign {
+    .row {
+      padding-bottom: $bu*3.0;
+      &:first-child {
+        padding-top: $bu*3.0;
+      }
+    }
+    background: url(#{$img_path}reacture-mapdesign.svg) center center;
+    .listicon {
+      display: block;
+      width: 40px;
+      height: 50px;
+      float: left;
+      @include sprite_icons(-50px, -100px, no-repeat);
+      margin-top: -7px;
+    }
+    .textblock {
+      margin: 0 0 0 (40px + $bu);
+      h6 {
+        color: $color_text;
+        margin-top: 0;
+      }
+    }
+    h3 {
+      margin-top: 0;
+    }
+    @include respond-to(screen-sm) {
+      .row, .row:first-child {
+        padding: 0;
+      }
+      .textblock {
+        margin-top: $bu*2.0;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    @include respond-to(screen-nocols) {
+      .row, .row:first-child {
+        padding: 0 !important;
+      }
+      .textblock {
+        margin-top: $bu*2.0;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
 
 // MAP ELEMENTS
 // ###########################################################################################################################
@@ -455,7 +600,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   width: 100%;
 }
 
-
 .event-list {
   display: block;
   @include seperator(top, $color_grey_50);
@@ -489,19 +633,18 @@ googleMap, .angular-google-map, .angular-google-map-container {
     text-align: right;
   }
 
-
   .event-add {
     margin-top: 10px;
   }
 
-  .activity-edit &{
+  .activity-edit & {
     .event-date {
       width: 25%;
     }
     .event-time {
       width: 15%;
     }
-    .cell.listaction{
+    .cell.listaction {
       width: 20%;
     }
   }
@@ -533,10 +676,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
   .form-group {
     @include divtable_cell;
-    &.first{
+    &.first {
       padding-left: 0;
     }
-    &.last{
+    &.last {
       padding-right: 0;
     }
   }
@@ -554,19 +697,19 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
   .quantity {
     width: 50%;
-    input{
+    input {
       text-align: right;
     }
   }
 
-  .price{
+  .price {
     width: 50%;
-    input{
+    input {
       text-align: right;
     }
   }
 
-  .from-until{
+  .from-until {
     height: $input-height;
     width: 5%;
     margin-top: (21px + 5px + 10px);
@@ -574,7 +717,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     @include border-radius($border-radius_small);
     @include divtable_cell;
     padding: 0;
-    span{
+    span {
       margin: ($input-height*0.5 - 6px) auto 0;
       display: block;
       width: 7px;
@@ -583,7 +726,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
 
-  .event-duration-block{
+  .event-duration-block {
     background-color: $color_grey_25;
     color: $color_grey;
     @include font-size_small;
@@ -593,11 +736,11 @@ googleMap, .angular-google-map, .angular-google-map-container {
     clear: both;
   }
 
-  .date-until{
+  .date-until {
     width: 50%;
   }
 
-  .alert{
+  .alert {
     display: block;
   }
 
@@ -759,7 +902,7 @@ shoppingcart {
     overflow: hidden;
     width: $shoppingcart-toggle-width + 5px;
     height: 100%;
-    @include animation_position;
+    @include animation_all;
     .shoppingcart-toggle {
       display: block;
       position: absolute;
@@ -780,7 +923,7 @@ shoppingcart {
       right: - ($shoppingcart-rightside-width - 5px);
       width: $shoppingcart-rightside-width;
       height: 100%;
-      @include animation_position;
+      @include animation_all;
     }
 
     &.active {
@@ -819,9 +962,9 @@ shoppingcart {
   .innerwrap {
     width: $shoppingcart-toggle-width;
     height: $shoppingcart-toggle-width;
-    @include border-left-radius($border-radius-small);
+    @include border-left-radius($border-radius_small);
     background-color: $color_green;
-    @include sprite_icons(9px, -88px, no-repeat);
+    @include sprite_icons(-141px, 15px, no-repeat);
     text-align: right;
     padding: 0 3px;
   }
@@ -841,8 +984,8 @@ shoppingcart {
   .active & {
     .innerwrap {
       background-color: $color_red;
-      background-position: -95px 13px;
-      background-size: 600%;
+      background-position: -82px 13px;
+      background-size: 800%;
     }
     .numberofitems {
       display: none;
@@ -966,6 +1109,209 @@ shoppingcart {
   .value {
     text-align: right;
     margin-left: 2%;
+  }
+}
+
+$activitybar-currentitem-width: 60%;
+$activitybar-height: 200px;
+
+@mixin activitybar-a-imghover {
+  img {
+    opacity: 0.25;
+  }
+  &:hover {
+    img {
+      opacity: 0.50;
+    }
+  }
+}
+
+.activitybar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: $color_grey_25;
+
+  .activitybar-item {
+    position: relative;
+    overflow: hidden;
+    height: $activitybar-height;
+    float: left;
+    img {
+      min-height: $activitybar-height;
+      width: auto;
+    }
+
+    &.activitybar-item-beforeprev {
+      @include activitybar-a-imghover;
+      width: 10%;
+    }
+    &.activitybar-item-prev {
+      @include activitybar-a-imghover;
+      width: 10%;
+    }
+    &.activitybar-item-current {
+      width: 60%;
+      img {
+        min-width: 100%;
+        height: auto;
+      }
+      &:hover {
+        .activity-detail-toggle {
+          background-color: $color_green_75;
+        }
+      }
+      .triangle {
+        position: absolute;
+        display: block;
+        width: 25px;
+        height: 12.5px;
+        top: -50px;
+        @include triangle(50px, $color_white, down);
+        left: 50%;
+        margin-left: -25px;
+        @include animation_all;
+      }
+    }
+    &.activitybar-item-next {
+      @include activitybar-a-imghover;
+      width: 10%;
+    }
+    &.activitybar-item-afternext {
+      @include activitybar-a-imghover;
+      width: 10%;
+    }
+  }
+
+  .activity-nav {
+    position: absolute;
+    top: 50%;
+    margin-top: -65px*0.5;
+    width: 65px;
+    height: 65px;
+    background-color: $color_white;
+    span {
+      display: block;
+      margin-top: 20px;
+      margin-left: 19px;
+      @include sprite_icons(7px, -100px, no-repeat);
+      width: 25px;
+      height: 25px;
+    }
+    &.activity-nav-next {
+      left: 0;
+      @include border-right-radius($border-radius);
+    }
+    &.activity-nav-prev {
+      right: 0;
+      @include border-left-radius($border-radius);
+      span {
+        @include transform(rotate(180deg));
+      }
+    }
+  }
+
+  .activity-detail-toggle {
+    position: absolute;
+    top: $bu;
+    right: $bu;
+    width: 30px;
+    height: 30px;
+    @include border-radius(15px);
+    background-color: $color_green;
+    @include transform(rotate(270deg));
+    @include animation_all;
+    span {
+      display: block;
+      width: 15px;
+      height: 15px;
+      margin-top: 7px;
+      margin-left: 7px;
+      @include sprite_icons(-20px, -85px, no-repeat);
+    }
+  }
+
+  .activity-title {
+    position: absolute;
+    bottom: $bu;
+    left: $bu;
+    margin: 0;
+    color: $color_white;
+    font-weight: $font-weight_extrabold;
+    font-size: $fs*$font-size_h5_factor;
+  }
+
+  .activity-distance-element {
+    position: absolute;
+    top: $bu;
+    left: $bu;
+    height: 30px;
+    padding: 5px;
+    @include border-radius(15px);
+    background-color: $color_white;
+  }
+
+  .current-location {
+    vertical-align: middle;
+    display: block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    @include sprite_icons(-200px, 0, no-repeat);
+  }
+
+  .activity-distance-txt {
+    vertical-align: middle;
+    display: block;
+    float: left;
+    margin: 0 5px;
+    color: $color_text;
+    font-weight: $font-weight_bold;
+    font-size: $fs*$font-size_small_factor;
+    line-height: 20px;
+  }
+
+  .activity-location {
+    @include icon;
+    position: static;
+    display: block;
+    float: left;
+    background-position: -45px 6px;
+    background-color: $color_green;
+  }
+
+  &.activitydetailactive {
+    .activity-detail-toggle {
+      @include transform(rotate(90deg));
+    }
+    .activitybar-item-current {
+      .triangle {
+        top: 0;
+      }
+    }
+  }
+
+}
+
+.activitybar-detail {
+  position: absolute;
+  bottom: -100%;
+  left: 50%;
+  margin-left: -$activitybar-currentitem-width*0.5;
+  width: $activitybar-currentitem-width;
+  padding: $bu*2.0;
+  background-color: $color_white;
+  @include border-top-radius($border-radius);
+  @include activity-content;
+  @include animation_all;
+  .txt-icon-delete {
+    position: absolute;
+    top: $bu;
+    right: $bu;
+  }
+  &.activitydetailactive {
+    bottom: $activitybar-height;
   }
 }
 
@@ -1578,7 +1924,7 @@ shoppingcart {
           }
 
           &:last-child {
-            @include border-bottom-radius($border-radius-large - $border-width);
+            @include border-bottom-radius($border-radius_large - $border-width);
             @include border-top-radius(0);
           }
 
@@ -1989,16 +2335,21 @@ $filter-category-arrow-width: 65px;
   }
 }
 
-$img-selector-imgsize: 150px;
+$img-selector-imgsize: 100px;
+$img-selector-teaserimgsize: 150px;
 $img-selector-teasertxtheight: 35px;
 
 .img-selector {
-  .img-teaser{
+  .img-teaser {
     display: none;
   }
   overflow: hidden;
-  label + .img-block{
-    .img-teaser{
+  label + .img-block {
+    img {
+      width: $img-selector-teaserimgsize;
+      height: $img-selector-teaserimgsize;
+    }
+    .img-teaser {
       display: block;
       position: relative;
       top: -$img-selector-teasertxtheight;
@@ -2009,8 +2360,7 @@ $img-selector-teasertxtheight: 35px;
       color: $color_white;
       text-align: center;
       font-weight: $font-weight_bold;
-      @include border-bottom-radius($border-radius_small);
-      content:"Teaser Image";
+      content: "Teaser Image";
     }
   }
   .img-block {
@@ -2099,22 +2449,19 @@ $img-selector-teasertxtheight: 35px;
 .standardform {
   .form-group-inline-5050 {
     .form-group {
-      width: 35%;
+      width: 47.5%;
     }
   }
   .form-group-inline-2575 {
     .form-group {
-      width: 52.5%;
+      width: 72.5%;
       &:first-child {
-        width: 17.5%;
+        width: 22.5%;
       }
     }
   }
-  .form-group, .buttonbar, .divider, .contentbox {
-    width: 75%;
-    input, .contentbox {
-      width: 100%;
-    }
+  input, .contentbox {
+    width: 100%;
   }
 }
 

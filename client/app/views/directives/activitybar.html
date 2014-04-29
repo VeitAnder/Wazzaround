@@ -1,0 +1,108 @@
+<activitybardetail class="activitybar-detail detail-category-{{activity.category.main}}"
+                   ng-class="{activitydetailactive: activitydetail === true}">
+
+  <div class="txt-icon-delete"
+       ng-click="activitydetail = false">
+    <span class="hidden">Close detail view</span>
+    <span></span>
+  </div>
+
+  <h4>
+    <span class="icon"></span>
+    <!--{{activity.name | languageselect}}-->
+  </h4>
+  <div class="input-label">
+    {{'Company offering this activity' | translate}}
+  </div>
+  <h5 class="no-margin-top">
+    {{activity.company}}
+  </h5>
+
+  <h5 class="category">
+    {{activity.category.main | translate}}
+    <span class="category-sub"
+          ng-repeat="subcat in activity.category.subs">
+      / {{subcat.key | translate}}
+    </span>
+  </h5>
+
+  <div class="description">
+    <!--    <div ta-bind
+             ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]">
+        </div>-->
+  </div>
+
+  <div class="availability">
+    <div class="input-label">{{'Availability' | translate}}</div>
+
+    <!--<bookableitemlist data-activity="activity">-->
+    <!--</bookableitemlist>-->
+  </div>
+
+</activitybardetail>
+
+<div class="activitybar"
+     ng-class="{activitydetailactive: activitydetail === true}">
+
+    <div class="activitybar-item activitybar-item-beforeprev">
+      <a ng-href="">
+        <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg"/>
+      </a>
+    </div>
+
+  <div class="activitybar-item activitybar-item-prev">
+    <a ng-href="">
+      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg"/>
+      <div class="activity-nav activity-nav-prev">
+        <span class="hideme">previous activity</span>
+        <span></span>
+      </div>
+    </a>
+  </div>
+
+  <div class="activitybar-item activitybar-item-current"
+      >
+
+    <a ng-href=""
+       ng-click="activitydetail = !activitydetail"
+        >
+      <cloudinaryimage data-publicid="{{getCurrentActivity().images[0].public_id}}"
+                       data-format="{{getCurrentActivity().images[0].format}}"
+                       data-width="250"
+                       data-height="150"
+          >
+      </cloudinaryimage>
+
+      <div class="activity-detail-toggle">
+        <span class="hideme">show/hide activity detail</span>
+        <span></span>
+      </div>
+      <div class="activity-distance-element">
+        <span class="current-location"></span>
+        <span class="activity-distance-txt">14 km</span>
+        <span class="activity-location"></span>
+      </div>
+
+      <h4 class="activity-title">{{getCurrentActivity().name | languageselect}}</h4>
+
+    </a>
+    <span class="triangle"></span>
+  </div>
+
+  <div class="activitybar-item activitybar-item-next">
+    <a ng-href="">
+      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg"/>
+      <div class="activity-nav activity-nav-next">
+        <span class="hideme">next activity</span>
+        <span></span>
+      </div>
+    </a>
+  </div>
+
+  <div class="activitybar-item activitybar-item-afternext">
+    <a ng-href="">
+      <img src="http://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg"/>
+    </a>
+  </div>
+
+</div>

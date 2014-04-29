@@ -11,7 +11,7 @@ angular.module('anorakApp')
     $scope.categories = categories;
 
   })
-  .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, activitybackendmap, $route, $rootScope, $translate) {
+  .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, $route, $rootScope, $translate, currentUser) {
 
     console.log("AdminMyactivitiesEditCtrl executed");
 
@@ -27,7 +27,9 @@ angular.module('anorakApp')
       });
     });
 
-    $scope.originalActivity = {};
+    $scope.originalActivity = {
+
+    };
 
     $scope.noDataEntered = function () {
       return angular.equals($scope.originalActivity, $scope.activity);
@@ -47,6 +49,14 @@ angular.module('anorakApp')
       $scope.activity = $scope.$parent.activity;
 
       $scope.originalActivity = angular.copy($scope.activity);
+    } else {
+      //initialize map data to start in Turin, Italy
+      // @TODO more intelligent initialization, eg. coords of last activity added or browser location of user
+      $scope.activity.location = {
+        "lng": 7.686856499999976,
+        "lat": 45.070312
+      };
+      $scope.activity.address = "Turin, Italy";
     }
 
     $scope.state = {
@@ -62,18 +72,30 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.createEventSeries = function (item, event) {
-      console.log("createRepeatingEvents called", item, event);
+    $scope.createEventSeries = function (item, event, eventForm) {
 
-      if (!event.repeating) {
+      eventForm.submitted = true;
+
+      if (eventForm.$invalid){
         return;
       }
+      event.mode = 'view';
+
+//      if (!event.repeating) {
+//        return;
+//      }
 
       var startDate = moment(event.start);
       // ensure that date format is in english to ensure weekday comparison is always against english weekdays
       startDate.lang('en');
-      var duration = event.duration;
+      var start = event.start;
+      var end = event.end;
+      var price = event.price;
       var quantity = event.quantity;
+
+
+
+
       var endDate = moment(event.end).hour(23).minute(59);
 
       if (moment().subtract('days', 1) > startDate) {
@@ -105,8 +127,9 @@ angular.module('anorakApp')
     };
 
     $scope.createEvent = function (bookableItem) {
-      var event = bookableItem.createEvents(); 
+      var event = bookableItem.createEvents();
       event.start = new Date();
+      event.end = moment(event.start).add('hours', 1).toDate();
 
       bookableItem.events[bookableItem.events.length - 1].mode = 'new';
       //event.mode = 'edit';   // funktioniert so leider nicht
@@ -174,48 +197,6 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.map = activitybackendmap.map;
-
-    activitybackendmap.centerMapAndMarker($scope.activity);
-
-    $scope.getMarkerIcon = function () {
-      if ($scope.activity.category.main) {
-        return "/img/mapicons/marker-" + $scope.activity.category.main + ".svg";
-      } else {
-        return "/img/mapicons/marker.svg";
-      }
-    };
-
-    $scope.getMarkerLabel = function () {
-      return "Activity location";
-    };
-
-    // address:
-    // user enters address
-    // address will be set on
-    $scope.setAddressOnMap = function () {
-      activitybackendmap.findAddressOnMap(activitybackendmap.map, $scope.activity);
-      $scope.map = activitybackendmap.map;
-    };
-
-    $rootScope.$on("SetAddressEvent", function (event, message) {
-      if ($scope.map.address) {
-        $scope.activity.address = $scope.map.address;
-      }
-      $scope.activity.location.lat = $scope.map.clickedMarker.latitude;
-      $scope.activity.location.lng = $scope.map.clickedMarker.longitude;
-    });
-
-    $rootScope.$on("EditMapChangeEvent", function (event, message) {
-      debug("EDIT MAP CHANGED !!! MARKERS: ", $scope.map.markers);
-      //update model and set marker to display result to user
-      $scope.activity.location.lat = $scope.map.center.latitude;
-      $scope.activity.location.lng = $scope.map.center.longitude;
-      $scope.map.clickedMarker.latitude = $scope.map.center.latitude; // TODO move to service?
-      $scope.map.clickedMarker.longitude = $scope.map.center.longitude;
-      $scope.map.clickedMarker.title = 'Location of activity';
-    });
-
     // Save the Activiy
     $scope.save = function () {
       debug("save() called");
@@ -233,6 +214,8 @@ angular.module('anorakApp')
         }
 
         $scope.state.saveinprogress = true;
+
+        $scope.activity.company = currentUser.user.profile.company;
 
         $scope.activity.save()  // save the activity
           .then(function (activity) {
@@ -276,9 +259,6 @@ angular.module('anorakApp')
 
      }
      */
-
-    $scope.selectedAddress = "";
-    $scope.getAddress = activitybackendmap.getAddress;
 
     // image upload functionality
     $scope.removeImage = function (image, $index) {
@@ -346,14 +326,12 @@ angular.module('anorakApp')
       return valid;
     };
 
-    $scope.$watch(function(){
+    $scope.$watch(function () {
       return $scope.activity;
     }, function (oldVal, newVal) {
-      if ($scope.state.submitted){
+      if ($scope.state.submitted) {
         $scope.additionalFormChecks();
       }
     }, true);
-
-
 
   });

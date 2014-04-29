@@ -1,10 +1,11 @@
+'use strict';
+
 /*
  IE - if console is not defined, handle it to not block execution in IE <= 9
  */
 // make it safe to use console.log always
 // http://www.jquery4u.com/snippets/safe-console-log/
 (function (a) {
-  "use strict";
   function b() {
   }
 
@@ -13,7 +14,7 @@
   }
 })
 ((function () {
-  "use strict";
+  
   try {
     console.log();
     return window.console;
@@ -57,7 +58,6 @@ angular.module('anorakApp').constant('I18NMESSAGES', {
 
 angular.module('anorakApp')
   .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $translateProvider) {
-    'use strict';
 
     $locationProvider.html5Mode((function () {
       return !!(window.history && history.pushState);
@@ -156,7 +156,12 @@ angular.module('anorakApp')
       })
       .when('/admin/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
-        controller: 'AdminIndexCtrl'
+        controller: 'AdminIndexCtrl',
+        resolve: {
+          currentUser: ['currentUser', function (currentUser) {
+            return currentUser.load();
+          }]
+        }
       })
       .when('/admin/myactivities/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
@@ -510,7 +515,8 @@ angular.module('anorakApp')
       "Company data": "Company data",
       "Your changes have been saved": "Your changes have been saved",
       "Your changes could not be saved": "Your changes could not be saved",
-      "Please fill out the form correctly": "Please fill out the form correctly"
+      "Please fill out the form correctly": "Please fill out the form correctly",
+      "All dates from activity": "All dates from activity"
     });
 
     $translateProvider.translations('de', {
@@ -768,7 +774,8 @@ angular.module('anorakApp')
       "Company data": "Firmendaten",
       "Your changes have been saved": "Ihre Änderungen wurden gespeichert",
       "Your changes could not be saved": "Ihre Änderungen konnten nicht gespeichert werden",
-      "Please fill out the form correctly": "Bitte füllen Sie das Formular korrekt aus"
+      "Please fill out the form correctly": "Bitte füllen Sie das Formular korrekt aus",
+      "All dates from activity": "All dates from activity"
     });
 
     $translateProvider.translations('it', {
@@ -1021,6 +1028,7 @@ angular.module('anorakApp')
       "Please select a location.": "Si prega di selezionare una posizione.",
       "Your unsaved data will be lost if you leave this page": "I vostri dati non ancora salvati andranno persi se si lascia questa pagina",
       "activities found": "activities found",
+      "All dates from activity": "All dates from activity",
       "Personal data": "Dati personali",
       "Company data": "Dati aziendali",
       "Your changes have been saved": "Le modifiche sono state salvate",
@@ -1056,8 +1064,6 @@ angular.module('anorakApp')
 
   })
   .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate) {
-    "use strict";
-
     debug("application run called");
     $rootScope.debug = debug;
     $rootScope.models = models;
@@ -1130,8 +1136,6 @@ angular.module('anorakApp')
 // DO not remove logging from DI list!
 angular.module('anorakApp')
   .controller('AppCtrl', function ($scope, $location, $translate) {
-    'use strict';
-
     $scope.gotoLogin = function () {
       $location.path('/login/');
     };

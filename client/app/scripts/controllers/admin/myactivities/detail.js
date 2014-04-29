@@ -8,10 +8,16 @@ angular.module('anorakApp')
 
     $scope.activity = activity;
 
+//    $scope.map = activitybackendmap.map;
+//    $scope.map.center = {
+//      "longitude": $scope.activity.location.lng,
+//      "latitude": $scope.activity.location.lat
+//    };
+//    $scope.map.zoom = 9;
     $scope.map = {
       center: {
-        "longitude": parseFloat($scope.activity.longitude),
-        "latitude": parseFloat($scope.activity.latitude)
+        "longitude": $scope.activity.location.lng,
+        "latitude": $scope.activity.location.lat
       },
       zoom: 9,
       options: activitybackendmap.map.options
