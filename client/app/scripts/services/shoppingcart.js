@@ -15,7 +15,8 @@ angular.module('anorakApp')
     var theShoppingCart = {};
     var dictCounter = 0;
 
-    this.open = false;
+    // used for ui states that need to be persisted along with shoppingcart data
+    this.states = {};
 
     this.add = function (item) {
       var idxOfTheItem = dictCounter;

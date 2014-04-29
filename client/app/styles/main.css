@@ -2501,6 +2501,16 @@ googleMap, .angular-google-map, .angular-google-map-container {
   bottom: 50px;
   left: 0; }
 
+.map-innerwrap {
+  position: fixed;
+  margin-left: 350px;
+  overflow: hidden;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 250px;
+  left: 0; }
+
 .marker-labels {
   padding: 2px 4px;
   -webkit-border-radius: 3px;
