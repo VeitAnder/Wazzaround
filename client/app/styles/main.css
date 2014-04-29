@@ -2035,6 +2035,21 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
   .input-label p, label p {
     padding-bottom: 12px; }
 
+
+.formdata-display {
+  overflow: hidden;
+  border-bottom: dotted 1px #d9d9d9;
+  margin-bottom: 16px; }
+  .formdata-display .input-label, .formdata-display .input-content {
+    display: inline-block;
+    float: left; }
+  .formdata-display .input-label {
+    width: 20%;
+    margin: 0; }
+  .formdata-display .input-content {
+    width: 75%;
+    margin-left: 5%; }
+
 fieldset {
   position: relative;
   top: 15px;
@@ -2277,7 +2292,7 @@ body:before {
     .teaserbox.teaserbox-fullimg-txt .btn-negative:hover {
       color: #85C900;
       border-color: #85C900;
-      background-color: transparent; }
+      background-color: rgba(255, 255, 255, 0.25); }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .teaserbox.teaserbox-fullimg-txt {
       max-height: 100%; }
