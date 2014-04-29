@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, resolvedActivities, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates) {
+  .controller('indexCtrl', function ($scope, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates, $timeout) {
 
     $scope.currentUser = currentUser;
 
@@ -151,6 +151,8 @@ angular.module('anorakApp')
           marker.selected = false;
         }
       });
+
+      $scope.states.selectedactivityid = markerClicked._id;
     };
 
     $scope.selectedCategoryFilter = function (activity) {
@@ -308,7 +310,6 @@ angular.module('anorakApp')
 
     $scope.getAddress = frontendmap.getAddress;
 
-
 //
 //
 ////every activity has bookableItems, like Quadfahren
@@ -342,9 +343,6 @@ angular.module('anorakApp')
 //
 //
 
-
-
-
     $scope.putIntoShoppingCart = function (activity, event) {
       debug("Put into shopping cart", activity, event);
     };
@@ -363,5 +361,97 @@ angular.module('anorakApp')
       Usersessionstates.states.selectedcategories = angular.copy($scope.categories);
       Usersessionstates.updateSession();
     }, true);
+
+    // activitybar functionality
+
+    $scope.getSelectedActivity = function () {
+      return _.find($scope.states.filteredactivities, function (activity) {
+        return activity._id === $scope.states.selectedactivityid;
+      });
+    };
+
+    $scope.selectnext = function () {
+      //simple implementation - get index of current selected id
+      var index = _.findIndex($scope.states.filteredactivities, { '_id': $scope.getSelectedMarkerId() });
+      var newindex = index + 1;
+
+      if (newindex > $scope.states.filteredactivities.length - 1) {
+        newindex = 0;
+        $scope.states.selectedactivityid = $scope.states.filteredactivities[newindex]._id;
+      } else {
+        $scope.states.selectedactivityid = $scope.states.filteredactivities[newindex]._id;
+      }
+
+      $timeout(function () {
+        $scope.$apply();
+      });
+
+      return newindex;
+    };
+
+
+    $scope.selectprev = function () {
+      //simple implementation - get index of current selected id
+      var index = _.findIndex($scope.states.filteredactivities, { '_id': $scope.getSelectedMarkerId() });
+      var newindex = index - 1;
+
+      if (newindex < 0) {
+        newindex = $scope.states.filteredactivities.length - 1;
+        $scope.states.selectedactivityid = $scope.states.filteredactivities[newindex]._id;
+      } else {
+        $scope.states.selectedactivityid = $scope.states.filteredactivities[newindex]._id;
+      }
+
+      $timeout(function () {
+        $scope.$apply();
+      });
+
+      return newindex;
+    };
+
+
+    $scope.getSelectedMarkerId = function () {
+      console.log("$scope.states.selectedactivityid", $scope.states.selectedactivityid);
+      return $scope.states.selectedactivityid;
+    };
+
+    $scope.getMarkerIcon = function (activity) {
+      console.log("activity.category.main", activity.category.main);
+      if (activity._id === $scope.getSelectedMarkerId()) {
+        return frontendmap.getMarkerIcon();
+      } else {
+        return frontendmap.getMarkerIcon(activity.category.main);
+      }
+    };
+
+    $scope.getDistanceBetweenLocations = function (location1, location2) {
+
+      var rad = function (x) {
+        return x * Math.PI / 180;
+      };
+
+      var getDistance = function (p1, p2) {
+        var p1 = {
+
+        };
+
+        var p2 = {
+
+        };
+
+        var R = 6378137; // Earth’s mean radius in meter
+        var dLat = rad(p2.lat() - p1.lat());
+        var dLong = rad(p2.lng() - p1.lng());
+        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos(rad(p1.lat())) * Math.cos(rad(p2.lat())) *
+          Math.sin(dLong / 2) * Math.sin(dLong / 2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        var d = R * c;
+        return d; // returns the distance in meter
+      };
+
+      return getDistance(p1, p2);
+
+    };
 
   });

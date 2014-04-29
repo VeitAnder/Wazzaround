@@ -12,6 +12,16 @@ angular.module('anorakApp')
           checkoutinprogress: false
         };
 
+        scope.toggleShoppingCart = function () {
+          shoppingcart.open = !shoppingcart.open;
+
+          if (shoppingcart.open) {
+            element.addClass("active");
+          } else {
+            element.removeClass("active");
+          }
+        };
+
         scope.checkout = function () {
           if (scope.states.checkoutinprogress && shoppingcart.getTotal().num < 1) {
             return;

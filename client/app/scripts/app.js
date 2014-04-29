@@ -14,7 +14,7 @@
   }
 })
 ((function () {
-  
+
   try {
     console.log();
     return window.console;
