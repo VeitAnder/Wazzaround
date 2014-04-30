@@ -250,9 +250,7 @@
           ng-if="getSelectedActivity()"
           >
 
-        <activitybarstripe
-
-            >
+        <activitybarstripe>
 
           <currentactivity
               ajs-centermaxwith
@@ -260,6 +258,34 @@
               >
 
             <div ng-show="states.filteredactivities.length > 0">
+
+              <div class="currentactivity-body">
+                <a ng-href=""
+                   ng-click="states.activitydetailactive = !states.activitydetailactive"
+                    >
+                  <cloudinaryimage
+                      data-publicid="{{getSelectedActivity().images[0].public_id}}"
+                      data-format="{{getSelectedActivity().images[0].format}}"
+                      data-width="650"
+                      data-height="200"
+                      >
+                  </cloudinaryimage>
+
+                  <div class="activity-detail-toggle">
+                    <span class="hideme">show/hide activity detail</span>
+                    <span></span>
+                  </div>
+                  <div class="activity-distance-element">
+                    <span class="current-location"></span>
+                    <span class="activity-distance-txt">14 km</span>
+                    <span class="activity-location"></span>
+                  </div>
+
+                  <h4 class="activity-title">{{getSelectedActivity().name | languageselect}}</h4>
+
+                </a>
+                <span class="triangle"></span>
+              </div>
 
               <a ng-click="selectprev()"
                  class="activitybar-item-prev"
@@ -269,31 +295,6 @@
                   <span></span>
                 </div>
               </a>
-
-              <a ng-href=""
-                 ng-click="states.activitydetailactive = !states.activitydetailactive"
-                  >
-                <cloudinaryimage data-publicid="{{getSelectedActivity().images[0].public_id}}"
-                                 data-format="{{getSelectedActivity().images[0].format}}"
-                                 data-width="250"
-                                 data-height="150"
-                    >
-                </cloudinaryimage>
-
-                <div class="activity-detail-toggle">
-                  <span class="hideme">show/hide activity detail</span>
-                  <span></span>
-                </div>
-                <div class="activity-distance-element">
-                  <span class="current-location"></span>
-                  <span class="activity-distance-txt">14 km</span>
-                  <span class="activity-location"></span>
-                </div>
-
-                <h4 class="activity-title">{{getSelectedActivity().name | languageselect}}</h4>
-
-              </a>
-              <span class="triangle"></span>
 
               <a ng-click="selectnext()"
                  class="activitybar-item-next"

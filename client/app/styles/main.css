@@ -4443,6 +4443,8 @@ currentactivity {
     transform: rotate(90deg); }
   currentactivity.activitydetailactive .triangle {
     top: 0; }
+  currentactivity .currentactivity-body {
+    overflow: hidden; }
 
 activitybardetail {
   position: absolute;
