@@ -577,8 +577,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-color: $color_grey_15;
     margin: 0;
     padding: 5px 0 0 0;
-    background-color: transparent;
-    @include border-radius(0);
+    border-top: 0;
     .txt-icon-delete {
       color: $color_grey_15;
       span {
@@ -618,6 +617,28 @@ googleMap, .angular-google-map, .angular-google-map-container {
   @include seperator(top, $color_grey_50);
   padding-top: $bu;
   margin-top: $bu;
+
+  &.event-list-items{
+    @include divtable_row_small;
+    border: none;
+    .event-date{
+      width: 40%;
+    }
+    .event-time {
+      width: 20%;
+    }
+
+    .event-duration {
+      width: 20%;
+      text-align: right;
+    }
+
+    .event-price {
+      width: 20%;
+      text-align: right;
+    }
+  }
+
   .availability & {
     margin: 0 0 $bu;
     padding: 0 0 $bu;
@@ -676,6 +697,32 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
 }
+
+.event-item{
+  display: block;
+  overflow: hidden;
+  padding: $bu;
+  background-color: $color_green_25;
+  @include border-radius($border-radius);
+  .event-item-header{
+    overflow: hidden;
+    padding-bottom: 5px;
+    @include seperator(bottom, $color_green);
+    .event-item-description{
+      float: left;
+    }
+    h5{
+      margin: 0;
+    }
+    .event-item-quantity{
+      @include font-size_small;
+    }
+    .event-item-book{
+      float: right;
+    }
+  }
+}
+
 
 .eventedit {
   display: block;
@@ -761,10 +808,11 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 
   .buttonbar {
-    @include seperator(top, $color_grey_50);
     width: auto;
+    @include seperator(top, $color_grey_50);
     margin: $bu (-$bu) 0 (-$bu);
-    padding: 5px 10px;
+    @include border-radius(0);
+    background-color: transparent;
   }
 }
 

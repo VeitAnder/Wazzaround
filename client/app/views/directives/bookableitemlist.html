@@ -3,35 +3,72 @@
 </div>
 
 <div ng-repeat="bookableItem in activity.bookableItems"
-     class="event-list">
+     class="event-list event-list-items">
 
-  <h5>
-    {{'Event' | translate}}:
-    {{bookableItem.description | languageselect}}
-  </h5>
+  <!--
+    <h5>
+      {{'Event' | translate}}:
+      {{bookableItem.description | languageselect}}
+    </h5>
 
-  <div class="event-header">
-    <div class="event-date cell">{{'Date' | translate}}</div>
-    <div class="event-time cell">{{'Time' | translate}}</div>
-    <div class="event-duration cell">{{'Duration' | translate}}</div>
-    <div class="event-quantity cell">{{'Qty' | translate}}</div>
-    <div class="event-price cell">{{'Price' | translate}}</div>
-  </div>
-  <div ng-repeat="(idx,event) in bookableItem.events"
-       class="event-body">
-    <div class="event-row">
-      <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
-      <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
+    <div class="event-header">
+      <div class="event-date cell">{{'Date' | translate}}</div>
+      <div class="event-time cell">{{'Time' | translate}}</div>
+      <div class="event-duration cell">{{'Duration' | translate}}</div>
+      <div class="event-quantity cell">{{'Qty' | translate}}</div>
+      <div class="event-price cell">{{'Price' | translate}}</div>
+    </div>
+    <div ng-repeat="(idx,event) in bookableItem.events"
+         class="event-body">
+      <div class="event-row">
+        <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
+        <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
+        <div class="event-duration cell">
+          {{ {start:event.start, end:event.end} | duration }}
+        </div>
+
+        <div class="event-quantity cell">{{event.quantity}}x</div>
+        <div class="event-price cell">{{event.price}}</div>
+        <a ng-click="addToShoppingCart(event, bookableItem, activity)">book</a>
+
+      </div>
+    </div>
+  -->
+
+  <eventitem class="event-item"
+             ng-repeat="(idx,event) in bookableItem.events"
+      >
+    <div class="event-item-header">
+      <div class="event-item-description">
+        <h5>
+          {{bookableItem.description | languageselect}}
+        </h5>
+        <span class="event-item-quantity">
+          … still <strong>{{event.quantity}}x</strong> available!
+        </span>
+      </div>
+      <div class="event-item-book">
+        <button ng-click="addToShoppingCart(event, bookableItem, activity)"
+                class="btn-small-book">
+          <span class="btn-txt">
+            Book
+          </span>
+          <span class="btn-icon btn-icon-right"></span>
+        </button>
+      </div>
+    </div>
+    <div class="event-item-body">
+      <div class="event-date cell">{{'Date' | translate}}:<br />{{ event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
+      <div class="event-time cell">{{'Time' | translate}}:<br />{{ event.start | momentjs:{format: "h:mm a"} }}</div>
       <div class="event-duration cell">
-        {{ {start:event.start, end:event.end} | duration }}
+        {{'Duration' | translate}}:<br />{{ {start:event.start, end:event.end} | duration }}
       </div>
 
-      <div class="event-quantity cell">{{event.quantity}}x</div>
-      <div class="event-price cell">{{event.price}}</div>
-      <a ng-click="addToShoppingCart(event, bookableItem, activity)">book</a>
+      <div class="event-price cell">{{'Price' | translate}}:<br />{{event.price}}</div>
 
     </div>
-  </div>
+
+  </eventitem>
 </div>
 
 <div class="availability-footer">
