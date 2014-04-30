@@ -158,22 +158,6 @@ module.exports = function (grunt) {
         server: '.tmp'
       },
 
-      // Add vendor prefixed styles
-      autoprefixer: {
-        options: {
-          browsers: ['last 1 version']
-        },
-        dist: {
-          files: [
-            {
-              expand: true,
-              cwd: '.tmp/styles/',
-              src: '{,*/}*.css',
-              dest: '.tmp/styles/'
-            }
-          ]
-        }
-      },
 
       // Automatically inject Bower components into the app
       'bower-install': {
@@ -193,6 +177,7 @@ module.exports = function (grunt) {
               '<%= yeoman.dist %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
               '<%= yeoman.dist %>/fonts/{,*/}*.*',
               '!<%= yeoman.dist %>/img/email/**/*.{png,jpg,jpeg,gif,webp,svg}',
+              '!<%= yeoman.dist %>/img/responsiveimages/**/*.{png,jpg,jpeg,gif,webp,svg}',
               '!<%= yeoman.dist %>/img/mapicons/**/*.{png,jpg,jpeg,gif,webp,svg}'
             ]
           }
@@ -203,7 +188,7 @@ module.exports = function (grunt) {
       // concat, minify and revision files. Creates configurations in memory so
       // additional tasks can operate on them
       useminPrepare: {
-        html: '<%= yeoman.app %>/index.html',
+        html: ['<%= yeoman.app %>/index.html', '<%= yeoman.app %>/views/**/*.html'],
         options: {
           dest: '<%= yeoman.dist %>'
         }
@@ -505,7 +490,6 @@ module.exports = function (grunt) {
       'clean:server',
 //      'bower-install', // creates mess with dependencies
       'concurrent:server',
-      'autoprefixer',
       'connect:livereload',
       'shell',
       'watch'
@@ -521,7 +505,6 @@ module.exports = function (grunt) {
       'clean:server',
 //      'bower-install', // creates mess with dependencies
       'concurrent:server',
-      'autoprefixer',
       'connect:livereload',
       'watch'
     ]);
@@ -535,7 +518,6 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'concurrent:test',
-    'autoprefixer',
     'connect:test',
     'karma'
   ]);
@@ -546,7 +528,6 @@ module.exports = function (grunt) {
     'useminPrepare',
     'html2js',
     'concurrent:dist',
-    'autoprefixer',
     'concat',
     'ngmin',
     'copy:dist',
