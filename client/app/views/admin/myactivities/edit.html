@@ -360,6 +360,7 @@
                                    data-autoclose="0"
                                    placeholder="{{'Date' | translate}}"
                                    bs-datepicker
+                                   ng-change="event.end = setEndDate(event.start, event.end);"
                                 >
                           </div>
                           <div class="form-group time-start">

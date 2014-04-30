@@ -72,11 +72,24 @@ angular.module('anorakApp')
       }
     };
 
+    $scope.setEndDate = function (eventStartDate, eventEndDate) {
+      var start = moment(eventStartDate);
+      var end = moment(eventEndDate);
+
+      if (start.isAfter(end)) {
+        end = moment(start).add('hours', 1);
+        return end.toDate();
+
+      } else {
+        return eventEndDate;
+      }
+    };
+
     $scope.createEventSeries = function (item, event, eventForm) {
 
       eventForm.submitted = true;
 
-      if (eventForm.$invalid){
+      if (eventForm.$invalid) {
         return;
       }
       event.mode = 'view';
@@ -92,9 +105,6 @@ angular.module('anorakApp')
       var end = event.end;
       var price = event.price;
       var quantity = event.quantity;
-
-
-
 
       var endDate = moment(event.end).hour(23).minute(59);
 
