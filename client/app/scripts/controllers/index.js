@@ -365,9 +365,18 @@ angular.module('anorakApp')
     // activitybar functionality
 
     $scope.getSelectedActivity = function () {
-      return _.find($scope.states.filteredactivities, function (activity) {
+      // return selected activity
+      var selectedactivity = _.find($scope.states.filteredactivities, function (activity) {
         return activity._id === $scope.states.selectedactivityid;
       });
+
+      // if no activity is selected, return first one in filtered array and set it as selected
+      if (!selectedactivity && $scope.states.filteredactivities && $scope.states.filteredactivities.length > 0){
+        $scope.states.selectedactivityid = $scope.states.filteredactivities[0]._id;
+        selectedactivity = $scope.states.filteredactivities[0];
+      }
+      // if no activity is at all available in $scope.states.filteredactivities, show message in activitybar
+      return selectedactivity;
     };
 
     $scope.selectnext = function () {
@@ -389,7 +398,6 @@ angular.module('anorakApp')
       return newindex;
     };
 
-
     $scope.selectprev = function () {
       //simple implementation - get index of current selected id
       var index = _.findIndex($scope.states.filteredactivities, { '_id': $scope.getSelectedMarkerId() });
@@ -408,7 +416,6 @@ angular.module('anorakApp')
 
       return newindex;
     };
-
 
     $scope.getSelectedMarkerId = function () {
       console.log("$scope.states.selectedactivityid", $scope.states.selectedactivityid);
