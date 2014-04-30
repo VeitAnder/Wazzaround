@@ -3547,9 +3547,9 @@ googleMap, .angular-google-map, .angular-google-map-container {
   .event-item:last-child {
     margin-bottom: 0; }
   .event-item .event-item-header {
-    padding: 7.5px;
-    background-color: #f9fcf2;
-    border: solid 1px #e0f1bf;
+    padding: 5.5px;
+    background-color: #edf7d9;
+    border: solid 1px #c2e480;
     border-width: 2px;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
@@ -3574,7 +3574,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
       width: 25%; }
   .event-item .event-item-body {
     padding: 7.5px;
-    background-color: #e0f1bf;
+    background-color: #c2e480;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
     overflow: hidden;

@@ -690,9 +690,9 @@ googleMap, .angular-google-map, .angular-google-map-container {
     margin-bottom: 0;
   }
   .event-item-header{
-    padding: $bu*0.5;
-    background-color: $color_green_05;
-    @include border(all, $color_green_25);
+    padding: $bu*0.5 - 2px;
+    background-color: $color_green_15;
+    @include border(all, $color_green_50);
     border-width: 2px;
     @include border-top-radius($border-radius);
     overflow: hidden;
@@ -718,7 +718,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
   .event-item-body{
     padding: $bu*0.5;
-    background-color: $color_green_25;
+    background-color: $color_green_50;
     @include border-bottom-radius($border-radius);
     overflow: hidden;
     @include font-size_small;
