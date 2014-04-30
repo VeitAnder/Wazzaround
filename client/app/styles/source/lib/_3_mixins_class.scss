@@ -598,10 +598,11 @@ button.btn, .btn, a.btn {
   clear: both;
   width: 100%;
   margin: 10px 0;
-  padding: 10px 0;
+  padding: $bu;
   text-align: right;
-  @include seperator(top, $color_grey_75);
   text-align: right;
+  background-color: $color_grey_05;
+  @include border-radius($border-radius);
 
   @include user-select(none);
 
@@ -1027,6 +1028,12 @@ button.btn, .btn, a.btn {
 
 p.inline-screen-sm {
   padding-bottom: 0;
+}
+
+// Images
+
+img {
+  vertical-align: middle;
 }
 
 .img-responsive-offset {
@@ -1682,6 +1689,34 @@ input[type="checkbox"]:focus {
 .input-label, label {
   @include input-label;
 }
+
+@mixin input-content{
+}
+
+.input-content{
+  @include input-content;
+}
+
+
+.formdata-display{
+  overflow: hidden;
+  @include seperator(bottom, $color_grey_25);
+  margin-bottom: $fs;
+
+  .input-label, .input-content{
+    display: inline-block;
+    float: left;
+  }
+  .input-label{
+    width: 20%;
+    margin: 0;
+  }
+  .input-content{
+    width: 75%;
+    margin-left: 5%;
+  }
+}
+
 
 
 fieldset {

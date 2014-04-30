@@ -1,25 +1,26 @@
 <div class="col-container">
   <div class="col-left-fixed">
     <languageselect></languageselect>
+
     <div data-ng-include="'views/_logo.html'"></div>
+    <div data-ng-include="'views/directives/navglobal.html'"></div>
+    <div data-ng-include="'views/directives/navuser.html'"></div>
+
+    <buildinfo></buildinfo>
+
   </div>
   <div class="col-right">
     <div data-ng-include="getPagePartial()"
          class="main"
-         ></div>
+        ></div>
   </div>
 </div>
 
 <div data-ng-include="'views/_footer.html'"
      class="footer"></div>
 
-<shoppingcart
-    data-ng-include="'views/directives/shoppingcart.html'"
-    ng-class="{active: shoppingcart}"
-    class="shoppingcart-rightside">
+<shoppingcart class="shoppingcart-rightside">
 </shoppingcart>
-
-
 
 <!--
 <div class="container-fluid">

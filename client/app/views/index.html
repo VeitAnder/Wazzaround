@@ -102,96 +102,101 @@
     </div>
 
     <div class="map-wrap">
+      <div class="map-innerwrap">
 
-      states.filteredactivities.length
-      {{states.filteredactivities.length}}
-
-      {{states.filteredactivities[0].selected}}
-
-      <google-map
-          center='frontendmap.map.center'
-          zoom='frontendmap.map.zoom'
-          draggable='true'
-          events='frontendmap.map.events'
-          options='frontendmap.map.options'
-          >
-        <marker
-            ng-repeat="m in frontendmap.map.markers | filter:selectedCategoryFilter | markercoordsfilter track by m._id"
-            coords='m'
-            click='onMarkerClicked(m)'
-            options='markerOptions'
-            icon='frontendmap.getMarkerIcon(m.category.main)'
+        <google-map
+            center='frontendmap.map.center'
+            zoom='frontendmap.map.zoom'
+            draggable='true'
+            events='frontendmap.map.events'
+            options='frontendmap.map.options'
             >
-
-         <!-- <window
-              show="m.showWindow"
-              closeClick="m.closeClick()"
-              options="windowOptions"
+          <marker
+              ng-repeat="m in states.filteredactivities = (frontendmap.map.markers | filter:selectedCategoryFilter | markercoordsfilter) track by m._id"
+              coords='m'
+              click='onMarkerClicked(m)'
+              options='markerOptions'
+              icon='getMarkerIcon(m)'
               >
 
-            <div
-                class="window-category-{{m.category.main}}"
-                >
-              <h4>
-                <span class="icon"></span>
-                {{m.name | languageselect}}
-              </h4>
+            <!-- <window
+                 show="m.showWindow"
+                 closeClick="m.closeClick()"
+                 options="windowOptions"
+                 >
 
-              <div class="img-block img-block-right">
-                <cloudinaryimage ng-show="m.images.length > 0"
-                                 data-publicid="{{m.images[0].public_id}}"
-                                 data-format="{{m.images[0].format}}"
-                                 data-width="100"
-                                 data-height="60"
-                    >
-                </cloudinaryimage>
-              </div>
+               <div
+                   class="window-category-{{m.category.main}}"
+                   >
+                 <h4>
+                   <span class="icon"></span>
+                   {{m.name | languageselect}}
+                 </h4>
 
-              <div class="input-label">{{ 'Offered by' | translate }}</div>
-              <h5 class="no-margin-top">{{m.company}}</h5>
+                 <div class="img-block img-block-right">
+                   <cloudinaryimage ng-show="m.images.length > 0"
+                                    data-publicid="{{m.images[0].public_id}}"
+                                    data-format="{{m.images[0].format}}"
+                                    data-width="100"
+                                    data-height="60"
+                       >
+                   </cloudinaryimage>
+                 </div>
 
-              <div class="description">
-                &lt;!&ndash;<div class="input-label">Description</div>&ndash;&gt;
-                <div ta-bind
-                     ng-model="m.description[getAvailableTranslationLanguageKey(m.description)]"></div>
-              </div>
+                 <div class="input-label">{{ 'Offered by' | translate }}</div>
+                 <h5 class="no-margin-top">{{m.company}}</h5>
 
-              <div class="availability">
-                <div class="input-label">{{ 'Availability' | translate }}</div>
-                <div class="availability-list">
-                  <div class="availability-header">
-                    <div class="month cell">{{ 'Next available Dates' | translate }}</div>
-                  </div>
+                 <div class="description">
+                   <div class="input-label">Description</div>
+                   <div ta-bind
+                        ng-model="m.description[getAvailableTranslationLanguageKey(m.description)]"></div>
+                 </div>
 
-                  <bookableitemlist data-activity="m">
-                  </bookableitemlist>
+                 <div class="availability">
+                   <div class="input-label">{{ 'Availability' | translate }}</div>
+                   <div class="availability-list">
+                     <div class="availability-header">
+                       <div class="month cell">{{ 'Next available Dates' | translate }}</div>
+                     </div>
 
-                </div>
-              </div>
+                     <bookableitemlist data-activity="m">
+                     </bookableitemlist>
 
-            </div>
+                   </div>
+                 </div>
 
-          </window>-->
-          <marker-label content="m.name[getAvailableTranslationLanguageKey(m.name)]"
-                        anchor="22 0"
-                        class="marker-labels marker-label-category-{{m.category.main}}"
-              />
-        </marker>
+               </div>
 
-        <!--marker for clicked position can not put google.frontendmap.map.animations.BOUNCE , since it is not initialized yet-->
-        <div ng-init="opts = {animation:0}">
-          <marker coords="frontendmap.map.centerMarker"
-                  options="opts">
-            <marker-label content="frontendmap.map.centerMarker.title | translate"
+             </window>-->
+
+            <marker-label content="m.name[getAvailableTranslationLanguageKey(m.name)]"
                           anchor="22 0"
-                          class="marker-labels marker-labels-your-location"
+                          class="marker-labels marker-label-category-{{m.category.main}}"
                 />
           </marker>
-        </div>
 
-      </google-map>
+          <!--marker for clicked position can not put google.frontendmap.map.animations.BOUNCE , since it is not initialized yet-->
+          <div ng-init="opts = {animation:0}">
+            <marker coords="frontendmap.map.centerMarker"
+                    options="opts">
+              <marker-label content="frontendmap.map.centerMarker.title | translate"
+                            anchor="22 0"
+                            class="marker-labels marker-labels-your-location"
+                  />
+            </marker>
+          </div>
 
-      <activitybar activities="frontendmap.map.markers">
+        </google-map>
+
+      </div> <!-- map-innerwrap-->
+
+      <!--<activitybar activities="getFilteredActivities()">-->
+      <!--<activitybar activities="states.filteredactivities = (frontendmap.map.markers | filter:selectedCategoryFilter)">-->
+
+      <activitybar activity="getSelectedActivity()"
+                   selectnext="selectnext()"
+                   selectprev="selectprev()"
+          >
       </activitybar>
 
     </div>
@@ -211,10 +216,7 @@
 
   </div>
 
-  <shoppingcart
-      ng-class="{active: shoppingcart}"
-      class="shoppingcart-rightside"
-      >
+  <shoppingcart class="shoppingcart-rightside">
   </shoppingcart>
 
 </div>

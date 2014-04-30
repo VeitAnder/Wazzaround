@@ -1,0 +1,36 @@
+<nav
+    data-ng-show="currentUser.authenticated"
+    class="nav-sub nav-sub-user"
+    >
+  <h6>{{'Account' | translate}}</h6>
+  <ul>
+    <!--<li>-->
+    <!--<a href="#/admin/">Administration overview</a>-->
+    <!--</li>-->
+    <li ng-show="currentUser.user.userType === 'admin' || currentUser.user.userType === 'provider'">
+      <a href="#/admin/myactivities">
+        <span>
+          {{'My Activities' | translate}}
+        </span>
+      </a>
+    </li>
+
+    <li ng-show="currentUser.user.userType === 'admin'">
+      <a href="#/admin/allactivities">
+        <span>
+          {{'Admin All Activities' | translate}}
+        </span>
+      </a>
+    </li>
+
+    <li>
+      <a href="#/admin/profile">
+        <span>
+          {{'Profile' | translate}}
+        </span>
+      </a>
+    </li>
+
+  </ul>
+  <loginstatus></loginstatus>
+</nav>

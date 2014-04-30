@@ -14,7 +14,7 @@
   }
 })
 ((function () {
-  
+
   try {
     console.log();
     return window.console;
@@ -321,7 +321,7 @@ angular.module('anorakApp')
       "You want to put": "You want to put",
       "your Activities": "your activities",
       "to reacture": "to reActure",
-      "Account": "Account",
+      "Account": "Your account",
       "Login": "Login",
       "Password": "Password",
       "Not registered": "Register as Customer",
@@ -392,6 +392,7 @@ angular.module('anorakApp')
       "Your first name": "Your first name",
       "Please enter your first name": "Please enter your first name",
       "Last name": "Last name",
+      "Name": "Name",
       "Your last name": "Your last name",
       "Please enter your last name": "Please enter your last name",
       "Telephone": "Telephone",
@@ -511,7 +512,7 @@ angular.module('anorakApp')
       "Please select a location.": "Please select a location.",
       "Your unsaved data will be lost if you leave this page": "Your unsaved data will be lost if you leave this page",
       "activities found": "activities found",
-      "Personal data": "personal data",
+      "Personal data": "Personal data",
       "Company data": "Company data",
       "Your changes have been saved": "Your changes have been saved",
       "Your changes could not be saved": "Your changes could not be saved",
@@ -580,7 +581,7 @@ angular.module('anorakApp')
       "You want to put": "Sie wollen",
       "your Activities": "Ihre Aktivitäten",
       "to reacture": "auf reActure stellen",
-      "Account": "Account",
+      "Account": "Benutzerkonto",
       "Login": "Login",
       "Password": "Passwort",
       "Not registered": "Noch nicht registriert?",
@@ -651,6 +652,7 @@ angular.module('anorakApp')
       "Your first name": "Ihr Vorname",
       "Please enter your first name": "Bitte geben Sie Ihren Vornamen ein",
       "Last name": "Nachname",
+      "Name": "Name",
       "Your last name": "Ihr Nachname",
       "Please enter your last name": "Bitte geben Sie Ihren Nachnamen ein",
       "Telephone": "Telefon",
@@ -909,6 +911,7 @@ angular.module('anorakApp')
       "Your first name": "Il vostro nome",
       "Please enter your first name": "Si prega d'inserire il vostro nome",
       "Last name": "Cognome",
+      "Name": "Name",
       "Your last name": "Il vostro cognome",
       "Please enter your last name": "Si prega d'inserire il vostro cognome",
       "Telephone": "Telefono",

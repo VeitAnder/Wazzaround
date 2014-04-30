@@ -187,6 +187,10 @@ $sprite_mobile-icons: '/img/sprite_mobile-icons';
 $img_path: '/img/';
 
 
+*[ng-click]{
+  @include user-select(none);
+}
+
 
 
 // welcome to the party bootsrap
