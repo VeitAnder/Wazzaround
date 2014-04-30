@@ -191,6 +191,52 @@
       </div>
       <!-- map-innerwrap-->
 
+      <activitybardetail
+          ajs-centermaxwith
+          class="detail-category-{{getSelectedActivity().category.main}}"
+          ng-class="{activitydetailactive: states.activitydetailactive}"
+          ng-show="states.filteredactivities.length > 0"
+          >
+
+        <div class="txt-icon-delete"
+             ng-click="states.activitydetailactive = false">
+          <span class="hidden">Close detail view</span>
+          <span></span>
+        </div>
+
+        <h4>
+          <span class="icon"></span>
+          {{getSelectedActivity().name | languageselect}}
+        </h4>
+        <div class="input-label">
+          {{'Company offering this activity' | translate}}
+        </div>
+        <h5 class="no-margin-top">
+          {{getSelectedActivity().company}}
+        </h5>
+
+        <h5 class="category">
+          {{getSelectedActivity().category.main | translate}}
+          <span class="category-sub"
+                ng-repeat="subcat in getSelectedActivity().category.subs">
+            / {{subcat.key | translate}}
+          </span>
+        </h5>
+
+        <div class="description">
+
+        </div>
+
+        <div class="availability">
+          <div class="input-label">{{'Availability' | translate}}</div>
+
+          <bookableitemlist data-activity="getSelectedActivity()">
+          </bookableitemlist>
+
+        </div>
+
+      </activitybardetail>
+
       <activitybar
           ng-if="states.filteredactivities.length === 0"
           >
@@ -204,70 +250,28 @@
           ng-if="getSelectedActivity()"
           >
 
-        <activitybardetail
-            class="activitybar-detail detail-category-{{getSelectedActivity().category.main}}"
-            ng-class="{activitydetailactive: activitydetail === true}"
+        <activitybarstripe
+
             >
 
-          <div class="txt-icon-delete"
-               ng-click="activitydetail = false">
-            <span class="hidden">Close detail view</span>
-            <span></span>
-          </div>
+          <currentactivity
+              ajs-centermaxwith
+              ng-class="{activitydetailactive: states.activitydetailactive}"
+              >
 
-          <h4>
-            <span class="icon"></span>
-            {{getSelectedActivity().name | languageselect}}
-          </h4>
-          <div class="input-label">
-            {{'Company offering this activity' | translate}}
-          </div>
-          <h5 class="no-margin-top">
-            {{getSelectedActivity().company}}
-          </h5>
+            <div ng-show="states.filteredactivities.length > 0">
 
-          <h5 class="category">
-            {{getSelectedActivity().category.main | translate}}
-            <span class="category-sub"
-                  ng-repeat="subcat in getSelectedActivity().category.subs">
-              / {{subcat.key | translate}}
-            </span>
-          </h5>
+              <a ng-click="selectprev()"
+                 class="activitybar-item-prev"
+                  >
+                <div class="activity-nav activity-nav-prev">
+                  <span class="hideme">previous activity</span>
+                  <span></span>
+                </div>
+              </a>
 
-          <div class="description">
-
-          </div>
-
-          <div class="availability">
-            <div class="input-label">{{'Availability' | translate}}</div>
-
-            <bookableitemlist data-activity="getSelectedActivity()">
-            </bookableitemlist>
-
-          </div>
-
-        </activitybardetail>
-
-        <div class="activitybar"
-             ng-class="{activitydetailactive: activitydetail === true}"
-            >
-
-          <div class="activitybar-item activitybar-item-prev">
-            <a ng-click="selectprev()">
-              <img src="https://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg"/>
-              <div class="activity-nav activity-nav-prev">
-                <span class="hideme">previous activity</span>
-                <span></span>
-              </div>
-            </a>
-          </div>
-
-          <div class="activitybar-item activitybar-item-current">
-
-            <div ng-show="states.filteredactivities.length > 0"
-                >
               <a ng-href=""
-                 ng-click="activitydetail = !activitydetail"
+                 ng-click="states.activitydetailactive = !states.activitydetailactive"
                   >
                 <cloudinaryimage data-publicid="{{getSelectedActivity().images[0].public_id}}"
                                  data-format="{{getSelectedActivity().images[0].format}}"
@@ -290,25 +294,25 @@
 
               </a>
               <span class="triangle"></span>
+
+              <a ng-click="selectnext()"
+                 class="activitybar-item-next"
+                  >
+                <div class="activity-nav activity-nav-next">
+                  <span class="hideme">next activity</span>
+                  <span></span>
+                </div>
+              </a>
+
             </div>
 
             <div ng-show="states.filteredactivities.length === 0">
               keine Aktivität gefunden
             </div>
 
-          </div>
+          </currentactivity>
 
-          <div class="activitybar-item activitybar-item-next">
-            <a ng-click="selectnext()">
-              <img src="https://res.cloudinary.com/dqe7zmb1k/image/upload/c_fill,h_150,w_250/njmh750kebfq9iwzpeof.jpg"/>
-              <div class="activity-nav activity-nav-next">
-                <span class="hideme">next activity</span>
-                <span></span>
-              </div>
-            </a>
-          </div>
-
-        </div>
+        </activitybarstripe>
 
       </activitybar>
 

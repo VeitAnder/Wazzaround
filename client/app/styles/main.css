@@ -4174,81 +4174,33 @@ shoppingcart.shoppingcart-rightside {
     text-align: right;
     margin-left: 2%; }
 
-.activitybar {
+activitybar {
+  width: 100%;
   position: absolute;
   bottom: 0;
-  width: 100%;
-  overflow: hidden;
-  background-color: #d9d9d9; }
-  .activitybar .activitybar-item {
-    position: relative;
-    overflow: hidden;
-    height: 200px;
-    float: left; }
-    .activitybar .activitybar-item img {
-      min-height: 200px;
-      width: auto; }
-    .activitybar .activitybar-item.activitybar-item-beforeprev {
-      width: 10%; }
-      .activitybar .activitybar-item.activitybar-item-beforeprev img {
-        opacity: 0.25; }
-      .activitybar .activitybar-item.activitybar-item-beforeprev:hover img {
-        opacity: 0.5; }
-    .activitybar .activitybar-item.activitybar-item-prev {
-      width: 10%; }
-      .activitybar .activitybar-item.activitybar-item-prev img {
-        opacity: 0.25; }
-      .activitybar .activitybar-item.activitybar-item-prev:hover img {
-        opacity: 0.5; }
-    .activitybar .activitybar-item.activitybar-item-current {
-      width: 60%; }
-      .activitybar .activitybar-item.activitybar-item-current img {
-        min-width: 100%;
-        height: auto; }
-      .activitybar .activitybar-item.activitybar-item-current:hover .activity-detail-toggle {
-        background-color: #a4d740; }
-      .activitybar .activitybar-item.activitybar-item-current .triangle {
-        position: absolute;
-        display: block;
-        width: 25px;
-        height: 12.5px;
-        top: -50px;
-        height: 0;
-        width: 0;
-        border-color: transparent;
-        border-style: solid;
-        border-width: 25px;
-        border-top-color: #FFF;
-        left: 50%;
-        margin-left: -25px;
-        -webkit-transition-duration: 0.25s;
-        transition-duration: 0.25s;
-        -webkit-transition-timing-function: ease-in-out;
-        -moz-transition-timing-function: ease-in-out;
-        transition-timing-function: ease-in-out;
-        text-decoration: none;
-        -webkit-transition-property: all;
-        transition-property: all; }
-    .activitybar .activitybar-item.activitybar-item-next {
-      width: 10%; }
-      .activitybar .activitybar-item.activitybar-item-next img {
-        opacity: 0.25; }
-      .activitybar .activitybar-item.activitybar-item-next:hover img {
-        opacity: 0.5; }
-    .activitybar .activitybar-item.activitybar-item-afternext {
-      width: 10%; }
-      .activitybar .activitybar-item.activitybar-item-afternext img {
-        opacity: 0.25; }
-      .activitybar .activitybar-item.activitybar-item-afternext:hover img {
-        opacity: 0.5; }
-  .activitybar .activity-nav {
+  background-color: #d9d9d9;
+  height: 200px;
+  overflow: hidden; }
+
+activitybarstripe {
+  position: absolute;
+  width: 100%; }
+  activitybarstripe .activitybar-item-prev {
+    position: absolute;
+    top: 95px;
+    left: 0; }
+  activitybarstripe .activitybar-item-next {
+    position: absolute;
+    top: 95px;
+    right: 0; }
+  activitybarstripe .activity-nav {
     position: absolute;
     top: 50%;
     margin-top: -32.5px;
     width: 65px;
     height: 65px;
     background-color: #FFF; }
-    .activitybar .activity-nav span {
+    activitybarstripe .activity-nav span {
       display: block;
       margin-top: 20px;
       margin-left: 19px;
@@ -4256,25 +4208,25 @@ shoppingcart.shoppingcart-rightside {
       background-repeat: no-repeat;
       width: 25px;
       height: 25px; }
-      .svg .activitybar .activity-nav span {
+      .svg activitybarstripe .activity-nav span {
         background-image: url('/img/sprite_icons.svg'); }
-      .no-svg .activitybar .activity-nav span {
+      .no-svg activitybarstripe .activity-nav span {
         background-image: url('/img/sprite_icons.png'); }
-    .activitybar .activity-nav.activity-nav-next {
+    activitybarstripe .activity-nav.activity-nav-next {
       left: 0;
       border-bottom-right-radius: 6px;
       border-top-right-radius: 6px; }
-    .activitybar .activity-nav.activity-nav-prev {
+    activitybarstripe .activity-nav.activity-nav-prev {
       right: 0;
       border-bottom-left-radius: 6px;
       border-top-left-radius: 6px; }
-      .activitybar .activity-nav.activity-nav-prev span {
+      activitybarstripe .activity-nav.activity-nav-prev span {
         -webkit-transform: rotate(180deg);
         -moz-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
         -o-transform: rotate(180deg);
         transform: rotate(180deg); }
-  .activitybar .activity-detail-toggle {
+  activitybarstripe .activity-detail-toggle {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -4300,7 +4252,7 @@ shoppingcart.shoppingcart-rightside {
     text-decoration: none;
     -webkit-transition-property: all;
     transition-property: all; }
-    .activitybar .activity-detail-toggle span {
+    activitybarstripe .activity-detail-toggle span {
       display: block;
       width: 15px;
       height: 15px;
@@ -4308,11 +4260,11 @@ shoppingcart.shoppingcart-rightside {
       margin-left: 7px;
       background-position: -20px -85px;
       background-repeat: no-repeat; }
-      .svg .activitybar .activity-detail-toggle span {
+      .svg activitybarstripe .activity-detail-toggle span {
         background-image: url('/img/sprite_icons.svg'); }
-      .no-svg .activitybar .activity-detail-toggle span {
+      .no-svg activitybarstripe .activity-detail-toggle span {
         background-image: url('/img/sprite_icons.png'); }
-  .activitybar .activity-title {
+  activitybarstripe .activity-title {
     position: absolute;
     bottom: 15px;
     left: 15px;
@@ -4320,7 +4272,7 @@ shoppingcart.shoppingcart-rightside {
     color: #FFF;
     font-weight: 800;
     font-size: 20px; }
-  .activitybar .activity-distance-element {
+  activitybarstripe .activity-distance-element {
     position: absolute;
     top: 15px;
     left: 15px;
@@ -4333,7 +4285,7 @@ shoppingcart.shoppingcart-rightside {
     -o-border-radius: 15px;
     border-radius: 15px;
     background-color: #FFF; }
-  .activitybar .current-location {
+  activitybarstripe .current-location {
     vertical-align: middle;
     display: block;
     float: left;
@@ -4341,11 +4293,11 @@ shoppingcart.shoppingcart-rightside {
     height: 20px;
     background-position: -200px 0;
     background-repeat: no-repeat; }
-    .svg .activitybar .current-location {
+    .svg activitybarstripe .current-location {
       background-image: url('/img/sprite_icons.svg'); }
-    .no-svg .activitybar .current-location {
+    .no-svg activitybarstripe .current-location {
       background-image: url('/img/sprite_icons.png'); }
-  .activitybar .activity-distance-txt {
+  activitybarstripe .activity-distance-txt {
     vertical-align: middle;
     display: block;
     float: left;
@@ -4354,7 +4306,7 @@ shoppingcart.shoppingcart-rightside {
     font-weight: 600;
     font-size: 12px;
     line-height: 20px; }
-  .activitybar .activity-location {
+  activitybarstripe .activity-location {
     display: inline-block;
     position: relative;
     top: 5px;
@@ -4374,25 +4326,56 @@ shoppingcart.shoppingcart-rightside {
     float: left;
     background-position: -45px 6px;
     background-color: #85C900; }
-    .svg .activitybar .activity-location {
+    .svg activitybarstripe .activity-location {
       background-image: url('/img/sprite_icons.svg'); }
-    .no-svg .activitybar .activity-location {
+    .no-svg activitybarstripe .activity-location {
       background-image: url('/img/sprite_icons.png'); }
-  .activitybar.activitydetailactive .activity-detail-toggle {
+
+currentactivity {
+  top: 0;
+  position: absolute;
+  left: 50%;
+  height: 200px; }
+  currentactivity img {
+    min-width: 100%;
+    height: auto; }
+  currentactivity:hover .activity-detail-toggle {
+    background-color: #a4d740; }
+  currentactivity .triangle {
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 12.5px;
+    top: -25px;
+    height: 0;
+    width: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 25px;
+    border-top-color: #FFF;
+    left: 50%;
+    margin-left: -25px;
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    text-decoration: none;
+    -webkit-transition-property: all;
+    transition-property: all; }
+  currentactivity.activitydetailactive .activity-detail-toggle {
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg); }
-  .activitybar.activitydetailactive .activitybar-item-current .triangle {
+  currentactivity.activitydetailactive .triangle {
     top: 0; }
 
-.activitybar-detail {
+activitybardetail {
   position: absolute;
   bottom: -100%;
   left: 50%;
-  margin-left: -30%;
-  width: 60%;
   padding: 30px;
   background-color: #ffffff;
   background-color: rgba(255, 255, 255, 0.9);
@@ -4406,12 +4389,12 @@ shoppingcart.shoppingcart-rightside {
   text-decoration: none;
   -webkit-transition-property: all;
   transition-property: all; }
-  .activitybar-detail h4 {
+  activitybardetail h4 {
     color: #666;
     margin-top: 0;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-    .activitybar-detail h4 .icon {
+    activitybardetail h4 .icon {
       display: inline-block;
       width: 20px;
       height: 20px;
@@ -4424,7 +4407,7 @@ shoppingcart.shoppingcart-rightside {
       border: solid 1px #666;
       border-width: 3px;
       margin-right: 5px; }
-  .activitybar-detail .img-block img {
+  activitybardetail .img-block img {
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
@@ -4435,32 +4418,32 @@ shoppingcart.shoppingcart-rightside {
     border-width: 7px;
     padding: 3px;
     background-color: #FFF; }
-  .activitybar-detail .img-block.img-block-left {
+  activitybardetail .img-block.img-block-left {
     float: left;
     margin: 0 15px 16px 0; }
-  .activitybar-detail .img-block.img-block-right {
+  activitybardetail .img-block.img-block-right {
     float: right;
     margin: 0 0 16px 15px; }
-  .activitybar-detail .category {
+  activitybardetail .category {
     border-bottom: solid 1px #666;
     border-width: 3px;
     padding-bottom: 5px; }
-    .activitybar-detail .category .category-sub {
+    activitybardetail .category .category-sub {
       font-weight: 200; }
-  .activitybar-detail .description {
+  activitybardetail .description {
     margin-top: 16px; }
-  .activitybar-detail .location {
+  activitybardetail .location {
     margin-top: 16px; }
-  .activitybar-detail .availability {
+  activitybardetail .availability {
     margin-top: 32px;
     clear: both; }
-    .activitybar-detail .availability h5 {
+    activitybardetail .availability h5 {
       margin-top: 0; }
-  .activitybar-detail .txt-icon-delete {
+  activitybardetail .txt-icon-delete {
     position: absolute;
     top: 15px;
     right: 15px; }
-  .activitybar-detail.activitydetailactive {
+  activitybardetail.activitydetailactive {
     bottom: 200px; }
 
 #logo {

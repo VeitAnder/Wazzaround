@@ -618,10 +618,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
   padding-top: $bu;
   margin-top: $bu;
 
-  &.event-list-items{
+  &.event-list-items {
     @include divtable_row_small;
     border: none;
-    .event-date{
+    .event-date {
       width: 40%;
     }
     .event-time {
@@ -698,31 +698,30 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
-.event-item{
+.event-item {
   display: block;
   overflow: hidden;
   padding: $bu;
   background-color: $color_green_25;
   @include border-radius($border-radius);
-  .event-item-header{
+  .event-item-header {
     overflow: hidden;
     padding-bottom: 5px;
     @include seperator(bottom, $color_green);
-    .event-item-description{
+    .event-item-description {
       float: left;
     }
-    h5{
+    h5 {
       margin: 0;
     }
-    .event-item-quantity{
+    .event-item-quantity {
       @include font-size_small;
     }
-    .event-item-book{
+    .event-item-book {
       float: right;
     }
   }
 }
-
 
 .eventedit {
   display: block;
@@ -1188,62 +1187,29 @@ $activitybar-height: 200px;
   }
 }
 
-.activitybar {
+activitybar {
+  width: 100%;
   position: absolute;
   bottom: 0;
-  width: 100%;
-  overflow: hidden;
   background-color: $color_grey_25;
+  height: $activitybar-height;
+  overflow:hidden;
+}
 
-  .activitybar-item {
-    position: relative;
-    overflow: hidden;
-    height: $activitybar-height;
-    float: left;
-    img {
-      min-height: $activitybar-height;
-      width: auto;
-    }
+activitybarstripe {
+  position: absolute;
+  width: 100%;
 
-    &.activitybar-item-beforeprev {
-      @include activitybar-a-imghover;
-      width: 10%;
-    }
-    &.activitybar-item-prev {
-      @include activitybar-a-imghover;
-      width: 10%;
-    }
-    &.activitybar-item-current {
-      width: 60%;
-      img {
-        min-width: 100%;
-        height: auto;
-      }
-      &:hover {
-        .activity-detail-toggle {
-          background-color: $color_green_75;
-        }
-      }
-      .triangle {
-        position: absolute;
-        display: block;
-        width: 25px;
-        height: 12.5px;
-        top: -50px;
-        @include triangle(50px, $color_white, down);
-        left: 50%;
-        margin-left: -25px;
-        @include animation_all;
-      }
-    }
-    &.activitybar-item-next {
-      @include activitybar-a-imghover;
-      width: 10%;
-    }
-    &.activitybar-item-afternext {
-      @include activitybar-a-imghover;
-      width: 10%;
-    }
+  .activitybar-item-prev {
+    position: absolute;
+    top: 95px;
+    left: 0;
+  }
+
+  .activitybar-item-next {
+    position: absolute;
+    top: 95px;
+    right: 0;
   }
 
   .activity-nav {
@@ -1343,25 +1309,56 @@ $activitybar-height: 200px;
     background-color: $color_green;
   }
 
+}
+
+currentactivity {
+  top: 0;
+  position: absolute;
+  left: 50%;
+  height: $activitybar-height;
+
+//  overflow:hidden;
+
+  img {
+    min-width: 100%;
+    height: auto;
+  }
+  &:hover {
+    .activity-detail-toggle {
+      background-color: $color_green_75;
+    }
+  }
+  .triangle {
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 12.5px;
+    top: -25px;
+    @include triangle(50px, $color_white, down);
+    left: 50%;
+    margin-left: -25px;
+    @include animation_all;
+  }
+
   &.activitydetailactive {
     .activity-detail-toggle {
       @include transform(rotate(90deg));
     }
-    .activitybar-item-current {
-      .triangle {
-        top: 0;
-      }
+    .triangle {
+      top: 0;
     }
   }
-
 }
 
-.activitybar-detail {
+activitybardetail {
   position: absolute;
   bottom: -100%;
   left: 50%;
-  margin-left: -$activitybar-currentitem-width*0.5;
-  width: $activitybar-currentitem-width;
+
+  //  done via directive ajscentermaxwidth
+  //  margin-left: -$activitybar-currentitem-width*0.5;
+  //  width: $activitybar-currentitem-width;
+
   padding: $bu*2.0;
   background-color: #ffffff;
   background-color: rgba($color_white, 0.90);
@@ -1544,7 +1541,6 @@ $activitybar-height: 200px;
   }
 }
 
-
 .nav-main {
   @include tmenu_class;
   background-color: $color_nav1_background;
@@ -1632,18 +1628,15 @@ $activitybar-height: 200px;
 
 //.nav-main
 
-
-
 // SUBMENU
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-
 .nav-sub {
   @include tmenu_class;
 
-  .nav-icon{
-    .icon{
+  .nav-icon {
+    .icon {
       position: relative;
       top: 1px;
       display: block;
@@ -1660,8 +1653,8 @@ $activitybar-height: 200px;
     }
   }
 
-  &.nav-sub-user{
-    span{
+  &.nav-sub-user {
+    span {
       font-weight: $font-weight_bold;
     }
   }
@@ -1671,7 +1664,7 @@ $activitybar-height: 200px;
     margin-bottom: $fs*2.0;
   }
 
-  a{
+  a {
     text-decoration: none;
 
   }
@@ -2457,7 +2450,6 @@ $img-selector-teasertxtheight: 35px;
     color: $color_green_25;
   }
 }
-
 
 .logoutlink {
   .admin-section & {

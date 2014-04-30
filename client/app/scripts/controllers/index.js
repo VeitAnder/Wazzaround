@@ -418,12 +418,10 @@ angular.module('anorakApp')
     };
 
     $scope.getSelectedMarkerId = function () {
-      console.log("$scope.states.selectedactivityid", $scope.states.selectedactivityid);
       return $scope.states.selectedactivityid;
     };
 
     $scope.getMarkerIcon = function (activity) {
-      console.log("activity.category.main", activity.category.main);
       if (activity._id === $scope.getSelectedMarkerId()) {
         return frontendmap.getMarkerIcon();
       } else {
