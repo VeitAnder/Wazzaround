@@ -591,20 +591,20 @@ googleMap, .angular-google-map, .angular-google-map-container {
   padding-top: $bu;
   margin-top: $bu;
 
-  &.event-list-items{
+  &.event-list-items {
     @include divtable_row_small;
-    .cell{
+    .cell {
       padding-bottom: 0;
       padding-top: 0;
-      &.first{
+      &.first {
         padding-left: 0;
       }
-      &.last{
+      &.last {
         padding-right: 0;
       }
     }
     border: none;
-    .event-date{
+    .event-date {
       width: 45%;
     }
 
@@ -621,7 +621,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
       margin: 0 0 $bu*0.5;
       padding-bottom: 0;
     }
- }
+  }
 
   .availability & {
     margin: 0 0 $bu;
@@ -682,47 +682,47 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
-.event-item{
+.event-item {
   display: block;
   overflow: hidden;
   margin-bottom: $bu*0.5;
-  &:last-child{
+  &:last-child {
     margin-bottom: 0;
   }
-  .event-item-header{
+  .event-item-header {
     padding: $bu*0.5;
     background-color: $color_green_05;
     @include border(all, $color_green_25);
     border-width: 2px;
     @include border-top-radius($border-radius);
     overflow: hidden;
-    .event-item-description{
+    .event-item-description {
       float: left;
       width: 73%;
       margin-right: 2%;
     }
-    h6{
+    h6 {
       margin: 0;
       color: $color_green;
       display: inline;
     }
-    .event-item-quantity{
+    .event-item-quantity {
       @include font-size_small;
       white-space: nowrap;
     }
-    .event-item-book{
+    .event-item-book {
       float: left;
       text-align: right;
       width: 25%;
     }
   }
-  .event-item-body{
+  .event-item-body {
     padding: $bu*0.5;
     background-color: $color_green_25;
     @include border-bottom-radius($border-radius);
     overflow: hidden;
     @include font-size_small;
-    .input-label{
+    .input-label {
       margin-bottom: 0;
       margin-right: 0;
       vertical-align: baseline;
@@ -731,7 +731,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
 }
-
 
 .eventedit {
   display: block;
@@ -1203,7 +1202,7 @@ activitybar {
   bottom: 0;
   background-color: $color_grey_25;
   height: $activitybar-height;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 activitybarstripe {
@@ -1327,7 +1326,7 @@ currentactivity {
   left: 50%;
   height: $activitybar-height;
 
-//  overflow:hidden;
+  //  overflow:hidden;
 
   img {
     min-width: 100%;
@@ -1357,6 +1356,10 @@ currentactivity {
     .triangle {
       top: 0;
     }
+  }
+
+  .currentactivity-body {
+    overflow: hidden;
   }
 }
 
@@ -1551,7 +1554,6 @@ activitybardetail {
   }
 }
 
-
 .nav-main {
   @include tmenu_class;
   background-color: $color_nav1_background;
@@ -1639,18 +1641,15 @@ activitybardetail {
 
 //.nav-main
 
-
-
 // SUBMENU
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-
 .nav-sub {
   @include tmenu_class;
 
-  .nav-icon{
-    .icon{
+  .nav-icon {
+    .icon {
       position: relative;
       top: 1px;
       display: block;
@@ -1667,8 +1666,8 @@ activitybardetail {
     }
   }
 
-  &.nav-sub-user{
-    span{
+  &.nav-sub-user {
+    span {
       font-weight: $font-weight_bold;
     }
   }
@@ -1678,7 +1677,7 @@ activitybardetail {
     margin-bottom: $fs*2.0;
   }
 
-  a{
+  a {
     text-decoration: none;
 
   }
@@ -2464,7 +2463,6 @@ $img-selector-teasertxtheight: 35px;
     color: $color_green_25;
   }
 }
-
 
 .logoutlink {
   .admin-section & {
