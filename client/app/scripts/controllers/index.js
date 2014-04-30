@@ -429,4 +429,12 @@ angular.module('anorakApp')
       }
     };
 
+    $scope.getIndexFilteredActivities = function (activity) {
+      var index = _.findIndex($scope.states.filteredactivities, function (item) {
+        return activity._id === item._id;
+      });
+      // make index non-programmer style :-)
+      return index + 1;
+    };
+
   });

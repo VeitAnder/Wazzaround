@@ -277,7 +277,7 @@
                   <div class="activity-distance-element">
                     <span class="current-location"></span>
                     <span class="activity-distance-txt">
-                      {{getSelectedActivity().distancetosearchlocation | mtokm }} km
+                      {{getSelectedActivity().distancetosearchlocation | mtokm }} km  | {{getIndexFilteredActivities(getSelectedActivity()) }} {{'of' | translate }} {{states.filteredactivities.length}}
                     </span>
                     <span class="activity-location"></span>
                   </div>
