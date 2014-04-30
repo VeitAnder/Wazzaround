@@ -72,6 +72,21 @@ angular.module('anorakApp')
       }
     };
 
+    $scope.start = { time: moment().hours(9).minute(0).toDate() };
+    $scope.end = { time: moment().hours(22).minute(0).toDate() };
+
+    $scope.setTime = function(dateString, time) {
+      var date = moment(dateString);
+      console.log("GOT DATE", date);
+      var timeToSet = moment(time).zone(date.zone());
+      console.log("GOT TIME", timeToSet);
+      console.log("GOT HORUS", date.hours(), timeToSet.hours());
+      date.hours(timeToSet.hours());
+      date.minute(timeToSet.minute());
+      date.second(0);
+      return date.toDate();
+    };
+
     $scope.setEndDate = function (eventStartDate, eventEndDate) {
       var start = moment(eventStartDate);
       var end = moment(eventEndDate);

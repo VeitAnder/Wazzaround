@@ -349,6 +349,7 @@
                       <eventedit class="eventedit"
                                  ng-show="event.mode == 'edit' || event.mode == 'new'"
                           >
+
                         <ng-form name="eventForm">
                           <div class="form-group date-start first">
                             <label>Start date</label>
@@ -368,10 +369,11 @@
                             <input type="text"
                                    size="8"
                                    class="form-control"
-                                   ng-model="event.start"
+                                   ng-model="start.time"
                                    data-autoclose="0"
                                    placeholder="{{'Time' | translate}}"
                                    bs-timepicker
+                                   ng-change="event.start = setTime(event.start, start.time)"
                                 >
                           </div>
 
@@ -396,11 +398,12 @@
                             <input type="text"
                                    size="8"
                                    class="form-control"
-                                   ng-model="event.end"
+                                   ng-model="end.time"
                                    data-min-date="{{event.start}}"
                                    data-autoclose="0"
                                    placeholder="{{'Time' | translate}}"
                                    bs-timepicker
+                                   ng-change="event.end = setTime(event.end, end.time)"
                                 >
                           </div>
 
