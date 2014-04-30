@@ -1277,6 +1277,7 @@ activitybarstripe {
     color: $color_white;
     font-weight: $font-weight_extrabold;
     font-size: $fs*$font-size_h5_factor;
+    z-index: 2;
   }
 
   .activity-distance-element {
@@ -1331,15 +1332,6 @@ currentactivity {
   img {
     min-width: 100%;
     height: auto;
-    &:after{
-      position: relative;
-      top: -90px;
-      display: block;
-      width: 100%;
-      height: 90px;
-      content:"hello";
-      background: url(#{$img_path}activity-headline-BGshadow.png) repeat-x;
-    }
   }
   &:hover {
     .activity-detail-toggle {
@@ -1369,6 +1361,15 @@ currentactivity {
 
   .currentactivity-body {
     overflow: hidden;
+    &:after{
+      position: relative;
+      top: -90px;
+      display: block;
+      width: 100%;
+      height: 90px;
+      content:"";
+      background: url('#{$img_path}activity-headline-BGshadow.png') repeat-x;
+    }
   }
 }
 

@@ -4343,7 +4343,8 @@ activitybarstripe {
     margin: 0;
     color: #FFF;
     font-weight: 800;
-    font-size: 20px; }
+    font-size: 20px;
+    z-index: 2; }
   activitybarstripe .activity-distance-element {
     position: absolute;
     top: 15px;
@@ -4411,14 +4412,6 @@ currentactivity {
   currentactivity img {
     min-width: 100%;
     height: auto; }
-    currentactivity img:after {
-      position: relative;
-      top: -90px;
-      display: block;
-      width: 100%;
-      height: 90px;
-      content: "hello";
-      background: url(/img/activity-headline-BGshadow.png) repeat-x; }
   currentactivity:hover .activity-detail-toggle {
     background-color: #a4d740; }
   currentactivity .triangle {
@@ -4453,6 +4446,14 @@ currentactivity {
     top: 0; }
   currentactivity .currentactivity-body {
     overflow: hidden; }
+    currentactivity .currentactivity-body:after {
+      position: relative;
+      top: -90px;
+      display: block;
+      width: 100%;
+      height: 90px;
+      content: "";
+      background: url('/img/activity-headline-BGshadow.png') repeat-x; }
 
 activitybardetail {
   position: absolute;
