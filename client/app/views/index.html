@@ -218,7 +218,6 @@
           {{'Offered by' | translate}} {{activity.company}}
         </h6>
 
-
         <div class="description">
 
         </div>
@@ -226,7 +225,10 @@
         <div class="availability">
           <div class="input-label">{{'Availability' | translate}}</div>
 
-          <bookableitemlist data-activity="getSelectedActivity()">
+          <bookableitemlist
+              data-activity="getSelectedActivity()"
+              showpagination="true"
+              >
           </bookableitemlist>
 
         </div>
