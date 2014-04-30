@@ -204,17 +204,6 @@
           <span></span>
         </div>
 
-        <h4>
-          <span class="icon"></span>
-          {{getSelectedActivity().name | languageselect}}
-        </h4>
-        <div class="input-label">
-          {{'Company offering this activity' | translate}}
-        </div>
-        <h5 class="no-margin-top">
-          {{getSelectedActivity().company}}
-        </h5>
-
         <h5 class="category">
           {{getSelectedActivity().category.main | translate}}
           <span class="category-sub"
@@ -222,6 +211,13 @@
             / {{subcat.key | translate}}
           </span>
         </h5>
+        <h4>
+          {{getSelectedActivity().name | languageselect}}
+        </h4>
+        <h6 class="no-margin-top">
+          {{'Offered by' | translate}} {{activity.company}}
+        </h6>
+
 
         <div class="description">
 
