@@ -7,11 +7,22 @@ angular.module('anorakApp')
       restrict: 'E',
       scope: {
         activity: '=activity',
-        showpagination: '@showpagination'
+        showpagination: '@showpagination',
+        eventlimit: '@limit'
       },
       compile: function compile(tElement, tAttrs, transclude) {
         return {
           pre: function preLink(scope, element, attrs, controller) {
+
+            console.log("scope.limit", scope.limit);
+
+            if (!scope.eventlimit) {
+              scope.eventlimit = 10000000000;
+            }
+
+            scope.state = {
+              limit: scope.eventlimit
+            };
 
             scope.addToShoppingCart = function (event, bookableItem, activity) {
               // $timeout ensures cart update in view

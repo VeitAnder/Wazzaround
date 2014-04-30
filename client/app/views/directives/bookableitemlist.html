@@ -2,7 +2,7 @@
   <h5>{{'No events to display yet' | translate}}</h5>
 </div>
 
-<div ng-repeat="bookableItem in activity.bookableItems"
+<div ng-repeat="bookableItem in (activity.bookableItems | limitTo:state.limit)"
      class="event-list event-list-items">
 
   <!--
@@ -36,7 +36,7 @@
   -->
 
   <eventitem class="event-item"
-             ng-repeat="(idx,event) in bookableItem.events"
+             ng-repeat="(idx,event) in (bookableItem.events | limitTo:state.limit)"
       >
     <div class="event-item-header">
       <div class="event-item-description">
