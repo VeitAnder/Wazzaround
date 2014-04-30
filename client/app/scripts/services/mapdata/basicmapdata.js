@@ -350,6 +350,14 @@ angular.module('anorakApp')
         }
       };
 
+      this.getMarkerIconActive = function (maincategorykey) {
+        if (maincategorykey) {
+          return "/img/mapicons/marker-" + maincategorykey + "-active.svg";
+        } else {
+          return "/img/mapicons/marker.svg";
+        }
+      };
+
     };
 
     return mapdata;
