@@ -362,11 +362,14 @@ button.btn, .btn, a.btn {
   }
 }
 
-@mixin btn-large {
+@mixin btn-mini {
   @include button;
-  padding: ($fs*0.75) ($fs*2.0);
-  font-size: 25px;
-  @include border-radius($border-radius);
+  @include font-size_smallest;
+  text-transform: uppercase;
+  padding: ($fs*0.15) ($fs*0.25);
+  border-width: 1px;
+  font-weight: $font-weight_extrabold;
+  @include border-radius($border-radius_small);
 }
 
 @mixin btn-small {
@@ -375,6 +378,13 @@ button.btn, .btn, a.btn {
   font-size: 14px;
   line-height: 14px * $line-height_factor;
   @include border-radius($border-radius_small);
+}
+
+@mixin btn-large {
+  @include button;
+  padding: ($fs*0.75) ($fs*2.0);
+  font-size: 25px;
+  @include border-radius($border-radius);
 }
 
 .btn-group {
@@ -573,6 +583,23 @@ button.btn, .btn, a.btn {
   }
 }
 
+@mixin button-txt-icon-mini-book {
+  @include btn-mini;
+  .btn-icon {
+    display: inline-block;
+    width: 18px;
+    height: 10px;
+    vertical-align: middle;
+    @include sprite_icons(-150px, -25px, no-repeat);
+    &.btn-icon-left {
+      margin-right: 0px;
+    }
+    &.btn-icon-right {
+      margin-left: 0px;
+    }
+  }
+}
+
 @mixin button-txt-icon-small-book {
   @include btn-small;
   .btn-icon {
@@ -610,6 +637,10 @@ button.btn, .btn, a.btn {
 
 .btn-book{
   @include button-txt-icon-book;
+}
+
+.btn-mini-book{
+  @include button-txt-icon-mini-book;
 }
 
 .btn-small-book{

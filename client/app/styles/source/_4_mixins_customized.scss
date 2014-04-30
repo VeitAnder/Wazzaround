@@ -620,24 +620,34 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
   &.event-list-items{
     @include divtable_row_small;
+    .cell{
+      padding-bottom: 0;
+      &.first{
+        padding-left: 0;
+      }
+      &.last{
+        padding-right: 0;
+      }
+    }
     border: none;
     .event-date{
-      width: 40%;
-    }
-    .event-time {
-      width: 20%;
+      width: 45%;
     }
 
     .event-duration {
-      width: 20%;
-      text-align: right;
+      width: 35%;
+      text-align: left;
     }
 
     .event-price {
       width: 20%;
       text-align: right;
     }
-  }
+    .availability & {
+      margin: 0 0 $bu*0.5;
+      padding-bottom: 0;
+    }
+ }
 
   .availability & {
     margin: 0 0 $bu;
@@ -701,24 +711,45 @@ googleMap, .angular-google-map, .angular-google-map-container {
 .event-item{
   display: block;
   overflow: hidden;
-  padding: $bu;
+  padding: $bu*0.5;
+  margin-bottom: $bu*0.5;
   background-color: $color_green_25;
   @include border-radius($border-radius);
+  &:last-child{
+    margin-bottom: 0;
+  }
   .event-item-header{
     overflow: hidden;
     padding-bottom: 5px;
     @include seperator(bottom, $color_green);
     .event-item-description{
       float: left;
+      width: 73%;
+      margin-right: 2%;
     }
-    h5{
+    h6{
       margin: 0;
+      color: $color_green;
+      display: inline;
     }
     .event-item-quantity{
       @include font-size_small;
+      white-space: nowrap;
     }
     .event-item-book{
-      float: right;
+      float: left;
+      text-align: right;
+      width: 25%;
+    }
+  }
+  .event-item-body{
+    @include font-size_small;
+    .input-label{
+      margin-bottom: 0;
+      margin-right: 0;
+      vertical-align: baseline;
+      display: inline;
+      line-height: $fs*$font-size_small_factor*$line-height_factor;
     }
   }
 }
@@ -871,13 +902,12 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
 .availability-footer {
   @include divtable_row_small;
-  //  margin-top: $bu;
   border-bottom: none;
   background-color: $color_grey_15;
+  @include border-radius($border-radius_small);
   .cell {
     width: 50%;
-    padding-top: 10px;
-    padding-bottom: 15px;
+    padding-bottom: $fs*0.5;
     &.last, &.first {
       width: 25%;
     }
@@ -1008,8 +1038,8 @@ shoppingcart {
   padding: $bu*2.0 $bu*1.0;
   @include color-white;
   .buttonbar {
-    background-color: transparent;
     padding: 0;
+    border: none;
     .btn {
       width: 100%;
       text-align: center;
@@ -1035,6 +1065,7 @@ shoppingcart {
     display: inline-block;
     min-width: 15px;
     height: 15px;
+    padding: 0 3px;
     @include border-radius(7.5px);
     background-color: $color_red;
     color: $color_white;
