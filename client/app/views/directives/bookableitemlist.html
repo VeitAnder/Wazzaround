@@ -85,12 +85,14 @@
   </eventitem>
 </div>
 
-<div class="availability-footer">
+<div class="availability-footer"
+    ng-show="showpagination"
+    >
   <div class="cell first">
-    <a class="btn btn-mini disabled"
+<!--    <a class="btn btn-mini disabled"
        ng-click=""
         >{{ 'Prev' | translate }}
-    </a>
+    </a>-->
   </div>
   <div class="cell align-center">
     <a class="btn btn-mini"
@@ -100,9 +102,9 @@
     </a>
   </div>
   <div class="cell last align-right">
-    <a class="btn btn-mini"
+<!--    <a class="btn btn-mini"
        ng-click=""
         >{{ 'Next' | translate }}
-    </a>
+    </a>-->
   </div>
 </div>

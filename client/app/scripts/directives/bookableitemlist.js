@@ -6,7 +6,8 @@ angular.module('anorakApp')
       templateUrl: 'views/directives/bookableitemlist.html',
       restrict: 'E',
       scope: {
-        activity: '=activity'
+        activity: '=activity',
+        showpagination: '@showpagination'
       },
       compile: function compile(tElement, tAttrs, transclude) {
         return {
