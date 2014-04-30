@@ -423,7 +423,7 @@ angular.module('anorakApp')
 
     $scope.getMarkerIcon = function (activity) {
       if (activity._id === $scope.getSelectedMarkerId()) {
-        return frontendmap.getMarkerIcon();
+        return frontendmap.getMarkerIconActive(activity.category.main);
       } else {
         return frontendmap.getMarkerIcon(activity.category.main);
       }
