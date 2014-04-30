@@ -4,10 +4,14 @@
 <svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 	 x="0px" y="0px" width="36px" height="63px" viewBox="0 0 36 63" xml:space="preserve">
 <image width="14" height="4" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAECAYAAAC+0w63AAAACXBIWXMAAAsSAAALEgHS3X78AAAA
-GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACFJREFUeNpiYcAEDQzYAYo4Ix6F
-eAETA5mAiUwbGwACDAA5BAKKRcLsUAAAAABJRU5ErkJggg==" transform="matrix(1 0 0 1 11 59)">
+GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpiZEAFDQz4AVyekQjF
+WAETA5mAkQRnoqgDCDAANB8Chn3LvFsAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 11 59)">
 </image>
-<path fill="#C83C19" d="M36,17.778c0-9.939-8.06-17.889-18-17.889S0,7.783,0,17.723C0,20.381,0.591,23,1.625,25H1.578L18,60.916
-	L34.422,25h-0.047C35.409,23,36,20.436,36,17.778z"/>
-<circle fill="#FFFFFF" cx="18" cy="18" r="13.08"/>
+<path fill="#C83C19" d="M36,17.889C36,7.95,27.94,0,18,0S0,7.894,0,17.833c0,2.658,0.591,5.277,1.625,7.277H1.578L18,61.027
+	l16.422-35.916h-0.047C35.409,23.111,36,20.547,36,17.889z"/>
+<circle fill="#FFFFFF" cx="18" cy="18.111" r="13.08"/>
+<g>
+	<circle fill="#85C900" cx="18" cy="18.112" r="10"/>
+	<polyline fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" points="23,14.612 16,21.612 13,18.612 	"/>
+</g>
 </svg>
