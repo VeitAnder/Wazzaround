@@ -358,6 +358,13 @@ angular.module('anorakApp')
         }
       };
 
+      this.getCurrentSearchLocation = function () {
+        return {
+          lng: this.map.centerMarker.longitude,
+          lat: this.map.centerMarker.latitude
+        };
+      };
+
     };
 
     return mapdata;

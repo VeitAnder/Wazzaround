@@ -112,7 +112,7 @@
             options='frontendmap.map.options'
             >
           <marker
-              ng-repeat="m in states.filteredactivities = (frontendmap.map.markers | filter:selectedCategoryFilter | markercoordsfilter) track by m._id"
+              ng-repeat="m in states.filteredactivities = (frontendmap.map.markers | filter:selectedCategoryFilter | adddistancetosearchlocation | orderBy:'distancetosearchlocation' | markercoordsfilter) track by m._id"
               coords='m'
               click='onMarkerClicked(m)'
               options='markerOptions'
@@ -275,7 +275,9 @@
                   </div>
                   <div class="activity-distance-element">
                     <span class="current-location"></span>
-                    <span class="activity-distance-txt">14 km</span>
+                    <span class="activity-distance-txt">
+                      {{getSelectedActivity().distancetosearchlocation | mtokm }} km
+                    </span>
                     <span class="activity-location"></span>
                   </div>
 

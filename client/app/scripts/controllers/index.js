@@ -371,7 +371,7 @@ angular.module('anorakApp')
       });
 
       // if no activity is selected, return first one in filtered array and set it as selected
-      if (!selectedactivity && $scope.states.filteredactivities && $scope.states.filteredactivities.length > 0){
+      if (!selectedactivity && $scope.states.filteredactivities && $scope.states.filteredactivities.length > 0) {
         $scope.states.selectedactivityid = $scope.states.filteredactivities[0]._id;
         selectedactivity = $scope.states.filteredactivities[0];
       }
@@ -427,36 +427,6 @@ angular.module('anorakApp')
       } else {
         return frontendmap.getMarkerIcon(activity.category.main);
       }
-    };
-
-    $scope.getDistanceBetweenLocations = function (location1, location2) {
-
-      var rad = function (x) {
-        return x * Math.PI / 180;
-      };
-
-      var getDistance = function (p1, p2) {
-        var p1 = {
-
-        };
-
-        var p2 = {
-
-        };
-
-        var R = 6378137; // Earth’s mean radius in meter
-        var dLat = rad(p2.lat() - p1.lat());
-        var dLong = rad(p2.lng() - p1.lng());
-        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-          Math.cos(rad(p1.lat())) * Math.cos(rad(p2.lat())) *
-          Math.sin(dLong / 2) * Math.sin(dLong / 2);
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        var d = R * c;
-        return d; // returns the distance in meter
-      };
-
-      return getDistance(p1, p2);
-
     };
 
   });
