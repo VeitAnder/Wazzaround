@@ -1153,6 +1153,78 @@ button.btn, .btn, a.btn {
     .btn-book .btn-icon.btn-icon-right {
       margin-left: 5px; }
 
+.btn-mini-book {
+  display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  background-color: #85C900;
+  padding: 4px 12px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  border: solid 1px #85C900;
+  border-width: 3px;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  color: #FFF;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 22.4px;
+  font-size: 10px;
+  line-height: 14px;
+  text-transform: uppercase;
+  padding: 2.4px 4px;
+  border-width: 1px;
+  font-weight: 800;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px; }
+  .btn-mini-book:hover {
+    color: #FFF;
+    border-color: #a4d740;
+    background-color: #a4d740;
+    cursor: pointer; }
+  .btn-mini-book:active {
+    background: #a4d740;
+    color: #FFF;
+    border-color: #a4d740;
+    outline: none; }
+  .btn-mini-book:focus {
+    background: #85C900;
+    color: #FFF;
+    border-color: #85C900;
+    outline-color: #a4d740; }
+  .btn-mini-book[disabled="disabled"], .btn-mini-book.disabled {
+    opacity: 0.5; }
+    .btn-mini-book[disabled="disabled"]:hover, .btn-mini-book.disabled:hover {
+      cursor: default; }
+  .btn-mini-book p {
+    padding-bottom: 14px; }
+  .btn-mini-book .btn-icon {
+    display: inline-block;
+    width: 18px;
+    height: 10px;
+    vertical-align: middle;
+    background-position: -150px -25px;
+    background-repeat: no-repeat; }
+    .svg .btn-mini-book .btn-icon {
+      background-image: url('/img/sprite_icons.svg'); }
+    .no-svg .btn-mini-book .btn-icon {
+      background-image: url('/img/sprite_icons.png'); }
+    .btn-mini-book .btn-icon.btn-icon-left {
+      margin-right: 0px; }
+    .btn-mini-book .btn-icon.btn-icon-right {
+      margin-left: 0px; }
+
 .btn-small-book {
   display: inline-block;
   -webkit-user-select: none;
@@ -1601,6 +1673,10 @@ button.btn, .btn, a.btn {
     border-bottom: solid 1px #e8e8e8;
     border-top: none;
     border-width: 2px; }
+  .buttonbar.buttonbar-default {
+    border: none;
+    padding-left: 0;
+    padding-right: 0; }
 
 cite, blockquote {
   font-style: italic; }
@@ -1814,6 +1890,8 @@ p:last-child, ul:last-child {
     padding: 2px 6px;
     margin: 0;
     text-transform: uppercase; }
+  .alert.alert-block {
+    display: block; }
 
 .contentbox {
   padding: 15px;
@@ -2755,22 +2833,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
   max-width: 600px; }
   .window-category-sports h4 {
     color: #666;
-    margin-top: 0;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-    .window-category-sports h4 .icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      -webkit-border-radius: 10px;
-      -khtml-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      border-radius: 10px;
-      border: solid 1px #666;
-      border-width: 3px;
-      margin-right: 5px; }
   .window-category-sports .img-block img {
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
@@ -2789,20 +2853,30 @@ googleMap, .angular-google-map, .angular-google-map-container {
     float: right;
     margin: 0 0 16px 15px; }
   .window-category-sports .category {
-    border-bottom: solid 1px #666;
-    border-width: 3px;
-    padding-bottom: 5px; }
+    display: inline-block;
+    margin-top: 0;
+    background-color: #666;
+    -webkit-border-radius: 10.4px;
+    -khtml-border-radius: 10.4px;
+    -moz-border-radius: 10.4px;
+    -ms-border-radius: 10.4px;
+    -o-border-radius: 10.4px;
+    border-radius: 10.4px;
+    padding: 2px 7.5px;
+    font-size: 12px;
+    line-height: 16.8px;
+    color: #FFF; }
+    .window-category-sports .category p {
+      padding-bottom: 12px; }
     .window-category-sports .category .category-sub {
       font-weight: 200; }
   .window-category-sports .description {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .window-category-sports .location {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .window-category-sports .availability {
     margin-top: 32px;
     clear: both; }
-    .window-category-sports .availability h5 {
-      margin-top: 0; }
   .window-category-sports img {
     width: 150px;
     height: auto; }
@@ -2821,11 +2895,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
     padding: 2.4px 8px; }
   .gm-style .gm-style-iw .window-category-sports .availability-entry .cell {
     line-height: 18.2px; }
-  .window-category-sports h4 .icon {
-    border-color: #C83C19; }
   .window-category-sports .category {
-    color: #C83C19;
-    border-color: #C83C19; }
+    background-color: #C83C19; }
 
 .window-category-culture {
   padding: 15px 0;
@@ -2833,22 +2904,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
   max-width: 600px; }
   .window-category-culture h4 {
     color: #666;
-    margin-top: 0;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-    .window-category-culture h4 .icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      -webkit-border-radius: 10px;
-      -khtml-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      border-radius: 10px;
-      border: solid 1px #666;
-      border-width: 3px;
-      margin-right: 5px; }
   .window-category-culture .img-block img {
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
@@ -2867,20 +2924,30 @@ googleMap, .angular-google-map, .angular-google-map-container {
     float: right;
     margin: 0 0 16px 15px; }
   .window-category-culture .category {
-    border-bottom: solid 1px #666;
-    border-width: 3px;
-    padding-bottom: 5px; }
+    display: inline-block;
+    margin-top: 0;
+    background-color: #666;
+    -webkit-border-radius: 10.4px;
+    -khtml-border-radius: 10.4px;
+    -moz-border-radius: 10.4px;
+    -ms-border-radius: 10.4px;
+    -o-border-radius: 10.4px;
+    border-radius: 10.4px;
+    padding: 2px 7.5px;
+    font-size: 12px;
+    line-height: 16.8px;
+    color: #FFF; }
+    .window-category-culture .category p {
+      padding-bottom: 12px; }
     .window-category-culture .category .category-sub {
       font-weight: 200; }
   .window-category-culture .description {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .window-category-culture .location {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .window-category-culture .availability {
     margin-top: 32px;
     clear: both; }
-    .window-category-culture .availability h5 {
-      margin-top: 0; }
   .window-category-culture img {
     width: 150px;
     height: auto; }
@@ -2899,11 +2966,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
     padding: 2.4px 8px; }
   .gm-style .gm-style-iw .window-category-culture .availability-entry .cell {
     line-height: 18.2px; }
-  .window-category-culture h4 .icon {
-    border-color: #1970C8; }
   .window-category-culture .category {
-    color: #1970C8;
-    border-color: #1970C8; }
+    background-color: #1970C8; }
 
 .window-category-wellness {
   padding: 15px 0;
@@ -2911,22 +2975,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
   max-width: 600px; }
   .window-category-wellness h4 {
     color: #666;
-    margin-top: 0;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-    .window-category-wellness h4 .icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      -webkit-border-radius: 10px;
-      -khtml-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      border-radius: 10px;
-      border: solid 1px #666;
-      border-width: 3px;
-      margin-right: 5px; }
   .window-category-wellness .img-block img {
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
@@ -2945,20 +2995,30 @@ googleMap, .angular-google-map, .angular-google-map-container {
     float: right;
     margin: 0 0 16px 15px; }
   .window-category-wellness .category {
-    border-bottom: solid 1px #666;
-    border-width: 3px;
-    padding-bottom: 5px; }
+    display: inline-block;
+    margin-top: 0;
+    background-color: #666;
+    -webkit-border-radius: 10.4px;
+    -khtml-border-radius: 10.4px;
+    -moz-border-radius: 10.4px;
+    -ms-border-radius: 10.4px;
+    -o-border-radius: 10.4px;
+    border-radius: 10.4px;
+    padding: 2px 7.5px;
+    font-size: 12px;
+    line-height: 16.8px;
+    color: #FFF; }
+    .window-category-wellness .category p {
+      padding-bottom: 12px; }
     .window-category-wellness .category .category-sub {
       font-weight: 200; }
   .window-category-wellness .description {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .window-category-wellness .location {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .window-category-wellness .availability {
     margin-top: 32px;
     clear: both; }
-    .window-category-wellness .availability h5 {
-      margin-top: 0; }
   .window-category-wellness img {
     width: 150px;
     height: auto; }
@@ -2977,30 +3037,13 @@ googleMap, .angular-google-map, .angular-google-map-container {
     padding: 2.4px 8px; }
   .gm-style .gm-style-iw .window-category-wellness .availability-entry .cell {
     line-height: 18.2px; }
-  .window-category-wellness h4 .icon {
-    border-color: #bc913d; }
   .window-category-wellness .category {
-    color: #bc913d;
-    border-color: #bc913d; }
+    background-color: #bc913d; }
 
 .detail-category-sports h4 {
   color: #666;
-  margin-top: 0;
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
-  .detail-category-sports h4 .icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border-radius: 10px;
-    border: solid 1px #666;
-    border-width: 3px;
-    margin-right: 5px; }
 .detail-category-sports .img-block img {
   border: solid 1px #e8e8e8;
   -webkit-border-radius: 6px;
@@ -3019,44 +3062,37 @@ googleMap, .angular-google-map, .angular-google-map-container {
   float: right;
   margin: 0 0 16px 15px; }
 .detail-category-sports .category {
-  border-bottom: solid 1px #666;
-  border-width: 3px;
-  padding-bottom: 5px; }
+  display: inline-block;
+  margin-top: 0;
+  background-color: #666;
+  -webkit-border-radius: 10.4px;
+  -khtml-border-radius: 10.4px;
+  -moz-border-radius: 10.4px;
+  -ms-border-radius: 10.4px;
+  -o-border-radius: 10.4px;
+  border-radius: 10.4px;
+  padding: 2px 7.5px;
+  font-size: 12px;
+  line-height: 16.8px;
+  color: #FFF; }
+  .detail-category-sports .category p {
+    padding-bottom: 12px; }
   .detail-category-sports .category .category-sub {
     font-weight: 200; }
 .detail-category-sports .description {
-  margin-top: 16px; }
+  margin-top: 32px; }
 .detail-category-sports .location {
-  margin-top: 16px; }
+  margin-top: 32px; }
 .detail-category-sports .availability {
   margin-top: 32px;
   clear: both; }
-  .detail-category-sports .availability h5 {
-    margin-top: 0; }
-.detail-category-sports h4 .icon {
-  border-color: #C83C19; }
 .detail-category-sports .category {
-  color: #C83C19;
-  border-color: #C83C19; }
+  background-color: #C83C19; }
 
 .detail-category-culture h4 {
   color: #666;
-  margin-top: 0;
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
-  .detail-category-culture h4 .icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border-radius: 10px;
-    border: solid 1px #666;
-    border-width: 3px;
-    margin-right: 5px; }
 .detail-category-culture .img-block img {
   border: solid 1px #e8e8e8;
   -webkit-border-radius: 6px;
@@ -3075,44 +3111,37 @@ googleMap, .angular-google-map, .angular-google-map-container {
   float: right;
   margin: 0 0 16px 15px; }
 .detail-category-culture .category {
-  border-bottom: solid 1px #666;
-  border-width: 3px;
-  padding-bottom: 5px; }
+  display: inline-block;
+  margin-top: 0;
+  background-color: #666;
+  -webkit-border-radius: 10.4px;
+  -khtml-border-radius: 10.4px;
+  -moz-border-radius: 10.4px;
+  -ms-border-radius: 10.4px;
+  -o-border-radius: 10.4px;
+  border-radius: 10.4px;
+  padding: 2px 7.5px;
+  font-size: 12px;
+  line-height: 16.8px;
+  color: #FFF; }
+  .detail-category-culture .category p {
+    padding-bottom: 12px; }
   .detail-category-culture .category .category-sub {
     font-weight: 200; }
 .detail-category-culture .description {
-  margin-top: 16px; }
+  margin-top: 32px; }
 .detail-category-culture .location {
-  margin-top: 16px; }
+  margin-top: 32px; }
 .detail-category-culture .availability {
   margin-top: 32px;
   clear: both; }
-  .detail-category-culture .availability h5 {
-    margin-top: 0; }
-.detail-category-culture h4 .icon {
-  border-color: #1970C8; }
 .detail-category-culture .category {
-  color: #1970C8;
-  border-color: #1970C8; }
+  background-color: #1970C8; }
 
 .detail-category-wellness h4 {
   color: #666;
-  margin-top: 0;
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
-  .detail-category-wellness h4 .icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border-radius: 10px;
-    border: solid 1px #666;
-    border-width: 3px;
-    margin-right: 5px; }
 .detail-category-wellness .img-block img {
   border: solid 1px #e8e8e8;
   -webkit-border-radius: 6px;
@@ -3131,25 +3160,32 @@ googleMap, .angular-google-map, .angular-google-map-container {
   float: right;
   margin: 0 0 16px 15px; }
 .detail-category-wellness .category {
-  border-bottom: solid 1px #666;
-  border-width: 3px;
-  padding-bottom: 5px; }
+  display: inline-block;
+  margin-top: 0;
+  background-color: #666;
+  -webkit-border-radius: 10.4px;
+  -khtml-border-radius: 10.4px;
+  -moz-border-radius: 10.4px;
+  -ms-border-radius: 10.4px;
+  -o-border-radius: 10.4px;
+  border-radius: 10.4px;
+  padding: 2px 7.5px;
+  font-size: 12px;
+  line-height: 16.8px;
+  color: #FFF; }
+  .detail-category-wellness .category p {
+    padding-bottom: 12px; }
   .detail-category-wellness .category .category-sub {
     font-weight: 200; }
 .detail-category-wellness .description {
-  margin-top: 16px; }
+  margin-top: 32px; }
 .detail-category-wellness .location {
-  margin-top: 16px; }
+  margin-top: 32px; }
 .detail-category-wellness .availability {
   margin-top: 32px;
   clear: both; }
-  .detail-category-wellness .availability h5 {
-    margin-top: 0; }
-.detail-category-wellness h4 .icon {
-  border-color: #bc913d; }
 .detail-category-wellness .category {
-  color: #bc913d;
-  border-color: #bc913d; }
+  background-color: #bc913d; }
 
 .listaction.cell {
   width: 10%;
@@ -3349,16 +3385,24 @@ googleMap, .angular-google-map, .angular-google-map-container {
         padding-left: 10px; }
       .event-list.event-list-items .cell.last {
         padding-right: 10px; }
+    .event-list.event-list-items .cell {
+      padding-bottom: 0;
+      padding-top: 0; }
+      .event-list.event-list-items .cell.first {
+        padding-left: 0; }
+      .event-list.event-list-items .cell.last {
+        padding-right: 0; }
     .event-list.event-list-items .event-date {
-      width: 40%; }
-    .event-list.event-list-items .event-time {
-      width: 20%; }
+      width: 45%; }
     .event-list.event-list-items .event-duration {
-      width: 20%;
-      text-align: right; }
+      width: 35%;
+      text-align: left; }
     .event-list.event-list-items .event-price {
       width: 20%;
       text-align: right; }
+    .availability .event-list.event-list-items {
+      margin: 0 0 7.5px;
+      padding-bottom: 0; }
   .availability .event-list {
     margin: 0 0 15px;
     padding: 0 0 15px;
@@ -3499,29 +3543,51 @@ googleMap, .angular-google-map, .angular-google-map-container {
 .event-item {
   display: block;
   overflow: hidden;
-  padding: 15px;
-  background-color: #e0f1bf;
-  -webkit-border-radius: 6px;
-  -khtml-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px; }
+  margin-bottom: 7.5px; }
+  .event-item:last-child {
+    margin-bottom: 0; }
   .event-item .event-item-header {
-    overflow: hidden;
-    padding-bottom: 5px;
-    border-bottom: dotted 1px #85C900; }
+    padding: 7.5px;
+    background-color: #f9fcf2;
+    border: solid 1px #e0f1bf;
+    border-width: 2px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    overflow: hidden; }
     .event-item .event-item-header .event-item-description {
-      float: left; }
-    .event-item .event-item-header h5 {
-      margin: 0; }
+      float: left;
+      width: 73%;
+      margin-right: 2%; }
+    .event-item .event-item-header h6 {
+      margin: 0;
+      color: #85C900;
+      display: inline; }
     .event-item .event-item-header .event-item-quantity {
       font-size: 12px;
-      line-height: 16.8px; }
+      line-height: 16.8px;
+      white-space: nowrap; }
       .event-item .event-item-header .event-item-quantity p {
         padding-bottom: 12px; }
     .event-item .event-item-header .event-item-book {
-      float: right; }
+      float: left;
+      text-align: right;
+      width: 25%; }
+  .event-item .event-item-body {
+    padding: 7.5px;
+    background-color: #e0f1bf;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16.8px; }
+    .event-item .event-item-body p {
+      padding-bottom: 12px; }
+    .event-item .event-item-body .input-label {
+      margin-bottom: 0;
+      margin-right: 0;
+      vertical-align: baseline;
+      display: inline;
+      line-height: 16.8px; }
 
 .eventedit {
   display: block;
@@ -3806,7 +3872,13 @@ googleMap, .angular-google-map, .angular-google-map-container {
   box-sizing: border-box;
   border-bottom: solid 1px #b3b3b3;
   border-bottom: none;
-  background-color: #e8e8e8; }
+  background-color: #e8e8e8;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px; }
   .availability-footer:after {
     content: "";
     display: table;
@@ -3862,8 +3934,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
       padding-right: 10px; }
   .availability-footer .cell {
     width: 50%;
-    padding-top: 10px;
-    padding-bottom: 15px; }
+    padding-bottom: 8px; }
     .availability-footer .cell.last, .availability-footer .cell.first {
       width: 25%; }
     .availability-footer .cell .btn {
@@ -4001,8 +4072,8 @@ shoppingcart.shoppingcart-rightside {
   .shoppingcart-element h1, .shoppingcart-element h2, .shoppingcart-element h3, .shoppingcart-element h4, .shoppingcart-element h5, .shoppingcart-element h6, .shoppingcart-element p {
     color: #FFF; }
   .shoppingcart-element .buttonbar {
-    background-color: transparent;
-    padding: 0; }
+    padding: 0;
+    border: none; }
     .shoppingcart-element .buttonbar .btn {
       width: 100%;
       text-align: center; }
@@ -4029,6 +4100,7 @@ shoppingcart.shoppingcart-rightside {
     display: inline-block;
     min-width: 15px;
     height: 15px;
+    padding: 0 3px;
     -webkit-border-radius: 7.5px;
     -khtml-border-radius: 7.5px;
     -moz-border-radius: 7.5px;
@@ -4391,22 +4463,8 @@ activitybardetail {
   transition-property: all; }
   activitybardetail h4 {
     color: #666;
-    margin-top: 0;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-    activitybardetail h4 .icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      -webkit-border-radius: 10px;
-      -khtml-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      border-radius: 10px;
-      border: solid 1px #666;
-      border-width: 3px;
-      margin-right: 5px; }
   activitybardetail .img-block img {
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
@@ -4425,20 +4483,30 @@ activitybardetail {
     float: right;
     margin: 0 0 16px 15px; }
   activitybardetail .category {
-    border-bottom: solid 1px #666;
-    border-width: 3px;
-    padding-bottom: 5px; }
+    display: inline-block;
+    margin-top: 0;
+    background-color: #666;
+    -webkit-border-radius: 10.4px;
+    -khtml-border-radius: 10.4px;
+    -moz-border-radius: 10.4px;
+    -ms-border-radius: 10.4px;
+    -o-border-radius: 10.4px;
+    border-radius: 10.4px;
+    padding: 2px 7.5px;
+    font-size: 12px;
+    line-height: 16.8px;
+    color: #FFF; }
+    activitybardetail .category p {
+      padding-bottom: 12px; }
     activitybardetail .category .category-sub {
       font-weight: 200; }
   activitybardetail .description {
-    margin-top: 16px; }
+    margin-top: 32px; }
   activitybardetail .location {
-    margin-top: 16px; }
+    margin-top: 32px; }
   activitybardetail .availability {
     margin-top: 32px;
     clear: both; }
-    activitybardetail .availability h5 {
-      margin-top: 0; }
   activitybardetail .txt-icon-delete {
     position: absolute;
     top: 15px;

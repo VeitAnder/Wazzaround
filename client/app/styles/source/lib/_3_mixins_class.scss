@@ -115,16 +115,16 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.preface{
+.preface {
   font-size: $fs*$font-size_h5_factor;
   line-height: $fs*$font-size_h5_factor*$line-height_factor;
   color: $color_text;
-  strong{
+  strong {
     color: $color_green;
   }
 }
 
-@mixin border-image{
+@mixin border-image {
   @include border_all($color_grey_15);
   @include border-radius($border-radius);
   border-width: 7px;
@@ -132,24 +132,23 @@ h1, h2, h3, h4, h5, h6 {
   background-color: $color_white;
 }
 
-@mixin border-image-small{
+@mixin border-image-small {
   @include border-image;
   @include border-radius($border-radius);
   border-width: 5px;
   padding: 2px;
 }
 
-@mixin border-image-mini{
+@mixin border-image-mini {
   @include border-image;
   @include border-radius($border-radius_small);
   border-width: 3px;
   padding: 2px;
 }
 
-
-@mixin color-white{
+@mixin color-white {
   color: $color_white;
-  h1, h2, h3, h4, h5, h6, p{
+  h1, h2, h3, h4, h5, h6, p {
     color: $color_white;
   }
 }
@@ -292,20 +291,20 @@ button.btn, .btn, a.btn {
       border-color: $color_red_l5;
     }
   }
-  &.btn-ordinary{
+  &.btn-ordinary {
     background-color: $color_white;
     border-color: $color_grey_50;
     color: $color_grey_75;
-    &:hover{
+    &:hover {
       background-color: $color_green;
       border-color: $color_green;
       color: $color_white;
     }
-    &.btn-alert{
+    &.btn-alert {
       background-color: $color_white;
       border-color: $color_grey_50;
       color: $color_grey_75;
-      &:hover{
+      &:hover {
         background-color: $color_red;
         border-color: $color_red;
         color: $color_white;
@@ -317,7 +316,7 @@ button.btn, .btn, a.btn {
     font-size: 25px;
     line-height: 25px * $line-height_factor;
     @include border-radius($border-radius);
-    &.btn-shoppingcart{
+    &.btn-shoppingcart {
       width: 35px;
       height: 25px * $line-height_factor;
       @include sprite_icons(-147px, 7px, no-repeat);
@@ -344,17 +343,17 @@ button.btn, .btn, a.btn {
     font-weight: $font-weight_extrabold;
   }
 
-  &.btn-negative{
+  &.btn-negative {
     color: $color_green;
     background-color: $color_white;
     border-color: $color_white;
-    &:hover{
+    &:hover {
       background-color: $color_green_15;
       border-color: $color_green_15;
     }
   }
 
-  &.btn-shoppingcart{
+  &.btn-shoppingcart {
     width: 35px;
     height: $fs*$line-height_factor;
     @include sprite_icons(-146px, -22px, no-repeat);
@@ -362,11 +361,14 @@ button.btn, .btn, a.btn {
   }
 }
 
-@mixin btn-large {
+@mixin btn-mini {
   @include button;
-  padding: ($fs*0.75) ($fs*2.0);
-  font-size: 25px;
-  @include border-radius($border-radius);
+  @include font-size_smallest;
+  text-transform: uppercase;
+  padding: ($fs*0.15) ($fs*0.25);
+  border-width: 1px;
+  font-weight: $font-weight_extrabold;
+  @include border-radius($border-radius_small);
 }
 
 @mixin btn-small {
@@ -375,6 +377,13 @@ button.btn, .btn, a.btn {
   font-size: 14px;
   line-height: 14px * $line-height_factor;
   @include border-radius($border-radius_small);
+}
+
+@mixin btn-large {
+  @include button;
+  padding: ($fs*0.75) ($fs*2.0);
+  font-size: 25px;
+  @include border-radius($border-radius);
 }
 
 .btn-group {
@@ -573,6 +582,23 @@ button.btn, .btn, a.btn {
   }
 }
 
+@mixin button-txt-icon-mini-book {
+  @include btn-mini;
+  .btn-icon {
+    display: inline-block;
+    width: 18px;
+    height: 10px;
+    vertical-align: middle;
+    @include sprite_icons(-150px, -25px, no-repeat);
+    &.btn-icon-left {
+      margin-right: 0px;
+    }
+    &.btn-icon-right {
+      margin-left: 0px;
+    }
+  }
+}
+
 @mixin button-txt-icon-small-book {
   @include btn-small;
   .btn-icon {
@@ -607,16 +633,19 @@ button.btn, .btn, a.btn {
   }
 }
 
-
-.btn-book{
+.btn-book {
   @include button-txt-icon-book;
 }
 
-.btn-small-book{
+.btn-mini-book {
+  @include button-txt-icon-mini-book;
+}
+
+.btn-small-book {
   @include button-txt-icon-small-book;
 }
 
-.btn-large-book{
+.btn-large-book {
   @include button-txt-icon-large-book;
 }
 
@@ -670,7 +699,7 @@ button.btn, .btn, a.btn {
       background-color: $color_red;
     }
   }
-  .hidden{
+  .hidden {
     display: none;
   }
 }
@@ -706,6 +735,11 @@ button.btn, .btn, a.btn {
     @include border(bottom, $color_grey_15);
     border-top: none;
     border-width: 2px;
+  }
+  &.buttonbar-default {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -940,7 +974,6 @@ button.btn, .btn, a.btn {
 //mixin textformat_flow
 @include textformat_flow;
 
-
 .align-right {
   text-align: right;
 
@@ -965,13 +998,13 @@ button.btn, .btn, a.btn {
   float: right;
 }
 
-.image-left{
+.image-left {
   float: left;
   margin-right: $bu;
   margin-bottom: $fs*$line-height_factor;
 }
 
-.image-right{
+.image-right {
   float: right;
   margin-left: $bu;
   margin-bottom: $fs*$line-height_factor;
@@ -1038,6 +1071,9 @@ button.btn, .btn, a.btn {
     margin: 0;
     text-transform: uppercase;
   }
+  &.alert-block {
+    display: block;
+  }
 }
 
 .alert {
@@ -1052,19 +1088,19 @@ button.btn, .btn, a.btn {
   *:first-child {
     margin-top: 0;
   }
-  &.contentbox-green{
+  &.contentbox-green {
     background-color: $color_green;
     color: $color_white;
-    h1,h2,h3,h4,h5,h6{
+    h1, h2, h3, h4, h5, h6 {
       color: $color_green_15;
     }
-    .btn{
+    .btn {
       border-color: $color_grey;
       background-color: $color_grey;
-      &:hover{
+      &:hover {
         border-color: $color_grey_75;
         background-color: $color_grey_75;
-        &:active{
+        &:active {
           border-color: $color_grey_75_l5;
           background-color: $color_grey_75_l5;
 
@@ -1078,12 +1114,12 @@ button.btn, .btn, a.btn {
   @include contentbox;
 }
 
-.divider{
+.divider {
   line-height: 1px;
   height: 1px;
   @include seperator(top, $color_main_seperator);
   margin: $fs*2.0 0;
-  span{
+  span {
     @include h6;
     padding-top: $fs*0.5;
     margin: 0;
@@ -1110,7 +1146,6 @@ button.btn, .btn, a.btn {
 p.inline-screen-sm {
   padding-bottom: 0;
 }
-
 
 .img-responsive-offset {
   @include respond-to(screen-nocols) {
@@ -1282,7 +1317,6 @@ p.inline-screen-sm {
 // PAGE LAYOUT
 // ###########################################################################################################################
 // ###########################################################################################################################
-
 
 .section {
   padding-top: $bu*2.0;
@@ -1577,8 +1611,6 @@ header {
   outline-style: none !important;
 }
 
-
-
 // line-height + padding + border
 $input-height: $fs*$line-height_factor + (2*$fs*0.75) + (2*$border-width);
 $input-height-small: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
@@ -1591,13 +1623,13 @@ input, textarea, select {
   }
 }
 
-input{
+input {
   height: $input-height;
-  &.input-small{
+  &.input-small {
     height: $input-height-small;
     padding: 0 $fs*0.25;
   }
-  &.input-mini{
+  &.input-mini {
     height: $input-height-mini;
     @include font-size_small;
     padding: 0 $fs*0.0;
@@ -1628,10 +1660,10 @@ textarea, input[type=checkbox] {
 
 input[type=number] {
   padding: $fs*0.25 $fs*0.75;
-  &.input-small{
+  &.input-small {
     padding: 0 $fs*0.5;
   }
-  &.input-mini{
+  &.input-mini {
     padding: 0 $fs*0.25;
   }
 }
@@ -1717,39 +1749,38 @@ input[type="checkbox"]:focus {
 .form-group {
   vertical-align: top;
   padding: 10px 0;
-  .btn{
+  .btn {
     margin-top: $fs*0.5;
   }
 }
 
-.form-group-inline{
-  .form-group{
+.form-group-inline {
+  .form-group {
     display: inline-block;
     margin-left: -$fs*0.25;
-    &:first-child{
+    &:first-child {
       margin-left: 0;
       margin-right: 5%;
     }
   }
-  &.form-group-inline-5050{
-    .form-group{
+  &.form-group-inline-5050 {
+    .form-group {
       width: 47.5%;
     }
   }
-  &.form-group-inline-2575{
-    .form-group{
+  &.form-group-inline-2575 {
+    .form-group {
       width: 72.5%;
-      &:first-child{
+      &:first-child {
         width: 22.5%;
       }
     }
   }
 }
 
-.form-group-btn{
+.form-group-btn {
   vertical-align: baseline;
 }
-
 
 @mixin input-label {
   display: block;
@@ -1766,34 +1797,31 @@ input[type="checkbox"]:focus {
   @include input-label;
 }
 
-@mixin input-content{
+@mixin input-content {
 }
 
-.input-content{
+.input-content {
   @include input-content;
 }
 
-
-.formdata-display{
+.formdata-display {
   overflow: hidden;
   @include seperator(bottom, $color_grey_25);
   margin-bottom: $fs;
 
-  .input-label, .input-content{
+  .input-label, .input-content {
     display: inline-block;
     float: left;
   }
-  .input-label{
+  .input-label {
     width: 20%;
     margin: 0;
   }
-  .input-content{
+  .input-content {
     width: 75%;
     margin-left: 5%;
   }
 }
-
-
 
 fieldset {
   position: relative;
@@ -1818,7 +1846,7 @@ legend {
 .pwdvalidation {
   display: block;
   margin-bottom: 0;
-  h6{
+  h6 {
     margin-bottom: $fs*$font-size_h6_factor*0.5;
   }
   ul {
@@ -1831,8 +1859,8 @@ legend {
         @include icon_small_delete;
         margin-right: 2px;
       }
-      &.valid{
-        .icon{
+      &.valid {
+        .icon {
           @include icon_small_success;
         }
       }
@@ -2028,6 +2056,6 @@ legend {
   }
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }

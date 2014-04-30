@@ -347,18 +347,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
 @mixin activity-content {
   h4 {
     color: $color_grey;
-    margin-top: 0;
     padding-bottom: 5px;
     @include seperator(bottom, $color_main_seperator);
-    .icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      @include border-radius(10px);
-      @include border_all($color_grey);
-      border-width: 3px;
-      margin-right: 5px;
-    }
   }
 
   .img-block {
@@ -375,25 +365,26 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
   .category {
-    @include border(bottom, $color_grey);
-    border-width: 3px;
-    padding-bottom: 5px;
+    display: inline-block;
+    margin-top: 0;
+    background-color: $color_grey;
+    @include border-radius(($fs*$font-size_small_factor*$line-height_factor)*0.5 + 2px);
+    padding: 2px $bu*0.5;
+    @include font-size_small;
+    color: $color_white;
     .category-sub {
       font-weight: $font-weight_light;
     }
   }
   .description {
-    margin-top: $fs;
+    margin-top: $fs*2.0;
   }
   .location {
-    margin-top: $fs;
+    margin-top: $fs*2.0;
   }
   .availability {
     margin-top: $fs*2.0;
     clear: both;
-    h5 {
-      margin-top: 0;
-    }
   }
 }
 
@@ -448,38 +439,20 @@ googleMap, .angular-google-map, .angular-google-map-container {
 }
 
 @mixin category-sports {
-  h4 {
-    .icon {
-      border-color: $color_sports;
-    }
-  }
   .category {
-    color: $color_sports;
-    border-color: $color_sports;
+    background-color: $color_sports;
   }
 }
 
 @mixin category-culture {
-  h4 {
-    .icon {
-      border-color: $color_culture;
-    }
-  }
   .category {
-    color: $color_culture;
-    border-color: $color_culture;
+    background-color: $color_culture;
   }
 }
 
 @mixin category-wellness {
-  h4 {
-    .icon {
-      border-color: $color_wellness;
-    }
-  }
   .category {
-    color: $color_wellness;
-    border-color: $color_wellness;
+    background-color: $color_wellness;
   }
 }
 
@@ -618,26 +591,37 @@ googleMap, .angular-google-map, .angular-google-map-container {
   padding-top: $bu;
   margin-top: $bu;
 
-  &.event-list-items {
+  &.event-list-items{
     @include divtable_row_small;
-    border: none;
-    .event-date {
-      width: 40%;
+    .cell{
+      padding-bottom: 0;
+      padding-top: 0;
+      &.first{
+        padding-left: 0;
+      }
+      &.last{
+        padding-right: 0;
+      }
     }
-    .event-time {
-      width: 20%;
+    border: none;
+    .event-date{
+      width: 45%;
     }
 
     .event-duration {
-      width: 20%;
-      text-align: right;
+      width: 35%;
+      text-align: left;
     }
 
     .event-price {
       width: 20%;
       text-align: right;
     }
-  }
+    .availability & {
+      margin: 0 0 $bu*0.5;
+      padding-bottom: 0;
+    }
+ }
 
   .availability & {
     margin: 0 0 $bu;
@@ -698,30 +682,56 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
-.event-item {
+.event-item{
   display: block;
   overflow: hidden;
-  padding: $bu;
-  background-color: $color_green_25;
-  @include border-radius($border-radius);
-  .event-item-header {
+  margin-bottom: $bu*0.5;
+  &:last-child{
+    margin-bottom: 0;
+  }
+  .event-item-header{
+    padding: $bu*0.5;
+    background-color: $color_green_05;
+    @include border(all, $color_green_25);
+    border-width: 2px;
+    @include border-top-radius($border-radius);
     overflow: hidden;
-    padding-bottom: 5px;
-    @include seperator(bottom, $color_green);
-    .event-item-description {
+    .event-item-description{
       float: left;
+      width: 73%;
+      margin-right: 2%;
     }
-    h5 {
+    h6{
       margin: 0;
+      color: $color_green;
+      display: inline;
     }
-    .event-item-quantity {
+    .event-item-quantity{
       @include font-size_small;
+      white-space: nowrap;
     }
-    .event-item-book {
-      float: right;
+    .event-item-book{
+      float: left;
+      text-align: right;
+      width: 25%;
+    }
+  }
+  .event-item-body{
+    padding: $bu*0.5;
+    background-color: $color_green_25;
+    @include border-bottom-radius($border-radius);
+    overflow: hidden;
+    @include font-size_small;
+    .input-label{
+      margin-bottom: 0;
+      margin-right: 0;
+      vertical-align: baseline;
+      display: inline;
+      line-height: $fs*$font-size_small_factor*$line-height_factor;
     }
   }
 }
+
 
 .eventedit {
   display: block;
@@ -870,13 +880,12 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
 .availability-footer {
   @include divtable_row_small;
-  //  margin-top: $bu;
   border-bottom: none;
   background-color: $color_grey_15;
+  @include border-radius($border-radius_small);
   .cell {
     width: 50%;
-    padding-top: 10px;
-    padding-bottom: 15px;
+    padding-bottom: $fs*0.5;
     &.last, &.first {
       width: 25%;
     }
@@ -1007,8 +1016,8 @@ shoppingcart {
   padding: $bu*2.0 $bu*1.0;
   @include color-white;
   .buttonbar {
-    background-color: transparent;
     padding: 0;
+    border: none;
     .btn {
       width: 100%;
       text-align: center;
@@ -1034,6 +1043,7 @@ shoppingcart {
     display: inline-block;
     min-width: 15px;
     height: 15px;
+    padding: 0 3px;
     @include border-radius(7.5px);
     background-color: $color_red;
     color: $color_white;
@@ -1541,6 +1551,7 @@ activitybardetail {
   }
 }
 
+
 .nav-main {
   @include tmenu_class;
   background-color: $color_nav1_background;
@@ -1628,15 +1639,18 @@ activitybardetail {
 
 //.nav-main
 
+
+
 // SUBMENU
 // ###########################################################################################################################
 // ###########################################################################################################################
 
+
 .nav-sub {
   @include tmenu_class;
 
-  .nav-icon {
-    .icon {
+  .nav-icon{
+    .icon{
       position: relative;
       top: 1px;
       display: block;
@@ -1653,8 +1667,8 @@ activitybardetail {
     }
   }
 
-  &.nav-sub-user {
-    span {
+  &.nav-sub-user{
+    span{
       font-weight: $font-weight_bold;
     }
   }
@@ -1664,7 +1678,7 @@ activitybardetail {
     margin-bottom: $fs*2.0;
   }
 
-  a {
+  a{
     text-decoration: none;
 
   }
@@ -2450,6 +2464,7 @@ $img-selector-teasertxtheight: 35px;
     color: $color_green_25;
   }
 }
+
 
 .logoutlink {
   .admin-section & {

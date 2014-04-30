@@ -40,16 +40,18 @@
       >
     <div class="event-item-header">
       <div class="event-item-description">
-        <h5>
+        <h6>
           {{bookableItem.description | languageselect}}
-        </h5>
+        </h6>
         <span class="event-item-quantity">
-          … still <strong>{{event.quantity}}x</strong> available!
+          … still
+          <strong>{{event.quantity}}x</strong>
+          available!
         </span>
       </div>
       <div class="event-item-book">
         <button ng-click="addToShoppingCart(event, bookableItem, activity)"
-                class="btn-small-book">
+                class="btn-mini-book">
           <span class="btn-txt">
             Book
           </span>
@@ -58,13 +60,25 @@
       </div>
     </div>
     <div class="event-item-body">
-      <div class="event-date cell">{{'Date' | translate}}:<br />{{ event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
-      <div class="event-time cell">{{'Time' | translate}}:<br />{{ event.start | momentjs:{format: "h:mm a"} }}</div>
+      <div class="event-date cell first">
+        <span class="input-label">
+          {{'Date' | translate}}/{{'Time' | translate}}:
+        </span>
+        {{ event.start | momentjs:{format: "ddd, MMM D YYYY"} }}, {{ event.start | momentjs:{format: "h:mm a"} }}
+      </div>
       <div class="event-duration cell">
-        {{'Duration' | translate}}:<br />{{ {start:event.start, end:event.end} | duration }}
+        <span class="input-label">
+        {{'Duration' | translate}}:
+        </span>
+        {{ {start:event.start, end:event.end} | duration }}
       </div>
 
-      <div class="event-price cell">{{'Price' | translate}}:<br />{{event.price}}</div>
+      <div class="event-price cell last">
+        <span class="input-label">
+          {{'Price' | translate}}:
+        </span>
+        {{event.price}}
+      </div>
 
     </div>
 
