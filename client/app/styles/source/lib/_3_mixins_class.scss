@@ -222,7 +222,8 @@ a.link-download {
   font-weight: $font-weight_bold;
   color: $color_button_text;
   text-decoration: none;
-  font-size: 16px;
+  font-size: $fs;
+  line-height: $fs*$line-height_factor;
 
   &:hover {
     color: $color_button_text_hover;
@@ -314,13 +315,26 @@ button.btn, .btn, a.btn {
   &.btn-large {
     padding: ($fs*0.75) ($fs*2.0);
     font-size: 25px;
+    line-height: 25px * $line-height_factor;
     @include border-radius($border-radius);
+    &.btn-shoppingcart{
+      width: 35px;
+      height: 25px * $line-height_factor;
+      @include sprite_icons(-147px, 7px, no-repeat);
+      padding: 0;
+    }
   }
 
   &.btn-small {
     padding: ($fs*0.15) ($fs*0.50);
     font-size: 14px;
     line-height: 14px * $line-height_factor;
+    &.btn-shoppingcart {
+      width: 25px;
+      height: $fs*$line-height_factor*$font-size_small_factor;
+      @include sprite_icons(-150px, -25px, no-repeat);
+      padding: 0;
+    }
   }
   &.btn-mini {
     @include font-size_smallest;
@@ -341,14 +355,11 @@ button.btn, .btn, a.btn {
   }
 
   &.btn-shoppingcart{
-    width: 25px;
-    height: $fs*$line-height_factor*$font-size_small_factor;
-    @include sprite_icons(-32px, -97px, no-repeat);
-    span{
-      display: none;
-    }
+    width: 35px;
+    height: $fs*$line-height_factor;
+    @include sprite_icons(-146px, -22px, no-repeat);
+    padding: 0;
   }
-
 }
 
 @mixin btn-large {
@@ -356,7 +367,14 @@ button.btn, .btn, a.btn {
   padding: ($fs*0.75) ($fs*2.0);
   font-size: 25px;
   @include border-radius($border-radius);
+}
 
+@mixin btn-small {
+  @include button;
+  padding: ($fs*0.15) ($fs*0.50);
+  font-size: 14px;
+  line-height: 14px * $line-height_factor;
+  @include border-radius($border-radius_small);
 }
 
 .btn-group {
@@ -538,6 +556,70 @@ button.btn, .btn, a.btn {
   }
 }
 
+@mixin button-txt-icon-book {
+  @include button;
+  .btn-icon {
+    display: inline-block;
+    width: 22px;
+    height: 20px;
+    vertical-align: middle;
+    @include sprite_icons(-150px, 0px, no-repeat);
+    &.btn-icon-left {
+      margin-right: 5px;
+    }
+    &.btn-icon-right {
+      margin-left: 5px;
+    }
+  }
+}
+
+@mixin button-txt-icon-small-book {
+  @include btn-small;
+  .btn-icon {
+    display: inline-block;
+    width: 18px;
+    height: 14px;
+    vertical-align: middle;
+    @include sprite_icons(-150px, -24px, no-repeat);
+    &.btn-icon-left {
+      margin-right: 2px;
+    }
+    &.btn-icon-right {
+      margin-left: 2px;
+    }
+  }
+}
+
+@mixin button-txt-icon-large-book {
+  @include btn-large;
+  .btn-icon {
+    display: inline-block;
+    width: 22px;
+    height: 20px;
+    vertical-align: middle;
+    @include sprite_icons(-150px, 0px, no-repeat);
+    &.btn-icon-left {
+      margin-right: 10px;
+    }
+    &.btn-icon-right {
+      margin-left: 10px;
+    }
+  }
+}
+
+
+.btn-book{
+  @include button-txt-icon-book;
+}
+
+.btn-small-book{
+  @include button-txt-icon-small-book;
+}
+
+.btn-large-book{
+  @include button-txt-icon-large-book;
+}
+
 .btn-large-add {
   @include button-txt-icon-large-add;
 }
@@ -600,10 +682,8 @@ button.btn, .btn, a.btn {
   margin: 10px 0;
   padding: $bu*0.5;
   text-align: right;
-  text-align: right;
-  background-color: $color_grey_05;
-  @include border-radius($border-radius);
-
+  @include border(top, $color_grey_15);
+  border-width: 2px;
   @include user-select(none);
 
   .confirm, .cancel, .edit {
@@ -623,8 +703,9 @@ button.btn, .btn, a.btn {
     text-align: center;
   }
   &.buttonbar-top {
-    //    @include seperator(bottom, $color_grey_75);
+    @include border(bottom, $color_grey_15);
     border-top: none;
+    border-width: 2px;
   }
 }
 
