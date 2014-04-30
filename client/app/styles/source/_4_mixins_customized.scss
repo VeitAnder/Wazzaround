@@ -347,18 +347,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
 @mixin activity-content {
   h4 {
     color: $color_grey;
-    margin-top: 0;
     padding-bottom: 5px;
     @include seperator(bottom, $color_main_seperator);
-    .icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      @include border-radius(10px);
-      @include border_all($color_grey);
-      border-width: 3px;
-      margin-right: 5px;
-    }
   }
 
   .img-block {
@@ -375,25 +365,26 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
   .category {
-    @include border(bottom, $color_grey);
-    border-width: 3px;
-    padding-bottom: 5px;
+    display: inline-block;
+    margin-top: 0;
+    background-color: $color_grey;
+    @include border-radius(($fs*$font-size_small_factor*$line-height_factor)*0.5 + 2px);
+    padding: 2px $bu*0.5;
+    @include font-size_small;
+    color: $color_white;
     .category-sub {
       font-weight: $font-weight_light;
     }
   }
   .description {
-    margin-top: $fs;
+    margin-top: $fs*2.0;
   }
   .location {
-    margin-top: $fs;
+    margin-top: $fs*2.0;
   }
   .availability {
     margin-top: $fs*2.0;
     clear: both;
-    h5 {
-      margin-top: 0;
-    }
   }
 }
 
@@ -448,38 +439,20 @@ googleMap, .angular-google-map, .angular-google-map-container {
 }
 
 @mixin category-sports {
-  h4 {
-    .icon {
-      border-color: $color_sports;
-    }
-  }
   .category {
-    color: $color_sports;
-    border-color: $color_sports;
+    background-color: $color_sports;
   }
 }
 
 @mixin category-culture {
-  h4 {
-    .icon {
-      border-color: $color_culture;
-    }
-  }
   .category {
-    color: $color_culture;
-    border-color: $color_culture;
+    background-color: $color_culture;
   }
 }
 
 @mixin category-wellness {
-  h4 {
-    .icon {
-      border-color: $color_wellness;
-    }
-  }
   .category {
-    color: $color_wellness;
-    border-color: $color_wellness;
+    background-color: $color_wellness;
   }
 }
 
@@ -622,6 +595,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     @include divtable_row_small;
     .cell{
       padding-bottom: 0;
+      padding-top: 0;
       &.first{
         padding-left: 0;
       }
@@ -711,17 +685,17 @@ googleMap, .angular-google-map, .angular-google-map-container {
 .event-item{
   display: block;
   overflow: hidden;
-  padding: $bu*0.5;
   margin-bottom: $bu*0.5;
-  background-color: $color_green_25;
-  @include border-radius($border-radius);
   &:last-child{
     margin-bottom: 0;
   }
   .event-item-header{
+    padding: $bu*0.5;
+    background-color: $color_green_05;
+    @include border(all, $color_green_25);
+    border-width: 2px;
+    @include border-top-radius($border-radius);
     overflow: hidden;
-    padding-bottom: 5px;
-    @include seperator(bottom, $color_green);
     .event-item-description{
       float: left;
       width: 73%;
@@ -743,6 +717,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
   .event-item-body{
+    padding: $bu*0.5;
+    background-color: $color_green_25;
+    @include border-bottom-radius($border-radius);
+    overflow: hidden;
     @include font-size_small;
     .input-label{
       margin-bottom: 0;

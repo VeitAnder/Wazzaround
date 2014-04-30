@@ -1673,6 +1673,10 @@ button.btn, .btn, a.btn {
     border-bottom: solid 1px #e8e8e8;
     border-top: none;
     border-width: 2px; }
+  .buttonbar.buttonbar-default {
+    border: none;
+    padding-left: 0;
+    padding-right: 0; }
 
 cite, blockquote {
   font-style: italic; }
@@ -1886,6 +1890,8 @@ p:last-child, ul:last-child {
     padding: 2px 6px;
     margin: 0;
     text-transform: uppercase; }
+  .alert.alert-block {
+    display: block; }
 
 .contentbox {
   padding: 15px;
@@ -2827,22 +2833,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
   max-width: 600px; }
   .window-category-sports h4 {
     color: #666;
-    margin-top: 0;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-    .window-category-sports h4 .icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      -webkit-border-radius: 10px;
-      -khtml-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      border-radius: 10px;
-      border: solid 1px #666;
-      border-width: 3px;
-      margin-right: 5px; }
   .window-category-sports .img-block img {
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
@@ -2861,20 +2853,30 @@ googleMap, .angular-google-map, .angular-google-map-container {
     float: right;
     margin: 0 0 16px 15px; }
   .window-category-sports .category {
-    border-bottom: solid 1px #666;
-    border-width: 3px;
-    padding-bottom: 5px; }
+    display: inline-block;
+    margin-top: 0;
+    background-color: #666;
+    -webkit-border-radius: 10.4px;
+    -khtml-border-radius: 10.4px;
+    -moz-border-radius: 10.4px;
+    -ms-border-radius: 10.4px;
+    -o-border-radius: 10.4px;
+    border-radius: 10.4px;
+    padding: 2px 7.5px;
+    font-size: 12px;
+    line-height: 16.8px;
+    color: #FFF; }
+    .window-category-sports .category p {
+      padding-bottom: 12px; }
     .window-category-sports .category .category-sub {
       font-weight: 200; }
   .window-category-sports .description {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .window-category-sports .location {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .window-category-sports .availability {
     margin-top: 32px;
     clear: both; }
-    .window-category-sports .availability h5 {
-      margin-top: 0; }
   .window-category-sports img {
     width: 150px;
     height: auto; }
@@ -2893,11 +2895,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
     padding: 2.4px 8px; }
   .gm-style .gm-style-iw .window-category-sports .availability-entry .cell {
     line-height: 18.2px; }
-  .window-category-sports h4 .icon {
-    border-color: #C83C19; }
   .window-category-sports .category {
-    color: #C83C19;
-    border-color: #C83C19; }
+    background-color: #C83C19; }
 
 .window-category-culture {
   padding: 15px 0;
@@ -2905,22 +2904,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
   max-width: 600px; }
   .window-category-culture h4 {
     color: #666;
-    margin-top: 0;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-    .window-category-culture h4 .icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      -webkit-border-radius: 10px;
-      -khtml-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      border-radius: 10px;
-      border: solid 1px #666;
-      border-width: 3px;
-      margin-right: 5px; }
   .window-category-culture .img-block img {
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
@@ -2939,20 +2924,30 @@ googleMap, .angular-google-map, .angular-google-map-container {
     float: right;
     margin: 0 0 16px 15px; }
   .window-category-culture .category {
-    border-bottom: solid 1px #666;
-    border-width: 3px;
-    padding-bottom: 5px; }
+    display: inline-block;
+    margin-top: 0;
+    background-color: #666;
+    -webkit-border-radius: 10.4px;
+    -khtml-border-radius: 10.4px;
+    -moz-border-radius: 10.4px;
+    -ms-border-radius: 10.4px;
+    -o-border-radius: 10.4px;
+    border-radius: 10.4px;
+    padding: 2px 7.5px;
+    font-size: 12px;
+    line-height: 16.8px;
+    color: #FFF; }
+    .window-category-culture .category p {
+      padding-bottom: 12px; }
     .window-category-culture .category .category-sub {
       font-weight: 200; }
   .window-category-culture .description {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .window-category-culture .location {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .window-category-culture .availability {
     margin-top: 32px;
     clear: both; }
-    .window-category-culture .availability h5 {
-      margin-top: 0; }
   .window-category-culture img {
     width: 150px;
     height: auto; }
@@ -2971,11 +2966,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
     padding: 2.4px 8px; }
   .gm-style .gm-style-iw .window-category-culture .availability-entry .cell {
     line-height: 18.2px; }
-  .window-category-culture h4 .icon {
-    border-color: #1970C8; }
   .window-category-culture .category {
-    color: #1970C8;
-    border-color: #1970C8; }
+    background-color: #1970C8; }
 
 .window-category-wellness {
   padding: 15px 0;
@@ -2983,22 +2975,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
   max-width: 600px; }
   .window-category-wellness h4 {
     color: #666;
-    margin-top: 0;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-    .window-category-wellness h4 .icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      -webkit-border-radius: 10px;
-      -khtml-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      border-radius: 10px;
-      border: solid 1px #666;
-      border-width: 3px;
-      margin-right: 5px; }
   .window-category-wellness .img-block img {
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
@@ -3017,20 +2995,30 @@ googleMap, .angular-google-map, .angular-google-map-container {
     float: right;
     margin: 0 0 16px 15px; }
   .window-category-wellness .category {
-    border-bottom: solid 1px #666;
-    border-width: 3px;
-    padding-bottom: 5px; }
+    display: inline-block;
+    margin-top: 0;
+    background-color: #666;
+    -webkit-border-radius: 10.4px;
+    -khtml-border-radius: 10.4px;
+    -moz-border-radius: 10.4px;
+    -ms-border-radius: 10.4px;
+    -o-border-radius: 10.4px;
+    border-radius: 10.4px;
+    padding: 2px 7.5px;
+    font-size: 12px;
+    line-height: 16.8px;
+    color: #FFF; }
+    .window-category-wellness .category p {
+      padding-bottom: 12px; }
     .window-category-wellness .category .category-sub {
       font-weight: 200; }
   .window-category-wellness .description {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .window-category-wellness .location {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .window-category-wellness .availability {
     margin-top: 32px;
     clear: both; }
-    .window-category-wellness .availability h5 {
-      margin-top: 0; }
   .window-category-wellness img {
     width: 150px;
     height: auto; }
@@ -3049,30 +3037,13 @@ googleMap, .angular-google-map, .angular-google-map-container {
     padding: 2.4px 8px; }
   .gm-style .gm-style-iw .window-category-wellness .availability-entry .cell {
     line-height: 18.2px; }
-  .window-category-wellness h4 .icon {
-    border-color: #bc913d; }
   .window-category-wellness .category {
-    color: #bc913d;
-    border-color: #bc913d; }
+    background-color: #bc913d; }
 
 .detail-category-sports h4 {
   color: #666;
-  margin-top: 0;
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
-  .detail-category-sports h4 .icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border-radius: 10px;
-    border: solid 1px #666;
-    border-width: 3px;
-    margin-right: 5px; }
 .detail-category-sports .img-block img {
   border: solid 1px #e8e8e8;
   -webkit-border-radius: 6px;
@@ -3091,44 +3062,37 @@ googleMap, .angular-google-map, .angular-google-map-container {
   float: right;
   margin: 0 0 16px 15px; }
 .detail-category-sports .category {
-  border-bottom: solid 1px #666;
-  border-width: 3px;
-  padding-bottom: 5px; }
+  display: inline-block;
+  margin-top: 0;
+  background-color: #666;
+  -webkit-border-radius: 10.4px;
+  -khtml-border-radius: 10.4px;
+  -moz-border-radius: 10.4px;
+  -ms-border-radius: 10.4px;
+  -o-border-radius: 10.4px;
+  border-radius: 10.4px;
+  padding: 2px 7.5px;
+  font-size: 12px;
+  line-height: 16.8px;
+  color: #FFF; }
+  .detail-category-sports .category p {
+    padding-bottom: 12px; }
   .detail-category-sports .category .category-sub {
     font-weight: 200; }
 .detail-category-sports .description {
-  margin-top: 16px; }
+  margin-top: 32px; }
 .detail-category-sports .location {
-  margin-top: 16px; }
+  margin-top: 32px; }
 .detail-category-sports .availability {
   margin-top: 32px;
   clear: both; }
-  .detail-category-sports .availability h5 {
-    margin-top: 0; }
-.detail-category-sports h4 .icon {
-  border-color: #C83C19; }
 .detail-category-sports .category {
-  color: #C83C19;
-  border-color: #C83C19; }
+  background-color: #C83C19; }
 
 .detail-category-culture h4 {
   color: #666;
-  margin-top: 0;
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
-  .detail-category-culture h4 .icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border-radius: 10px;
-    border: solid 1px #666;
-    border-width: 3px;
-    margin-right: 5px; }
 .detail-category-culture .img-block img {
   border: solid 1px #e8e8e8;
   -webkit-border-radius: 6px;
@@ -3147,44 +3111,37 @@ googleMap, .angular-google-map, .angular-google-map-container {
   float: right;
   margin: 0 0 16px 15px; }
 .detail-category-culture .category {
-  border-bottom: solid 1px #666;
-  border-width: 3px;
-  padding-bottom: 5px; }
+  display: inline-block;
+  margin-top: 0;
+  background-color: #666;
+  -webkit-border-radius: 10.4px;
+  -khtml-border-radius: 10.4px;
+  -moz-border-radius: 10.4px;
+  -ms-border-radius: 10.4px;
+  -o-border-radius: 10.4px;
+  border-radius: 10.4px;
+  padding: 2px 7.5px;
+  font-size: 12px;
+  line-height: 16.8px;
+  color: #FFF; }
+  .detail-category-culture .category p {
+    padding-bottom: 12px; }
   .detail-category-culture .category .category-sub {
     font-weight: 200; }
 .detail-category-culture .description {
-  margin-top: 16px; }
+  margin-top: 32px; }
 .detail-category-culture .location {
-  margin-top: 16px; }
+  margin-top: 32px; }
 .detail-category-culture .availability {
   margin-top: 32px;
   clear: both; }
-  .detail-category-culture .availability h5 {
-    margin-top: 0; }
-.detail-category-culture h4 .icon {
-  border-color: #1970C8; }
 .detail-category-culture .category {
-  color: #1970C8;
-  border-color: #1970C8; }
+  background-color: #1970C8; }
 
 .detail-category-wellness h4 {
   color: #666;
-  margin-top: 0;
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
-  .detail-category-wellness h4 .icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border-radius: 10px;
-    border: solid 1px #666;
-    border-width: 3px;
-    margin-right: 5px; }
 .detail-category-wellness .img-block img {
   border: solid 1px #e8e8e8;
   -webkit-border-radius: 6px;
@@ -3203,25 +3160,32 @@ googleMap, .angular-google-map, .angular-google-map-container {
   float: right;
   margin: 0 0 16px 15px; }
 .detail-category-wellness .category {
-  border-bottom: solid 1px #666;
-  border-width: 3px;
-  padding-bottom: 5px; }
+  display: inline-block;
+  margin-top: 0;
+  background-color: #666;
+  -webkit-border-radius: 10.4px;
+  -khtml-border-radius: 10.4px;
+  -moz-border-radius: 10.4px;
+  -ms-border-radius: 10.4px;
+  -o-border-radius: 10.4px;
+  border-radius: 10.4px;
+  padding: 2px 7.5px;
+  font-size: 12px;
+  line-height: 16.8px;
+  color: #FFF; }
+  .detail-category-wellness .category p {
+    padding-bottom: 12px; }
   .detail-category-wellness .category .category-sub {
     font-weight: 200; }
 .detail-category-wellness .description {
-  margin-top: 16px; }
+  margin-top: 32px; }
 .detail-category-wellness .location {
-  margin-top: 16px; }
+  margin-top: 32px; }
 .detail-category-wellness .availability {
   margin-top: 32px;
   clear: both; }
-  .detail-category-wellness .availability h5 {
-    margin-top: 0; }
-.detail-category-wellness h4 .icon {
-  border-color: #bc913d; }
 .detail-category-wellness .category {
-  color: #bc913d;
-  border-color: #bc913d; }
+  background-color: #bc913d; }
 
 .listaction.cell {
   width: 10%;
@@ -3422,7 +3386,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
       .event-list.event-list-items .cell.last {
         padding-right: 10px; }
     .event-list.event-list-items .cell {
-      padding-bottom: 0; }
+      padding-bottom: 0;
+      padding-top: 0; }
       .event-list.event-list-items .cell.first {
         padding-left: 0; }
       .event-list.event-list-items .cell.last {
@@ -3578,21 +3543,17 @@ googleMap, .angular-google-map, .angular-google-map-container {
 .event-item {
   display: block;
   overflow: hidden;
-  padding: 7.5px;
-  margin-bottom: 7.5px;
-  background-color: #e0f1bf;
-  -webkit-border-radius: 6px;
-  -khtml-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px; }
+  margin-bottom: 7.5px; }
   .event-item:last-child {
     margin-bottom: 0; }
   .event-item .event-item-header {
-    overflow: hidden;
-    padding-bottom: 5px;
-    border-bottom: dotted 1px #85C900; }
+    padding: 7.5px;
+    background-color: #f9fcf2;
+    border: solid 1px #e0f1bf;
+    border-width: 2px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    overflow: hidden; }
     .event-item .event-item-header .event-item-description {
       float: left;
       width: 73%;
@@ -3612,6 +3573,11 @@ googleMap, .angular-google-map, .angular-google-map-container {
       text-align: right;
       width: 25%; }
   .event-item .event-item-body {
+    padding: 7.5px;
+    background-color: #e0f1bf;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    overflow: hidden;
     font-size: 12px;
     line-height: 16.8px; }
     .event-item .event-item-body p {
@@ -4514,22 +4480,8 @@ shoppingcart.shoppingcart-rightside {
   transition-property: all; }
   .activitybar-detail h4 {
     color: #666;
-    margin-top: 0;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-    .activitybar-detail h4 .icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      -webkit-border-radius: 10px;
-      -khtml-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      border-radius: 10px;
-      border: solid 1px #666;
-      border-width: 3px;
-      margin-right: 5px; }
   .activitybar-detail .img-block img {
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
@@ -4548,20 +4500,30 @@ shoppingcart.shoppingcart-rightside {
     float: right;
     margin: 0 0 16px 15px; }
   .activitybar-detail .category {
-    border-bottom: solid 1px #666;
-    border-width: 3px;
-    padding-bottom: 5px; }
+    display: inline-block;
+    margin-top: 0;
+    background-color: #666;
+    -webkit-border-radius: 10.4px;
+    -khtml-border-radius: 10.4px;
+    -moz-border-radius: 10.4px;
+    -ms-border-radius: 10.4px;
+    -o-border-radius: 10.4px;
+    border-radius: 10.4px;
+    padding: 2px 7.5px;
+    font-size: 12px;
+    line-height: 16.8px;
+    color: #FFF; }
+    .activitybar-detail .category p {
+      padding-bottom: 12px; }
     .activitybar-detail .category .category-sub {
       font-weight: 200; }
   .activitybar-detail .description {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .activitybar-detail .location {
-    margin-top: 16px; }
+    margin-top: 32px; }
   .activitybar-detail .availability {
     margin-top: 32px;
     clear: both; }
-    .activitybar-detail .availability h5 {
-      margin-top: 0; }
   .activitybar-detail .txt-icon-delete {
     position: absolute;
     top: 15px;
