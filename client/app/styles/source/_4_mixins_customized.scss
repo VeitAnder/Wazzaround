@@ -347,18 +347,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
 @mixin activity-content {
   h4 {
     color: $color_grey;
-    margin-top: 0;
     padding-bottom: 5px;
     @include seperator(bottom, $color_main_seperator);
-    .icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      @include border-radius(10px);
-      @include border_all($color_grey);
-      border-width: 3px;
-      margin-right: 5px;
-    }
   }
 
   .img-block {
@@ -375,25 +365,26 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
   .category {
-    @include border(bottom, $color_grey);
-    border-width: 3px;
-    padding-bottom: 5px;
+    display: inline-block;
+    margin-top: 0;
+    background-color: $color_grey;
+    @include border-radius(($fs*$font-size_small_factor*$line-height_factor)*0.5 + 2px);
+    padding: 2px $bu*0.5;
+    @include font-size_small;
+    color: $color_white;
     .category-sub {
       font-weight: $font-weight_light;
     }
   }
   .description {
-    margin-top: $fs;
+    margin-top: $fs*2.0;
   }
   .location {
-    margin-top: $fs;
+    margin-top: $fs*2.0;
   }
   .availability {
     margin-top: $fs*2.0;
     clear: both;
-    h5 {
-      margin-top: 0;
-    }
   }
 }
 
@@ -448,38 +439,20 @@ googleMap, .angular-google-map, .angular-google-map-container {
 }
 
 @mixin category-sports {
-  h4 {
-    .icon {
-      border-color: $color_sports;
-    }
-  }
   .category {
-    color: $color_sports;
-    border-color: $color_sports;
+    background-color: $color_sports;
   }
 }
 
 @mixin category-culture {
-  h4 {
-    .icon {
-      border-color: $color_culture;
-    }
-  }
   .category {
-    color: $color_culture;
-    border-color: $color_culture;
+    background-color: $color_culture;
   }
 }
 
 @mixin category-wellness {
-  h4 {
-    .icon {
-      border-color: $color_wellness;
-    }
-  }
   .category {
-    color: $color_wellness;
-    border-color: $color_wellness;
+    background-color: $color_wellness;
   }
 }
 
@@ -577,6 +550,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-color: $color_grey_15;
     margin: 0;
     padding: 5px 0 0 0;
+    border-top: 0;
     .txt-icon-delete {
       color: $color_grey_15;
       span {
@@ -616,6 +590,39 @@ googleMap, .angular-google-map, .angular-google-map-container {
   @include seperator(top, $color_grey_50);
   padding-top: $bu;
   margin-top: $bu;
+
+  &.event-list-items {
+    @include divtable_row_small;
+    .cell {
+      padding-bottom: 0;
+      padding-top: 0;
+      &.first {
+        padding-left: 0;
+      }
+      &.last {
+        padding-right: 0;
+      }
+    }
+    border: none;
+    .event-date {
+      width: 45%;
+    }
+
+    .event-duration {
+      width: 35%;
+      text-align: left;
+    }
+
+    .event-price {
+      width: 20%;
+      text-align: right;
+    }
+    .availability & {
+      margin: 0 0 $bu*0.5;
+      padding-bottom: 0;
+    }
+  }
+
   .availability & {
     margin: 0 0 $bu;
     padding: 0 0 $bu;
@@ -671,6 +678,56 @@ googleMap, .angular-google-map, .angular-google-map-container {
     &.listaction {
       white-space: normal;
       overflow: visible;
+    }
+  }
+}
+
+.event-item {
+  display: block;
+  overflow: hidden;
+  margin-bottom: $bu*0.5;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .event-item-header {
+    padding: $bu*0.5 - 2px;
+    background-color: $color_green_15;
+    @include border(all, $color_green_50);
+    border-width: 2px;
+    @include border-top-radius($border-radius);
+    overflow: hidden;
+    .event-item-description {
+      float: left;
+      width: 73%;
+      margin-right: 2%;
+    }
+    h6 {
+      margin: 0;
+      color: $color_green;
+      display: inline;
+    }
+    .event-item-quantity {
+      @include font-size_small;
+      white-space: nowrap;
+    }
+    .event-item-book {
+      float: left;
+      text-align: right;
+      width: 25%;
+    }
+  }
+  .event-item-body {
+    padding: $bu*0.5;
+    background-color: $color_green_50;
+    @include border-bottom-radius($border-radius);
+    overflow: hidden;
+    @include font-size_small;
+    .input-label {
+      margin-bottom: 0;
+      margin-right: 0;
+      vertical-align: baseline;
+      display: inline;
+      line-height: $fs*$font-size_small_factor*$line-height_factor;
     }
   }
 }
@@ -759,10 +816,11 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 
   .buttonbar {
-    @include seperator(top, $color_grey_50);
     width: auto;
+    @include seperator(top, $color_grey_50);
     margin: $bu (-$bu) 0 (-$bu);
-    padding: 5px 10px;
+    @include border-radius(0);
+    background-color: transparent;
   }
 }
 
@@ -821,13 +879,12 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
 .availability-footer {
   @include divtable_row_small;
-  //  margin-top: $bu;
   border-bottom: none;
   background-color: $color_grey_15;
+  @include border-radius($border-radius_small);
   .cell {
     width: 50%;
-    padding-top: 10px;
-    padding-bottom: 15px;
+    padding-bottom: $fs*0.5;
     &.last, &.first {
       width: 25%;
     }
@@ -958,6 +1015,7 @@ shoppingcart {
   padding: $bu*2.0 $bu*1.0;
   @include color-white;
   .buttonbar {
+    padding: 0;
     border: none;
     .btn {
       width: 100%;
@@ -984,6 +1042,7 @@ shoppingcart {
     display: inline-block;
     min-width: 15px;
     height: 15px;
+    padding: 0 3px;
     @include border-radius(7.5px);
     background-color: $color_red;
     color: $color_white;
@@ -1137,62 +1196,29 @@ $activitybar-height: 200px;
   }
 }
 
-.activitybar {
+activitybar {
+  width: 100%;
   position: absolute;
   bottom: 0;
-  width: 100%;
-  overflow: hidden;
   background-color: $color_grey_25;
+  height: $activitybar-height;
+  overflow: hidden;
+}
 
-  .activitybar-item {
-    position: relative;
-    overflow: hidden;
-    height: $activitybar-height;
-    float: left;
-    img {
-      min-height: $activitybar-height;
-      width: auto;
-    }
+activitybarstripe {
+  position: absolute;
+  width: 100%;
 
-    &.activitybar-item-beforeprev {
-      @include activitybar-a-imghover;
-      width: 10%;
-    }
-    &.activitybar-item-prev {
-      @include activitybar-a-imghover;
-      width: 10%;
-    }
-    &.activitybar-item-current {
-      width: 60%;
-      img {
-        min-width: 100%;
-        height: auto;
-      }
-      &:hover {
-        .activity-detail-toggle {
-          background-color: $color_green_75;
-        }
-      }
-      .triangle {
-        position: absolute;
-        display: block;
-        width: 25px;
-        height: 12.5px;
-        top: -50px;
-        @include triangle(50px, $color_white, down);
-        left: 50%;
-        margin-left: -25px;
-        @include animation_all;
-      }
-    }
-    &.activitybar-item-next {
-      @include activitybar-a-imghover;
-      width: 10%;
-    }
-    &.activitybar-item-afternext {
-      @include activitybar-a-imghover;
-      width: 10%;
-    }
+  .activitybar-item-prev {
+    position: absolute;
+    top: 95px;
+    left: 0;
+  }
+
+  .activitybar-item-next {
+    position: absolute;
+    top: 95px;
+    right: 0;
   }
 
   .activity-nav {
@@ -1251,6 +1277,7 @@ $activitybar-height: 200px;
     color: $color_white;
     font-weight: $font-weight_extrabold;
     font-size: $fs*$font-size_h5_factor;
+    z-index: 2;
   }
 
   .activity-distance-element {
@@ -1292,25 +1319,69 @@ $activitybar-height: 200px;
     background-color: $color_green;
   }
 
+}
+
+currentactivity {
+  top: 0;
+  position: absolute;
+  left: 50%;
+  height: $activitybar-height;
+
+  //  overflow:hidden;
+
+  img {
+    min-width: 100%;
+    height: auto;
+  }
+  &:hover {
+    .activity-detail-toggle {
+      background-color: $color_green_75;
+    }
+  }
+  .triangle {
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 12.5px;
+    top: -25px;
+    @include triangle(50px, $color_white, down);
+    left: 50%;
+    margin-left: -25px;
+    @include animation_all;
+  }
+
   &.activitydetailactive {
     .activity-detail-toggle {
       @include transform(rotate(90deg));
     }
-    .activitybar-item-current {
-      .triangle {
-        top: 0;
-      }
+    .triangle {
+      top: 0;
     }
   }
 
+  .currentactivity-body {
+    overflow: hidden;
+    &:after{
+      position: relative;
+      top: -90px;
+      display: block;
+      width: 100%;
+      height: 90px;
+      content:"";
+      background: url('#{$img_path}activity-headline-BGshadow.png') repeat-x;
+    }
+  }
 }
 
-.activitybar-detail {
+activitybardetail {
   position: absolute;
   bottom: -100%;
   left: 50%;
-  margin-left: -$activitybar-currentitem-width*0.5;
-  width: $activitybar-currentitem-width;
+
+  //  done via directive ajscentermaxwidth
+  //  margin-left: -$activitybar-currentitem-width*0.5;
+  //  width: $activitybar-currentitem-width;
+
   padding: $bu*2.0;
   background-color: #ffffff;
   background-color: rgba($color_white, 0.90);
@@ -1493,7 +1564,6 @@ $activitybar-height: 200px;
   }
 }
 
-
 .nav-main {
   @include tmenu_class;
   background-color: $color_nav1_background;
@@ -1581,16 +1651,33 @@ $activitybar-height: 200px;
 
 //.nav-main
 
-
-
 // SUBMENU
 // ###########################################################################################################################
 // ###########################################################################################################################
+
 .nav-sub {
   @include tmenu_class;
 
-  &.nav-sub-user{
-    span{
+  .nav-icon {
+    .icon {
+      position: relative;
+      top: 1px;
+      display: block;
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin-right: $bu*0.5;
+      @include sprite_icons(50px, 50px, no-repeat);
+    }
+    &.nav-icon-map {
+      .icon {
+        background-position: -200px 0;
+      }
+    }
+  }
+
+  &.nav-sub-user {
+    span {
       font-weight: $font-weight_bold;
     }
   }
@@ -1600,7 +1687,7 @@ $activitybar-height: 200px;
     margin-bottom: $fs*2.0;
   }
 
-  a{
+  a {
     text-decoration: none;
 
   }
@@ -2386,7 +2473,6 @@ $img-selector-teasertxtheight: 35px;
     color: $color_green_25;
   }
 }
-
 
 .logoutlink {
   .admin-section & {

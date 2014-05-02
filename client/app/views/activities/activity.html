@@ -1,72 +1,76 @@
-<h3>{{'All dates from activity' | translate}}</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
 
+      <h3>{{'All dates from activity' | translate}}</h3>
 
-<div ng-controller="ActivityCtrl"
-     class="activity-detail detail-category-{{activity.category.main}}">
+      <div ng-controller="ActivityCtrl"
+           class="activity-detail detail-category-{{activity.category.main}}">
 
-  <h4>
-    <span class="icon"></span>
-    {{activity.name | languageselect}}
-  </h4>
+        <h5 class="category">
+          {{activity.category.main | translate}}
+          <span class="category-sub"
+                ng-repeat="subcat in activity.category.subs">
+            / {{subcat.key | translate}}
+          </span>
+        </h5>
 
-  <div class="input-label">
-    {{'Company offering this activity' | translate}}
+        <h4>
+          {{activity.name | languageselect}}
+        </h4>
+
+        <h6 class="no-margin-top">
+          {{'Offered by' | translate}} {{activity.company}}
+        </h6>
+
+        <div class="location">
+          <div class="input-label">{{'Location' | translate}}:</div>
+
+          <google-map
+              center='activity'
+              zoom='map.zoom'
+              draggable='true'
+              options='map.options'
+              >
+            <marker
+                coords='map.center'
+                icon='getMarkerIcon()'
+                >
+              <marker-label content="activity.name[getAvailableTranslationLanguageKey(activity.name)]"
+                            anchor="22 0"
+                            class="marker-labels marker-label-category-{{activity.category.main}}"
+                  />
+            </marker>
+
+          </google-map>
+
+        </div>
+
+         <div class="img-block img-block-right">
+          <cloudinaryimage ng-show="activity.images.length > 0"
+                           data-publicid="{{activity.images[0].public_id}}"
+                           data-format="{{activity.images[0].format}}"
+                           data-width="250"
+                           data-height="150"
+              >
+          </cloudinaryimage>
+        </div>
+
+        <div class="description">
+          <div ta-bind
+               ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]"></div>
+        </div>
+
+        <div class="availability">
+          <div class="input-label">{{'Availability' | translate}}</div>
+
+          <bookableitemlist data-activity="activity">
+          </bookableitemlist>
+
+        </div>
+
+      </div>
+
+    </div>
   </div>
-  <h5 class="no-margin-top">
-    {{activity.company}}
-  </h5>
-
-  <div class="location">
-    <div class="input-label">{{'Location' | translate}}</div>
-
-    <google-map
-        center='activity'
-        zoom='map.zoom'
-        draggable='true'
-        options='map.options'
-        >
-      <marker
-          coords='map.center'
-          icon='getMarkerIcon()'
-          >
-        <marker-label content="activity.name[getAvailableTranslationLanguageKey(activity.name)]"
-                      anchor="22 0"
-                      class="marker-labels marker-label-category-{{activity.category.main}}"
-            />
-      </marker>
-
-    </google-map>
-
-  </div>
-
-  <h5 class="category">
-    {{activity.category.main | translate}}
-    <span class="category-sub"
-          ng-repeat="subcat in activity.category.subs">
-      / {{subcat.key | translate}}
-    </span>
-  </h5>
-
-  <div class="img-block img-block-right">
-    <cloudinaryimage ng-show="activity.images.length > 0"
-                     data-publicid="{{activity.images[0].public_id}}"
-                     data-format="{{activity.images[0].format}}"
-                     data-width="250"
-                     data-height="150"
-        >
-    </cloudinaryimage>
-  </div>
-
-  <div class="description">
-    <div ta-bind ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]"></div>
-  </div>
-
-  <div class="availability">
-    <div class="input-label">{{'Availability' | translate}}</div>
-
-    <bookableitemlist data-activity="activity">
-    </bookableitemlist>
-
-  </div>
-
 </div>

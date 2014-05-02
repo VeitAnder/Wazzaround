@@ -365,9 +365,18 @@ angular.module('anorakApp')
     // activitybar functionality
 
     $scope.getSelectedActivity = function () {
-      return _.find($scope.states.filteredactivities, function (activity) {
+      // return selected activity
+      var selectedactivity = _.find($scope.states.filteredactivities, function (activity) {
         return activity._id === $scope.states.selectedactivityid;
       });
+
+      // if no activity is selected, return first one in filtered array and set it as selected
+      if (!selectedactivity && $scope.states.filteredactivities && $scope.states.filteredactivities.length > 0) {
+        $scope.states.selectedactivityid = $scope.states.filteredactivities[0]._id;
+        selectedactivity = $scope.states.filteredactivities[0];
+      }
+      // if no activity is at all available in $scope.states.filteredactivities, show message in activitybar
+      return selectedactivity;
     };
 
     $scope.selectnext = function () {
@@ -389,7 +398,6 @@ angular.module('anorakApp')
       return newindex;
     };
 
-
     $scope.selectprev = function () {
       //simple implementation - get index of current selected id
       var index = _.findIndex($scope.states.filteredactivities, { '_id': $scope.getSelectedMarkerId() });
@@ -409,49 +417,24 @@ angular.module('anorakApp')
       return newindex;
     };
 
-
     $scope.getSelectedMarkerId = function () {
-      console.log("$scope.states.selectedactivityid", $scope.states.selectedactivityid);
       return $scope.states.selectedactivityid;
     };
 
     $scope.getMarkerIcon = function (activity) {
-      console.log("activity.category.main", activity.category.main);
       if (activity._id === $scope.getSelectedMarkerId()) {
-        return frontendmap.getMarkerIcon();
+        return frontendmap.getMarkerIconActive(activity.category.main);
       } else {
         return frontendmap.getMarkerIcon(activity.category.main);
       }
     };
 
-    $scope.getDistanceBetweenLocations = function (location1, location2) {
-
-      var rad = function (x) {
-        return x * Math.PI / 180;
-      };
-
-      var getDistance = function (p1, p2) {
-        var p1 = {
-
-        };
-
-        var p2 = {
-
-        };
-
-        var R = 6378137; // Earth’s mean radius in meter
-        var dLat = rad(p2.lat() - p1.lat());
-        var dLong = rad(p2.lng() - p1.lng());
-        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-          Math.cos(rad(p1.lat())) * Math.cos(rad(p2.lat())) *
-          Math.sin(dLong / 2) * Math.sin(dLong / 2);
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        var d = R * c;
-        return d; // returns the distance in meter
-      };
-
-      return getDistance(p1, p2);
-
+    $scope.getIndexFilteredActivities = function (activity) {
+      var index = _.findIndex($scope.states.filteredactivities, function (item) {
+        return activity._id === item._id;
+      });
+      // make index non-programmer style :-)
+      return index + 1;
     };
 
   });

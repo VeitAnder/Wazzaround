@@ -261,7 +261,7 @@ angular.module('anorakApp')
 //    ] }
 
     $translateProvider.translations('en', {
-      "Why reacture": "Why reActure",
+      "Why reacture": "Why reActure?",
       "Work with us": "Work with us",
       "Contact": "Contact & Impressum",
       "Please choose": "Please choose",
@@ -517,11 +517,12 @@ angular.module('anorakApp')
       "Your changes have been saved": "Your changes have been saved",
       "Your changes could not be saved": "Your changes could not be saved",
       "Please fill out the form correctly": "Please fill out the form correctly",
-      "All dates from activity": "All dates from activity"
+      "All dates from activity": "All dates from activity",
+      "Map view": "Map view"
     });
 
     $translateProvider.translations('de', {
-      "Why reacture": "Warum reActure",
+      "Why reacture": "Warum reActure?",
       "Work with us": "Arbeiten Sie mit uns",
       "Contact": "Kontakt & Impressum",
       "Please choose": "Bitte wählen Sie",
@@ -673,7 +674,7 @@ angular.module('anorakApp')
       "Country": "Land",
       "Your country": "Ihr Land",
       "Please enter your country": "Bitte geben Sie Ihr Land ein",
-      "Name of contact person": "Name des Ansprechpartners / der Ansprechpartnerin",
+      "Name of contact person": "Name der Ansprechperson",
       "Please enter the name of the contact person": "Bitte geben Sie den Namen des Ansprechpartners / der Ansprechpartnerin ein",
       "UID optional": "UID optional",
       "Your UID number": "Ihre UID Nummer",
@@ -777,11 +778,12 @@ angular.module('anorakApp')
       "Your changes have been saved": "Ihre Änderungen wurden gespeichert",
       "Your changes could not be saved": "Ihre Änderungen konnten nicht gespeichert werden",
       "Please fill out the form correctly": "Bitte füllen Sie das Formular korrekt aus",
-      "All dates from activity": "All dates from activity"
+      "All dates from activity": "All dates from activity",
+      "Map view": "Kartenansicht"
     });
 
     $translateProvider.translations('it', {
-      "Why reacture": "Perché reActure",
+      "Why reacture": "Perché reActure?",
       "Work with us": "Lavora con noi",
       "Contact": "Contattaci",
       "Please choose": "Si prega di scegliere",
@@ -951,7 +953,7 @@ angular.module('anorakApp')
       "Logout": "Logout",
       "add Image": "aggiungere immagini",
       "My Activities": "Le mie attività",
-      "Admin All Activities": "",
+      "Admin All Activities": "Administrate all Activities",
       "Edit your Profile": "Modifica il tuo profilo",
       "Publish Activities": "Pubblicare attività",
       "This is the admin/allActivities view": "Questa è la pagina di admin/tutte le attività",
@@ -1036,7 +1038,8 @@ angular.module('anorakApp')
       "Company data": "Dati aziendali",
       "Your changes have been saved": "Le modifiche sono state salvate",
       "Your changes could not be saved": "Le modifiche non potevano essere salvate",
-      "Please fill out the form correctly": "Si prega di compilare correttamente il modulo"
+      "Please fill out the form correctly": "Si prega di compilare correttamente il modulo",
+      "Map view": "Map view"
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity

@@ -19,7 +19,7 @@
           </a>
         </div>
 
-        <p class="alert alert-large alert-success"
+        <p class="alert alert-large alert-block alert-success"
            ng-if="activity.published">
           <b>{{'Your activity is published' | translate}}</b>
         </p>
@@ -28,20 +28,23 @@
           <b>{{'Your activity isnt published yet' | translate}}</b>
         </p>
 
+        <h5 class="category no-margin-top">
+          {{activity.category.main | translate}}
+          <span class="category-sub"
+                ng-repeat="subcat in activity.category.subs">
+            / {{subcat.key | translate}}
+          </span>
+        </h5>
         <h4>
-          <span class="icon"></span>
           {{activity.name | languageselect}}
         </h4>
 
-        <div class="input-label">
-          {{'Company offering this activity' | translate}}
-        </div>
-        <h5 class="no-margin-top">
-          {{activity.company}}
-        </h5>
+        <h6 class="no-margin-top">
+          {{'Offered by' | translate}} {{activity.company}}
+        </h6>
 
         <div class="location">
-          <div class="input-label">{{'Location' | translate}}</div>
+          <div class="input-label">{{'Location' | translate}}:</div>
 
           <google-map
               center='map.center'
@@ -63,25 +66,17 @@
 
         </div>
 
-        <h5 class="category">
-          {{activity.category.main | translate}}
-          <span class="category-sub"
-                ng-repeat="subcat in activity.category.subs">
-            / {{subcat.key | translate}}
-          </span>
-        </h5>
-
-        <div class="img-block img-block-right">
-          <cloudinaryimage ng-show="activity.images.length > 0"
-                           data-publicid="{{activity.images[0].public_id}}"
-                           data-format="{{activity.images[0].format}}"
-                           data-width="250"
-                           data-height="150"
-              >
-          </cloudinaryimage>
-        </div>
 
         <div class="description">
+          <div class="img-block img-block-right">
+            <cloudinaryimage ng-show="activity.images.length > 0"
+                             data-publicid="{{activity.images[0].public_id}}"
+                             data-format="{{activity.images[0].format}}"
+                             data-width="250"
+                             data-height="150"
+                >
+            </cloudinaryimage>
+          </div>
           <div ta-bind
                ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]"></div>
         </div>

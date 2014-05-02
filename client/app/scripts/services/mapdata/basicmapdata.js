@@ -362,6 +362,21 @@ angular.module('anorakApp')
         }
       };
 
+      this.getMarkerIconActive = function (maincategorykey) {
+        if (maincategorykey) {
+          return "/img/mapicons/marker-" + maincategorykey + "-active.svg";
+        } else {
+          return "/img/mapicons/marker.svg";
+        }
+      };
+
+      this.getCurrentSearchLocation = function () {
+        return {
+          lng: this.map.centerMarker.longitude,
+          lat: this.map.centerMarker.latitude
+        };
+      };
+
     };
 
     return mapdata;
