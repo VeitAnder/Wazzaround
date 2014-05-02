@@ -18,10 +18,8 @@
            size="8"
            class="form-control"
            ng-model="event.start"
-           data-autoclose="0"
            placeholder="{{'Time' | translate}}"
            bs-timepicker
-           data-time-format="HH:mm"
         >
   </div>
 
@@ -47,12 +45,17 @@
            size="8"
            class="form-control"
            ng-model="event.end"
-           data-autoclose="0"
            placeholder="{{'Time' | translate}}"
            bs-timepicker
-           data-time-format="HH:mm"
-           data-min-time="10:00"
+           data-min-time="{{getMinTimeForEndTime()}}"
         >
   </div>
 
+</div>
+
+<div class="event-duration-block">
+  Event duration:
+  <strong>
+    {{ {start: event.start, end: event.end } | duration}}
+  </strong>
 </div>

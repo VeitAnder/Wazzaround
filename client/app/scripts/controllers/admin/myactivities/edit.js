@@ -75,7 +75,7 @@ angular.module('anorakApp')
     $scope.start = { time: moment().hours(9).minute(0).toDate() };
     $scope.end = { time: moment().hours(22).minute(0).toDate() };
 
-    $scope.setTime = function(dateString, time) {
+    $scope.setTime = function (dateString, time) {
       var date = moment(dateString);
       var timeToSet = moment(time);
       date.hours(timeToSet.hours());
@@ -106,46 +106,45 @@ angular.module('anorakApp')
       }
       event.mode = 'view';
 
-//      if (!event.repeating) {
-//        return;
-//      }
+      if (!event.repeating) {
+        return;
+      }
 
-      var startDate = moment(event.start);
+      var start = moment(event.start);
       // ensure that date format is in english to ensure weekday comparison is always against english weekdays
-      startDate.lang('en');
-      var start = event.start;
-      var end = event.end;
-      var price = event.price;
-      var quantity = event.quantity;
+      start.lang('en');
 
-      var endDate = moment(event.end).hour(23).minute(59);
+      var endrepeatDate = moment(event.endrepeatDate).hour(23).minute(59);
 
-      if (moment().subtract('days', 1) > startDate) {
+      if (moment().subtract('days', 1) > endrepeatDate) {
         console.log("you're trying to add events in the past");
         return;
       }
 
-      if (endDate.diff(startDate, 'years') > 2) {
+      if (endrepeatDate.diff(moment(event.start), 'years') > 2) {
         console.log("you're trying to add events for more than two years");
         return;
       }
 
-      startDate.add('days', 1);  // start Date + 1
+      var dayoffset = 0;
+      var iteratorDate = angular.copy(event.start);
+      iteratorDate = moment(iteratorDate);
 
-      while (startDate <= endDate) {
+      while (iteratorDate <= endrepeatDate) {
         // add new event
-        if (event.dayOfWeek[startDate.format('ddd')]) {  // Wochentag angehakt
-          console.log('Create Event at: ', startDate.format("dddd, MMMM Do YYYY, h:mm:ss a"));
-
+        if (event.dayOfWeek[moment(event.start).add('days', dayoffset).format('ddd')]) {  // Wochentag angehakt
           var newEvent = item.createEvents();
-
-          newEvent.start = new Date(startDate.toDate());
-          newEvent.duration = duration;
-          newEvent.quantity = quantity;
+          newEvent.start = moment(event.start).add('days', dayoffset).toDate();
+          newEvent.end = moment(event.end).add('days', dayoffset).toDate();
+          newEvent.quantity = event.quantity;
+          newEvent.price = event.price;
         }
-        startDate.add('days', 1);
+        dayoffset += 1;
+        iteratorDate.add('days', 1);
       }
 
+      // disable event.repeating in original event
+      event.repeating = false;
     };
 
     $scope.createEvent = function (bookableItem) {
@@ -154,7 +153,6 @@ angular.module('anorakApp')
       event.end = moment(event.start).add('hours', 1).toDate();
 
       bookableItem.events[bookableItem.events.length - 1].mode = 'new';
-      //event.mode = 'edit';   // funktioniert so leider nicht
     };
 
     $scope.removeEvent = function (item, event_idx) {

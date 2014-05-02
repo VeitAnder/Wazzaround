@@ -64,9 +64,6 @@ angular.module('anorakApp').constant('I18NMESSAGES', {
 angular.module('anorakApp')
   .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $translateProvider) {
 
-
-
-
     $locationProvider.html5Mode((function () {
       return !!(window.history && history.pushState);
     }()));
@@ -1157,4 +1154,14 @@ angular.module('anorakApp')
       $location.path('/login/');
     };
 
+  });
+
+angular.module('anorakApp')
+  .config(function ($timepickerProvider) {
+    angular.extend($timepickerProvider.defaults, {
+      timeFormat: 'HH:mm',
+      length: 7,
+      minuteStep: 15,
+      autoclose: 1
+    });
   });

@@ -346,6 +346,7 @@
                         </div>
                       </eventview>
 
+
                       <eventedit class="eventedit"
                                  ng-show="event.mode == 'edit' || event.mode == 'new'"
                           >
@@ -354,12 +355,7 @@
 
                           <datetimepicker event="event"></datetimepicker>
 
-                          <div class="event-duration-block">
-                            Event duration:
-                            <strong>
-                              {{ {start: event.start, end: event.end } | duration}}
-                            </strong>
-                          </div>
+
 
                           <div class="form-group quantity first">
                             <label>Quantity</label>
@@ -469,8 +465,9 @@
                                 <label>Last start date</label>
                                 <input type="text"
                                        class="form-control"
-                                       ng-model="event.end"
-                                       data-min-date="today"
+                                       ng-model="event.endrepeatDate"
+                                       data-min-date="{{event.start}}"
+                                       data-max-date="{{ moment(event.start).add('years', 1).toString() }}"
                                        placeholder="{{'Date' | translate}}"
                                        bs-datepicker
                                        autoclose="true"
