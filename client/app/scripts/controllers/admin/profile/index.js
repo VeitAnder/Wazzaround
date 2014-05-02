@@ -21,10 +21,9 @@ angular.module('anorakApp')
     };
 
     $scope.user = currentUser.user;
+    $scope.state = {};
 
     $scope.saveUserProfile = function () {
-
-//      $scope.state.submitted = true;
 
       if ($scope.valForm.$valid) {
 
@@ -36,7 +35,7 @@ angular.module('anorakApp')
             $location.path("/admin/profile");
             $scope.$apply();
           })
-          .fail(function (err) {       // TODO fail message
+          .fail(function (err) {
             debug("Could not save user profile", err);
             $scope.state.savesuccess = false;
           });
