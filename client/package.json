@@ -6,7 +6,7 @@
   "devDependencies": {
     "grunt-contrib-coffee": "0.10.1",
     "grunt-contrib-htmlmin": "0.2.0",
-    "express": "3.5.1",
+    "express": "3.5.2",
     "grunt": "0.4.4",
     "grunt-cli": "0.1.13",
     "grunt-autoprefixer": "0.7.3",

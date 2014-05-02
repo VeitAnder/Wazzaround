@@ -42,12 +42,7 @@ angular.module('anorakApp', [
   'ui.keypress',
   'pascalprecht.translate',
   'LocalStorageModule'
-], function ($rootScopeProvider) {
-
-  //customize digestLimit
-  // https://groups.google.com/forum/m/#!topic/angular/Fn8ujAx2OP4
-  $rootScopeProvider.digestTtl(10);
-});
+]);
 
 angular.module('anorakApp').constant('I18NMESSAGES', {
   'errors.route.changeError': 'Route change error',
@@ -1149,7 +1144,7 @@ angular.module('anorakApp')
 // @TODO check logging if it is neccessary to start via DI?
 // DO not remove logging from DI list!
 angular.module('anorakApp')
-  .controller('AppCtrl', function ($scope, $location, $translate) {
+  .controller('AppCtrl', function ($scope, $location) {
     $scope.gotoLogin = function () {
       $location.path('/login/');
     };
@@ -1157,11 +1152,11 @@ angular.module('anorakApp')
   });
 
 angular.module('anorakApp')
-  .config(function ($timepickerProvider) {
+  .config(['$timepickerProvider', function ($timepickerProvider) {
     angular.extend($timepickerProvider.defaults, {
       timeFormat: 'HH:mm',
       length: 7,
       minuteStep: 15,
       autoclose: 1
     });
-  });
+  }]);

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('datetimepicker', function ($timeout, $rootScope) {
+  .directive('datetimepicker', function ($timeout) {
     return {
       templateUrl: 'views/directives/datetimepicker.html',
       restrict: 'E',
