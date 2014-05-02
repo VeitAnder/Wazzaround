@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: activitybar', function () {
+describe('Directive: ajsCentermaxwith', function () {
 
   // load the directive's module
   beforeEach(module('anorakApp'));
@@ -13,8 +13,8 @@ describe('Directive: activitybar', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<activitybar></activitybar>');
+    element = angular.element('<ajs-centermaxwith></ajs-centermaxwith>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the activitybar directive');
+    expect(element.text()).toBe('this is the ajsCentermaxwith directive');
   }));
 });

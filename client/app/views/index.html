@@ -112,7 +112,7 @@
             options='frontendmap.map.options'
             >
           <marker
-              ng-repeat="m in states.filteredactivities = (frontendmap.map.markers | filter:selectedCategoryFilter | markercoordsfilter) track by m._id"
+              ng-repeat="m in states.filteredactivities = (frontendmap.map.markers | filter:selectedCategoryFilter | adddistancetosearchlocation | orderBy:'distancetosearchlocation' | markercoordsfilter) track by m._id"
               coords='m'
               click='onMarkerClicked(m)'
               options='markerOptions'
@@ -188,15 +188,134 @@
 
         </google-map>
 
-      </div> <!-- map-innerwrap-->
+      </div>
+      <!-- map-innerwrap-->
 
-      <!--<activitybar activities="getFilteredActivities()">-->
-      <!--<activitybar activities="states.filteredactivities = (frontendmap.map.markers | filter:selectedCategoryFilter)">-->
-
-      <activitybar activity="getSelectedActivity()"
-                   selectnext="selectnext()"
-                   selectprev="selectprev()"
+      <activitybardetail
+          ajs-centermaxwith
+          class="detail-category-{{getSelectedActivity().category.main}}"
+          ng-class="{activitydetailactive: states.activitydetailactive}"
+          ng-show="states.filteredactivities.length > 0"
           >
+
+        <div class="txt-icon-delete"
+             ng-click="states.activitydetailactive = false">
+          <span class="hidden">Close detail view</span>
+          <span></span>
+        </div>
+
+        <h5 class="category">
+          {{getSelectedActivity().category.main | translate}}
+          <span class="category-sub"
+                ng-repeat="subcat in getSelectedActivity().category.subs">
+            / {{subcat.key | translate}}
+          </span>
+        </h5>
+        <h4>
+          {{getSelectedActivity().name | languageselect}}
+        </h4>
+        <h6 class="no-margin-top">
+          {{'Offered by' | translate}} {{activity.company}}
+        </h6>
+
+        <div class="description">
+
+        </div>
+
+        <div class="availability">
+          <div class="input-label">{{'Availability' | translate}}</div>
+
+          <bookableitemlist
+              data-activity="getSelectedActivity()"
+              showpagination="true"
+              limit="3"
+              >
+          </bookableitemlist>
+
+        </div>
+
+      </activitybardetail>
+
+      <activitybar
+          ng-if="states.filteredactivities.length === 0"
+          >
+        <div class="activitybar">
+          no activity found message
+        </div>
+      </activitybar>
+
+      <!--use ng-if to avoid data binding error messages when getSelectedActivity() returns undefined in case of empty states.filteredactivities -->
+      <activitybar
+          ng-if="getSelectedActivity()"
+          >
+
+        <activitybarstripe>
+
+          <currentactivity
+              ajs-centermaxwith
+              ng-class="{activitydetailactive: states.activitydetailactive}"
+              >
+
+            <div ng-show="states.filteredactivities.length > 0">
+
+              <div class="currentactivity-body">
+                <a ng-href=""
+                   ng-click="states.activitydetailactive = !states.activitydetailactive"
+                    >
+                  <cloudinaryimage
+                      data-publicid="{{getSelectedActivity().images[0].public_id}}"
+                      data-format="{{getSelectedActivity().images[0].format}}"
+                      data-width="650"
+                      data-height="200"
+                      >
+                  </cloudinaryimage>
+
+                  <div class="activity-detail-toggle">
+                    <span class="hideme">show/hide activity detail</span>
+                    <span></span>
+                  </div>
+                  <div class="activity-distance-element">
+                    <span class="current-location"></span>
+                    <span class="activity-distance-txt">
+                      {{getSelectedActivity().distancetosearchlocation | mtokm }} km  | {{getIndexFilteredActivities(getSelectedActivity()) }} {{'of' | translate }} {{states.filteredactivities.length}}
+                    </span>
+                    <span class="activity-location"></span>
+                  </div>
+
+                  <h4 class="activity-title">{{getSelectedActivity().name | languageselect}}</h4>
+
+                </a>
+                <span class="triangle"></span>
+              </div>
+
+              <a ng-click="selectprev()"
+                 class="activitybar-item-prev"
+                  >
+                <div class="activity-nav activity-nav-prev">
+                  <span class="hideme">previous activity</span>
+                  <span></span>
+                </div>
+              </a>
+
+              <a ng-click="selectnext()"
+                 class="activitybar-item-next"
+                  >
+                <div class="activity-nav activity-nav-next">
+                  <span class="hideme">next activity</span>
+                  <span></span>
+                </div>
+              </a>
+
+            </div>
+
+            <div ng-show="states.filteredactivities.length === 0">
+              keine Aktivität gefunden
+            </div>
+
+          </currentactivity>
+
+        </activitybarstripe>
+
       </activitybar>
 
     </div>

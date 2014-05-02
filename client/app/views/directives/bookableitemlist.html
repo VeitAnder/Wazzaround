@@ -2,44 +2,97 @@
   <h5>{{'No events to display yet' | translate}}</h5>
 </div>
 
-<div ng-repeat="bookableItem in activity.bookableItems"
-     class="event-list">
+<div ng-repeat="bookableItem in (activity.bookableItems | limitTo:state.limit)"
+     class="event-list event-list-items">
 
-  <h5>
-    {{'Event' | translate}}:
-    {{bookableItem.description | languageselect}}
-  </h5>
+  <!--
+    <h5>
+      {{'Event' | translate}}:
+      {{bookableItem.description | languageselect}}
+    </h5>
 
-  <div class="event-header">
-    <div class="event-date cell">{{'Date' | translate}}</div>
-    <div class="event-time cell">{{'Time' | translate}}</div>
-    <div class="event-duration cell">{{'Duration' | translate}}</div>
-    <div class="event-quantity cell">{{'Qty' | translate}}</div>
-    <div class="event-price cell">{{'Price' | translate}}</div>
-  </div>
-  <div ng-repeat="(idx,event) in bookableItem.events"
-       class="event-body">
-    <div class="event-row">
-      <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
-      <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
+    <div class="event-header">
+      <div class="event-date cell">{{'Date' | translate}}</div>
+      <div class="event-time cell">{{'Time' | translate}}</div>
+      <div class="event-duration cell">{{'Duration' | translate}}</div>
+      <div class="event-quantity cell">{{'Qty' | translate}}</div>
+      <div class="event-price cell">{{'Price' | translate}}</div>
+    </div>
+    <div ng-repeat="(idx,event) in bookableItem.events"
+         class="event-body">
+      <div class="event-row">
+        <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
+        <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
+        <div class="event-duration cell">
+          {{ {start:event.start, end:event.end} | duration }}
+        </div>
+
+        <div class="event-quantity cell">{{event.quantity}}x</div>
+        <div class="event-price cell">{{event.price}}</div>
+        <a ng-click="addToShoppingCart(event, bookableItem, activity)">book</a>
+
+      </div>
+    </div>
+  -->
+
+  <eventitem class="event-item"
+             ng-repeat="(idx,event) in (bookableItem.events | limitTo:state.limit)"
+      >
+    <div class="event-item-header">
+      <div class="event-item-description">
+        <h6>
+          {{bookableItem.description | languageselect}}
+        </h6>
+        <span class="event-item-quantity">
+          … still
+          <strong>{{event.quantity}}x</strong>
+          available!
+        </span>
+      </div>
+      <div class="event-item-book">
+        <button ng-click="addToShoppingCart(event, bookableItem, activity)"
+                class="btn-mini-book">
+          <span class="btn-txt">
+            Book
+          </span>
+          <span class="btn-icon btn-icon-right"></span>
+        </button>
+      </div>
+    </div>
+    <div class="event-item-body">
+      <div class="event-date cell first">
+        <span class="input-label">
+          {{'Date' | translate}}/{{'Time' | translate}}:
+        </span>
+        {{ event.start | momentjs:{format: "ddd, MMM D YYYY"} }}, {{ event.start | momentjs:{format: "h:mm a"} }}
+      </div>
       <div class="event-duration cell">
+        <span class="input-label">
+        {{'Duration' | translate}}:
+        </span>
         {{ {start:event.start, end:event.end} | duration }}
       </div>
 
-      <div class="event-quantity cell">{{event.quantity}}x</div>
-      <div class="event-price cell">{{event.price}}</div>
-      <a ng-click="addToShoppingCart(event, bookableItem, activity)">book</a>
+      <div class="event-price cell last">
+        <span class="input-label">
+          {{'Price' | translate}}:
+        </span>
+        {{event.price}}
+      </div>
 
     </div>
-  </div>
+
+  </eventitem>
 </div>
 
-<div class="availability-footer">
+<div class="availability-footer"
+    ng-show="showpagination"
+    >
   <div class="cell first">
-    <a class="btn btn-mini disabled"
+<!--    <a class="btn btn-mini disabled"
        ng-click=""
         >{{ 'Prev' | translate }}
-    </a>
+    </a>-->
   </div>
   <div class="cell align-center">
     <a class="btn btn-mini"
@@ -49,9 +102,9 @@
     </a>
   </div>
   <div class="cell last align-right">
-    <a class="btn btn-mini"
+<!--    <a class="btn btn-mini"
        ng-click=""
         >{{ 'Next' | translate }}
-    </a>
+    </a>-->
   </div>
 </div>
