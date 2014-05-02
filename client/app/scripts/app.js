@@ -42,7 +42,12 @@ angular.module('anorakApp', [
   'ui.keypress',
   'pascalprecht.translate',
   'LocalStorageModule'
-]);
+], function ($rootScopeProvider) {
+
+  //customize digestLimit
+  // https://groups.google.com/forum/m/#!topic/angular/Fn8ujAx2OP4
+  $rootScopeProvider.digestTtl(10);
+});
 
 angular.module('anorakApp').constant('I18NMESSAGES', {
   'errors.route.changeError': 'Route change error',
@@ -58,6 +63,9 @@ angular.module('anorakApp').constant('I18NMESSAGES', {
 
 angular.module('anorakApp')
   .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $translateProvider) {
+
+
+
 
     $locationProvider.html5Mode((function () {
       return !!(window.history && history.pushState);

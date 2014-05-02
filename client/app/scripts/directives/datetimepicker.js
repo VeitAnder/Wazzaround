@@ -31,33 +31,39 @@ angular.module('anorakApp')
             scope.event.end = end;
           }
         };
+//
+//        scope.$watch('event.start', function (newVal, oldVal) {
+//          if (newVal !== oldVal) {
+//            console.log("START CHANGED", scope.event.start);
+//            scope.setEndDate();
+//          }
+//        });
+//
+//        scope.$watch('event.end', function (newVal, oldVal) {
+//          if (newVal !== oldVal) {
+//            console.log("END CHANGED", scope.event.start);
+//
+//            $timeout(function () {
+//              var start = moment(scope.event.start);
+//              var end = moment(scope.event.end);
+//
+//              if (start.isAfter(end)) {
+//                console.log("START BEFORE END");
+//                scope.eventcreation.error = "endBeforeStart";
+//                scope.event.end = start.add(15, 'minutes');
+//
+//              } else {
+//                scope.eventcreation.error = "";
+//              }
+//            });
+//          }
+//        });
 
-        scope.$watch('event.start', function (newVal, oldVal) {
-          if (newVal !== oldVal) {
-            console.log("START CHANGED", scope.event.start);
-            scope.setEndDate();
-          }
-        });
+        scope.endTimeBlur = function () {
+          console.log("blur");
+        };
 
-        scope.$watch('event.end', function (newVal, oldVal) {
-          if (newVal !== oldVal) {
-            console.log("END CHANGED", scope.event.start);
 
-            $timeout(function () {
-              var start = moment(scope.event.start);
-              var end = moment(scope.event.end);
-
-              if (start.isAfter(end)) {
-                console.log("START BEFORE END");
-                scope.eventcreation.error = "endBeforeStart";
-                scope.event.end = start.add(15, 'minutes');
-
-              } else {
-                scope.eventcreation.error = "";
-              }
-            });
-          }
-        });
 
         scope.event.end = setTimeToNextFiveMinuteInterval(scope.event.end);
 
