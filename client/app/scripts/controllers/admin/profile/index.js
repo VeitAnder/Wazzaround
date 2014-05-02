@@ -28,10 +28,13 @@ angular.module('anorakApp')
 
       if ($scope.valForm.$valid) {
 
+        console.log("save()", $scope.user);
+
         $scope.user.save()
           .then(function (asdf) {
             debug("Saved user", asdf);
-            $location.path("/admin/profile");  // TODO message das speichern erfolgreich
+            $location.path("/admin/profile");
+            $scope.$apply();
           })
           .fail(function (err) {       // TODO fail message
             debug("Could not save user profile", err);
