@@ -14,26 +14,26 @@ angular.module('anorakApp')
 
   })
 
-  .controller('AdminProfileEditCtrl', function ($scope, currentUser, models, $location) {
+  .controller('AdminProfileEditCtrl', function ($scope, currentUser, models, $location, $timeout) {
 
     $scope.getPagePartial = function () {
       return 'views/admin/profile/edit.html';
     };
 
     $scope.user = currentUser.user;
+    $scope.state = {};
 
     $scope.saveUserProfile = function () {
 
-//      $scope.state.submitted = true;
-
       if ($scope.valForm.$valid) {
-
         $scope.user.save()
           .then(function (asdf) {
             debug("Saved user", asdf);
-            $location.path("/admin/profile");  // TODO message das speichern erfolgreich
+            $timeout(function () {
+              $location.path("/admin/profile");
+            });
           })
-          .fail(function (err) {       // TODO fail message
+          .fail(function (err) {
             debug("Could not save user profile", err);
             $scope.state.savesuccess = false;
           });
