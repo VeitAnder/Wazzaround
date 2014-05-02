@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('datetimepicker', function ($timeout) {
+  .directive('datetimepicker', function ($timeout, $rootScope) {
     return {
       templateUrl: 'views/directives/datetimepicker.html',
       restrict: 'E',
@@ -11,6 +11,9 @@ angular.module('anorakApp')
       compile: function compile(tElement, tAttrs, transclude) {
         return {
           pre: function preLink(scope, element, attrs, controller) {
+
+          },
+          post: function postLink(scope, iElement, iAttrs, controller) {
 
             function setTimeToNextFiveMinuteInterval(dateTime) {
               var time = moment(dateTime);
@@ -28,49 +31,54 @@ angular.module('anorakApp')
             scope.event.end = setTimeToNextFiveMinuteInterval(scope.event.end);
 
             scope.setEndDate = function () {
-              $timeout(function () {
-                if (moment(scope.event.start).isAfter(moment(scope.event.end))) {
-                  scope.event.end = moment(moment(scope.event.start)).add('hours', 1).toString();
-                }
-                scope.$apply();
-              });
+              if (moment(scope.event.start).isAfter(moment(scope.event.end))) {
+                $timeout(function () {
+                  // don't assign new Object, instead alter existing date object
+                  scope.event.end = moment(moment(scope.event.start)).add('hours', 1).toDate();
+                });
+              }
             };
 
-            scope.$watch('event.start', function (newVal, oldVal) {
-              if (newVal !== oldVal) {
+            scope.$watch('event.start', function (newDate, oldDate) {
+              if (newDate !== oldDate) {
                 scope.setEndDate();
               }
             });
 
-            scope.$watch('event.end', function (newVal, oldVal) {
-              if (newVal !== oldVal) {
+            scope.$watch('event.end', function (newDate, oldDate) {
+              if (newDate !== oldDate) {
                 var start = moment(scope.event.start);
                 var end = moment(scope.event.end);
 
-                $timeout(function () {
-                  if (start.isAfter(end)) {
-                    scope.event.end = start.add(15, 'minutes').toString();
-                  }
+                if (start.isAfter(end)) {
+                  // don't assign new Object, instead alter existing date object
+                  $timeout(function () {
+                    scope.event.end = start.add(15, 'minutes').toDate();
+                  });
+                }
 
-                  scope.$apply();
-                });
               }
             });
 
             scope.getMinTimeForEndTime = function () {
-              var hours = moment(scope.event.start).hours();
-              var minutes = moment(scope.event.start).minutes();
-              if (hours < 10) {
-                hours = "0" + hours;
+              // @TODO check is wrong ---
+              if (moment(scope.event.start).diff(moment(scope.event.end), 'days') > -1) {
+                console.log("the same day");
+                // same day - apply hours rules
+                var hours = moment(scope.event.start).hours();
+                var minutes = moment(scope.event.start).minutes();
+                if (hours < 10) {
+                  hours = "0" + hours;
+                }
+                if (minutes < 10) {
+                  minutes = "0" + minutes;
+                }
+                return hours + ":" + minutes;
+              } else {
+                console.log("the day before");
+                return "00:00";
               }
-              if (minutes < 10) {
-                minutes = "0" + minutes;
-              }
-              return hours + ":" + minutes;
             };
-
-          },
-          post: function postLink(scope, iElement, iAttrs, controller) {
 
           }
         };
