@@ -5,8 +5,10 @@ angular.module('anorakApp')
     return {
       templateUrl: 'views/directives/datetimepicker.html',
       restrict: 'E',
+      scope: {
+        event: "=event"
+      },
       link: function postLink(scope, element, attrs) {
-        scope.eventcreation = { error: "" };
 
         function setTimeToNextFiveMinuteInterval(dateTime) {
           var time = moment(dateTime);
@@ -21,51 +23,32 @@ angular.module('anorakApp')
 
         // start ist nach end - setze end auf start + 1h
         scope.event.start = setTimeToNextFiveMinuteInterval(scope.event.start);
+        scope.event.end = setTimeToNextFiveMinuteInterval(scope.event.end);
 
         scope.setEndDate = function () {
-          var start = moment(scope.event.start);
-          var end = moment(scope.event.end);
-
-          if (start.isAfter(end)) {
-            end = moment(start).add('hours', 1);
-            scope.event.end = end;
+          if (moment(scope.event.start).isAfter(moment(scope.event.end))) {
+            scope.event.end = moment(moment(scope.event.start)).add('hours', 1).toString();
           }
         };
-//
-//        scope.$watch('event.start', function (newVal, oldVal) {
-//          if (newVal !== oldVal) {
-//            console.log("START CHANGED", scope.event.start);
-//            scope.setEndDate();
-//          }
-//        });
-//
-//        scope.$watch('event.end', function (newVal, oldVal) {
-//          if (newVal !== oldVal) {
-//            console.log("END CHANGED", scope.event.start);
-//
-//            $timeout(function () {
-//              var start = moment(scope.event.start);
-//              var end = moment(scope.event.end);
-//
-//              if (start.isAfter(end)) {
-//                console.log("START BEFORE END");
-//                scope.eventcreation.error = "endBeforeStart";
-//                scope.event.end = start.add(15, 'minutes');
-//
-//              } else {
-//                scope.eventcreation.error = "";
-//              }
-//            });
-//          }
-//        });
 
-        scope.endTimeBlur = function () {
-          console.log("blur");
-        };
+        scope.$watch('event.start', function (newVal, oldVal) {
+          if (newVal !== oldVal) {
+            scope.setEndDate();
+          }
+        });
 
+        scope.$watch('event.end', function (newVal, oldVal) {
+          if (newVal !== oldVal) {
+            $timeout(function () {
+              var start = moment(scope.event.start);
+              var end = moment(scope.event.end);
 
-
-        scope.event.end = setTimeToNextFiveMinuteInterval(scope.event.end);
+              if (start.isAfter(end)) {
+                scope.event.end = start.add(15, 'minutes').toString();
+              }
+            });
+          }
+        });
 
       }
     };

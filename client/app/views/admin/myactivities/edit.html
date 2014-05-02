@@ -357,7 +357,7 @@
                           <div class="event-duration-block">
                             Event duration:
                             <strong>
-                              {{getTimeDifference(event.start, event.end)}}
+                              {{ {start: event.start, end: event.end } | duration}}
                             </strong>
                           </div>
 

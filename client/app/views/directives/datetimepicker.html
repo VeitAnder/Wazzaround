@@ -23,7 +23,6 @@
            bs-timepicker
            data-time-format="HH:mm"
         >
-    <!--ng-change="event.start = setTime(event.start, start.time)"-->
   </div>
 
   <div class="from-until">
@@ -52,12 +51,8 @@
            placeholder="{{'Time' | translate}}"
            bs-timepicker
            data-time-format="HH:mm"
-           ng-blur="endTimeBlur()"
+           data-min-time="10:00"
         >
-  </div>
-
-  <div ng-show="eventcreation.error">
-    <div class="alert alert-error">{{eventcreation.error | translate}}</div>
   </div>
 
 </div>
