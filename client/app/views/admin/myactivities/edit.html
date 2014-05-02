@@ -330,7 +330,7 @@
                         <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
                         <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
                         <div class="event-duration cell">
-                          {{ {start:event.start, end:event.end} | duration }}
+                          {{{start:event.start, end:event.end} | duration }}
                         </div>
                         <div class="event-quantity cell">{{event.quantity}}x</div>
                         <div class="event-price cell">{{event.price}}</div>
@@ -351,61 +351,8 @@
                           >
 
                         <ng-form name="eventForm">
-                          <div class="form-group date-start first">
-                            <label>Start date</label>
-                            <input type="text"
-                                   size="10"
-                                   class="form-control"
-                                   ng-model="event.start"
-                                   data-min-date="today"
-                                   data-autoclose="0"
-                                   placeholder="{{'Date' | translate}}"
-                                   bs-datepicker
-                                   ng-change="event.end = setEndDate(event.start, event.end);"
-                                >
-                          </div>
-                          <div class="form-group time-start">
-                            <label>Start time</label>
-                            <input type="text"
-                                   size="8"
-                                   class="form-control"
-                                   ng-model="start.time"
-                                   data-autoclose="0"
-                                   placeholder="{{'Time' | translate}}"
-                                   bs-timepicker
-                                   ng-change="event.start = setTime(event.start, start.time)"
-                                >
-                          </div>
 
-                          <div class="from-until">
-                            <span></span>
-                          </div>
-
-                          <div class="form-group date-end">
-                            <label>End date</label>
-                            <input type="text"
-                                   size="10"
-                                   class="form-control"
-                                   ng-model="event.end"
-                                   data-min-date="{{event.start | minusOneDay}}"
-                                   data-autoclose="0"
-                                   placeholder="{{'Date' | translate}}"
-                                   bs-datepicker
-                                >
-                          </div>
-                          <div class="form-group time-end last">
-                            <label>End time</label>
-                            <input type="text"
-                                   size="8"
-                                   class="form-control"
-                                   ng-model="end.time"
-                                   data-min-date="{{event.start}}"
-                                   data-autoclose="0"
-                                   placeholder="{{'Time' | translate}}"
-                                   bs-timepicker
-                                   ng-change="event.end = setTime(event.end, end.time)"
-                                >
-                          </div>
+                          <datetimepicker event="event"></datetimepicker>
 
                           <div class="event-duration-block">
                             Event duration:

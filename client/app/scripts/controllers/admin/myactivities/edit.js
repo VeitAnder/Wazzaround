@@ -77,10 +77,7 @@ angular.module('anorakApp')
 
     $scope.setTime = function(dateString, time) {
       var date = moment(dateString);
-      console.log("GOT DATE", date);
-      var timeToSet = moment(time).zone(date.zone());
-      console.log("GOT TIME", timeToSet);
-      console.log("GOT HORUS", date.hours(), timeToSet.hours());
+      var timeToSet = moment(time);
       date.hours(timeToSet.hours());
       date.minute(timeToSet.minute());
       date.second(0);

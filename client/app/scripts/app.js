@@ -517,7 +517,8 @@ angular.module('anorakApp')
       "Your changes have been saved": "Your changes have been saved",
       "Your changes could not be saved": "Your changes could not be saved",
       "Please fill out the form correctly": "Please fill out the form correctly",
-      "All dates from activity": "All dates from activity"
+      "All dates from activity": "All dates from activity",
+      "endBeforeStart": "The end date is before the start date"
     });
 
     $translateProvider.translations('de', {
@@ -777,7 +778,8 @@ angular.module('anorakApp')
       "Your changes have been saved": "Ihre Änderungen wurden gespeichert",
       "Your changes could not be saved": "Ihre Änderungen konnten nicht gespeichert werden",
       "Please fill out the form correctly": "Bitte füllen Sie das Formular korrekt aus",
-      "All dates from activity": "All dates from activity"
+      "All dates from activity": "All dates from activity",
+      "endBeforeStart": "Das Event-Ende liegt vor dem Event-Start"
     });
 
     $translateProvider.translations('it', {
@@ -1036,7 +1038,8 @@ angular.module('anorakApp')
       "Company data": "Dati aziendali",
       "Your changes have been saved": "Le modifiche sono state salvate",
       "Your changes could not be saved": "Le modifiche non potevano essere salvate",
-      "Please fill out the form correctly": "Si prega di compilare correttamente il modulo"
+      "Please fill out the form correctly": "Si prega di compilare correttamente il modulo",
+      "endBeforeStart": "Fine evento è prima dell'inizio dell'evento"
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
