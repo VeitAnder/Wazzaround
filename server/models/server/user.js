@@ -49,22 +49,23 @@ UserModel.writeFilter(function (userDoc, req) {
     return false;  // if not logged in don't allow write operations
   }
 
-  if(checkRequiredFieldsForUserType(userDoc) === false) {
-    return false;
-  }
+  // TODO: hier mit orginal vergleichn!
+//  if(checkRequiredFieldsForUserType(userDoc) === false) {
+//    return false;
+//  }
 
+  // TODO: Asyncron und funktionier (noch) nicht
   // fields that may not be overwritten, get from db and write to userdoc
-  models.UserModel.find({email: userDoc.email})
-    .then(function(user) {
-      console.log("CHECK NEW FIELDS");
-      userDoc.email = user.email;
-      userDoc.registrationdate = user.registrationdate;
-      userDoc.lastlogindate = user.lastlogindate;
-      userDoc.userType = user.userType;
-    });
+//  models.UserModel.find({email: userDoc.email})
+//    .then(function(user) {
+//      console.log("CHECK NEW FIELDS");
+//      userDoc.registrationdate = user.registrationdate;
+//      userDoc.lastlogindate = user.lastlogindate;
+//      userDoc.userType = user.userType;
+//    });
 
   // allow the user to save his own User Object
-  if (userDoc._id === req.session.user._id) {
+  if (userDoc._id.toString() === req.session.user._id) {
     return true;
   }
 

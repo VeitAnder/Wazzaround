@@ -14,6 +14,8 @@ angular.module('services.authentication.current-user', [])
 
         return models.UserModel.currentUser()
           .then(function (user) {
+            user.registrationdate = new Date(user.registrationdate);
+            user.lastlogindate = new Date(user.lastlogindate);
             currentUser.user = user;
             currentUser.authenticated = true;
             $rootScope.$apply();
