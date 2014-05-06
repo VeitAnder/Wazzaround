@@ -1398,6 +1398,27 @@ activitybardetail {
   }
 }
 
+.activitybar-noresult{
+  padding: $bu*2.0;
+  text-align: center;
+  .icon{
+    display: inline-block;
+    width: 40px;
+    height: 49px;
+    margin-bottom: $bu;
+    @include sprite_icons(-100px, -100px, no-repeat);
+  }
+  h4{
+    color: $color_white;
+    font-weight: $font-weight_bold;
+    margin: 0;
+  }
+  p{
+    color: $color_white;
+    margin-top: 0;
+  }
+}
+
 // CONTENT ELEMENTS
 // ###########################################################################################################################
 // ###########################################################################################################################
