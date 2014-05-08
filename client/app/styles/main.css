@@ -4525,6 +4525,28 @@ activitybardetail {
   activitybardetail.activitydetailactive {
     bottom: 200px; }
 
+.activitybar-noresult {
+  padding: 30px;
+  text-align: center; }
+  .activitybar-noresult .icon {
+    display: inline-block;
+    width: 40px;
+    height: 49px;
+    margin-bottom: 15px;
+    background-position: -100px -100px;
+    background-repeat: no-repeat; }
+    .svg .activitybar-noresult .icon {
+      background-image: url('/img/sprite_icons.svg'); }
+    .no-svg .activitybar-noresult .icon {
+      background-image: url('/img/sprite_icons.png'); }
+  .activitybar-noresult h4 {
+    color: #FFF;
+    font-weight: 600;
+    margin: 0; }
+  .activitybar-noresult p {
+    color: #FFF;
+    margin-top: 0; }
+
 #logo {
   display: block;
   margin: 24px 0;

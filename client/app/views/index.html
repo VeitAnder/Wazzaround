@@ -239,8 +239,10 @@
       <activitybar
           ng-if="states.filteredactivities.length === 0"
           >
-        <div class="activitybar">
-          no activity found message
+        <div class="activitybar-noresult">
+          <span class="icon"></span>
+          <h4>{{'No Activities found.' | translate}}</h4>
+          <p>{{'Zoom out the map or reset your filter settings.' | translate}}</p>
         </div>
       </activitybar>
 
