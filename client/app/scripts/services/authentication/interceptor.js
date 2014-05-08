@@ -1,7 +1,7 @@
+"use strict";
 // This http interceptor listens for authentication failures
 angular.module('services.authentication.interceptor', ['services.authentication.retry-queue'])
   .factory('AuthenticationInterceptor', function ($rootScope, $injector, $window, debug) {
-    "use strict";
 
     var $http; // To be lazy initialized to prevent circular dependency
     return function (promise) {
@@ -39,6 +39,5 @@ angular.module('services.authentication.interceptor', ['services.authentication.
 // We have to add the interceptor to the queue as a string because the interceptor depends upon service instances that are not available in the config block.
 angular.module('services.authentication.interceptor')
   .config(function ($httpProvider) {
-    "use strict";
     $httpProvider.responseInterceptors.push('AuthenticationInterceptor');
   });

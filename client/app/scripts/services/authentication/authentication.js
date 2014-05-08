@@ -1,8 +1,8 @@
+"use strict";
 // Based loosely around work by Witold Szczerba - https://github.com/witoldsz/angular-http-auth
 // The AuthenticationService is the public API for this module.  Application developers should only need to use this service and not any of the others here.
 angular.module('services.authentication', ['services.authentication.current-user', 'services.authentication.interceptor', 'services.authentication.retry-queue'])
   .factory('AuthenticationService', function ($http, $location, $q, AuthenticationRetryQueue, currentUser, APP_CONFIG) {
-    "use strict";
 
     // TODO: We need a way to refresh the page to clear any data that has been loaded when the user logs out
     //  a simple way would be to redirect to the root of the application but this feels a bit inflexible.
