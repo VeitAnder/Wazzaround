@@ -1,5 +1,5 @@
 var winston = require('winston');
-var express = require('express');
+var morganlogger = require('morgan');
 
 var beautify = require('js-beautify').js_beautify;
 
@@ -36,7 +36,7 @@ if (config.logging.using_logentries_service) {
 }
 
 // http://stackoverflow.com/questions/9141358/how-do-i-output-connect-expresss-logger-output-to-winston
-winston.expressLogger = express.logger(  // Logging requests
+winston.expressLogger = morganlogger(  // Logging requests
   {
     stream: {
       write: function (message, encoding) {
