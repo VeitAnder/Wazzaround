@@ -97,6 +97,16 @@ angular.module('anorakApp')
       }
     };
 
+    $scope.isAtLeastOneWeekdaySelected = function (event) {
+      var isselected = false;
+      _.each(event.dayOfWeek, function (value) {
+        if (value) {
+          isselected = true;
+        }
+      });
+      return isselected;
+    };
+
     $scope.createEventSeries = function (item, event, eventForm) {
 
       eventForm.submitted = true;

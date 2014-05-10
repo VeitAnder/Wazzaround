@@ -324,7 +324,8 @@
                     </div>
 
                     <eventrow class="event-row"
-                              ng-repeat="(idx,event) in bookableItem.events">
+                              ng-repeat="(idx,event) in bookableItem.events"
+                        >
 
                       <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
                         <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
@@ -346,7 +347,6 @@
                         </div>
                       </eventview>
 
-
                       <eventedit class="eventedit"
                                  ng-show="event.mode == 'edit' || event.mode == 'new'"
                           >
@@ -354,8 +354,6 @@
                         <ng-form name="eventForm">
 
                           <datetimepicker event="event"></datetimepicker>
-
-
 
                           <div class="form-group quantity first">
                             <label>Quantity</label>
@@ -408,7 +406,8 @@
                                  ng-show="event.repeating">
 
                               <div class="alert alert-info">
-                                Same starting time and duration as above
+                                {{'The repeating events will have the same starting time and duration as above' |
+                                translate }}
                               </div>
 
                               <div class="checkbox">
@@ -456,10 +455,20 @@
                               <div class="checkbox">
                                 <label>
                                   <input type="checkbox"
-                                         ng-model="event.dayOfWeek.Son">
+                                         ng-model="event.dayOfWeek.Son"
+                                         ng-required="!isAtLeastOneWeekdaySelected(event) && event.repeating"
+                                      >
                                   {{'Sun' | translate}}
                                 </label>
                               </div>
+
+                              <br/>
+
+                              <span ng-show="(state.submitted || eventForm.submitted) && !isAtLeastOneWeekdaySelected(event)"
+                                    class="alert"
+                                  >
+                                {{'Please select at least one day for repeating event.' | translate}}
+                              </span>
 
                               <div class="form-group date-until first">
                                 <label>Last start date</label>
