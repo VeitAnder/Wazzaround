@@ -15,10 +15,13 @@ var ActivityModel = require('../models.js').ActivityModel;
 ActivityModel.readFilter(function (req) {
   // allow global read access
 
-  if (req.session.auth) {  // if logged in
-
+  // authorized users
+  if (req.session.auth) {
+    console.log("test");
     if (req.session.user.userType === 'user') {
-      return {published: true};
+      return {
+        published: true
+      };
     }
 
     if (req.session.user.userType === 'provider') {
@@ -36,9 +39,13 @@ ActivityModel.readFilter(function (req) {
 
     return false;  //der rest (sollte nicht passieren) kann nix lesen
   }
+  // end authorized users
 
   // für nicht eingeloggt user:
-  return {published: true};  //filter published Activities
+  return {
+    published: true
+  };  //filter published Activities
+
 });
 
 //ActivityModel.postReadFilter(function (req, obj) {
@@ -115,9 +122,9 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
   var endDate = new Date(params.endDate);
 
   return models.ActivityModel.find({
-    location : {
-      '$geoWithin' : {
-        '$box' : [
+    location: {
+      '$geoWithin': {
+        '$box': [
           [ params.from.lng, params.from.lat ],
           [ params.to.lng, params.to.lat ]
         ]
@@ -134,31 +141,33 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
           }
         }
       }
-    }
-  });/*.then(function(activities) {
+    },
+    published: true
+  });
+  /*.then(function(activities) {
 
-    var events = [];
-    _.forEach(activities, function(activity) {
-      _.forEach(activity.bookableItems, function(item) {
-        _.forEach(item.events, function(event) {
-          events.push(event);
-        });
-      });
-    });
+   var events = [];
+   _.forEach(activities, function(activity) {
+   _.forEach(activity.bookableItems, function(item) {
+   _.forEach(item.events, function(event) {
+   events.push(event);
+   });
+   });
+   });
 
-    var bookQuantityPromises = [];
-    _.forEach(events, function(event) {
-      bookQuantityPromises.push(
-        models.BookedEventModel.bookedQuantity({event: event._id})
-          .then(function(bookedEvent) {
-            event.bookQuantity = event.quantity - bookedEvent.quantity;
-          })
-      );
-    });
+   var bookQuantityPromises = [];
+   _.forEach(events, function(event) {
+   bookQuantityPromises.push(
+   models.BookedEventModel.bookedQuantity({event: event._id})
+   .then(function(bookedEvent) {
+   event.bookQuantity = event.quantity - bookedEvent.quantity;
+   })
+   );
+   });
 
-    return Q.all(bookQuantityPromises)  // wait for all changes..
-      .then(function() {
-        return activities;
-      })
-  });*/
+   return Q.all(bookQuantityPromises)  // wait for all changes..
+   .then(function() {
+   return activities;
+   })
+   });*/
 });
