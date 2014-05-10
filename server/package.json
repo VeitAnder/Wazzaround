@@ -37,7 +37,8 @@
     "token.js": "0.0.1",
     "tokenator": "0.0.4",
     "ua-parser-js": "0.6.2",
-    "winston": "0.7.x"
+    "winston": "0.7.x",
+    "multiparty": "^3.2.4"
   },
   "devDependencies": {
     "grunt-bump": "0.0.13",

@@ -2,6 +2,7 @@ var config = require("../config.js");
 
 var cloudinary = require('cloudinary');
 var fs = require("fs");
+var multiparty = require("multiparty");  // necessary as separate module since ExpressJS 4.0
 
 //var ObjectId = require('mongojs').ObjectId;
 //var models = require("../models/models.js");
@@ -14,13 +15,14 @@ exports.postupload = function (req, res, next) {
     return;
   }
 
-  var imageStream = fs.createReadStream(req.files.file.path, { encoding: 'binary' });
-  var cloudStream = cloudinary.uploader.upload_stream(function (data) {
-    res.send({data: data});
+  var form = new multiparty.Form();
+  form.parse(req, function (err, fields, files) {
+    var imageStream = fs.createReadStream(files.file[0].path, { encoding: 'binary' });
+    var cloudStream = cloudinary.uploader.upload_stream(function (data) {
+      res.send({data: data});
+    });
+    imageStream.on('data', cloudStream.write).on('end', cloudStream.end);
   });
-
-  imageStream.on('data', cloudStream.write).on('end', cloudStream.end);
-
 };
 
 exports.deleteupload = function (req, res, next) {
