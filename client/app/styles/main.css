@@ -5435,13 +5435,13 @@ activitybardetail {
     display: none; }
   .img-selector label + .img-block img {
     width: 150px;
-    height: 150px; }
+    height: auto; }
   .img-selector label + .img-block .img-teaser {
     display: block;
     position: relative;
-    top: -35px;
-    margin-bottom: -35px;
-    height: 35px;
+    top: -32px;
+    margin-bottom: -32px;
+    height: auto;
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.25);
     color: #FFF;
@@ -5454,8 +5454,8 @@ activitybardetail {
     margin-right: 10px;
     margin-bottom: 32px; }
     .img-selector .img-block img {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: auto;
       -webkit-border-radius: 3px;
       -khtml-border-radius: 3px;
       -moz-border-radius: 3px;

@@ -2412,9 +2412,9 @@ $filter-category-arrow-width: 65px;
   }
 }
 
-$img-selector-imgsize: 100px;
+$img-selector-imgsize: 150px;
 $img-selector-teaserimgsize: 150px;
-$img-selector-teasertxtheight: 35px;
+$img-selector-teasertxtheight: 32px;
 
 .img-selector {
   .img-teaser {
@@ -2424,14 +2424,14 @@ $img-selector-teasertxtheight: 35px;
   label + .img-block {
     img {
       width: $img-selector-teaserimgsize;
-      height: $img-selector-teaserimgsize;
+      height: auto;
     }
     .img-teaser {
       display: block;
       position: relative;
       top: -$img-selector-teasertxtheight;
       margin-bottom: -$img-selector-teasertxtheight;
-      height: $img-selector-teasertxtheight;
+      height: auto;
       padding: 5px;
       background-color: rgba($color_black, 0.25);
       color: $color_white;
@@ -2448,7 +2448,7 @@ $img-selector-teasertxtheight: 35px;
 
     img {
       width: $img-selector-imgsize;
-      height: $img-selector-imgsize;
+      height: auto;
       @include border-radius($border-radius_small);
     }
     .img-edit {
