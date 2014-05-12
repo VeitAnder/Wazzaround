@@ -524,7 +524,8 @@ angular.module('anorakApp')
       "Zoom out the map or reset your filter settings.": "Zoom out the map or reset your filter settings.",
       "The repeating events will have the same starting time and duration as above" : "The repeating events will have the same starting time and duration as above",
       "Please select at least one day for repeating event." : "Please select at least one day for repeating event.",
-      "create event until": "Create events until this date"
+      "create event until": "Create events until this date",
+      "Please select a date until which the repeating events should be created": "Please select a date until which the repeating events should be created"
     });
 
     $translateProvider.translations('de', {
@@ -791,7 +792,8 @@ angular.module('anorakApp')
       "Zoom out the map or reset your filter settings.": "Verkleinern Sie die Karte oder setzen Sie Ihre Filter-Einstellungen zurück.",
       "The repeating events will have the same starting time and duration as above" : "Die Wiederholungs-Events haben die gleiche Startzeit und Dauer",
       "Please select at least one day for repeating event." : "Bitte wählen Sie mindestens einen Tag aus",
-      "create event until": "Events bis zu diesem Datum erzeugen"
+      "create event until": "Events bis zu diesem Datum erzeugen",
+      "Please select a date until which the repeating events should be created": "Bitte wählen Sie ein Datum bis zu welchem die sich wiederholenden Events angelegt werden sollen"
     });
 
     $translateProvider.translations('it', {
@@ -1057,7 +1059,8 @@ angular.module('anorakApp')
       "Zoom out the map or reset your filter settings.": "Zoom out the map or reset your filter settings.",
       "The repeating events will have the same starting time and duration as above" : "The repeating events will have the same starting time and duration as above",
       "Please select at least one day for repeating event." : "Please select at least one day for repeating event.",
-      "create event until": "Create events until this date"
+      "create event until": "Create events until this date",
+      "Please select a date until which the repeating events should be created": "Please select a date until which the repeating events should be created"
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity

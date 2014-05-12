@@ -413,49 +413,49 @@
                               <div class="checkbox">
                                 <label>
                                   <input type="checkbox"
-                                         ng-model="event.dayOfWeek.Mon">
+                                         ng-model="event.dayOfWeek.day1">
                                   {{'Mon' | translate}}
                                 </label>
                               </div>
                               <div class="checkbox">
                                 <label>
                                   <input type="checkbox"
-                                         ng-model="event.dayOfWeek.Tue">
+                                         ng-model="event.dayOfWeek.day2">
                                   {{'Tue' | translate}}
                                 </label>
                               </div>
                               <div class="checkbox">
                                 <label>
                                   <input type="checkbox"
-                                         ng-model="event.dayOfWeek.Wed">
+                                         ng-model="event.dayOfWeek.day3">
                                   {{'Wed' | translate}}
                                 </label>
                               </div>
                               <div class="checkbox">
                                 <label>
                                   <input type="checkbox"
-                                         ng-model="event.dayOfWeek.Thu">
+                                         ng-model="event.dayOfWeek.day4">
                                   {{'Thu' | translate}}
                                 </label>
                               </div>
                               <div class="checkbox">
                                 <label>
                                   <input type="checkbox"
-                                         ng-model="event.dayOfWeek.Fri">
+                                         ng-model="event.dayOfWeek.day5">
                                   {{'Fri' | translate}}
                                 </label>
                               </div>
                               <div class="checkbox">
                                 <label>
                                   <input type="checkbox"
-                                         ng-model="event.dayOfWeek.Sat">
+                                         ng-model="event.dayOfWeek.day6">
                                   {{'Sat' | translate}}
                                 </label>
                               </div>
                               <div class="checkbox">
                                 <label>
                                   <input type="checkbox"
-                                         ng-model="event.dayOfWeek.Son"
+                                         ng-model="event.dayOfWeek.day0"
                                          ng-required="!isAtLeastOneWeekdaySelected(event) && event.repeating"
                                       >
                                   {{'Sun' | translate}}
@@ -481,7 +481,14 @@
                                        bs-datepicker
                                        autoclose="true"
                                        name="dateuntil"
+                                       ng-required="event.repeating"
                                     >
+
+                                <span ng-show="(state.submitted || eventForm.submitted) && eventForm.dateuntil.$error.required"
+                                      class="alert"
+                                    >
+                                  {{'Please select a date until which the repeating events should be created' | translate}}
+                                </span>
                               </div>
 
                             </div>

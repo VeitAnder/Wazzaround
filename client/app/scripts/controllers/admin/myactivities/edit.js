@@ -120,10 +120,6 @@ angular.module('anorakApp')
         return;
       }
 
-      var start = moment(event.start);
-      // ensure that date format is in english to ensure weekday comparison is always against english weekdays
-      start.lang('en');
-
       var endrepeatDate = moment(event.endrepeatDate).hour(23).minute(59);
 
       if (moment().subtract('days', 1) > endrepeatDate) {
@@ -142,7 +138,7 @@ angular.module('anorakApp')
 
       while (iteratorDate <= endrepeatDate) {
         // add new event
-        if (event.dayOfWeek[moment(event.start).add('days', dayoffset).format('ddd')]) {  // Wochentag angehakt
+        if (event.dayOfWeek['day' + moment(event.start).add('days', dayoffset).day()]) {  // Wochentag angehakt
           var newEvent = item.createEvents();
           newEvent.start = moment(event.start).add('days', dayoffset).toDate();
           newEvent.end = moment(event.end).add('days', dayoffset).toDate();
