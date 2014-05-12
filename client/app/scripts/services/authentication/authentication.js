@@ -1,6 +1,4 @@
 "use strict";
-// Based loosely around work by Witold Szczerba - https://github.com/witoldsz/angular-http-auth
-// The AuthenticationService is the public API for this module.  Application developers should only need to use this service and not any of the others here.
 angular.module('services.authentication', ['services.authentication.current-user', 'services.authentication.interceptor', 'services.authentication.retry-queue'])
   .factory('AuthenticationService', function ($http, $location, $q, AuthenticationRetryQueue, currentUser, APP_CONFIG) {
 
