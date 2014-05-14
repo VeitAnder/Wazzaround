@@ -380,8 +380,10 @@
 
           <div class="buttonbar">
             <a class="btn btn-small"
+               ng-class="{disabled: valForm.$invalid}"
                ng-click="saveUserProfile()"
-                >{{'save user data' | translate}}
+                >
+              {{'save user data' | translate}}
             </a>
 
             <a class="space-left"
