@@ -14,7 +14,7 @@ angular.module('anorakApp')
 
   })
 
-  .controller('AdminProfileEditCtrl', function ($scope, currentUser, models, $location, $timeout) {
+  .controller('AdminProfileEditCtrl', function ($scope, currentUser, models, $location, $timeout, Countrylist) {
 
     $scope.getPagePartial = function () {
       return 'views/admin/profile/edit.html';
@@ -41,4 +41,5 @@ angular.module('anorakApp')
       }
     };
 
+    $scope.Countrylist = Countrylist;
   });

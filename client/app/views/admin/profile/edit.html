@@ -13,6 +13,15 @@
               novalidate
             >
 
+          <div class="formdata-display">
+            <div class="input-label">
+              {{'E-mail' | translate}}
+            </div>
+            <div class="input-content">
+              {{user.email}}
+            </div>
+          </div>
+
           <div class="form-group-inline form-group-inline-5050">
             <div class="form-group">
               <label for="firstname">{{'First name' | translate}}</label>
@@ -180,6 +189,10 @@
                    class="input-block-level"
                    required
                    placeholder="{{ 'Your country' | translate }}"
+
+                   ng-options="country as country.name for country in Countrylist.get()"
+                   value="{{user.profile.country.name}}"
+                   bs-typeahead
                 >
 
             <span ng-show="showError('country', 'required')"
@@ -188,173 +201,173 @@
 
           </div>
 
-<!--
-          <fieldset>
-            <legend>{{'Personal data' | translate}}:</legend>
-            <div class="form-group">
-              <label for="firstname">{{'First name' | translate}}</label>
-              <input type="text"
-                     class="form-control"
-                     id="firstname"
-                     name="firstname"
-                     placeholder="{{'First name' | translate}}"
-                     ng-model="user.profile.firstName"
-                     required
-                  >
-              <span ng-show="showError('firstname', 'required')"
-                    class="alert">{{'Please enter your first name' | translate}}
-              </span>
-            </div>
+          <!--
+                    <fieldset>
+                      <legend>{{'Personal data' | translate}}:</legend>
+                      <div class="form-group">
+                        <label for="firstname">{{'First name' | translate}}</label>
+                        <input type="text"
+                               class="form-control"
+                               id="firstname"
+                               name="firstname"
+                               placeholder="{{'First name' | translate}}"
+                               ng-model="user.profile.firstName"
+                               required
+                            >
+                        <span ng-show="showError('firstname', 'required')"
+                              class="alert">{{'Please enter your first name' | translate}}
+                        </span>
+                      </div>
 
-            <div class="form-group">
-              <label for="lastname">{{'Last name' | translate}}</label>
-              <input type="text"
-                     class="form-control"
-                     id="lastname"
-                     name="lastname"
-                     placeholder="{{'Last name' | translate}}"
-                     ng-model="user.profile.lastName"
-                     required
-                  >
-              <span ng-show="showError('lastname', 'required')"
-                    class="alert">{{'Please enter your last name' | translate}}
-              </span>
-            </div>
-          </fieldset>
+                      <div class="form-group">
+                        <label for="lastname">{{'Last name' | translate}}</label>
+                        <input type="text"
+                               class="form-control"
+                               id="lastname"
+                               name="lastname"
+                               placeholder="{{'Last name' | translate}}"
+                               ng-model="user.profile.lastName"
+                               required
+                            >
+                        <span ng-show="showError('lastname', 'required')"
+                              class="alert">{{'Please enter your last name' | translate}}
+                        </span>
+                      </div>
+                    </fieldset>
 
-          <fieldset>
-            <legend>{{'Company data' | translate}}:</legend>
-            <div class="form-group">
-              <label for="company">{{'Company' | translate}}</label>
-              <input type="text"
-                     class="form-control"
-                     id="company"
-                     name="company"
-                     placeholder="{{'Company' | translate}}"
-                     ng-model="user.profile.company"
-                     required
-                  >
-              <span ng-show="showError('company', 'required')"
-                    class="alert">{{'Please enter your company' | translate}}
-              </span>
-            </div>
+                    <fieldset>
+                      <legend>{{'Company data' | translate}}:</legend>
+                      <div class="form-group">
+                        <label for="company">{{'Company' | translate}}</label>
+                        <input type="text"
+                               class="form-control"
+                               id="company"
+                               name="company"
+                               placeholder="{{'Company' | translate}}"
+                               ng-model="user.profile.company"
+                               required
+                            >
+                        <span ng-show="showError('company', 'required')"
+                              class="alert">{{'Please enter your company' | translate}}
+                        </span>
+                      </div>
 
-            <div class="form-group">
-              <label for="address">{{'Address' | translate}}</label>
-              <input type="text"
-                     class="form-control"
-                     id="address"
-                     name="address"
-                     placeholder="{{'Address' | translate}}"
-                     ng-model="user.profile.address"
-                     required
-                  >
-              <span ng-show="showError('address', 'required')"
-                    class="alert">{{'Please enter the address of your company.' | translate}}
-              </span>
-            </div>
+                      <div class="form-group">
+                        <label for="address">{{'Address' | translate}}</label>
+                        <input type="text"
+                               class="form-control"
+                               id="address"
+                               name="address"
+                               placeholder="{{'Address' | translate}}"
+                               ng-model="user.profile.address"
+                               required
+                            >
+                        <span ng-show="showError('address', 'required')"
+                              class="alert">{{'Please enter the address of your company.' | translate}}
+                        </span>
+                      </div>
 
-            <div class="form-group">
-              <label for="city">{{'City' | translate}}</label>
-              <input type="text"
-                     class="form-control"
-                     id="city"
-                     name="city"
-                     placeholder="{{'City' | translate}}"
-                     ng-model="user.profile.city"
-                     required
-                  >
-              <span ng-show="showError('city', 'required')"
-                    class="alert">{{'Please enter your city' | translate}}
-              </span>
-            </div>
+                      <div class="form-group">
+                        <label for="city">{{'City' | translate}}</label>
+                        <input type="text"
+                               class="form-control"
+                               id="city"
+                               name="city"
+                               placeholder="{{'City' | translate}}"
+                               ng-model="user.profile.city"
+                               required
+                            >
+                        <span ng-show="showError('city', 'required')"
+                              class="alert">{{'Please enter your city' | translate}}
+                        </span>
+                      </div>
 
-            <div class="form-group">
-              <label for="zip">{{'Zip' | translate}}</label>
-              <input type="text"
-                     class="form-control"
-                     id="zip"
-                     name="zip"
-                     placeholder="{{'Zip' | translate}}"
-                     ng-model="user.profile.zip"
-                     required
-                  >
-              <span ng-show="showError('zip', 'required')"
-                    class="alert">{{'Please enter your zip code' | translate}}
-              </span>
-            </div>
+                      <div class="form-group">
+                        <label for="zip">{{'Zip' | translate}}</label>
+                        <input type="text"
+                               class="form-control"
+                               id="zip"
+                               name="zip"
+                               placeholder="{{'Zip' | translate}}"
+                               ng-model="user.profile.zip"
+                               required
+                            >
+                        <span ng-show="showError('zip', 'required')"
+                              class="alert">{{'Please enter your zip code' | translate}}
+                        </span>
+                      </div>
 
-            <div class="form-group">
-              <label for="tel">{{'Telephone' | translate}}</label>
-              <input type="text"
-                     class="form-control"
-                     id="tel"
-                     name="tel"
-                     placeholder="{{'Telephone' | translate}}"
-                     ng-model="user.profile.tel"
-                     required
-                  >
-              <span ng-show="showError('tel', 'required')"
-                    class="alert">{{'Please enter your telephone number' | translate}}
-              </span>
-            </div>
+                      <div class="form-group">
+                        <label for="tel">{{'Telephone' | translate}}</label>
+                        <input type="text"
+                               class="form-control"
+                               id="tel"
+                               name="tel"
+                               placeholder="{{'Telephone' | translate}}"
+                               ng-model="user.profile.tel"
+                               required
+                            >
+                        <span ng-show="showError('tel', 'required')"
+                              class="alert">{{'Please enter your telephone number' | translate}}
+                        </span>
+                      </div>
 
-            <div class="form-group">
-              <label for="fax">{{'Fax' | translate}}</label>
-              <input type="text"
-                     class="form-control"
-                     id="fax"
-                     name="fax"
-                     placeholder="{{'Fax' | translate}}"
-                     ng-model="user.profile.fax"
-                  >
-            </div>
+                      <div class="form-group">
+                        <label for="fax">{{'Fax' | translate}}</label>
+                        <input type="text"
+                               class="form-control"
+                               id="fax"
+                               name="fax"
+                               placeholder="{{'Fax' | translate}}"
+                               ng-model="user.profile.fax"
+                            >
+                      </div>
 
-            <div class="form-group">
-              <label for="uid">{{'UID optional' | translate}}</label>
-              <input type="text"
-                     class="form-control"
-                     id="uid"
-                     name="uid"
-                     placeholder="{{'UID optional' | translate}}"
-                     ng-model="user.profile.uid"
-                  >
-            </div>
+                      <div class="form-group">
+                        <label for="uid">{{'UID optional' | translate}}</label>
+                        <input type="text"
+                               class="form-control"
+                               id="uid"
+                               name="uid"
+                               placeholder="{{'UID optional' | translate}}"
+                               ng-model="user.profile.uid"
+                            >
+                      </div>
 
-            <div class="form-group">
-              <label for="tel">{{'Country' | translate}}</label>
-              <input type="text"
-                     class="form-control"
-                     id="country"
-                     name="country"
-                     placeholder="{{'Country' | translate}}"
-                     ng-model="user.profile.country"
-                     required
-                  >
-              <span ng-show="showError('country', 'required')"
-                    class="alert">{{'Please enter your country' | translate}}
-              </span>
-            </div>
+                      <div class="form-group">
+                        <label for="tel">{{'Country' | translate}}</label>
+                        <input type="text"
+                               class="form-control"
+                               id="country"
+                               name="country"
+                               placeholder="{{'Country' | translate}}"
+                               ng-model="user.profile.country"
+                               required
+                            >
+                        <span ng-show="showError('country', 'required')"
+                              class="alert">{{'Please enter your country' | translate}}
+                        </span>
+                      </div>
 
-            <div class="form-group">
-              <label for="contactpersonname">{{'Name of contact person' | translate}}</label>
-              <input type="text"
-                     class="form-control"
-                     id="contactpersonname"
-                     name="contactpersonname"
-                     placeholder="{{'Name of contact person' | translate}}"
-                     ng-model="user.profile.contactperson.name"
-                     placeholder="{{'Please enter the name of the contact person' | translate}}"
-                     required
-                  >
+                      <div class="form-group">
+                        <label for="contactpersonname">{{'Name of contact person' | translate}}</label>
+                        <input type="text"
+                               class="form-control"
+                               id="contactpersonname"
+                               name="contactpersonname"
+                               placeholder="{{'Name of contact person' | translate}}"
+                               ng-model="user.profile.contactperson.name"
+                               placeholder="{{'Please enter the name of the contact person' | translate}}"
+                               required
+                            >
 
-              <span ng-show="showError('contactpersonname', 'required')"
-                    class="alert">{{'Please enter the name of the contact person' | translate}}
-              </span>
-            </div>
+                        <span ng-show="showError('contactpersonname', 'required')"
+                              class="alert">{{'Please enter the name of the contact person' | translate}}
+                        </span>
+                      </div>
 
-          </fieldset>
--->
+                    </fieldset>
+          -->
 
           <p class="alert alert-large alert-error"
              ng-if="valForm.$valid === false">

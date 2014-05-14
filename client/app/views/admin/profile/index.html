@@ -10,6 +10,15 @@
 
       <div class="formdata-display">
         <div class="input-label">
+          {{'E-mail' | translate}}
+        </div>
+        <div class="input-content">
+          {{user.email}}
+        </div>
+      </div>
+
+      <div class="formdata-display">
+        <div class="input-label">
           {{'Name' | translate}}
         </div>
         <div class="input-content">
@@ -38,8 +47,9 @@
           <div class="input-content">
             {{user.profile.address}}
             <br/>
-            {{user.profile.zip}} {{user.profile.city}}<br />
-            {{user.profile.country}}
+            {{user.profile.zip}} {{user.profile.city}}
+            <br/>
+            {{user.profile.country.name}}, {{user.profile.country.code}}
           </div>
         </div>
         <div class="formdata-display">

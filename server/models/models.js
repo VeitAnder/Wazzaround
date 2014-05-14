@@ -47,7 +47,11 @@ var models = function () {
       tel: Attr(Type.string),
       fax: Attr(Type.string),
       uid: Attr(Type.string),
-      country: Attr(Type.string),
+      mobile: Attr(Type.string),
+      country: {
+        "code": Attr(Type.string),
+        "name": Attr(Type.string)
+      },
       contactperson: {
         name: Attr(Type.string)
       }
@@ -124,7 +128,7 @@ var models = function () {
     // http://myadventuresincoding.wordpress.com/2011/10/02/mongodb-geospatial-queries/
     // don' forget to create an index via:
     //  db.activities.ensureIndex( {"location" : "2d"} );
-    location : {
+    location: {
       lng: Attr(Type.number),
       lat: Attr(Type.number)
     },
@@ -163,43 +167,43 @@ var models = function () {
 //    buy: Operation()
 //  });
 
-
   var BookingModel = new model('bookings', {
-    user      : Ref(UserModel),  // welcher user hat gebucht - optional falls vorhanden
-    bookingId : Attr(Type.string),
-    state     : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
-    date      : Attr(Type.date, Attr.default(new Date())),
+    user: Ref(UserModel),  // welcher user hat gebucht - optional falls vorhanden
+    bookingId: Attr(Type.string),
+    state: Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
+    date: Attr(Type.date, Attr.default(new Date())),
 
-    checkout : Operation({
-      bookings : [{
-        activity : Attr(Type.objectid),
-        item     : Attr(Type.objectid),
-        event    : Attr(Type.objectid),
-        quantity : Attr(Type.number)
-      }]
+    checkout: Operation({
+      bookings: [
+        {
+          activity: Attr(Type.objectid),
+          item: Attr(Type.objectid),
+          event: Attr(Type.objectid),
+          quantity: Attr(Type.number)
+        }
+      ]
     })  // returns { bookingID : .., state: 'ok' }
   });
 
   // This Model represents the booking of one Event
   var BookedEventModel = new model('bookedEvents', {
-    booking  : Ref(BookingModel),                       // zu dieser Buchung gehört das Event
-    activity : Ref(ActivityModel),                      // gebuchte Aktivität
-    item     : Link(ActivityModel, BookableItemModel),  // gebuchtes Item
-    event    : Link(ActivityModel, EventModel),         // gebuchtes Event
-    quantity : Attr(Type.number),                       // gebuchte Menge
+    booking: Ref(BookingModel),                       // zu dieser Buchung gehört das Event
+    activity: Ref(ActivityModel),                      // gebuchte Aktivität
+    item: Link(ActivityModel, BookableItemModel),  // gebuchtes Item
+    event: Link(ActivityModel, EventModel),         // gebuchtes Event
+    quantity: Attr(Type.number),                       // gebuchte Menge
 
-    activityCopy : Attr(),  // kopie der Aktivität zum Buchungszeitpunkt
+    activityCopy: Attr(),  // kopie der Aktivität zum Buchungszeitpunkt
 
-    state    : Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
-    date     : Attr(Type.date,  Attr.default(new Date())),  // wann wurde das event gebucht
+    state: Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
+    date: Attr(Type.date, Attr.default(new Date())),  // wann wurde das event gebucht
 
-    bookedQuantity : Operation({    // wie oft wurde das Event gebucht
-      event : Attr(Type.objectid)
+    bookedQuantity: Operation({    // wie oft wurde das Event gebucht
+      event: Attr(Type.objectid)
     })  // returns { quantity : X }
 
     // gebucht ist das Event wenn, state = 'booked' oder state = 'pending' und date < 15min
   });
-
 
   var CategoryModel = new model("categories", {
     title: Attr(Type.string),
@@ -228,7 +232,7 @@ var models = function () {
     BookingModel: BookingModel,
     AccesstokenModel: AccesstokenModel,
     EventModel: EventModel,
-    BookedEventModel : BookedEventModel
+    BookedEventModel: BookedEventModel
   };
 }();
 
