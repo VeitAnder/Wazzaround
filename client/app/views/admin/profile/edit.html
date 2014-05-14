@@ -77,12 +77,26 @@
           </div>
 
           <div class="form-group">
+            <label for="mobile">{{'Mobile Telephone' | translate}}</label>
+            <input name="mobile"
+                   id="mobile"
+                   ng-model="user.profile.mobile"
+                   class="input-block-level"
+                   required
+                   placeholder="{{ 'Your mobile telephone number' | translate }}"
+                >
+
+            <span ng-show="showError('mobile', 'required')"
+                  class="alert">{{'Please enter your mobile telephone number' | translate}}
+            </span>
+          </div>
+
+          <div class="form-group">
             <label for="tel">{{'Telephone' | translate}}</label>
             <input name="tel"
                    id="tel"
                    ng-model="user.profile.tel"
                    class="input-block-level"
-                   required
                    placeholder="{{ 'Your telephone number' | translate }}"
                 >
 
