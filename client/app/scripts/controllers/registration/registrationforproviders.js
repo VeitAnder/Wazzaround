@@ -7,7 +7,7 @@ angular.module('anorakApp')
       return 'views/registration/registrationforproviders.html';
     };
   })
-  .controller('RegistrationRegistrationforprovidersCtrl', function ($scope, $routeParams, $location, models, currentUser) {
+  .controller('RegistrationRegistrationforprovidersCtrl', function ($scope, $routeParams, $location, models, currentUser, Countrylist) {
     // don't initalize registrant here - overrides all data when changing language !!
     // @TODO write test case for this
     // $scope.registrant = {};
@@ -73,5 +73,7 @@ angular.module('anorakApp')
       }
       return showerror;
     };
+
+    $scope.Countrylist = Countrylist;
 
   });
