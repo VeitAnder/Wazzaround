@@ -1,17 +1,11 @@
 "use strict";
 
-var config = {
-  server: {
-    distFolder: "./app"
-  }
-};
-
 var express = require('express');
 var compress = require('compression');
 var favicon = require('serve-favicon');
 var fs = require('fs');
 
-var setupStaticAssetsServer = function (app) {
+var setupStaticAssetsServer = function (app, config) {
   var handle404;
   // cache lifetime for static assets
   // checkout static content serving on  http://blog.modulus.io/nodejs-and-express-static-content
@@ -75,7 +69,7 @@ var setupStaticAssetsServer = function (app) {
 
 };
 
-var serveClient = function (app) {
+var serveClient = function (app, config) {
   // Serve up the favicon
   var favicon_icofile = config.server.distFolder + '/favicon.ico';
   fs.exists(favicon_icofile, function (exists) {

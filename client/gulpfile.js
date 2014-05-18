@@ -58,15 +58,31 @@ gulp.task('watch', function () {
 
 gulp.task('serve', ['watch'], function () {
   var app = express();
+  var config = {
+    server: {
+      distFolder: "./app"
+    }
+  };
+
   app.use(livereload({
     port: LIVERELOAD_PORT
   }));
-  require("./gulp_serveclient.js").setupStaticAssetsServer(app);
-  require("./gulp_serveclient.js").serveClient(app);
-//  app.use(express.static('./app'));
+  require("./gulp_serveclient.js").setupStaticAssetsServer(app, config);
+  require("./gulp_serveclient.js").serveClient(app, config);
   app.listen(SERVER_PORT);
-
   lrserver.listen(LIVERELOAD_PORT);
+});
+
+gulp.task('servedist', function () {
+  var app = express();
+  var config = {
+    server: {
+      distFolder: "./dist"
+    }
+  };
+  require("./gulp_serveclient.js").setupStaticAssetsServer(app, config);
+  require("./gulp_serveclient.js").serveClient(app, config);
+  app.listen(8080);
 });
 
 gulp.task('default', ['serve']);
