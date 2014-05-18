@@ -50,7 +50,7 @@ gulp.task('reload:html', function () {
     .pipe(refresh(lrserver));
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', ['html2js'], function () {
   gulp.watch('app/styles/**/*.scss', ['sass']);
   gulp.watch('app/**/*.html', ['html2js', 'reload:html']);
   gulp.watch(['app/**/*.js', '!app/scripts/templates.js'], ['reload:html']);
