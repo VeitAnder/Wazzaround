@@ -326,12 +326,13 @@ angular.module('anorakApp')
       var valid = true;
 
       // check for uploaded images
-      if ($scope.activity.images.length < 1) {
+/*      if ($scope.activity.images.length < 1) {
         $scope.state.additionalformchecks.images = false;
         valid = false;
       } else {
         $scope.state.additionalformchecks.images = true;
       }
+      */
 
       // check for bookableItems
       if ($scope.activity.bookableItems && $scope.activity.bookableItems[0]) {
