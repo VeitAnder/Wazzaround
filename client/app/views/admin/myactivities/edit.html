@@ -29,7 +29,7 @@
                      required
                   >
               <span ng-show="showError('activityname', 'required')"
-                    class="alert">{{'Please enter the name of the activity/activities.' | translate}}
+                    class="alert alert-error">{{'Please enter the name of the activity/activities.' | translate}}
               </span>
 
             </div>
@@ -57,7 +57,7 @@
               </select>
 
               <span ng-show="showError('categoryMain', 'required')"
-                    class="alert">{{'Please select a category.' | translate}}
+                    class="alert alert-error">{{'Please select a category.' | translate}}
               </span>
 
             </div>
@@ -106,7 +106,7 @@
               </text-angular>
 
               <span ng-show="showError('description', 'required')"
-                    class="alert">{{'Please enter a description.' | translate}}
+                    class="alert alert-error">{{'Please enter a description.' | translate}}
               </span>
 
             </div>
@@ -135,9 +135,10 @@
               <uploadform data-images="activity.images"></uploadform>
             </imageselector>
 
-            <span ng-show="!state.additionalformchecks.images"
-                  class="alert">{{'Please upload an image.' | translate}}
-            </span>
+            <!--            <span ng-show="!state.additionalformchecks.images"
+                              class="alert alert-error">{{'Please upload an image.' | translate}}
+                        </span>
+                        -->
 
             <!--
                <dropzoneexampleforstylingpreview class="dropzone">
@@ -262,7 +263,7 @@
                              required
                           >
                       <span ng-show="bookableItemForm.itemDescription.$invalid && (bookableItemForm.itemDescription.$dirty || state.submitted)"
-                            class="alert">
+                            class="alert alert-error">
                         {{'Please enter a description.' | translate}}
                       </span>
 
@@ -281,7 +282,7 @@
                                            required
                                         >
                                     <span ng-show="bookableItemForm.itemDuration.$invalid && (bookableItemForm.itemDuration.$dirty || state.submitted)"
-                                          class="alert">
+                                          class="alert alert-error">
                                       {{'Please enter a number only.' | translate}}
                                     </span>
                                   </div>
@@ -298,7 +299,7 @@
                                         >
 
                                     <span ng-show="bookableItemForm.itemPrice.$invalid && (bookableItemForm.itemPrice.$dirty || state.submitted)"
-                                          class="alert">
+                                          class="alert alert-error">
                                       {{'Please enter a number only.' | translate}}
                                     </span>
 
@@ -367,7 +368,7 @@
                                 >
 
                             <span ng-show="eventForm.quantity.$invalid && (eventForm.quantity.$dirty || state.submitted || eventForm.submitted)"
-                                  class="alert"
+                                  class="alert alert-error"
                                 >
                               {{'Please enter a number only.' | translate}}
                             </span>
@@ -386,7 +387,7 @@
                                 />
 
                             <span ng-show="eventForm.price.$invalid && (eventForm.price.$dirty || state.submitted || eventForm.submitted)"
-                                  class="alert">
+                                  class="alert alert-error">
                               {{'Please enter a number only.' | translate}}
                             </span>
 
@@ -465,7 +466,7 @@
                               <br/>
 
                               <span ng-show="(state.submitted || eventForm.submitted) && !isAtLeastOneWeekdaySelected(event)"
-                                    class="alert"
+                                    class="alert alert-error"
                                   >
                                 {{'Please select at least one day for repeating event.' | translate}}
                               </span>
@@ -485,9 +486,10 @@
                                     >
 
                                 <span ng-show="(state.submitted || eventForm.submitted) && eventForm.dateuntil.$error.required"
-                                      class="alert"
+                                      class="alert alert-error"
                                     >
-                                  {{'Please select a date until which the repeating events should be created' | translate}}
+                                  {{'Please select a date until which the repeating events should be created' |
+                                  translate}}
                                 </span>
                               </div>
 
@@ -542,7 +544,7 @@
               </button>
 
               <span ng-show="!state.additionalformchecks.bookableevents"
-                    class="alert">{{'Please create bookable events.' | translate}}
+                    class="alert alert-error">{{'Please create bookable events.' | translate}}
               </span>
 
             </bookableitems>
@@ -550,10 +552,6 @@
           </fieldset>
 
           <div class="buttonbar margin-top">
-
-            <div ng-show="state.error">
-              <div class="alert alert-error">{{state.message | translate}}</div>
-            </div>
 
             <a data-ng-show="!isNewMode()"
                class="btn btn-alert float-left"
@@ -572,6 +570,13 @@
               {{'cancel' | translate}}
             </a>
 
+          </div>
+
+          <div ng-show="valForm.$invalid && state.submitted"
+               class="alert alert-error align-right"
+               style="float:right;"
+              >
+            {{'Form can not be saved. Please fill in all required form fields first.' | translate}}
           </div>
 
         </form>
