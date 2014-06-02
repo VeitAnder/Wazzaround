@@ -139,8 +139,6 @@ angular.module('anorakApp')
     };
 
     $scope.onMarkerClicked = function (markerClicked) {
-      debug("Marker: lat: " + markerClicked.latitude + ", lon: " + markerClicked.longitude + " clicked!!");
-
       //deselect all except clicked on
       _.each($scope.frontendmap.map.markers, function (marker) {
         if (marker._id === markerClicked._id) {
@@ -151,8 +149,10 @@ angular.module('anorakApp')
           marker.selected = false;
         }
       });
-
+      // set detail id
       $scope.states.selectedactivityid = markerClicked._id;
+      // open detail view of activity when marker got clicked
+      $scope.states.activitydetailactive = true;
     };
 
     $scope.selectedCategoryFilter = function (activity) {
