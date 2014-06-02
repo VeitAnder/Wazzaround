@@ -4264,7 +4264,7 @@ activitybarstripe {
     margin: 0;
     width: 60%; }
     activitybarstripe .activity-text h5 {
-      margin: 0; }
+      margin: 0 0 8px 0; }
     activitybarstripe .activity-text h4 {
       color: #FFF;
       font-weight: 800;
