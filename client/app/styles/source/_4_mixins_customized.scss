@@ -717,7 +717,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
   .event-item-body {
-    padding: $bu*0.5;
+    padding: 0 $bu*0.5 $bu*0.25 $bu*0.5;
     background-color: $color_green_50;
     @include border-bottom-radius($border-radius);
     overflow: hidden;
@@ -884,16 +884,22 @@ googleMap, .angular-google-map, .angular-google-map-container {
   @include border-radius($border-radius_small);
   .cell {
     width: 50%;
-    padding-bottom: $fs*0.5;
-    &.last, &.first {
+    &.prev {
       width: 25%;
+      padding-left: 5px;
+    }
+    &.next {
+      width: 25%;
+      padding-right: 5px;
     }
     .btn {
-      background-color: $color_grey_75;
-      border-color: $color_grey_75;
+      background-color: transparent;
+      border-color: $color_grey_50;
+      color: $color_grey_75;
       &:hover {
         background-color: $color_grey_75_l5;
         border-color: $color_grey_75_l5;
+        color: $color_white;
       }
     }
   }
@@ -1329,6 +1335,7 @@ activitybarstripe {
   }
 
   .activity-distance-element {
+    opacity: 0.75;
     position: absolute;
     top: $bu;
     left: $bu;
@@ -1416,16 +1423,25 @@ activitybardetail {
   @include border-top-radius($border-radius);
   @include activity-content;
   @include animation_all;
-  .txt-icon-delete {
-    position: absolute;
-    top: $bu;
-    right: $bu;
+  .description{
+    margin-top: 0;
   }
   &.activitydetailactive {
     bottom: $activitybar-height;
   }
   h4{
     margin-top: 0;
+  }
+  @include respond-to(low-screen){
+    padding-bottom: $bu*2.0;
+    h4{
+      display: none;
+    }
+    .availability{
+      .input-label{
+        display: none;
+      }
+    }
   }
 }
 

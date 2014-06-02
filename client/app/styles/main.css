@@ -952,7 +952,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px;
+  padding: 4px 12px 6px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1030,7 +1030,7 @@ button.btn, .btn, a.btn {
         border-color: #C83C19;
         color: #FFF; }
   button.btn.btn-large, .btn.btn-large, a.btn.btn-large {
-    padding: 12px 32px;
+    padding: 12px 32px 18px;
     font-size: 25px;
     line-height: 35px;
     -webkit-border-radius: 6px;
@@ -1050,7 +1050,7 @@ button.btn, .btn, a.btn {
       .no-svg button.btn.btn-large.btn-shoppingcart, .no-svg .btn.btn-large.btn-shoppingcart, .no-svg a.btn.btn-large.btn-shoppingcart {
         background-image: url('/img/sprite_icons.png'); }
   button.btn.btn-small, .btn.btn-small, a.btn.btn-small {
-    padding: 2.4px 8px;
+    padding: 2.4px 8px 3.6px;
     font-size: 14px;
     line-height: 19.6px; }
     button.btn.btn-small.btn-shoppingcart, .btn.btn-small.btn-shoppingcart, a.btn.btn-small.btn-shoppingcart {
@@ -1067,7 +1067,7 @@ button.btn, .btn, a.btn {
     font-size: 10px;
     line-height: 14px;
     text-transform: uppercase;
-    padding: 2.4px 4px;
+    padding: 2.4px 4px 3.6px;
     border-width: 1px;
     font-weight: 800; }
     button.btn.btn-mini p, .btn.btn-mini p, a.btn.btn-mini p {
@@ -1105,7 +1105,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px;
+  padding: 4px 12px 6px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1163,7 +1163,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px;
+  padding: 4px 12px 6px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1235,7 +1235,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px;
+  padding: 4px 12px 6px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1302,7 +1302,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px;
+  padding: 4px 12px 6px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1368,7 +1368,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px;
+  padding: 4px 12px 6px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1470,7 +1470,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px;
+  padding: 4px 12px 6px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -2611,7 +2611,7 @@ body:before {
           -o-user-select: none;
           user-select: none;
           background-color: #85C900;
-          padding: 4px 12px;
+          padding: 4px 12px 6px;
           -webkit-border-radius: 3px;
           -khtml-border-radius: 3px;
           -moz-border-radius: 3px;
@@ -2661,7 +2661,7 @@ body:before {
           -o-user-select: none;
           user-select: none;
           background-color: #85C900;
-          padding: 4px 12px;
+          padding: 4px 12px 6px;
           -webkit-border-radius: 3px;
           -khtml-border-radius: 3px;
           -moz-border-radius: 3px;
@@ -3125,6 +3125,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: solid 1px #b3b3b3;
+  line-height: 100%;
   padding: 15px;
   border-bottom: none; }
   .bookableitem-header:after {
@@ -3234,6 +3235,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     border-bottom: solid 1px #b3b3b3;
+    line-height: 100%;
     border: none; }
     .event-list.event-list-items:after {
       content: "";
@@ -3385,7 +3387,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border-bottom: solid 1px #b3b3b3; }
+  border-bottom: solid 1px #b3b3b3;
+  line-height: 100%; }
   .event-row:after {
     content: "";
     display: table;
@@ -3476,7 +3479,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
       text-align: right;
       width: 25%; }
   .event-item .event-item-body {
-    padding: 7.5px;
+    padding: 0 7.5px 3.75px 7.5px;
     background-color: #c2e480;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
@@ -3700,7 +3703,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border-bottom: solid 1px #b3b3b3; }
+  border-bottom: solid 1px #b3b3b3;
+  line-height: 100%; }
   .availability-entry:after {
     content: "";
     display: table;
@@ -3774,6 +3778,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: solid 1px #b3b3b3;
+  line-height: 100%;
   border-bottom: none;
   background-color: #e8e8e8;
   -webkit-border-radius: 3px;
@@ -3836,16 +3841,21 @@ googleMap, .angular-google-map, .angular-google-map-container {
     .availability-footer .cell.last {
       padding-right: 10px; }
   .availability-footer .cell {
-    width: 50%;
-    padding-bottom: 8px; }
-    .availability-footer .cell.last, .availability-footer .cell.first {
-      width: 25%; }
+    width: 50%; }
+    .availability-footer .cell.prev {
+      width: 25%;
+      padding-left: 5px; }
+    .availability-footer .cell.next {
+      width: 25%;
+      padding-right: 5px; }
     .availability-footer .cell .btn {
-      background-color: #8c8c8c;
-      border-color: #8c8c8c; }
+      background-color: transparent;
+      border-color: #b3b3b3;
+      color: #8c8c8c; }
       .availability-footer .cell .btn:hover {
         background-color: #999999;
-        border-color: #999999; }
+        border-color: #999999;
+        color: #FFF; }
 
 .uservoice-custom {
   z-index: 150;
@@ -4320,6 +4330,7 @@ activitybarstripe {
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis; }
   activitybarstripe .activity-distance-element {
+    opacity: 0.75;
     position: absolute;
     top: 15px;
     left: 15px;
@@ -4461,14 +4472,19 @@ activitybardetail {
   activitybardetail .availability {
     margin-top: 32px;
     clear: both; }
-  activitybardetail .txt-icon-delete {
-    position: absolute;
-    top: 15px;
-    right: 15px; }
+  activitybardetail .description {
+    margin-top: 0; }
   activitybardetail.activitydetailactive {
     bottom: 200px; }
   activitybardetail h4 {
     margin-top: 0; }
+  @media only screen and (max-height: 768px) {
+    activitybardetail {
+      padding-bottom: 30px; }
+      activitybardetail h4 {
+        display: none; }
+      activitybardetail .availability .input-label {
+        display: none; } }
 
 .activitybar-noresult {
   padding: 30px;
@@ -5500,7 +5516,7 @@ activitybardetail {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px;
+  padding: 4px 12px 6px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -5647,7 +5663,8 @@ activitybardetail {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border-bottom: solid 1px #b3b3b3; }
+  border-bottom: solid 1px #b3b3b3;
+  line-height: 100%; }
   .listrow:after {
     content: "";
     display: table;
