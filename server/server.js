@@ -18,7 +18,7 @@ var config = require('./config.js');
 var logger = require('./lib/logger.js');
 //var security = require('./lib/security');
 //var protectJSON = require('./lib/protectJSON');
-//var cacheControl = require('./lib/cacheControl');
+var cacheControl = require('./lib/cacheControl');
 
 var app = express();
 
@@ -43,6 +43,7 @@ var db = mongojs('mongodb://' + config.mongo.username + ':' + config.mongo.passw
 //var MongoStore = require('connect-mongostore')(express);
 
 app.use(cookieParser());
+app.use(cacheControl);
 
 //app.use(passport.initialize());                             // Initialize PassportJS
 //app.use(passport.session());                                // Use Passport's session authentication strategy - this stores the logged in user in the session and will now run on any request
@@ -68,7 +69,7 @@ var RestApi = require("./servermodules/restapi.js");
 /*
  if (process.env.NODE_ENV !== "testing") {
  // JSON protection
- app.use(cacheControl);
+
  app.use(protectJSON);                                       // Add JSON Vulnerability Protection -> http://docs.angularjs.org/api/ng.$http
  app.use(compress());                                // enable gzip compression for res.send()
  }
