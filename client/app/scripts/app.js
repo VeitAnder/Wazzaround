@@ -537,7 +537,8 @@ angular.module('anorakApp')
       "Please select at least one day for repeating event.": "Please select at least one day for repeating event.",
       "create event until": "Create events until this date",
       "Please select a date until which the repeating events should be created": "Please select a date until which the repeating events should be created",
-      "starting from": "starting from"
+      "starting from": "starting from",
+      "Info & Booking": "Info & Booking"
     });
 
     $translateProvider.translations('de', {
@@ -816,7 +817,8 @@ angular.module('anorakApp')
       "Please select at least one day for repeating event.": "Bitte wählen Sie mindestens einen Tag aus",
       "create event until": "Events bis zu diesem Datum erzeugen",
       "Please select a date until which the repeating events should be created": "Bitte wählen Sie ein Datum bis zu welchem die sich wiederholenden Events angelegt werden sollen",
-      "starting from": "Preise ab"
+      "starting from": "Preise ab",
+      "Info & Booking": "Info & Buchen"
     });
 
     $translateProvider.translations('it', {
@@ -1093,7 +1095,9 @@ angular.module('anorakApp')
       "The repeating events will have the same starting time and duration as above": "The repeating events will have the same starting time and duration as above",
       "Please select at least one day for repeating event.": "Please select at least one day for repeating event.",
       "create event until": "Create events until this date",
-      "Please select a date until which the repeating events should be created": "Please select a date until which the repeating events should be created"
+      "Please select a date until which the repeating events should be created": "Please select a date until which the repeating events should be created",
+      "starting from": "Preise ab",
+      "Info & Booking": "Info & Booking"
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity

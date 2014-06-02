@@ -486,7 +486,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   @include category-wellness;
 }
 
-
 .listaction.cell {
   width: 10%;
   text-align: right;
@@ -1197,10 +1196,9 @@ $activitybar-height: 200px;
   }
 }
 
-.category{
+.category {
   @include badge-category;
 }
-
 
 activitybar {
   width: 100%;
@@ -1208,7 +1206,6 @@ activitybar {
   bottom: 0;
   background-color: $color_grey_25;
   height: $activitybar-height;
-  overflow: hidden;
 }
 
 activitybarstripe {
@@ -1257,21 +1254,27 @@ activitybarstripe {
 
   .activity-detail-toggle {
     position: absolute;
-    top: $bu;
-    right: $bu;
-    width: 30px;
-    height: 30px;
-    @include border-radius(15px);
+    top: -25px;
+    left: 50%;
+    margin-left: -100px;
+    width: 200px;
+    height: 25px;
+    @include border-top-radius($border-radius);
     background-color: $color_green;
-    @include transform(rotate(270deg));
     @include animation_all;
-    span {
-      display: block;
-      width: 15px;
-      height: 15px;
-      margin-top: 7px;
-      margin-left: 7px;
-      @include sprite_icons(-20px, -85px, no-repeat);
+    text-align: center;
+    color: $color_white;
+    font-weight: $font-weight_bold;
+    font-size: 11px;
+    line-height: 25px;
+    text-transform: uppercase;
+
+
+  }
+
+  .activitydetailactive {
+    .activity-detail-toggle {
+      background-color: red;
     }
   }
 
@@ -1282,26 +1285,26 @@ activitybarstripe {
     z-index: 2;
     margin: 0;
     width: 60%;
-    h5{
+    h5 {
       margin: 0 0 $fs*0.5 0;
     }
-    h4{
+    h4 {
       color: $color_white;
       font-weight: $font-weight_extrabold;
       font-size: $fs*$font-size_h5_factor;
       margin: 0;
       @include ellipsis(no-wrap);
     }
-    p{
+    p {
       margin: 0;
       color: $color_white;
       @include ellipsis(no-wrap);
     }
-    .category{
+    .category {
       opacity: 0.85;
     }
   }
-  .activity-price-min{
+  .activity-price-min {
     position: absolute;
     bottom: $bu;
     right: $bu;
@@ -1312,13 +1315,13 @@ activitybarstripe {
     color: $color_white;
     text-align: right;
     @include border-radius($border-radius);
-    .price{
+    .price {
       display: block;
       font-weight: $font-weight_bold;
       font-size: $fs*$font-size_h5_factor;
       @include ellipsis(no-wrap);
     }
-    .smalltext{
+    .smalltext {
       display: block;
       font-size: 11px;
       line-height: 11px*$line-height_headline-factor;
@@ -1378,31 +1381,7 @@ currentactivity {
   img {
     min-width: 100%;
     height: auto;
-  }
-  &:hover {
-    .activity-detail-toggle {
-      background-color: $color_green_75;
-    }
-  }
-  .triangle {
-    position: absolute;
-    display: block;
-    width: 25px;
-    height: 12.5px;
-    top: -25px;
-    @include triangle(50px, $color_white, down);
-    left: 50%;
-    margin-left: -25px;
-    @include animation_all;
-  }
 
-  &.activitydetailactive {
-    .activity-detail-toggle {
-      @include transform(rotate(90deg));
-    }
-    .triangle {
-      top: 0;
-    }
   }
   background-color: $color_grey_50;
   @include img(nopic, center, center, no-repeat);
@@ -1411,13 +1390,13 @@ currentactivity {
     @include hovercursor;
     overflow: hidden;
     height: $activitybar-height;
-    &:before{
+    &:before {
       position: absolute;
       top: $activitybar-height - 90px;
       display: block;
       width: 100%;
       height: 90px;
-      content:"";
+      content: "";
       background: url('#{$img_path}activity-headline-BGshadow.png') repeat-x;
     }
   }
@@ -1448,22 +1427,22 @@ activitybardetail {
   }
 }
 
-.activitybar-noresult{
+.activitybar-noresult {
   padding: $bu*2.0;
   text-align: center;
-  .icon{
+  .icon {
     display: inline-block;
     width: 40px;
     height: 49px;
     margin-bottom: $bu;
     @include sprite_icons(-100px, -100px, no-repeat);
   }
-  h4{
+  h4 {
     color: $color_white;
     font-weight: $font-weight_bold;
     margin: 0;
   }
-  p{
+  p {
     color: $color_white;
     margin-top: 0;
   }

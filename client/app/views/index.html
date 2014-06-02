@@ -252,11 +252,14 @@
               ng-class="{activitydetailactive: states.activitydetailactive}"
               >
 
+            <div class="activity-detail-toggle">
+              {{'Info & Booking' | translate}}
+            </div>
+
             <div ng-show="states.filteredactivities.length > 0">
 
               <div class="currentactivity-body category-{{getSelectedActivity().category.main}}"
                    ng-click="states.activitydetailactive = !states.activitydetailactive"
-
                   >
                 <cloudinaryimage
                     data-publicid="{{getSelectedActivity().images[0].public_id}}"
@@ -266,10 +269,6 @@
                     >
                 </cloudinaryimage>
 
-                <div class="activity-detail-toggle">
-                  <span class="hideme">show/hide activity detail</span>
-                  <span></span>
-                </div>
                 <div class="activity-distance-element">
                   <span class="current-location"></span>
                   <span class="activity-distance-txt">
