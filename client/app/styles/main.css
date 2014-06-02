@@ -5364,13 +5364,19 @@ activitybardetail {
     float: left;
     padding: 5px 10px;
     width: 50%;
+    font-size: 12px;
+    line-height: 16.8px;
+    text-transform: uppercase;
     text-align: center;
+    font-weight: 600;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
     border-left: solid 1px #b3b3b3; }
+    .filter-toggle .filter-toggle-show p, .filter-toggle .filter-toggle-hide p {
+      padding-bottom: 12px; }
     .filter-toggle .filter-toggle-show:hover, .filter-toggle .filter-toggle-hide:hover {
       cursor: pointer; }
     .filter-toggle .filter-toggle-show:first-child, .filter-toggle .filter-toggle-hide:first-child {

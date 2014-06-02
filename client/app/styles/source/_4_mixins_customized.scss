@@ -2343,7 +2343,6 @@ $filter-category-arrow-width: 65px;
     color: $color_grey_50;
     padding-left: 23px;
     .checkbox {
-      //@include box-sizing(border-box);
       min-height: 0;
       width: 16px;
       height: 16px;
@@ -2390,10 +2389,12 @@ $filter-category-arrow-width: 65px;
   @include border-radius($border-radius);
   .filter-toggle-show, .filter-toggle-hide {
     float: left;
-    //@include box-sizing(border-box);
     padding: 5px 10px;
     width: 50%;
+    @include font-size_small;
+    text-transform: uppercase;
     text-align: center;
+    font-weight: $font-weight_bold;
     @include hovercursor;
     @include user-select(none);
     @include border(left, $color_grey_50);
