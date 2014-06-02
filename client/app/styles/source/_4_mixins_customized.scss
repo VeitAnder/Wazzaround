@@ -1254,12 +1254,13 @@ activitybarstripe {
 
   .activity-detail-toggle {
     position: absolute;
-    top: -25px;
+    z-index: 1;
+    bottom: $activitybar-height;
     left: 50%;
-    margin-left: -100px;
-    width: 200px;
+    margin-left: -75px;
+    width: 150px;
     height: 25px;
-    @include border-top-radius($border-radius);
+    @include border-top-radius(25px);
     background-color: $color_green;
     @include animation_all;
     text-align: center;
@@ -1274,7 +1275,7 @@ activitybarstripe {
 
   .activitydetailactive {
     .activity-detail-toggle {
-      background-color: red;
+      background-color: $color_red;
     }
   }
 
@@ -1299,9 +1300,6 @@ activitybarstripe {
       margin: 0;
       color: $color_white;
       @include ellipsis(no-wrap);
-    }
-    .category {
-      opacity: 0.85;
     }
   }
   .activity-price-min {
@@ -1412,6 +1410,7 @@ activitybardetail {
   //  width: $activitybar-currentitem-width;
 
   padding: $bu*2.0;
+  padding-bottom: $bu*3.0;
   background-color: #ffffff;
   background-color: rgba($color_white, 0.90);
   @include border-top-radius($border-radius);
@@ -1424,6 +1423,9 @@ activitybardetail {
   }
   &.activitydetailactive {
     bottom: $activitybar-height;
+  }
+  h4{
+    margin-top: 0;
   }
 }
 

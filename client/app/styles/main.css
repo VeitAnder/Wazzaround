@@ -4221,13 +4221,14 @@ activitybarstripe {
         transform: rotate(180deg); }
   activitybarstripe .activity-detail-toggle {
     position: absolute;
-    top: -25px;
+    z-index: 1;
+    bottom: 200px;
     left: 50%;
-    margin-left: -100px;
-    width: 200px;
+    margin-left: -75px;
+    width: 150px;
     height: 25px;
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
     background-color: #85C900;
     -webkit-transition-duration: 0.25s;
     transition-duration: 0.25s;
@@ -4244,7 +4245,7 @@ activitybarstripe {
     line-height: 25px;
     text-transform: uppercase; }
   activitybarstripe .activitydetailactive .activity-detail-toggle {
-    background-color: red; }
+    background-color: #C83C19; }
   activitybarstripe .activity-text {
     position: absolute;
     bottom: 15px;
@@ -4278,8 +4279,6 @@ activitybarstripe {
       -ms-text-overflow: ellipsis;
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis; }
-    activitybarstripe .activity-text .category {
-      opacity: 0.85; }
   activitybarstripe .activity-price-min {
     position: absolute;
     bottom: 15px;
@@ -4421,6 +4420,7 @@ activitybardetail {
   bottom: -100%;
   left: 50%;
   padding: 30px;
+  padding-bottom: 45px;
   background-color: #ffffff;
   background-color: rgba(255, 255, 255, 0.9);
   border-top-right-radius: 6px;
@@ -4467,6 +4467,8 @@ activitybardetail {
     right: 15px; }
   activitybardetail.activitydetailactive {
     bottom: 200px; }
+  activitybardetail h4 {
+    margin-top: 0; }
 
 .activitybar-noresult {
   padding: 30px;
