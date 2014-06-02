@@ -193,23 +193,28 @@
 
       <activitybardetail
           ajs-centermaxwith
-          class="detail-category-{{getSelectedActivity().category.main}}"
           ng-class="{activitydetailactive: states.activitydetailactive}"
           ng-show="states.filteredactivities.length > 0"
           >
 
-        <div class="txt-icon-delete"
-             ng-click="states.activitydetailactive = false">
+        <div class="txt-icon-delete" ng-click="states.activitydetailactive = false">
           <span class="hidden">Close detail view</span>
           <span></span>
         </div>
 
-        <h4>
+        <h4 class="activity-title">
           {{getSelectedActivity().name | languageselect}}
         </h4>
         <h6 class="no-margin-top">
           {{'Offered by' | translate}} {{activity.company}}
         </h6>
+
+        <div class="description multiline">
+          <div class="innerwrap" ta-bind
+               ng-model="getSelectedActivity().description[getAvailableTranslationLanguageKey(getSelectedActivity().description)]">
+          </div>
+        </div>
+        
 
         <div ta-bind
              class="description"
@@ -255,8 +260,18 @@
 
             <div class="activity-detail-toggle"
                  ng-click="toggleCurrentActivity()"
+                 ng-class="{active: states.activitydetailactive}"
                 >
-              {{'Info & Booking' | translate}}
+              <span
+                  ng-hide="states.activitydetailactive"
+                  >
+                {{'Info & Booking' | translate}}
+              </span>
+              <span
+                  ng-show="states.activitydetailactive"
+                  >
+                {{'close' | translate}}
+              </span>
             </div>
 
             <div ng-show="states.filteredactivities.length > 0">
