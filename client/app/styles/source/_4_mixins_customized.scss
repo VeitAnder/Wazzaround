@@ -365,16 +365,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
   .category {
-    display: inline-block;
-    margin-top: 0;
-    background-color: $color_grey;
-    @include border-radius(($fs*$font-size_small_factor*$line-height_factor)*0.5 + 2px);
-    padding: 2px $bu*0.5;
-    @include font-size_small;
-    color: $color_white;
-    .category-sub {
-      font-weight: $font-weight_light;
-    }
+    @include badge-category;
   }
   .description {
     margin-top: $fs*2.0;
@@ -1269,15 +1260,53 @@ activitybarstripe {
     }
   }
 
-  .activity-title {
+  .activity-text {
     position: absolute;
     bottom: $bu;
     left: $bu;
-    margin: 0;
-    color: $color_white;
-    font-weight: $font-weight_extrabold;
-    font-size: $fs*$font-size_h5_factor;
     z-index: 2;
+    margin: 0;
+    width: 60%;
+    h4{
+      color: $color_white;
+      font-weight: $font-weight_extrabold;
+      font-size: $fs*$font-size_h5_factor;
+      margin: 0;
+      @include ellipsis(no-wrap);
+    }
+    p{
+      margin: 0;
+      color: $color_white;
+      @include ellipsis(no-wrap);
+    }
+    .category{
+      @include badge-category;
+    }
+  }
+  .activity-price-min{
+    position: absolute;
+    bottom: $bu;
+    right: $bu;
+    z-index: 2;
+    max-width: 25%;
+    background-color: $color_green;
+    padding: $fs*0.25 $fs*0.5;
+    color: $color_white;
+    text-align: right;
+    @include border-radius($border-radius);
+    .price{
+      display: block;
+      font-weight: $font-weight_bold;
+      font-size: $fs*$font-size_h5_factor;
+      @include ellipsis(no-wrap);
+    }
+    .smalltext{
+      display: block;
+      font-size: 11px;
+      line-height: 11px*$line-height_headline-factor;
+      @include ellipsis(no-wrap);
+
+    }
   }
 
   .activity-distance-element {
@@ -1288,6 +1317,7 @@ activitybarstripe {
     padding: 5px;
     @include border-radius(15px);
     background-color: $color_white;
+    @include ellipsis(no-wrap);
   }
 
   .current-location {
@@ -1327,8 +1357,6 @@ currentactivity {
   left: 50%;
   height: $activitybar-height;
 
-  //  overflow:hidden;
-
   img {
     min-width: 100%;
     height: auto;
@@ -1362,10 +1390,12 @@ currentactivity {
   @include img(nopic, center, center, no-repeat);
 
   .currentactivity-body {
+    @include hovercursor;
     overflow: hidden;
-    &:after{
-      position: relative;
-      top: -90px;
+    height: $activitybar-height;
+    &:before{
+      position: absolute;
+      top: $activitybar-height - 90px;
       display: block;
       width: 100%;
       height: 90px;

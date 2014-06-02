@@ -443,7 +443,20 @@ button.btn, .btn, a.btn {
 @mixin icon_add {
   @include icon;
   @include sprite_icons(-95px, 5px, no-repeat);
+}
 
+
+@mixin badge-category{
+  display: inline-block;
+  margin-top: 0;
+  background-color: $color_grey;
+  @include border-radius(($fs*$font-size_small_factor*$line-height_factor)*0.5 + 2px);
+  padding: 2px $bu*0.5;
+  @include font-size_small;
+  color: $color_white;
+  .category-sub {
+    font-weight: $font-weight_light;
+  }
 }
 
 @mixin button_icon {
