@@ -2852,24 +2852,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   .window-category-sports .img-block.img-block-right {
     float: right;
     margin: 0 0 16px 15px; }
-  .window-category-sports .category {
-    display: inline-block;
-    margin-top: 0;
-    background-color: #666;
-    -webkit-border-radius: 10.4px;
-    -khtml-border-radius: 10.4px;
-    -moz-border-radius: 10.4px;
-    -ms-border-radius: 10.4px;
-    -o-border-radius: 10.4px;
-    border-radius: 10.4px;
-    padding: 2px 7.5px;
-    font-size: 12px;
-    line-height: 16.8px;
-    color: #FFF; }
-    .window-category-sports .category p {
-      padding-bottom: 12px; }
-    .window-category-sports .category .category-sub {
-      font-weight: 200; }
   .window-category-sports .description {
     margin-top: 32px; }
   .window-category-sports .location {
@@ -2923,24 +2905,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   .window-category-culture .img-block.img-block-right {
     float: right;
     margin: 0 0 16px 15px; }
-  .window-category-culture .category {
-    display: inline-block;
-    margin-top: 0;
-    background-color: #666;
-    -webkit-border-radius: 10.4px;
-    -khtml-border-radius: 10.4px;
-    -moz-border-radius: 10.4px;
-    -ms-border-radius: 10.4px;
-    -o-border-radius: 10.4px;
-    border-radius: 10.4px;
-    padding: 2px 7.5px;
-    font-size: 12px;
-    line-height: 16.8px;
-    color: #FFF; }
-    .window-category-culture .category p {
-      padding-bottom: 12px; }
-    .window-category-culture .category .category-sub {
-      font-weight: 200; }
   .window-category-culture .description {
     margin-top: 32px; }
   .window-category-culture .location {
@@ -2994,24 +2958,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   .window-category-wellness .img-block.img-block-right {
     float: right;
     margin: 0 0 16px 15px; }
-  .window-category-wellness .category {
-    display: inline-block;
-    margin-top: 0;
-    background-color: #666;
-    -webkit-border-radius: 10.4px;
-    -khtml-border-radius: 10.4px;
-    -moz-border-radius: 10.4px;
-    -ms-border-radius: 10.4px;
-    -o-border-radius: 10.4px;
-    border-radius: 10.4px;
-    padding: 2px 7.5px;
-    font-size: 12px;
-    line-height: 16.8px;
-    color: #FFF; }
-    .window-category-wellness .category p {
-      padding-bottom: 12px; }
-    .window-category-wellness .category .category-sub {
-      font-weight: 200; }
   .window-category-wellness .description {
     margin-top: 32px; }
   .window-category-wellness .location {
@@ -3061,24 +3007,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
 .detail-category-sports .img-block.img-block-right {
   float: right;
   margin: 0 0 16px 15px; }
-.detail-category-sports .category {
-  display: inline-block;
-  margin-top: 0;
-  background-color: #666;
-  -webkit-border-radius: 10.4px;
-  -khtml-border-radius: 10.4px;
-  -moz-border-radius: 10.4px;
-  -ms-border-radius: 10.4px;
-  -o-border-radius: 10.4px;
-  border-radius: 10.4px;
-  padding: 2px 7.5px;
-  font-size: 12px;
-  line-height: 16.8px;
-  color: #FFF; }
-  .detail-category-sports .category p {
-    padding-bottom: 12px; }
-  .detail-category-sports .category .category-sub {
-    font-weight: 200; }
 .detail-category-sports .description {
   margin-top: 32px; }
 .detail-category-sports .location {
@@ -3110,24 +3038,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
 .detail-category-culture .img-block.img-block-right {
   float: right;
   margin: 0 0 16px 15px; }
-.detail-category-culture .category {
-  display: inline-block;
-  margin-top: 0;
-  background-color: #666;
-  -webkit-border-radius: 10.4px;
-  -khtml-border-radius: 10.4px;
-  -moz-border-radius: 10.4px;
-  -ms-border-radius: 10.4px;
-  -o-border-radius: 10.4px;
-  border-radius: 10.4px;
-  padding: 2px 7.5px;
-  font-size: 12px;
-  line-height: 16.8px;
-  color: #FFF; }
-  .detail-category-culture .category p {
-    padding-bottom: 12px; }
-  .detail-category-culture .category .category-sub {
-    font-weight: 200; }
 .detail-category-culture .description {
   margin-top: 32px; }
 .detail-category-culture .location {
@@ -3159,24 +3069,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
 .detail-category-wellness .img-block.img-block-right {
   float: right;
   margin: 0 0 16px 15px; }
-.detail-category-wellness .category {
-  display: inline-block;
-  margin-top: 0;
-  background-color: #666;
-  -webkit-border-radius: 10.4px;
-  -khtml-border-radius: 10.4px;
-  -moz-border-radius: 10.4px;
-  -ms-border-radius: 10.4px;
-  -o-border-radius: 10.4px;
-  border-radius: 10.4px;
-  padding: 2px 7.5px;
-  font-size: 12px;
-  line-height: 16.8px;
-  color: #FFF; }
-  .detail-category-wellness .category p {
-    padding-bottom: 12px; }
-  .detail-category-wellness .category .category-sub {
-    font-weight: 200; }
 .detail-category-wellness .description {
   margin-top: 32px; }
 .detail-category-wellness .location {
@@ -3185,6 +3077,15 @@ googleMap, .angular-google-map, .angular-google-map-container {
   margin-top: 32px;
   clear: both; }
 .detail-category-wellness .category {
+  background-color: #bc913d; }
+
+.category-sports .category {
+  background-color: #C83C19; }
+
+.category-culture .category {
+  background-color: #1970C8; }
+
+.category-wellness .category {
   background-color: #bc913d; }
 
 .listaction.cell {
@@ -4246,6 +4147,25 @@ shoppingcart.shoppingcart-rightside {
     text-align: right;
     margin-left: 2%; }
 
+.category {
+  display: inline-block;
+  margin-top: 0;
+  background-color: #666;
+  -webkit-border-radius: 10.4px;
+  -khtml-border-radius: 10.4px;
+  -moz-border-radius: 10.4px;
+  -ms-border-radius: 10.4px;
+  -o-border-radius: 10.4px;
+  border-radius: 10.4px;
+  padding: 2px 7.5px;
+  font-size: 12px;
+  line-height: 16.8px;
+  color: #FFF; }
+  .category p {
+    padding-bottom: 12px; }
+  .category .category-sub {
+    font-weight: 200; }
+
 activitybar {
   width: 100%;
   position: absolute;
@@ -4343,6 +4263,8 @@ activitybarstripe {
     z-index: 2;
     margin: 0;
     width: 60%; }
+    activitybarstripe .activity-text h5 {
+      margin: 0; }
     activitybarstripe .activity-text h4 {
       color: #FFF;
       font-weight: 800;
@@ -4368,23 +4290,7 @@ activitybarstripe {
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis; }
     activitybarstripe .activity-text .category {
-      display: inline-block;
-      margin-top: 0;
-      background-color: #666;
-      -webkit-border-radius: 10.4px;
-      -khtml-border-radius: 10.4px;
-      -moz-border-radius: 10.4px;
-      -ms-border-radius: 10.4px;
-      -o-border-radius: 10.4px;
-      border-radius: 10.4px;
-      padding: 2px 7.5px;
-      font-size: 12px;
-      line-height: 16.8px;
-      color: #FFF; }
-      activitybarstripe .activity-text .category p {
-        padding-bottom: 12px; }
-      activitybarstripe .activity-text .category .category-sub {
-        font-weight: 200; }
+      opacity: 0.85; }
   activitybarstripe .activity-price-min {
     position: absolute;
     bottom: 15px;
@@ -4591,24 +4497,6 @@ activitybardetail {
   activitybardetail .img-block.img-block-right {
     float: right;
     margin: 0 0 16px 15px; }
-  activitybardetail .category {
-    display: inline-block;
-    margin-top: 0;
-    background-color: #666;
-    -webkit-border-radius: 10.4px;
-    -khtml-border-radius: 10.4px;
-    -moz-border-radius: 10.4px;
-    -ms-border-radius: 10.4px;
-    -o-border-radius: 10.4px;
-    border-radius: 10.4px;
-    padding: 2px 7.5px;
-    font-size: 12px;
-    line-height: 16.8px;
-    color: #FFF; }
-    activitybardetail .category p {
-      padding-bottom: 12px; }
-    activitybardetail .category .category-sub {
-      font-weight: 200; }
   activitybardetail .description {
     margin-top: 32px; }
   activitybardetail .location {

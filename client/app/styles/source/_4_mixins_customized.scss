@@ -364,9 +364,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
       margin: 0 0 $fs $bu;
     }
   }
-  .category {
-    @include badge-category;
-  }
   .description {
     margin-top: $fs*2.0;
   }
@@ -476,6 +473,19 @@ googleMap, .angular-google-map, .angular-google-map-container {
   @include activity-content;
   @include category-wellness;
 }
+
+.category-sports {
+  @include category-sports;
+}
+
+.category-culture {
+  @include category-culture;
+}
+
+.category-wellness {
+  @include category-wellness;
+}
+
 
 .listaction.cell {
   width: 10%;
@@ -1187,6 +1197,11 @@ $activitybar-height: 200px;
   }
 }
 
+.category{
+  @include badge-category;
+}
+
+
 activitybar {
   width: 100%;
   position: absolute;
@@ -1267,6 +1282,9 @@ activitybarstripe {
     z-index: 2;
     margin: 0;
     width: 60%;
+    h5{
+      margin: 0;
+    }
     h4{
       color: $color_white;
       font-weight: $font-weight_extrabold;
@@ -1280,7 +1298,7 @@ activitybarstripe {
       @include ellipsis(no-wrap);
     }
     .category{
-      @include badge-category;
+      opacity: 0.85;
     }
   }
   .activity-price-min{
