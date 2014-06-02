@@ -4336,15 +4336,95 @@ activitybarstripe {
         background-image: url('/img/sprite_icons.svg'); }
       .no-svg activitybarstripe .activity-detail-toggle span {
         background-image: url('/img/sprite_icons.png'); }
-  activitybarstripe .activity-title {
+  activitybarstripe .activity-text {
     position: absolute;
     bottom: 15px;
     left: 15px;
+    z-index: 2;
     margin: 0;
+    width: 60%; }
+    activitybarstripe .activity-text h4 {
+      color: #FFF;
+      font-weight: 800;
+      font-size: 20px;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      -webkit-text-overflow: ellipsis;
+      -khtml-text-overflow: ellipsis;
+      -moz-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
+    activitybarstripe .activity-text p {
+      margin: 0;
+      color: #FFF;
+      white-space: nowrap;
+      overflow: hidden;
+      -webkit-text-overflow: ellipsis;
+      -khtml-text-overflow: ellipsis;
+      -moz-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
+    activitybarstripe .activity-text .category {
+      display: inline-block;
+      margin-top: 0;
+      background-color: #666;
+      -webkit-border-radius: 10.4px;
+      -khtml-border-radius: 10.4px;
+      -moz-border-radius: 10.4px;
+      -ms-border-radius: 10.4px;
+      -o-border-radius: 10.4px;
+      border-radius: 10.4px;
+      padding: 2px 7.5px;
+      font-size: 12px;
+      line-height: 16.8px;
+      color: #FFF; }
+      activitybarstripe .activity-text .category p {
+        padding-bottom: 12px; }
+      activitybarstripe .activity-text .category .category-sub {
+        font-weight: 200; }
+  activitybarstripe .activity-price-min {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    z-index: 2;
+    max-width: 25%;
+    background-color: #85C900;
+    padding: 4px 8px;
     color: #FFF;
-    font-weight: 800;
-    font-size: 20px;
-    z-index: 2; }
+    text-align: right;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px; }
+    activitybarstripe .activity-price-min .price {
+      display: block;
+      font-weight: 600;
+      font-size: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      -webkit-text-overflow: ellipsis;
+      -khtml-text-overflow: ellipsis;
+      -moz-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
+    activitybarstripe .activity-price-min .smalltext {
+      display: block;
+      font-size: 11px;
+      line-height: 13.2px;
+      white-space: nowrap;
+      overflow: hidden;
+      -webkit-text-overflow: ellipsis;
+      -khtml-text-overflow: ellipsis;
+      -moz-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
   activitybarstripe .activity-distance-element {
     position: absolute;
     top: 15px;
@@ -4357,7 +4437,15 @@ activitybarstripe {
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
     border-radius: 15px;
-    background-color: #FFF; }
+    background-color: #FFF;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis; }
   activitybarstripe .current-location {
     vertical-align: middle;
     display: block;
@@ -4452,10 +4540,13 @@ currentactivity {
   .no-svg currentactivity {
     background-image: url('/img/nopic.png'); }
   currentactivity .currentactivity-body {
-    overflow: hidden; }
-    currentactivity .currentactivity-body:after {
-      position: relative;
-      top: -90px;
+    overflow: hidden;
+    height: 200px; }
+    currentactivity .currentactivity-body:hover {
+      cursor: pointer; }
+    currentactivity .currentactivity-body:before {
+      position: absolute;
+      top: 110px;
       display: block;
       width: 100%;
       height: 90px;

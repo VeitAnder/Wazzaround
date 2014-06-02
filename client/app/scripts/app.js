@@ -536,7 +536,8 @@ angular.module('anorakApp')
       "The repeating events will have the same starting time and duration as above": "The repeating events will have the same starting time and duration as above",
       "Please select at least one day for repeating event.": "Please select at least one day for repeating event.",
       "create event until": "Create events until this date",
-      "Please select a date until which the repeating events should be created": "Please select a date until which the repeating events should be created"
+      "Please select a date until which the repeating events should be created": "Please select a date until which the repeating events should be created",
+      "starting from": "starting from"
     });
 
     $translateProvider.translations('de', {
@@ -814,7 +815,8 @@ angular.module('anorakApp')
       "The repeating events will have the same starting time and duration as above": "Die Wiederholungs-Events haben die gleiche Startzeit und Dauer",
       "Please select at least one day for repeating event.": "Bitte wählen Sie mindestens einen Tag aus",
       "create event until": "Events bis zu diesem Datum erzeugen",
-      "Please select a date until which the repeating events should be created": "Bitte wählen Sie ein Datum bis zu welchem die sich wiederholenden Events angelegt werden sollen"
+      "Please select a date until which the repeating events should be created": "Bitte wählen Sie ein Datum bis zu welchem die sich wiederholenden Events angelegt werden sollen",
+      "starting from": "Preise ab"
     });
 
     $translateProvider.translations('it', {

@@ -204,13 +204,6 @@
           <span></span>
         </div>
 
-        <h5 class="category">
-          {{getSelectedActivity().category.main | translate}}
-          <span class="category-sub"
-                ng-repeat="subcat in getSelectedActivity().category.subs">
-            / {{subcat.key | translate}}
-          </span>
-        </h5>
         <h4>
           {{getSelectedActivity().name | languageselect}}
         </h4>
@@ -242,6 +235,7 @@
         <div class="activitybar-noresult">
           <span class="icon"></span>
           <h4>{{'No Activities found.' | translate}}</h4>
+
           <p>{{'Zoom out the map or reset your filter settings.' | translate}}</p>
         </div>
       </activitybar>
@@ -260,33 +254,49 @@
 
             <div ng-show="states.filteredactivities.length > 0">
 
-              <div class="currentactivity-body">
-                <a ng-href=""
+              <div class="currentactivity-body"
                    ng-click="states.activitydetailactive = !states.activitydetailactive"
+                  >
+                <cloudinaryimage
+                    data-publicid="{{getSelectedActivity().images[0].public_id}}"
+                    data-format="{{getSelectedActivity().images[0].format}}"
+                    data-width="650"
+                    data-height="200"
                     >
-                  <cloudinaryimage
-                      data-publicid="{{getSelectedActivity().images[0].public_id}}"
-                      data-format="{{getSelectedActivity().images[0].format}}"
-                      data-width="650"
-                      data-height="200"
-                      >
-                  </cloudinaryimage>
+                </cloudinaryimage>
 
-                  <div class="activity-detail-toggle">
-                    <span class="hideme">show/hide activity detail</span>
-                    <span></span>
-                  </div>
-                  <div class="activity-distance-element">
-                    <span class="current-location"></span>
-                    <span class="activity-distance-txt">
-                      {{getSelectedActivity().distancetosearchlocation | mtokm }} km  | {{getIndexFilteredActivities(getSelectedActivity()) }} {{'of' | translate }} {{states.filteredactivities.length}}
+                <div class="activity-detail-toggle">
+                  <span class="hideme">show/hide activity detail</span>
+                  <span></span>
+                </div>
+                <div class="activity-distance-element">
+                  <span class="current-location"></span>
+                  <span class="activity-distance-txt">
+                    {{getSelectedActivity().distancetosearchlocation | mtokm }} km |
+                    {{getIndexFilteredActivities(getSelectedActivity()) }} {{'of' | translate }}
+                    {{states.filteredactivities.length}}
+                  </span>
+                  <span class="activity-location"></span>
+                </div>
+
+                <div class="activity-text">
+                  <h5 class="category">
+                    {{getSelectedActivity().category.main | translate}}
+                    <span class="category-sub"
+                          ng-repeat="subcat in getSelectedActivity().category.subs">
+                      / {{subcat.key | translate}}
                     </span>
-                    <span class="activity-location"></span>
-                  </div>
+                  </h5>
 
-                  <h4 class="activity-title">{{getSelectedActivity().name | languageselect}}</h4>
+                  <h4>{{getSelectedActivity().name | languageselect}}</h4>
 
-                </a>
+                  <p>Description text one row only!</p>
+                </div>
+                <div class="activity-price-min">
+                  <span class="smalltext">{{'starting from' | translate }}</span>
+                  <span class="price">€ 135</span>
+                </div>
+
                 <span class="triangle"></span>
               </div>
 
