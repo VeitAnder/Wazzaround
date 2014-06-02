@@ -35,6 +35,16 @@ require("./servermodules/serveclient.js").setupStaticAssetsServer(app, (86400000
 app.use(bodyParser());
 app.set('json spaces', 2);
 
+if (process.env.NODE_ENV === "production") {
+  app.get('/*', function (req, res, next) {
+    if (!req.headers.host.match(/^www\./) && req.headers.host.indexOf("onmodulus.net") < 0) {
+      res.redirect('http://www.reacture.com');
+    } else {
+      return next();
+    }
+  });
+}
+
 // init mongodb database connection
 var mongojs = require('mongojs');
 
