@@ -30,7 +30,7 @@ angular.module('anorakApp')
     });
 
     $scope.getMarkerIcon = function () {
-      return "/img/mapicons/marker-"+$scope.activity.category.main+".svg";
+      return "/img/mapicons/marker-"+$scope.activity.category.main+".png";
     };
 
     $scope.delete = function () {
