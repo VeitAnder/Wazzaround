@@ -211,8 +211,9 @@
           {{'Offered by' | translate}} {{activity.company}}
         </h6>
 
-        <div class="description">
-          @TODO Description mit zeichenlimit
+        <div ta-bind
+             class="description"
+             ng-model="getSelectedActivity().description[getAvailableTranslationLanguageKey(getSelectedActivity().description)]">
         </div>
 
         <div class="availability">
@@ -292,7 +293,11 @@
 
                   <h4>{{getSelectedActivity().name | languageselect}}</h4>
 
-                  <p>@TODO Description – CSS one row only!</p>
+                  <p ta-bind
+                     ng-model="getSelectedActivity().description[getAvailableTranslationLanguageKey(getSelectedActivity().description)]"
+                      >
+                  </p>
+
                 </div>
                 <div class="activity-price-min">
                   <span class="smalltext">{{'starting from' | translate }}</span>

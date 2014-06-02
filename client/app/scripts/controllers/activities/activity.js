@@ -5,7 +5,9 @@ angular.module('anorakApp')
     $scope.getPagePartial = function () {
       return 'views/activities/activity.html';
     };
-    $scope.activity = activity;
+    $scope.data = {
+      activity: activity
+    };
   })
   .controller('ActivityCtrl', function ($scope) {
 
