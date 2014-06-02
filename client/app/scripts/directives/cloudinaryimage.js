@@ -19,10 +19,7 @@ angular.module('anorakApp')
           if (scope.publicid !== "") {
             url = $.cloudinary.url(scope.publicid + "." + scope.format, { width: scope.width, height: scope.height, crop: 'fill' });
           } else {
-            console.log("scope.publicid", scope.publicid === "");
-            scope.getCloudinaryurl = function () {
-              url = "#";
-            };
+            url = "#";
           }
           return url;
         };
