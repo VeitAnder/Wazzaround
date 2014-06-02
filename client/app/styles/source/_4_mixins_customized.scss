@@ -1265,8 +1265,8 @@ activitybarstripe {
     left: 50%;
     margin-left: -75px;
     width: 150px;
-    height: 25px;
-    @include border-top-radius(25px);
+    height: 20px;
+    @include border-top-radius(20px);
     background-color: $color_green;
     @include animation_all;
     text-align: center;
@@ -1275,7 +1275,6 @@ activitybarstripe {
     font-size: 11px;
     line-height: 25px;
     text-transform: uppercase;
-
 
   }
 
@@ -1395,6 +1394,8 @@ currentactivity {
     @include hovercursor;
     overflow: hidden;
     height: $activitybar-height;
+    border-top: 5px solid $color_green;
+    @include animation_border;
     &:before {
       position: absolute;
       top: $activitybar-height - 90px;
@@ -1405,7 +1406,14 @@ currentactivity {
       background: url('#{$img_path}activity-headline-BGshadow.png') repeat-x;
     }
   }
+  &.activitydetailactive {
+    .currentactivity-body{
+      border-color: $color_red;
+    }
+  }
 }
+
+$lines-to-show: 3;
 
 activitybardetail {
   position: absolute;
@@ -1423,24 +1431,47 @@ activitybardetail {
   @include border-top-radius($border-radius);
   @include activity-content;
   @include animation_all;
-  .description{
+
+  .txt-icon-delete{
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    span{
+      top: 0;
+      width: 30px;
+      height: 30px;
+      @include border-radius(15px);
+      background-position: -68px 7px;
+      border: 3px solid $color_white;
+      @include box-shadow_2px;
+    }
+  }
+
+  .description {
     margin-top: 0;
+    @include multiline(5);
   }
   &.activitydetailactive {
     bottom: $activitybar-height;
   }
-  h4{
+  h4 {
     margin-top: 0;
   }
-  @include respond-to(low-screen){
+  .availability{
+    margin-top: $fs;
+  }
+  @include respond-to(low-screen) {
     padding-bottom: $bu*2.0;
-    h4{
+    h4 {
       display: none;
     }
-    .availability{
-      .input-label{
+    .availability {
+      .input-label {
         display: none;
       }
+    }
+    .description {
+      @include multiline(2);
     }
   }
 }

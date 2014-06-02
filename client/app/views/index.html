@@ -197,6 +197,11 @@
           ng-show="states.filteredactivities.length > 0"
           >
 
+        <div class="txt-icon-delete" ng-click="states.activitydetailactive = false">
+          <span class="hidden">Close detail view</span>
+          <span></span>
+        </div>
+
         <h4 class="activity-title">
           {{getSelectedActivity().name | languageselect}}
         </h4>
@@ -204,8 +209,10 @@
           {{'Offered by' | translate}} {{activity.company}}
         </h6>
 
-        <div class="description">
-          @TODO Description mit zeichenlimit
+        <div class="description multiline">
+          <div class="innerwrap">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+          </div>
         </div>
 
         <div class="availability">
@@ -247,6 +254,7 @@
 
             <div class="activity-detail-toggle"
                  ng-click="toggleCurrentActivity()"
+                 ng-class="{active: states.activitydetailactive}"
                 >
               <span
                   ng-hide="states.activitydetailactive"

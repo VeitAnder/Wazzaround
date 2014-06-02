@@ -4236,9 +4236,9 @@ activitybarstripe {
     left: 50%;
     margin-left: -75px;
     width: 150px;
-    height: 25px;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
+    height: 20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
     background-color: #85C900;
     -webkit-transition-duration: 0.25s;
     transition-duration: 0.25s;
@@ -4414,7 +4414,16 @@ currentactivity {
     background-image: url('/img/nopic.png'); }
   currentactivity .currentactivity-body {
     overflow: hidden;
-    height: 200px; }
+    height: 200px;
+    border-top: 5px solid #85C900;
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    text-decoration: none;
+    -webkit-transition-property: border;
+    transition-property: border; }
     currentactivity .currentactivity-body:hover {
       cursor: pointer; }
     currentactivity .currentactivity-body:before {
@@ -4425,6 +4434,8 @@ currentactivity {
       height: 90px;
       content: "";
       background: url('/img/activity-headline-BGshadow.png') repeat-x; }
+  currentactivity.activitydetailactive .currentactivity-body {
+    border-color: #C83C19; }
 
 activitybardetail {
   position: absolute;
@@ -4472,19 +4483,66 @@ activitybardetail {
   activitybardetail .availability {
     margin-top: 32px;
     clear: both; }
+  activitybardetail .txt-icon-delete {
+    position: absolute;
+    right: -15px;
+    top: -15px; }
+    activitybardetail .txt-icon-delete span {
+      top: 0;
+      width: 30px;
+      height: 30px;
+      -webkit-border-radius: 15px;
+      -khtml-border-radius: 15px;
+      -moz-border-radius: 15px;
+      -ms-border-radius: 15px;
+      -o-border-radius: 15px;
+      border-radius: 15px;
+      background-position: -68px 7px;
+      border: 3px solid #FFF;
+      box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 0; }
   activitybardetail .description {
     margin-top: 0; }
+    activitybardetail .description.multiline {
+      text-overflow: clip;
+      white-space: normal; }
+      activitybardetail .description.multiline .innerwrap {
+        display: block;
+        /* Fallback for non-webkit */
+        display: -webkit-box;
+        line-height: 22.4px;
+        height: 113px;
+        /* Fallback for non-webkit */
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis; }
   activitybardetail.activitydetailactive {
     bottom: 200px; }
   activitybardetail h4 {
     margin-top: 0; }
+  activitybardetail .availability {
+    margin-top: 16px; }
   @media only screen and (max-height: 768px) {
     activitybardetail {
       padding-bottom: 30px; }
       activitybardetail h4 {
         display: none; }
       activitybardetail .availability .input-label {
-        display: none; } }
+        display: none; }
+      activitybardetail .description.multiline {
+        text-overflow: clip;
+        white-space: normal; }
+        activitybardetail .description.multiline .innerwrap {
+          display: block;
+          /* Fallback for non-webkit */
+          display: -webkit-box;
+          line-height: 22.4px;
+          height: 45.8px;
+          /* Fallback for non-webkit */
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis; } }
 
 .activitybar-noresult {
   padding: 30px;
