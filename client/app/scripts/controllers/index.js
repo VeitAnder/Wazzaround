@@ -417,6 +417,10 @@ angular.module('anorakApp')
       return newindex;
     };
 
+    $scope.toggleCurrentActivity = function () {
+      $scope.states.activitydetailactive = !$scope.states.activitydetailactive;
+    };
+
     $scope.getSelectedMarkerId = function () {
       return $scope.states.selectedactivityid;
     };

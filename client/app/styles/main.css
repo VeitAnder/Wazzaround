@@ -16,6 +16,8 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
+  *[ng-click]:hover {
+    cursor: pointer; }
 
 img {
   vertical-align: middle; }

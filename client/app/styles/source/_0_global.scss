@@ -203,6 +203,9 @@ $img_path: '/img/';
 
 *[ng-click]{
   @include user-select(none);
+  &:hover{
+    cursor:pointer;
+  }
 }
 
 // Images
