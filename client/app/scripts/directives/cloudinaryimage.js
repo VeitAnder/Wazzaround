@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .directive('cloudinaryimage', function (APP_CONFIG) {
     return {
-      template: '<img ng-src="{{getCloudinaryurl()}}" />',
+      template: '<img ng-show="publicid" ng-src="{{getCloudinaryurl()}}" /> ',
       restrict: 'E',
       scope: {
         "publicid": "@publicid",
