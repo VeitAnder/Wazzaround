@@ -159,6 +159,7 @@ $height_logo : 56px;
 
 $sprite_icons: '/img/sprite_icons';
 $sprite_mobile-icons: '/img/sprite_mobile-icons';
+$img_path: '/img/';
 
 //mixin with svg/png support decision
 @mixin sprite_icons($x, $y, $repeat) {
@@ -184,7 +185,20 @@ $sprite_mobile-icons: '/img/sprite_mobile-icons';
 }
 
 
-$img_path: '/img/';
+@mixin img($file, $x, $y, $repeat) {
+  .svg & {
+    background-image: url('#{$img_path}#{$file}.svg');
+  }
+  .no-svg & {
+    background-image: url('#{$img_path}#{$file}.png');
+  }
+  background-position: $x $y;
+  background-repeat: $repeat;
+}
+
+
+
+
 
 
 *[ng-click]{

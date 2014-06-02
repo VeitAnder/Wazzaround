@@ -1358,6 +1358,8 @@ currentactivity {
       top: 0;
     }
   }
+  background-color: $color_grey_50;
+  @include img(nopic, center, center, no-repeat);
 
   .currentactivity-body {
     overflow: hidden;

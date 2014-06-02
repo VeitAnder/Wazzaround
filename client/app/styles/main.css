@@ -4408,7 +4408,10 @@ currentactivity {
   top: 0;
   position: absolute;
   left: 50%;
-  height: 200px; }
+  height: 200px;
+  background-color: #b3b3b3;
+  background-position: center center;
+  background-repeat: no-repeat; }
   currentactivity img {
     min-width: 100%;
     height: auto; }
@@ -4444,6 +4447,10 @@ currentactivity {
     transform: rotate(90deg); }
   currentactivity.activitydetailactive .triangle {
     top: 0; }
+  .svg currentactivity {
+    background-image: url('/img/nopic.svg'); }
+  .no-svg currentactivity {
+    background-image: url('/img/nopic.png'); }
   currentactivity .currentactivity-body {
     overflow: hidden; }
     currentactivity .currentactivity-body:after {
