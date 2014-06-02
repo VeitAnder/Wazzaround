@@ -38,7 +38,7 @@ app.set('json spaces', 2);
 if (process.env.NODE_ENV === "production") {
   app.get('/*', function (req, res, next) {
     if (!req.headers.host.match(/^www\./) && req.headers.host.indexOf("onmodulus.net") < 0) {
-      res.redirect('http://www.reacture.com');
+      res.redirect('https://www.reacture.com');
     } else {
       return next();
     }
