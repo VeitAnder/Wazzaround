@@ -4290,6 +4290,7 @@ activitybarstripe {
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis; }
   activitybarstripe .activity-price-min {
+    display: none;
     position: absolute;
     bottom: 15px;
     right: 15px;

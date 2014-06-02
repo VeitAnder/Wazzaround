@@ -1308,6 +1308,9 @@ activitybarstripe {
     }
   }
   .activity-price-min {
+
+    display:none;
+
     position: absolute;
     bottom: $bu;
     right: $bu;
