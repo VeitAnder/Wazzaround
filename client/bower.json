@@ -33,6 +33,8 @@
     "angular-local-storage": "0.0.1"
   },
   "resolutions": {
-    "angular": "1.3.0-beta.10"
+    "angular": "1.3.0-beta.10",
+    "angular-translate": "~2.1.0",
+    "assert": "f25d9b80ea"
   }
 }
