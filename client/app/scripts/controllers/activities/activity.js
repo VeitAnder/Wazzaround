@@ -18,7 +18,7 @@ angular.module('anorakApp')
       .then(function(res) {
         $scope.$apply(function() {
           $scope.data.provider = res;
-        })
+        });
       }).done();
 
   })

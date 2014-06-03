@@ -68,10 +68,12 @@
 
 
         <div class="description">
-          <div class="img-block img-block-right">
-            <cloudinaryimage ng-show="activity.images.length > 0"
-                             data-publicid="{{activity.images[0].public_id}}"
-                             data-format="{{activity.images[0].format}}"
+          <div class="img-block img-block-right"
+               ng-show="activity.images.length > 0"
+              >
+            <cloudinaryimage ng-repeat="image in activity.images"
+                             data-publicid="{{image.public_id}}"
+                             data-format="{{image.format}}"
                              data-width="250"
                              data-height="150"
                 >
