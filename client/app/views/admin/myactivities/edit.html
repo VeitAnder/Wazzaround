@@ -111,6 +111,7 @@
 
             </div>
 
+
             <imageselector class="form-group img-selector">
               <label>{{'Images' | translate}}</label>
               <imageblock class="img-block"
@@ -120,13 +121,23 @@
                                  data-format="{{image.format}}"
                                  data-width="150"
                                  data-height="85"
+
                     >
                 </cloudinaryimage>
                 <div class="img-edit">
                   <a class="delete"
-                     ng-click="removeImage(image, $index)">
+                     ng-click="removeImage(image, $index)"
+                      >
                     <span>{{'delete' | translate}}</span>
                   </a>
+
+                  <a class="maketeaserimage"
+                     ng-hide="$index === 0"
+                     ng-click="makeTeaserImage($index)"
+                      >
+                    <span>{{'maketeaser' | translate}}</span>
+                  </a>
+
                 </div>
                 <div class="img-teaser">
                   Teaser image

@@ -361,4 +361,13 @@ angular.module('anorakApp')
       }
     }, true);
 
+    $scope.makeTeaserImage = function (index) {
+      function arraymove(arr, fromIndex, toIndex) {
+        var element = arr[fromIndex];
+        arr.splice(fromIndex, 1);
+        arr.splice(toIndex, 0, element);
+      }
+      arraymove($scope.activity.images, index, 0);
+    };
+
   });
