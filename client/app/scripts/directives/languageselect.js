@@ -5,7 +5,6 @@ angular.module('anorakApp')
     return {
       templateUrl: 'views/directives/languageselect.html',
       restrict: 'E',
-      replace: true,
       link: function postLink(scope, element, attrs) {
         scope.activelanguage = $translate.use();
 

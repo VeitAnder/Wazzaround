@@ -5,7 +5,6 @@ angular.module('anorakApp')
     return {
       templateUrl: 'views/directives/languagetabs.html',
       restrict: 'E',
-      replace: true,
       scope: {
         formfieldlanguage: "="
       },

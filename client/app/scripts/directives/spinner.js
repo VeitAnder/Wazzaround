@@ -4,7 +4,6 @@ angular.module('directives.spinner', [])
 
     return {
       restrict: 'A',
-      replace: true,
       template: '<div class="spinner" ng-show="hasPendingRequests()"> <span>{{spinnertext}}</span><div>',
       link: function (scope, elem, attrs) {
         var color;
