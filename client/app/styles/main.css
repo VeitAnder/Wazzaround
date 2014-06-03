@@ -2837,7 +2837,22 @@ googleMap, .angular-google-map, .angular-google-map-container {
     color: #666;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
+  .window-category-sports .img-block cloudinaryimage {
+    display: inline-block;
+    width: 50%;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    /*   &:first-child{
+        width: (100%)/3*2;
+        float: none;
+      }
+   */ }
   .window-category-sports .img-block img {
+    width: 100%;
+    height: auto;
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
@@ -2848,12 +2863,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-width: 7px;
     padding: 3px;
     background-color: #FFF; }
-  .window-category-sports .img-block.img-block-left {
-    float: left;
-    margin: 0 15px 16px 0; }
-  .window-category-sports .img-block.img-block-right {
-    float: right;
-    margin: 0 0 16px 15px; }
   .window-category-sports .description {
     margin-top: 32px; }
   .window-category-sports .location {
@@ -2890,7 +2899,22 @@ googleMap, .angular-google-map, .angular-google-map-container {
     color: #666;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
+  .window-category-culture .img-block cloudinaryimage {
+    display: inline-block;
+    width: 50%;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    /*   &:first-child{
+        width: (100%)/3*2;
+        float: none;
+      }
+   */ }
   .window-category-culture .img-block img {
+    width: 100%;
+    height: auto;
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
@@ -2901,12 +2925,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-width: 7px;
     padding: 3px;
     background-color: #FFF; }
-  .window-category-culture .img-block.img-block-left {
-    float: left;
-    margin: 0 15px 16px 0; }
-  .window-category-culture .img-block.img-block-right {
-    float: right;
-    margin: 0 0 16px 15px; }
   .window-category-culture .description {
     margin-top: 32px; }
   .window-category-culture .location {
@@ -2943,7 +2961,22 @@ googleMap, .angular-google-map, .angular-google-map-container {
     color: #666;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
+  .window-category-wellness .img-block cloudinaryimage {
+    display: inline-block;
+    width: 50%;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    /*   &:first-child{
+        width: (100%)/3*2;
+        float: none;
+      }
+   */ }
   .window-category-wellness .img-block img {
+    width: 100%;
+    height: auto;
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
@@ -2954,12 +2987,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-width: 7px;
     padding: 3px;
     background-color: #FFF; }
-  .window-category-wellness .img-block.img-block-left {
-    float: left;
-    margin: 0 15px 16px 0; }
-  .window-category-wellness .img-block.img-block-right {
-    float: right;
-    margin: 0 0 16px 15px; }
   .window-category-wellness .description {
     margin-top: 32px; }
   .window-category-wellness .location {
@@ -2992,7 +3019,22 @@ googleMap, .angular-google-map, .angular-google-map-container {
   color: #666;
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
+.detail-category-sports .img-block cloudinaryimage {
+  display: inline-block;
+  width: 50%;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: top;
+  /*   &:first-child{
+        width: (100%)/3*2;
+        float: none;
+      }
+   */ }
 .detail-category-sports .img-block img {
+  width: 100%;
+  height: auto;
   border: solid 1px #e8e8e8;
   -webkit-border-radius: 6px;
   -khtml-border-radius: 6px;
@@ -3003,12 +3045,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   border-width: 7px;
   padding: 3px;
   background-color: #FFF; }
-.detail-category-sports .img-block.img-block-left {
-  float: left;
-  margin: 0 15px 16px 0; }
-.detail-category-sports .img-block.img-block-right {
-  float: right;
-  margin: 0 0 16px 15px; }
 .detail-category-sports .description {
   margin-top: 32px; }
 .detail-category-sports .location {
@@ -3023,7 +3059,22 @@ googleMap, .angular-google-map, .angular-google-map-container {
   color: #666;
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
+.detail-category-culture .img-block cloudinaryimage {
+  display: inline-block;
+  width: 50%;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: top;
+  /*   &:first-child{
+        width: (100%)/3*2;
+        float: none;
+      }
+   */ }
 .detail-category-culture .img-block img {
+  width: 100%;
+  height: auto;
   border: solid 1px #e8e8e8;
   -webkit-border-radius: 6px;
   -khtml-border-radius: 6px;
@@ -3034,12 +3085,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   border-width: 7px;
   padding: 3px;
   background-color: #FFF; }
-.detail-category-culture .img-block.img-block-left {
-  float: left;
-  margin: 0 15px 16px 0; }
-.detail-category-culture .img-block.img-block-right {
-  float: right;
-  margin: 0 0 16px 15px; }
 .detail-category-culture .description {
   margin-top: 32px; }
 .detail-category-culture .location {
@@ -3054,7 +3099,22 @@ googleMap, .angular-google-map, .angular-google-map-container {
   color: #666;
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
+.detail-category-wellness .img-block cloudinaryimage {
+  display: inline-block;
+  width: 50%;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: top;
+  /*   &:first-child{
+        width: (100%)/3*2;
+        float: none;
+      }
+   */ }
 .detail-category-wellness .img-block img {
+  width: 100%;
+  height: auto;
   border: solid 1px #e8e8e8;
   -webkit-border-radius: 6px;
   -khtml-border-radius: 6px;
@@ -3065,12 +3125,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   border-width: 7px;
   padding: 3px;
   background-color: #FFF; }
-.detail-category-wellness .img-block.img-block-left {
-  float: left;
-  margin: 0 15px 16px 0; }
-.detail-category-wellness .img-block.img-block-right {
-  float: right;
-  margin: 0 0 16px 15px; }
 .detail-category-wellness .description {
   margin-top: 32px; }
 .detail-category-wellness .location {
@@ -4473,7 +4527,22 @@ activitybardetail {
     color: #666;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
+  activitybardetail .img-block cloudinaryimage {
+    display: inline-block;
+    width: 50%;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    /*   &:first-child{
+        width: (100%)/3*2;
+        float: none;
+      }
+   */ }
   activitybardetail .img-block img {
+    width: 100%;
+    height: auto;
     border: solid 1px #e8e8e8;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
@@ -4484,12 +4553,6 @@ activitybardetail {
     border-width: 7px;
     padding: 3px;
     background-color: #FFF; }
-  activitybardetail .img-block.img-block-left {
-    float: left;
-    margin: 0 15px 16px 0; }
-  activitybardetail .img-block.img-block-right {
-    float: right;
-    margin: 0 0 16px 15px; }
   activitybardetail .description {
     margin-top: 32px; }
   activitybardetail .location {
@@ -5477,7 +5540,7 @@ activitybardetail {
   .img-selector .img-teaser {
     display: none; }
   .img-selector label + .img-block img {
-    width: 150px;
+    width: 200px;
     height: auto; }
   .img-selector label + .img-block .img-teaser {
     display: block;
@@ -5497,7 +5560,7 @@ activitybardetail {
     margin-right: 10px;
     margin-bottom: 32px; }
     .img-selector .img-block img {
-      width: 150px;
+      width: 200px;
       height: auto;
       -webkit-border-radius: 3px;
       -khtml-border-radius: 3px;
@@ -5538,7 +5601,8 @@ activitybardetail {
         background-repeat: no-repeat;
         top: 0;
         border: 2px solid #FFF;
-        background-position: -67px 8px; }
+        background-position: -67px 8px;
+        vertical-align: middle; }
         .svg .img-selector .img-block .img-edit .delete {
           background-image: url('/img/sprite_icons.svg'); }
         .no-svg .img-selector .img-block .img-edit .delete {
@@ -5553,6 +5617,65 @@ activitybardetail {
           background-color: #C83C19; }
         .img-selector .img-block .img-edit .delete span {
           display: none; }
+
+.maketeaserimage {
+  display: inline-block;
+  margin-left: 5px;
+  display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  background-color: #85C900;
+  padding: 4px 12px 6px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  border: solid 1px #85C900;
+  border-width: 3px;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  color: #FFF;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 22.4px;
+  font-size: 10px;
+  line-height: 14px;
+  text-transform: uppercase;
+  padding: 2.4px 4px;
+  border-width: 1px;
+  font-weight: 800;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px; }
+  .maketeaserimage:hover {
+    color: #FFF;
+    border-color: #a4d740;
+    background-color: #a4d740;
+    cursor: pointer; }
+  .maketeaserimage:active {
+    background: #a4d740;
+    color: #FFF;
+    border-color: #a4d740;
+    outline: none; }
+  .maketeaserimage:focus {
+    background: #85C900;
+    color: #FFF;
+    border-color: #85C900;
+    outline-color: #a4d740; }
+  .maketeaserimage[disabled="disabled"], .maketeaserimage.disabled {
+    opacity: 0.5; }
+    .maketeaserimage[disabled="disabled"]:hover, .maketeaserimage.disabled:hover {
+      cursor: default; }
+  .maketeaserimage p {
+    padding-bottom: 14px; }
 
 .admin-section {
   -webkit-box-sizing: border-box;

@@ -352,16 +352,21 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 
   .img-block {
+    cloudinaryimage{
+      display: inline-block;
+      width: (100%)/2;
+      padding: 5px;
+      @include box-sizing(border-box);
+      vertical-align: top;
+   /*   &:first-child{
+        width: (100%)/3*2;
+        float: none;
+      }
+   */ }
     img {
+      width: 100%;
+      height: auto;
       @include border-image;
-    }
-    &.img-block-left {
-      float: left;
-      margin: 0 $bu $fs 0;
-    }
-    &.img-block-right {
-      float: right;
-      margin: 0 0 $fs $bu;
     }
   }
   .description {
@@ -2500,8 +2505,8 @@ $filter-category-arrow-width: 65px;
   }
 }
 
-$img-selector-imgsize: 150px;
-$img-selector-teaserimgsize: 150px;
+$img-selector-imgsize: 200px;
+$img-selector-teaserimgsize: 200px;
 $img-selector-teasertxtheight: 32px;
 
 .img-selector {
@@ -2549,9 +2554,16 @@ $img-selector-teasertxtheight: 32px;
         top: 0;
         border: 2px solid $color_white;
         background-position: -67px 8px;
+        vertical-align: middle;
       }
     }
   }
+}
+
+.maketeaserimage{
+  display: inline-block;
+  margin-left: 5px;
+  @include btn-mini;
 }
 
 @mixin teaser-textformat {
