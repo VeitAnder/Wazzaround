@@ -163,3 +163,12 @@ UserModel.factoryImpl("currentUser", function (params, req) {
       return users[0];
     });
 });
+
+UserModel.operationImpl("getProfile", function (params, req) {
+  return UserModel.get(ObjectId(params.id))
+    .then(function(user) {
+      return {
+        company : user.profile.company
+      }
+    })
+});
