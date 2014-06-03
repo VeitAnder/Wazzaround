@@ -1293,6 +1293,7 @@ activitybarstripe {
     width: 60%;
     h5 {
       margin: 0 0 $fs*0.5 0;
+
     }
     h4 {
       color: $color_white;
@@ -1415,8 +1416,6 @@ currentactivity {
     }
   }
 }
-
-$lines-to-show: 3;
 
 activitybardetail {
   position: absolute;

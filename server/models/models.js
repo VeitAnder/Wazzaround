@@ -70,7 +70,9 @@ var models = function () {
     // TODO: add security
     userType: Attr(Type.string, Type.enum('user', 'admin', 'provider'), Attr.default('user')),
 
-    currentUser: Factory()
+    currentUser: Factory(),
+
+    getProfile : Operation()
   });
 
   var EventModel = new model("events", {
