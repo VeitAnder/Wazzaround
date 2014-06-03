@@ -1,17 +1,23 @@
-// This http interceptor listens for authentication failures
-angular.module('services.authentication.interceptor', ['services.authentication.retry-queue'])
-  .factory('AuthenticationInterceptor', function ($rootScope, $injector, $window, debug) {
-    "use strict";
+"use strict";
+// checkout interceptors implementation
+// @ http://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/
+angular.module('services.authentication.interceptor', [])
+  .config(function ($httpProvider) {
+    $httpProvider.interceptors.push('AuthenticationInterceptor');
+  })
+  .factory('AuthenticationInterceptor', function (debug, $q, $window) {
 
-    var $http; // To be lazy initialized to prevent circular dependency
-    return function (promise) {
-      $http = $http || $injector.get('$http');
+    var myInterceptor = {
+      response: function (response) {
+        return response;
+      },
+      responseError: function (response) {
 
-      // Intercept failed requests
-      return promise.then(function (originalResponse) {
-        return originalResponse;
-      }, function (originalResponse) {
-        if (originalResponse.status === 401) {
+        // @TODO implement session recovery according to
+        // http://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/
+
+        // Session has expired
+        if (response.status === 401) {
           debug("session expired detected in AuthenticationInterceptor");
           // The request bounced because it was not authorized - add a new request to the retry queue
           // promise = queue.pushPromiseFn(function() { return $http(originalResponse.config); }, 'unauthorized-server');
@@ -28,17 +34,13 @@ angular.module('services.authentication.interceptor', ['services.authentication.
 
           $window.location.href = "/login?error=sessionExpired" + redirect;  // , ticket find out about route change error
         }
-        else if (originalResponse.status === 0) {
+        else if (response.status === 0) {
           debug("no network connection");
         }
-        return promise;
-      });
-    };
-  });
 
-// We have to add the interceptor to the queue as a string because the interceptor depends upon service instances that are not available in the config block.
-angular.module('services.authentication.interceptor')
-  .config(function ($httpProvider) {
-    "use strict";
-    $httpProvider.responseInterceptors.push('AuthenticationInterceptor');
+        return $q.reject(response);
+      }
+    };
+
+    return myInterceptor;
   });

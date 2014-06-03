@@ -197,7 +197,7 @@ angular.module('anorakApp')
       var map = {
         searchAddress: "",
         searchStartDate: new Date(),
-        searchEndDate: moment(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDay(), 23, 59, 59)).add('month', 1).toDate(),
+        searchEndDate: moment(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDay(), 23, 59, 59)).add('month', 12).toDate(),
         bounds: {
           northeast: {
             latitude: 0,
@@ -356,17 +356,17 @@ angular.module('anorakApp')
 
       this.getMarkerIcon = function (maincategorykey) {
         if (maincategorykey) {
-          return "/img/mapicons/marker-" + maincategorykey + ".svg";
+          return "/img/mapicons/marker-" + maincategorykey + ".png";
         } else {
-          return "/img/mapicons/marker.svg";
+          return "/img/mapicons/marker.png";
         }
       };
 
       this.getMarkerIconActive = function (maincategorykey) {
         if (maincategorykey) {
-          return "/img/mapicons/marker-" + maincategorykey + "-active.svg";
+          return "/img/mapicons/marker-" + maincategorykey + "-active.png";
         } else {
-          return "/img/mapicons/marker.svg";
+          return "/img/mapicons/marker.png";
         }
       };
 

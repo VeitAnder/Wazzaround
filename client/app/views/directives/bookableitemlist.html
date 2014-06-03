@@ -88,23 +88,27 @@
 <div class="availability-footer"
     ng-show="showpagination"
     >
-  <div class="cell first">
-<!--    <a class="btn btn-mini disabled"
+  <div class="cell prev">
+<!--
+    <a class="btn btn-mini disabled"
        ng-click=""
         >{{ 'Prev' | translate }}
-    </a>-->
+    </a>
+-->
   </div>
   <div class="cell align-center">
-    <a class="btn btn-mini"
+    <a class="btn btn-mini btn-negative"
        ng-click=""
        href="#/activities/{{activity._id}}/"
         >{{ 'Show all Dates' | translate }}
     </a>
   </div>
-  <div class="cell last align-right">
-<!--    <a class="btn btn-mini"
+  <div class="cell next align-right">
+<!--
+    <a class="btn btn-mini"
        ng-click=""
         >{{ 'Next' | translate }}
-    </a>-->
+    </a>
+-->
   </div>
 </div>

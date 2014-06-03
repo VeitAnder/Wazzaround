@@ -5,16 +5,19 @@ angular.module('anorakApp')
     $scope.getPagePartial = function () {
       return 'views/activities/activity.html';
     };
-    $scope.activity = activity;
 
-    $scope.provider = {
-      company : "loading.."
+    // TODO: btw.. es ist üblich $scope.vm (view model) zu verwenden
+    $scope.data = {
+      activity: activity,
+      provider: {
+        company : "loading.."
+      }
     };
 
     $scope.models.UserModel.getProfile({id:$scope.activity.owner._reference})
       .then(function(res) {
         $scope.$apply(function() {
-          $scope.provider = res;
+          $scope.data.provider = res;
         })
       }).done();
 

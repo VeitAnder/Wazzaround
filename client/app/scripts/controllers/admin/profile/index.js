@@ -14,7 +14,7 @@ angular.module('anorakApp')
 
   })
 
-  .controller('AdminProfileEditCtrl', function ($scope, currentUser, models, $location) {
+  .controller('AdminProfileEditCtrl', function ($scope, currentUser, models, $location, $timeout, Countrylist) {
 
     $scope.getPagePartial = function () {
       return 'views/admin/profile/edit.html';
@@ -22,21 +22,22 @@ angular.module('anorakApp')
 
     $scope.user = currentUser.user;
 
-    $scope.saveUserProfile = function () {
+    $scope.state = {
+      submitted: false
+    };
 
-//      $scope.state.submitted = true;
+    $scope.saveUserProfile = function () {
+      $scope.state.submitted = true;
 
       if ($scope.valForm.$valid) {
-
-        console.log("save()", $scope.user);
-
         $scope.user.save()
           .then(function (asdf) {
             debug("Saved user", asdf);
-            $location.path("/admin/profile");
-            $scope.$apply();
+            $timeout(function () {
+              $location.path("/admin/profile");
+            });
           })
-          .fail(function (err) {       // TODO fail message
+          .fail(function (err) {
             debug("Could not save user profile", err);
             $scope.state.savesuccess = false;
           });
@@ -44,4 +45,20 @@ angular.module('anorakApp')
       }
     };
 
+    /**
+     * Whether to show an error message for the specified error
+     * @param {string} fieldName The name of the field on the form, of which we want to know whether to show the error
+     * @param  {string} error - The name of the error as given by a validation directive
+     * @return {Boolean} true if the error should be shown
+     */
+    $scope.showError = function (fieldName, error) {
+      var formName = "valForm";
+      var showerror = false;
+      if ($scope[formName][fieldName].$error[error] && (!$scope[formName][fieldName].$pristine || $scope.state.submitted)) {
+        showerror = true;
+      }
+      return showerror;
+    };
+
+    $scope.Countrylist = Countrylist;
   });

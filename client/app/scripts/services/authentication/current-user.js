@@ -1,7 +1,7 @@
+"use strict";
 // The current user.  You can watch this for changes due to logging in and out
 angular.module('services.authentication.current-user', [])
   .factory('currentUser', function ($rootScope, $q, models) {
-    "use strict";
 
     var currentUser = {
       load: function () {

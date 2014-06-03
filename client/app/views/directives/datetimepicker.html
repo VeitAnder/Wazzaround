@@ -18,12 +18,9 @@
            size="8"
            class="form-control"
            ng-model="event.start"
-           data-autoclose="0"
            placeholder="{{'Time' | translate}}"
            bs-timepicker
-           data-time-format="HH:mm"
         >
-    <!--ng-change="event.start = setTime(event.start, start.time)"-->
   </div>
 
   <div class="from-until">
@@ -48,15 +45,17 @@
            size="8"
            class="form-control"
            ng-model="event.end"
-           data-autoclose="0"
            placeholder="{{'Time' | translate}}"
            bs-timepicker
-           data-time-format="HH:mm"
+           data-min-time="{{getMinTimeForEndTime()}}"
         >
   </div>
 
-  <div ng-show="eventcreation.error">
-    <div class="alert alert-error">{{eventcreation.error | translate}}</div>
-  </div>
+</div>
 
+<div class="event-duration-block">
+  Event duration:
+  <strong>
+    {{ {start: event.start, end: event.end } | duration}}
+  </strong>
 </div>

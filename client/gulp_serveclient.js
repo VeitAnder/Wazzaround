@@ -1,28 +1,25 @@
 "use strict";
 
-var config = {
-  server: {
-    distFolder: "./app"
-  }
-};
-
 var express = require('express');
+var compress = require('compression');
+var favicon = require('serve-favicon');
+var fs = require('fs');
 
-var setupStaticAssetsServer = function (app) {
+var setupStaticAssetsServer = function (app, config) {
   var handle404;
   // cache lifetime for static assets
   // checkout static content serving on  http://blog.modulus.io/nodejs-and-express-static-content
   var maxAgeStaticAssets = 0;
 
   // First looks for a static file: index.html, css, images, etc.
-  app.use("/bower_components", express.compress());
-  app.use("/fonts", express.compress());
-  app.use("/img", express.compress());
+  app.use("/bower_components", compress());
+  app.use("/fonts", compress());
+  app.use("/img", compress());
   //  static/img is a legacy route for images in already sent and future emails
-  app.use("/static/img", express.compress());
-  app.use("/styles", express.compress());
-  app.use("/scripts", express.compress());
-  app.use("/views", express.compress());
+  app.use("/static/img", compress());
+  app.use("/styles", compress());
+  app.use("/scripts", compress());
+  app.use("/views", compress());
 
   app.use("/bower_components", express.static(config.server.distFolder + "/bower_components", {maxAge: maxAgeStaticAssets }));
   app.use("/fonts", express.static(config.server.distFolder + "/fonts", {maxAge: maxAgeStaticAssets }));
@@ -72,9 +69,14 @@ var setupStaticAssetsServer = function (app) {
 
 };
 
-var serveClient = function (app) {
+var serveClient = function (app, config) {
   // Serve up the favicon
-  app.use(express.favicon(config.server.distFolder + '/favicon.ico'));
+  var favicon_icofile = config.server.distFolder + '/favicon.ico';
+  fs.exists(favicon_icofile, function (exists) {
+    if (exists) {
+      app.use(favicon(favicon_icofile));
+    }
+  });
 
 // Handle Access to http://url/*
 // enables HTML5Mode by forwarding missing files to the index.html

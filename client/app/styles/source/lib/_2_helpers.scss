@@ -149,6 +149,23 @@
 }
 
 
+@mixin multiline($lines-to-show){
+  &.multiline {
+    text-overflow: clip;
+    white-space: normal;
+    .innerwrap {
+      display: block; /* Fallback for non-webkit */
+      display: -webkit-box;
+      line-height: $fs*$line-height_factor;
+      height: $fs*$line-height_factor*$lines-to-show + 1px; /* Fallback for non-webkit */
+      -webkit-line-clamp: $lines-to-show;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
 
 // TRANSITIONS
 // ###########################################################################################################################

@@ -18,6 +18,6 @@ angular.module('momentjs', []).
   })
   .filter('duration', function () {
     return function (data, config) {
-      return moment.duration(data.start - data.end).humanize();
+      return moment.duration(moment(data.start) - moment(data.end)).humanize();
     };
   });

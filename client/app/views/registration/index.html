@@ -25,7 +25,7 @@
                 >
 
             <span ng-show="showError('email', 'required')"
-                  class="alert">{{ 'Please enter your e-mail address.' | translate }}
+                  class="alert alert-error">{{ 'Please enter your e-mail address.' | translate }}
             </span>
             <span ng-show="showError('email', 'pattern')"
                   class="alert alert-error">{{ 'Please enter a valid e-mail address.' | translate }}
@@ -78,7 +78,7 @@
                 >
 
             <span ng-show="showError('passwordRepeat', 'required')"
-                  class="alert">{{ 'Please retype the password.' | translate }}
+                  class="alert alert-error">{{ 'Please retype the password.' | translate }}
             </span>
 
             <span ng-show="showError('passwordRepeat', 'repeat')"

@@ -364,18 +364,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
       margin: 0 0 $fs $bu;
     }
   }
-  .category {
-    display: inline-block;
-    margin-top: 0;
-    background-color: $color_grey;
-    @include border-radius(($fs*$font-size_small_factor*$line-height_factor)*0.5 + 2px);
-    padding: 2px $bu*0.5;
-    @include font-size_small;
-    color: $color_white;
-    .category-sub {
-      font-weight: $font-weight_light;
-    }
-  }
   .description {
     margin-top: $fs*2.0;
   }
@@ -483,6 +471,18 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
 .detail-category-wellness {
   @include activity-content;
+  @include category-wellness;
+}
+
+.category-sports {
+  @include category-sports;
+}
+
+.category-culture {
+  @include category-culture;
+}
+
+.category-wellness {
   @include category-wellness;
 }
 
@@ -717,7 +717,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
   .event-item-body {
-    padding: $bu*0.5;
+    padding: 0 $bu*0.5 $bu*0.25 $bu*0.5;
     background-color: $color_green_50;
     @include border-bottom-radius($border-radius);
     overflow: hidden;
@@ -884,16 +884,22 @@ googleMap, .angular-google-map, .angular-google-map-container {
   @include border-radius($border-radius_small);
   .cell {
     width: 50%;
-    padding-bottom: $fs*0.5;
-    &.last, &.first {
+    &.prev {
       width: 25%;
+      padding-left: 5px;
+    }
+    &.next {
+      width: 25%;
+      padding-right: 5px;
     }
     .btn {
-      background-color: $color_grey_75;
-      border-color: $color_grey_75;
+      background-color: transparent;
+      border-color: $color_grey_50;
+      color: $color_grey_75;
       &:hover {
         background-color: $color_grey_75_l5;
         border-color: $color_grey_75_l5;
+        color: $color_white;
       }
     }
   }
@@ -1196,13 +1202,16 @@ $activitybar-height: 200px;
   }
 }
 
+.category {
+  @include badge-category;
+}
+
 activitybar {
   width: 100%;
   position: absolute;
   bottom: 0;
   background-color: $color_grey_25;
   height: $activitybar-height;
-  overflow: hidden;
 }
 
 activitybarstripe {
@@ -1251,36 +1260,84 @@ activitybarstripe {
 
   .activity-detail-toggle {
     position: absolute;
-    top: $bu;
-    right: $bu;
-    width: 30px;
-    height: 30px;
-    @include border-radius(15px);
+    z-index: 1;
+    bottom: $activitybar-height;
+    left: 50%;
+    margin-left: -75px;
+    width: 150px;
+    height: 20px;
+    @include border-top-radius(20px);
     background-color: $color_green;
-    @include transform(rotate(270deg));
     @include animation_all;
-    span {
-      display: block;
-      width: 15px;
-      height: 15px;
-      margin-top: 7px;
-      margin-left: 7px;
-      @include sprite_icons(-20px, -85px, no-repeat);
+    text-align: center;
+    color: $color_white;
+    font-weight: $font-weight_bold;
+    font-size: 11px;
+    line-height: 25px;
+    text-transform: uppercase;
+
+  }
+
+  .activitydetailactive {
+    .activity-detail-toggle {
+      background-color: $color_red;
     }
   }
 
-  .activity-title {
+  .activity-text {
     position: absolute;
     bottom: $bu;
     left: $bu;
-    margin: 0;
-    color: $color_white;
-    font-weight: $font-weight_extrabold;
-    font-size: $fs*$font-size_h5_factor;
     z-index: 2;
+    margin: 0;
+    width: 60%;
+    h5 {
+      margin: 0 0 $fs*0.5 0;
+    }
+    h4 {
+      color: $color_white;
+      font-weight: $font-weight_extrabold;
+      font-size: $fs*$font-size_h5_factor;
+      margin: 0;
+      @include ellipsis(no-wrap);
+    }
+    p {
+      margin: 0;
+      color: $color_white;
+      @include ellipsis(no-wrap);
+    }
+  }
+  .activity-price-min {
+
+    display:none;
+
+    position: absolute;
+    bottom: $bu;
+    right: $bu;
+    z-index: 2;
+    max-width: 25%;
+    background-color: $color_green;
+    padding: $fs*0.25 $fs*0.5;
+    color: $color_white;
+    text-align: right;
+    @include border-radius($border-radius);
+    .price {
+      display: block;
+      font-weight: $font-weight_bold;
+      font-size: $fs*$font-size_h5_factor;
+      @include ellipsis(no-wrap);
+    }
+    .smalltext {
+      display: block;
+      font-size: 11px;
+      line-height: 11px*$line-height_headline-factor;
+      @include ellipsis(no-wrap);
+
+    }
   }
 
   .activity-distance-element {
+    opacity: 0.75;
     position: absolute;
     top: $bu;
     left: $bu;
@@ -1288,6 +1345,7 @@ activitybarstripe {
     padding: 5px;
     @include border-radius(15px);
     background-color: $color_white;
+    @include ellipsis(no-wrap);
   }
 
   .current-location {
@@ -1327,51 +1385,38 @@ currentactivity {
   left: 50%;
   height: $activitybar-height;
 
-  //  overflow:hidden;
-
   img {
     min-width: 100%;
     height: auto;
-  }
-  &:hover {
-    .activity-detail-toggle {
-      background-color: $color_green_75;
-    }
-  }
-  .triangle {
-    position: absolute;
-    display: block;
-    width: 25px;
-    height: 12.5px;
-    top: -25px;
-    @include triangle(50px, $color_white, down);
-    left: 50%;
-    margin-left: -25px;
-    @include animation_all;
-  }
 
-  &.activitydetailactive {
-    .activity-detail-toggle {
-      @include transform(rotate(90deg));
-    }
-    .triangle {
-      top: 0;
-    }
   }
+  background-color: $color_grey_50;
+  @include img(nopic, center, center, no-repeat);
 
   .currentactivity-body {
+    @include hovercursor;
     overflow: hidden;
-    &:after{
-      position: relative;
-      top: -90px;
+    height: $activitybar-height;
+    border-top: 5px solid $color_green;
+    @include animation_border;
+    &:before {
+      position: absolute;
+      top: $activitybar-height - 90px;
       display: block;
       width: 100%;
       height: 90px;
-      content:"";
+      content: "";
       background: url('#{$img_path}activity-headline-BGshadow.png') repeat-x;
     }
   }
+  &.activitydetailactive {
+    .currentactivity-body{
+      border-color: $color_red;
+    }
+  }
 }
+
+$lines-to-show: 3;
 
 activitybardetail {
   position: absolute;
@@ -1383,18 +1428,75 @@ activitybardetail {
   //  width: $activitybar-currentitem-width;
 
   padding: $bu*2.0;
+  padding-bottom: $bu*3.0;
   background-color: #ffffff;
   background-color: rgba($color_white, 0.90);
   @include border-top-radius($border-radius);
   @include activity-content;
   @include animation_all;
-  .txt-icon-delete {
+
+  .txt-icon-delete{
     position: absolute;
-    top: $bu;
-    right: $bu;
+    right: -15px;
+    top: -15px;
+    span{
+      top: 0;
+      width: 30px;
+      height: 30px;
+      @include border-radius(15px);
+      background-position: -68px 7px;
+      border: 3px solid $color_white;
+      @include box-shadow_2px;
+    }
+  }
+
+  .description {
+    margin-top: 0;
+    @include multiline(5);
   }
   &.activitydetailactive {
     bottom: $activitybar-height;
+  }
+  h4 {
+    margin-top: 0;
+  }
+  .availability{
+    margin-top: $fs;
+  }
+  @include respond-to(low-screen) {
+    padding-bottom: $bu*2.0;
+    h4 {
+      display: none;
+    }
+    .availability {
+      .input-label {
+        display: none;
+      }
+    }
+    .description {
+      @include multiline(2);
+    }
+  }
+}
+
+.activitybar-noresult {
+  padding: $bu*2.0;
+  text-align: center;
+  .icon {
+    display: inline-block;
+    width: 40px;
+    height: 49px;
+    margin-bottom: $bu;
+    @include sprite_icons(-100px, -100px, no-repeat);
+  }
+  h4 {
+    color: $color_white;
+    font-weight: $font-weight_bold;
+    margin: 0;
+  }
+  p {
+    color: $color_white;
+    margin-top: 0;
   }
 }
 
@@ -2244,7 +2346,6 @@ $filter-category-arrow-width: 65px;
     color: $color_grey_50;
     padding-left: 23px;
     .checkbox {
-      //@include box-sizing(border-box);
       min-height: 0;
       width: 16px;
       height: 16px;
@@ -2291,10 +2392,12 @@ $filter-category-arrow-width: 65px;
   @include border-radius($border-radius);
   .filter-toggle-show, .filter-toggle-hide {
     float: left;
-    //@include box-sizing(border-box);
     padding: 5px 10px;
     width: 50%;
+    @include font-size_small;
+    text-transform: uppercase;
     text-align: center;
+    font-weight: $font-weight_bold;
     @include hovercursor;
     @include user-select(none);
     @include border(left, $color_grey_50);
@@ -2391,9 +2494,9 @@ $filter-category-arrow-width: 65px;
   }
 }
 
-$img-selector-imgsize: 100px;
+$img-selector-imgsize: 150px;
 $img-selector-teaserimgsize: 150px;
-$img-selector-teasertxtheight: 35px;
+$img-selector-teasertxtheight: 32px;
 
 .img-selector {
   .img-teaser {
@@ -2403,14 +2506,14 @@ $img-selector-teasertxtheight: 35px;
   label + .img-block {
     img {
       width: $img-selector-teaserimgsize;
-      height: $img-selector-teaserimgsize;
+      height: auto;
     }
     .img-teaser {
       display: block;
       position: relative;
       top: -$img-selector-teasertxtheight;
       margin-bottom: -$img-selector-teasertxtheight;
-      height: $img-selector-teasertxtheight;
+      height: auto;
       padding: 5px;
       background-color: rgba($color_black, 0.25);
       color: $color_white;
@@ -2427,7 +2530,7 @@ $img-selector-teasertxtheight: 35px;
 
     img {
       width: $img-selector-imgsize;
-      height: $img-selector-imgsize;
+      height: auto;
       @include border-radius($border-radius_small);
     }
     .img-edit {

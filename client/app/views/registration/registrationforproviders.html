@@ -26,7 +26,7 @@
                 >
 
             <span ng-show="showError('email', 'required')"
-                  class="alert">{{'Please enter your e-mail address.' | translate}}
+                  class="alert alert-error">{{'Please enter your e-mail address.' | translate}}
             </span>
             <span ng-show="showError('email', 'pattern')"
                   class="alert alert-error">{{'Please enter a valid e-mail address.' | translate}}
@@ -80,7 +80,7 @@
                 >
 
             <span ng-show="showError('passwordRepeat', 'required')"
-                  class="alert">{{'Please retype the password.' | translate}}
+                  class="alert alert-error">{{'Please retype the password.' | translate}}
             </span>
 
             <span ng-show="showError('passwordRepeat', 'repeat')"
@@ -102,7 +102,7 @@
                 >
 
             <span ng-show="showError('company', 'required')"
-                  class="alert">{{'Please enter your company' | translate}}
+                  class="alert alert-error">{{'Please enter your company' | translate}}
             </span>
 
           </div>
@@ -118,11 +118,10 @@
                   >
 
               <span ng-show="showError('firstname', 'required')"
-                    class="alert">{{'Please enter your first name' | translate}}
+                    class="alert alert-error">{{'Please enter your first name' | translate}}
               </span>
 
             </div>
-
 
             <div class="form-group">
               <label for="lastname">{{'Last name' | translate}}</label>
@@ -135,10 +134,25 @@
                   >
 
               <span ng-show="showError('lastname', 'required')"
-                    class="alert">{{'Please enter your last name' | translate}}
+                    class="alert alert-error">{{'Please enter your last name' | translate}}
               </span>
 
             </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mobile">{{'Mobile Telephone' | translate}}</label>
+            <input name="mobile"
+                   id="mobile"
+                   ng-model="registrant.profile.mobile"
+                   class="input-block-level"
+                   required
+                   placeholder="{{ 'Your mobile telephone number' | translate }}"
+                >
+
+            <span ng-show="showError('mobile', 'required')"
+                  class="alert alert-error">{{'Please enter your mobile telephone number' | translate}}
+            </span>
           </div>
 
           <div class="form-group">
@@ -147,14 +161,12 @@
                    id="tel"
                    ng-model="registrant.profile.tel"
                    class="input-block-level"
-                   required
                    placeholder="{{ 'Your telephone number' | translate }}"
                 >
 
-            <span ng-show="showError('tel', 'required')"
-                  class="alert">{{'Please enter your telephone number' | translate}}
-            </span>
-
+            <!--            <span ng-show="showError('tel', 'required')"
+                              class="alert alert-error">{{'Please enter your telephone number' | translate}}
+                        </span>-->
           </div>
 
           <div class="form-group">
@@ -178,19 +190,20 @@
                 >
 
             <span ng-show="showError('contactpersonname', 'required')"
-                  class="alert">{{'Please enter the name of the contact person' | translate}}
+                  class="alert alert-error">{{'Please enter the name of the contact person' | translate}}
             </span>
           </div>
-
-          <div class="form-group">
-            <label for="uid">{{'UID optional' | translate}}</label>
-            <input name="uid"
-                   id="uid"
-                   ng-model="registrant.profile.uid"
-                   class="input-block-level"
-                   placeholder="{{ 'Your UID number' | translate }}"
-                >
-          </div>
+          <!--
+                    <div class="form-group">
+                      <label for="uid">{{'UID optional' | translate}}</label>
+                      <input name="uid"
+                             id="uid"
+                             ng-model="registrant.profile.uid"
+                             class="input-block-level"
+                             placeholder="{{ 'Your UID number' | translate }}"
+                          >
+                    </div>
+                    -->
 
           <div class="divider">
             <span>{{'Address' | translate}}</span>
@@ -207,7 +220,7 @@
                 >
 
             <span ng-show="showError('address', 'required')"
-                  class="alert">{{'Please enter your address' | translate}}
+                  class="alert alert-error">{{'Please enter your address' | translate}}
             </span>
 
           </div>
@@ -224,7 +237,7 @@
                   >
 
               <span ng-show="showError('zip', 'required')"
-                    class="alert">{{'Please enter your zip code' | translate}}
+                    class="alert alert-error">{{'Please enter your zip code' | translate}}
               </span>
 
             </div>
@@ -240,7 +253,7 @@
                   >
 
               <span ng-show="showError('city', 'required')"
-                    class="alert">{{'Please enter your city' | translate}}
+                    class="alert alert-error">{{'Please enter your city' | translate}}
               </span>
 
             </div>
@@ -254,13 +267,17 @@
                    class="input-block-level"
                    required
                    placeholder="{{ 'Your country' | translate }}"
+
+                   ng-options="country as country.name for country in Countrylist.get()"
+                   bs-typeahead
                 >
 
             <span ng-show="showError('country', 'required')"
-                  class="alert">{{'Please enter your country' | translate}}
+                  class="alert alert-error">{{'Please enter your country' | translate}}
             </span>
 
           </div>
+
           <!--
               <div class="divider">
                 <span>{{'Bank account' | translate}}</span>
@@ -277,7 +294,7 @@
                     >
 
                 <span ng-show="showError('bank', 'required')"
-                      class="alert">{{'Please enter the name of your Bank' | translate}}
+                      class="alert alert-error">{{'Please enter the name of your Bank' | translate}}
                 </span>
               </div>
 
@@ -292,7 +309,7 @@
                     >
 
                 <span ng-show="showError('iban', 'required')"
-                      class="alert">{{'Please enter your IBAN' | translate}}
+                      class="alert alert-error">{{'Please enter your IBAN' | translate}}
                 </span>
               </div>
 
@@ -307,7 +324,7 @@
                     >
 
                 <span ng-show="showError('bic', 'required')"
-                      class="alert">{{'Please enter your BIC' | translate}}
+                      class="alert alert-error">{{'Please enter your BIC' | translate}}
                 </span>
               </div>
 
@@ -322,7 +339,7 @@
                     >
 
                 <span ng-show="showError('nameofaccountowner', 'required')"
-                      class="alert">{{'Please enter the name of the account owner' | translate}}
+                      class="alert alert-error">{{'Please enter the name of the account owner' | translate}}
                 </span>
               </div>
            -->
@@ -343,6 +360,12 @@
                ng-show="state.registrationfailed"
               >
             {{state.errormessage | translate}}
+          </div>
+
+          <div ng-show="valForm.$invalid && state.submitted"
+               class="alert alert-error align-right"
+              >
+            {{'Form can not be saved. Please fill in all required form fields first.' | translate}}
           </div>
 
         </form>

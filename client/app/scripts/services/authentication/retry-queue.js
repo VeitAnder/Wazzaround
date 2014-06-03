@@ -1,7 +1,7 @@
+"use strict";
 // This is a generic retry queue for authentication failures.  Each item is expected to expose two functions: retry and cancel.
 angular.module('services.authentication.retry-queue', [])
   .factory('AuthenticationRetryQueue', function ($q) {
-    "use strict";
 
     var retryQueue = [];
     var service = {

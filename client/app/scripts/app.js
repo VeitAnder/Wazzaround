@@ -27,6 +27,7 @@ angular.module('anorakApp', [
   'ngRoute',
   'ngCookies',
   'ngSanitize',
+  'ngMessages',
   'google-maps',
   'mgcrea.ngStrap',
   'textAngular',
@@ -301,6 +302,13 @@ angular.module('anorakApp')
       "Extreme Sports": "Extreme Sports",
       "degustations": "Degustations: Wine & Food & Cigars",
       "guidedtours": "Guided Tours",
+      "forfree": "Activity for free",
+      "animalsports": "Animal Sports",
+      "competition": "Competitions",
+      "moredays": "More days",
+      "beautyandestetica": "Beatuy + Aesthetics",
+      "fullday": "Full day",
+      "coursesandlearning": "Courses + Learing",
       "exhibitionsandfairs": "Exhibitions & Fairs",
       "operaandtheater": "Opera & Theater",
       "musicandfilm": "Music & Film",
@@ -398,6 +406,9 @@ angular.module('anorakApp')
       "Telephone": "Telephone",
       "Your telephone number": "Your telephone number",
       "Please enter your telephone number": "Please enter your telephone number",
+      "Mobile Telephone": "Cellphone",
+      "Your mobile telephone number": "Your cellphone number",
+      "Please enter your mobile telephone number": "Please enter your cellphone number",
       "Fax": "Fax",
       "Your fax number": "Your fax number",
       "Please enter your fax number": "Please enter your fax number",
@@ -519,7 +530,16 @@ angular.module('anorakApp')
       "Please fill out the form correctly": "Please fill out the form correctly",
       "All dates from activity": "All dates from activity",
       "endBeforeStart": "The end date is before the start date",
-      "Map view": "Map view"
+      "Map view": "Map view",
+      "No Activities found.": "No Activities found.",
+      "Zoom out the map or reset your filter settings.": "Zoom out the map or reset your filter settings.",
+      "The repeating events will have the same starting time and duration as above": "The repeating events will have the same starting time and duration as above",
+      "Please select at least one day for repeating event.": "Please select at least one day for repeating event.",
+      "create event until": "Create events until this date",
+      "Please select a date until which the repeating events should be created": "Please select a date until which the repeating events should be created",
+      "starting from": "starting from",
+      "Info & Booking": "Info & Booking",
+      "close": "close"
     });
 
     $translateProvider.translations('de', {
@@ -563,6 +583,13 @@ angular.module('anorakApp')
       "Extreme Sports": "Extremsport",
       "degustations": "Verkostungen: Wein & Delikatessen & Zigarren",
       "guidedtours": "Führungen",
+      "forfree": "Gratisaktivitäten",
+      "animalsports": "Tiersport",
+      "competition": "Wettbewerbe",
+      "moredays": "Mehrtägig",
+      "beautyandestetica": "Schönheit + Äesthetik",
+      "fullday": "Ganztägig",
+      "coursesandlearning": "Kurse + Lernen",
       "exhibitionsandfairs": "Ausstellungen & Messen",
       "operaandtheater": "Oper & Theater",
       "musicandfilm": "Musik & Film",
@@ -660,6 +687,9 @@ angular.module('anorakApp')
       "Telephone": "Telefon",
       "Your telephone number": "Ihre Telefonnummer",
       "Please enter your telephone number": "Bitte geben Sie Ihre Telefonnummer ein",
+      "Mobile Telephone": "Mobil-Telefon",
+      "Your mobile telephone number": "Ihre Mobil-Tefelonnummer",
+      "Please enter your mobile telephone number": "Bitte geben Sie Ihre Mobil-Telefonnummer ein",
       "Fax": "Fax",
       "Your fax number": "Ihre Faxnummer",
       "Please enter your fax number": "Bitte geben Sie Ihre Faxnummer ein",
@@ -781,7 +811,16 @@ angular.module('anorakApp')
       "Please fill out the form correctly": "Bitte füllen Sie das Formular korrekt aus",
       "All dates from activity": "All dates from activity",
       "endBeforeStart": "Das Event-Ende liegt vor dem Event-Start",
-      "Map view": "Kartenansicht"
+      "Map view": "Kartenansicht",
+      "No Activities found.": "Keine Aktivitäten gefunden.",
+      "Zoom out the map or reset your filter settings.": "Verkleinern Sie die Karte oder setzen Sie Ihre Filter-Einstellungen zurück.",
+      "The repeating events will have the same starting time and duration as above": "Die Wiederholungs-Events haben die gleiche Startzeit und Dauer",
+      "Please select at least one day for repeating event.": "Bitte wählen Sie mindestens einen Tag aus",
+      "create event until": "Events bis zu diesem Datum erzeugen",
+      "Please select a date until which the repeating events should be created": "Bitte wählen Sie ein Datum bis zu welchem die sich wiederholenden Events angelegt werden sollen",
+      "starting from": "Preise ab",
+      "Info & Booking": "Info & Buchen",
+      "close": "schließen"
     });
 
     $translateProvider.translations('it', {
@@ -825,6 +864,13 @@ angular.module('anorakApp')
       "Extreme Sports": "Sports estremi",
       "degustations": "Degustazioni: Vino & Cibo & Sigari",
       "guidedtours": "Tour guidati",
+      "forfree": "Activity for free",
+      "animalsports": "Attivà con animali",
+      "competition": "Competiizioni",
+      "moredays": "Più giorni",
+      "beautyandestetica": "Beatuy + Estetica",
+      "fullday": "Un giorni",
+      "coursesandlearning": "Corsi + Imparare",
       "exhibitionsandfairs": "Esposizioni & Fiere",
       "operaandtheater": "Opera & Teatro",
       "musicandfilm": "Musica & Cinema",
@@ -921,6 +967,9 @@ angular.module('anorakApp')
       "Telephone": "Telefono",
       "Your telephone number": "Il vostro numero di telefono",
       "Please enter your telephone number": "Si prega d'inserire il vostro numero di telefono",
+      "Mobile Telephone": "Telefono mobile",
+      "Your mobile telephone number": "Il vostro numero di telefono mobile",
+      "Please enter your mobile telephone number": "Si prega d'inserire il vostro numero di telefono mobile",
       "Fax": "Fax",
       "Your fax number": "Il vostro numero di fax",
       "Please enter your fax number": "Si prega d'inserire il vostro numero di fax",
@@ -938,8 +987,8 @@ angular.module('anorakApp')
       "Please enter your country": "Si prega d'inserire il vostro paese",
       "Name of contact person": "Nome di un contatto",
       "Please enter the name of the contact person": "Si prega d'inserire un nome di un contatto",
-      "UID optional": "UID opzionale",
-      "Your UID number": "Il vostro UID",
+      "UID optional": "P.IVA opzionale",
+      "Your UID number": "Il vostro P.IVA",
       "Your location": "La tua posizione",
       "Find": "Trovare",
       "From": "Di",
@@ -1042,7 +1091,16 @@ angular.module('anorakApp')
       "Your changes could not be saved": "Le modifiche non potevano essere salvate",
       "Please fill out the form correctly": "Si prega di compilare correttamente il modulo",
       "endBeforeStart": "Fine evento è prima dell'inizio dell'evento",
-      "Map view": "Map view"
+      "Map view": "Map view",
+      "No Activities found.": "No Activities found.",
+      "Zoom out the map or reset your filter settings.": "Zoom out the map or reset your filter settings.",
+      "The repeating events will have the same starting time and duration as above": "The repeating events will have the same starting time and duration as above",
+      "Please select at least one day for repeating event.": "Please select at least one day for repeating event.",
+      "create event until": "Create events until this date",
+      "Please select a date until which the repeating events should be created": "Please select a date until which the repeating events should be created",
+      "starting from": "Preise ab",
+      "Info & Booking": "Info & Booking",
+      "close": "close"
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
@@ -1144,9 +1202,19 @@ angular.module('anorakApp')
 // @TODO check logging if it is neccessary to start via DI?
 // DO not remove logging from DI list!
 angular.module('anorakApp')
-  .controller('AppCtrl', function ($scope, $location, $translate) {
+  .controller('AppCtrl', function ($scope, $location) {
     $scope.gotoLogin = function () {
       $location.path('/login/');
     };
 
   });
+
+angular.module('anorakApp')
+  .config(['$timepickerProvider', function ($timepickerProvider) {
+    angular.extend($timepickerProvider.defaults, {
+      timeFormat: 'HH:mm',
+      length: 7,
+      minuteStep: 15,
+      autoclose: 1
+    });
+  }]);

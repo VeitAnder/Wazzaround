@@ -213,7 +213,7 @@ a.link-download {
   display: inline-block;
   @include user-select(none);
   background-color: $color_button_background;
-  padding: ($fs*0.25) ($fs*0.75);
+  padding: ($fs*0.25) ($fs*0.75) ($fs*0.25*1.5);
   @include border-radius($border-radius_small);
   @include border_all($color_button_border);
   border-width: 3px;
@@ -312,7 +312,7 @@ button.btn, .btn, a.btn {
     }
   }
   &.btn-large {
-    padding: ($fs*0.75) ($fs*2.0);
+    padding: ($fs*0.75) ($fs*2.0) ($fs*0.75*1.5);
     font-size: 25px;
     line-height: 25px * $line-height_factor;
     @include border-radius($border-radius);
@@ -325,7 +325,7 @@ button.btn, .btn, a.btn {
   }
 
   &.btn-small {
-    padding: ($fs*0.15) ($fs*0.50);
+    padding: ($fs*0.15) ($fs*0.50) ($fs*0.15*1.5);
     font-size: 14px;
     line-height: 14px * $line-height_factor;
     &.btn-shoppingcart {
@@ -338,7 +338,7 @@ button.btn, .btn, a.btn {
   &.btn-mini {
     @include font-size_smallest;
     text-transform: uppercase;
-    padding: ($fs*0.15) ($fs*0.25);
+    padding: ($fs*0.15) ($fs*0.25) ($fs*0.15*1.5);
     border-width: 1px;
     font-weight: $font-weight_extrabold;
   }
@@ -443,7 +443,20 @@ button.btn, .btn, a.btn {
 @mixin icon_add {
   @include icon;
   @include sprite_icons(-95px, 5px, no-repeat);
+}
 
+
+@mixin badge-category{
+  display: inline-block;
+  margin-top: 0;
+  background-color: $color_grey;
+  @include border-radius(($fs*$font-size_small_factor*$line-height_factor)*0.5 + 2px);
+  padding: 2px $bu*0.5;
+  @include font-size_small;
+  color: $color_white;
+  .category-sub {
+    font-weight: $font-weight_light;
+  }
 }
 
 @mixin button_icon {
@@ -1954,6 +1967,7 @@ legend {
   @include box-sizing(border-box);
   @include pie-clearfix;
   @include border(bottom, $color_grey_50);
+  line-height: 100%;
 
   .cell {
     @include divtable_cell;
