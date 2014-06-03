@@ -4263,9 +4263,19 @@ activitybarstripe {
     z-index: 2;
     margin: 0;
     width: 60%; }
-    activitybarstripe .activity-text h5 {
+    activitybarstripe .activity-text .category {
+      max-width: 100%;
       margin: 0 0 8px 0; }
-    activitybarstripe .activity-text h4 {
+      activitybarstripe .activity-text .category .innerwrap {
+        white-space: nowrap;
+        overflow: hidden;
+        -webkit-text-overflow: ellipsis;
+        -khtml-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis; }
+    activitybarstripe .activity-text .title {
       color: #FFF;
       font-weight: 800;
       font-size: 20px;
@@ -4278,7 +4288,7 @@ activitybarstripe {
       -ms-text-overflow: ellipsis;
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis; }
-    activitybarstripe .activity-text p {
+    activitybarstripe .activity-text .description {
       margin: 0;
       color: #FFF;
       white-space: nowrap;
@@ -4289,6 +4299,17 @@ activitybarstripe {
       -ms-text-overflow: ellipsis;
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis; }
+      activitybarstripe .activity-text .description p {
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        -webkit-text-overflow: ellipsis;
+        -khtml-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis; }
   activitybarstripe .activity-price-min {
     display: none;
     position: absolute;
@@ -4335,7 +4356,9 @@ activitybarstripe {
     position: absolute;
     top: 15px;
     left: 15px;
+    display: table;
     height: 30px;
+    line-height: 20px;
     padding: 5px;
     -webkit-border-radius: 15px;
     -khtml-border-radius: 15px;
@@ -4343,19 +4366,10 @@ activitybarstripe {
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
     border-radius: 15px;
-    background-color: #FFF;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-text-overflow: ellipsis;
-    -khtml-text-overflow: ellipsis;
-    -moz-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis; }
+    background-color: #FFF; }
   activitybarstripe .current-location {
     vertical-align: middle;
-    display: block;
-    float: left;
+    display: table-cell;
     width: 20px;
     height: 20px;
     background-position: -200px 0;
@@ -4365,14 +4379,14 @@ activitybarstripe {
     .no-svg activitybarstripe .current-location {
       background-image: url('/img/sprite_icons.png'); }
   activitybarstripe .activity-distance-txt {
-    vertical-align: middle;
-    display: block;
-    float: left;
-    margin: 0 5px;
+    display: table-cell;
     color: #666;
     font-weight: 600;
     font-size: 12px;
-    line-height: 20px; }
+    border-left: 5px transparent solid;
+    border-right: 5px transparent solid;
+    max-width: 100%;
+    white-space: nowrap; }
   activitybarstripe .activity-location {
     display: inline-block;
     position: relative;
@@ -4389,8 +4403,7 @@ activitybarstripe {
     background-position: 0 0;
     background-repeat: no-repeat;
     position: static;
-    display: block;
-    float: left;
+    display: table-cell;
     background-position: -45px 6px;
     background-color: #85C900; }
     .svg activitybarstripe .activity-location {
@@ -4506,7 +4519,7 @@ activitybardetail {
     activitybardetail .description.multiline {
       text-overflow: clip;
       white-space: normal; }
-      activitybardetail .description.multiline .innerwrap {
+      activitybardetail .description.multiline .innerwrap, activitybardetail .description.multiline .innerwrap p {
         display: block;
         /* Fallback for non-webkit */
         display: -webkit-box;
@@ -4517,6 +4530,8 @@ activitybardetail {
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis; }
+      activitybardetail .description.multiline .innerwrap p {
+        margin: 0; }
   activitybardetail.activitydetailactive {
     bottom: 200px; }
   activitybardetail h4 {
@@ -4533,7 +4548,7 @@ activitybardetail {
       activitybardetail .description.multiline {
         text-overflow: clip;
         white-space: normal; }
-        activitybardetail .description.multiline .innerwrap {
+        activitybardetail .description.multiline .innerwrap, activitybardetail .description.multiline .innerwrap p {
           display: block;
           /* Fallback for non-webkit */
           display: -webkit-box;
@@ -4543,7 +4558,9 @@ activitybardetail {
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
-          text-overflow: ellipsis; } }
+          text-overflow: ellipsis; }
+        activitybardetail .description.multiline .innerwrap p {
+          margin: 0; } }
 
 .activitybar-noresult {
   padding: 30px;

@@ -153,7 +153,7 @@
   &.multiline {
     text-overflow: clip;
     white-space: normal;
-    .innerwrap {
+    .innerwrap, .innerwrap p {
       display: block; /* Fallback for non-webkit */
       display: -webkit-box;
       line-height: $fs*$line-height_factor;
@@ -162,6 +162,9 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    .innerwrap p{
+      margin: 0;
     }
   }
 }

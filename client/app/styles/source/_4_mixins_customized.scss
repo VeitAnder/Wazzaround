@@ -1291,26 +1291,34 @@ activitybarstripe {
     z-index: 2;
     margin: 0;
     width: 60%;
-    h5 {
+    .category {
+      max-width: 100%;
       margin: 0 0 $fs*0.5 0;
-
+      .innerwrap {
+        @include ellipsis();
+      }
     }
-    h4 {
+    .title {
       color: $color_white;
       font-weight: $font-weight_extrabold;
       font-size: $fs*$font-size_h5_factor;
       margin: 0;
-      @include ellipsis(no-wrap);
+      @include ellipsis();
     }
-    p {
+    .description {
       margin: 0;
       color: $color_white;
       @include ellipsis(no-wrap);
+      p {
+        margin: 0;
+        padding: 0;
+        @include ellipsis(no-wrap);
+      }
     }
   }
   .activity-price-min {
 
-    display:none;
+    display: none;
 
     position: absolute;
     bottom: $bu;
@@ -1342,38 +1350,37 @@ activitybarstripe {
     position: absolute;
     top: $bu;
     left: $bu;
+    display: table;
     height: 30px;
+    line-height: 20px;
     padding: 5px;
     @include border-radius(15px);
     background-color: $color_white;
-    @include ellipsis(no-wrap);
   }
 
   .current-location {
     vertical-align: middle;
-    display: block;
-    float: left;
+    display: table-cell;
     width: 20px;
     height: 20px;
     @include sprite_icons(-200px, 0, no-repeat);
   }
 
   .activity-distance-txt {
-    vertical-align: middle;
-    display: block;
-    float: left;
-    margin: 0 5px;
+    display: table-cell;
     color: $color_text;
     font-weight: $font-weight_bold;
     font-size: $fs*$font-size_small_factor;
-    line-height: 20px;
+    border-left: 5px transparent solid;
+    border-right: 5px transparent solid;
+    max-width: 100%;
+    white-space: nowrap;
   }
 
   .activity-location {
     @include icon;
     position: static;
-    display: block;
-    float: left;
+    display: table-cell;
     background-position: -45px 6px;
     background-color: $color_green;
   }
@@ -1411,7 +1418,7 @@ currentactivity {
     }
   }
   &.activitydetailactive {
-    .currentactivity-body{
+    .currentactivity-body {
       border-color: $color_red;
     }
   }
@@ -1434,11 +1441,11 @@ activitybardetail {
   @include activity-content;
   @include animation_all;
 
-  .txt-icon-delete{
+  .txt-icon-delete {
     position: absolute;
     right: -15px;
     top: -15px;
-    span{
+    span {
       top: 0;
       width: 30px;
       height: 30px;
@@ -1459,7 +1466,7 @@ activitybardetail {
   h4 {
     margin-top: 0;
   }
-  .availability{
+  .availability {
     margin-top: $fs;
   }
   @include respond-to(low-screen) {
