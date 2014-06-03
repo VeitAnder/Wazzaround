@@ -20,7 +20,7 @@
         </h4>
 
         <!--<h6 class="no-margin-top">-->
-          <!--{{'Offered by' | translate}} {{data.activity.company}}-->
+        <!--{{'Offered by' | translate}} {{data.activity.company}}-->
         <!--</h6>-->
 
         
@@ -51,10 +51,12 @@
 
         </div>
 
-        <div class="img-block img-block-right">
-          <cloudinaryimage ng-show="data.activity.images.length > 0"
-                           data-publicid="{{data.activity.images[0].public_id}}"
-                           data-format="{{data.activity.images[0].format}}"
+        <div class="img-block img-block-right"
+             ng-show="data.activity.images.length > 0"
+            >
+          <cloudinaryimage ng-repeat="image in data.activity.images"
+                           data-publicid="{{image.public_id}}"
+                           data-format="{{image.format}}"
                            data-width="250"
                            data-height="150"
               >
