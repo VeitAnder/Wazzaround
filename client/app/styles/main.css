@@ -1185,6 +1185,18 @@ button.btn, .btn, a.btn {
     font-weight: 800; }
     button.btn.btn-mini p, .btn.btn-mini p, a.btn.btn-mini p {
       padding-bottom: 14px; }
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      button.btn.btn-mini, .btn.btn-mini, a.btn.btn-mini {
+        font-size: 10px;
+        line-height: 14px; } }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      button.btn.btn-mini, .btn.btn-mini, a.btn.btn-mini {
+        font-size: 10px;
+        line-height: 14px; } }
+    @media only screen and (max-width: 767px) {
+      button.btn.btn-mini, .btn.btn-mini, a.btn.btn-mini {
+        font-size: 10px;
+        line-height: 14px; } }
   button.btn.btn-negative, .btn.btn-negative, a.btn.btn-negative {
     color: #85C900;
     background-color: #FFF;
@@ -1349,6 +1361,18 @@ button.btn, .btn, a.btn {
       cursor: default; }
   .btn-mini-book p {
     padding-bottom: 14px; }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .btn-mini-book {
+      font-size: 10px;
+      line-height: 14px; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .btn-mini-book {
+      font-size: 10px;
+      line-height: 14px; } }
+  @media only screen and (max-width: 767px) {
+    .btn-mini-book {
+      font-size: 10px;
+      line-height: 14px; } }
   .btn-mini-book .btn-icon {
     display: inline-block;
     width: 18px;
@@ -4455,6 +4479,18 @@ shoppingcart.shoppingcart-rightside {
     box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 0; }
     .shoppingcart-toggle .numberofitems p {
       padding-bottom: 14px; }
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      .shoppingcart-toggle .numberofitems {
+        font-size: 10px;
+        line-height: 14px; } }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .shoppingcart-toggle .numberofitems {
+        font-size: 10px;
+        line-height: 14px; } }
+    @media only screen and (max-width: 767px) {
+      .shoppingcart-toggle .numberofitems {
+        font-size: 10px;
+        line-height: 14px; } }
   .active .shoppingcart-toggle .innerwrap {
     background-color: #C83C19;
     background-position: -82px 13px;
@@ -4856,11 +4892,10 @@ activitybarstripe {
   activitybarstripe .activity-distance-element {
     opacity: 0.75;
     position: absolute;
-    top: 15px;
-    left: 15px;
-    display: table;
-    height: 30px;
-    line-height: 20px;
+    top: 0;
+    left: 0;
+    margin: 15px 0 0 15px;
+    min-height: 30px;
     padding: 5px;
     -webkit-border-radius: 15px;
     -khtml-border-radius: 15px;
@@ -6168,6 +6203,18 @@ activitybardetail {
       cursor: default; }
   .maketeaserimage p {
     padding-bottom: 14px; }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .maketeaserimage {
+      font-size: 10px;
+      line-height: 14px; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .maketeaserimage {
+      font-size: 10px;
+      line-height: 14px; } }
+  @media only screen and (max-width: 767px) {
+    .maketeaserimage {
+      font-size: 10px;
+      line-height: 14px; } }
 
 .admin-section {
   border-right: solid 1px #d9d9d9;

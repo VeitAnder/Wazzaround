@@ -249,6 +249,18 @@ $break-low-screen: 768px;
   p {
     padding-bottom: 10px*$line-height_factor;
   }
+  @include respond-to(screen-md){
+    font-size: 10px;
+    line-height: 10px*$line-height_factor;
+  }
+  @include respond-to(screen-sm){
+    font-size: 10px;
+    line-height: 10px*$line-height_factor;
+  }
+  @include respond-to(screen-nocols){
+    font-size: 10px;
+    line-height: 10px*$line-height_factor;
+  }
 }
 
 

@@ -1350,11 +1350,11 @@ activitybarstripe {
   .activity-distance-element {
     opacity: 0.75;
     position: absolute;
-    top: $bu;
-    left: $bu;
-    display: table;
-    height: 30px;
-    line-height: 20px;
+    top: 0;
+    left: 0;
+    margin: $bu 0 0 $bu;
+//    display: table;
+    min-height: 30px;
     padding: 5px;
     @include border-radius(15px);
     background-color: $color_white;
