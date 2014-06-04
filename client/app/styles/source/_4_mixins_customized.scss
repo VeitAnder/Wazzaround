@@ -353,16 +353,13 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
   .img-block {
     cloudinaryimage{
-      display: inline-block;
+      display: block;
+      float: left;
       width: (100%)/2;
       padding: 5px;
       @include box-sizing(border-box);
       vertical-align: top;
-   /*   &:first-child{
-        width: (100%)/3*2;
-        float: none;
-      }
-   */ }
+    }
     img {
       width: 100%;
       height: auto;
@@ -1367,7 +1364,7 @@ activitybarstripe {
     vertical-align: middle;
     display: table-cell;
     width: 20px;
-    height: 20px;
+    max-height: 20px;
     @include sprite_icons(-200px, 0, no-repeat);
   }
 
@@ -2521,16 +2518,16 @@ $img-selector-teasertxtheight: 32px;
     }
     .img-teaser {
       display: block;
-      position: relative;
-      top: -$img-selector-teasertxtheight;
-      margin-bottom: -$img-selector-teasertxtheight;
+      position: absolute;
+      bottom: 0px;
       height: auto;
+      width: 100%;
       padding: 5px;
-      background-color: rgba($color_black, 0.25);
+      @include border-bottom-radius($border-radius_small);
+      background-color: rgba($color_black, 0.5);
       color: $color_white;
       text-align: center;
       font-weight: $font-weight_bold;
-      content: "Teaser Image";
     }
   }
   .img-block {

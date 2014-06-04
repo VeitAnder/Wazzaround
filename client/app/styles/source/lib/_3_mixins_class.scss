@@ -213,7 +213,7 @@ a.link-download {
   display: inline-block;
   @include user-select(none);
   background-color: $color_button_background;
-  padding: ($fs*0.25) ($fs*0.75) ($fs*0.25*1.5);
+  padding: ($fs*0.25) ($fs*0.75);
   @include border-radius($border-radius_small);
   @include border_all($color_button_border);
   border-width: 3px;
@@ -312,7 +312,7 @@ button.btn, .btn, a.btn {
     }
   }
   &.btn-large {
-    padding: ($fs*0.75) ($fs*2.0) ($fs*0.75*1.5);
+    padding: ($fs*0.75) ($fs*2.0);
     font-size: 25px;
     line-height: 25px * $line-height_factor;
     @include border-radius($border-radius);
@@ -325,7 +325,7 @@ button.btn, .btn, a.btn {
   }
 
   &.btn-small {
-    padding: ($fs*0.15) ($fs*0.50) ($fs*0.15*1.5);
+    padding: ($fs*0.15) ($fs*0.50);
     font-size: 14px;
     line-height: 14px * $line-height_factor;
     &.btn-shoppingcart {
@@ -338,7 +338,7 @@ button.btn, .btn, a.btn {
   &.btn-mini {
     @include font-size_smallest;
     text-transform: uppercase;
-    padding: ($fs*0.15) ($fs*0.25) ($fs*0.15*1.5);
+    padding: ($fs*0.15) ($fs*0.25);
     border-width: 1px;
     font-weight: $font-weight_extrabold;
   }

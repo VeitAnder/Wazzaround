@@ -952,7 +952,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px 6px;
+  padding: 4px 12px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1030,7 +1030,7 @@ button.btn, .btn, a.btn {
         border-color: #C83C19;
         color: #FFF; }
   button.btn.btn-large, .btn.btn-large, a.btn.btn-large {
-    padding: 12px 32px 18px;
+    padding: 12px 32px;
     font-size: 25px;
     line-height: 35px;
     -webkit-border-radius: 6px;
@@ -1050,7 +1050,7 @@ button.btn, .btn, a.btn {
       .no-svg button.btn.btn-large.btn-shoppingcart, .no-svg .btn.btn-large.btn-shoppingcart, .no-svg a.btn.btn-large.btn-shoppingcart {
         background-image: url('/img/sprite_icons.png'); }
   button.btn.btn-small, .btn.btn-small, a.btn.btn-small {
-    padding: 2.4px 8px 3.6px;
+    padding: 2.4px 8px;
     font-size: 14px;
     line-height: 19.6px; }
     button.btn.btn-small.btn-shoppingcart, .btn.btn-small.btn-shoppingcart, a.btn.btn-small.btn-shoppingcart {
@@ -1067,7 +1067,7 @@ button.btn, .btn, a.btn {
     font-size: 10px;
     line-height: 14px;
     text-transform: uppercase;
-    padding: 2.4px 4px 3.6px;
+    padding: 2.4px 4px;
     border-width: 1px;
     font-weight: 800; }
     button.btn.btn-mini p, .btn.btn-mini p, a.btn.btn-mini p {
@@ -1105,7 +1105,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px 6px;
+  padding: 4px 12px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1163,7 +1163,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px 6px;
+  padding: 4px 12px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1235,7 +1235,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px 6px;
+  padding: 4px 12px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1302,7 +1302,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px 6px;
+  padding: 4px 12px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1368,7 +1368,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px 6px;
+  padding: 4px 12px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1470,7 +1470,7 @@ button.btn, .btn, a.btn {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px 6px;
+  padding: 4px 12px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -2611,7 +2611,7 @@ body:before {
           -o-user-select: none;
           user-select: none;
           background-color: #85C900;
-          padding: 4px 12px 6px;
+          padding: 4px 12px;
           -webkit-border-radius: 3px;
           -khtml-border-radius: 3px;
           -moz-border-radius: 3px;
@@ -2661,7 +2661,7 @@ body:before {
           -o-user-select: none;
           user-select: none;
           background-color: #85C900;
-          padding: 4px 12px 6px;
+          padding: 4px 12px;
           -webkit-border-radius: 3px;
           -khtml-border-radius: 3px;
           -moz-border-radius: 3px;
@@ -2838,18 +2838,14 @@ googleMap, .angular-google-map, .angular-google-map-container {
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
   .window-category-sports .img-block cloudinaryimage {
-    display: inline-block;
+    display: block;
+    float: left;
     width: 50%;
     padding: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    vertical-align: top;
-    /*   &:first-child{
-        width: (100%)/3*2;
-        float: none;
-      }
-   */ }
+    vertical-align: top; }
   .window-category-sports .img-block img {
     width: 100%;
     height: auto;
@@ -2900,18 +2896,14 @@ googleMap, .angular-google-map, .angular-google-map-container {
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
   .window-category-culture .img-block cloudinaryimage {
-    display: inline-block;
+    display: block;
+    float: left;
     width: 50%;
     padding: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    vertical-align: top;
-    /*   &:first-child{
-        width: (100%)/3*2;
-        float: none;
-      }
-   */ }
+    vertical-align: top; }
   .window-category-culture .img-block img {
     width: 100%;
     height: auto;
@@ -2962,18 +2954,14 @@ googleMap, .angular-google-map, .angular-google-map-container {
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
   .window-category-wellness .img-block cloudinaryimage {
-    display: inline-block;
+    display: block;
+    float: left;
     width: 50%;
     padding: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    vertical-align: top;
-    /*   &:first-child{
-        width: (100%)/3*2;
-        float: none;
-      }
-   */ }
+    vertical-align: top; }
   .window-category-wellness .img-block img {
     width: 100%;
     height: auto;
@@ -3020,18 +3008,14 @@ googleMap, .angular-google-map, .angular-google-map-container {
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
 .detail-category-sports .img-block cloudinaryimage {
-  display: inline-block;
+  display: block;
+  float: left;
   width: 50%;
   padding: 5px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  vertical-align: top;
-  /*   &:first-child{
-        width: (100%)/3*2;
-        float: none;
-      }
-   */ }
+  vertical-align: top; }
 .detail-category-sports .img-block img {
   width: 100%;
   height: auto;
@@ -3060,18 +3044,14 @@ googleMap, .angular-google-map, .angular-google-map-container {
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
 .detail-category-culture .img-block cloudinaryimage {
-  display: inline-block;
+  display: block;
+  float: left;
   width: 50%;
   padding: 5px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  vertical-align: top;
-  /*   &:first-child{
-        width: (100%)/3*2;
-        float: none;
-      }
-   */ }
+  vertical-align: top; }
 .detail-category-culture .img-block img {
   width: 100%;
   height: auto;
@@ -3100,18 +3080,14 @@ googleMap, .angular-google-map, .angular-google-map-container {
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
 .detail-category-wellness .img-block cloudinaryimage {
-  display: inline-block;
+  display: block;
+  float: left;
   width: 50%;
   padding: 5px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  vertical-align: top;
-  /*   &:first-child{
-        width: (100%)/3*2;
-        float: none;
-      }
-   */ }
+  vertical-align: top; }
 .detail-category-wellness .img-block img {
   width: 100%;
   height: auto;
@@ -4425,7 +4401,7 @@ activitybarstripe {
     vertical-align: middle;
     display: table-cell;
     width: 20px;
-    height: 20px;
+    max-height: 20px;
     background-position: -200px 0;
     background-repeat: no-repeat; }
     .svg activitybarstripe .current-location {
@@ -4528,18 +4504,14 @@ activitybardetail {
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
   activitybardetail .img-block cloudinaryimage {
-    display: inline-block;
+    display: block;
+    float: left;
     width: 50%;
     padding: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    vertical-align: top;
-    /*   &:first-child{
-        width: (100%)/3*2;
-        float: none;
-      }
-   */ }
+    vertical-align: top; }
   activitybardetail .img-block img {
     width: 100%;
     height: auto;
@@ -5544,16 +5516,17 @@ activitybardetail {
     height: auto; }
   .img-selector label + .img-block .img-teaser {
     display: block;
-    position: relative;
-    top: -32px;
-    margin-bottom: -32px;
+    position: absolute;
+    bottom: 0px;
     height: auto;
+    width: 100%;
     padding: 5px;
-    background-color: rgba(0, 0, 0, 0.25);
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.5);
     color: #FFF;
     text-align: center;
-    font-weight: 600;
-    content: "Teaser Image"; }
+    font-weight: 600; }
   .img-selector .img-block {
     position: relative;
     float: left;
@@ -5628,7 +5601,7 @@ activitybardetail {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px 6px;
+  padding: 4px 12px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -5721,7 +5694,7 @@ activitybardetail {
   -o-user-select: none;
   user-select: none;
   background-color: #85C900;
-  padding: 4px 12px 6px;
+  padding: 4px 12px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
