@@ -290,9 +290,9 @@
                 <div class="activity-distance-element">
                   <div class="current-location"></div>
                   <div class="activity-distance-txt">
-                      {{getSelectedActivity().distancetosearchlocation | mtokm }} km |
-                      {{getIndexFilteredActivities(getSelectedActivity()) }} {{'of' | translate }}
-                      {{states.filteredactivities.length}}
+                    {{getSelectedActivity().distancetosearchlocation | mtokm }} km |
+                    {{getIndexFilteredActivities(getSelectedActivity()) }} {{'of' | translate }}
+                    {{states.filteredactivities.length}}
                   </div>
                   <div class="activity-location"></div>
                 </div>
@@ -320,8 +320,10 @@
 
                 </div>
                 <div class="activity-price-min">
-                  <span class="smalltext">{{'starting from' | translate }}</span>
-                  <span class="price">€ 135</span>
+                  <div class="innerwrap">
+                    <span class="smalltext">{{'starting from' | translate }}</span>
+                    <span class="price">€ 135</span>
+                  </div>
                 </div>
 
                 <span class="triangle"></span>

@@ -1288,11 +1288,12 @@ activitybarstripe {
 
   .activity-text {
     position: absolute;
-    bottom: $bu;
-    left: $bu;
+    bottom: 0;
+    left: 0;
     z-index: 2;
     margin: 0;
-    width: 60%;
+    padding: 0 (100px + $bu) $bu $bu;
+    width: 100%;
     .category {
       max-width: 100%;
       margin: 0 0 $fs*0.5 0;
@@ -1319,19 +1320,20 @@ activitybarstripe {
     }
   }
   .activity-price-min {
-
-    display: none;
-
     position: absolute;
-    bottom: $bu;
-    right: $bu;
+    bottom: 0;
+    right: 0;
     z-index: 2;
-    max-width: 25%;
-    background-color: $color_green;
-    padding: $fs*0.25 $fs*0.5;
-    color: $color_white;
+    width: 100px;
+    margin: 0 $bu $bu 0;
     text-align: right;
-    @include border-radius($border-radius);
+    .innerwrap{
+      display: inline-block;
+      padding: $fs*0.25 $fs*0.5;
+      color: $color_white;
+      background-color: $color_green;
+      @include border-radius($border-radius);
+    }
     .price {
       display: block;
       font-weight: $font-weight_bold;
@@ -1381,6 +1383,8 @@ activitybarstripe {
 
   .activity-location {
     @include icon;
+    height: auto;
+    max-height: 20px;
     position: static;
     display: table-cell;
     background-position: -45px 6px;
