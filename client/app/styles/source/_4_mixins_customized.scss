@@ -24,6 +24,10 @@ body:before {
   min-width: $min-width-xxs;
 }
 
+@mixin col-left-width{
+  width:
+}
+
 .col-container {
   min-height: 100%;
   margin-left: $col-left-width;
@@ -206,11 +210,6 @@ body:before {
           font-size: $fs*$font-size_h4_factor;
           line-height: $fs*$font-size_h4_factor*$line-height_headline-factor;
         }
-        .btn-negative {
-          padding: ($fs*0.75) ($fs*2.0);
-          font-size: 25px;
-          @include border-radius($border-radius);
-        }
       }
     }
   }
@@ -352,7 +351,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 
   .img-block {
-    cloudinaryimage{
+    cloudinaryimage {
       display: block;
       float: left;
       width: (100%)/2;
@@ -952,7 +951,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   &.small {
     a {
       @include font-size_small;
-      line-height: 24px;
+      line-height: 24px !important;
       height: 24px;
     }
     .icon {
@@ -1075,8 +1074,8 @@ shoppingcart {
   margin-bottom: $fs;
   h3 {
     font-weight: $font-weight_light;
-    font-size: $fs*$font-size_h5_factor;
-    line-height: $fs*$font-size_h5_factor*$line-height_headline-factor;
+    @include h5;
+    color: $color_white;
     margin: 0;
   }
 }
@@ -1274,8 +1273,8 @@ activitybarstripe {
     text-align: center;
     color: $color_white;
     font-weight: $font-weight_bold;
-    font-size: 11px;
-    line-height: 25px;
+    @include font-size_small;
+    line-height: 25px !important;
     text-transform: uppercase;
 
   }
@@ -1302,9 +1301,9 @@ activitybarstripe {
       }
     }
     .title {
+      @include h5;
       color: $color_white;
       font-weight: $font-weight_extrabold;
-      font-size: $fs*$font-size_h5_factor;
       margin: 0;
       @include ellipsis();
     }
@@ -1327,7 +1326,7 @@ activitybarstripe {
     width: 100px;
     margin: 0 $bu $bu 0;
     text-align: right;
-    .innerwrap{
+    .innerwrap {
       display: inline-block;
       padding: $fs*0.25 $fs*0.5;
       color: $color_white;
@@ -1342,8 +1341,7 @@ activitybarstripe {
     }
     .smalltext {
       display: block;
-      font-size: 11px;
-      line-height: 11px*$line-height_headline-factor;
+      @include font-size_small;
       @include ellipsis(no-wrap);
 
     }
@@ -2499,7 +2497,7 @@ $filter-category-arrow-width: 65px;
   vertical-align: middle;
   & > .btn {
     position: relative;
-    height: $input-height;
+    @include input-height;
   }
   &:last-child > .btn {
     @include border-left-radius(0);
@@ -2561,7 +2559,7 @@ $img-selector-teasertxtheight: 32px;
   }
 }
 
-.maketeaserimage{
+.maketeaserimage {
   display: inline-block;
   margin-left: 5px;
   @include btn-mini;
@@ -2582,7 +2580,6 @@ $img-selector-teasertxtheight: 32px;
 }
 
 .admin-section {
-  @include box-sizing(border-box);
   @include border(right, $color_main_border);
   background-color: $color_green;
   width: $col-left-width;

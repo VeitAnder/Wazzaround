@@ -22,6 +22,23 @@ body{
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+
+  @include respond-to(screen-md){
+    font-size: $fs*$fs-md;
+    line-height: $fs*$fs-md*$line-height_factor;
+  }
+
+  @include respond-to(screen-sm){
+    font-size: $fs*$fs-sm;
+    line-height: $fs*$fs-sm*$line-height_factor;
+  }
+
+  @include respond-to(screen-nocols){
+    font-size: $fs*$fs-nocol;
+    line-height: $fs*$fs-nocol*$line-height_factor;
+  }
 
 }//body
 

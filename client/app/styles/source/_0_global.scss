@@ -33,7 +33,9 @@ $bu: 15px; //Base unit
 // ############################################################################################################################
 
 $fs: 16px;  // Font-size
+
 $font-size_small_factor: 0.75; // = 12px
+$font-size_smallbutton_factor: 0.875; // = 14px
 $font-size_large_factor: 1.25; // = 20px
 $font-weight_extrabold: 800;
 $font-weight_bold: 600;
@@ -49,6 +51,12 @@ $font-size_h3_factor: 2.250; // = 36px
 $font-size_h4_factor: 1.500; // = 24px
 $font-size_h5_factor: 1.250; // = 20px
 $font-size_h6_factor: 1.000; // = 16px
+
+
+// Media queries factor
+$fs-md: 0.85;
+$fs-sm: 0.85;
+$fs-nocol: 0.85;
 
 
 // MOBILE FONT SIZES
