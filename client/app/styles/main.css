@@ -3910,8 +3910,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
     margin-bottom: 0; }
   .event-item .event-item-header {
     padding: 5.5px;
-    background-color: #edf7d9;
-    border: solid 1px #c2e480;
+    background-color: #f7f7f7;
+    border: solid 1px #e6e6e6;
     border-width: 2px;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
@@ -3948,7 +3948,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
       width: 25%; }
   .event-item .event-item-body {
     padding: 0 7.5px 3.75px 7.5px;
-    background-color: #c2e480;
+    background-color: #e6e6e6;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
     overflow: hidden;
