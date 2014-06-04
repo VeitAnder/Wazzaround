@@ -2118,7 +2118,7 @@ p:last-child, ul:last-child {
       font-size: 11px;
       line-height: 15.4px; } }
   .alert.disabled {
-    background-color: #b3b3b3; }
+    background-color: #e8e8e8; }
   .alert.alert-error {
     background-color: #f7d9d9;
     color: #C83C19; }
@@ -2172,16 +2172,19 @@ p:last-child, ul:last-child {
   line-height: 1px;
   height: 1px;
   border-top: dotted 1px #b3b3b3;
-  margin: 32px 0; }
+  margin: 32px 0;
+  text-align: center; }
   .divider span {
+    position: relative;
+    top: -9.6px;
     font-size: 16px;
     line-height: 22.4px;
     margin: 16px 0;
     color: #b3b3b3;
     font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    padding-top: 8px;
+    padding: 8px;
     margin: 0;
-    float: right; }
+    background-color: #FFF; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .divider span {
         font-size: 13.6px;
@@ -4141,6 +4144,106 @@ googleMap, .angular-google-map, .angular-google-map-container {
       .event-new-repeat .repeating .checkbox label {
         font-weight: normal; }
 
+.availability-filter {
+  background-color: #f7f7f7;
+  padding: 15px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px; }
+  .availability-filter .form-group {
+    padding-top: 0;
+    padding-bottom: 0; }
+
+.bookableitem-tags {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: dotted 1px #d9d9d9; }
+  .bookableitem-tags .bookableitem-tag {
+    margin: 0 5px 5px 0; }
+
+.bookableitem-tag {
+  text-decoration: none;
+  display: inline-block;
+  padding: 2px 6px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+  background-color: #d9d9d9;
+  color: #8c8c8c; }
+  .bookableitem-tag:hover {
+    background-color: #e6e6e6;
+    color: #999999; }
+  .bookableitem-tag .numberofitems {
+    padding: 3px 4px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 0 inset;
+    position: relative;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 100%;
+    top: -2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-left: 3px;
+    color: #b3b3b3;
+    background-color: #f7f7f7; }
+  .bookableitem-tag .checkbox-tag {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: solid 1px #666;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 0 inset;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    border-width: 1px;
+    background-color: #FFF;
+    margin-right: 3px;
+    border-color: #b3b3b3;
+    position: relative;
+    top: 2px; }
+  .bookableitem-tag:hover .checkbox-tag {
+    border-color: #999999; }
+  .bookableitem-tag:hover .numberofitems {
+    background-color: white; }
+  .bookableitem-tag.selected {
+    color: #FFF;
+    background-color: #a4d740;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 0 inset; }
+    .bookableitem-tag.selected .numberofitems {
+      color: #85C900;
+      background-color: #e0f1bf; }
+    .bookableitem-tag.selected:hover {
+      background-color: #afdb55; }
+    .bookableitem-tag.selected .checkbox-tag {
+      border-color: #FFF;
+      background-position: -47px -22px;
+      background-repeat: no-repeat;
+      background-color: #85C900;
+      box-shadow: none;
+      border-color: #85C900; }
+      .svg .bookableitem-tag.selected .checkbox-tag {
+        background-image: url('/img/sprite_icons.svg'); }
+      .no-svg .bookableitem-tag.selected .checkbox-tag {
+        background-image: url('/img/sprite_icons.png'); }
 
 .availability-header {
   -webkit-user-select: none;

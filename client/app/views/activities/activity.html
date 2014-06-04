@@ -69,6 +69,61 @@
         <div class="availability">
           <div class="input-label">{{'Availability' | translate}}</div>
 
+          <div class="availability-filter">
+            <div class="form-group-inline form-group-inline-5050">
+              <div class="form-group date-from">
+                <label>{{'from' | translate}}</label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="frontendmap.map.searchStartDate"
+                       data-min-date="{{search.minDate}}"
+                       placeholder="{{'From' | translate}}"
+                       bs-datepicker
+                       autoclose="false"
+                    >
+              </div>
+              <div class="form-group date-until">
+                <label>{{'until' | translate}}</label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="frontendmap.map.searchEndDate"
+                       data-min-date="{{frontendmap.map.searchStartDate}}"
+                       data-max-date="{{search.maxDate}}"
+                       placeholder="{{'Until' | translate}}"
+                       bs-datepicker
+                       autoclose="false"
+                    >
+              </div>
+            </div>
+
+            <div class="bookableitem-tags">
+              <a class="bookableitem-tag"
+                 ng-click="selected1 = !selected1"
+                 ng-class="{selected: selected1}"
+                  >
+                <span class="checkbox-tag"></span>
+                Show all
+                <span class="numberofitems">1</span>
+              </a>
+
+              <a class="bookableitem-tag"
+                 ng-click="selected2 = !selected2"
+                 ng-class="{selected: selected2}"
+                  >
+                <span class="checkbox-tag"></span>
+                Bookable Item A
+                <span class="numberofitems">1</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="divider">
+            <span>
+              <strong>Today</strong>
+              (Tue, May 13 2014)
+            </span>
+          </div>
+
           <bookableitemlist data-activity="vm.activity">
           </bookableitemlist>
 

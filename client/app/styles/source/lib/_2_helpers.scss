@@ -540,6 +540,24 @@ $break-low-screen: 768px;
   text-shadow: rgba($color_white, 1.0) 0px -1px 0px;
 }
 
+
+@mixin box-shadow_2px-inset-bgcolor {
+  box-shadow: rgba($color_black, 0.10) 0px 2px 0 inset;
+}
+
+@mixin box-shadow_1px-inset {
+  box-shadow: rgba($color_black, 0.15) 0px 1px 0 inset;
+}
+
+
+
+
+
+
+
+
+
+
 @mixin padding-30px-vert {
   padding-bottom: 30px;
 

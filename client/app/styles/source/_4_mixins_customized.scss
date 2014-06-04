@@ -24,7 +24,7 @@ body:before {
   min-width: $min-width-xxs;
 }
 
-@mixin col-left-width{
+@mixin col-left-width {
   width:
 }
 
@@ -850,7 +850,73 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
-.availability-list {
+.availability-filter{
+  background-color: $color_grey_05;
+  padding: $bu;
+  @include border-radius($border-radius);
+  .form-group{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.bookableitem-tags {
+  margin-top: $fs;
+  padding-top: $fs;
+  @include seperator(top, $color_grey_25);
+  .bookableitem-tag{
+    margin: 0 5px 5px 0;
+  }
+}
+
+.bookableitem-tag {
+  @include label_tag;
+  background-color: $color_grey_25;
+  color: $color_grey_75;
+  &:hover{
+    background-color: $color_grey_25_l5;
+    color: $color_grey_75_l5;
+  }
+  .numberofitems {
+    @include label_tag_number;
+    top: -2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-left: 3px;
+    color: $color_grey_50;
+    background-color: $color_grey_05;
+  }
+  .checkbox-tag {
+    @include checkbox;
+    margin-right: 3px;
+    border-color: $color_grey_50;
+    position: relative;
+    top: 2px;
+  }
+  &:hover{
+    .checkbox-tag{
+      border-color: $color_grey_75_l5;
+    }
+    .numberofitems{
+      background-color: $color_grey_05_l5;
+    }
+  }
+  &.selected {
+    color: $color_white;
+    background-color: $color_green_75;
+    .numberofitems{
+      color: $color_green;
+      background-color: $color_green_25;
+    }
+    @include box-shadow_2px-inset-bgcolor;
+    &:hover {
+      background-color: $color_green_75_l5;
+    }
+    .checkbox-tag {
+      @include checkbox-selected;
+      border-color: $color_green;
+    }
+  }
 }
 
 .availability-header {
@@ -1355,7 +1421,7 @@ activitybarstripe {
     top: 0;
     left: 0;
     margin: $bu 0 0 $bu;
-//    display: table;
+    //    display: table;
     min-height: 30px;
     padding: 5px;
     @include border-radius(15px);

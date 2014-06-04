@@ -1135,9 +1135,28 @@ button.btn, .btn, a.btn {
   font-weight: $font-weight_bold;
   text-align: center;
   &.disabled {
-    background-color: $color_12;
+    background-color: $color_grey_15;
   }
 }
+
+@mixin label_tag {
+  text-decoration: none;
+  display: inline-block;
+  padding: 2px 6px;
+  @include border-radius($border-radius_small);
+  text-align: center;
+}
+
+@mixin label_tag_number {
+  padding: 3px 4px;
+  @include border-radius($border-radius_small);
+  @include box-shadow_1px-inset;
+  position: relative;
+  font-size: 10px;
+  font-weight: $font-weight_bold;
+  line-height: 100%;
+}
+
 
 @mixin alert {
   @include label;
@@ -1221,11 +1240,14 @@ button.btn, .btn, a.btn {
   height: 1px;
   @include seperator(top, $color_main_seperator);
   margin: $fs*2.0 0;
+  text-align: center;
   span {
+    position: relative;
+    top: -($fs*$font-size_h6_factor*$line-height_headline-factor * 0.5);
     @include h6;
-    padding-top: $fs*0.5;
+    padding: $fs*0.5;
     margin: 0;
-    float: right;
+    background-color: $color_white;
   }
 }
 
@@ -1997,6 +2019,25 @@ legend {
       }
     }
   }
+}
+
+@mixin checkbox {
+  @include box-sizing(border-box);
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  @include border_all($color_grey);
+  @include box-shadow_2px-inset;
+  @include border-radius($border-radius_mini);
+  border-width: 1px;
+  background-color: $color_white;
+}
+
+@mixin checkbox-selected {
+  border-color: $color_white;
+  @include sprite_icons(-47px, -22px, no-repeat);
+  background-color: $color_green;
+  box-shadow: none;
 }
 
 // DIV-TABLE ELEMENTS
