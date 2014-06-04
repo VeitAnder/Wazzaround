@@ -14,12 +14,12 @@ angular.module('anorakApp')
       }
     };
 
-    $scope.models.UserModel.getProfile({id:$scope.activity.owner._reference})
-      .then(function(res) {
-        $scope.$apply(function() {
-          $scope.data.provider = res;
-        });
-      }).done();
+//    $scope.models.UserModel.getProfile({id:$scope.activity.owner._reference})
+//      .then(function(res) {
+//        $scope.$apply(function() {
+//          $scope.data.provider = res;
+//        });
+//      }).done();
 
   })
   .controller('ActivityCtrl', function ($scope) {
