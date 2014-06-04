@@ -43,7 +43,7 @@ angular.module('anorakApp')
               if (newDate !== oldDate) {
                 scope.setEndDate();
               }
-            });
+            }, true);
 
             scope.$watch('event.end', function (newDate, oldDate) {
               if (newDate !== oldDate) {
@@ -58,12 +58,11 @@ angular.module('anorakApp')
                 }
 
               }
-            });
+            }, true);
 
             scope.getMinTimeForEndTime = function () {
               // @TODO check is wrong ---
               if (moment(scope.event.start).diff(moment(scope.event.end), 'days') > -1) {
-                console.log("the same day");
                 // same day - apply hours rules
                 var hours = moment(scope.event.start).hours();
                 var minutes = moment(scope.event.start).minutes();
@@ -75,7 +74,6 @@ angular.module('anorakApp')
                 }
                 return hours + ":" + minutes;
               } else {
-                console.log("the day before");
                 return "00:00";
               }
             };
