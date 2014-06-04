@@ -49,7 +49,7 @@ angular.module('anorakApp')
         var end = moment(map.searchEndDate);
 
         if(start.isAfter(end)) {
-          end = moment(start).add('hours', 1);
+          end = moment(start).add('weeks', 4);
           map.searchEndDate = end.toDate();
         }
       };
@@ -197,7 +197,7 @@ angular.module('anorakApp')
       var map = {
         searchAddress: "",
         searchStartDate: new Date(),
-        searchEndDate: moment(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDay(), 23, 59, 59)).add('month', 12).toDate(),
+        searchEndDate: moment(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDay(), 23, 59, 59)).add('month', 6).toDate(),
         bounds: {
           northeast: {
             latitude: 0,
