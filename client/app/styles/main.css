@@ -3209,28 +3209,37 @@ googleMap, .angular-google-map, .angular-google-map-container {
     color: #666;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-  .window-category-sports .img-block cloudinaryimage {
-    display: block;
-    float: left;
-    width: 50%;
-    padding: 5px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    vertical-align: top; }
-  .window-category-sports .img-block img {
-    width: 100%;
-    height: auto;
-    border: solid 1px #e8e8e8;
-    -webkit-border-radius: 6px;
-    -khtml-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
-    border-radius: 6px;
-    border-width: 7px;
-    padding: 3px;
-    background-color: #FFF; }
+  .window-category-sports .img-block {
+    margin-top: 32px; }
+    .window-category-sports .img-block:before, .window-category-sports .img-block:after {
+      content: " ";
+      /* 1 */
+      display: table;
+      /* 2 */ }
+    .window-category-sports .img-block:after {
+      clear: both; }
+    .window-category-sports .img-block cloudinaryimage {
+      display: block;
+      float: left;
+      width: 50%;
+      padding: 5px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      vertical-align: top; }
+    .window-category-sports .img-block img {
+      width: 100%;
+      height: auto;
+      border: solid 1px #e8e8e8;
+      -webkit-border-radius: 6px;
+      -khtml-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -ms-border-radius: 6px;
+      -o-border-radius: 6px;
+      border-radius: 6px;
+      border-width: 7px;
+      padding: 3px;
+      background-color: #FFF; }
   .window-category-sports .description {
     margin-top: 32px; }
   .window-category-sports .location {
@@ -3267,28 +3276,37 @@ googleMap, .angular-google-map, .angular-google-map-container {
     color: #666;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-  .window-category-culture .img-block cloudinaryimage {
-    display: block;
-    float: left;
-    width: 50%;
-    padding: 5px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    vertical-align: top; }
-  .window-category-culture .img-block img {
-    width: 100%;
-    height: auto;
-    border: solid 1px #e8e8e8;
-    -webkit-border-radius: 6px;
-    -khtml-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
-    border-radius: 6px;
-    border-width: 7px;
-    padding: 3px;
-    background-color: #FFF; }
+  .window-category-culture .img-block {
+    margin-top: 32px; }
+    .window-category-culture .img-block:before, .window-category-culture .img-block:after {
+      content: " ";
+      /* 1 */
+      display: table;
+      /* 2 */ }
+    .window-category-culture .img-block:after {
+      clear: both; }
+    .window-category-culture .img-block cloudinaryimage {
+      display: block;
+      float: left;
+      width: 50%;
+      padding: 5px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      vertical-align: top; }
+    .window-category-culture .img-block img {
+      width: 100%;
+      height: auto;
+      border: solid 1px #e8e8e8;
+      -webkit-border-radius: 6px;
+      -khtml-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -ms-border-radius: 6px;
+      -o-border-radius: 6px;
+      border-radius: 6px;
+      border-width: 7px;
+      padding: 3px;
+      background-color: #FFF; }
   .window-category-culture .description {
     margin-top: 32px; }
   .window-category-culture .location {
@@ -3325,28 +3343,37 @@ googleMap, .angular-google-map, .angular-google-map-container {
     color: #666;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-  .window-category-wellness .img-block cloudinaryimage {
-    display: block;
-    float: left;
-    width: 50%;
-    padding: 5px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    vertical-align: top; }
-  .window-category-wellness .img-block img {
-    width: 100%;
-    height: auto;
-    border: solid 1px #e8e8e8;
-    -webkit-border-radius: 6px;
-    -khtml-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
-    border-radius: 6px;
-    border-width: 7px;
-    padding: 3px;
-    background-color: #FFF; }
+  .window-category-wellness .img-block {
+    margin-top: 32px; }
+    .window-category-wellness .img-block:before, .window-category-wellness .img-block:after {
+      content: " ";
+      /* 1 */
+      display: table;
+      /* 2 */ }
+    .window-category-wellness .img-block:after {
+      clear: both; }
+    .window-category-wellness .img-block cloudinaryimage {
+      display: block;
+      float: left;
+      width: 50%;
+      padding: 5px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      vertical-align: top; }
+    .window-category-wellness .img-block img {
+      width: 100%;
+      height: auto;
+      border: solid 1px #e8e8e8;
+      -webkit-border-radius: 6px;
+      -khtml-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -ms-border-radius: 6px;
+      -o-border-radius: 6px;
+      border-radius: 6px;
+      border-width: 7px;
+      padding: 3px;
+      background-color: #FFF; }
   .window-category-wellness .description {
     margin-top: 32px; }
   .window-category-wellness .location {
@@ -3379,28 +3406,37 @@ googleMap, .angular-google-map, .angular-google-map-container {
   color: #666;
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
-.detail-category-sports .img-block cloudinaryimage {
-  display: block;
-  float: left;
-  width: 50%;
-  padding: 5px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  vertical-align: top; }
-.detail-category-sports .img-block img {
-  width: 100%;
-  height: auto;
-  border: solid 1px #e8e8e8;
-  -webkit-border-radius: 6px;
-  -khtml-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px;
-  border-width: 7px;
-  padding: 3px;
-  background-color: #FFF; }
+.detail-category-sports .img-block {
+  margin-top: 32px; }
+  .detail-category-sports .img-block:before, .detail-category-sports .img-block:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */ }
+  .detail-category-sports .img-block:after {
+    clear: both; }
+  .detail-category-sports .img-block cloudinaryimage {
+    display: block;
+    float: left;
+    width: 50%;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top; }
+  .detail-category-sports .img-block img {
+    width: 100%;
+    height: auto;
+    border: solid 1px #e8e8e8;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    border-width: 7px;
+    padding: 3px;
+    background-color: #FFF; }
 .detail-category-sports .description {
   margin-top: 32px; }
 .detail-category-sports .location {
@@ -3415,28 +3451,37 @@ googleMap, .angular-google-map, .angular-google-map-container {
   color: #666;
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
-.detail-category-culture .img-block cloudinaryimage {
-  display: block;
-  float: left;
-  width: 50%;
-  padding: 5px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  vertical-align: top; }
-.detail-category-culture .img-block img {
-  width: 100%;
-  height: auto;
-  border: solid 1px #e8e8e8;
-  -webkit-border-radius: 6px;
-  -khtml-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px;
-  border-width: 7px;
-  padding: 3px;
-  background-color: #FFF; }
+.detail-category-culture .img-block {
+  margin-top: 32px; }
+  .detail-category-culture .img-block:before, .detail-category-culture .img-block:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */ }
+  .detail-category-culture .img-block:after {
+    clear: both; }
+  .detail-category-culture .img-block cloudinaryimage {
+    display: block;
+    float: left;
+    width: 50%;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top; }
+  .detail-category-culture .img-block img {
+    width: 100%;
+    height: auto;
+    border: solid 1px #e8e8e8;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    border-width: 7px;
+    padding: 3px;
+    background-color: #FFF; }
 .detail-category-culture .description {
   margin-top: 32px; }
 .detail-category-culture .location {
@@ -3451,28 +3496,37 @@ googleMap, .angular-google-map, .angular-google-map-container {
   color: #666;
   padding-bottom: 5px;
   border-bottom: dotted 1px #b3b3b3; }
-.detail-category-wellness .img-block cloudinaryimage {
-  display: block;
-  float: left;
-  width: 50%;
-  padding: 5px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  vertical-align: top; }
-.detail-category-wellness .img-block img {
-  width: 100%;
-  height: auto;
-  border: solid 1px #e8e8e8;
-  -webkit-border-radius: 6px;
-  -khtml-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px;
-  border-width: 7px;
-  padding: 3px;
-  background-color: #FFF; }
+.detail-category-wellness .img-block {
+  margin-top: 32px; }
+  .detail-category-wellness .img-block:before, .detail-category-wellness .img-block:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */ }
+  .detail-category-wellness .img-block:after {
+    clear: both; }
+  .detail-category-wellness .img-block cloudinaryimage {
+    display: block;
+    float: left;
+    width: 50%;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top; }
+  .detail-category-wellness .img-block img {
+    width: 100%;
+    height: auto;
+    border: solid 1px #e8e8e8;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    border-width: 7px;
+    padding: 3px;
+    background-color: #FFF; }
 .detail-category-wellness .description {
   margin-top: 32px; }
 .detail-category-wellness .location {
@@ -5012,28 +5066,37 @@ activitybardetail {
     color: #666;
     padding-bottom: 5px;
     border-bottom: dotted 1px #b3b3b3; }
-  activitybardetail .img-block cloudinaryimage {
-    display: block;
-    float: left;
-    width: 50%;
-    padding: 5px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    vertical-align: top; }
-  activitybardetail .img-block img {
-    width: 100%;
-    height: auto;
-    border: solid 1px #e8e8e8;
-    -webkit-border-radius: 6px;
-    -khtml-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
-    border-radius: 6px;
-    border-width: 7px;
-    padding: 3px;
-    background-color: #FFF; }
+  activitybardetail .img-block {
+    margin-top: 32px; }
+    activitybardetail .img-block:before, activitybardetail .img-block:after {
+      content: " ";
+      /* 1 */
+      display: table;
+      /* 2 */ }
+    activitybardetail .img-block:after {
+      clear: both; }
+    activitybardetail .img-block cloudinaryimage {
+      display: block;
+      float: left;
+      width: 50%;
+      padding: 5px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      vertical-align: top; }
+    activitybardetail .img-block img {
+      width: 100%;
+      height: auto;
+      border: solid 1px #e8e8e8;
+      -webkit-border-radius: 6px;
+      -khtml-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -ms-border-radius: 6px;
+      -o-border-radius: 6px;
+      border-radius: 6px;
+      border-width: 7px;
+      padding: 3px;
+      background-color: #FFF; }
   activitybardetail .description {
     margin-top: 32px; }
   activitybardetail .location {
@@ -6053,10 +6116,10 @@ activitybardetail {
   overflow: hidden; }
   .img-selector .img-teaser {
     display: none; }
-  .img-selector label + .img-block img {
+  .img-selector label + imagewrap img {
     width: 200px;
     height: auto; }
-  .img-selector label + .img-block .img-teaser {
+  .img-selector label + imagewrap .img-teaser {
     display: block;
     position: absolute;
     bottom: 0px;
@@ -6069,12 +6132,13 @@ activitybardetail {
     color: #FFF;
     text-align: center;
     font-weight: 600; }
-  .img-selector .img-block {
+  .img-selector imagewrap {
+    display: block;
     position: relative;
     float: left;
     margin-right: 10px;
     margin-bottom: 32px; }
-    .img-selector .img-block img {
+    .img-selector imagewrap img {
       width: 200px;
       height: auto;
       -webkit-border-radius: 3px;
@@ -6083,12 +6147,12 @@ activitybardetail {
       -ms-border-radius: 3px;
       -o-border-radius: 3px;
       border-radius: 3px; }
-    .img-selector .img-block .img-edit {
+    .img-selector imagewrap .img-edit {
       position: absolute;
       top: 5px;
       left: 5px;
       width: 100%; }
-      .img-selector .img-block .img-edit .delete {
+      .img-selector imagewrap .img-edit .delete {
         display: inline-block;
         position: relative;
         top: 5px;
@@ -6118,19 +6182,19 @@ activitybardetail {
         border: 2px solid #FFF;
         background-position: -67px 8px;
         vertical-align: middle; }
-        .svg .img-selector .img-block .img-edit .delete {
+        .svg .img-selector imagewrap .img-edit .delete {
           background-image: url('/img/sprite_icons.svg'); }
-        .no-svg .img-selector .img-block .img-edit .delete {
+        .no-svg .img-selector imagewrap .img-edit .delete {
           background-image: url('/img/sprite_icons.png'); }
-        .img-selector .img-block .img-edit .delete:hover {
+        .img-selector imagewrap .img-edit .delete:hover {
           background-color: #8c8c8c; }
-        .svg .img-selector .img-block .img-edit .delete {
+        .svg .img-selector imagewrap .img-edit .delete {
           background-image: url('/img/sprite_icons.svg'); }
-        .no-svg .img-selector .img-block .img-edit .delete {
+        .no-svg .img-selector imagewrap .img-edit .delete {
           background-image: url('/img/sprite_icons.png'); }
-        .img-selector .img-block .img-edit .delete:hover {
+        .img-selector imagewrap .img-edit .delete:hover {
           background-color: #C83C19; }
-        .img-selector .img-block .img-edit .delete span {
+        .img-selector imagewrap .img-edit .delete span {
           display: none; }
 
 .maketeaserimage {
