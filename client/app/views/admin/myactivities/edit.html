@@ -318,7 +318,8 @@
                               ng-repeat="(idx,event) in bookableItem.events"
                         >
 
-                      <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
+                      <!--use ng-if to refresh one-time bound data after event edit -->
+                      <eventview ng-if="event.mode != 'edit' && event.mode != 'new'">
                         <div class="event-date cell">{{:: event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
                         <div class="event-time cell">{{:: event.start | momentjs:{format: "h:mm a"} }}</div>
                         <div class="event-duration cell">
@@ -338,6 +339,7 @@
                         </div>
                       </eventview>
 
+                      <!--use ng-if to refresh one-time bound data after event edit -->
                       <eventedit class="eventedit"
                                  ng-if="event.mode == 'edit' || event.mode == 'new'"
                           >
@@ -562,7 +564,7 @@
 
           </div>
 
-          <div ng-show="valForm.$invalid && state.submitted"
+          <div ng-show="valForm.$invalid"
                class="alert alert-error align-right"
                style="float:right;"
               >
