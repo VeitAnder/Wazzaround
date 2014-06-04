@@ -34,7 +34,7 @@
                   >
 
               <span ng-show="showError('firstname', 'required')"
-                    class="alert">{{'Please enter your first name' | translate}}
+                    class="alert alert-error">{{'Please enter your first name' | translate}}
               </span>
 
             </div>
@@ -50,7 +50,7 @@
                   >
 
               <span ng-show="showError('lastname', 'required')"
-                    class="alert">{{'Please enter your last name' | translate}}
+                    class="alert alert-error">{{'Please enter your last name' | translate}}
               </span>
 
             </div>
@@ -71,7 +71,7 @@
                 >
 
             <span ng-show="showError('company', 'required')"
-                  class="alert">{{'Please enter your company' | translate}}
+                  class="alert alert-error">{{'Please enter your company' | translate}}
             </span>
 
           </div>
@@ -87,7 +87,7 @@
                 >
 
             <span ng-show="showError('mobile', 'required')"
-                  class="alert">{{'Please enter your mobile telephone number' | translate}}
+                  class="alert alert-error">{{'Please enter your mobile telephone number' | translate}}
             </span>
           </div>
 
@@ -101,7 +101,7 @@
                 >
 
             <span ng-show="showError('tel', 'required')"
-                  class="alert">{{'Please enter your telephone number' | translate}}
+                  class="alert alert-error">{{'Please enter your telephone number' | translate}}
             </span>
 
           </div>
@@ -127,7 +127,7 @@
                 >
 
             <span ng-show="showError('contactpersonname', 'required')"
-                  class="alert">{{'Please enter the name of the contact person' | translate}}
+                  class="alert alert-error">{{'Please enter the name of the contact person' | translate}}
             </span>
           </div>
 
@@ -156,7 +156,7 @@
                 >
 
             <span ng-show="showError('address', 'required')"
-                  class="alert">{{'Please enter your address' | translate}}
+                  class="alert alert-error">{{'Please enter your address' | translate}}
             </span>
 
           </div>
@@ -173,7 +173,7 @@
                   >
 
               <span ng-show="showError('zip', 'required')"
-                    class="alert">{{'Please enter your zip code' | translate}}
+                    class="alert alert-error">{{'Please enter your zip code' | translate}}
               </span>
 
             </div>
@@ -189,7 +189,7 @@
                   >
 
               <span ng-show="showError('city', 'required')"
-                    class="alert">{{'Please enter your city' | translate}}
+                    class="alert alert-error">{{'Please enter your city' | translate}}
               </span>
 
             </div>
@@ -210,7 +210,7 @@
                 >
 
             <span ng-show="showError('country', 'required')"
-                  class="alert">{{'Please enter your country' | translate}}
+                  class="alert alert-error">{{'Please enter your country' | translate}}
             </span>
 
           </div>
@@ -229,7 +229,7 @@
                                required
                             >
                         <span ng-show="showError('firstname', 'required')"
-                              class="alert">{{'Please enter your first name' | translate}}
+                              class="alert alert-error">{{'Please enter your first name' | translate}}
                         </span>
                       </div>
 
@@ -244,7 +244,7 @@
                                required
                             >
                         <span ng-show="showError('lastname', 'required')"
-                              class="alert">{{'Please enter your last name' | translate}}
+                              class="alert alert-error">{{'Please enter your last name' | translate}}
                         </span>
                       </div>
                     </fieldset>
@@ -262,7 +262,7 @@
                                required
                             >
                         <span ng-show="showError('company', 'required')"
-                              class="alert">{{'Please enter your company' | translate}}
+                              class="alert alert-error">{{'Please enter your company' | translate}}
                         </span>
                       </div>
 
@@ -277,7 +277,7 @@
                                required
                             >
                         <span ng-show="showError('address', 'required')"
-                              class="alert">{{'Please enter the address of your company.' | translate}}
+                              class="alert alert-error">{{'Please enter the address of your company.' | translate}}
                         </span>
                       </div>
 
@@ -292,7 +292,7 @@
                                required
                             >
                         <span ng-show="showError('city', 'required')"
-                              class="alert">{{'Please enter your city' | translate}}
+                              class="alert alert-error">{{'Please enter your city' | translate}}
                         </span>
                       </div>
 
@@ -307,7 +307,7 @@
                                required
                             >
                         <span ng-show="showError('zip', 'required')"
-                              class="alert">{{'Please enter your zip code' | translate}}
+                              class="alert alert-error">{{'Please enter your zip code' | translate}}
                         </span>
                       </div>
 
@@ -322,7 +322,7 @@
                                required
                             >
                         <span ng-show="showError('tel', 'required')"
-                              class="alert">{{'Please enter your telephone number' | translate}}
+                              class="alert alert-error">{{'Please enter your telephone number' | translate}}
                         </span>
                       </div>
 
@@ -359,7 +359,7 @@
                                required
                             >
                         <span ng-show="showError('country', 'required')"
-                              class="alert">{{'Please enter your country' | translate}}
+                              class="alert alert-error">{{'Please enter your country' | translate}}
                         </span>
                       </div>
 
@@ -376,19 +376,19 @@
                             >
 
                         <span ng-show="showError('contactpersonname', 'required')"
-                              class="alert">{{'Please enter the name of the contact person' | translate}}
+                              class="alert alert-error">{{'Please enter the name of the contact person' | translate}}
                         </span>
                       </div>
 
                     </fieldset>
           -->
 
-          <p class="alert alert-large alert-error"
-             ng-if="valForm.$valid === false">
+          <p class="alert alert-error"
+             ng-show="valForm.$invalid">
             <b>{{'Please fill out the form correctly' | translate}}</b>
           </p>
-          <p class="alert alert-large alert-error"
-             ng-if="state.savesuccess === false">
+          <p class="alert alert-error"
+             ng-show="state.savesuccess === false">
             <b>{{'Your changes could not be saved, there was an error' | translate}}</b>
           </p>
 
