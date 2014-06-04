@@ -8,19 +8,17 @@ angular.module('anorakApp')
 
     $scope.activity = activity;
 
-//    $scope.map = activitybackendmap.map;
-//    $scope.map.center = {
-//      "longitude": $scope.activity.location.lng,
-//      "latitude": $scope.activity.location.lat
-//    };
-//    $scope.map.zoom = 9;
     $scope.map = {
       center: {
         "longitude": $scope.activity.location.lng,
         "latitude": $scope.activity.location.lat
       },
       zoom: 9,
-      options: activitybackendmap.map.options
+      options: activitybackendmap.map.options,
+      markercoords: {
+        "longitude": $scope.activity.location.lng,
+        "latitude": $scope.activity.location.lat
+      }
     };
 
     $scope.lang = $translate.use();
@@ -40,5 +38,8 @@ angular.module('anorakApp')
           $scope.$apply();
         }).done();
     };
+
+
+
 
   });

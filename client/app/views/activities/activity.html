@@ -5,45 +5,42 @@
       <h3>{{'All dates from activity' | translate}}</h3>
 
       <div ng-controller="ActivityCtrl"
-           class="activity-detail detail-category-{{data.activity.category.main}}">
+           class="activity-detail detail-category-{{vm.activity.category.main}}">
 
         <h5 class="category">
-          {{data.activity.category.main | translate}}
+          {{vm.activity.category.main | translate}}
           <span class="category-sub"
-                ng-repeat="subcat in data.activity.category.subs">
+                ng-repeat="subcat in vm.activity.category.subs">
             / {{subcat.key | translate}}
           </span>
         </h5>
 
         <h4>
-          {{data.activity.name | languageselect}}
+          {{vm.activity.name | languageselect}}
         </h4>
 
         <!--<h6 class="no-margin-top">-->
-        <!--{{'Offered by' | translate}} {{data.activity.company}}-->
+        <!--{{'Offered by' | translate}} {{vm.activity.company}}-->
         <!--</h6>-->
 
         
-        <pre>
-         {{map.options | json}}
-        </pre>
 
         <div class="location">
           <div class="input-label">{{'Location' | translate}}:</div>
 
           <google-map
-              center='data.activity'
-              zoom='map.zoom'
+              center='vm.map.center'
+              zoom='vm.map.zoom'
               draggable='true'
-              options='map.options'
+              options='vm.map.options'
               >
             <marker
-                coords='data.activity.location'
+                coords='vm.map.markercoords'
                 icon='getMarkerIcon()'
                 >
-              <marker-label content="data.activity.name[getAvailableTranslationLanguageKey(data.activity.name)]"
+              <marker-label content="vm.activity.name[getAvailableTranslationLanguageKey(vm.activity.name)]"
                             anchor="22 0"
-                            class="marker-labels marker-label-category-{{data.activity.category.main}}"
+                            class="marker-labels marker-label-category-{{vm.activity.category.main}}"
                   />
             </marker>
 
@@ -52,9 +49,9 @@
         </div>
 
         <div class="img-block img-block-right"
-             ng-show="data.activity.images.length > 0"
+             ng-show="vm.activity.images.length > 0"
             >
-          <cloudinaryimage ng-repeat="image in data.activity.images"
+          <cloudinaryimage ng-repeat="image in vm.activity.images"
                            data-publicid="{{image.public_id}}"
                            data-format="{{image.format}}"
                            data-width="250"
@@ -65,14 +62,14 @@
 
         <div class="description">
           <div ta-bind
-               ng-model="data.activity.description[getAvailableTranslationLanguageKey(data.activity.description)]">
+               ng-model="vm.activity.description[getAvailableTranslationLanguageKey(vm.activity.description)]">
           </div>
         </div>
 
         <div class="availability">
           <div class="input-label">{{'Availability' | translate}}</div>
 
-          <bookableitemlist data-activity="data.activity">
+          <bookableitemlist data-activity="vm.activity">
           </bookableitemlist>
 
         </div>

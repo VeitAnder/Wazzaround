@@ -1,16 +1,27 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('ActivityPageCtrl', function ($scope, activity) {
+  .controller('ActivityPageCtrl', function ($scope, activity, activitybackendmap) {
     $scope.getPagePartial = function () {
       return 'views/activities/activity.html';
     };
 
-    // TODO: btw.. es ist üblich $scope.vm (view model) zu verwenden
-    $scope.data = {
+    $scope.vm = {
       activity: activity,
       provider: {
-        company : "loading.."
+        company: "loading.."
+      },
+      map: {
+        center: {
+          "longitude": activity.location.lng,
+          "latitude": activity.location.lat
+        },
+        zoom: 9,
+        options: activitybackendmap.map.options,
+        markercoords: {
+          "longitude": activity.location.lng,
+          "latitude": activity.location.lat
+        }
       }
     };
 
@@ -22,6 +33,7 @@ angular.module('anorakApp')
 //      }).done();
 
   })
-  .controller('ActivityCtrl', function ($scope) {
+  .
+  controller('ActivityCtrl', function ($scope, $filter) {
 
   });
