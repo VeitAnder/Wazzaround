@@ -130,13 +130,13 @@
 
             <imageselector class="form-group img-selector">
               <label>{{'Images' | translate}}</label>
-              <imageblock class="img-block"
+              <imagewrap
                           data-ng-repeat="image in activity.images"
                   >
                 <cloudinaryimage data-publicid="{{image.public_id}}"
                                  data-format="{{image.format}}"
-                                 data-width="150"
-                                 data-height="85"
+                                 data-width="200"
+                                 data-height="115"
 
                     >
                 </cloudinaryimage>
@@ -158,7 +158,7 @@
                 <div class="img-teaser">
                   Teaser image
                 </div>
-              </imageblock>
+              </imagewrap>
               <uploadform data-images="activity.images"></uploadform>
             </imageselector>
 

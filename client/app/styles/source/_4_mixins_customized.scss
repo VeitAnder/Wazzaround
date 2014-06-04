@@ -351,6 +351,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 
   .img-block {
+    margin-top: $fs*2.0;
+    @include clearfix;
     cloudinaryimage {
       display: block;
       float: left;
@@ -2513,7 +2515,7 @@ $img-selector-teasertxtheight: 32px;
     display: none;
   }
   overflow: hidden;
-  label + .img-block {
+  label + imagewrap {
     img {
       width: $img-selector-teaserimgsize;
       height: auto;
@@ -2532,7 +2534,8 @@ $img-selector-teasertxtheight: 32px;
       font-weight: $font-weight_bold;
     }
   }
-  .img-block {
+  imagewrap {
+    display: block;
     position: relative;
     float: left;
     margin-right: 10px;

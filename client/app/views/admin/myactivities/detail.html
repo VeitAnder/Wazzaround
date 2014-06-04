@@ -23,7 +23,7 @@
            ng-if="activity.published">
           <b>{{'Your activity is published' | translate}}</b>
         </p>
-        <p class="alert alert-large alert-error"
+        <p class="alert alert-large alert-block alert-error"
            ng-if="!activity.published">
           <b>{{'Your activity isnt published yet' | translate}}</b>
         </p>
@@ -66,19 +66,19 @@
 
         </div>
 
+        <div class="img-block img-block-right"
+             ng-show="activity.images.length > 0"
+            >
+          <cloudinaryimage ng-repeat="image in activity.images"
+                           data-publicid="{{image.public_id}}"
+                           data-format="{{image.format}}"
+                           data-width="375"
+                           data-height="225"
+              >
+          </cloudinaryimage>
+        </div>
 
         <div class="description">
-          <div class="img-block img-block-right"
-               ng-show="activity.images.length > 0"
-              >
-            <cloudinaryimage ng-repeat="image in activity.images"
-                             data-publicid="{{image.public_id}}"
-                             data-format="{{image.format}}"
-                             data-width="250"
-                             data-height="150"
-                >
-            </cloudinaryimage>
-          </div>
           <div ta-bind
                ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]"></div>
         </div>
