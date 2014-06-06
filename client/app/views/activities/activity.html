@@ -2,10 +2,14 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <h3>{{'All dates from activity' | translate}}</h3>
+      <!--<h3>{{'All dates from activity' | translate}}</h3>-->
 
       <div ng-controller="ActivityCtrl"
            class="activity-detail detail-category-{{vm.activity.category.main}}">
+
+        <h3 class="title">
+          {{vm.activity.name | languageselect}}
+        </h3>
 
         <h5 class="category">
           {{vm.activity.category.main | translate}}
@@ -15,15 +19,23 @@
           </span>
         </h5>
 
-        <h4>
-          {{vm.activity.name | languageselect}}
-        </h4>
+        <h6 class="no-margin-top">
+          {{'Offered by' | translate}} {{vm.activity.company}}
+        </h6>
 
-        <!--<h6 class="no-margin-top">-->
-        <!--{{'Offered by' | translate}} {{vm.activity.company}}-->
-        <!--</h6>-->
 
-        
+        <h5 class="shortdescription">
+          @ToDo : Short Description
+        </h5>
+
+        <div class="description">
+          <div ta-bind
+               ng-model="vm.activity.description[getAvailableTranslationLanguageKey(vm.activity.description)]">
+          </div>
+        </div>
+
+
+        <!-- ## LOCATION / MAP ##################################################################################### -->
 
         <div class="location">
           <div class="input-label">{{'Location' | translate}}:</div>
@@ -48,6 +60,9 @@
 
         </div>
 
+
+        <!-- ## IMAGES ############################################################################################# -->
+
         <div class="img-block img-block-right"
              ng-show="vm.activity.images.length > 0"
             >
@@ -60,11 +75,9 @@
           </cloudinaryimage>
         </div>
 
-        <div class="description">
-          <div ta-bind
-               ng-model="vm.activity.description[getAvailableTranslationLanguageKey(vm.activity.description)]">
-          </div>
-        </div>
+
+
+        <!-- ## AVAILABILITY / DATES ############################################################################### -->
 
         <div class="availability">
           <div class="input-label">{{'Availability' | translate}}</div>

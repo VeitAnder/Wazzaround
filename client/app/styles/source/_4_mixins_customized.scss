@@ -369,8 +369,13 @@ googleMap, .angular-google-map, .angular-google-map-container {
       @include border-image;
     }
   }
+  .title{
+    margin-bottom: $fs*0.25;
+  }
+  .shortdescription{
+    margin-bottom: $fs*0.25;
+  }
   .description {
-    margin-top: $fs*2.0;
   }
   .location {
     margin-top: $fs*2.0;
@@ -381,88 +386,36 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
-@mixin window-category {
-  @include activity-content;
-  padding: 15px 0;
-  min-width: 400px;
-  max-width: 600px;
 
-  img {
-    width: 150px;
-    height: auto;
-  }
-
-  //  Google overwrites
-
-  p {
-    font-family: $sysfont_01;
-    font-size: $fs;
-    line-height: $fs*$line-height_factor;
-    margin: 0;
-    font-weight: normal;
-  }
-
-  .availability-header {
-    .cell {
-      .gm-style .gm-style-iw & {
-        font-weight: $font-weight_bold;
-      }
-    }
-  }
-  .input-label {
-    .gm-style .gm-style-iw & {
-      font-weight: $font-weight_bold;
-    }
-  }
-  .btn-mini {
-    .gm-style .gm-style-iw & {
-      font-size: 12px;
-      padding: ($fs*0.15) ($fs*0.5);
-    }
-  }
-  .availability-entry {
-    .cell {
-      .gm-style .gm-style-iw & {
-        line-height: 13px * $line-height_factor;
-      }
-    }
-
-  }
-
-}
 
 @mixin category-sports {
+  .title{
+    color: $color_sports;
+  }
   .category {
     background-color: $color_sports;
   }
 }
 
 @mixin category-culture {
+  .title{
+    color: $color_culture;
+  }
   .category {
     background-color: $color_culture;
   }
 }
 
 @mixin category-wellness {
+  .title{
+    color: $color_wellness;
+  }
   .category {
     background-color: $color_wellness;
   }
 }
 
-.window-category-sports {
-  @include window-category;
-  @include category-sports;
-}
 
-.window-category-culture {
-  @include window-category;
-  @include category-culture;
-}
-
-.window-category-wellness {
-  @include window-category;
-  @include category-wellness;
-}
 
 .detail-category-sports {
   @include activity-content;

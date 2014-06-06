@@ -3208,207 +3208,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
 .marker-label-category-wellness {
   color: #bc913d; }
 
-.window-category-sports {
-  padding: 15px 0;
-  min-width: 400px;
-  max-width: 600px; }
-  .window-category-sports h4 {
-    color: #666;
-    padding-bottom: 5px;
-    border-bottom: dotted 1px #b3b3b3; }
-  .window-category-sports .img-block {
-    margin-top: 32px; }
-    .window-category-sports .img-block:before, .window-category-sports .img-block:after {
-      content: " ";
-      /* 1 */
-      display: table;
-      /* 2 */ }
-    .window-category-sports .img-block:after {
-      clear: both; }
-    .window-category-sports .img-block cloudinaryimage {
-      display: block;
-      float: left;
-      width: 50%;
-      padding: 5px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      vertical-align: top; }
-    .window-category-sports .img-block img {
-      width: 100%;
-      height: auto;
-      border: solid 1px #e8e8e8;
-      -webkit-border-radius: 6px;
-      -khtml-border-radius: 6px;
-      -moz-border-radius: 6px;
-      -ms-border-radius: 6px;
-      -o-border-radius: 6px;
-      border-radius: 6px;
-      border-width: 7px;
-      padding: 3px;
-      background-color: #FFF; }
-  .window-category-sports .description {
-    margin-top: 32px; }
-  .window-category-sports .location {
-    margin-top: 32px; }
-  .window-category-sports .availability {
-    margin-top: 32px;
-    clear: both; }
-  .window-category-sports img {
-    width: 150px;
-    height: auto; }
-  .window-category-sports p {
-    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 22.4px;
-    margin: 0;
-    font-weight: normal; }
-  .gm-style .gm-style-iw .window-category-sports .availability-header .cell {
-    font-weight: 600; }
-  .gm-style .gm-style-iw .window-category-sports .input-label {
-    font-weight: 600; }
-  .gm-style .gm-style-iw .window-category-sports .btn-mini {
-    font-size: 12px;
-    padding: 2.4px 8px; }
-  .gm-style .gm-style-iw .window-category-sports .availability-entry .cell {
-    line-height: 18.2px; }
-  .window-category-sports .category {
-    background-color: #C83C19; }
-
-.window-category-culture {
-  padding: 15px 0;
-  min-width: 400px;
-  max-width: 600px; }
-  .window-category-culture h4 {
-    color: #666;
-    padding-bottom: 5px;
-    border-bottom: dotted 1px #b3b3b3; }
-  .window-category-culture .img-block {
-    margin-top: 32px; }
-    .window-category-culture .img-block:before, .window-category-culture .img-block:after {
-      content: " ";
-      /* 1 */
-      display: table;
-      /* 2 */ }
-    .window-category-culture .img-block:after {
-      clear: both; }
-    .window-category-culture .img-block cloudinaryimage {
-      display: block;
-      float: left;
-      width: 50%;
-      padding: 5px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      vertical-align: top; }
-    .window-category-culture .img-block img {
-      width: 100%;
-      height: auto;
-      border: solid 1px #e8e8e8;
-      -webkit-border-radius: 6px;
-      -khtml-border-radius: 6px;
-      -moz-border-radius: 6px;
-      -ms-border-radius: 6px;
-      -o-border-radius: 6px;
-      border-radius: 6px;
-      border-width: 7px;
-      padding: 3px;
-      background-color: #FFF; }
-  .window-category-culture .description {
-    margin-top: 32px; }
-  .window-category-culture .location {
-    margin-top: 32px; }
-  .window-category-culture .availability {
-    margin-top: 32px;
-    clear: both; }
-  .window-category-culture img {
-    width: 150px;
-    height: auto; }
-  .window-category-culture p {
-    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 22.4px;
-    margin: 0;
-    font-weight: normal; }
-  .gm-style .gm-style-iw .window-category-culture .availability-header .cell {
-    font-weight: 600; }
-  .gm-style .gm-style-iw .window-category-culture .input-label {
-    font-weight: 600; }
-  .gm-style .gm-style-iw .window-category-culture .btn-mini {
-    font-size: 12px;
-    padding: 2.4px 8px; }
-  .gm-style .gm-style-iw .window-category-culture .availability-entry .cell {
-    line-height: 18.2px; }
-  .window-category-culture .category {
-    background-color: #1970C8; }
-
-.window-category-wellness {
-  padding: 15px 0;
-  min-width: 400px;
-  max-width: 600px; }
-  .window-category-wellness h4 {
-    color: #666;
-    padding-bottom: 5px;
-    border-bottom: dotted 1px #b3b3b3; }
-  .window-category-wellness .img-block {
-    margin-top: 32px; }
-    .window-category-wellness .img-block:before, .window-category-wellness .img-block:after {
-      content: " ";
-      /* 1 */
-      display: table;
-      /* 2 */ }
-    .window-category-wellness .img-block:after {
-      clear: both; }
-    .window-category-wellness .img-block cloudinaryimage {
-      display: block;
-      float: left;
-      width: 50%;
-      padding: 5px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      vertical-align: top; }
-    .window-category-wellness .img-block img {
-      width: 100%;
-      height: auto;
-      border: solid 1px #e8e8e8;
-      -webkit-border-radius: 6px;
-      -khtml-border-radius: 6px;
-      -moz-border-radius: 6px;
-      -ms-border-radius: 6px;
-      -o-border-radius: 6px;
-      border-radius: 6px;
-      border-width: 7px;
-      padding: 3px;
-      background-color: #FFF; }
-  .window-category-wellness .description {
-    margin-top: 32px; }
-  .window-category-wellness .location {
-    margin-top: 32px; }
-  .window-category-wellness .availability {
-    margin-top: 32px;
-    clear: both; }
-  .window-category-wellness img {
-    width: 150px;
-    height: auto; }
-  .window-category-wellness p {
-    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 22.4px;
-    margin: 0;
-    font-weight: normal; }
-  .gm-style .gm-style-iw .window-category-wellness .availability-header .cell {
-    font-weight: 600; }
-  .gm-style .gm-style-iw .window-category-wellness .input-label {
-    font-weight: 600; }
-  .gm-style .gm-style-iw .window-category-wellness .btn-mini {
-    font-size: 12px;
-    padding: 2.4px 8px; }
-  .gm-style .gm-style-iw .window-category-wellness .availability-entry .cell {
-    line-height: 18.2px; }
-  .window-category-wellness .category {
-    background-color: #bc913d; }
-
 .detail-category-sports h4 {
   color: #666;
   padding-bottom: 5px;
@@ -3444,13 +3243,17 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-width: 7px;
     padding: 3px;
     background-color: #FFF; }
-.detail-category-sports .description {
-  margin-top: 32px; }
+.detail-category-sports .title {
+  margin-bottom: 4px; }
+.detail-category-sports .shortdescription {
+  margin-bottom: 4px; }
 .detail-category-sports .location {
   margin-top: 32px; }
 .detail-category-sports .availability {
   margin-top: 32px;
   clear: both; }
+.detail-category-sports .title {
+  color: #C83C19; }
 .detail-category-sports .category {
   background-color: #C83C19; }
 
@@ -3489,13 +3292,17 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-width: 7px;
     padding: 3px;
     background-color: #FFF; }
-.detail-category-culture .description {
-  margin-top: 32px; }
+.detail-category-culture .title {
+  margin-bottom: 4px; }
+.detail-category-culture .shortdescription {
+  margin-bottom: 4px; }
 .detail-category-culture .location {
   margin-top: 32px; }
 .detail-category-culture .availability {
   margin-top: 32px;
   clear: both; }
+.detail-category-culture .title {
+  color: #1970C8; }
 .detail-category-culture .category {
   background-color: #1970C8; }
 
@@ -3534,22 +3341,32 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-width: 7px;
     padding: 3px;
     background-color: #FFF; }
-.detail-category-wellness .description {
-  margin-top: 32px; }
+.detail-category-wellness .title {
+  margin-bottom: 4px; }
+.detail-category-wellness .shortdescription {
+  margin-bottom: 4px; }
 .detail-category-wellness .location {
   margin-top: 32px; }
 .detail-category-wellness .availability {
   margin-top: 32px;
   clear: both; }
+.detail-category-wellness .title {
+  color: #bc913d; }
 .detail-category-wellness .category {
   background-color: #bc913d; }
 
+.category-sports .title {
+  color: #C83C19; }
 .category-sports .category {
   background-color: #C83C19; }
 
+.category-culture .title {
+  color: #1970C8; }
 .category-culture .category {
   background-color: #1970C8; }
 
+.category-wellness .title {
+  color: #bc913d; }
 .category-wellness .category {
   background-color: #bc913d; }
 
@@ -5196,8 +5013,10 @@ activitybardetail {
       border-width: 7px;
       padding: 3px;
       background-color: #FFF; }
-  activitybardetail .description {
-    margin-top: 32px; }
+  activitybardetail .title {
+    margin-bottom: 4px; }
+  activitybardetail .shortdescription {
+    margin-bottom: 4px; }
   activitybardetail .location {
     margin-top: 32px; }
   activitybardetail .availability {
