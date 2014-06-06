@@ -99,7 +99,7 @@ var RestApi = require("./servermodules/restapi.js");
 
 //RestApi.manifest(app);
 
-RestApi.RestApi(app);
+RestApi.RestApi(app, db);
 
 require("./servermodules/serveclient.js").serveClient(app);
 
