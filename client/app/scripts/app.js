@@ -541,7 +541,9 @@ angular.module('anorakApp')
       "Info & Booking": "Info & Booking",
       "close": "close",
       "maketeaser": "Use as teaser image",
-      "Find your activity": "Find your activity"
+      "Find your activity": "Find your activity",
+      "Please enter a description.": "Please enter a description.",
+      "Please enter a short description.": "Please enter a short description."
     });
 
     $translateProvider.translations('de', {
@@ -824,7 +826,10 @@ angular.module('anorakApp')
       "Info & Booking": "Info & Buchen",
       "close": "schließen",
       "maketeaser": "Als Teaser-Bild verwenden",
-      "Find your activity": "Find your activity"
+      "Find your activity": "Find your activity",
+      "Please enter a description.": "Bitte geben Sie eine Beschreibung ein.",
+      "Please enter a short description.": "Bitte geben Sie eine Kurzbeschreibung ein."
+
     });
 
     $translateProvider.translations('it', {
@@ -1106,7 +1111,9 @@ angular.module('anorakApp')
       "Info & Booking": "Info & Booking",
       "close": "close",
       "maketeaser": "Use as teaser image",
-      "Find your activity": "Find your activity"
+      "Find your activity": "Find your activity",
+      "Please enter a description.": "Please enter a description.",
+      "Please enter a short description.": "Please enter a short description."
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity

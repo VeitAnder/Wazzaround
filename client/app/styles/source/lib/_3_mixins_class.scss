@@ -1749,6 +1749,21 @@ header {
   }
 }
 
+@mixin textarea-padding{
+  padding: $fs*0.5 $fs*0.75;
+  @include respond-to(screen-md){
+    padding: $fs*0.25 $fs*0.5;
+  }
+
+  @include respond-to(screen-sm){
+    padding: $fs*0.25 $fs*0.5;
+  }
+
+  @include respond-to(screen-nocols){
+    padding: $fs*0.25 $fs*0.5;
+  }
+}
+
 $input-height: $fs*$line-height_factor + (2*$fs*0.75) + (2*$border-width);
 $input-height-small: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
 $input-height-mini: $fs*$line-height_factor + (2*$fs*0.0) + (2*$border-width);
@@ -1811,6 +1826,10 @@ input, textarea {
 
 textarea, input[type=checkbox] {
   height: auto;
+}
+
+textarea{
+  @include textarea-padding;
 }
 
 input[type=number] {

@@ -2545,6 +2545,18 @@ input, textarea {
 textarea, input[type=checkbox] {
   height: auto; }
 
+textarea {
+  padding: 8px 12px; }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    textarea {
+      padding: 4px 8px; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    textarea {
+      padding: 4px 8px; } }
+  @media only screen and (max-width: 767px) {
+    textarea {
+      padding: 4px 8px; } }
+
 input[type=number] {
   padding: 4px 12px; }
   input[type=number].input-small {

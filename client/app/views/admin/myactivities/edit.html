@@ -95,6 +95,21 @@
             </div>
 
             <div class="form-group">
+              <label>{{'Short Description' | translate}}</label>
+
+              @ToDo : Short Description TEXTAREA
+
+              <textarea
+                  rows="2"
+                  class="form-control"
+                  ></textarea>
+
+              <span ng-show="showError('shortdescription', 'required')"
+                    class="alert alert-error">{{'Please enter a shortdescription.' | translate}}
+              </span>
+            </div>
+
+            <div class="form-group">
               <label>{{'Description' | translate}}</label>
               <text-angular
                   ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
@@ -107,7 +122,6 @@
               <span ng-show="showError('description', 'required')"
                     class="alert alert-error">{{'Please enter a description.' | translate}}
               </span>
-
             </div>
 <!--
             <div class="form-group">
