@@ -230,7 +230,6 @@ angular.module('anorakApp')
 
     // Save the Activiy
     $scope.save = function () {
-      debug("save() called");
 
       $scope.state.submitted = true;
 
@@ -250,12 +249,10 @@ angular.module('anorakApp')
 
         $scope.activity.save()  // save the activity
           .then(function (activity) {
-            debug("SAVED ACTIVITY");
-            $location.path("/admin/myactivities/");
+            $location.path("/admin/myactivities/" + activity._id + "/");
             $scope.$apply();
           })
           .fail(function (err) {
-            debug("Could not save activity");
             $scope.state.error = true;
             $scope.state.message = err.message;
             $scope.$apply();

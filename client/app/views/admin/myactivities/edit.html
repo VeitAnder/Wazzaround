@@ -120,15 +120,6 @@
             <div class="form-group">
               <label>{{'Detailed description' | translate}}</label>
 
-              <!--              <text-angular
-                                ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
-                                ng-model="activity.description[getInputLanguage()]"
-                                name="description"
-                                ng-required="true"
-                                ta-max-text="100"
-                                >
-                            </text-angular>-->
-
               <textarea
                   class="form-control"
                   ng-model="activity.description[getInputLanguage()]"
@@ -153,22 +144,6 @@
                 </div>
               </div>
             </div>
-            <!--
-                        <div class="form-group">
-                          <label>{{'ShortDescription' | translate}}</label>
-                          <input type="text"
-                                 class="form-control"
-                                 id="shortdescription"
-                                 name="shortdescription"
-                                 placeholder="{{'ShortDescription' | translate}}"
-                                 ng-model="activity.shortdescription[getInputLanguage()]"
-                                 required
-                              >
-                          <span ng-show="showError('shortdescription', 'required')"
-                                class="alert alert-error">{{'Please enter a short description.' | translate}}
-                          </span>
-                        </div>
-                        -->
 
             <imageselector class="form-group img-selector">
               <label>{{'Images' | translate}}</label>
