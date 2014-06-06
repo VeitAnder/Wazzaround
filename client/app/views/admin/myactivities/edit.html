@@ -110,28 +110,55 @@
               </span>
 
             </div>
+<!--
+            <div class="form-group">
+              <label>{{'ShortDescription' | translate}}</label>
+              <input type="text"
+                     class="form-control"
+                     id="shortdescription"
+                     name="shortdescription"
+                     placeholder="{{'ShortDescription' | translate}}"
+                     ng-model="activity.shortdescription[getInputLanguage()]"
+                     required
+                  >
+              <span ng-show="showError('shortdescription', 'required')"
+                    class="alert alert-error">{{'Please enter a short description.' | translate}}
+              </span>
+            </div>
+            -->
+
 
             <imageselector class="form-group img-selector">
               <label>{{'Images' | translate}}</label>
-              <imageblock class="img-block"
+              <imagewrap
                           data-ng-repeat="image in activity.images"
                   >
                 <cloudinaryimage data-publicid="{{image.public_id}}"
                                  data-format="{{image.format}}"
-                                 data-width="150"
-                                 data-height="85"
+                                 data-width="200"
+                                 data-height="115"
+
                     >
                 </cloudinaryimage>
                 <div class="img-edit">
                   <a class="delete"
-                     ng-click="removeImage(image, $index)">
+                     ng-click="removeImage(image, $index)"
+                      >
                     <span>{{'delete' | translate}}</span>
                   </a>
+
+                  <a class="maketeaserimage"
+                     ng-hide="$index === 0"
+                     ng-click="makeTeaserImage($index)"
+                      >
+                    <span>{{'maketeaser' | translate}}</span>
+                  </a>
+
                 </div>
                 <div class="img-teaser">
                   Teaser image
                 </div>
-              </imageblock>
+              </imagewrap>
               <uploadform data-images="activity.images"></uploadform>
             </imageselector>
 
@@ -269,43 +296,6 @@
 
                     </div>
 
-                    <!-- DURATION AND PRICE MOVES TO EVENT!!!
-
-                                  <div class="bookableitem-duration cell">
-                                    <label for="itemDuration">{{'Duration in hours' | translate}}</label>
-                                    <input type="number"
-                                           class="form-control"
-                                           id="itemDuration"
-                                           name="itemDuration"
-                                           placeholder="{{'Duration in hours' | translate}}"
-                                           ng-model="bookableItem.duration"
-                                           required
-                                        >
-                                    <span ng-show="bookableItemForm.itemDuration.$invalid && (bookableItemForm.itemDuration.$dirty || state.submitted)"
-                                          class="alert alert-error">
-                                      {{'Please enter a number only.' | translate}}
-                                    </span>
-                                  </div>
-
-                                  <div class="bookableitem-price cell last">
-                                    <label for="itemPrice">{{'Price' | translate}} €</label>
-                                    <input type="number"
-                                           class="form-control"
-                                           id="itemPrice"
-                                           name="itemPrice"
-                                           placeholder="{{'Price in €' | translate}}"
-                                           ng-model="bookableItem.price"
-                                           required
-                                        >
-
-                                    <span ng-show="bookableItemForm.itemPrice.$invalid && (bookableItemForm.itemPrice.$dirty || state.submitted)"
-                                          class="alert alert-error">
-                                      {{'Please enter a number only.' | translate}}
-                                    </span>
-
-                                  </div>
-                    -->
-
                   </ng-form>
 
                 </div>
@@ -328,28 +318,30 @@
                               ng-repeat="(idx,event) in bookableItem.events"
                         >
 
-                      <eventview ng-show="event.mode != 'edit' && event.mode != 'new'">
-                        <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
-                        <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
+                      <!--use ng-if to refresh one-time bound data after event edit -->
+                      <eventview ng-if="event.mode != 'edit' && event.mode != 'new'">
+                        <div class="event-date cell">{{:: event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
+                        <div class="event-time cell">{{:: event.start | momentjs:{format: "h:mm a"} }}</div>
                         <div class="event-duration cell">
-                          {{{start:event.start, end:event.end} | duration }}
+                          {{:: {start:event.start, end:event.end} | duration }}
                         </div>
-                        <div class="event-quantity cell">{{event.quantity}}x</div>
-                        <div class="event-price cell">{{event.price}}</div>
+                        <div class="event-quantity cell">{{::event.quantity}}x</div>
+                        <div class="event-price cell">{{::event.price}}</div>
                         <div class="listaction cell">
                           <a class="btn btn-mini btn-ordinary"
                              ng-click="event.mode = 'edit'">
-                            <span>{{'edit' | translate}}</span>
+                            <span>{{::'edit' | translate}}</span>
                           </a>
                           <a class="btn btn-mini btn-alert btn-ordinary"
                              ng-click="removeEvent(bookableItem, idx)">
-                            <span>{{'delete' | translate}}</span>
+                            <span>{{::'delete' | translate}}</span>
                           </a>
                         </div>
                       </eventview>
 
+                      <!--use ng-if to refresh one-time bound data after event edit -->
                       <eventedit class="eventedit"
-                                 ng-show="event.mode == 'edit' || event.mode == 'new'"
+                                 ng-if="event.mode == 'edit' || event.mode == 'new'"
                           >
 
                         <ng-form name="eventForm">
@@ -572,7 +564,7 @@
 
           </div>
 
-          <div ng-show="valForm.$invalid && state.submitted"
+          <div ng-show="valForm.$invalid"
                class="alert alert-error align-right"
                style="float:right;"
               >

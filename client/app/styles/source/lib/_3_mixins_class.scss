@@ -20,6 +20,21 @@ p {
   color: $color_main_h1;
   font-weight: $font-weight_light;
   @include sysfont_01;
+
+  @include respond-to(screen-md){
+    font-size: $fs*$fs-md*$font-size_h1_factor;
+    line-height: $fs*$fs-md*$font-size_h1_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(screen-sm){
+    font-size: $fs*$fs-sm*$font-size_h1_factor;
+    line-height: $fs*$fs-sm*$font-size_h1_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(screen-nocols){
+    font-size: $fs*$fs-nocol*$font-size_h1_factor;
+    line-height: $fs*$fs-nocol*$font-size_h1_factor*$line-height_headline-factor;
+  }
 }
 
 h1 {
@@ -33,6 +48,21 @@ h1 {
   color: $color_main_h2;
   font-weight: $font-weight_light;
   @include sysfont_01;
+
+  @include respond-to(screen-md){
+    font-size: $fs*$fs-md*$font-size_h2_factor;
+    line-height: $fs*$fs-md*$font-size_h2_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(screen-sm){
+    font-size: $fs*$fs-sm*$font-size_h2_factor;
+    line-height: $fs*$fs-sm*$font-size_h2_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(screen-nocols){
+    font-size: $fs*$fs-nocol*$font-size_h2_factor;
+    line-height: $fs*$fs-nocol*$font-size_h2_factor*$line-height_headline-factor;
+  }
 }
 
 h2 {
@@ -45,6 +75,21 @@ h2 {
   margin: $fs*$font-size_h3_factor 0;
   color: $color_main_h3;
   @include sysfont_01;
+
+  @include respond-to(screen-md){
+    font-size: $fs*$fs-md*$font-size_h3_factor;
+    line-height: $fs*$fs-md*$font-size_h3_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(screen-sm){
+    font-size: $fs*$fs-sm*$font-size_h3_factor;
+    line-height: $fs*$fs-sm*$font-size_h3_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(screen-nocols){
+    font-size: $fs*$fs-nocol*$font-size_h3_factor;
+    line-height: $fs*$fs-nocol*$font-size_h3_factor*$line-height_headline-factor;
+  }
 }
 
 h3 {
@@ -58,6 +103,21 @@ h3 {
   color: $color_main_h4;
   @include sysfont_01;
   font-weight: normal;
+
+  @include respond-to(screen-md){
+    font-size: $fs*$fs-md*$font-size_h4_factor;
+    line-height: $fs*$fs-md*$font-size_h4_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(screen-sm){
+    font-size: $fs*$fs-sm*$font-size_h4_factor;
+    line-height: $fs*$fs-sm*$font-size_h4_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(screen-nocols){
+    font-size: $fs*$fs-nocol*$font-size_h4_factor;
+    line-height: $fs*$fs-nocol*$font-size_h4_factor*$line-height_headline-factor;
+  }
 }
 
 h4 {
@@ -70,6 +130,21 @@ h4 {
   margin: $fs*$font-size_h5_factor 0;
   color: $color_main_h5;
   @include sysfont_01;
+
+  @include respond-to(screen-md){
+    font-size: $fs*$fs-md*$font-size_h5_factor;
+    line-height: $fs*$fs-md*$font-size_h5_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(screen-sm){
+    font-size: $fs*$fs-sm*$font-size_h5_factor;
+    line-height: $fs*$fs-sm*$font-size_h5_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(screen-nocols){
+    font-size: $fs*$fs-nocol*$font-size_h5_factor;
+    line-height: $fs*$fs-nocol*$font-size_h5_factor*$line-height_headline-factor;
+  }
 }
 
 h5 {
@@ -82,6 +157,21 @@ h5 {
   margin: $fs*$font-size_h6_factor 0;
   color: $color_main_h6;
   @include sysfont_01;
+
+  @include respond-to(screen-md){
+    font-size: $fs*$fs-md*$font-size_h6_factor;
+    line-height: $fs*$fs-md*$font-size_h6_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(screen-sm){
+    font-size: $fs*$fs-sm*$font-size_h6_factor;
+    line-height: $fs*$fs-sm*$font-size_h6_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(screen-nocols){
+    font-size: $fs*$fs-nocol*$font-size_h6_factor;
+    line-height: $fs*$fs-nocol*$font-size_h6_factor*$line-height_headline-factor;
+  }
 }
 
 h6 {
@@ -213,16 +303,15 @@ a.link-download {
   display: inline-block;
   @include user-select(none);
   background-color: $color_button_background;
-  padding: ($fs*0.25) ($fs*0.75) ($fs*0.25*1.5);
+  padding: ($fs*0.25) ($fs*0.75);
   @include border-radius($border-radius_small);
   @include border_all($color_button_border);
-  border-width: 3px;
   @include sysfont_01;
+  @include font-size-default;
+  border-width: 3px;
   font-weight: $font-weight_bold;
   color: $color_button_text;
   text-decoration: none;
-  font-size: $fs;
-  line-height: $fs*$line-height_factor;
 
   &:hover {
     color: $color_button_text_hover;
@@ -312,9 +401,9 @@ button.btn, .btn, a.btn {
     }
   }
   &.btn-large {
-    padding: ($fs*0.75) ($fs*2.0) ($fs*0.75*1.5);
-    font-size: 25px;
-    line-height: 25px * $line-height_factor;
+    padding: ($fs*0.75) ($fs*2.0);
+    @include h4;
+    color: $color_white;
     @include border-radius($border-radius);
     &.btn-shoppingcart {
       width: 35px;
@@ -325,9 +414,8 @@ button.btn, .btn, a.btn {
   }
 
   &.btn-small {
-    padding: ($fs*0.15) ($fs*0.50) ($fs*0.15*1.5);
-    font-size: 14px;
-    line-height: 14px * $line-height_factor;
+    padding: ($fs*0.15) ($fs*0.50);
+    @include font-size_smallbutton;
     &.btn-shoppingcart {
       width: 25px;
       height: $fs*$line-height_factor*$font-size_small_factor;
@@ -338,7 +426,7 @@ button.btn, .btn, a.btn {
   &.btn-mini {
     @include font-size_smallest;
     text-transform: uppercase;
-    padding: ($fs*0.15) ($fs*0.25) ($fs*0.15*1.5);
+    padding: ($fs*0.15) ($fs*0.25);
     border-width: 1px;
     font-weight: $font-weight_extrabold;
   }
@@ -347,6 +435,7 @@ button.btn, .btn, a.btn {
     color: $color_green;
     background-color: $color_white;
     border-color: $color_white;
+    font-weight: $font-weight_bold;
     &:hover {
       background-color: $color_green_15;
       border-color: $color_green_15;
@@ -1046,9 +1135,28 @@ button.btn, .btn, a.btn {
   font-weight: $font-weight_bold;
   text-align: center;
   &.disabled {
-    background-color: $color_12;
+    background-color: $color_grey_15;
   }
 }
+
+@mixin label_tag {
+  text-decoration: none;
+  display: inline-block;
+  padding: 2px 6px;
+  @include border-radius($border-radius_small);
+  text-align: center;
+}
+
+@mixin label_tag_number {
+  padding: 3px 4px;
+  @include border-radius($border-radius_small);
+  @include box-shadow_1px-inset;
+  position: relative;
+  font-size: 10px;
+  font-weight: $font-weight_bold;
+  line-height: 100%;
+}
+
 
 @mixin alert {
   @include label;
@@ -1132,11 +1240,14 @@ button.btn, .btn, a.btn {
   height: 1px;
   @include seperator(top, $color_main_seperator);
   margin: $fs*2.0 0;
+  text-align: center;
   span {
+    position: relative;
+    top: -($fs*$font-size_h6_factor*$line-height_headline-factor * 0.5);
     @include h6;
-    padding-top: $fs*0.5;
+    padding: $fs*0.5;
     margin: 0;
-    float: right;
+    background-color: $color_white;
   }
 }
 
@@ -1606,28 +1717,58 @@ header {
 // ###########################################################################################################################
 // ###########################################################################################################################
 
+// line-height + padding + border
+@mixin input-height{
+  height: $fs*$line-height_factor + (2*$fs*0.75) + (2*$border-width);
+  @include respond-to(screen-md){
+    height: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
+  }
+
+  @include respond-to(screen-sm){
+    height: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
+  }
+
+  @include respond-to(screen-nocols){
+    height: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
+  }
+}
+
+@mixin input-padding{
+  padding: 0 $fs*0.75;
+  @include respond-to(screen-md){
+    padding: 0 $fs*0.5;
+  }
+
+  @include respond-to(screen-sm){
+    padding: 0 $fs*0.5;
+  }
+
+  @include respond-to(screen-nocols){
+    padding: 0 $fs*0.5;
+  }
+}
+
+$input-height: $fs*$line-height_factor + (2*$fs*0.75) + (2*$border-width);
+$input-height-small: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
+$input-height-mini: $fs*$line-height_factor + (2*$fs*0.0) + (2*$border-width);
+
+
 @mixin textformat_form {
   @include sysfont_01;
-  font-size: $fs;
-  line-height: $fs*$line-height_factor;
+  @include font-size-default;
   color: $color_input_text;
   vertical-align: middle;
 }
 
 @mixin fieldformat_form {
   display: block;
-  padding: 0 $fs*0.75;
   @include textformat_form;
+  @include input-padding;
   @include border-radius($border-radius_small);
-  background-color: $color_input_background;
   @include border_all($color_input_border);
+  background-color: $color_input_background;
   outline-style: none !important;
 }
-
-// line-height + padding + border
-$input-height: $fs*$line-height_factor + (2*$fs*0.75) + (2*$border-width);
-$input-height-small: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
-$input-height-mini: $fs*$line-height_factor + (2*$fs*0.0) + (2*$border-width);
 
 input, textarea, select {
   @include fieldformat_form;
@@ -1637,7 +1778,7 @@ input, textarea, select {
 }
 
 input {
-  height: $input-height;
+  @include input-height;
   &.input-small {
     height: $input-height-small;
     padding: 0 $fs*0.25;
@@ -1700,8 +1841,7 @@ input[type="checkbox"] {
   min-height: 20px;
   padding-left: 20px;
   color: $color_text;
-  font-size: $fs;
-  line-height: $fs*$line-height_factor;
+  @include font-size-default;
   input {
     cursor: pointer;
   }
@@ -1730,7 +1870,7 @@ input[type="checkbox"] {
 
 select,
 input[type="file"] {
-  height: $input-height;
+  @include input-height;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
 
   *margin-top: 4px;
@@ -1798,7 +1938,7 @@ input[type="checkbox"]:focus {
 @mixin input-label {
   display: block;
   @include font-size_small;
-  line-height: 21px;
+  line-height: 21px!important;
   margin-right: 5px;
   color: $color_input_text;
   vertical-align: bottom;
@@ -1879,6 +2019,25 @@ legend {
       }
     }
   }
+}
+
+@mixin checkbox {
+  @include box-sizing(border-box);
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  @include border_all($color_grey);
+  @include box-shadow_2px-inset;
+  @include border-radius($border-radius_mini);
+  border-width: 1px;
+  background-color: $color_white;
+}
+
+@mixin checkbox-selected {
+  border-color: $color_white;
+  @include sprite_icons(-47px, -22px, no-repeat);
+  background-color: $color_green;
+  box-shadow: none;
 }
 
 // DIV-TABLE ELEMENTS

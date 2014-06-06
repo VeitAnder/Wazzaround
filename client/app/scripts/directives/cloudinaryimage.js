@@ -11,7 +11,6 @@ angular.module('anorakApp')
         "height": "@",
         "format": "@format"
       },
-      replace: true,
       link: function postLink(scope, element, attrs) {
         scope.states = {
           noid: false

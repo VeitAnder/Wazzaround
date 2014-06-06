@@ -197,7 +197,8 @@
           ng-show="states.filteredactivities.length > 0"
           >
 
-        <div class="txt-icon-delete" ng-click="states.activitydetailactive = false">
+        <div class="txt-icon-delete"
+             ng-click="states.activitydetailactive = false">
           <span class="hidden">Close detail view</span>
           <span></span>
         </div>
@@ -210,19 +211,14 @@
         </h6>
 
         <!--<h6 class="no-margin-top">-->
-          <!--{{'Offered by' | translate}} {{activity.company}}-->
+        <!--{{'Offered by' | translate}} {{activity.company}}-->
         <!--</h6>-->
 
         <div class="description multiline">
-          <div class="innerwrap" ta-bind
+          <div class="innerwrap"
+               ta-bind
                ng-model="getSelectedActivity().description[getAvailableTranslationLanguageKey(getSelectedActivity().description)]">
           </div>
-        </div>
-        
-
-        <div ta-bind
-             class="description"
-             ng-model="getSelectedActivity().description[getAvailableTranslationLanguageKey(getSelectedActivity().description)]">
         </div>
 
         <div class="availability">
@@ -292,36 +288,44 @@
                 </cloudinaryimage>
 
                 <div class="activity-distance-element">
-                  <span class="current-location"></span>
-                  <span class="activity-distance-txt">
+                  <div class="current-location"></div>
+                  <div class="activity-distance-txt">
                     {{getSelectedActivity().distancetosearchlocation | mtokm }} km |
                     {{getIndexFilteredActivities(getSelectedActivity()) }} {{'of' | translate }}
                     {{states.filteredactivities.length}}
-                  </span>
-                  <span class="activity-location"></span>
+                  </div>
+                  <div class="activity-location"></div>
                 </div>
 
                 <div class="activity-text">
                   <h5 class="category">
-                    {{getSelectedActivity().category.main | translate}}
-                    <span class="category-sub"
-                          ng-repeat="subcat in getSelectedActivity().category.subs">
-                      / {{subcat.key | translate}}
-                    </span>
+                    <div class="innerwrap">
+                      {{getSelectedActivity().category.main | translate}}
+                      <span class="category-sub"
+                            ng-repeat="subcat in getSelectedActivity().category.subs">
+                        / {{subcat.key | translate}}
+                      </span>
+                    </div>
                   </h5>
 
-                  <h4>{{getSelectedActivity().name | languageselect}}</h4>
+                  <h4 class="title">
+                    {{getSelectedActivity().name | languageselect}}
+                  </h4>
 
-                  <p ta-bind
-                     ng-model="getSelectedActivity().description[getAvailableTranslationLanguageKey(getSelectedActivity().description)]"
+                  <div class="description"
+                       ta-bind
+                       ng-model="getSelectedActivity().description[getAvailableTranslationLanguageKey(getSelectedActivity().description)]"
                       >
-                  </p>
+                  </div>
 
                 </div>
-                <div class="activity-price-min">
-                  <span class="smalltext">{{'starting from' | translate }}</span>
-                  <span class="price">€ 135</span>
-                </div>
+
+                <!--<div class="activity-price-min">-->
+                  <!--<div class="innerwrap">-->
+                    <!--<span class="smalltext">{{'starting from' | translate }}</span>-->
+                    <!--<span class="price">€ 135</span>-->
+                  <!--</div>-->
+                <!--</div>-->
 
                 <span class="triangle"></span>
               </div>

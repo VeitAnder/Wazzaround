@@ -9,7 +9,6 @@ var express = require('express');
 var connect = require('connect');
 var compress = require('compression');
 var cookieParser = require('cookie-parser');
-var cookieSession = require('cookie-session');
 var bodyParser = require('body-parser');
 //require('express-namespace');
 //var passport = require('passport');
@@ -21,6 +20,7 @@ var logger = require('./lib/logger.js');
 var cacheControl = require('./lib/cacheControl');
 
 var app = express();
+app.use(compress());                                // enable gzip compression for res.send()
 
 logger.info("Node environment: NODE_ENV=%s", process.env.NODE_ENV);
 
@@ -81,9 +81,10 @@ var RestApi = require("./servermodules/restapi.js");
  // JSON protection
 
  app.use(protectJSON);                                       // Add JSON Vulnerability Protection -> http://docs.angularjs.org/api/ng.$http
- app.use(compress());                                // enable gzip compression for res.send()
  }
  */
+
+
 //security.initialize();                                      // Add a Mongo strategy for handling the authentication
 
 //require("./servermodules/serveclient.js").setupMaintenanceMode(app);

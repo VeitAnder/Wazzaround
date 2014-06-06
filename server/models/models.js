@@ -108,6 +108,15 @@ var models = function () {
       it: Attr(Type.string)
     },
 
+
+//    shortdescription: {
+//      en: Attr(Type.string),
+//      de: Attr(Type.string),
+//      it: Attr(Type.string)
+//    },
+
+
+
     images: [
       {
         public_id: Attr(Type.string),

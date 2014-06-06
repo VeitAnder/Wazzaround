@@ -5,45 +5,42 @@
       <h3>{{'All dates from activity' | translate}}</h3>
 
       <div ng-controller="ActivityCtrl"
-           class="activity-detail detail-category-{{data.activity.category.main}}">
+           class="activity-detail detail-category-{{vm.activity.category.main}}">
 
         <h5 class="category">
-          {{data.activity.category.main | translate}}
+          {{vm.activity.category.main | translate}}
           <span class="category-sub"
-                ng-repeat="subcat in data.activity.category.subs">
+                ng-repeat="subcat in vm.activity.category.subs">
             / {{subcat.key | translate}}
           </span>
         </h5>
 
         <h4>
-          {{data.activity.name | languageselect}}
+          {{vm.activity.name | languageselect}}
         </h4>
 
         <!--<h6 class="no-margin-top">-->
-          <!--{{'Offered by' | translate}} {{data.activity.company}}-->
+        <!--{{'Offered by' | translate}} {{vm.activity.company}}-->
         <!--</h6>-->
 
         
-        <pre>
-         {{map.options | json}}
-        </pre>
 
         <div class="location">
           <div class="input-label">{{'Location' | translate}}:</div>
 
           <google-map
-              center='data.activity'
-              zoom='map.zoom'
+              center='vm.map.center'
+              zoom='vm.map.zoom'
               draggable='true'
-              options='map.options'
+              options='vm.map.options'
               >
             <marker
-                coords='data.activity.location'
+                coords='vm.map.markercoords'
                 icon='getMarkerIcon()'
                 >
-              <marker-label content="data.activity.name[getAvailableTranslationLanguageKey(data.activity.name)]"
+              <marker-label content="vm.activity.name[getAvailableTranslationLanguageKey(vm.activity.name)]"
                             anchor="22 0"
-                            class="marker-labels marker-label-category-{{data.activity.category.main}}"
+                            class="marker-labels marker-label-category-{{vm.activity.category.main}}"
                   />
             </marker>
 
@@ -51,26 +48,83 @@
 
         </div>
 
-        <div class="img-block img-block-right">
-          <cloudinaryimage ng-show="data.activity.images.length > 0"
-                           data-publicid="{{data.activity.images[0].public_id}}"
-                           data-format="{{data.activity.images[0].format}}"
-                           data-width="250"
-                           data-height="150"
+        <div class="img-block img-block-right"
+             ng-show="vm.activity.images.length > 0"
+            >
+          <cloudinaryimage ng-repeat="image in vm.activity.images"
+                           data-publicid="{{image.public_id}}"
+                           data-format="{{image.format}}"
+                           data-width="375"
+                           data-height="225"
               >
           </cloudinaryimage>
         </div>
 
         <div class="description">
           <div ta-bind
-               ng-model="data.activity.description[getAvailableTranslationLanguageKey(data.activity.description)]">
+               ng-model="vm.activity.description[getAvailableTranslationLanguageKey(vm.activity.description)]">
           </div>
         </div>
 
         <div class="availability">
           <div class="input-label">{{'Availability' | translate}}</div>
 
-          <bookableitemlist data-activity="data.activity">
+          <div class="availability-filter">
+            <div class="form-group-inline form-group-inline-5050">
+              <div class="form-group date-from">
+                <label>{{'from' | translate}}</label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="frontendmap.map.searchStartDate"
+                       data-min-date="{{search.minDate}}"
+                       placeholder="{{'From' | translate}}"
+                       bs-datepicker
+                       autoclose="false"
+                    >
+              </div>
+              <div class="form-group date-until">
+                <label>{{'until' | translate}}</label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="frontendmap.map.searchEndDate"
+                       data-min-date="{{frontendmap.map.searchStartDate}}"
+                       data-max-date="{{search.maxDate}}"
+                       placeholder="{{'Until' | translate}}"
+                       bs-datepicker
+                       autoclose="false"
+                    >
+              </div>
+            </div>
+
+            <div class="bookableitem-tags">
+              <a class="bookableitem-tag"
+                 ng-click="selected1 = !selected1"
+                 ng-class="{selected: selected1}"
+                  >
+                <span class="checkbox-tag"></span>
+                Show all
+                <span class="numberofitems">1</span>
+              </a>
+
+              <a class="bookableitem-tag"
+                 ng-click="selected2 = !selected2"
+                 ng-class="{selected: selected2}"
+                  >
+                <span class="checkbox-tag"></span>
+                Bookable Item A
+                <span class="numberofitems">1</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="divider">
+            <span>
+              <strong>Today</strong>
+              (Tue, May 13 2014)
+            </span>
+          </div>
+
+          <bookableitemlist data-activity="vm.activity">
           </bookableitemlist>
 
         </div>

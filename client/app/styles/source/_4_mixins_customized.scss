@@ -24,6 +24,10 @@ body:before {
   min-width: $min-width-xxs;
 }
 
+@mixin col-left-width {
+  width:
+}
+
 .col-container {
   min-height: 100%;
   margin-left: $col-left-width;
@@ -206,11 +210,6 @@ body:before {
           font-size: $fs*$font-size_h4_factor;
           line-height: $fs*$font-size_h4_factor*$line-height_headline-factor;
         }
-        .btn-negative {
-          padding: ($fs*0.75) ($fs*2.0);
-          font-size: 25px;
-          @include border-radius($border-radius);
-        }
       }
     }
   }
@@ -352,16 +351,20 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 
   .img-block {
-    img {
-      @include border-image;
-    }
-    &.img-block-left {
+    margin-top: $fs*2.0;
+    @include clearfix;
+    cloudinaryimage {
+      display: block;
       float: left;
-      margin: 0 $bu $fs 0;
+      width: (100%)/2;
+      padding: 5px;
+      @include box-sizing(border-box);
+      vertical-align: top;
     }
-    &.img-block-right {
-      float: right;
-      margin: 0 0 $fs $bu;
+    img {
+      width: 100%;
+      height: auto;
+      @include border-image;
     }
   }
   .description {
@@ -691,8 +694,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
   .event-item-header {
     padding: $bu*0.5 - 2px;
-    background-color: $color_green_15;
-    @include border(all, $color_green_50);
+    background-color: $color_grey_05;
+    @include border(all, $color_grey_25_l5);
     border-width: 2px;
     @include border-top-radius($border-radius);
     overflow: hidden;
@@ -718,7 +721,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
   .event-item-body {
     padding: 0 $bu*0.5 $bu*0.25 $bu*0.5;
-    background-color: $color_green_50;
+    background-color: $color_grey_25_l5;
     @include border-bottom-radius($border-radius);
     overflow: hidden;
     @include font-size_small;
@@ -847,7 +850,73 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
-.availability-list {
+.availability-filter{
+  background-color: $color_grey_05;
+  padding: $bu;
+  @include border-radius($border-radius);
+  .form-group{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.bookableitem-tags {
+  margin-top: $fs;
+  padding-top: $fs;
+  @include seperator(top, $color_grey_25);
+  .bookableitem-tag{
+    margin: 0 5px 5px 0;
+  }
+}
+
+.bookableitem-tag {
+  @include label_tag;
+  background-color: $color_grey_25;
+  color: $color_grey_75;
+  &:hover{
+    background-color: $color_grey_25_l5;
+    color: $color_grey_75_l5;
+  }
+  .numberofitems {
+    @include label_tag_number;
+    top: -2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-left: 3px;
+    color: $color_grey_50;
+    background-color: $color_grey_05;
+  }
+  .checkbox-tag {
+    @include checkbox;
+    margin-right: 3px;
+    border-color: $color_grey_50;
+    position: relative;
+    top: 2px;
+  }
+  &:hover{
+    .checkbox-tag{
+      border-color: $color_grey_75_l5;
+    }
+    .numberofitems{
+      background-color: $color_grey_05_l5;
+    }
+  }
+  &.selected {
+    color: $color_white;
+    background-color: $color_green_75;
+    .numberofitems{
+      color: $color_green;
+      background-color: $color_green_25;
+    }
+    @include box-shadow_2px-inset-bgcolor;
+    &:hover {
+      background-color: $color_green_75_l5;
+    }
+    .checkbox-tag {
+      @include checkbox-selected;
+      border-color: $color_green;
+    }
+  }
 }
 
 .availability-header {
@@ -950,7 +1019,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   &.small {
     a {
       @include font-size_small;
-      line-height: 24px;
+      line-height: 24px !important;
       height: 24px;
     }
     .icon {
@@ -1073,8 +1142,8 @@ shoppingcart {
   margin-bottom: $fs;
   h3 {
     font-weight: $font-weight_light;
-    font-size: $fs*$font-size_h5_factor;
-    line-height: $fs*$font-size_h5_factor*$line-height_headline-factor;
+    @include h5;
+    color: $color_white;
     margin: 0;
   }
 }
@@ -1272,8 +1341,8 @@ activitybarstripe {
     text-align: center;
     color: $color_white;
     font-weight: $font-weight_bold;
-    font-size: 11px;
-    line-height: 25px;
+    @include font-size_small;
+    line-height: 25px !important;
     text-transform: uppercase;
 
   }
@@ -1286,42 +1355,52 @@ activitybarstripe {
 
   .activity-text {
     position: absolute;
-    bottom: $bu;
-    left: $bu;
+    bottom: 0;
+    left: 0;
     z-index: 2;
     margin: 0;
-    width: 60%;
-    h5 {
+    padding: 0 (100px + $bu) $bu $bu;
+    width: 100%;
+    .category {
+      max-width: 100%;
       margin: 0 0 $fs*0.5 0;
-
+      .innerwrap {
+        @include ellipsis();
+      }
     }
-    h4 {
+    .title {
+      @include h5;
       color: $color_white;
       font-weight: $font-weight_extrabold;
-      font-size: $fs*$font-size_h5_factor;
       margin: 0;
-      @include ellipsis(no-wrap);
+      @include ellipsis();
     }
-    p {
+    .description {
       margin: 0;
       color: $color_white;
       @include ellipsis(no-wrap);
+      p {
+        margin: 0;
+        padding: 0;
+        @include ellipsis(no-wrap);
+      }
     }
   }
   .activity-price-min {
-
-    display:none;
-
     position: absolute;
-    bottom: $bu;
-    right: $bu;
+    bottom: 0;
+    right: 0;
     z-index: 2;
-    max-width: 25%;
-    background-color: $color_green;
-    padding: $fs*0.25 $fs*0.5;
-    color: $color_white;
+    width: 100px;
+    margin: 0 $bu $bu 0;
     text-align: right;
-    @include border-radius($border-radius);
+    .innerwrap {
+      display: inline-block;
+      padding: $fs*0.25 $fs*0.5;
+      color: $color_white;
+      background-color: $color_green;
+      @include border-radius($border-radius);
+    }
     .price {
       display: block;
       font-weight: $font-weight_bold;
@@ -1330,8 +1409,7 @@ activitybarstripe {
     }
     .smalltext {
       display: block;
-      font-size: 11px;
-      line-height: 11px*$line-height_headline-factor;
+      @include font-size_small;
       @include ellipsis(no-wrap);
 
     }
@@ -1340,40 +1418,41 @@ activitybarstripe {
   .activity-distance-element {
     opacity: 0.75;
     position: absolute;
-    top: $bu;
-    left: $bu;
-    height: 30px;
+    top: 0;
+    left: 0;
+    margin: $bu 0 0 $bu;
+    //    display: table;
+    min-height: 30px;
     padding: 5px;
     @include border-radius(15px);
     background-color: $color_white;
-    @include ellipsis(no-wrap);
   }
 
   .current-location {
     vertical-align: middle;
-    display: block;
-    float: left;
+    display: table-cell;
     width: 20px;
-    height: 20px;
+    max-height: 20px;
     @include sprite_icons(-200px, 0, no-repeat);
   }
 
   .activity-distance-txt {
-    vertical-align: middle;
-    display: block;
-    float: left;
-    margin: 0 5px;
+    display: table-cell;
     color: $color_text;
     font-weight: $font-weight_bold;
     font-size: $fs*$font-size_small_factor;
-    line-height: 20px;
+    border-left: 5px transparent solid;
+    border-right: 5px transparent solid;
+    max-width: 100%;
+    white-space: nowrap;
   }
 
   .activity-location {
     @include icon;
+    height: auto;
+    max-height: 20px;
     position: static;
-    display: block;
-    float: left;
+    display: table-cell;
     background-position: -45px 6px;
     background-color: $color_green;
   }
@@ -1411,7 +1490,7 @@ currentactivity {
     }
   }
   &.activitydetailactive {
-    .currentactivity-body{
+    .currentactivity-body {
       border-color: $color_red;
     }
   }
@@ -1434,11 +1513,11 @@ activitybardetail {
   @include activity-content;
   @include animation_all;
 
-  .txt-icon-delete{
+  .txt-icon-delete {
     position: absolute;
     right: -15px;
     top: -15px;
-    span{
+    span {
       top: 0;
       width: 30px;
       height: 30px;
@@ -1459,7 +1538,7 @@ activitybardetail {
   h4 {
     margin-top: 0;
   }
-  .availability{
+  .availability {
     margin-top: $fs;
   }
   @include respond-to(low-screen) {
@@ -2486,15 +2565,15 @@ $filter-category-arrow-width: 65px;
   vertical-align: middle;
   & > .btn {
     position: relative;
-    height: $input-height;
+    @include input-height;
   }
   &:last-child > .btn {
     @include border-left-radius(0);
   }
 }
 
-$img-selector-imgsize: 150px;
-$img-selector-teaserimgsize: 150px;
+$img-selector-imgsize: 200px;
+$img-selector-teaserimgsize: 200px;
 $img-selector-teasertxtheight: 32px;
 
 .img-selector {
@@ -2502,26 +2581,27 @@ $img-selector-teasertxtheight: 32px;
     display: none;
   }
   overflow: hidden;
-  label + .img-block {
+  label + imagewrap {
     img {
       width: $img-selector-teaserimgsize;
       height: auto;
     }
     .img-teaser {
       display: block;
-      position: relative;
-      top: -$img-selector-teasertxtheight;
-      margin-bottom: -$img-selector-teasertxtheight;
+      position: absolute;
+      bottom: 0px;
       height: auto;
+      width: 100%;
       padding: 5px;
-      background-color: rgba($color_black, 0.25);
+      @include border-bottom-radius($border-radius_small);
+      background-color: rgba($color_black, 0.5);
       color: $color_white;
       text-align: center;
       font-weight: $font-weight_bold;
-      content: "Teaser Image";
     }
   }
-  .img-block {
+  imagewrap {
+    display: block;
     position: relative;
     float: left;
     margin-right: 10px;
@@ -2542,9 +2622,16 @@ $img-selector-teasertxtheight: 32px;
         top: 0;
         border: 2px solid $color_white;
         background-position: -67px 8px;
+        vertical-align: middle;
       }
     }
   }
+}
+
+.maketeaserimage {
+  display: inline-block;
+  margin-left: 5px;
+  @include btn-mini;
 }
 
 @mixin teaser-textformat {
@@ -2562,7 +2649,6 @@ $img-selector-teasertxtheight: 32px;
 }
 
 .admin-section {
-  @include box-sizing(border-box);
   @include border(right, $color_main_border);
   background-color: $color_green;
   width: $col-left-width;

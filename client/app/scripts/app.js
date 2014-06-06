@@ -539,7 +539,8 @@ angular.module('anorakApp')
       "Please select a date until which the repeating events should be created": "Please select a date until which the repeating events should be created",
       "starting from": "starting from",
       "Info & Booking": "Info & Booking",
-      "close": "close"
+      "close": "close",
+      "maketeaser": "Use as teaser image"
     });
 
     $translateProvider.translations('de', {
@@ -820,7 +821,8 @@ angular.module('anorakApp')
       "Please select a date until which the repeating events should be created": "Bitte wählen Sie ein Datum bis zu welchem die sich wiederholenden Events angelegt werden sollen",
       "starting from": "Preise ab",
       "Info & Booking": "Info & Buchen",
-      "close": "schließen"
+      "close": "schließen",
+      "maketeaser": "Als Teaser-Bild verwenden"
     });
 
     $translateProvider.translations('it', {
@@ -1100,7 +1102,8 @@ angular.module('anorakApp')
       "Please select a date until which the repeating events should be created": "Please select a date until which the repeating events should be created",
       "starting from": "Preise ab",
       "Info & Booking": "Info & Booking",
-      "close": "close"
+      "close": "close",
+      "maketeaser": "Use as teaser image"
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
