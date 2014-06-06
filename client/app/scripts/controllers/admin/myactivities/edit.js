@@ -11,7 +11,9 @@ angular.module('anorakApp')
     $scope.categories = categories;
 
   })
-  .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, $route, $rootScope, $translate, currentUser) {
+  .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, $route, $rootScope, $translate, currentUser, $timeout) {
+    $scope.vm = {
+    };
 
     console.log("AdminMyactivitiesEditCtrl executed");
 
@@ -192,36 +194,39 @@ angular.module('anorakApp')
     };
     /* handle activity input language end */
 
-    $scope.getSubCategories = function () {
+    $scope.onSubCategoryChanged = function (key) {
+      $scope.activity.category.subs = _.map(_.filter($scope.vm.subcategories, {selected: true}), function (subcat) {
+        return {key: subcat.key};
+      });
+    };
+
+    $scope.onMainCategoryChanged = function () {
+      $scope.activity.category.subs = [];
+      $scope.updateVmSubCategories();
+    };
+
+    $scope.updateVmSubCategories = function () {
       var maincategory = _.find($scope.categories, { 'key': $scope.activity.category.main });
       if (maincategory) {
-        return maincategory.sub;
-      }
-    };
+        $scope.vm.subcategories = maincategory.sub;
 
-    $scope.isKeyInSubcats = function (key) {
-      var found = _.filter($scope.activity.category.subs, function (sub) {
-        if (sub.key === key) {
-          return true;
-        }
-      });
-      if (found.length > 0) {
-        return true;
-      } else {
-        return false;
-      }
-    };
+        // set seleted true on all elements found in $scope.activity.category.subs
+        _.each($scope.vm.subcategories, function (subcat) {
+          var found = _.find($scope.activity.category.subs, function (sub) {
+            if (sub.key === subcat.key) {
+              return true;
+            }
+          });
 
-    $scope.setSubcat = function (key) {
-      if (!$scope.activity.category.subs) {
-        $scope.activity.category.subs = [];
-      }
-      if ($scope.isKeyInSubcats(key)) {
-        _.remove($scope.activity.category.subs, { 'key': key });
-      } else {
-        $scope.activity.category.subs.push({ 'key': key });
+          if (found) {
+            subcat.selected = true;
+          } else {
+            subcat.selected = false;
+          }
+        });
       }
     };
+    $scope.updateVmSubCategories();
 
     // Save the Activiy
     $scope.save = function () {
@@ -303,10 +308,6 @@ angular.module('anorakApp')
 
     };
 
-    $scope.mainCategoryChanged = function () {
-      $scope.activity.category.subs = [];
-    };
-
     /**
      * Whether to show an error message for the specified error
      * @param {string} fieldName The name of the field on the form, of which we want to know whether to show the error
@@ -326,13 +327,13 @@ angular.module('anorakApp')
       var valid = true;
 
       // check for uploaded images
-/*      if ($scope.activity.images.length < 1) {
-        $scope.state.additionalformchecks.images = false;
-        valid = false;
-      } else {
-        $scope.state.additionalformchecks.images = true;
-      }
-      */
+      /*      if ($scope.activity.images.length < 1) {
+       $scope.state.additionalformchecks.images = false;
+       valid = false;
+       } else {
+       $scope.state.additionalformchecks.images = true;
+       }
+       */
 
       // check for bookableItems
       if ($scope.activity.bookableItems && $scope.activity.bookableItems[0]) {
@@ -367,6 +368,7 @@ angular.module('anorakApp')
         arr.splice(fromIndex, 1);
         arr.splice(toIndex, 0, element);
       }
+
       arraymove($scope.activity.images, index, 0);
     };
 

@@ -42,7 +42,7 @@
                       id="categoryMain"
                       name="categoryMain"
                       ng-model="activity.category.main"
-                      ng-change="mainCategoryChanged()"
+                      ng-change="onMainCategoryChanged()"
                       required
                   >
                 <option disabled="disabled">{{'Select Main Category' | translate}}</option>
@@ -56,7 +56,8 @@
               </select>
 
               <span ng-show="showError('categoryMain', 'required')"
-                    class="alert alert-error">{{'Please select a category.' | translate}}
+                    class="alert alert-error">
+                {{'Please select a category.' | translate}}
               </span>
 
             </div>
@@ -68,28 +69,25 @@
 
               <div
                   class="checkbox"
-                  ng-repeat="subcategory in getSubCategories()"
+                  ng-repeat="subcategory in vm.subcategories"
                   >
                 <label>{{subcategory.key | translate}}
                   <input type="checkbox"
-                         ng-model="value$index"
-                         data-ng-change="setSubcat(subcategory.key)"
-                         ng-true-value="{{subcategory.key}}"
-                         ng-false-value=""
-                         ng-checked="isKeyInSubcats(subcategory.key)"
-                         ng-disabled="!isKeyInSubcats(subcategory.key) && activity.category.subs.length >= 2"
+                         ng-model="subcategory.selected"
+                         ng-change="onSubCategoryChanged()"
+                         ng-disabled="!subcategory.selected && activity.category.subs.length >= 2"
                       />
                 </label>
               </div>
 
               <span class="alert alert-info"
-                    data-ng-show="activity.category.subs.length >= 2">{{'You can choose 2 Subcategories at most' |
-                                                                      translate}}!
+                    data-ng-show="activity.category.subs.length >= 2">
+                {{'You can choose 2 Subcategories at most' | translate}}!
               </span>
-              <span class="alert alert-warn"
-                    data-ng-show="activity.category.subs.length === 0">{{'You must choose at least 1 Subcategory' |
-                                                                       translate
-                                                                       }}!
+              <span class="alert alert-error"
+                    data-ng-show="activity.category.subs.length === 0">
+                {{'You must choose at least 1 Subcategory' | translate
+                }}!
               </span>
 
             </div>
@@ -123,28 +121,27 @@
                     class="alert alert-error">{{'Please enter a description.' | translate}}
               </span>
             </div>
-<!--
-            <div class="form-group">
-              <label>{{'ShortDescription' | translate}}</label>
-              <input type="text"
-                     class="form-control"
-                     id="shortdescription"
-                     name="shortdescription"
-                     placeholder="{{'ShortDescription' | translate}}"
-                     ng-model="activity.shortdescription[getInputLanguage()]"
-                     required
-                  >
-              <span ng-show="showError('shortdescription', 'required')"
-                    class="alert alert-error">{{'Please enter a short description.' | translate}}
-              </span>
-            </div>
-            -->
-
+            <!--
+                        <div class="form-group">
+                          <label>{{'ShortDescription' | translate}}</label>
+                          <input type="text"
+                                 class="form-control"
+                                 id="shortdescription"
+                                 name="shortdescription"
+                                 placeholder="{{'ShortDescription' | translate}}"
+                                 ng-model="activity.shortdescription[getInputLanguage()]"
+                                 required
+                              >
+                          <span ng-show="showError('shortdescription', 'required')"
+                                class="alert alert-error">{{'Please enter a short description.' | translate}}
+                          </span>
+                        </div>
+                        -->
 
             <imageselector class="form-group img-selector">
               <label>{{'Images' | translate}}</label>
               <imagewrap
-                          data-ng-repeat="image in activity.images"
+                  data-ng-repeat="image in activity.images"
                   >
                 <cloudinaryimage data-publicid="{{image.public_id}}"
                                  data-format="{{image.format}}"
