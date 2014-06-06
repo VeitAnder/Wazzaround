@@ -346,12 +346,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
 }
 
 @mixin activity-content {
-  h4 {
-    color: $color_grey;
-    padding-bottom: 5px;
-    @include seperator(bottom, $color_main_seperator);
-  }
-
   .img-block {
     margin-top: $fs*2.0;
     @include clearfix;
@@ -371,6 +365,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
   .title{
     margin-bottom: $fs*0.25;
+    font-weight: $font-weight_bold;
   }
   .shortdescription{
     margin-bottom: $fs*0.25;
@@ -1490,7 +1485,7 @@ activitybardetail {
   &.activitydetailactive {
     bottom: $activitybar-height;
   }
-  h4 {
+  .title {
     margin-top: 0;
   }
   .availability {
