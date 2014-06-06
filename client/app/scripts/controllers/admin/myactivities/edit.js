@@ -194,7 +194,7 @@ angular.module('anorakApp')
     };
     /* handle activity input language end */
 
-    $scope.onSubCategoryChanged = function (key) {
+    $scope.onSubCategoryChanged = function () {
       $scope.activity.category.subs = _.map(_.filter($scope.vm.subcategories, {selected: true}), function (subcat) {
         return {key: subcat.key};
       });

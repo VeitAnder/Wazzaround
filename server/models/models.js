@@ -99,7 +99,6 @@ var models = function () {
       de: Attr(Type.string),
       it: Attr(Type.string)
     },
-    company: Attr(Type.string),
     address: Attr(Type.string),
 
     description: {

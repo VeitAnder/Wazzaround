@@ -7,9 +7,7 @@
       <div ng-controller="ActivityCtrl"
            class="activity-detail detail-category-{{vm.activity.category.main}}">
 
-
         <!-- ## TITLE & DESCRIPTION ################################################################################ -->
-
 
         <h3 class="title">
           {{vm.activity.name | languageselect}}
@@ -24,9 +22,9 @@
         </h5>
 
         <h6 class="no-margin-top">
-          {{'Offered by' | translate}} {{vm.activity.company}}
+          {{'Offered by' | translate}}
+          <activityowner activity="vm.activity"></activityowner>
         </h6>
-
 
         <h5 class="shortdescription">
           @ToDo : Short Description
@@ -37,7 +35,6 @@
                ng-model="vm.activity.description[getAvailableTranslationLanguageKey(vm.activity.description)]">
           </div>
         </div>
-
 
         <!-- ## LOCATION / MAP ##################################################################################### -->
 
@@ -64,7 +61,6 @@
 
         </div>
 
-
         <!-- ## IMAGES ############################################################################################# -->
 
         <div class="img-block img-block-right"
@@ -78,8 +74,6 @@
               >
           </cloudinaryimage>
         </div>
-
-
 
         <!-- ## AVAILABILITY / DATES ############################################################################### -->
 

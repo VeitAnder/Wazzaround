@@ -9,9 +9,9 @@
   {{getSelectedActivity().name | languageselect}}
 </h4>
 <h6 class="no-margin-top">
-  {{'Offered by' | translate}} {{profile.company}}
+  {{'Offered by' | translate}}
+  <activityowner activity="getSelectedActivity()"></activityowner>
 </h6>
-
 
 <div class="description multiline">
   <div class="innerwrap"

@@ -3,30 +3,7 @@
 angular.module('anorakApp')
   .directive('activitybardetail', function (models) {
     return {
-      restrict : 'E',
-      controller: function($scope){
-
-        $scope.profile = {
-          company : "loading..."
-        };
-
-        var loadProviderProfile = function(id) {
-          models.UserModel.getProfile({id:id})
-            .then(function(res) {
-              console.log("res", res);
-              $scope.$apply(function() {
-                $scope.profile.company = res.company;
-              })
-            }).done();
-        };
-
-
-        $scope.$watch('states.selectedactivityid', function(newValue, oldValue) {
-          console.log("new selectedactivityid", $scope.states.selectedactivityid);
-          loadProviderProfile($scope.getSelectedActivity().owner._reference);
-        });
-
-      },
-      templateUrl : 'views/directives/activitybardetail.html'
+      restrict: 'E',
+      templateUrl: 'views/directives/activitybardetail.html'
     };
   });
