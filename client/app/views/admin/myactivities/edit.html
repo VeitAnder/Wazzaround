@@ -4,12 +4,11 @@
     <div class="row">
       <div class="col-sm-12">
 
-        <h2>{{'Account' | translate}}</h2>
-
-        <h3>
+        <h2>
           <span ng-show="activity.name">{{'Activity' | translate}}: {{activity.name | languageselect}}</span>
           <span ng-show="!activity.name">{{'New activity' | translate}}</span>
-        </h3>
+        </h2>
+
 
         <form name="valForm"
               class="activity-edit"
@@ -94,6 +93,21 @@
             </div>
 
             <div class="form-group">
+              <label>{{'Short Description' | translate}}</label>
+
+              @ToDo : Short Description TEXTAREA
+
+              <textarea
+                  rows="2"
+                  class="form-control"
+                  ></textarea>
+
+              <span ng-show="showError('shortdescription', 'required')"
+                    class="alert alert-error">{{'Please enter a shortdescription.' | translate}}
+              </span>
+            </div>
+
+            <div class="form-group">
               <label>{{'Description' | translate}}</label>
               <text-angular
                   ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
@@ -106,7 +120,6 @@
               <span ng-show="showError('description', 'required')"
                     class="alert alert-error">{{'Please enter a description.' | translate}}
               </span>
-
             </div>
             <!--
                         <div class="form-group">

@@ -2,9 +2,8 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <h2>{{'Account' | translate}}</h2>
+      <h2>{{'My Activities' | translate}}</h2>
 
-      <h3>{{'My Activities' | translate}}</h3>
 
       <div
           class="activity-detail detail-category-{{activity.category.main}}"
@@ -28,6 +27,14 @@
           <b>{{'Your activity isnt published yet' | translate}}</b>
         </p>
 
+
+
+        <!-- ## TITLE & DESCRIPTION ################################################################################ -->
+
+        <h3 class="title">
+          {{activity.name | languageselect}}
+        </h3>
+
         <h5 class="category no-margin-top">
           {{activity.category.main | translate}}
           <span class="category-sub"
@@ -35,13 +42,22 @@
             / {{subcat.key | translate}}
           </span>
         </h5>
-        <h4>
-          {{activity.name | languageselect}}
-        </h4>
 
         <h6 class="no-margin-top">
           {{'Offered by' | translate}} {{activity.company}}
         </h6>
+
+        <h5 class="shortdescription">
+          @ToDo : Short Description
+        </h5>
+
+        <div class="description">
+          <div ta-bind
+               ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]"></div>
+        </div>
+
+
+
 
         <div class="location">
           <div class="input-label">{{'Location' | translate}}:</div>
@@ -78,10 +94,6 @@
           </cloudinaryimage>
         </div>
 
-        <div class="description">
-          <div ta-bind
-               ng-model="activity.description[getAvailableTranslationLanguageKey(activity.description)]"></div>
-        </div>
 
         <div class="availability">
           <div class="input-label">{{'Availability' | translate}}</div>
