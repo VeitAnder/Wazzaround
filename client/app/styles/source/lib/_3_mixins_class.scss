@@ -1905,6 +1905,11 @@ input[type="checkbox"]:focus {
   .btn {
     margin-top: $fs*0.5;
   }
+  .input-group-btn{
+    .btn{
+      margin-top: 0;
+    }
+  }
 }
 
 .form-group-inline {
