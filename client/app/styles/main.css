@@ -3108,14 +3108,16 @@ body:before {
     .teaserbox.teaserbox-mapdesign .row, .teaserbox.teaserbox-mapdesign .row:first-child {
       padding: 0; }
     .teaserbox.teaserbox-mapdesign .textblock {
-      margin-top: 30px; }
+      margin-top: 30px;
+      padding-bottom: 1%; }
       .teaserbox.teaserbox-mapdesign .textblock:first-child {
         margin-top: 0; } }
   @media only screen and (max-width: 767px) {
     .teaserbox.teaserbox-mapdesign .row, .teaserbox.teaserbox-mapdesign .row:first-child {
       padding: 0 !important; }
     .teaserbox.teaserbox-mapdesign .textblock {
-      margin-top: 30px; }
+      margin-top: 30px;
+      padding-bottom: 1%; }
       .teaserbox.teaserbox-mapdesign .textblock:first-child {
         margin-top: 0; } }
 
