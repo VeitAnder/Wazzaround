@@ -1490,7 +1490,7 @@ activitybardetail {
   &.activitydetailactive {
     bottom: $activitybar-height;
   }
-  h4 {
+  .title {
     margin-top: 0;
   }
   .availability {

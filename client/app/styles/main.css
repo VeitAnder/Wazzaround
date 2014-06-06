@@ -5071,7 +5071,7 @@ activitybardetail {
         margin: 0; }
   activitybardetail.activitydetailactive {
     bottom: 200px; }
-  activitybardetail h4 {
+  activitybardetail .title {
     margin-top: 0; }
   activitybardetail .availability {
     margin-top: 16px; }
