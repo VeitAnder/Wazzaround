@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('activitybardetail', function () {
+  .directive('activitybardetail', function (models) {
     return {
       restrict : 'E',
       controller: function($scope){
@@ -11,7 +11,7 @@ angular.module('anorakApp')
         };
 
         var loadProviderProfile = function(id) {
-          $scope.models.UserModel.getProfile({id:id})
+          models.UserModel.getProfile({id:id})
             .then(function(res) {
               console.log("res", res);
               $scope.$apply(function() {
