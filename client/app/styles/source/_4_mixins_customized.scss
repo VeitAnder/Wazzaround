@@ -1513,7 +1513,7 @@ activitybardetail {
   background-color: rgba($color_white, 0.90);
   @include border-top-radius($border-radius);
   @include activity-content;
-  @include animation_all;
+//  @include animation_all;
 
   .txt-icon-delete {
     position: absolute;

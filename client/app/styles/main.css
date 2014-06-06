@@ -5160,15 +5160,7 @@ activitybardetail {
   background-color: #ffffff;
   background-color: rgba(255, 255, 255, 0.9);
   border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
-  -webkit-transition-duration: 0.25s;
-  transition-duration: 0.25s;
-  -webkit-transition-timing-function: ease-in-out;
-  -moz-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-  text-decoration: none;
-  -webkit-transition-property: all;
-  transition-property: all; }
+  border-top-left-radius: 6px; }
   activitybardetail h4 {
     color: #666;
     padding-bottom: 5px;

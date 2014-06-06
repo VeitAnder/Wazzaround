@@ -37,7 +37,6 @@ angular.module('anorakApp')
 //      }).done();
 
   })
-  .
-  controller('ActivityCtrl', function ($scope, $filter) {
+  .controller('ActivityCtrl', function ($scope, $filter) {
 
   });
