@@ -375,6 +375,7 @@ angular.module('anorakApp')
         $scope.states.selectedactivityid = $scope.states.filteredactivities[0]._id;
         selectedactivity = $scope.states.filteredactivities[0];
       }
+
       // if no activity is at all available in $scope.states.filteredactivities, show message in activitybar
       return selectedactivity;
     };
@@ -440,5 +441,22 @@ angular.module('anorakApp')
       // make index non-programmer style :-)
       return index + 1;
     };
+
+
+    $scope.getProviderProfile = function(id) {
+       var profile = {
+         company : "loading..."
+       };
+
+        $scope.models.UserModel.getProfile({id:id})
+          .then(function(res) {
+            $scope.$apply(function() {
+              profile.company = res.company;
+            })
+          }).done();
+
+        return profile;
+    };
+
 
   });

@@ -206,7 +206,7 @@
           {{getSelectedActivity().name | languageselect}}
         </h4>
         <h6 class="no-margin-top">
-          {{'Offered by' | translate}} {{provider.company}} todo
+          {{'Offered by' | translate}} {{getProviderProfile(getSelectedActivity().owner._reference).company}} todo
         </h6>
 
         <!--<h6 class="no-margin-top">-->
