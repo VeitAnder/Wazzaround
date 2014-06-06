@@ -109,11 +109,11 @@ var models = function () {
     },
 
 
-//    shortdescription: {
-//      en: Attr(Type.string),
-//      de: Attr(Type.string),
-//      it: Attr(Type.string)
-//    },
+    shortdescription: {
+      en: Attr(Type.string),
+      de: Attr(Type.string),
+      it: Attr(Type.string)
+    },
 
 
 
