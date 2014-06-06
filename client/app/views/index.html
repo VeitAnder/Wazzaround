@@ -277,11 +277,10 @@
                     {{getSelectedActivity().name | languageselect}}
                   </h4>
 
-                  <div class="description"
-                       ta-bind
-                       ng-model="getSelectedActivity().description[getAvailableTranslationLanguageKey(getSelectedActivity().description)]"
-                      >
+                  <div class="description">
+                       {{getSelectedActivity().shortdescription[getAvailableTranslationLanguageKey(getSelectedActivity().shortdescription)]}}
                   </div>
+
 
                 </div>
 

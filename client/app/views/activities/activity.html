@@ -25,15 +25,13 @@
           {{'Offered by' | translate}}
           <activityowner activity="vm.activity"></activityowner>
         </h6>
-
         <h5 class="shortdescription">
-          @ToDo : Short Description
+          {{vm.activity.shortdescription[getAvailableTranslationLanguageKey(vm.activity.shortdescription)]}}
         </h5>
 
-        <div class="description">
-          <div ta-bind
-               ng-model="vm.activity.description[getAvailableTranslationLanguageKey(vm.activity.description)]">
-          </div>
+        <div class="description"
+             ng-bind-html="vm.activity.description[getAvailableTranslationLanguageKey(vm.activity.description)] | nohtml | linebreak"
+            >
         </div>
 
         <!-- ## LOCATION / MAP ##################################################################################### -->

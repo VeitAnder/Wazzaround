@@ -15,8 +15,8 @@
 
 <div class="description multiline">
   <div class="innerwrap"
-       ta-bind
-       ng-model="getSelectedActivity().description[getAvailableTranslationLanguageKey(getSelectedActivity().description)]">
+       ng-bind-html="getSelectedActivity().description[getAvailableTranslationLanguageKey(getSelectedActivity().description)] | nohtml | linebreak"
+      >
   </div>
 </div>
 

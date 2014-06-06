@@ -98,32 +98,60 @@
 
             <div class="form-group">
               <label>{{'Short Description' | translate}}</label>
-
-              @ToDo : Short Description TEXTAREA
-
-              <textarea
-                  rows="2"
+              <input
+                  maxlength="80"
                   class="form-control"
-                  ></textarea>
+                  ng-model="activity.shortdescription[getInputLanguage()]"
+                  name="shortdescription"
+                  id="shortdescription"
+                  required
+                  />
 
-              <span ng-show="showError('shortdescription', 'required')"
-                    class="alert alert-error">{{'Please enter a shortdescription.' | translate}}
-              </span>
+              <div ng-messages="valForm.shortdescription.$error">
+                <div ng-message="required"
+                     class="alert alert-error"
+                    >
+                  {{'Please enter a shortdescription.' | translate}}
+                </div>
+              </div>
+
             </div>
 
             <div class="form-group">
               <label>{{'Detailed description' | translate}}</label>
-              <text-angular
-                  ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
+
+              <!--              <text-angular
+                                ta-toolbar="[['h6', 'p', 'bold','italics','underline', 'ul', 'undo', 'redo']]"
+                                ng-model="activity.description[getInputLanguage()]"
+                                name="description"
+                                ng-required="true"
+                                ta-max-text="100"
+                                >
+                            </text-angular>-->
+
+              <textarea
+                  class="form-control"
                   ng-model="activity.description[getInputLanguage()]"
                   name="description"
-                  ng-required="true"
+                  rows="10"
+                  ng-minlength="150"
+                  required
                   >
-              </text-angular>
+              </textarea>
 
-              <span ng-show="showError('description', 'required')"
-                    class="alert alert-error">{{'Please enter a description.' | translate}}
-              </span>
+              <div ng-messages="valForm.description.$error">
+                <div ng-message="required"
+                     class="alert alert-error"
+                    >
+                  {{'Please enter a description.' | translate}}
+                </div>
+
+                <div ng-message="minlength"
+                     class="alert alert-error"
+                    >
+                  {{'Please enter a description which is at least 150 characters long.' | translate}}
+                </div>
+              </div>
             </div>
             <!--
                         <div class="form-group">
@@ -578,7 +606,7 @@
 
           </div>
 
-          <div ng-show="valForm.$invalid"
+          <div ng-show="(valForm.$invalid || !additionalFormChecks() ) && state.submitted"
                class="alert alert-error align-right"
                style="float:right;"
               >
