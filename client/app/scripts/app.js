@@ -341,7 +341,7 @@ angular.module('anorakApp')
       "User not found": "This user does not exist",
       "Shopping Cart": "Shopping Cart",
       "Why reacture reasons": "ReActure is a great platform for offering and finding activities around you.",
-      "Register": "Register",
+      "Register": "Register now",
       "Quality": "Quality",
       "online and offline": "online and offline",
       "marketing": "marketing",
@@ -540,7 +540,10 @@ angular.module('anorakApp')
       "starting from": "starting from",
       "Info & Booking": "Info & Booking",
       "close": "close",
-      "maketeaser": "Use as teaser image"
+      "maketeaser": "Use as teaser image",
+      "Find your activity": "Find your activity",
+      "Please enter a description.": "Please enter a description.",
+      "Please enter a short description.": "Please enter a short description."
     });
 
     $translateProvider.translations('de', {
@@ -623,7 +626,7 @@ angular.module('anorakApp')
       "User not found": "Dieser User existiert nicht",
       "Shopping Cart": "Warenkorb",
       "Why reacture reasons": "ReActure ist eine großartige Plattform um Aktivitäten rund um Ihre Location zu finden oder anzubieten.",
-      "Register": "Registrieren",
+      "Register": "Jetzt registrieren",
       "Quality": "Qualität",
       "online and offline": "im online und offline",
       "marketing": "Marketing",
@@ -822,7 +825,11 @@ angular.module('anorakApp')
       "starting from": "Preise ab",
       "Info & Booking": "Info & Buchen",
       "close": "schließen",
-      "maketeaser": "Als Teaser-Bild verwenden"
+      "maketeaser": "Als Teaser-Bild verwenden",
+      "Find your activity": "Find your activity",
+      "Please enter a description.": "Bitte geben Sie eine Beschreibung ein.",
+      "Please enter a short description.": "Bitte geben Sie eine Kurzbeschreibung ein."
+
     });
 
     $translateProvider.translations('it', {
@@ -1103,7 +1110,10 @@ angular.module('anorakApp')
       "starting from": "Preise ab",
       "Info & Booking": "Info & Booking",
       "close": "close",
-      "maketeaser": "Use as teaser image"
+      "maketeaser": "Use as teaser image",
+      "Find your activity": "Find your activity",
+      "Please enter a description.": "Please enter a description.",
+      "Please enter a short description.": "Please enter a short description."
     });
 //    double click in map to reposition location of activity46	doppio click sulla mappa per riposizionare la localizzazione della attività		double click  pour relocaliser l'activité su la carte	двойной щелчок на карте штоб изменить позицию деятельности					in inglese secondo me è sbagliata
 //    double click on the map to locate the activity
