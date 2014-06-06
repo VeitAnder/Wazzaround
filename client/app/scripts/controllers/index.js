@@ -442,21 +442,4 @@ angular.module('anorakApp')
       return index + 1;
     };
 
-
-    $scope.getProviderProfile = function(id) {
-       var profile = {
-         company : "loading..."
-       };
-
-        $scope.models.UserModel.getProfile({id:id})
-          .then(function(res) {
-            $scope.$apply(function() {
-              profile.company = res.company;
-            })
-          }).done();
-
-        return profile;
-    };
-
-
   });

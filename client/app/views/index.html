@@ -195,45 +195,8 @@
           ajs-centermaxwith
           ng-class="{activitydetailactive: states.activitydetailactive}"
           ng-show="states.filteredactivities.length > 0"
+          ng-if="states.activitydetailactive"
           >
-
-        <div class="txt-icon-delete"
-             ng-click="states.activitydetailactive = false">
-          <span class="hidden">Close detail view</span>
-          <span></span>
-        </div>
-
-        <h4 class="activity-title">
-          {{getSelectedActivity().name | languageselect}}
-        </h4>
-        <h6 class="no-margin-top">
-          @TODO
-          <!--{{'Offered by' | translate}} {{getProviderProfile(getSelectedActivity().owner._reference).company}} todo-->
-        </h6>
-
-        <!--<h6 class="no-margin-top">-->
-        <!--{{'Offered by' | translate}} {{activity.company}}-->
-        <!--</h6>-->
-
-        <div class="description multiline">
-          <div class="innerwrap"
-               ta-bind
-               ng-model="getSelectedActivity().description[getAvailableTranslationLanguageKey(getSelectedActivity().description)]">
-          </div>
-        </div>
-
-        <div class="availability">
-          <div class="input-label">{{'Availability' | translate}}</div>
-
-          <bookableitemlist
-              data-activity="getSelectedActivity()"
-              showpagination="true"
-              limit="3"
-              >
-          </bookableitemlist>
-
-        </div>
-
       </activitybardetail>
 
       <activitybar
