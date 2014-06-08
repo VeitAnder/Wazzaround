@@ -2,6 +2,7 @@
  * Created by jonathan on 19.03.14.
  */
 
+/*
 var moment = require('moment');
 moment.lang('en');
 
@@ -36,7 +37,7 @@ BookableItemModel.writeFilter(function (doc, req) {
   return true;
 });
 
-
+*/
 
 ///////////////////////
 // Operation Impl.
