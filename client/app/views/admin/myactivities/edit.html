@@ -107,7 +107,9 @@
                   required
                   />
 
-              <div ng-messages="valForm.shortdescription.$error">
+              <div ng-messages="valForm.shortdescription.$error"
+                   ng-show="state.submitted"
+                  >
                 <div ng-message="required"
                      class="alert alert-error"
                     >
@@ -130,7 +132,9 @@
                   >
               </textarea>
 
-              <div ng-messages="valForm.description.$error">
+              <div ng-messages="valForm.description.$error"
+                   ng-show="state.submitted"
+                  >
                 <div ng-message="required"
                      class="alert alert-error"
                     >
