@@ -442,4 +442,17 @@ angular.module('anorakApp')
       return index + 1;
     };
 
+    $scope.lowestPriceOfSelectedActivity = function() {
+
+      var bookableItems = $scope.getSelectedActivity().bookableItems;
+
+      var min = _.min(
+        _.map(bookableItems, function(item) {
+          return _.min(item.events, 'price').price;
+        })
+      );
+
+      return min;
+    };
+
   });
