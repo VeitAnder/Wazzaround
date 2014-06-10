@@ -20,10 +20,21 @@ var RestApi = function (app, db) {
   app.delete('/' + config.api.apiversion + 'upload/activityimage/:resourceid/', upload.deleteupload);
 
   // Kalixa push-notification endpoint
-  app.all('/api/kalixa/', function (req, res) {
+  app.post('/api/kalixa/', function (req, res) {
+    // page 75 /Dropbox/Projekte/Reacture/KalixaPaymentProviderDoku/IntegrationManual_PaymentService_API_v3_en_merged(1).pdf page
+    var pox_response = '<?xml version="1.0" encoding="utf-8"?>';
+    pox_response += '<handlePaymentStateChangedNotificationResponse ';
+    pox_response += 'xmlns="http://www.cqrpayments.com/PaymentProcessing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">';
+    pox_response += '<resultCode> <key>0</key>';
+    pox_response += '<value>ProcessedSuccessfully</value> </resultCode> ';
+    pox_response += '<resultMessage />';
+    pox_response += '</handlePaymentStateChangedNotificationResponse>';
+
     var kalixapushnotifications = db.collection('kalixapushnotifications');
     kalixapushnotifications.save({date: new Date(), headers: req.headers, body: req.body });
-    res.send(200, {state: "success"});
+
+    res.set('Content-Type', 'text/xml');
+    res.send(200, pox_response);
   });
 
 };
