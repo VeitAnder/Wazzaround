@@ -49,5 +49,5 @@ BookedEventModel.operationImpl("bookedQuantity", function (params, req) {
       });
 
       return {'quantity' : quantity };
-    })
+    });
 });
