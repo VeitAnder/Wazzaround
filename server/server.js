@@ -55,6 +55,10 @@ var db = mongojs('mongodb://' + config.mongo.username + ':' + config.mongo.passw
 app.use(cookieParser());
 app.use(cacheControl);
 
+if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "developmentmodulus") {
+  require("./servermodules/security.js").switchToHTTPS(app);
+}
+
 //app.use(passport.initialize());                             // Initialize PassportJS
 //app.use(passport.session());                                // Use Passport's session authentication strategy - this stores the logged in user in the session and will now run on any request
 // @TODO - refactor out connect dependency and use passport for session management.
@@ -75,7 +79,6 @@ require("./servermodules/modelizer.js").initModelizer(app, db);
 
 var RestApi = require("./servermodules/restapi.js");
 
-
 /*
  if (process.env.NODE_ENV !== "testing") {
  // JSON protection
@@ -88,12 +91,6 @@ var RestApi = require("./servermodules/restapi.js");
 //security.initialize();                                      // Add a Mongo strategy for handling the authentication
 
 //require("./servermodules/serveclient.js").setupMaintenanceMode(app);
-
-/*
- if (process.env.NODE_ENV === "production") {
- require("./servermodules/security.js").switchToHTTPS(app);
- }
- */
 
 //require("./servermodules/security.js").useCSRFProtection(app);
 
