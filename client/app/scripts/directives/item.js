@@ -10,8 +10,8 @@ angular.module('anorakApp')
         bookableItem : '=',
         event : '='
       },
-  //    controllerAs : 'item',
       controller : function($scope, shoppingcart) {
+        console.log("item scope", $scope);
 
         $scope.addToShoppingCart = function (event, bookableItem, activity) {
           shoppingcart.add({

@@ -8,7 +8,11 @@ angular.module('anorakApp')
       scope : {
         activity : "="
       },
-      controller : function($scope) {
+      controller : function ($scope) {
+
+        $scope.vm = {
+          activity : $scope.activity
+        };
 
         var filter = function() {
           this.bookableItems = [];
