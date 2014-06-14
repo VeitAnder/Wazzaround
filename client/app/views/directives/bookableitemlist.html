@@ -1,41 +1,10 @@
-<div ng-show="bookableitems.length === 0">
-  <h5>{{'No events to display yet' | translate}}</h5>
-</div>
 
 <div ng-repeat="bookableItem in activity.bookableItems | filter:isItemEnabled"
      class="event-list event-list-items">
 
-
-
-  <!--
-    <h5>
-      {{'Event' | translate}}:
-      {{bookableItem.description | languageselect}}
-    </h5>
-
-    <div class="event-header">
-      <div class="event-date cell">{{'Date' | translate}}</div>
-      <div class="event-time cell">{{'Time' | translate}}</div>
-      <div class="event-duration cell">{{'Duration' | translate}}</div>
-      <div class="event-quantity cell">{{'Qty' | translate}}</div>
-      <div class="event-price cell">{{'Price' | translate}}</div>
-    </div>
-    <div ng-repeat="(idx,event) in bookableItem.events"
-         class="event-body">
-      <div class="event-row">
-        <div class="event-date cell">{{ event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
-        <div class="event-time cell">{{ event.start | momentjs:{format: "h:mm a"} }}</div>
-        <div class="event-duration cell">
-          {{ {start:event.start, end:event.end} | duration }}
-        </div>
-
-        <div class="event-quantity cell">{{event.quantity}}x</div>
-        <div class="event-price cell">{{event.price}}</div>
-        <a ng-click="addToShoppingCart(event, bookableItem, activity)">book</a>
-
-      </div>
-    </div>
-  -->
+  <div ng-show="bookableitems.length === 0">
+    <h5>{{'No events to display yet' | translate}}</h5>
+  </div>
 
   <span class="event-item" ng-repeat="event in bookableItem.events | filter:isEventEnabled">
     <item activity="activity"
@@ -45,32 +14,4 @@
       </item>
   </span>
 
-</div>
-
-<div class="availability-footer"
-    ng-show="showpagination"
-    >
-  <div class="cell prev">
-<!--
-    <a class="btn btn-mini disabled"
-       ng-click=""
-        >{{ 'Prev' | translate }}
-    </a>
--->
-  </div>
-  <div class="cell align-center">
-    <a class="btn btn-mini btn-negative"
-       ng-click=""
-       href="#/activities/{{activity._id}}/"
-        >{{ 'Show all Dates' | translate }}
-    </a>
-  </div>
-  <div class="cell next align-right">
-<!--
-    <a class="btn btn-mini"
-       ng-click=""
-        >{{ 'Next' | translate }}
-    </a>
--->
-  </div>
 </div>
