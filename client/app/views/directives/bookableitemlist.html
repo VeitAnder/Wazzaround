@@ -37,54 +37,14 @@
     </div>
   -->
 
-  <eventitem class="event-item"
-             ng-repeat="(idx,event) in (bookableItem.events | limitTo:state.limit)"
-      >
-    <div class="event-item-header">
-      <div class="event-item-description">
-        <h6>
-          {{bookableItem.description | languageselect}}
-        </h6>
-        <span class="event-item-quantity">
-          … still
-          <strong>{{event.quantity}}x</strong>
-          available!
-        </span>
-      </div>
-      <div class="event-item-book">
-        <button ng-click="addToShoppingCart(event, bookableItem, activity)"
-                class="btn-mini-book">
-          <span class="btn-txt">
-            Book
-          </span>
-          <span class="btn-icon btn-icon-right"></span>
-        </button>
-      </div>
-    </div>
-    <div class="event-item-body">
-      <div class="event-date cell first">
-        <span class="input-label">
-          {{'Date' | translate}}/{{'Time' | translate}}:
-        </span>
-        {{ event.start | momentjs:{format: "ddd, MMM D YYYY"} }}, {{ event.start | momentjs:{format: "h:mm a"} }}
-      </div>
-      <div class="event-duration cell">
-        <span class="input-label">
-        {{'Duration' | translate}}:
-        </span>
-        {{ {start:event.start, end:event.end} | duration }}
-      </div>
+  <span class="event-item" ng-repeat="event in (bookableItem.events | limitTo:state.limit)">
+    <item activity="activity"
+          bookableItem="bookableItem"
+          event="event"
+          >
+      </item>
+  </span>
 
-      <div class="event-price cell last">
-        <span class="input-label">
-          {{'Price' | translate}}:
-        </span>
-        {{event.price}}
-      </div>
-
-    </div>
-
-  </eventitem>
 </div>
 
 <div class="availability-footer"
