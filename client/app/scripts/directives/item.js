@@ -11,20 +11,18 @@ angular.module('anorakApp')
         event : '='
       },
       controller : function($scope, shoppingcart) {
-        console.log("item scope", $scope);
-
-        $scope.addToShoppingCart = function (event, bookableItem, activity) {
+        $scope.addToShoppingCart = function () {
           shoppingcart.add({
-              eventId: event._id,
-              bookableItemId: bookableItem._id,
-              activityId: activity._id,
-              description: bookableItem.description,
-              price: event.price,
+              eventId: $scope.event._id,
+              bookableItemId: $scope.bookableItem._id,
+              activityId: $scope.activity._id,
+              description: $scope.bookableItem.description,
+              price: $scope.event.price,
               quantity: 1,
-              start: event.start,
-              end: event.end,
-              category: activity.category.main,
-              image: activity.images[0]
+              start: $scope.event.start,
+              end: $scope.event.end,
+              category: $scope.activity.category.main,
+              image: $scope.activity.images[0]
             });
         };
 

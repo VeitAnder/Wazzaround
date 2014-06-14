@@ -9,17 +9,16 @@ angular.module('anorakApp')
         activity : "="
       },
       controller : function ($scope) {
+//        $scope.acticity = angular.copy($scope.activity);
 
-        $scope.vm = {
-          activity : $scope.activity
-        };
+//        $scope.vm = {
+//          activity : angular.copy($scope.activity)
+//        };
 
         var filter = function() {
-          this.bookableItems = [];
-
           // init enabled bookableItem-Filter
           for (var i in $scope.activity.bookableItems) {
-            this.bookableItems[i] = function() {
+            $scope.activity.bookableItems[i].filter = function() {
               var value = true;
               return {
                 enabled : function() {
@@ -37,8 +36,8 @@ angular.module('anorakApp')
 
           this.bookableItemsIsAllSelected = function() {
             var res = true;
-            _.forEach(this.bookableItems, function(item) {
-              if (!item.enabled()) {
+            _.forEach($scope.activity.bookableItems, function(item) {
+              if (!item.filter.enabled()) {
                 res = false;
               }
             });
@@ -47,25 +46,25 @@ angular.module('anorakApp')
 
           this.bookableItemsToggleAll = function() {
             var value = !this.bookableItemsIsAllSelected();
-            _.forEach(this.bookableItems, function(item) {
-              item.set(value);
+            _.forEach($scope.activity.bookableItems, function(item) {
+              item.filter.set(value);
             });
           };
 
 
           // finde frühestes event
-          this.from = _.min(
+          this.from = new Date(_.min(
             _.map($scope.activity.bookableItems, function(item) {
               return _.min(_.map(item.events, 'start'));
             })
-          );
+          ));
 
           // finde spätestes event
-          this.until = _.max(
+          this.until = new Date( _.max(
             _.map($scope.activity.bookableItems, function(item) {
               return _.max(_.map(item.events, 'end'));
             })
-          );
+          ));
 
           this.from_min = new Date(this.from);
           this.from_max = new Date(this.until);
@@ -76,8 +75,6 @@ angular.module('anorakApp')
         };
         $scope.filter = new filter();
 
-
-        console.log("$scope.filter", $scope.filter);
       }
     };
   });

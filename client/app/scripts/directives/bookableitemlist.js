@@ -5,8 +5,17 @@ angular.module('anorakApp')
     return {
       templateUrl: 'views/directives/bookableitemlist.html',
       restrict: 'E',
-      scope: {
-        activity: '=activity'
+      controller : function($scope) {
+
+        $scope.isItemEnabled = function(item) {
+          return item.filter.enabled();
+        };
+
+        $scope.isEventEnabled = function(event) {
+          if (event.start < $scope.filter.from) return false;
+          if (event.start > $scope.filter.until) return false;
+          return true;
+        };
       }
     };
   });

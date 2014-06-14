@@ -39,10 +39,10 @@
         <span class="numberofitems">1</span>
       </a>
 
-      <span ng-repeat="(idx, bookableItem) in activity.bookableItems">
+      <span ng-repeat="bookableItem in activity.bookableItems">
         <a class="bookableitem-tag"
-           ng-click="filter.bookableItems[idx].toggle()"
-           ng-class="{selected: filter.bookableItems[idx].enabled()}"
+           ng-click="bookableItem.filter.toggle()"
+           ng-class="{selected: bookableItem.filter.enabled()}"
             >
           <span class="checkbox-tag"></span>
           {{bookableItem.description | languageselect}}
@@ -60,7 +60,7 @@
     </span>
   </div>
 
-  <bookableitemlist data-activity="vm.activity | eventFilter:filter">
+  <bookableitemlist data-activity="activity">
   </bookableitemlist>
 
 

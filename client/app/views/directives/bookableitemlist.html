@@ -2,7 +2,7 @@
   <h5>{{'No events to display yet' | translate}}</h5>
 </div>
 
-<div ng-repeat="bookableItem in activity.bookableItems"
+<div ng-repeat="bookableItem in activity.bookableItems | filter:isItemEnabled"
      class="event-list event-list-items">
 
 
@@ -37,7 +37,7 @@
     </div>
   -->
 
-  <span class="event-item" ng-repeat="event in bookableItem.events">
+  <span class="event-item" ng-repeat="event in bookableItem.events | filter:isEventEnabled">
     <item activity="activity"
           bookable-item="bookableItem"
           event="event"
