@@ -264,6 +264,7 @@ angular.module('anorakApp')
     $translateProvider.translations('en', {
       "Why reacture": "Why reActure?",
       "Work with us": "Work with us",
+      "get active": "… get active!",
       "Contact": "Contact & Impressum",
       "Please choose": "Please choose",
       "sports": "Sports & Activities",
@@ -550,6 +551,7 @@ angular.module('anorakApp')
     $translateProvider.translations('de', {
       "Why reacture": "Warum reActure?",
       "Work with us": "Arbeiten Sie mit uns",
+      "get active": "… get active!",
       "Contact": "Kontakt & Impressum",
       "Please choose": "Bitte wählen Sie",
       "sports": "Sport & Aktivitäten",
@@ -835,8 +837,9 @@ angular.module('anorakApp')
     });
 
     $translateProvider.translations('it', {
-      "Why reacture": "Perché reActure?",
+      "Why reacture": "Perchè reActure?",
       "Work with us": "Lavora con noi",
+      "get active": "… attivati!",
       "Contact": "Contattaci",
       "Please choose": "Si prega di scegliere",
       "sports": "Sport & Attività",
