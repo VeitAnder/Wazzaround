@@ -53,8 +53,9 @@
   </div>
   <div class="cell align-center">
     <a class="btn btn-mini btn-negative"
-       ng-href="'#/activities/'+getSelectedActivity()._id+'/"
-        >{{ 'Show all Dates' | translate }}
+       ng-href="{{'#/activities/' + getSelectedActivity()._id + '/'}}"
+        >
+      {{ 'Show all Dates' | translate }}
     </a>
   </div>
   <div class="cell next align-right">
