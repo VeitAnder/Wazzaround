@@ -837,7 +837,7 @@ angular.module('anorakApp')
     });
 
     $translateProvider.translations('it', {
-      "Why reacture": "Perché reActure?",
+      "Why reacture": "Perchè reActure?",
       "Work with us": "Lavora con noi",
       "get active": "… attivati!",
       "Contact": "Contattaci",
