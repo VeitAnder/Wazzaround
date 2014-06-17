@@ -1,17 +1,22 @@
 
-<div ng-repeat="bookableItem in activity.bookableItems | filter:isItemEnabled"
+<!--<div ng-show="event.length === 0">-->
+  <!--<h5>{{'No events to display yet' | translate}}</h5>-->
+<!--</div>-->
+
+
+<div ng-repeat="event in getSortedEvents() | limitTo: limit"
      class="event-list event-list-items">
 
-  <div ng-show="bookableitems.length === 0">
-    <h5>{{'No events to display yet' | translate}}</h5>
-  </div>
-
-  <span class="event-item" ng-repeat="event in bookableItem.events | filter:isEventEnabled">
-    <item activity="activity"
-          bookable-item="bookableItem"
-          event="event"
-          >
-      </item>
+  <span class="event-item">
+    <item activity="event.activity"
+          bookable-item="event.bookableItem"
+          event="event.event"
+        >
+    </item>
   </span>
 
 </div>
+
+<!--<div ng-show="event.length > limit">-->
+  <!--<h5>{{'There are more events available' | translate}}</h5>-->
+<!--</div>-->

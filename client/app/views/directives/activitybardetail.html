@@ -23,22 +23,24 @@
 <div class="availability">
   <div class="input-label">{{'Availability' | translate}}</div>
 
-  <div ng-repeat="bookableItem in getSelectedActivity().bookableItems"
-       class="event-list event-list-items">
+  <!--<div ng-repeat="bookableItem in getSelectedActivity().bookableItems"-->
+       <!--class="event-list event-list-items">-->
 
-    <div ng-show="bookableitems.length === 0">
-      <h5>{{'No events to display yet' | translate}}</h5>
-    </div>
+    <!--<div ng-show="bookableitems.length === 0">-->
+      <!--<h5>{{'No events to display yet' | translate}}</h5>-->
+    <!--</div>-->
 
-    <span class="event-item" ng-repeat="event in bookableItem.events | limitTo:3">
-      <item activity="getSelectedActivity()"
-            bookable-item="bookableItem"
-            event="event"
-          >
-      </item>
-    </span>
+    <!--<span class="event-item" ng-repeat="event in bookableItem.events | limitTo:3">-->
+      <!--<item activity="getSelectedActivity()"-->
+            <!--bookable-item="bookableItem"-->
+            <!--event="event"-->
+      <!--</item>-->
+    <!--</span>-->
 
-  </div>
+  <!--</div>-->
+
+  <bookableitemlist activity="getSelectedActivity()" limit="3">
+  </bookableitemlist>
 
 </div>
 
