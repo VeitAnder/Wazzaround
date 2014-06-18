@@ -36,7 +36,7 @@
           >
         <span class="checkbox-tag"></span>
         Show all
-        <span class="numberofitems">1</span>
+        <span class="numberofitems">{{filter.numAllEvents}}</span>
       </a>
 
       <span ng-repeat="bookableItem in activity.bookableItems">
@@ -46,18 +46,11 @@
             >
           <span class="checkbox-tag"></span>
           {{bookableItem.description | languageselect}}
-          <span class="numberofitems">1</span>
+          <span class="numberofitems">{{filter.bookableItems[$index].num}}</span>
         </a>
       </span>
 
     </div>
-  </div>
-
-  <div class="divider">
-    <span>
-      <strong>Today</strong>
-      (Tue, May 13 2014)
-    </span>
   </div>
 
   <bookableitemlist activity="activity" filter="filter" limit="1000">

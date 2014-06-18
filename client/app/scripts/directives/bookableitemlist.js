@@ -59,6 +59,16 @@ angular.module('anorakApp')
           $scope.sortedEvents = createSortedEvents();
         }, true);
 
+        var dateAt = [];
+        $scope.showDate = function(idx, date) {
+          dateAt[idx] = moment(date);
+          if (idx == 0) return true;
+
+          if (moment(date).diff(dateAt[idx-1], 'days') >= 1) return true;
+          else return false;
+
+        };
+
       }
     };
   });

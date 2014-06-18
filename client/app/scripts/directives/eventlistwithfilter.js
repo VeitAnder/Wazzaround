@@ -26,8 +26,13 @@ angular.module('anorakApp')
               this.enabled = function() { return this.value; };
               this.toggle = function() { this.value = !this.value; };
               this.set = function(v) { this.value = v; };
-            }
-          };
+              this.num = $scope.activity.bookableItems[i].events.length;
+            };
+          }
+
+          this.numAllEvents = _.reduce(_.map(this.bookableItems, 'num'), function(sum, num) {
+            return sum + num;
+          });
 
           this.bookableItemsIsAllSelected = function() {
             var res = true;
