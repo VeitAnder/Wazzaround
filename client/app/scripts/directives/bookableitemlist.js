@@ -59,6 +59,11 @@ angular.module('anorakApp')
           $scope.sortedEvents = createSortedEvents();
         }, true);
 
+        $scope.$watch('activity', function(oldValue, newValue) {
+          console.log('activity');
+          $scope.sortedEvents = createSortedEvents();
+        });
+
         var dateAt = [];
         $scope.showDate = function(idx, date) {
           dateAt[idx] = moment(date);

@@ -21,7 +21,7 @@ angular.module('anorakApp')
     this.add = function (item) {
       var idxOfTheItem = dictCounter;
 
-      assert(item.price, "provide a price for the item");
+      assert(item.price !== undefined, "provide a price for the item");
 
       // add item functions
       item.remove = function () {
@@ -49,7 +49,7 @@ angular.module('anorakApp')
       return {
         num: Object.keys(theShoppingCart).length,
         price: _.reduce(theShoppingCart, function (res, value, key) {
-          assert(value.price, "price missing for item in the shoppingcart");
+          assert(value.price !== undefined, "price missing for item in the shoppingcart");
           assert(value.quantity, "quantity missing for item in the shoppingcart");
 
           return res + value.price * value.quantity;

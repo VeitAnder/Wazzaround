@@ -392,9 +392,9 @@ angular.module('anorakApp')
         $scope.states.selectedactivityid = $scope.states.filteredactivities[newindex]._id;
       }
 
-      $timeout(function () {
-        $scope.$apply();
-      });
+      //$timeout(function () {
+      //  $scope.$apply();
+      //});
 
       return newindex;
     };
@@ -411,9 +411,9 @@ angular.module('anorakApp')
         $scope.states.selectedactivityid = $scope.states.filteredactivities[newindex]._id;
       }
 
-      $timeout(function () {
-        $scope.$apply();
-      });
+      //$timeout(function () {
+      //  $scope.$apply();
+      //});
 
       return newindex;
     };
