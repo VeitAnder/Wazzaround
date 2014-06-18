@@ -16,28 +16,23 @@ angular.module('anorakApp')
 //        };
 
         var filter = function() {
+
+          this.bookableItems = [];
+
           // init enabled bookableItem-Filter
           for (var i in $scope.activity.bookableItems) {
-            $scope.activity.bookableItems[i].filter = function() {
-              var value = true;
-              return {
-                enabled : function() {
-                  return value;
-                },
-                toggle : function() {
-                  value = !value;
-                },
-                set : function(v) {
-                  value = v;
-                }
-              }
-            }();
-          }
+            this.bookableItems[i] = new function() {
+              this.value = true;
+              this.enabled = function() { return this.value; };
+              this.toggle = function() { this.value = !this.value; };
+              this.set = function(v) { this.value = v; };
+            }
+          };
 
           this.bookableItemsIsAllSelected = function() {
             var res = true;
-            _.forEach($scope.activity.bookableItems, function(item) {
-              if (!item.filter.enabled()) {
+            _.forEach(this.bookableItems, function(item) {
+              if (!item.enabled()) {
                 res = false;
               }
             });
@@ -46,8 +41,8 @@ angular.module('anorakApp')
 
           this.bookableItemsToggleAll = function() {
             var value = !this.bookableItemsIsAllSelected();
-            _.forEach($scope.activity.bookableItems, function(item) {
-              item.filter.set(value);
+            _.forEach(this.bookableItems, function(item) {
+              item.set(value);
             });
           };
 

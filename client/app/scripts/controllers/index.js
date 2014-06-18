@@ -377,7 +377,6 @@ angular.module('anorakApp')
       }
 
       // if no activity is at all available in $scope.states.filteredactivities, show message in activitybar
-      console.log("getSelectedActivity()", selectedactivity);
       return selectedactivity;
     };
 

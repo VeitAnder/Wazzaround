@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('bookableitemlist', function (shoppingcart, $timeout) {
+  .directive('bookableitemlist', function (shoppingcart) {
     return {
       templateUrl: 'views/directives/bookableitemlist.html',
       restrict: 'E',
@@ -12,10 +12,10 @@ angular.module('anorakApp')
       },
       controller: function ($scope) {
 
-        var isItemEnabled = function (item) {
+        var isItemEnabled = function (itemIdx) {
           if (!$scope.filter) return true;  // nicht filtern, wenn kein filter definiert ist
 
-          return item.filter.enabled();
+          return $scope.filter.bookableItems[itemIdx].enabled();
         };
 
         var isEventEnabled = function (event) {
@@ -26,13 +26,13 @@ angular.module('anorakApp')
           return true;
         };
 
-        $scope.getSortedEvents = function () {
+        var createSortedEvents = function () {
           // erst mal filtern
           var sortedEvents = [];
 
-          _.forEach($scope.activity.bookableItems, function (bookableItem) {
-            if (isItemEnabled(bookableItem)) {
-              _.forEach(bookableItem.events, function (event) {
+          angular.forEach($scope.activity.bookableItems, function (bookableItem, itemIdx) {
+            if (isItemEnabled(itemIdx)) {
+              angular.forEach(bookableItem.events, function (event) {
                 if (isEventEnabled(event)) {
                   sortedEvents.push({
                     date: event.start,
@@ -49,7 +49,16 @@ angular.module('anorakApp')
           sortedEvents = _.sortBy(sortedEvents, 'date');
 
           return sortedEvents;
-        }
+        };
+
+        $scope.sortedEvents = createSortedEvents();
+
+
+        $scope.$watch('filter', function(oldValue, newValue) {
+          console.log('filter');
+          $scope.sortedEvents = createSortedEvents();
+        }, true);
+
       }
     };
   });

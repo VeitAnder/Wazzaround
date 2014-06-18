@@ -41,8 +41,8 @@
 
       <span ng-repeat="bookableItem in activity.bookableItems">
         <a class="bookableitem-tag"
-           ng-click="bookableItem.filter.toggle()"
-           ng-class="{selected: bookableItem.filter.enabled()}"
+           ng-click="filter.bookableItems[$index].toggle()"
+           ng-class="{selected: filter.bookableItems[$index].enabled()}"
             >
           <span class="checkbox-tag"></span>
           {{bookableItem.description | languageselect}}
