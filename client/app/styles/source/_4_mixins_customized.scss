@@ -1505,6 +1505,12 @@ activitybardetail {
       @include multiline(2);
     }
   }
+
+
+  //@TODO remove later  - only quick fix
+  .divider{
+    display:none;
+  }
 }
 
 .activitybar-noresult {
