@@ -11,6 +11,6 @@ angular.module('anorakApp')
       return $translate.use();
     }, function () {
       $scope.lang = $translate.use();
-    })
+    });
 
   });
