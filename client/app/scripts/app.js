@@ -545,7 +545,8 @@ angular.module('anorakApp')
       "maketeaser": "Use as teaser image",
       "Find your activity": "Find your activity",
       "Please enter a description.": "Please enter a description.",
-      "Please enter a short description.": "Please enter a short description."
+      "Please enter a short description.": "Please enter a short description.",
+      "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering."
     });
 
     $translateProvider.translations('de', {
@@ -832,7 +833,8 @@ angular.module('anorakApp')
       "maketeaser": "Als Teaser-Bild verwenden",
       "Find your activity": "Find your activity",
       "Please enter a description.": "Bitte geben Sie eine Beschreibung ein.",
-      "Please enter a short description.": "Bitte geben Sie eine Kurzbeschreibung ein."
+      "Please enter a short description.": "Bitte geben Sie eine Kurzbeschreibung ein.",
+      "helptext activityname": "Gib Deiner Aktivität einen Namen! Dieser sollte beschreiben, was Du anbietest."
 
     });
 
@@ -1119,7 +1121,8 @@ angular.module('anorakApp')
       "maketeaser": "Use as teaser image",
       "Find your activity": "Find your activity",
       "Please enter a description.": "Please enter a description.",
-      "Please enter a short description.": "Please enter a short description."
+      "Please enter a short description.": "Please enter a short description.",
+      "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering."
     });
 
     $translateProvider.translations('fr', {
@@ -1406,7 +1409,8 @@ angular.module('anorakApp')
       "maketeaser": "Use as teaser image",
       "Find your activity": "Find your activity",
       "Please enter a description.": "Please enter a description.",
-      "Please enter a short description.": "Please enter a short description."
+      "Please enter a short description.": "Please enter a short description.",
+      "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering."
     });
 
 
