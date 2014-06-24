@@ -4,7 +4,7 @@ angular.module('anorakApp')
   .directive('aiotoggleitem', function () {
     return {
       template: '<div ng-class="{open: state.open}">' +
-        '<a ng-click="state.toggle()"><span>toggle</span></a> ' +
+        '<a ng-click="state.toggle()"><i></i><span>{{state.toggleitemlabel}}</span></a> ' +
         '<div ng-transclude ng-show="state.open"></div> ' +
         '</div>',
       restrict: 'A',
@@ -12,8 +12,13 @@ angular.module('anorakApp')
       scope: {
       },
       link: function postLink(scope, element, attrs) {
+        if (!attrs.toggleitemlabel) {
+          attrs.toggleitemlabel = "toggle";
+        }
+
         scope.state = {
           open: false,
+          toggleitemlabel: attrs.toggleitemlabel,
           toggle: function () {
             this.open = !this.open;
           }
