@@ -2751,6 +2751,16 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
     margin-top: 8px; }
   .form-group .input-group-btn .btn {
     margin-top: 0; }
+  .form-group.emphasis {
+    margin: 30px 0;
+    padding: 10px 15px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    background-color: #f7f7f7; }
 
 .form-group-inline .form-group {
   display: inline-block;
@@ -6510,6 +6520,8 @@ activitybardetail {
     width: 22.5%; }
 .standardform input, .standardform .contentbox {
   width: 100%; }
+  .standardform input[type=checkbox], .standardform .contentbox[type=checkbox] {
+    width: auto; }
 
 .teaser-section {
   overflow: hidden; }

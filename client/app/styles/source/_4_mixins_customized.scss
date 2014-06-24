@@ -2664,6 +2664,9 @@ $img-selector-teasertxtheight: 32px;
   }
   input, .contentbox {
     width: 100%;
+    &[type=checkbox]{
+      width: auto;
+    }
   }
 }
 

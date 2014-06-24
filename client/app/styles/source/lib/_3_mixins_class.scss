@@ -1973,6 +1973,12 @@ input[type="checkbox"]:focus {
       margin-top: 0;
     }
   }
+  &.emphasis{
+    margin: 30px 0;
+    padding: 10px 15px;
+    @include border-radius($border-radius);
+    background-color: $color_grey_05;
+  }
 }
 
 .form-group-inline {

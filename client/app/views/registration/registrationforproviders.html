@@ -278,22 +278,27 @@
 
           </div>
 
-          <div class="form-group">
-            <label for="acceptlegalnotes">{{'Please accept legal notes' | translate}}</label>
-            <input name="acceptlegalnotes"
-                   id="acceptlegalnotes"
-                   ng-model="registrant.acceptlegalnotes"
-                   class="input-block-level"
-                   required
-                   type="checkbox"
-                />
+          <div class="form-group emphasis">
+            <div class="checkbox">
+              <label for="acceptlegalnotes">{{'Please accept legal notes' | translate}}
+                <input name="acceptlegalnotes"
+                       id="acceptlegalnotes"
+                       ng-model="registrant.acceptlegalnotes"
+                       required
+                       type="checkbox"
+                    />
+              </label>
+            </div>
 
             <span ng-show="showError('acceptlegalnotes', 'required')"
                   class="alert alert-error">
               {{'Please accept legal notes' | translate}}
             </span>
-
-            <a href="#/legalnotes" target="_blank">{{'Legal Notes' | translate}}</a>
+            <p class="no-margin-top">
+              <a href="#/legalnotes"
+                 target="_blank">{{'Legal Notes' | translate}}
+              </a>
+            </p>
 
           </div>
 
