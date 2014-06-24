@@ -1464,7 +1464,6 @@ activitybardetail {
   //  width: $activitybar-currentitem-width;
 
   padding: $bu*2.0;
-  padding-bottom: $bu*3.0;
   background-color: #ffffff;
   background-color: rgba($color_white, 0.90);
   @include border-top-radius($border-radius);
