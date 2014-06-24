@@ -2760,7 +2760,7 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
     border-radius: 6px;
-    background-color: #f7f7f7; }
+    background-color: #edf7d9; }
 
 .form-group-inline .form-group {
   display: inline-block;
