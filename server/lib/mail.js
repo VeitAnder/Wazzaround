@@ -186,28 +186,6 @@ send = function (mail) {
 };
 exports.send = send;
 
-exports.sendProjectInvitationMailToAlreadyConfirmedAccount = function (userwhoinvitesparticipant, userAccountOfParticipant, project) {
-  var sendmessage = {
-    data: {
-      invitee: userAccountOfParticipant,
-      user: userwhoinvitesparticipant.toJSON(),
-      project: project,
-      version: config.api.apiversion,
-      template: {
-        projectinvitation: true
-      }
-    },
-    postmarkmail: {
-      "From": config.postmark.from,
-      "To": userAccountOfParticipant.email,
-      "Subject": "reacture – Projekteinladung",
-      "Tag": "projectinvitation",
-      "ReplyTo": userwhoinvitesparticipant.email
-    }
-  };
-  return send(sendmessage);
-};
-
 exports.sendProjectInvitationMailToUnconfirmedAccount = function (userwhoinvitesparticipant, userAccountOfParticipant, project, newpassword) {
   var sendmessage = {
     data: {
@@ -259,41 +237,13 @@ exports.sendResetPasswordMail = function (user, token) {
 
   return send(sendmessage);
 };
-//exports.sendNewPassword = function (user, newpassword) {
-//  //E-Mail Body
-//  var sendmessage = {
-//    data: {
-//      user: user.toJSON(),
-//      password: newpassword,
-//      loginurl: config.host + "login/" + user.email + "/",
-//      template: {
-//        resetpassword: true
-//      }
-//    },
-//    postmarkmail: {
-//      "From": config.postmark.from,
-//      "To": user.email,
-//      "Subject": "reacture – Neues Passwort",
-//      "Tag": "resetpassword",
-//      "ReplyTo": config.postmark.replyto
-//    }
-//  };
-//
-//  //check if user is already activated, if not include activation link
-//  if (!user.accountconfirmed) {
-//    sendmessage.data.template.includeactivationlink = true;
-//    sendmessage.data.activationurl = config.host + config.api.apiversion + "userregistrations/confirmuserregistration/" + user.accountconfirmationtoken + "/";
-//  }
-//
-//  return send(sendmessage);
-//};
 
-exports.sendActivationTokenEmail = function (user) {
+exports.sendActivationTokenEmail = function (user, token) {
   //E-Mail Body
   var sendmessage = {
     data: {
-      user: user.toJSON(),
-      activationurl: config.host + config.api.apiversion + "userregistrations/confirmuserregistration/" + user.accountconfirmationtoken + "/",
+      user: user,
+      activationurl: config.clienthost + "registration/confirmuserregistration/" + token + "/" + user.email + "/",
       template: {
         accountactivationtoken: true
       }
@@ -308,34 +258,4 @@ exports.sendActivationTokenEmail = function (user) {
   };
 
   return send(sendmessage);
-};
-
-exports.sendPlan = function(plan, recipientemail, sender, isNotSilent, downloadlinks, projectTitle) {
-
-  //E-Mail Body
-  var maildata = {
-    "From": config.postmark.from,
-    "To": recipientemail,
-    "Subject": "reacture – Plan: " + plan.name + " Index " + plan.revisions[0].index,
-    "ReplyTo": sender.email,
-    "Tag": "plansent"
-  };
-
-  var sendmessage = {
-    data: {
-      user: sender,
-      isnotsilent: isNotSilent,
-      downloadlinks: downloadlinks,
-      projectname: projectTitle,
-      plan: plan,
-      revision: plan.revisions[0],
-      template: {
-        plansent: true
-      }
-    },
-    postmarkmail: maildata
-  };
-
-  return send(sendmessage);
-
 };

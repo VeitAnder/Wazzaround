@@ -1,9 +1,8 @@
 var moment = require('moment');
-
 var models = require('../models.js');
-
 var AccesstokenModel = require('../models.js').AccesstokenModel;
-
+var token = require('token.js');
+var mail = require('../../lib/mail.js');
 
 
 ///////////////////////
@@ -24,8 +23,6 @@ AccesstokenModel.writeFilter(function (obj, req) {
 // Operation Impl.
 
 
-var token = require('token.js');
-var mail = require('../../lib/mail.js');
 AccesstokenModel.operationImpl("sendReactivation", function (params, req) {
   var tokenObj = models.AccesstokenModel.create();
   tokenObj.token = token(32);
