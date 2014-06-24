@@ -26,5 +26,10 @@
 </div>
 
 <div ng-show="sortedEvents.length > limit">
-  <p>{{'There are more events available' | translate}}…</p>
+  <p class="align-right">{{'There are more events available' | translate}} …
+    <a class="btn btn-mini"
+       ng-href="#/activities/{{getSelectedActivity()._id}}/"
+        >{{ 'Show all Dates' | translate }}
+    </a>
+  </p>
 </div>

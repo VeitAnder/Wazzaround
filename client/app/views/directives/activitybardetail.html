@@ -20,50 +20,55 @@
   </div>
 </div>
 
+<p class="align-right no-margin-top no-margin-bottom no-padding-bottom">
+  <a ng-href="#/activities/{{getSelectedActivity()._id}}/">
+    <strong>{{'more information' | translate}}</strong>
+  </a>
+</p>
+
 <div class="availability">
   <div class="input-label">{{'Availability' | translate}}</div>
 
   <!--<div ng-repeat="bookableItem in getSelectedActivity().bookableItems"-->
-       <!--class="event-list event-list-items">-->
+  <!--class="event-list event-list-items">-->
 
-    <!--<div ng-show="bookableitems.length === 0">-->
-      <!--<h5>{{'No events to display yet' | translate}}</h5>-->
-    <!--</div>-->
+  <!--<div ng-show="bookableitems.length === 0">-->
+  <!--<h5>{{'No events to display yet' | translate}}</h5>-->
+  <!--</div>-->
 
-    <!--<span class="event-item" ng-repeat="event in bookableItem.events | limitTo:3">-->
-      <!--<item activity="getSelectedActivity()"-->
-            <!--bookable-item="bookableItem"-->
-            <!--event="event"-->
-      <!--</item>-->
-    <!--</span>-->
+  <!--<span class="event-item" ng-repeat="event in bookableItem.events | limitTo:3">-->
+  <!--<item activity="getSelectedActivity()"-->
+  <!--bookable-item="bookableItem"-->
+  <!--event="event"-->
+  <!--</item>-->
+  <!--</span>-->
 
   <!--</div>-->
 
-  <bookableitemlist activity="getSelectedActivity()" limit="3">
+  <bookableitemlist activity="getSelectedActivity()"
+                    limit="3">
   </bookableitemlist>
 </div>
 
+<!--
 <div class="availability-footer">
   <div class="cell prev">
-    <!--
         <a class="btn btn-mini disabled"
            ng-click=""
             >{{ 'Prev' | translate }}
         </a>
-    -->
   </div>
-  <div class="cell align-center">
+  <div class="cell">
     <a class="btn btn-mini btn-negative"
        ng-href="#/activities/{{getSelectedActivity()._id}}/"
         >{{ 'Show all Dates' | translate }}
     </a>
   </div>
   <div class="cell next align-right">
-    <!--
         <a class="btn btn-mini"
            ng-click=""
             >{{ 'Next' | translate }}
         </a>
-    -->
   </div>
 </div>
+-->

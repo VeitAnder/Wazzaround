@@ -5234,6 +5234,8 @@ activitybardetail {
       padding-bottom: 30px; }
       activitybardetail h4 {
         display: none; }
+      activitybardetail h6 {
+        display: none; }
       activitybardetail .availability .input-label {
         display: none; }
       activitybardetail .description.multiline {

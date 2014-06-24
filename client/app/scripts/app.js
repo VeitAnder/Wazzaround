@@ -546,6 +546,7 @@ angular.module('anorakApp')
       "Find your activity": "Find your activity",
       "Please enter a description.": "Please enter a description.",
       "Please enter a short description.": "Please enter a short description.",
+      "more information": "more information",
       "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering."
     });
 
@@ -834,6 +835,7 @@ angular.module('anorakApp')
       "Find your activity": "Find your activity",
       "Please enter a description.": "Bitte geben Sie eine Beschreibung ein.",
       "Please enter a short description.": "Bitte geben Sie eine Kurzbeschreibung ein.",
+      "more information": "weitere Informationen",
       "helptext activityname": "Gib Deiner Aktivität einen Namen! Dieser sollte beschreiben, was Du anbietest."
 
     });
@@ -1122,6 +1124,7 @@ angular.module('anorakApp')
       "Find your activity": "Find your activity",
       "Please enter a description.": "Please enter a description.",
       "Please enter a short description.": "Please enter a short description.",
+      "more information": "ulteriori informazioni",
       "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering."
     });
 
@@ -1410,6 +1413,7 @@ angular.module('anorakApp')
       "Find your activity": "Find your activity",
       "Please enter a description.": "Please enter a description.",
       "Please enter a short description.": "Please enter a short description.",
+      "more information": "plus d'informations",
       "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering."
     });
 
