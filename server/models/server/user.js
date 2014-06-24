@@ -4,16 +4,17 @@
 
 var Q = require('q');
 var ObjectId = require('mongojs').ObjectId;
+var moment = require('moment');
 
 var models = require('../models.js');
 var UserModel = require('../models.js').UserModel;
 
+var token = require('token.js');
+var mail = require('../../lib/mail.js');
+
 ///////////////////////
 // read/write filters
 
-var updateCompanyInActivities = function(user) {
-  // TODO
-}
 
 // setup filters for the UserModel
 UserModel.readFilter(function (req) {
@@ -80,6 +81,13 @@ UserModel.operationImpl("register", function (params, req) {
   var user = models.UserModel.create();
   user.email = params.email.toLowerCase();
   user.password = params.password;
+
+
+  var tokenObj = models.AccesstokenModel.create();
+  tokenObj.token = token(32);
+  tokenObj.expires = moment().add('days', 1).toDate();
+
+
   if (params.profile) {
     for (var i in params.profile) {
       user.profile[i] = params.profile[i];
@@ -106,6 +114,15 @@ UserModel.operationImpl("register", function (params, req) {
         throw new Error("User already exists");
       }
       return user.save();  // save the new user
+    })
+    .then(function (user) {
+      tokenObj.user.setObject(user);
+      tokenObj.save();
+      return tokenObj;
+    })
+    .then(function (tokenObj) {
+      return;
+//      return mail.sendActivationTokenEmail(tokenObj.user.ref(), tokenObj.token);
     })
     .then(function () {  // if save was ok
       return {status: "ok"};

@@ -288,12 +288,12 @@ exports.sendResetPasswordMail = function (user, token) {
 //  return send(sendmessage);
 //};
 
-exports.sendActivationTokenEmail = function (user) {
+exports.sendActivationTokenEmail = function (user, token) {
   //E-Mail Body
   var sendmessage = {
     data: {
-      user: user.toJSON(),
-      activationurl: config.host + config.api.apiversion + "userregistrations/confirmuserregistration/" + user.accountconfirmationtoken + "/",
+      user: user,
+      activationurl: config.clienthost + "registration/confirmuserregistration/" + token + "/" + user.email + "/",
       template: {
         accountactivationtoken: true
       }
@@ -308,34 +308,4 @@ exports.sendActivationTokenEmail = function (user) {
   };
 
   return send(sendmessage);
-};
-
-exports.sendPlan = function(plan, recipientemail, sender, isNotSilent, downloadlinks, projectTitle) {
-
-  //E-Mail Body
-  var maildata = {
-    "From": config.postmark.from,
-    "To": recipientemail,
-    "Subject": "reacture – Plan: " + plan.name + " Index " + plan.revisions[0].index,
-    "ReplyTo": sender.email,
-    "Tag": "plansent"
-  };
-
-  var sendmessage = {
-    data: {
-      user: sender,
-      isnotsilent: isNotSilent,
-      downloadlinks: downloadlinks,
-      projectname: projectTitle,
-      plan: plan,
-      revision: plan.revisions[0],
-      template: {
-        plansent: true
-      }
-    },
-    postmarkmail: maildata
-  };
-
-  return send(sendmessage);
-
 };
