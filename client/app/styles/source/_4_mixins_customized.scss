@@ -25,7 +25,7 @@ body:before {
 }
 
 @mixin col-left-width {
-  width:
+  width: $col-left-width;
 }
 
 .col-container {
@@ -47,16 +47,16 @@ body:before {
     z-index: 1;
     float: left;
     padding: 23px 0 0 0; //fullwidht image and nav on same height
-    padding-bottom: $bu*1.0 + $footer-height;
+    padding-bottom: $bu*1.0 + $footer-height + $footer-height;
   }
 }
 
 .footer {
   z-index: 2;
-  position: relative;
+  position: fixed;
   height: $footer-height;
   width: 100%;
-  margin-top: - ($footer-height);
+  bottom: 0;
   clear: both;
   &.footer-startpage {
     position: fixed;
