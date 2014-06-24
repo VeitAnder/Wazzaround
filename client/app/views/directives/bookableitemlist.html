@@ -1,14 +1,12 @@
-
 <div ng-show="sortedEvents.length === 0">
   <h5>{{'No events to display yet' | translate}}</h5>
 </div>
 
-
 <div ng-repeat="event in sortedEvents | limitTo:limit"
      class="event-list event-list-items">
 
-
-  <div class="divider" ng-if="showDate($index, event.event.start)">
+  <div class="divider"
+       ng-if="showDate($index, event.event.start)">
     <span>
       <!--<strong>{{event.event.start | fromNow}}</strong>-->
       {{event.event.start | momentjs:{format: "ddd, MMM Do YY"} }}
@@ -28,8 +26,9 @@
 <div ng-show="sortedEvents.length > limit">
   <p class="align-right">{{'There are more events available' | translate}} …
     <a class="btn btn-small"
-       ng-href="#/activities/{{getSelectedActivity()._id}}/"
-        >{{ 'Show all Dates' | translate }}
+       ng-href="#/activities/{{activity._id}}/"
+        >
+      {{ 'Show all Dates' | translate }}
     </a>
   </p>
 </div>
