@@ -547,7 +547,10 @@ angular.module('anorakApp')
       "Please enter a description.": "Please enter a description.",
       "Please enter a short description.": "Please enter a short description.",
       "more information": "more information",
-      "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering."
+      "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering.",
+      "I accept the reacture affiliate agreement": "I accept the reacture affiliate agreement.",
+      "Please accept the reacture affiliate agreement": "Please accept the reacture affiliate agreement.",
+      "Affiliate agreement": "Affiliate agreement."
     });
 
     $translateProvider.translations('de', {
@@ -836,8 +839,10 @@ angular.module('anorakApp')
       "Please enter a description.": "Bitte geben Sie eine Beschreibung ein.",
       "Please enter a short description.": "Bitte geben Sie eine Kurzbeschreibung ein.",
       "more information": "weitere Informationen",
-      "helptext activityname": "Gib Deiner Aktivität einen Namen! Dieser sollte beschreiben, was Du anbietest."
-
+      "helptext activityname": "Gib Deiner Aktivität einen Namen! Dieser sollte beschreiben, was Du anbietest.",
+      "I accept the reacture affiliate agreement": "Ich stimme den Bedingungen des reActure Partnervertrages zu.",
+      "Please accept the reacture affiliate agreement": "Bitte stimmen Sie den Bedingungen des reActure Partnervertrages zu.",
+      "Affiliate agreement": "Partnervertrag."
     });
 
     $translateProvider.translations('it', {
@@ -1125,7 +1130,10 @@ angular.module('anorakApp')
       "Please enter a description.": "Please enter a description.",
       "Please enter a short description.": "Please enter a short description.",
       "more information": "ulteriori informazioni",
-      "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering."
+      "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering.",
+      "I accept the reacture affiliate agreement": "I accept the reacture affiliate agreement.",
+      "Please accept the reacture affiliate agreement": "Please accept the reacture affiliate agreement.",
+      "Affiliate agreement": "Affiliate agreement."
     });
 
     $translateProvider.translations('fr', {
@@ -1414,7 +1422,10 @@ angular.module('anorakApp')
       "Please enter a description.": "Please enter a description.",
       "Please enter a short description.": "Please enter a short description.",
       "more information": "plus d'informations",
-      "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering."
+      "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering.",
+      "I accept the reacture affiliate agreement": "I accept the reacture affiliate agreement.",
+      "Please accept the reacture affiliate agreement": "Please accept the reacture affiliate agreement.",
+      "Affiliate agreement": "Affiliate agreement."
     });
 
 
