@@ -40,6 +40,11 @@ body{
     line-height: $fs*$fs-nocol*$line-height_factor;
   }
 
+  @include respond-to(low-screen){
+    font-size: $fs*$fs-sm;
+    line-height: $fs*$fs-sm*$line-height_factor;
+  }
+
 }//body
 
 

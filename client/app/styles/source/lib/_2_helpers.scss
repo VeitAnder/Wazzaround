@@ -194,6 +194,10 @@ $break-low-screen: 768px;
     font-size: $fs*$fs-nocol;
     line-height: $fs*$fs-nocol*$line-height_factor;
   }
+  @include respond-to(low-screen){
+    font-size: $fs*$fs-sm;
+    line-height: $fs*$fs-sm*$line-height_factor;
+  }
 }
 
 
@@ -224,6 +228,10 @@ $break-low-screen: 768px;
     font-size: 11px;
     line-height: 11px*$line-height_factor;
   }
+  @include respond-to(low-screen){
+    font-size: 11px;
+    line-height: 11px*$line-height_factor;
+  }
 }
 
 @mixin font-size_smallbutton{
@@ -240,6 +248,10 @@ $break-low-screen: 768px;
   @include respond-to(screen-nocols){
     font-size: $fs*$fs-nocol*$font-size_smallbutton_factor;
     line-height: $fs*$fs-nocol*$font-size_smallbutton_factor*$line-height_factor;
+  }
+  @include respond-to(low-screen){
+    font-size: $fs*$fs-sm*$font-size_smallbutton_factor;
+    line-height: $fs*$fs-sm*$font-size_smallbutton_factor*$line-height_factor;
   }
 }
 
@@ -258,6 +270,10 @@ $break-low-screen: 768px;
     line-height: 10px*$line-height_factor;
   }
   @include respond-to(screen-nocols){
+    font-size: 10px;
+    line-height: 10px*$line-height_factor;
+  }
+  @include respond-to(low-screen){
     font-size: 10px;
     line-height: 10px*$line-height_factor;
   }

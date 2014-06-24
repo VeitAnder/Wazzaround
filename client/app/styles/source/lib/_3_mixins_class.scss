@@ -35,6 +35,11 @@ p {
     font-size: $fs*$fs-nocol*$font-size_h1_factor;
     line-height: $fs*$fs-nocol*$font-size_h1_factor*$line-height_headline-factor;
   }
+
+  @include respond-to(low-screen){
+    font-size: $fs*$fs-sm*$font-size_h1_factor;
+    line-height: $fs*$fs-sm*$font-size_h1_factor*$line-height_headline-factor;
+  }
 }
 
 h1 {
@@ -63,6 +68,11 @@ h1 {
     font-size: $fs*$fs-nocol*$font-size_h2_factor;
     line-height: $fs*$fs-nocol*$font-size_h2_factor*$line-height_headline-factor;
   }
+
+  @include respond-to(low-screen){
+    font-size: $fs*$fs-sm*$font-size_h2_factor;
+    line-height: $fs*$fs-sm*$font-size_h2_factor*$line-height_headline-factor;
+  }
 }
 
 h2 {
@@ -89,6 +99,11 @@ h2 {
   @include respond-to(screen-nocols){
     font-size: $fs*$fs-nocol*$font-size_h3_factor;
     line-height: $fs*$fs-nocol*$font-size_h3_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(low-screen){
+    font-size: $fs*$fs-sm*$font-size_h3_factor;
+    line-height: $fs*$fs-sm*$font-size_h3_factor*$line-height_headline-factor;
   }
 }
 
@@ -118,6 +133,11 @@ h3 {
     font-size: $fs*$fs-nocol*$font-size_h4_factor;
     line-height: $fs*$fs-nocol*$font-size_h4_factor*$line-height_headline-factor;
   }
+
+  @include respond-to(low-screen){
+    font-size: $fs*$fs-sm*$font-size_h4_factor;
+    line-height: $fs*$fs-sm*$font-size_h4_factor*$line-height_headline-factor;
+  }
 }
 
 h4 {
@@ -145,6 +165,11 @@ h4 {
     font-size: $fs*$fs-nocol*$font-size_h5_factor;
     line-height: $fs*$fs-nocol*$font-size_h5_factor*$line-height_headline-factor;
   }
+
+  @include respond-to(low-screen){
+    font-size: $fs*$fs-sm*$font-size_h5_factor;
+    line-height: $fs*$fs-sm*$font-size_h5_factor*$line-height_headline-factor;
+  }
 }
 
 h5 {
@@ -171,6 +196,11 @@ h5 {
   @include respond-to(screen-nocols){
     font-size: $fs*$fs-nocol*$font-size_h6_factor;
     line-height: $fs*$fs-nocol*$font-size_h6_factor*$line-height_headline-factor;
+  }
+
+  @include respond-to(low-screen){
+    font-size: $fs*$fs-sm*$font-size_h6_factor;
+    line-height: $fs*$fs-sm*$font-size_h6_factor*$line-height_headline-factor;
   }
 }
 
@@ -206,6 +236,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .preface {
+//  @include h5;
   font-size: $fs*$font-size_h5_factor;
   line-height: $fs*$font-size_h5_factor*$line-height_factor;
   color: $color_text;
@@ -1732,6 +1763,10 @@ header {
   @include respond-to(screen-nocols){
     height: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
   }
+
+  @include respond-to(low-screen){
+    height: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
+  }
 }
 
 @mixin input-padding{
@@ -1747,6 +1782,10 @@ header {
   @include respond-to(screen-nocols){
     padding: 0 $fs*0.5;
   }
+
+  @include respond-to(low-screen){
+    padding: 0 $fs*0.5;
+  }
 }
 
 @mixin textarea-padding{
@@ -1760,6 +1799,10 @@ header {
   }
 
   @include respond-to(screen-nocols){
+    padding: $fs*0.25 $fs*0.5;
+  }
+
+  @include respond-to(low-screen){
     padding: $fs*0.25 $fs*0.5;
   }
 }

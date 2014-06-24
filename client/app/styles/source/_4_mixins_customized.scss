@@ -212,6 +212,14 @@ body:before {
         }
       }
     }
+
+    @include respond-to(low-screen) {
+//      max-height: 400px;
+      .row{
+//        padding: 35px 0;
+      }
+    }
+
   }
   &.teaserbox-mapdesign {
     .row {
@@ -1461,7 +1469,6 @@ activitybardetail {
   background-color: rgba($color_white, 0.90);
   @include border-top-radius($border-radius);
   @include activity-content;
-//  @include animation_all;
 
   .txt-icon-delete {
     position: absolute;

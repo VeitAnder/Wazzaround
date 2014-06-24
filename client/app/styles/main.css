@@ -845,6 +845,10 @@ h1 {
     h1 {
       font-size: 59.5px;
       line-height: 71.4px; } }
+  @media only screen and (max-height: 768px) {
+    h1 {
+      font-size: 59.5px;
+      line-height: 71.4px; } }
 
 h2 {
   font-size: 50px;
@@ -865,6 +869,10 @@ h2 {
     h2 {
       font-size: 42.5px;
       line-height: 51px; } }
+  @media only screen and (max-height: 768px) {
+    h2 {
+      font-size: 42.5px;
+      line-height: 51px; } }
 
 h3 {
   font-size: 36px;
@@ -881,6 +889,10 @@ h3 {
       font-size: 30.6px;
       line-height: 36.72px; } }
   @media only screen and (max-width: 767px) {
+    h3 {
+      font-size: 30.6px;
+      line-height: 36.72px; } }
+  @media only screen and (max-height: 768px) {
     h3 {
       font-size: 30.6px;
       line-height: 36.72px; } }
@@ -904,6 +916,10 @@ h4 {
     h4 {
       font-size: 20.4px;
       line-height: 24.48px; } }
+  @media only screen and (max-height: 768px) {
+    h4 {
+      font-size: 20.4px;
+      line-height: 24.48px; } }
 
 h5 {
   font-size: 20px;
@@ -923,6 +939,10 @@ h5 {
     h5 {
       font-size: 17px;
       line-height: 20.4px; } }
+  @media only screen and (max-height: 768px) {
+    h5 {
+      font-size: 17px;
+      line-height: 20.4px; } }
 
 h6 {
   font-size: 16px;
@@ -939,6 +959,10 @@ h6 {
       font-size: 13.6px;
       line-height: 16.32px; } }
   @media only screen and (max-width: 767px) {
+    h6 {
+      font-size: 13.6px;
+      line-height: 16.32px; } }
+  @media only screen and (max-height: 768px) {
     h6 {
       font-size: 13.6px;
       line-height: 16.32px; } }
@@ -1050,6 +1074,10 @@ button.btn, .btn, a.btn {
     button.btn, .btn, a.btn {
       font-size: 13.6px;
       line-height: 19.04px; } }
+  @media only screen and (max-height: 768px) {
+    button.btn, .btn, a.btn {
+      font-size: 13.6px;
+      line-height: 19.04px; } }
   button.btn:hover, .btn:hover, a.btn:hover {
     color: #FFF;
     border-color: #a4d740;
@@ -1139,6 +1167,10 @@ button.btn, .btn, a.btn {
       button.btn.btn-large, .btn.btn-large, a.btn.btn-large {
         font-size: 20.4px;
         line-height: 24.48px; } }
+    @media only screen and (max-height: 768px) {
+      button.btn.btn-large, .btn.btn-large, a.btn.btn-large {
+        font-size: 20.4px;
+        line-height: 24.48px; } }
     button.btn.btn-large.btn-shoppingcart, .btn.btn-large.btn-shoppingcart, a.btn.btn-large.btn-shoppingcart {
       width: 35px;
       height: 35px;
@@ -1162,6 +1194,10 @@ button.btn, .btn, a.btn {
         font-size: 11.9px;
         line-height: 16.66px; } }
     @media only screen and (max-width: 767px) {
+      button.btn.btn-small, .btn.btn-small, a.btn.btn-small {
+        font-size: 11.9px;
+        line-height: 16.66px; } }
+    @media only screen and (max-height: 768px) {
       button.btn.btn-small, .btn.btn-small, a.btn.btn-small {
         font-size: 11.9px;
         line-height: 16.66px; } }
@@ -1193,6 +1229,10 @@ button.btn, .btn, a.btn {
         font-size: 10px;
         line-height: 14px; } }
     @media only screen and (max-width: 767px) {
+      button.btn.btn-mini, .btn.btn-mini, a.btn.btn-mini {
+        font-size: 10px;
+        line-height: 14px; } }
+    @media only screen and (max-height: 768px) {
       button.btn.btn-mini, .btn.btn-mini, a.btn.btn-mini {
         font-size: 10px;
         line-height: 14px; } }
@@ -1254,6 +1294,10 @@ button.btn, .btn, a.btn {
       font-size: 13.6px;
       line-height: 19.04px; } }
   @media only screen and (max-width: 767px) {
+    .btn-book {
+      font-size: 13.6px;
+      line-height: 19.04px; } }
+  @media only screen and (max-height: 768px) {
     .btn-book {
       font-size: 13.6px;
       line-height: 19.04px; } }
@@ -1339,6 +1383,10 @@ button.btn, .btn, a.btn {
     .btn-mini-book {
       font-size: 13.6px;
       line-height: 19.04px; } }
+  @media only screen and (max-height: 768px) {
+    .btn-mini-book {
+      font-size: 13.6px;
+      line-height: 19.04px; } }
   .btn-mini-book:hover {
     color: #FFF;
     border-color: #a4d740;
@@ -1369,6 +1417,10 @@ button.btn, .btn, a.btn {
       font-size: 10px;
       line-height: 14px; } }
   @media only screen and (max-width: 767px) {
+    .btn-mini-book {
+      font-size: 10px;
+      line-height: 14px; } }
+  @media only screen and (max-height: 768px) {
     .btn-mini-book {
       font-size: 10px;
       line-height: 14px; } }
@@ -1429,6 +1481,10 @@ button.btn, .btn, a.btn {
       font-size: 13.6px;
       line-height: 19.04px; } }
   @media only screen and (max-width: 767px) {
+    .btn-small-book {
+      font-size: 13.6px;
+      line-height: 19.04px; } }
+  @media only screen and (max-height: 768px) {
     .btn-small-book {
       font-size: 13.6px;
       line-height: 19.04px; } }
@@ -1510,6 +1566,10 @@ button.btn, .btn, a.btn {
     .btn-large-book {
       font-size: 13.6px;
       line-height: 19.04px; } }
+  @media only screen and (max-height: 768px) {
+    .btn-large-book {
+      font-size: 13.6px;
+      line-height: 19.04px; } }
   .btn-large-book:hover {
     color: #FFF;
     border-color: #a4d740;
@@ -1585,6 +1645,10 @@ button.btn, .btn, a.btn {
       font-size: 13.6px;
       line-height: 19.04px; } }
   @media only screen and (max-width: 767px) {
+    .btn-large-add {
+      font-size: 13.6px;
+      line-height: 19.04px; } }
+  @media only screen and (max-height: 768px) {
     .btn-large-add {
       font-size: 13.6px;
       line-height: 19.04px; } }
@@ -1691,6 +1755,10 @@ button.btn, .btn, a.btn {
       font-size: 13.6px;
       line-height: 19.04px; } }
   @media only screen and (max-width: 767px) {
+    .btn-add {
+      font-size: 13.6px;
+      line-height: 19.04px; } }
+  @media only screen and (max-height: 768px) {
     .btn-add {
       font-size: 13.6px;
       line-height: 19.04px; } }
@@ -2012,6 +2080,10 @@ dl {
       dl dt {
         font-size: 13.6px;
         line-height: 16.32px; } }
+    @media only screen and (max-height: 768px) {
+      dl dt {
+        font-size: 13.6px;
+        line-height: 16.32px; } }
   dl dd {
     margin: 0 0 8px 32px; }
 
@@ -2075,6 +2147,10 @@ p:last-child, ul:last-child {
     .footnote {
       font-size: 11px;
       line-height: 15.4px; } }
+  @media only screen and (max-height: 768px) {
+    .footnote {
+      font-size: 11px;
+      line-height: 15.4px; } }
 
 .img-center {
   margin-left: auto;
@@ -2112,6 +2188,10 @@ p:last-child, ul:last-child {
       font-size: 11px;
       line-height: 15.4px; } }
   @media only screen and (max-width: 767px) {
+    .alert {
+      font-size: 11px;
+      line-height: 15.4px; } }
+  @media only screen and (max-height: 768px) {
     .alert {
       font-size: 11px;
       line-height: 15.4px; } }
@@ -2192,6 +2272,10 @@ p:last-child, ul:last-child {
         font-size: 13.6px;
         line-height: 16.32px; } }
     @media only screen and (max-width: 767px) {
+      .divider span {
+        font-size: 13.6px;
+        line-height: 16.32px; } }
+    @media only screen and (max-height: 768px) {
       .divider span {
         font-size: 13.6px;
         line-height: 16.32px; } }
@@ -2467,6 +2551,10 @@ input, textarea, select {
     input, textarea, select {
       font-size: 13.6px;
       line-height: 19.04px; } }
+  @media only screen and (max-height: 768px) {
+    input, textarea, select {
+      font-size: 13.6px;
+      line-height: 19.04px; } }
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
     input, textarea, select {
       padding: 0 8px; } }
@@ -2474,6 +2562,9 @@ input, textarea, select {
     input, textarea, select {
       padding: 0 8px; } }
   @media only screen and (max-width: 767px) {
+    input, textarea, select {
+      padding: 0 8px; } }
+  @media only screen and (max-height: 768px) {
     input, textarea, select {
       padding: 0 8px; } }
   .form-inline input, .form-inline textarea, .form-inline select {
@@ -2488,6 +2579,9 @@ input {
     input {
       height: 32.4px; } }
   @media only screen and (max-width: 767px) {
+    input {
+      height: 32.4px; } }
+  @media only screen and (max-height: 768px) {
     input {
       height: 32.4px; } }
   input.input-small {
@@ -2509,6 +2603,10 @@ input {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (max-width: 767px) {
+      input.input-mini {
+        font-size: 11px;
+        line-height: 15.4px; } }
+    @media only screen and (max-height: 768px) {
       input.input-mini {
         font-size: 11px;
         line-height: 15.4px; } }
@@ -2554,6 +2652,9 @@ textarea {
   @media only screen and (max-width: 767px) {
     textarea {
       padding: 4px 8px; } }
+  @media only screen and (max-height: 768px) {
+    textarea {
+      padding: 4px 8px; } }
 
 input[type=number] {
   padding: 4px 12px; }
@@ -2590,6 +2691,10 @@ input[type="radio"], input[type="checkbox"] {
     .radio, .checkbox {
       font-size: 13.6px;
       line-height: 19.04px; } }
+  @media only screen and (max-height: 768px) {
+    .radio, .checkbox {
+      font-size: 13.6px;
+      line-height: 19.04px; } }
   .radio input, .checkbox input {
     cursor: pointer; }
   .radio.inline, .checkbox.inline {
@@ -2622,6 +2727,9 @@ select, input[type="file"] {
     select, input[type="file"] {
       height: 32.4px; } }
   @media only screen and (max-width: 767px) {
+    select, input[type="file"] {
+      height: 32.4px; } }
+  @media only screen and (max-height: 768px) {
     select, input[type="file"] {
       height: 32.4px; } }
 
@@ -2681,6 +2789,10 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
       font-size: 11px;
       line-height: 15.4px; } }
   @media only screen and (max-width: 767px) {
+    .input-label, label {
+      font-size: 11px;
+      line-height: 15.4px; } }
+  @media only screen and (max-height: 768px) {
     .input-label, label {
       font-size: 11px;
       line-height: 15.4px; } }
@@ -2749,6 +2861,10 @@ legend {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (max-width: 767px) {
+      .pwdvalidation ul li {
+        font-size: 11px;
+        line-height: 15.4px; } }
+    @media only screen and (max-height: 768px) {
       .pwdvalidation ul li {
         font-size: 11px;
         line-height: 15.4px; } }
@@ -2997,6 +3113,10 @@ body:before {
             .teaserbox.teaserbox-fullimg-txt .outerwrap .textblock .btn-negative {
               font-size: 13.6px;
               line-height: 19.04px; } }
+          @media only screen and (max-height: 768px) {
+            .teaserbox.teaserbox-fullimg-txt .outerwrap .textblock .btn-negative {
+              font-size: 13.6px;
+              line-height: 19.04px; } }
           .teaserbox.teaserbox-fullimg-txt .outerwrap .textblock .btn-negative:hover {
             color: #FFF;
             border-color: #a4d740;
@@ -3059,6 +3179,10 @@ body:before {
             .teaserbox.teaserbox-fullimg-txt .outerwrap .textblock .btn-negative {
               font-size: 13.6px;
               line-height: 19.04px; } }
+          @media only screen and (max-height: 768px) {
+            .teaserbox.teaserbox-fullimg-txt .outerwrap .textblock .btn-negative {
+              font-size: 13.6px;
+              line-height: 19.04px; } }
           .teaserbox.teaserbox-fullimg-txt .outerwrap .textblock .btn-negative:hover {
             color: #FFF;
             border-color: #a4d740;
@@ -3088,6 +3212,7 @@ body:before {
     .teaserbox.teaserbox-fullimg-txt .textblock .preface {
       font-size: 24px;
       line-height: 28.8px; } }
+  @media only screen and (max-height: 768px) { }
 .teaserbox.teaserbox-mapdesign {
   background: url(/img/reacture-mapdesign.svg) center center; }
   .teaserbox.teaserbox-mapdesign .row {
@@ -3204,6 +3329,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
       font-size: 11px;
       line-height: 15.4px; } }
   @media only screen and (max-width: 767px) {
+    .marker-labels {
+      font-size: 11px;
+      line-height: 15.4px; } }
+  @media only screen and (max-height: 768px) {
     .marker-labels {
       font-size: 11px;
       line-height: 15.4px; } }
@@ -3766,6 +3895,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
         .event-item .event-item-header .event-item-quantity {
           font-size: 11px;
           line-height: 15.4px; } }
+      @media only screen and (max-height: 768px) {
+        .event-item .event-item-header .event-item-quantity {
+          font-size: 11px;
+          line-height: 15.4px; } }
     .event-item .event-item-header .event-item-book {
       float: left;
       text-align: right;
@@ -3789,6 +3922,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (max-width: 767px) {
+      .event-item .event-item-body {
+        font-size: 11px;
+        line-height: 15.4px; } }
+    @media only screen and (max-height: 768px) {
       .event-item .event-item-body {
         font-size: 11px;
         line-height: 15.4px; } }
@@ -3924,6 +4061,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (max-width: 767px) {
+      .eventedit .event-duration-block {
+        font-size: 11px;
+        line-height: 15.4px; } }
+    @media only screen and (max-height: 768px) {
       .eventedit .event-duration-block {
         font-size: 11px;
         line-height: 15.4px; } }
@@ -4343,6 +4484,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
       .uservoice-custom.small a {
         font-size: 11px;
         line-height: 15.4px; } }
+    @media only screen and (max-height: 768px) {
+      .uservoice-custom.small a {
+        font-size: 11px;
+        line-height: 15.4px; } }
   .uservoice-custom.small .icon {
     width: 12px;
     height: 10px;
@@ -4469,6 +4614,10 @@ shoppingcart.shoppingcart-rightside {
       .shoppingcart-toggle .numberofitems {
         font-size: 10px;
         line-height: 14px; } }
+    @media only screen and (max-height: 768px) {
+      .shoppingcart-toggle .numberofitems {
+        font-size: 10px;
+        line-height: 14px; } }
   .active .shoppingcart-toggle .innerwrap {
     background-color: #C83C19;
     background-position: -82px 13px;
@@ -4496,6 +4645,10 @@ shoppingcart.shoppingcart-rightside {
         font-size: 17px;
         line-height: 20.4px; } }
     @media only screen and (max-width: 767px) {
+      .shoppingcart-header h3 {
+        font-size: 17px;
+        line-height: 20.4px; } }
+    @media only screen and (max-height: 768px) {
       .shoppingcart-header h3 {
         font-size: 17px;
         line-height: 20.4px; } }
@@ -4643,6 +4796,10 @@ shoppingcart.shoppingcart-rightside {
     .category {
       font-size: 11px;
       line-height: 15.4px; } }
+  @media only screen and (max-height: 768px) {
+    .category {
+      font-size: 11px;
+      line-height: 15.4px; } }
   .category .category-sub {
     font-weight: 200; }
 
@@ -4737,6 +4894,10 @@ activitybarstripe {
       activitybarstripe .activity-detail-toggle {
         font-size: 11px;
         line-height: 15.4px; } }
+    @media only screen and (max-height: 768px) {
+      activitybarstripe .activity-detail-toggle {
+        font-size: 11px;
+        line-height: 15.4px; } }
   activitybarstripe .activitydetailactive .activity-detail-toggle {
     background-color: #C83C19; }
   activitybarstripe .activity-text {
@@ -4785,6 +4946,10 @@ activitybarstripe {
           font-size: 17px;
           line-height: 20.4px; } }
       @media only screen and (max-width: 767px) {
+        activitybarstripe .activity-text .title {
+          font-size: 17px;
+          line-height: 20.4px; } }
+      @media only screen and (max-height: 768px) {
         activitybarstripe .activity-text .title {
           font-size: 17px;
           line-height: 20.4px; } }
@@ -4864,6 +5029,10 @@ activitybarstripe {
           font-size: 11px;
           line-height: 15.4px; } }
       @media only screen and (max-width: 767px) {
+        activitybarstripe .activity-price-min .smalltext {
+          font-size: 11px;
+          line-height: 15.4px; } }
+      @media only screen and (max-height: 768px) {
         activitybarstripe .activity-price-min .smalltext {
           font-size: 11px;
           line-height: 15.4px; } }
@@ -5694,6 +5863,10 @@ activitybardetail {
                 .sitemap ul li ul li ul li a {
                   font-size: 11px;
                   line-height: 15.4px; } }
+              @media only screen and (max-height: 768px) {
+                .sitemap ul li ul li ul li a {
+                  font-size: 11px;
+                  line-height: 15.4px; } }
             .sitemap ul li ul li ul li ul {
               list-style-type: none;
               display: block;
@@ -5943,6 +6116,10 @@ activitybardetail {
       .filter-toggle .filter-toggle-show, .filter-toggle .filter-toggle-hide {
         font-size: 11px;
         line-height: 15.4px; } }
+    @media only screen and (max-height: 768px) {
+      .filter-toggle .filter-toggle-show, .filter-toggle .filter-toggle-hide {
+        font-size: 11px;
+        line-height: 15.4px; } }
     .filter-toggle .filter-toggle-show:hover, .filter-toggle .filter-toggle-hide:hover {
       cursor: pointer; }
     .filter-toggle .filter-toggle-show:first-child, .filter-toggle .filter-toggle-hide:first-child {
@@ -6023,6 +6200,9 @@ activitybardetail {
       .input-group-btn > .btn {
         height: 32.4px; } }
     @media only screen and (max-width: 767px) {
+      .input-group-btn > .btn {
+        height: 32.4px; } }
+    @media only screen and (max-height: 768px) {
       .input-group-btn > .btn {
         height: 32.4px; } }
   .input-group-btn:last-child > .btn {
@@ -6163,6 +6343,10 @@ activitybardetail {
     .maketeaserimage {
       font-size: 13.6px;
       line-height: 19.04px; } }
+  @media only screen and (max-height: 768px) {
+    .maketeaserimage {
+      font-size: 13.6px;
+      line-height: 19.04px; } }
   .maketeaserimage:hover {
     color: #FFF;
     border-color: #a4d740;
@@ -6196,6 +6380,10 @@ activitybardetail {
     .maketeaserimage {
       font-size: 10px;
       line-height: 14px; } }
+  @media only screen and (max-height: 768px) {
+    .maketeaserimage {
+      font-size: 10px;
+      line-height: 14px; } }
 
 .admin-section {
   border-right: solid 1px #d9d9d9;
@@ -6223,6 +6411,10 @@ activitybardetail {
         font-size: 17px;
         line-height: 20.4px; } }
     @media only screen and (max-width: 767px) {
+      .admin-section a, .admin-section a:link {
+        font-size: 17px;
+        line-height: 20.4px; } }
+    @media only screen and (max-height: 768px) {
       .admin-section a, .admin-section a:link {
         font-size: 17px;
         line-height: 20.4px; } }
@@ -6276,6 +6468,10 @@ activitybardetail {
       font-size: 13.6px;
       line-height: 19.04px; } }
   @media only screen and (max-width: 767px) {
+    .col-left-fixed .logoutlink {
+      font-size: 13.6px;
+      line-height: 19.04px; } }
+  @media only screen and (max-height: 768px) {
     .col-left-fixed .logoutlink {
       font-size: 13.6px;
       line-height: 19.04px; } }
@@ -6341,6 +6537,10 @@ activitybardetail {
         font-size: 17px;
         line-height: 20.4px; } }
     @media only screen and (max-width: 767px) {
+      .teaser-block a, .teaser-block a:link {
+        font-size: 17px;
+        line-height: 20.4px; } }
+    @media only screen and (max-height: 768px) {
       .teaser-block a, .teaser-block a:link {
         font-size: 17px;
         line-height: 20.4px; } }
@@ -7163,6 +7363,10 @@ body {
       font-size: 13.6px;
       line-height: 19.04px; } }
   @media only screen and (max-width: 767px) {
+    body {
+      font-size: 13.6px;
+      line-height: 19.04px; } }
+  @media only screen and (max-height: 768px) {
     body {
       font-size: 13.6px;
       line-height: 19.04px; } }
