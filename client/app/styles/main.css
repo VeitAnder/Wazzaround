@@ -2940,6 +2940,80 @@ legend {
       .no-svg .pwdvalidation ul li.valid .icon {
         background-image: url('/img/sprite_icons.png'); }
 
+.form-group-helptext label {
+  display: inline-block;
+  padding-right: 16px; }
+.form-group-helptext .aiotoggleitem {
+  display: block;
+  margin-top: -25px; }
+  .form-group-helptext .aiotoggleitem .aiotoggleitemhead {
+    float: right;
+    margin-bottom: 7px; }
+    .form-group-helptext .aiotoggleitem .aiotoggleitemhead i {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      -webkit-border-radius: 8px;
+      -khtml-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      -o-border-radius: 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      line-height: 16.8px;
+      font-family: 'Helvetica Neue', Helvetica, Arial;
+      background-color: #a4d740;
+      color: #FFF;
+      font-style: normal;
+      text-align: center;
+      font-weight: 600; }
+      .form-group-helptext .aiotoggleitem .aiotoggleitemhead i p {
+        padding-bottom: 12px; }
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        .form-group-helptext .aiotoggleitem .aiotoggleitemhead i {
+          font-size: 11px;
+          line-height: 15.4px; } }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .form-group-helptext .aiotoggleitem .aiotoggleitemhead i {
+          font-size: 11px;
+          line-height: 15.4px; } }
+      @media only screen and (max-width: 767px) {
+        .form-group-helptext .aiotoggleitem .aiotoggleitemhead i {
+          font-size: 11px;
+          line-height: 15.4px; } }
+      @media only screen and (max-height: 768px) {
+        .form-group-helptext .aiotoggleitem .aiotoggleitemhead i {
+          font-size: 11px;
+          line-height: 15.4px; } }
+    .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
+      display: none; }
+    .form-group-helptext .aiotoggleitem .aiotoggleitemhead:hover i {
+      background-color: #85C900; }
+  .form-group-helptext .aiotoggleitem .aiotoggleitembody {
+    font-size: 12px;
+    line-height: 16.8px;
+    width: 100%;
+    float: left;
+    margin-bottom: 12px; }
+    .form-group-helptext .aiotoggleitem .aiotoggleitembody p {
+      padding-bottom: 12px; }
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      .form-group-helptext .aiotoggleitem .aiotoggleitembody {
+        font-size: 11px;
+        line-height: 15.4px; } }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .form-group-helptext .aiotoggleitem .aiotoggleitembody {
+        font-size: 11px;
+        line-height: 15.4px; } }
+    @media only screen and (max-width: 767px) {
+      .form-group-helptext .aiotoggleitem .aiotoggleitembody {
+        font-size: 11px;
+        line-height: 15.4px; } }
+    @media only screen and (max-height: 768px) {
+      .form-group-helptext .aiotoggleitem .aiotoggleitembody {
+        font-size: 11px;
+        line-height: 15.4px; } }
+
 .cursor-pointer {
   cursor: pointer; }
 

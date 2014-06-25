@@ -21,8 +21,16 @@
 
           <fieldset>
             <legend>{{'Global Activity Info' | translate}}:</legend>
-            <div class="form-group">
+            <div class="form-group form-group-helptext">
               <label for="activityname">{{'Name of Activity or Activities' | translate}}</label>
+
+              <div aiotoggleitem
+                   toggleitemlabel="helptext"
+                   class="aiotoggleitem">
+                {{'helptext activityname' | translate}}
+              </div>
+
+
               <input type="text"
                      class="form-control"
                      id="activityname"
@@ -34,12 +42,6 @@
               <span ng-show="showError('activityname', 'required')"
                     class="alert alert-error">{{'Please enter the name of the activity/activities.' | translate}}
               </span>
-
-              <!--
-               <div aiotoggleitem toggleitemlabel="helptext">
-                   {{'helptext activityname' | translate}}
-               </div>
-              -->
 
             </div>
 

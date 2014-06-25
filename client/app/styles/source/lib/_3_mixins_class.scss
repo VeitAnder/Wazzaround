@@ -2114,6 +2114,54 @@ legend {
   box-shadow: none;
 }
 
+.form-group-helptext{
+  label{
+    display: inline-block;
+    padding-right: $fs;
+  }
+  .aiotoggleitem{
+    display: block;
+    margin-top: -25px; // fixed label height
+    .aiotoggleitemhead{
+      float: right;
+      margin-bottom: 7px;
+      i{
+        display: inline-block;
+        width: $fs;
+        height: $fs;
+        @include border-radius($fs*0.5);
+        @include font-size_small;
+        font-family: 'Helvetica Neue', Helvetica, Arial;
+        background-color: $color_green_75;
+        color: $color_white;
+        font-style: normal;
+        text-align: center;
+        font-weight: $font-weight_bold;
+      }
+      span{
+        display: none;
+      }
+      &:hover{
+        i{
+          background-color: $color_green;
+        }
+      }
+    }
+    .aiotoggleitembody{
+      @include font-size_small;
+      width: 100%;
+      float: left;
+      margin-bottom: $fs*$font-size_small_factor;
+    }
+
+    .open{
+      .aiotoggleitembody {
+      }
+    }
+  }
+}
+
+
 // DIV-TABLE ELEMENTS
 // ###########################################################################################################################
 // ###########################################################################################################################
