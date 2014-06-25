@@ -547,10 +547,24 @@ angular.module('anorakApp')
       "Please enter a description.": "Please enter a description.",
       "Please enter a short description.": "Please enter a short description.",
       "more information": "more information",
-      "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering.",
       "I accept the reacture affiliate agreement": "I accept the reacture affiliate agreement.",
       "Please accept the reacture affiliate agreement": "Please accept the reacture affiliate agreement.",
-      "Affiliate agreement": "Affiliate agreement."
+      "Affiliate agreement": "Affiliate agreement.",
+      "helptext registration company": "Enter the name of the company or person offering this activity.",
+      "helptext registration contact person": "Enter the name of the person who is responsible for this activity.",
+      "helptext activity name": "Give your activity a name! Choose a title that describes what you are offering.",
+      "helptext activity meeting spot": "Allows you to choose where you will meet your customers.",
+      "helptext activty short descricption": "",
+      "helptext activty description": "Describe your activity! The more details you indicate , the more likely you will get bookings. Enter all information that may interest your customers. Does your city tour include a meal? Which languages do you speak? For how long have you been offering this activity? Do your customers need anything to bring eith them (cloth, shoes, sleeping bag....)? Use the layout feature to highlight important information!",
+      "helptext activty item description": "Describe in a short sentence, what exactly your customers can book.",
+      "helptext activity start date": "Choose when this activity takes place for the first time.",
+      "helptext activity start time": "Choose at what time your customers should meet you at the meeting point.",
+      "helptext activity end date": "Enter the date your activity end. Normally it will end the same day, only hours later …",
+      "helptext activity end time": "Allows you to choose when your activity ends.",
+      "helptext activity quantity": "Allows you to choose how many clients can simultaneously book your activity.",
+      "helptext activity price": "Allows you to choose how much your activity costs.",
+      "helptext activity repeating": "Tell us until when this event should be repeated."
+
     });
 
     $translateProvider.translations('de', {
@@ -839,10 +853,24 @@ angular.module('anorakApp')
       "Please enter a description.": "Bitte geben Sie eine Beschreibung ein.",
       "Please enter a short description.": "Bitte geben Sie eine Kurzbeschreibung ein.",
       "more information": "weitere Informationen",
-      "helptext activityname": "Gib Deiner Aktivität einen Namen! Dieser sollte beschreiben, was Du anbietest.",
       "I accept the reacture affiliate agreement": "Ich stimme den Bedingungen des reActure Partnervertrages zu.",
       "Please accept the reacture affiliate agreement": "Bitte stimmen Sie den Bedingungen des reActure Partnervertrages zu.",
-      "Affiliate agreement": "Partnervertrag."
+      "Affiliate agreement": "Partnervertrag.",
+      "helptext registration company": "Enter the name of the company or person offering this activity.",
+      "helptext registration contact person": "Enter the name of the person who is responsible for this activity.",
+      "helptext activity name": "Give your activity a name! Choose a title that describes what you are offering.",
+      "helptext activity meeting spot": "Allows you to choose where you will meet your customers.",
+      "helptext activty short descricption": "",
+      "helptext activty description": "Describe your activity! The more details you indicate , the more likely you will get bookings. Enter all information that may interest your customers. Does your city tour include a meal? Which languages do you speak? For how long have you been offering this activity? Do your customers need anything to bring eith them (cloth, shoes, sleeping bag....)? Use the layout feature to highlight important information!",
+      "helptext activty item description": "Describe in a short sentence, what exactly your customers can book.",
+      "helptext activity start date": "Choose when this activity takes place for the first time.",
+      "helptext activity start time": "Choose at what time your customers should meet you at the meeting point.",
+      "helptext activity end date": "Enter the date your activity end. Normally it will end the same day, only hours later …",
+      "helptext activity end time": "Allows you to choose when your activity ends.",
+      "helptext activity quantity": "Allows you to choose how many clients can simultaneously book your activity.",
+      "helptext activity price": "Allows you to choose how much your activity costs.",
+      "helptext activity repeating": "Tell us until when this event should be repeated."
+
     });
 
     $translateProvider.translations('it', {
@@ -1130,10 +1158,23 @@ angular.module('anorakApp')
       "Please enter a description.": "Please enter a description.",
       "Please enter a short description.": "Please enter a short description.",
       "more information": "ulteriori informazioni",
-      "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering.",
       "I accept the reacture affiliate agreement": "I accept the reacture affiliate agreement.",
       "Please accept the reacture affiliate agreement": "Please accept the reacture affiliate agreement.",
-      "Affiliate agreement": "Affiliate agreement."
+      "Affiliate agreement": "Affiliate agreement.",
+      "helptext registration company": "Enter the name of the company or person offering this activity.",
+      "helptext registration contact person": "Enter the name of the person who is responsible for this activity.",
+      "helptext activity name": "Give your activity a name! Choose a title that describes what you are offering.",
+      "helptext activity meeting spot": "Allows you to choose where you will meet your customers.",
+      "helptext activty short descricption": "",
+      "helptext activty description": "Describe your activity! The more details you indicate , the more likely you will get bookings. Enter all information that may interest your customers. Does your city tour include a meal? Which languages do you speak? For how long have you been offering this activity? Do your customers need anything to bring eith them (cloth, shoes, sleeping bag....)? Use the layout feature to highlight important information!",
+      "helptext activty item description": "Describe in a short sentence, what exactly your customers can book.",
+      "helptext activity start date": "Choose when this activity takes place for the first time.",
+      "helptext activity start time": "Choose at what time your customers should meet you at the meeting point.",
+      "helptext activity end date": "Enter the date your activity end. Normally it will end the same day, only hours later …",
+      "helptext activity end time": "Allows you to choose when your activity ends.",
+      "helptext activity quantity": "Allows you to choose how many clients can simultaneously book your activity.",
+      "helptext activity price": "Allows you to choose how much your activity costs.",
+      "helptext activity repeating": "Tell us until when this event should be repeated."
     });
 
     $translateProvider.translations('fr', {
@@ -1422,10 +1463,23 @@ angular.module('anorakApp')
       "Please enter a description.": "Please enter a description.",
       "Please enter a short description.": "Please enter a short description.",
       "more information": "plus d'informations",
-      "helptext activityname": "Give your activity a name! Choose a title that describes what you are offering.",
       "I accept the reacture affiliate agreement": "I accept the reacture affiliate agreement.",
       "Please accept the reacture affiliate agreement": "Please accept the reacture affiliate agreement.",
-      "Affiliate agreement": "Affiliate agreement."
+      "Affiliate agreement": "Affiliate agreement.",
+      "helptext registration company": "Enter the name of the company or person offering this activity.",
+      "helptext registration contact person": "Enter the name of the person who is responsible for this activity.",
+      "helptext activity name": "Give your activity a name! Choose a title that describes what you are offering.",
+      "helptext activity meeting spot": "Allows you to choose where you will meet your customers.",
+      "helptext activty short descricption": "",
+      "helptext activty description": "Describe your activity! The more details you indicate , the more likely you will get bookings. Enter all information that may interest your customers. Does your city tour include a meal? Which languages do you speak? For how long have you been offering this activity? Do your customers need anything to bring eith them (cloth, shoes, sleeping bag....)? Use the layout feature to highlight important information!",
+      "helptext activty item description": "Describe in a short sentence, what exactly your customers can book.",
+      "helptext activity start date": "Choose when this activity takes place for the first time.",
+      "helptext activity start time": "Choose at what time your customers should meet you at the meeting point.",
+      "helptext activity end date": "Enter the date your activity end. Normally it will end the same day, only hours later …",
+      "helptext activity end time": "Allows you to choose when your activity ends.",
+      "helptext activity quantity": "Allows you to choose how many clients can simultaneously book your activity.",
+      "helptext activity price": "Allows you to choose how much your activity costs.",
+      "helptext activity repeating": "Tell us until when this event should be repeated."
     });
 
 
