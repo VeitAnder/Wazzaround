@@ -2941,8 +2941,9 @@ legend {
         background-image: url('/img/sprite_icons.png'); }
 
 .form-group-helptext label {
-  display: inline-block;
   padding-right: 16px; }
+.form-group-helptext .input-group {
+  width: 100%; }
 .form-group-helptext .aiotoggleitem {
   display: block;
   margin-top: -25px; }
@@ -3668,6 +3669,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
       .enable_hover .bookableitem-header:hover .btn:hover {
         background-color: #e0f1bf;
         color: #85C900; }
+  .bookableitem-header .aiotoggleitembody {
+    color: #e8e8e8; }
   .bookableitem-header label {
     color: #d9d9d9; }
   .bookableitem-header .cell {
@@ -4060,6 +4063,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
       padding-left: 0; }
     .eventedit .form-group.last {
       padding-right: 0; }
+  .eventedit .form-group-helptext {
+    white-space: normal; }
   .eventedit .date-start {
     width: 25%; }
   .eventedit .date-end {

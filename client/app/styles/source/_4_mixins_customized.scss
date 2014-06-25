@@ -487,8 +487,14 @@ googleMap, .angular-google-map, .angular-google-map-container {
   @include divtable_row;
   padding: $bu;
   border-bottom: none;
+
   .bookableitem-add & {
   }
+
+  .aiotoggleitembody{
+    color: $color_grey_15;
+  }
+
   label {
     color: $color_grey_25;
   }
@@ -711,6 +717,9 @@ googleMap, .angular-google-map, .angular-google-map-container {
     &.last {
       padding-right: 0;
     }
+  }
+  .form-group-helptext{
+    white-space: normal;
   }
   .date-start {
     width: 25%;

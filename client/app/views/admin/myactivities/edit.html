@@ -23,14 +23,11 @@
             <legend>{{'Global Activity Info' | translate}}:</legend>
             <div class="form-group form-group-helptext">
               <label for="activityname">{{'Name of Activity or Activities' | translate}}</label>
-
               <div aiotoggleitem
                    toggleitemlabel="helptext"
                    class="aiotoggleitem">
                 {{'helptext activity name' | translate}}
               </div>
-
-
               <input type="text"
                      class="form-control"
                      id="activityname"
@@ -127,8 +124,13 @@
 
             </div>
 
-            <div class="form-group">
+            <div class="form-group form-group-helptext">
               <label>{{'Detailed description' | translate}}</label>
+              <div aiotoggleitem
+                   toggleitemlabel="helptext"
+                   class="aiotoggleitem">
+                {{'helptext activity description' | translate}}
+              </div>
 
               <textarea
                   class="form-control"
@@ -306,9 +308,16 @@
 
                     </div>
 
-                    <div class="bookableitem-name cell first last">
+                    <div class="form-group form-group-helptext">
+                    <!--<div class="bookableitem-name cell first last">-->
 
                       <label for="itemDescription">{{'Description' | translate}}</label>
+
+                      <div aiotoggleitem
+                           toggleitemlabel="helptext"
+                           class="aiotoggleitem">
+                        {{'helptext activity item description' | translate}}
+                      </div>
 
                       <input type="text"
                              class="form-control"
@@ -377,8 +386,15 @@
 
                           <datetimepicker event="event"></datetimepicker>
 
-                          <div class="form-group quantity first">
+                          <div class="form-group form-group-helptext quantity first">
                             <label>Quantity</label>
+
+                            <div aiotoggleitem
+                                 toggleitemlabel="helptext"
+                                 class="aiotoggleitem">
+                              {{'helptext activity quantity' | translate}}
+                            </div>
+
                             <input type="number"
                                    class="form-control"
                                    id="quantity"
@@ -396,8 +412,15 @@
 
                           </div>
 
-                          <div class="form-group price last">
+                          <div class="form-group form-group-helptext price last">
                             <label>Price</label>
+
+                            <div aiotoggleitem
+                                 toggleitemlabel="helptext"
+                                 class="aiotoggleitem">
+                              {{'helptext activity price' | translate}}
+                            </div>
+
                             <input type="number"
                                    class="form-control"
                                    ng-model="event.price"

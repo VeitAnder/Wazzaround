@@ -2116,8 +2116,10 @@ legend {
 
 .form-group-helptext{
   label{
-    display: inline-block;
     padding-right: $fs;
+  }
+  .input-group{
+    width: 100%;
   }
   .aiotoggleitem{
     display: block;

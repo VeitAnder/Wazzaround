@@ -1,7 +1,14 @@
 <div>
 
-  <div class="form-group date-start first">
+  <div class="form-group form-group-helptext date-start first">
     <label>Start date</label>
+
+    <div aiotoggleitem
+         toggleitemlabel="helptext"
+         class="aiotoggleitem">
+      {{'helptext activity start date' | translate}}
+    </div>
+
     <input type="text"
            size="10"
            class="form-control"
@@ -12,8 +19,15 @@
            bs-datepicker
         >
   </div>
-  <div class="form-group time-start">
+  <div class="form-group form-group-helptext time-start">
     <label>Start time</label>
+
+    <div aiotoggleitem
+         toggleitemlabel="helptext"
+         class="aiotoggleitem">
+      {{'helptext activity start time' | translate}}
+    </div>
+
     <input type="text"
            size="8"
            class="form-control"
@@ -27,8 +41,15 @@
     <span></span>
   </div>
 
-  <div class="form-group date-end">
+  <div class="form-group form-group-helptext date-end">
     <label>End date</label>
+
+    <div aiotoggleitem
+         toggleitemlabel="helptext"
+         class="aiotoggleitem">
+      {{'helptext activity end date' | translate}}
+    </div>
+
     <input type="text"
            size="10"
            class="form-control"
@@ -39,8 +60,15 @@
            bs-datepicker
         >
   </div>
-  <div class="form-group time-end last">
+  <div class="form-group form-group-helptext time-end last">
     <label>End time</label>
+
+    <div aiotoggleitem
+         toggleitemlabel="helptext"
+         class="aiotoggleitem">
+      {{'helptext activity end time' | translate}}
+    </div>
+
     <input type="text"
            size="8"
            class="form-control"
