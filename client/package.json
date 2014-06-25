@@ -1,6 +1,6 @@
 {
   "name": "anorak",
-  "version": "0.35.0",
+  "version": "0.35.1",
   "dependencies": {
     "compression": "^1.0.6",
     "serve-favicon": "^2.0.1"
