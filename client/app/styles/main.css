@@ -2995,7 +2995,8 @@ legend {
     line-height: 16.8px;
     width: 100%;
     float: left;
-    margin-bottom: 12px; }
+    margin-bottom: 12px;
+    color: #71ab00; }
     .form-group-helptext .aiotoggleitem .aiotoggleitembody p {
       padding-bottom: 12px; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -3669,7 +3670,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
       .enable_hover .bookableitem-header:hover .btn:hover {
         background-color: #e0f1bf;
         color: #85C900; }
-  .bookableitem-header .aiotoggleitembody {
+  .bookableitem-header .form-group-helptext .aiotoggleitembody {
     color: #e8e8e8; }
   .bookableitem-header label {
     color: #d9d9d9; }
@@ -4187,13 +4188,14 @@ googleMap, .angular-google-map, .angular-google-map-container {
     font-weight: 600; }
   .event-new-repeat .repeating {
     margin-top: 5px;
-    padding-top: 5px;
-    border-top: dotted 1px #b3b3b3; }
+    padding-top: 5px; }
     .event-new-repeat .repeating .checkbox {
       float: left;
       width: 14.28571%; }
       .event-new-repeat .repeating .checkbox label {
         font-weight: normal; }
+    .event-new-repeat .repeating .alert {
+      clear: both; }
 
 .availability-filter {
   background-color: #f7f7f7;

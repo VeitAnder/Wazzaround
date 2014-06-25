@@ -490,9 +490,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
   .bookableitem-add & {
   }
-
-  .aiotoggleitembody{
-    color: $color_grey_15;
+  .form-group-helptext{
+    .aiotoggleitembody{
+      color: $color_grey_15;
+    }
   }
 
   label {
@@ -806,13 +807,16 @@ googleMap, .angular-google-map, .angular-google-map-container {
   .repeating {
     margin-top: 5px;
     padding-top: 5px;
-    @include seperator(top, $color_grey_50);
+//    @include seperator(top, $color_grey_50);
     .checkbox {
       float: left;
       width: (100%) / 7;
       label {
         font-weight: normal;
       }
+    }
+    .alert{
+      clear: both;
     }
   }
 }

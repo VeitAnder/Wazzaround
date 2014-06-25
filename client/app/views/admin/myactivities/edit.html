@@ -439,13 +439,20 @@
 
                           <!-- REPEATING EVENT begin -->
 
-                          <div class="event-new-repeat">
+                          <div class="event-new-repeat form-group-helptext">
                             <div class="checkbox">
                               <label>
                                 <input type="checkbox"
                                        ng-model="event.repeating">
                                 {{'repeating Event' | translate}}
                               </label>
+
+                              <div aiotoggleitem
+                                   toggleitemlabel="helptext"
+                                   class="aiotoggleitem">
+                                {{'helptext activity repeating' | translate}}
+                              </div>
+
                             </div>
                             <div class="repeating"
                                  ng-show="event.repeating">
