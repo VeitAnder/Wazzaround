@@ -69,6 +69,9 @@ var config = {
     cloud_name: 'dqe7zmb1k',
     api_key: '619226866778758',
     api_secret: 'yA_Xv9LXc9aEab05M9YNlEgpQsw'
+  },
+  google: {
+    apikey: "AIzaSyDeA3pWT15QSri8b00AVVqVCmAY_Niqbvg"
   }
 };
 

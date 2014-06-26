@@ -1,6 +1,8 @@
 var config = require('../config.js');
 var upload = require('../routes/upload.js');
 
+var googleTranslate = require('google-translate')("AIzaSyDeA3pWT15QSri8b00AVVqVCmAY_Niqbvg");
+
 var RestApi = function (app, db) {
   // filter to allow cross origin requests
   app.all('*', function (req, res, next) {
@@ -113,6 +115,17 @@ var RestApi = function (app, db) {
 
     post_req.write(post_data);
     post_req.end();
+
+  });
+
+  // kalixa post redirect request test endpoint
+  app.get('/' + config.api.apiversion + 'translate/', function (req, res) {
+    var text = req.query.text;
+
+    googleTranslate.translate(text, 'de', 'fr', function (err, translation) {
+      console.log(translation);
+      res.send({"translation": translation});
+    });
 
   });
 
