@@ -2987,7 +2987,36 @@ legend {
           font-size: 11px;
           line-height: 15.4px; } }
     .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
-      display: none; }
+      font-size: 12px;
+      line-height: 16.8px;
+      margin-left: 3px; }
+      .form-group-helptext .aiotoggleitem .aiotoggleitemhead span p {
+        padding-bottom: 12px; }
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
+          font-size: 11px;
+          line-height: 15.4px; } }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
+          font-size: 11px;
+          line-height: 15.4px; } }
+      @media only screen and (max-width: 767px) {
+        .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
+          font-size: 11px;
+          line-height: 15.4px; } }
+      @media only screen and (max-height: 768px) {
+        .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
+          font-size: 11px;
+          line-height: 15.4px; } }
+      @media only screen and (min-width: 480px) and (max-width: 767px) {
+        .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
+          display: none; } }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
+          display: none; } }
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        datetimepicker .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
+          display: none; } }
     .form-group-helptext .aiotoggleitem .aiotoggleitemhead:hover i {
       background-color: #85C900; }
   .form-group-helptext .aiotoggleitem .aiotoggleitembody {
@@ -3670,6 +3699,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
       .enable_hover .bookableitem-header:hover .btn:hover {
         background-color: #e0f1bf;
         color: #85C900; }
+  .bookableitem-header .form-group-helptext a.aiotoggleitemhead {
+    color: #e8e8e8; }
   .bookableitem-header .form-group-helptext .aiotoggleitembody {
     color: #e8e8e8; }
   .bookableitem-header label {
