@@ -2141,7 +2141,19 @@ legend {
         font-weight: $font-weight_bold;
       }
       span{
-        display: none;
+        @include font-size_small;
+        margin-left: 3px;
+        @include respond-to(screen-xs) {
+          display: none;
+        }
+        @include respond-to(screen-sm) {
+          display: none;
+        }
+        datetimepicker &{
+          @include respond-to(screen-md){
+            display: none;
+          }
+        }
       }
       &:hover{
         i{

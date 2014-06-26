@@ -214,9 +214,9 @@ body:before {
     }
 
     @include respond-to(low-screen) {
-//      max-height: 400px;
-      .row{
-//        padding: 35px 0;
+      //      max-height: 400px;
+      .row {
+        //        padding: 35px 0;
       }
     }
 
@@ -371,11 +371,11 @@ googleMap, .angular-google-map, .angular-google-map-container {
       @include border-image;
     }
   }
-  .title{
+  .title {
     margin-bottom: $fs*0.25;
     font-weight: $font-weight_bold;
   }
-  .shortdescription{
+  .shortdescription {
     margin-bottom: $fs*0.25;
   }
   .description {
@@ -389,10 +389,8 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
-
-
 @mixin category-sports {
-  .title{
+  .title {
     color: $color_sports;
   }
   .category {
@@ -401,7 +399,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
 }
 
 @mixin category-culture {
-  .title{
+  .title {
     color: $color_culture;
   }
   .category {
@@ -410,15 +408,13 @@ googleMap, .angular-google-map, .angular-google-map-container {
 }
 
 @mixin category-wellness {
-  .title{
+  .title {
     color: $color_wellness;
   }
   .category {
     background-color: $color_wellness;
   }
 }
-
-
 
 .detail-category-sports {
   @include activity-content;
@@ -490,8 +486,11 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
   .bookableitem-add & {
   }
-  .form-group-helptext{
-    .aiotoggleitembody{
+  .form-group-helptext {
+    a.aiotoggleitemhead {
+      color: $color_grey_15;
+    }
+    .aiotoggleitembody {
       color: $color_grey_15;
     }
   }
@@ -719,7 +718,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
       padding-right: 0;
     }
   }
-  .form-group-helptext{
+  .form-group-helptext {
     white-space: normal;
   }
   .date-start {
@@ -807,7 +806,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   .repeating {
     margin-top: 5px;
     padding-top: 5px;
-//    @include seperator(top, $color_grey_50);
+    //    @include seperator(top, $color_grey_50);
     .checkbox {
       float: left;
       width: (100%) / 7;
@@ -815,17 +814,17 @@ googleMap, .angular-google-map, .angular-google-map-container {
         font-weight: normal;
       }
     }
-    .alert{
+    .alert {
       clear: both;
     }
   }
 }
 
-.availability-filter{
+.availability-filter {
   background-color: $color_grey_05;
   padding: $bu;
   @include border-radius($border-radius);
-  .form-group{
+  .form-group {
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -835,7 +834,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   margin-top: $fs;
   padding-top: $fs;
   @include seperator(top, $color_grey_25);
-  .bookableitem-tag{
+  .bookableitem-tag {
     margin: 0 5px 5px 0;
   }
 }
@@ -844,7 +843,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   @include label_tag;
   background-color: $color_grey_25;
   color: $color_grey_75;
-  &:hover{
+  &:hover {
     background-color: $color_grey_25_l5;
     color: $color_grey_75_l5;
   }
@@ -864,18 +863,18 @@ googleMap, .angular-google-map, .angular-google-map-container {
     position: relative;
     top: 2px;
   }
-  &:hover{
-    .checkbox-tag{
+  &:hover {
+    .checkbox-tag {
       border-color: $color_grey_75_l5;
     }
-    .numberofitems{
+    .numberofitems {
       background-color: $color_grey_05_l5;
     }
   }
   &.selected {
     color: $color_white;
     background-color: $color_green_75;
-    .numberofitems{
+    .numberofitems {
       color: $color_green;
       background-color: $color_green_25;
     }
@@ -1515,7 +1514,7 @@ activitybardetail {
     h4 {
       display: none;
     }
-    h6{
+    h6 {
       display: none;
     }
     .availability {
@@ -1528,10 +1527,9 @@ activitybardetail {
     }
   }
 
-
   //@TODO remove later  - only quick fix
-  .divider{
-    display:none;
+  .divider {
+    display: none;
   }
 }
 
@@ -2677,7 +2675,7 @@ $img-selector-teasertxtheight: 32px;
   }
   input, .contentbox {
     width: 100%;
-    &[type=checkbox]{
+    &[type=checkbox] {
       width: auto;
     }
   }
