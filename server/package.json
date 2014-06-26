@@ -38,7 +38,8 @@
     "tokenator": "0.0.4",
     "ua-parser-js": "0.6.2",
     "winston": "0.7.x",
-    "multiparty": "^3.2.8"
+    "multiparty": "^3.2.8",
+    "paymill-node": "^0.1.2"
   },
   "devDependencies": {
     "grunt-bump": "0.0.14",

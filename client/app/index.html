@@ -36,6 +36,9 @@
         href="styles/main.css">
   <!-- endbuild -->
 
+  <link rel="stylesheet"
+        href="styles/paymill_styles.css">
+
   <!--fonts-->
   <link rel='stylesheet'
         href='https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'>
@@ -290,6 +293,7 @@
 <script src="scripts/directives/ajsCentermaxwith.js"></script>
 <script src="scripts/directives/selectOnClick.js"></script>
 <script src="scripts/directives/aiotoggleitem.js"></script>
+<script src="scripts/controllers/payment.js"></script>
 <!-- endbuild -->
 
 <script type="text/javascript">
@@ -302,6 +306,12 @@
         };
       });
 </script>
+
+<script type="text/javascript">
+  // jonathans test key
+  var PAYMILL_PUBLIC_KEY = '2418277694183d0b517ddee557df72c9';
+</script>
+<script type="text/javascript" src="https://bridge.paymill.com/"></script>
 
 <script>
   (function (i, s, o, g, r, a, m) {
