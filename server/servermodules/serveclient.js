@@ -3,10 +3,15 @@ var express = require('express');
 var compress = require('compression');
 var favicon = require('serve-favicon');
 var fs = require('fs');
+var _ = require('lodash');
 
-var setupStaticAssetsServer = function (app, maxAge) {
+var setupStaticAssetsServer = function (app, maxAge, extconfig) {
   var maxAgeStaticAssets,
     handle404;
+
+  if (extconfig) {
+    config = _.assign(config, extconfig);
+  }
 
   // First looks for a static file: index.html, css, images, etc.
   app.use("/bower_components", compress());
@@ -66,7 +71,11 @@ var setupStaticAssetsServer = function (app, maxAge) {
 
 };
 
-var setupMaintenanceMode = function (app) {
+var setupMaintenanceMode = function (app, extconfig) {
+  if (extconfig) {
+    config = _.assign(config, extconfig);
+  }
+
 // Maintenance mode
 // set maintainancemode on modulus.io to true to show maintainance.html to users
 // shuts down the API too.

@@ -67,8 +67,10 @@ gulp.task('serve', ['watch'], function () {
   app.use(livereload({
     port: LIVERELOAD_PORT
   }));
-  require("./gulp_serveclient.js").setupStaticAssetsServer(app, config);
-  require("./gulp_serveclient.js").serveClient(app, config);
+
+  require("../server/servermodules/serveclient.js").setupStaticAssetsServer(app, config);
+  require("../server/servermodules/serveclient.js").serveClient(app, config);
+
   app.listen(SERVER_PORT);
   lrserver.listen(LIVERELOAD_PORT);
 });
@@ -80,8 +82,8 @@ gulp.task('servedist', function () {
       distFolder: "./dist"
     }
   };
-  require("./gulp_serveclient.js").setupStaticAssetsServer(app, config);
-  require("./gulp_serveclient.js").serveClient(app, config);
+  require("../server/servermodules/serveclient.js").setupStaticAssetsServer(app, config);
+  require("../server/servermodules/serveclient.js").serveClient(app, config);
   app.listen(8080);
 });
 
