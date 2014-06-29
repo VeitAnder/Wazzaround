@@ -32,7 +32,10 @@ app.use(logger.expressLogger);
 //require("./servermodules/security.js").allowCors(app);
 require("./servermodules/serveclient.js").setupStaticAssetsServer(app, (86400000 * 3));
 
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.set('json spaces', 2);
 
 if (process.env.NODE_ENV === "production") {
