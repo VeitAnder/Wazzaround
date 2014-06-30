@@ -488,14 +488,7 @@ module.exports = function (grunt) {
             // options for JSON
             prettifyJson: true,
             // do parseInt, parseFloat, or split(',') automatically
-            typeDetection: false,
-            // can also be specified manually to 'number', 'string', or 'array'
-            typeMapping: {
-              col1: 'string',
-              // 'undefined' will not be saved
-              col2: 'undefined',
-              col4: 'arr'
-            }
+            typeDetection: false
           },
           files: {
             // local save path : link to your worksheet
