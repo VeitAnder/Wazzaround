@@ -568,7 +568,8 @@ angular.module('anorakApp')
       "helptext activity end time": "Allows you to choose when your activity ends.",
       "helptext activity quantity": "Allows you to choose how many clients can simultaneously book your activity.",
       "helptext activity price": "Allows you to choose how much your activity costs.",
-      "helptext activity repeating": "Tell us until when this event should be repeated."
+      "helptext activity repeating": "Tell us until when this event should be repeated.",
+      "Payment": "Payment"
 
     });
 
@@ -875,8 +876,8 @@ angular.module('anorakApp')
       "helptext activity end time": "Gib an, wann Deine Aktivität endet.",
       "helptext activity quantity": "Gib an, wieviele Kunden gleichzeitig Deine Aktivität buchen können.",
       "helptext activity price": "Gib an, wieviel Deine Aktivität kostet.",
-      "helptext activity repeating": "Gib an, bis wann sich dieses Event automatisch wiederholen soll."
-
+      "helptext activity repeating": "Gib an, bis wann sich dieses Event automatisch wiederholen soll.",
+      "Payment": "Bezahlung"
     });
 
     $translateProvider.translations('it', {
@@ -1181,7 +1182,8 @@ angular.module('anorakApp')
       "helptext activity end time": "Allows you to choose when your activity ends.",
       "helptext activity quantity": "Permette di decidere quante persone possono prenotare contemporaneamente prenotare la tua attività",
       "helptext activity price": "permette di inserire il costo",
-      "helptext activity repeating": "ci permette di capire fino a quando questo evento può ripetersi"
+      "helptext activity repeating": "ci permette di capire fino a quando questo evento può ripetersi",
+      "Payment": "Pagamento"
     });
 
     $translateProvider.translations('fr', {
@@ -1487,7 +1489,8 @@ angular.module('anorakApp')
       "helptext activity end time": "Allows you to choose when your activity ends.",
       "helptext activity quantity": "Cela Vous permet de choisir combien de personne peuvent réserver simultanément l’activité",
       "helptext activity price": "vous pouvez insérer le tarif",
-      "helptext activity repeating": "il nous permet de comprendre jusqu’ù quand une activitè peut se répéter"
+      "helptext activity repeating": "il nous permet de comprendre jusqu’ù quand une activitè peut se répéter",
+      "Payment": "Paiement"
     });
 
 
