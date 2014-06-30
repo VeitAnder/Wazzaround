@@ -77,9 +77,6 @@ gulp.task('client', ['watch'], function () {
 gulp.task('clientdist', function () {
   var app = express();
 
-  // start server
-  require("../server/server.js");
-
   var config = {
     server: {
       distFolder: "./dist"
@@ -90,7 +87,6 @@ gulp.task('clientdist', function () {
   require("../server/servermodules/serveclient.js").serveClient(app, config);
   app.listen(SERVER_PORT);
 });
-
 
 // alias task for old serve
 gulp.task('serve', ['client']);

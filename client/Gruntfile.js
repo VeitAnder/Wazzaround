@@ -468,7 +468,7 @@ module.exports = function (grunt) {
           commit: true,
           commitMessage: 'Client Release v%VERSION%',
           commitFiles: ['package.json'], // '-a' for all files
-          createTag: true,
+          createTag: false,
           tagName: 'Client-v%VERSION%',
           tagMessage: 'Client Version %VERSION%',
           push: true,
