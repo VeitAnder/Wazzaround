@@ -99,3 +99,48 @@ BookingModel.operationImpl("checkout", function (params, req) {
   });
 
 });
+
+var PAYMILL_PRIVATE_KEY = '6d75d460894efb64f30a9f0307980052';
+var paymill = require('paymill-node')(PAYMILL_PRIVATE_KEY);
+
+BookingModel.operationImpl("pay", function (params, req) {
+  console.log("in pay operation");
+
+  console.log(params);
+
+  // Neues Zahlungsmittel anlegen
+  paymill.payments.create(
+    {
+      token: params.paymentToken
+    },
+    function(err, payment) {
+      if (err) {
+        console.log("Couldn't create the payment record");
+        return;
+      }
+      console.log("payment", payment.data);
+
+
+      // Eine Zahlung einleiten
+      paymill.transactions.create(
+        {
+          amount: parseInt(params.ammount),
+          currency: 'EUR',
+          payment: payment.data.id,
+          description: 'Test Transaction'
+        },
+        function(err, transaction) {
+          if (err) {
+            console.log("Couldn't create the transaction record");
+            console.log(err);
+            return;
+          }
+          console.log("transaction successfull");
+          console.log("transaction", transaction.data);
+        }
+      );
+
+    }
+  );
+
+});

@@ -192,7 +192,12 @@ var models = function () {
           quantity: Attr(Type.number)
         }
       ]
-    })  // returns { bookingID : .., state: 'ok' }
+    }),  // returns { bookingID : .., state: 'ok' }
+
+    pay: Operation({
+      ammount: Attr(Type.number),
+      paymentToken : Attr(Type.string)
+    })
   });
 
   // This Model represents the booking of one Event

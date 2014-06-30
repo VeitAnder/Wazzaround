@@ -41,7 +41,7 @@ gulp.task('html2js', function () {
 
 // Serve tasks
 gulp.task('reload:html', function () {
-  return gulp.src('./app/**/*.html')
+  return gulp.src('./app/index.html')
     .pipe(refresh(lrserver));
 });
 

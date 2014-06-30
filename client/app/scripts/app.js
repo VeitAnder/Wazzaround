@@ -223,6 +223,10 @@ angular.module('anorakApp')
         controller: 'ShoppingCartCtrl'
       })
 
+      .when('/payment', {
+        templateUrl: 'views/payment.html',
+        controller: 'PaymentCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
