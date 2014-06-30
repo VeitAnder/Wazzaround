@@ -5336,9 +5336,9 @@ activitybardetail {
         /* Fallback for non-webkit */
         display: -webkit-box;
         line-height: 22.4px;
-        height: 113px;
+        height: 68.2px;
         /* Fallback for non-webkit */
-        -webkit-line-clamp: 5;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis; }

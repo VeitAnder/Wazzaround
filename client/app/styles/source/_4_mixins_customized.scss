@@ -1498,7 +1498,7 @@ activitybardetail {
 
   .description {
     margin-top: 0;
-    @include multiline(5);
+    @include multiline(3);
   }
   &.activitydetailactive {
     bottom: $activitybar-height;
