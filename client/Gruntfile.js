@@ -158,7 +158,6 @@ module.exports = function (grunt) {
         server: '.tmp'
       },
 
-
       // Automatically inject Bower components into the app
       'bower-install': {
         app: {
@@ -475,11 +474,65 @@ module.exports = function (grunt) {
           pushTo: 'origin',
           gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' // options to use with '$ git describe'
         }
-      }
+      },
 
+      // https://docs.google.com/spreadsheet/ccc?key=0AmPyOqJNrt_SdGlZOVlrc2UzS3FpV1V6Ri1jX0haSlE#gid=1
+      gss: {
+        products: {
+          options: {
+            // from your Google API key
+            clientId: '59063909800-hrl5svtdk72g42rl1jl4ii29gpv4r40o.apps.googleusercontent.com',
+            clientSecret: 'ulzYowIXXTUUOGZh9YEWef43',
+            // output format
+            saveJson: true,
+            // options for JSON
+            prettifyJson: true,
+            // do parseInt, parseFloat, or split(',') automatically
+            typeDetection: false,
+            // can also be specified manually to 'number', 'string', or 'array'
+            typeMapping: {
+              col1: 'string',
+              // 'undefined' will not be saved
+              col2: 'undefined',
+              col4: 'arr'
+            }
+          },
+          files: {
+            // local save path : link to your worksheet
+            'translationspreadsheet.json': 'https://docs.google.com/spreadsheet/ccc?key=10o5NKCAckc2rIaLX1dKMnh2VAT66yK9UpzGDAK8wwx8#gid=424150697'
+          }
+        }
+      }
 
     }
   );
+
+  grunt.registerTask('convertgssjson', 'Convert Google Spreadsheet Data to angular-translate json files', function () {
+    var _ = require('lodash');
+    var spreadsheetjson = require('translationspreadsheet.json');
+    var translationfilepath = "./app/scripts/translations/";
+
+    var getLanguageFileJSON = function (langkey, spreadsheetjson) {
+      var translationobject = {};
+      _.each(spreadsheetjson, function (row) {
+        if (row.key && row.key !== "") {
+          translationobject[row.key] = row[langkey.toLowerCase()];
+        }
+      });
+      return translationobject;
+    };
+
+    // write files
+    grunt.file.write(translationfilepath + 'de.json', JSON.stringify(getLanguageFileJSON("de", spreadsheetjson), null, 2));
+    grunt.file.write(translationfilepath + 'en.json', JSON.stringify(getLanguageFileJSON("en", spreadsheetjson), null, 2));
+    grunt.file.write(translationfilepath + 'fr.json', JSON.stringify(getLanguageFileJSON("fr", spreadsheetjson), null, 2));
+    grunt.file.write(translationfilepath + 'it.json', JSON.stringify(getLanguageFileJSON("it", spreadsheetjson), null, 2));
+  });
+
+  grunt.registerTask('translate', [
+    'gss',
+    'convertgssjson'
+  ]);
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {

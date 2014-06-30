@@ -32,6 +32,7 @@
     "nodetime": "0.8.15",
     "passport": "0.2.0",
     "passport-local": "1.0.0",
+    "paymill-node": "^0.1.2",
     "postmark": "0.2.5",
     "q": "1.0.1",
     "restify": "2.8.1",
@@ -39,8 +40,7 @@
     "token.js": "0.0.1",
     "tokenator": "0.0.4",
     "ua-parser-js": "0.7.0",
-    "winston": "0.7.x",
-    "paymill-node": "^0.1.2"
+    "winston": "0.7.x"
   },
   "devDependencies": {
     "grunt-bump": "0.0.14",

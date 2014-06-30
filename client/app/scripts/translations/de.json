@@ -1,0 +1,16 @@
+{
+  "helptext registration company": "Gib den Namen der Firma oder der Person an, die diese Aktivität anbietet.",
+  "helptext registration contact person": "Gib uns den Namen der Person an, mit der wir unter der oben genannten Nummer in Kontakt treten können.",
+  "helptext activity name": "Gib Deiner Aktivität einen Namen! Dieser sollte beschreiben, was Du anbietest.",
+  "helptext activity meeting spot": "Gib an, wo Dich Deine Kunden treffen werden.",
+  "helptext activity short descricption": "",
+  "helptext activity description": "Beschreibe Deine Aktivität! Je mehr Details Du angibst, umso eher wirst Du Buchungen erhalten. Wichtig sind alle Informationen, die Deine Kunden interessieren könnten. Ist bei Deiner Stadttour ein Restaurantbesuch inkludiert? Sprichst Du mehrere Sprachen? Wie lange bist Du schon in Deinem Bereich tätig? Müssen Deine Kunden selbst etwas mitnehmen (Kleidung, Schuhe, Schlafsack...)? Prinzipiell gilt: Je mehr Infos umso besser für Dich und Deine Kunden! Verwende die Layout Funktion, um wichtige Informationen hervorzuheben!",
+  "helptext activity item description": "Beschreibe in einem kurzen Satz, was genau Deine Kunden buchen können.",
+  "helptext activity start date": "Gib an, wann diese Aktivität das erste Mal stattfindet.",
+  "helptext activity start time": "Gib an, um welche Uhrzeit Deine Kunden am Treffpunkt sein sollen.",
+  "helptext activity end date": "Gib an, wieviele Tage diese Aktivität dauert.",
+  "helptext activity end time": "Gib an, wann Deine Aktivität endet.",
+  "helptext activity quantity": "Gib an, wieviele Kunden gleichzeitig Deine Aktivität buchen können.",
+  "helptext activity price": "Gib an, wieviel Deine Aktivität kostet.",
+  "helptext activity repeating": "Gib an, bis wann sich dieses Event automatisch wiederholen soll."
+}

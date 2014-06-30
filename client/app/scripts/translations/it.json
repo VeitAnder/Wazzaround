@@ -1,0 +1,16 @@
+{
+  "helptext registration company": "",
+  "helptext registration contact person": "",
+  "helptext activity name": "",
+  "helptext activity meeting spot": "",
+  "helptext activity short descricption": "",
+  "helptext activity description": "descrivi la tua attività! maggiori dettagli fornirai, maggiori saranno le probabilità di ricevere prenotazione. Inserisci tutte le informazioni che potrebbero interessare ai tuoi clienti. Il tuo city tour include un pasto? Quali lingue parli? Da quanto tempo fornisci questo servizio? I tuoi clienti necessitano di portare con se’ delle attrezzature (vestiti, scarpe, sacco a pelo..)? Usa un carattere particolare per evidenziare le informazioni più importanti.",
+  "helptext activity item description": "descrivi con una frase breve cosa possono prenotare esattamente i tuoi clienti",
+  "helptext activity start date": "scegli quando questa attività avrà luogo la prima volta",
+  "helptext activity start time": "Indica a che ora i clienti devono trovarsi al punto d’incontro",
+  "helptext activity end date": "Indica la data in cui la tua attività termina. Normalmente lo stesso giorno, ore dopo ",
+  "helptext activity end time": "",
+  "helptext activity quantity": "Permette di decidere quante persone possono prenotare contemporaneamente prenotare la tua attività",
+  "helptext activity price": "permette di inserire il costo",
+  "helptext activity repeating": "ci permette di capire fino a quando questo evento può ripetersi"
+}
