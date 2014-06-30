@@ -77,11 +77,11 @@ module.exports = function (grunt) {
         files: ['package.json'],
         updateConfigs: [],
         commit: true,
-        commitMessage: 'Release v%VERSION%',
+        commitMessage: 'Server Release v%VERSION%',
         commitFiles: ['package.json'], // '-a' for all files
-        createTag: true,
-        tagName: 'Release-v%VERSION%',
-        tagMessage: 'Release Version %VERSION%',
+        createTag: false,
+        tagName: 'Server-v%VERSION%',
+        tagMessage: 'Server Version %VERSION%',
         push: true,
         pushTo: 'origin',
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' // options to use with '$ git describe'
