@@ -29,11 +29,6 @@ gulp.task('lint', function () {
     .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('startserver', shell.task([
-    'sh ../server/startserver.sh &'
-  ])
-);
-
 gulp.task('html2js', function () {
   gulp.src('./app/views/**/*.html')
     .pipe(html2js({
@@ -56,7 +51,11 @@ gulp.task('watch', ['html2js'], function () {
   gulp.watch(['app/**/*.js', '!app/scripts/templates.js'], ['reload:html']);
 });
 
-gulp.task('serve', ['watch'], function () {
+gulp.task('server', [], function () {
+  require("../server/server.js");
+});
+
+gulp.task('client', ['watch'], function () {
   var app = express();
   var config = {
     server: {
@@ -68,23 +67,33 @@ gulp.task('serve', ['watch'], function () {
     port: LIVERELOAD_PORT
   }));
 
-  require("../server/servermodules/serveclient.js").setupStaticAssetsServer(app, config);
+  require("../server/servermodules/serveclient.js").setupStaticAssetsServer(app, 0, config);
   require("../server/servermodules/serveclient.js").serveClient(app, config);
 
   app.listen(SERVER_PORT);
   lrserver.listen(LIVERELOAD_PORT);
 });
 
-gulp.task('servedist', function () {
+gulp.task('clientdist', function () {
   var app = express();
+
+  // start server
+  require("../server/server.js");
+
   var config = {
     server: {
       distFolder: "./dist"
     }
   };
-  require("../server/servermodules/serveclient.js").setupStaticAssetsServer(app, config);
+
+  require("../server/servermodules/serveclient.js").setupStaticAssetsServer(app, 0, config);
   require("../server/servermodules/serveclient.js").serveClient(app, config);
-  app.listen(8080);
+  app.listen(SERVER_PORT);
 });
 
-gulp.task('default', ['serve']);
+
+// alias task for old serve
+gulp.task('serve', ['client']);
+
+// just gulp, and entire app starts!
+gulp.task('default', ['server', 'client']);

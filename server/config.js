@@ -1,5 +1,11 @@
 var config;
 
+// set env to local if not defined
+if (!process.env.NODE_ENV) {
+  console.log("\nprocess.env.NODE_ENV not set. Auto-Change to 'developmentlocalhost' \n");
+  process.env.NODE_ENV = "developmentlocalhost";
+}
+
 if (process.env.NODE_ENV === "developmentlocalhost") {
   config = require("./config_developmentlocalhost.js");
 } else if (process.env.NODE_ENV === "developmentmodulus") {

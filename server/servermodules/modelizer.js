@@ -48,7 +48,7 @@ var initModelizer = function (app, db) {
 //  require('../models/server/event');
 
   // load all files in directory
-  require("fs").readdirSync("./models/server/").forEach(function(file) {
+  require("fs").readdirSync(__dirname +"/../models/server/").forEach(function(file) {
     require("../models/server/" + file);
   });
 
