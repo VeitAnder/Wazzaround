@@ -257,6 +257,9 @@ angular.module('anorakApp')
 // DO NOT ENABLE - Causes CORS trouble with google maps
 // $httpProvider.defaults.withCredentials = true;
 
+    // Translation source is this Google Spreadsheet:
+    // https://docs.google.com/spreadsheets/d/10o5NKCAckc2rIaLX1dKMnh2VAT66yK9UpzGDAK8wwx8/edit#gid=424150697
+    // Google-User: reactureapp@gmail.com
     $translateProvider.useStaticFilesLoader({
       prefix: '/scripts/translations/locale-',
       suffix: '.json'

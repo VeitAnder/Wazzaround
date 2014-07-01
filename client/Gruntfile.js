@@ -307,6 +307,12 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>/styles',
           dest: '.tmp/styles/',
           src: '{,*/}*.css'
+        },
+        translations: {
+          expand: true,
+          cwd: '<%= yeoman.app %>/scripts/translations',
+          dest: '<%= yeoman.dist %>/scripts/translations',
+          src: '{,*/}*.json'
         }
       },
 
@@ -476,7 +482,9 @@ module.exports = function (grunt) {
         }
       },
 
-      // https://docs.google.com/spreadsheet/ccc?key=0AmPyOqJNrt_SdGlZOVlrc2UzS3FpV1V6Ri1jX0haSlE#gid=1
+      // Translation source is this Google Spreadsheet:
+      // https://docs.google.com/spreadsheets/d/10o5NKCAckc2rIaLX1dKMnh2VAT66yK9UpzGDAK8wwx8/edit#gid=424150697
+      // Google-User: reactureapp@gmail.com
       gss: {
         products: {
           options: {
@@ -556,10 +564,10 @@ module.exports = function (grunt) {
     ]);
   });
 
-//  grunt.registerTask('server', function () {
-//    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-//    grunt.task.run(['serve']);
-//  });
+  grunt.registerTask('server', function () {
+    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+    grunt.task.run(['serve']);
+  });
 
   grunt.registerTask('test', [
     'clean:server',
@@ -574,8 +582,10 @@ module.exports = function (grunt) {
     'useminPrepare',
     'html2js',
     'concurrent:dist',
+    'translate',
     'concat',
     'ngAnnotate',
+    'copy:translations',
     'copy:dist',
     'cdnify',
     'cssmin',

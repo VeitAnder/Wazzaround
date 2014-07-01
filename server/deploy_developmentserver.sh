@@ -40,6 +40,7 @@ grunt --gruntfile ${SCRIPTPATH}/gruntFile.js release
 
 #build clientapp
 echo "build release of clientapp"
+grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js translate
 grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js bump:patch
 grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js release
 
