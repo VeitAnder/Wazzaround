@@ -12,16 +12,16 @@
     "key": "helptext registration company",
     "en": "Enter the name of the company or person offering this activity.",
     "de": "Gib den Namen der Firma oder der Person an, die diese Aktivität anbietet.",
-    "it": "",
-    "fr": ""
+    "it": "Enter the name of the company or person offering this activity.",
+    "fr": "Enter the name of the company or person offering this activity."
   },
   {
     "Description": "Name of contact person",
     "key": "helptext registration contact person",
     "en": "Enter the name of the person who is responsible for this activity.",
     "de": "Gib uns den Namen der Person an, mit der wir unter der oben genannten Nummer in Kontakt treten können.",
-    "it": "",
-    "fr": ""
+    "it": "Enter the name of the person who is responsible for this activity.",
+    "fr": "Enter the name of the person who is responsible for this activity."
   },
   {
     "Description": "ACTIVITY",
@@ -44,32 +44,32 @@
     "key": "helptext activity name",
     "en": "Give your activity a name! Choose a title that describes what you are offering.",
     "de": "Gib Deiner Aktivität einen Namen! Dieser sollte beschreiben, was Du anbietest.",
-    "it": "",
-    "fr": ""
+    "it": "Give your activity a name! Choose a title that describes what you are offering.",
+    "fr": "Give your activity a name! Choose a title that describes what you are offering."
   },
   {
     "Description": "Meeting spot of this activity",
     "key": "helptext activity meeting spot",
     "en": "Allows you to choose where you will meet your customers.",
     "de": "Gib an, wo Dich Deine Kunden treffen werden.",
-    "it": "",
-    "fr": ""
+    "it": "Allows you to choose where you will meet your customers.",
+    "fr": "Allows you to choose where you will meet your customers."
   },
   {
     "Description": "Short Description",
     "key": "helptext activity short descricption",
-    "en": "",
-    "de": "",
-    "it": "",
-    "fr": ""
+    "en": "helptext activity short descricption",
+    "de": "Hilfetext Aktivitäten ",
+    "it": "helptext activity short descricption",
+    "fr": "helptext activity short descricption"
   },
   {
     "Description": "Detailed description (min. 150 signs)",
     "key": "helptext activity description",
-    "en": "Describe your activity! The more details you indicate , the more likely you will get bookings. Enter all information that may interest your customers. Does your city tour include a meal? Which languages do you speak? For how long have you been offering this activity? Do your customers need anything to bring eith them (cloth, shoes, sleeping bag....)? Use the layout feature to highlight important information!",
-    "de": "Beschreibe Deine Aktivität! Je mehr Details Du angibst, umso eher wirst Du Buchungen erhalten. Wichtig sind alle Informationen, die Deine Kunden interessieren könnten. Ist bei Deiner Stadttour ein Restaurantbesuch inkludiert? Sprichst Du mehrere Sprachen? Wie lange bist Du schon in Deinem Bereich tätig? Müssen Deine Kunden selbst etwas mitnehmen (Kleidung, Schuhe, Schlafsack...)? Prinzipiell gilt: Je mehr Infos umso besser für Dich und Deine Kunden! Verwende die Layout Funktion, um wichtige Informationen hervorzuheben!",
-    "it": "descrivi la tua attività! maggiori dettagli fornirai, maggiori saranno le probabilità di ricevere prenotazione. Inserisci tutte le informazioni che potrebbero interessare ai tuoi clienti. Il tuo city tour include un pasto? Quali lingue parli? Da quanto tempo fornisci questo servizio? I tuoi clienti necessitano di portare con se’ delle attrezzature (vestiti, scarpe, sacco a pelo..)? Usa un carattere particolare per evidenziare le informazioni più importanti.",
-    "fr": "décrivez Votre activité! Insérez la majorité de détails et la possibilité de recevoir des réservations sera majeure. Nous Vous conseillons d’insérer toutes les informations qui pourraient être utiles à Vos clients afin de mieux comprendre de quoi il s’agit. Votre tour de la ville inclut un plat ? Combien de langues parlez-Vous ?De combien de temps Vous avez cette activité ? Vos clients nécessitent de vêtements spécifiques ou équipement particulier ? Utilisez un caractère différent pour remarquer les information les plus importantes."
+    "en": "Describe your activity! The more details you indicate , the more likely you will get bookings. Enter all information that may interest your customers. Does your city tour include a meal? Which languages do you speak? For how long have you been offering this activity? Do your customers need anything to bring with them (cloth, shoes, sleeping bag....)?",
+    "de": "Beschreibe Deine Aktivität! Je mehr Details Du angibst, umso eher wirst Du Buchungen erhalten. Wichtig sind alle Informationen, die Deine Kunden interessieren könnten. Ist bei Deiner Stadttour ein Restaurantbesuch inkludiert? Sprichst Du mehrere Sprachen? Wie lange bist Du schon in Deinem Bereich tätig? Müssen Deine Kunden selbst etwas mitnehmen (Kleidung, Schuhe, Schlafsack...)? Prinzipiell gilt: Je mehr Infos umso besser für Dich und Deine Kunden!",
+    "it": "descrivi la tua attività! maggiori dettagli fornirai, maggiori saranno le probabilità di ricevere prenotazione. Inserisci tutte le informazioni che potrebbero interessare ai tuoi clienti. Il tuo city tour include un pasto? Quali lingue parli? Da quanto tempo fornisci questo servizio? I tuoi clienti necessitano di portare con se’ delle attrezzature (vestiti, scarpe, sacco a pelo..)?",
+    "fr": "décrivez Votre activité! Insérez la majorité de détails et la possibilité de recevoir des réservations sera majeure. Nous Vous conseillons d’insérer toutes les informations qui pourraient être utiles à Vos clients afin de mieux comprendre de quoi il s’agit. Votre tour de la ville inclut un plat ? Combien de langues parlez-Vous ?De combien de temps Vous avez cette activité ? Vos clients nécessitent de vêtements spécifiques ou équipement particulier ?"
   },
   {
     "Description": "What can be booked? Description",
@@ -108,8 +108,8 @@
     "key": "helptext activity end time",
     "en": "Allows you to choose when your activity ends.",
     "de": "Gib an, wann Deine Aktivität endet.",
-    "it": "",
-    "fr": ""
+    "it": "Allows you to choose when your activity ends.",
+    "fr": "Allows you to choose when your activity ends."
   },
   {
     "Description": "Quantity",
@@ -2372,8 +2372,8 @@
     "key": "close",
     "en": "close",
     "de": "schließen",
-    "it": "close",
-    "fr": "close"
+    "it": "chiudersi ",
+    "fr": "fermer"
   },
   {
     "Description": "",
@@ -2395,9 +2395,9 @@
     "Description": "",
     "key": "Please enter a description.",
     "en": "Please enter a description.",
-    "de": "Bitte geben Sie eine Beschreibung ein.",
-    "it": "Please enter a description.",
-    "fr": "Please enter a description."
+    "de": "Bitte geben Sie eine Beschreibung ein",
+    "it": "Si prega di inserire una descrizione",
+    "fr": "S'il vous plaît entrer une description"
   },
   {
     "Description": "",
@@ -2444,7 +2444,31 @@
     "key": "Payment",
     "en": "Payment",
     "de": "Bezahlung",
-    "it": "",
+    "it": "Pagamento",
     "fr": "Paiement"
+  },
+  {
+    "Description": "Activity Edit set location",
+    "key": "Set Location",
+    "en": "Set Location",
+    "de": "Ort setzen",
+    "it": "localizzazione",
+    "fr": "localisation"
+  },
+  {
+    "Description": "",
+    "key": "Form can not be saved. Please fill in all required form fields first.",
+    "en": "Form can not be saved. Please fill in all required form fields first.",
+    "de": "Formular kann nicht gespeichert werden. Bitte füllen Sie alle markierten Felder aus",
+    "it": "Form can not be saved. Please fill in all required form fields first.",
+    "fr": "Form can not be saved. Please fill in all required form fields first."
+  },
+  {
+    "Description": "",
+    "key": "There are more events available",
+    "en": "There are more events available",
+    "de": "Es sind weitere Events verfügbar",
+    "it": "There are more events available",
+    "fr": "There are more events available"
   }
 ]

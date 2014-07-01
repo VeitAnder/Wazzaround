@@ -4,8 +4,8 @@
   "helptext": "input hint",
   "helptext activity name": "Give your activity a name! Choose a title that describes what you are offering.",
   "helptext activity meeting spot": "Allows you to choose where you will meet your customers.",
-  "helptext activity short descricption": "",
-  "helptext activity description": "Describe your activity! The more details you indicate , the more likely you will get bookings. Enter all information that may interest your customers. Does your city tour include a meal? Which languages do you speak? For how long have you been offering this activity? Do your customers need anything to bring eith them (cloth, shoes, sleeping bag....)? Use the layout feature to highlight important information!",
+  "helptext activity short descricption": "helptext activity short descricption",
+  "helptext activity description": "Describe your activity! The more details you indicate , the more likely you will get bookings. Enter all information that may interest your customers. Does your city tour include a meal? Which languages do you speak? For how long have you been offering this activity? Do your customers need anything to bring with them (cloth, shoes, sleeping bag....)?",
   "helptext activity item description": "Describe in a short sentence, what exactly your customers can book.",
   "helptext activity start date": "Choose when this activity takes place for the first time.",
   "helptext activity start time": "Choose at what time your customers should meet you at the meeting point.",
@@ -302,5 +302,8 @@
   "I accept the reacture affiliate agreement": "I accept the reacture affiliate agreement.",
   "Please accept the reacture affiliate agreement": "Please accept the reacture affiliate agreement.",
   "Affiliate agreement": "Affiliate agreement",
-  "Payment": "Payment"
+  "Payment": "Payment",
+  "Set Location": "Set Location",
+  "Form can not be saved. Please fill in all required form fields first.": "Form can not be saved. Please fill in all required form fields first.",
+  "There are more events available": "There are more events available"
 }
