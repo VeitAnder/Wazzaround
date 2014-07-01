@@ -492,7 +492,7 @@ module.exports = function (grunt) {
           },
           files: {
             // local save path : link to your worksheet
-            'translationspreadsheet.json': 'https://docs.google.com/spreadsheet/ccc?key=10o5NKCAckc2rIaLX1dKMnh2VAT66yK9UpzGDAK8wwx8#gid=424150697'
+            './app/scripts/translations/translationspreadsheet.json': 'https://docs.google.com/spreadsheet/ccc?key=10o5NKCAckc2rIaLX1dKMnh2VAT66yK9UpzGDAK8wwx8#gid=424150697'
           }
         }
       }
@@ -502,7 +502,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('convertgssjson', 'Convert Google Spreadsheet Data to angular-translate json files', function () {
     var _ = require('lodash');
-    var spreadsheetjson = require('translationspreadsheet.json');
+    var spreadsheetjson = grunt.file.readJSON("./app/scripts/translations/translationspreadsheet.json");
     var translationfilepath = "./app/scripts/translations/";
 
     var getLanguageFileJSON = function (langkey, spreadsheetjson) {
@@ -516,10 +516,10 @@ module.exports = function (grunt) {
     };
 
     // write files
-    grunt.file.write(translationfilepath + 'de.json', JSON.stringify(getLanguageFileJSON("de", spreadsheetjson), null, 2));
-    grunt.file.write(translationfilepath + 'en.json', JSON.stringify(getLanguageFileJSON("en", spreadsheetjson), null, 2));
-    grunt.file.write(translationfilepath + 'fr.json', JSON.stringify(getLanguageFileJSON("fr", spreadsheetjson), null, 2));
-    grunt.file.write(translationfilepath + 'it.json', JSON.stringify(getLanguageFileJSON("it", spreadsheetjson), null, 2));
+    grunt.file.write(translationfilepath + 'locale-de.json', JSON.stringify(getLanguageFileJSON("de", spreadsheetjson), null, 2));
+    grunt.file.write(translationfilepath + 'locale-en.json', JSON.stringify(getLanguageFileJSON("en", spreadsheetjson), null, 2));
+    grunt.file.write(translationfilepath + 'locale-fr.json', JSON.stringify(getLanguageFileJSON("fr", spreadsheetjson), null, 2));
+    grunt.file.write(translationfilepath + 'locale-it.json', JSON.stringify(getLanguageFileJSON("it", spreadsheetjson), null, 2));
   });
 
   grunt.registerTask('translate', [

@@ -1,0 +1,2450 @@
+[
+  {
+    "Hilfetexte": "REGISTRATION",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Hilfetexte": "Company",
+    "key": "helptext registration company",
+    "en": "Enter the name of the company or person offering this activity.",
+    "de": "Gib den Namen der Firma oder der Person an, die diese Aktivität anbietet.",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Hilfetexte": "Name of contact person",
+    "key": "helptext registration contact person",
+    "en": "Enter the name of the person who is responsible for this activity.",
+    "de": "Gib uns den Namen der Person an, mit der wir unter der oben genannten Nummer in Kontakt treten können.",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Hilfetexte": "ACTIVITY",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Hilfetexte": "",
+    "key": "helptext",
+    "en": "Input hint",
+    "de": "Eingabehilfe",
+    "it": "Enter the name of the company or person offering this activity.",
+    "fr": "Input hint"
+  },
+  {
+    "Hilfetexte": "Name of Activity or Activities",
+    "key": "helptext activity name",
+    "en": "Give your activity a name! Choose a title that describes what you are offering.",
+    "de": "Gib Deiner Aktivität einen Namen! Dieser sollte beschreiben, was Du anbietest.",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Hilfetexte": "Meeting spot of this activity",
+    "key": "helptext activity meeting spot",
+    "en": "Allows you to choose where you will meet your customers.",
+    "de": "Gib an, wo Dich Deine Kunden treffen werden.",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Hilfetexte": "Short Description",
+    "key": "helptext activity short descricption",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Hilfetexte": "Detailed description (min. 150 signs)",
+    "key": "helptext activity description",
+    "en": "Describe your activity! The more details you indicate , the more likely you will get bookings. Enter all information that may interest your customers. Does your city tour include a meal? Which languages do you speak? For how long have you been offering this activity? Do your customers need anything to bring eith them (cloth, shoes, sleeping bag....)? Use the layout feature to highlight important information!",
+    "de": "Beschreibe Deine Aktivität! Je mehr Details Du angibst, umso eher wirst Du Buchungen erhalten. Wichtig sind alle Informationen, die Deine Kunden interessieren könnten. Ist bei Deiner Stadttour ein Restaurantbesuch inkludiert? Sprichst Du mehrere Sprachen? Wie lange bist Du schon in Deinem Bereich tätig? Müssen Deine Kunden selbst etwas mitnehmen (Kleidung, Schuhe, Schlafsack...)? Prinzipiell gilt: Je mehr Infos umso besser für Dich und Deine Kunden! Verwende die Layout Funktion, um wichtige Informationen hervorzuheben!",
+    "it": "descrivi la tua attività! maggiori dettagli fornirai, maggiori saranno le probabilità di ricevere prenotazione. Inserisci tutte le informazioni che potrebbero interessare ai tuoi clienti. Il tuo city tour include un pasto? Quali lingue parli? Da quanto tempo fornisci questo servizio? I tuoi clienti necessitano di portare con se’ delle attrezzature (vestiti, scarpe, sacco a pelo..)? Usa un carattere particolare per evidenziare le informazioni più importanti.",
+    "fr": "décrivez Votre activité! Insérez la majorité de détails et la possibilité de recevoir des réservations sera majeure. Nous Vous conseillons d’insérer toutes les informations qui pourraient être utiles à Vos clients afin de mieux comprendre de quoi il s’agit. Votre tour de la ville inclut un plat ? Combien de langues parlez-Vous ?De combien de temps Vous avez cette activité ? Vos clients nécessitent de vêtements spécifiques ou équipement particulier ? Utilisez un caractère différent pour remarquer les information les plus importantes."
+  },
+  {
+    "Hilfetexte": "What can be booked? Description",
+    "key": "helptext activity item description",
+    "en": "Describe in a short sentence, what exactly your customers can book.",
+    "de": "Beschreibe in einem kurzen Satz, was genau Deine Kunden buchen können.",
+    "it": "descrivi con una frase breve cosa possono prenotare esattamente i tuoi clienti",
+    "fr": "décrivez brièvement et précisément ce que les clients peuvent réserver"
+  },
+  {
+    "Hilfetexte": "Start date",
+    "key": "helptext activity start date",
+    "en": "Choose when this activity takes place for the first time.",
+    "de": "Gib an, wann diese Aktivität das erste Mal stattfindet.",
+    "it": "scegli quando questa attività avrà luogo la prima volta",
+    "fr": "indiquez quand l’activité aura lieu"
+  },
+  {
+    "Hilfetexte": "Start time",
+    "key": "helptext activity start time",
+    "en": "Choose at what time your customers should meet you at the meeting point.",
+    "de": "Gib an, um welche Uhrzeit Deine Kunden am Treffpunkt sein sollen.",
+    "it": "Indica a che ora i clienti devono trovarsi al punto d’incontro",
+    "fr": "indiquez l’horaire à laquelle vos client vont se regrouper au point de rencontre"
+  },
+  {
+    "Hilfetexte": "End date",
+    "key": "helptext activity end date",
+    "en": "Enter the date your activity end. Normally it will end the same day, only hours later …",
+    "de": "Gib an, wieviele Tage diese Aktivität dauert.",
+    "it": "Indica la data in cui la tua attività termina. Normalmente lo stesso giorno, ore dopo ",
+    "fr": "indiquez quand l’activité terminera"
+  },
+  {
+    "Hilfetexte": "End time",
+    "key": "helptext activity end time",
+    "en": "Allows you to choose when your activity ends.",
+    "de": "Gib an, wann Deine Aktivität endet.",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Hilfetexte": "Quantity",
+    "key": "helptext activity quantity",
+    "en": "Allows you to choose how many clients can simultaneously book your activity.",
+    "de": "Gib an, wieviele Kunden gleichzeitig Deine Aktivität buchen können.",
+    "it": "Permette di decidere quante persone possono prenotare contemporaneamente prenotare la tua attività",
+    "fr": "Cela Vous permet de choisir combien de personne peuvent réserver simultanément l’activité"
+  },
+  {
+    "Hilfetexte": "Price",
+    "key": "helptext activity price",
+    "en": "Allows you to choose how much your activity costs.",
+    "de": "Gib an, wieviel Deine Aktivität kostet.",
+    "it": "permette di inserire il costo",
+    "fr": "vous pouvez insérer le tarif"
+  },
+  {
+    "Hilfetexte": "repeating Event",
+    "key": "helptext activity repeating",
+    "en": "Tell us until when this event should be repeated.",
+    "de": "Gib an, bis wann sich dieses Event automatisch wiederholen soll.",
+    "it": "ci permette di capire fino a quando questo evento può ripetersi",
+    "fr": "il nous permet de comprendre jusqu’ù quand une activitè peut se répéter"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Why reacture",
+    "en": "Why reActure?",
+    "de": "Warum reActure?",
+    "it": "Perchè reActure?",
+    "fr": "Pourquoi reActure?"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Work with us",
+    "en": "Work with us",
+    "de": "Arbeiten Sie mit uns",
+    "it": "Lavora con noi",
+    "fr": "Work with us"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "get active",
+    "en": "… get active!",
+    "de": "… get active!",
+    "it": "… attivati!",
+    "fr": "… activez-vous!"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Contact",
+    "en": "Contact & Impressum",
+    "de": "Kontakt & Impressum",
+    "it": "Contattaci",
+    "fr": "Contact & Impressum"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please choose",
+    "en": "Please choose",
+    "de": "Bitte wählen Sie",
+    "it": "Si prega di scegliere",
+    "fr": "Please choose"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "sports",
+    "en": "Sports & Activities",
+    "de": "Sport & Aktivitäten",
+    "it": "Sport & Attività",
+    "fr": "Sports & Activities"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "culture",
+    "en": "Culture",
+    "de": "Kultur",
+    "it": "Cultura",
+    "fr": "Culture"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "wellness",
+    "en": "Wellness & Relax",
+    "de": "Wellness & Entspannung",
+    "it": "Wellness & Relax",
+    "fr": "Wellness & Relax"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Sports and Activities",
+    "en": "Sports & Activities",
+    "de": "Sport & Aktivitäten",
+    "it": "Sport & Attività",
+    "fr": "Sports & Activities"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "of",
+    "en": "of",
+    "de": "von",
+    "it": "di",
+    "fr": "of"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Select all",
+    "en": "Select all",
+    "de": "Alle auswählen",
+    "it": "Seleziona tutto",
+    "fr": "Select all"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Deselect all",
+    "en": "Deselect all",
+    "de": "Keine auswählen",
+    "it": "Deseleziona tutto",
+    "fr": "Deselect all"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Culture",
+    "en": "Culture",
+    "de": "Kultur",
+    "it": "Cultura",
+    "fr": "Culture"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Wellness & Relax",
+    "en": "Wellness & Relax",
+    "de": "Wellness & Entspannung",
+    "it": "Wellness & Relax",
+    "fr": "Wellness & Relax"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Show all",
+    "en": "Show all",
+    "de": "Alle anzeigen",
+    "it": "Vedi tutto",
+    "fr": "Show all"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Hide all",
+    "en": "Hide all",
+    "de": "Keine anzeigen",
+    "it": "Nascondi tutto",
+    "fr": "Hide all"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Offered by",
+    "en": "Offered by:",
+    "de": "Angeboten von:",
+    "it": "Offerto da:",
+    "fr": "Offered by:"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Availability",
+    "en": "Availability:",
+    "de": "Verfügbarkeit:",
+    "it": "Disponibilità:",
+    "fr": "Availability:"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Next available Dates",
+    "en": "Next available Dates",
+    "de": "Nächste Verfügbarkeit",
+    "it": "Date prossime",
+    "fr": "Next available Dates"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Book",
+    "en": "Book",
+    "de": "Buchen",
+    "it": "Prenota",
+    "fr": "Book"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Prev",
+    "en": "Prev",
+    "de": "Früher",
+    "it": "Prima",
+    "fr": "Prev"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Show all Dates",
+    "en": "Show all Dates",
+    "de": "Alle Termine anzeigen",
+    "it": "Mostra tutte le date",
+    "fr": "Show all Dates"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Next",
+    "en": "Next",
+    "de": "Später",
+    "it": "Più tardi",
+    "fr": "Next"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "trekkingbikinghiking",
+    "en": "Trekking, Biking, Hiking",
+    "de": "Trekking, Biking, Hiking",
+    "it": "Trekking, Bike, Scalata",
+    "fr": "Trekking, Biking, Hiking"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "adventure",
+    "en": "Adventure",
+    "de": "Abenteuer",
+    "it": "Avventura",
+    "fr": "Adventure"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "yogapilates",
+    "en": "Yoga, Pilates & Fitness",
+    "de": "Yoga, Pilates & Fitness",
+    "it": "Yoga, Pilates & Fitness",
+    "fr": "Yoga, Pilates & Fitness"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "fulldayactivities",
+    "en": "Full day activities",
+    "de": "Ganztagsaktivitäten",
+    "it": "Attività intera giornata",
+    "fr": "Full day activities"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "watersports",
+    "en": "Water Sports",
+    "de": "Wassersport",
+    "it": "Sports acquatici",
+    "fr": "Water Sports"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "wintersports",
+    "en": "Winter Sports",
+    "de": "Wintersport",
+    "it": "Sports invernali",
+    "fr": "Winter Sports"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "motorizedsports",
+    "en": "Motorized Sports",
+    "de": "Motorsport",
+    "it": "Sports motoristici",
+    "fr": "Motorized Sports"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "extremesports",
+    "en": "Extreme Sports",
+    "de": "Extremsport",
+    "it": "Sports estremi",
+    "fr": "Extreme Sports"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Trekking, Biking, Hiking",
+    "en": "Trekking, Biking, Hiking",
+    "de": "Trekking, Biking, Hiking",
+    "it": "Trekking, Bike, Scalata",
+    "fr": "Trekking, Biking, Hiking"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Yoga & Pilates",
+    "en": "Yoga, Pilates & Fitness",
+    "de": "Yoga, Pilates & Fitness",
+    "it": "Yoga, Pilates & Fitness",
+    "fr": "Yoga, Pilates & Fitness"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Water Sports",
+    "en": "Water Sports",
+    "de": "Wassersport",
+    "it": "Sports acquatici",
+    "fr": "Water Sports"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Motorized Sports",
+    "en": "Motorized Sports",
+    "de": "Motorsport",
+    "it": "Sports motoristici",
+    "fr": "Motorized Sports"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Adventure",
+    "en": "Adventure",
+    "de": "Abenteuer",
+    "it": "Avventura",
+    "fr": "Adventure"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Full day activities",
+    "en": "Full day activities",
+    "de": "Ganztagsaktivitäten",
+    "it": "Attività intera giornata",
+    "fr": "Full day activities"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Winter Sports",
+    "en": "Winter Sports",
+    "de": "Wintersport",
+    "it": "Sports invernali",
+    "fr": "Winter Sports"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Extreme Sports",
+    "en": "Extreme Sports",
+    "de": "Extremsport",
+    "it": "Sports estremi",
+    "fr": "Extreme Sports"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "degustations",
+    "en": "Degustations: Wine & Food & Cigars",
+    "de": "Verkostungen: Wein & Delikatessen & Zigarren",
+    "it": "Degustazioni: Vino & Cibo & Sigari",
+    "fr": "Degustations: Wine & Food & Cigars"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "guidedtours",
+    "en": "Guided Tours",
+    "de": "Führungen",
+    "it": "Tour guidati",
+    "fr": "Guided Tours"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "forfree",
+    "en": "Activity for free",
+    "de": "Gratisaktivitäten",
+    "it": "Activity for free",
+    "fr": "Activity for free"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "animalsports",
+    "en": "Animal Sports",
+    "de": "Tiersport",
+    "it": "Attivà con animali",
+    "fr": "Animal Sports"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "competition",
+    "en": "Competitions",
+    "de": "Wettbewerbe",
+    "it": "Competiizioni",
+    "fr": "Competitions"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "moredays",
+    "en": "More days",
+    "de": "Mehrtägig",
+    "it": "Più giorni",
+    "fr": "More days"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "beautyandestetica",
+    "en": "Beatuy + Aesthetics",
+    "de": "Schönheit + Äesthetik",
+    "it": "Beatuy + Estetica",
+    "fr": "Beatuy + Aesthetics"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "fullday",
+    "en": "Full day",
+    "de": "Ganztägig",
+    "it": "Un giorni",
+    "fr": "Full day"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "coursesandlearning",
+    "en": "Courses + Learing",
+    "de": "Kurse + Lernen",
+    "it": "Corsi + Imparare",
+    "fr": "Courses + Learing"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "exhibitionsandfairs",
+    "en": "Exhibitions & Fairs",
+    "de": "Ausstellungen & Messen",
+    "it": "Esposizioni & Fiere",
+    "fr": "Exhibitions & Fairs"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "operaandtheater",
+    "en": "Opera & Theater",
+    "de": "Oper & Theater",
+    "it": "Opera & Teatro",
+    "fr": "Opera & Theater"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "musicandfilm",
+    "en": "Music & Film",
+    "de": "Musik & Film",
+    "it": "Musica & Cinema",
+    "fr": "Music & Film"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Degustations: Wine & Food & Cigars",
+    "en": "Degustations: Wine & Food & Cigars",
+    "de": "Verkostungen: Wein & Delikatessen & Zigarren",
+    "it": "Degustazioni: Vino & Cibo & Sigari",
+    "fr": "Degustations: Wine & Food & Cigars"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Exhibitions & Fairs",
+    "en": "Exhibitions & Fairs",
+    "de": "Ausstellungen & Messen",
+    "it": "Esposizioni & Fiere",
+    "fr": "Exhibitions & Fairs"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Music & Film",
+    "en": "Music & Film",
+    "de": "Musik & Film",
+    "it": "Musica & Cinema",
+    "fr": "Music & Film"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Guided Tours",
+    "en": "Guided Tours",
+    "de": "Führungen",
+    "it": "Tour guidati",
+    "fr": "Guided Tours"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Opera & Theater",
+    "en": "Opera & Theater",
+    "de": "Oper & Theater",
+    "it": "Opera & Teatro",
+    "fr": "Opera & Theater"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "massages",
+    "en": "Massages",
+    "de": "Massagen",
+    "it": "Massaggi",
+    "fr": "Massages"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "medicaltreatments",
+    "en": "Medical Treatments",
+    "de": "Medizinische Behanldungen",
+    "it": "Trattamenti medici specifici",
+    "fr": "Medical Treatments"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "beauty",
+    "en": "Beauty",
+    "de": "Schönheit",
+    "it": "Beauty",
+    "fr": "Beauty"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "spaandsauna",
+    "en": "Spa & Sauna",
+    "de": "Spa & Sauna",
+    "it": "Spa & Sauna",
+    "fr": "Spa & Sauna"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Massages",
+    "en": "Massages",
+    "de": "Massagen",
+    "it": "Massaggi",
+    "fr": "Massages"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Beauty",
+    "en": "Beauty",
+    "de": "Schönheit",
+    "it": "Bellezza",
+    "fr": "Beauty"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Medical Treatments",
+    "en": "Medical Treatments",
+    "de": "Medizinische Behanldungen",
+    "it": "Trattamenti medici specifici",
+    "fr": "Medical Treatments"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Spa & Sauna",
+    "en": "Spa & Sauna",
+    "de": "Spa & Sauna",
+    "it": "Spa & Sauna",
+    "fr": "Spa & Sauna"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your current search location",
+    "en": "Your current search location",
+    "de": "Ihre Suchposition",
+    "it": "Posizione di ricerca",
+    "fr": "Your current search location"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "You want to put",
+    "en": "You want to put",
+    "de": "Sie wollen",
+    "it": "Vuoi mettere",
+    "fr": "You want to put"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "your Activities",
+    "en": "your activities",
+    "de": "Ihre Aktivitäten",
+    "it": "le vostre attività",
+    "fr": "your activities"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "to reacture",
+    "en": "to reActure",
+    "de": "auf reActure stellen",
+    "it": "al reActure",
+    "fr": "to reActure"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Account",
+    "en": "Your account",
+    "de": "Benutzerkonto",
+    "it": "Conto",
+    "fr": "Your account"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Login",
+    "en": "Login",
+    "de": "Login",
+    "it": "Entra",
+    "fr": "Login"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Password",
+    "en": "Password",
+    "de": "Passwort",
+    "it": "Password",
+    "fr": "Password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Not registered",
+    "en": "Register as Customer",
+    "de": "Noch nicht registriert?",
+    "it": "Non registrata?",
+    "fr": "Register as Customer"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Not registered as Provider",
+    "en": "Register as activity provider now!",
+    "de": "Jetzt als Aktivitäten-Anbieter registrieren!",
+    "it": "Registrati come fornitore di attività ora!",
+    "fr": "Register as activity provider now!"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Forgot password",
+    "en": "Forgot password?",
+    "de": "Passwort vergessen?",
+    "it": "Dimenticato la password?",
+    "fr": "Forgot password?"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your e-mail address",
+    "en": "Your e-mail address",
+    "de": "Ihre E-Mail Adresse",
+    "it": "Vostro indirizzo email",
+    "fr": "Your e-mail address"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your password",
+    "en": "Your password",
+    "de": "Ihr Passwort",
+    "it": "Vostra password",
+    "fr": "Your password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Invalid Password",
+    "en": "Invalid password",
+    "de": "Ungültiges Passwort",
+    "it": "Password non valida",
+    "fr": "Invalid password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "User not found",
+    "en": "This user does not exist",
+    "de": "Dieser User existiert nicht",
+    "it": "Non trovato",
+    "fr": "This user does not exist"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Shopping Cart",
+    "en": "Shopping Cart",
+    "de": "Warenkorb",
+    "it": "Carrello della spesa",
+    "fr": "Shopping Cart"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Why reacture reasons",
+    "en": "ReActure is a great platform for offering and finding activities around you.",
+    "de": "ReActure ist eine großartige Plattform um Aktivitäten rund um Ihre Location zu finden oder anzubieten.",
+    "it": "ReActure è una grande piattaforma per l'offerta e trovare le attività intorno a te.",
+    "fr": "ReActure is a great platform for offering and finding activities around you."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Register",
+    "en": "Register now",
+    "de": "Jetzt registrieren",
+    "it": "Registrati",
+    "fr": "Register now"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Quality",
+    "en": "Quality",
+    "de": "Qualität",
+    "it": "Qualità",
+    "fr": "Quality"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "online and offline",
+    "en": "online and offline",
+    "de": "im online und offline",
+    "it": "online e offline",
+    "fr": "online and offline"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "marketing",
+    "en": "marketing",
+    "de": "Marketing",
+    "it": "marketing",
+    "fr": "marketing"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "International",
+    "en": "International",
+    "de": "Internationale",
+    "it": "internazionale",
+    "fr": "International"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Plattform",
+    "en": "Plattform",
+    "de": "Plattform",
+    "it": "Piattaforma",
+    "fr": "Plattform"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "One-Stop Philosophy",
+    "en": "One-Stop Philosophy",
+    "de": "One-Stop Philosophie",
+    "it": "La filosofia One-stop",
+    "fr": "One-Stop Philosophy"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Local",
+    "en": "Local",
+    "de": "Lokal",
+    "it": "Regionale",
+    "fr": "Local"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Get",
+    "en": "Get",
+    "de": "Erhalten Sie",
+    "it": "Ottenere",
+    "fr": "Get"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "instant bookings",
+    "en": "instant bookings",
+    "de": "sofortige Buchungen",
+    "it": "prenota subito",
+    "fr": "instant bookings"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "from",
+    "en": "from",
+    "de": "von",
+    "it": "dal",
+    "fr": "from"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "potential clients",
+    "en": "potential clients",
+    "de": "potentiellen KundInnen",
+    "it": "potenziali clienti",
+    "fr": "potential clients"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "in your area",
+    "en": "in your area",
+    "de": "in Ihrer Umgebung",
+    "it": "nella tua zona",
+    "fr": "in your area"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "No fixed costs",
+    "en": "No fixed costs",
+    "de": "Keine Fixkosten",
+    "it": "Nessun costo fisso",
+    "fr": "No fixed costs"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "provision based model",
+    "en": "provision based model",
+    "de": "provisionsbasiertes Modell",
+    "it": "Prestazione basato su modello",
+    "fr": "provision based model"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "No reservation costs",
+    "en": "No reservation costs",
+    "de": "Keine Reservierungskosten",
+    "it": "Nessun costo di prenotazione",
+    "fr": "No reservation costs"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Secure",
+    "en": "Secure",
+    "de": "Sicheres",
+    "it": "Sicura",
+    "fr": "Secure"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "booking",
+    "en": "booking",
+    "de": "Buchen",
+    "it": "prenotazione",
+    "fr": "booking"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Quality managment",
+    "en": "Quality managment",
+    "de": "Qualitätsmanagement",
+    "it": "gestione della qualità",
+    "fr": "Quality managment"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "through administrated rating system",
+    "en": "through administrated rating system",
+    "de": "durch ein administriertes Bewertungssystem",
+    "it": "",
+    "fr": "through administrated rating system"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Registration",
+    "en": "Registration",
+    "de": "Registrierung",
+    "it": "Registrazione",
+    "fr": "Registration"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your e-mail address.",
+    "en": "Please enter your e-mail address.",
+    "de": "Bitte geben Sie Ihre E-Mail Adresse ein.",
+    "it": "Si prega di inserire il vostro indirizzo e-mail",
+    "fr": "Please enter your e-mail address."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter a valid e-mail address.",
+    "en": "Please enter a valid e-mail address.",
+    "de": "Bitte geben Sie eine gültige E-Mail Adresse ein.",
+    "it": "Si prega di inserire un indirizzo e-mail valido",
+    "fr": "Please enter a valid e-mail address."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Password must meet the following requirements:",
+    "en": "Password must meet the following requirements:",
+    "de": "Das Passwort muss folgende Kriterien erfüllen:",
+    "it": "La password deve contenere almeno",
+    "fr": "Password must meet the following requirements:"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "At least",
+    "en": "At least",
+    "de": "Mindestens",
+    "it": "Almen/o",
+    "fr": "At least"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "one uppercase letter",
+    "en": "one uppercase letter",
+    "de": "ein Großbuchstabe",
+    "it": "una lettera maiuscola",
+    "fr": "one uppercase letter"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "one number",
+    "en": "one number",
+    "de": "eine Zahl",
+    "it": "un numero",
+    "fr": "one number"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "8 characters long",
+    "en": "8 characters long",
+    "de": "eine Länge von 8",
+    "it": "8 caratteri",
+    "fr": "8 characters long"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Retype Password",
+    "en": "Retype Password",
+    "de": "Passwort wiederholen",
+    "it": "Ripetere la password",
+    "fr": "Retype Password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please retype the password.",
+    "en": "Please retype the password.",
+    "de": "Bitte geben Sie das Passwort nochmals ein.",
+    "it": "Si prega di ripetere la password",
+    "fr": "Please retype the password."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "The passwords have to match.",
+    "en": "The passwords have to match.",
+    "de": "Die Passwörter müssen übereinstimmen.",
+    "it": "Le password devono corrispondere",
+    "fr": "The passwords have to match."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "back to login",
+    "en": "back to login",
+    "de": "Zurück zum Login",
+    "it": "torna alla Login",
+    "fr": "back to login"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "User already exists",
+    "en": "User already exists",
+    "de": "Dieser User existiert bereits",
+    "it": "Esistente già",
+    "fr": "User already exists"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Enter your new password",
+    "en": "Enter your new password",
+    "de": "Geben Sie Ihr neues Passwort ein",
+    "it": "Inserisca il Suo nuova password",
+    "fr": "Enter your new password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "New Password",
+    "en": "New Password",
+    "de": "Neues Passwort",
+    "it": "Nuova password",
+    "fr": "New Password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Password must meet the following requirements",
+    "en": "Password must meet the following requirements:",
+    "de": "Das Passwort muss folgende Kriterien erfüllen:",
+    "it": "Ripete nuova password",
+    "fr": "Password must meet the following requirements:"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Repeat new password",
+    "en": "Repeat new password",
+    "de": "Passwort wiederholen",
+    "it": "Le password non corrispondono",
+    "fr": "Repeat new password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Passwords dont match",
+    "en": "Passwords don't match.",
+    "de": "Die Passwörter stimmen nicht überein.",
+    "it": "Si prega di compilare questo campo",
+    "fr": "Passwords don't match."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please fill out this field",
+    "en": "Please fill out this field.",
+    "de": "Bitte füllen Sie dieses Feld aus.",
+    "it": "Salvare la nuova password",
+    "fr": "Please fill out this field."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Save new password",
+    "en": "Save new password",
+    "de": "Neues Passwort speichern",
+    "it": "La nuova password è stata salvata con successo",
+    "fr": "Save new password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "The new password was successfully saved",
+    "en": "The new password was successfully saved.",
+    "de": "Das neue Passwort wurde erfolgreich gespeichert.",
+    "it": "È accaduto un errore. Impossibile salvare la nuova password",
+    "fr": "The new password was successfully saved."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "An error happened. The new password could not be saved",
+    "en": "An error happened. The new password could not be saved.",
+    "de": "Es gab einen Fehler. Das neue Passwort konnte nicht erfolgreich gespeichert werden.",
+    "it": "La password deve contenere almeno una lettera maiuscola, un numero e deve avere una lunghezza minima di 8.",
+    "fr": "An error happened. The new password could not be saved."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "password requirements",
+    "en": "The password has to contain at least one capital letter, one number and has to have a minimum length of 8.",
+    "de": "Das Passwort muss zumindest einen Großbuchstaben und eine Zahl enthalten, und aus mindestens 8 Zeichen bestehen.",
+    "it": "Il suo nuova password",
+    "fr": "The password has to contain at least one capital letter, one number and has to have a minimum length of 8."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your new password",
+    "en": "Your new password",
+    "de": "Ihr neues Passwort",
+    "it": "Ripetere la nuova password",
+    "fr": "Your new password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Retype your new password",
+    "en": "Retype your new password",
+    "de": "Wiederholen Sie Ihr neues Passwort",
+    "it": "Ripetere la password",
+    "fr": "Retype your new password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Retype your password",
+    "en": "Retype your password",
+    "de": "Geben Sie Ihr Passwort nochmals ein",
+    "it": "Inserire una password",
+    "fr": "Retype your password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Define your password",
+    "en": "Enter your password",
+    "de": "Geben Sie Ihr Passwort ein",
+    "it": "",
+    "fr": "Enter your password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Request a link to reset your password",
+    "en": "Request a link to reset your password",
+    "de": "Link zum Zurücksetzen des Passworts anfordern",
+    "it": "Il link per reimpostare la password è stata inviata con successo al",
+    "fr": "Request a link to reset your password"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "The link to reset your password was successfully sent to",
+    "en": "The link to reset your password was successfully sent to",
+    "de": "Der Link zum Zurücksetzen des Passworts wurde erfolgreich gesendet an",
+    "it": "Non esiste. Controllare se l'indirizzo email è corretto",
+    "fr": "The link to reset your password was successfully sent to"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "This user does not exist. Check if the email address is correct",
+    "en": "This user does not exist. Check if the email address is correct.",
+    "de": "Dieser Account existiert nicht. Überprüfen Sie, ob die E-Mail Adresse stimmt.",
+    "it": "È accaduto un errore. L'e-mail per reimpostare la password non ha potuto essere inviato",
+    "fr": "This user does not exist. Check if the email address is correct."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "An error happened. The email to reset your password could not be sent",
+    "en": "An error happened. The email to reset your password could not be sent.",
+    "de": "Es gab einen Fehler. Der Link zum Zurücksetzen Ihres Passworts konnte nicht versendet werden",
+    "it": "Registrazione per fornitori di attività",
+    "fr": "An error happened. The email to reset your password could not be sent."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Registration for Activity Providers",
+    "en": "Registration for Activity Providers",
+    "de": "Registrierung für AktivitätsanbieterInnen",
+    "it": "Attività",
+    "fr": "Registration for Activity Providers"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Company",
+    "en": "Company",
+    "de": "Firma",
+    "it": "La vostra attività",
+    "fr": "Company"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your company",
+    "en": "Your company",
+    "de": "Ihre Firma",
+    "it": "Si prega d'inserire la vostra attività",
+    "fr": "Your company"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your company",
+    "en": "Please enter your company",
+    "de": "Bitte geben Sie Ihre Firma ein",
+    "it": "Nome",
+    "fr": "Please enter your company"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "First name",
+    "en": "First Name",
+    "de": "Vorname",
+    "it": "Il vostro nome",
+    "fr": "First Name"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your first name",
+    "en": "Your first name",
+    "de": "Ihr Vorname",
+    "it": "Si prega d'inserire il vostro nome",
+    "fr": "Your first name"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your first name",
+    "en": "Please enter your first name",
+    "de": "Bitte geben Sie Ihren Vornamen ein",
+    "it": "Cognome",
+    "fr": "Please enter your first name"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Last name",
+    "en": "Last name",
+    "de": "Nachname",
+    "it": "Name",
+    "fr": "Last name"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Name",
+    "en": "Name",
+    "de": "Name",
+    "it": "Il vostro cognome",
+    "fr": "Name"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your last name",
+    "en": "Your last name",
+    "de": "Ihr Nachname",
+    "it": "Si prega d'inserire il vostro cognome",
+    "fr": "Your last name"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your last name",
+    "en": "Please enter your last name",
+    "de": "Bitte geben Sie Ihren Nachnamen ein",
+    "it": "Telefono",
+    "fr": "Please enter your last name"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Telephone",
+    "en": "Telephone",
+    "de": "Telefon",
+    "it": "Il vostro numero di telefono",
+    "fr": "Telephone"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your telephone number",
+    "en": "Your telephone number",
+    "de": "Ihre Telefonnummer",
+    "it": "Si prega d'inserire il vostro numero di telefono",
+    "fr": "Your telephone number"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your telephone number",
+    "en": "Please enter your telephone number",
+    "de": "Bitte geben Sie Ihre Telefonnummer ein",
+    "it": "Telefono mobile",
+    "fr": "Please enter your telephone number"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Mobile Telephone",
+    "en": "Cellphone",
+    "de": "Mobil-Telefon",
+    "it": "Il vostro numero di telefono mobile",
+    "fr": "Cellphone"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your mobile telephone number",
+    "en": "Your cellphone number",
+    "de": "Ihre Mobil-Tefelonnummer",
+    "it": "Si prega d'inserire il vostro numero di telefono mobile",
+    "fr": "Your cellphone number"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your mobile telephone number",
+    "en": "Please enter your cellphone number",
+    "de": "Bitte geben Sie Ihre Mobil-Telefonnummer ein",
+    "it": "Fax",
+    "fr": "Please enter your cellphone number"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Fax",
+    "en": "Fax",
+    "de": "Fax",
+    "it": "Il vostro numero di fax",
+    "fr": "Fax"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your fax number",
+    "en": "Your fax number",
+    "de": "Ihre Faxnummer",
+    "it": "Si prega d'inserire il vostro numero di fax",
+    "fr": "Your fax number"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your fax number",
+    "en": "Please enter your fax number",
+    "de": "Bitte geben Sie Ihre Faxnummer ein",
+    "it": "Indirizzo",
+    "fr": "Please enter your fax number"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Address",
+    "en": "Address",
+    "de": "Adresse",
+    "it": "Il vostro indirizzo",
+    "fr": "Address"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your address",
+    "en": "Your address",
+    "de": "Ihre Adresse",
+    "it": "Si prega d'inserire il vostro indirizzo",
+    "fr": "Your address"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your address",
+    "en": "Please enter your address",
+    "de": "Bitte geben Sie Ihre Adresse ein",
+    "it": "Codice postale",
+    "fr": "Please enter your address"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Zip",
+    "en": "Zip",
+    "de": "Postleitzahl",
+    "it": "Il vostro codice postale",
+    "fr": "Zip"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your zip code",
+    "en": "Your zip code",
+    "de": "Ihre Postleitzahl",
+    "it": "Si prega d'inserire il vostro codice postale",
+    "fr": "Your zip code"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your zip code",
+    "en": "Please enter your zip code",
+    "de": "Bitte geben Sie Ihre Postleitzahl ein",
+    "it": "Città",
+    "fr": "Please enter your zip code"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "City",
+    "en": "City",
+    "de": "Stadt",
+    "it": "La vostra città",
+    "fr": "City"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your city",
+    "en": "Your city",
+    "de": "Ihre Stadt",
+    "it": "Si prega d'inserire la vostra città",
+    "fr": "Your city"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your city",
+    "en": "Please enter your city",
+    "de": "Bitte geben Sie Ihre Stadt ein",
+    "it": "Paese",
+    "fr": "Please enter your city"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Country",
+    "en": "Country",
+    "de": "Land",
+    "it": "Il vostro paese",
+    "fr": "Country"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your country",
+    "en": "Your country",
+    "de": "Ihr Land",
+    "it": "Si prega d'inserire il vostro paese",
+    "fr": "Your country"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your country",
+    "en": "Please enter your country",
+    "de": "Bitte geben Sie Ihr Land ein",
+    "it": "Nome di un contatto",
+    "fr": "Please enter your country"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Name of contact person",
+    "en": "Name of contact person",
+    "de": "Name der Ansprechperson",
+    "it": "Si prega d'inserire un nome di un contatto",
+    "fr": "Name of contact person"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter the name of the contact person",
+    "en": "Please enter the name of the contact person",
+    "de": "Bitte geben Sie den Namen des Ansprechpartners / der Ansprechpartnerin ein",
+    "it": "P.IVA opzionale",
+    "fr": "Please enter the name of the contact person"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "UID optional",
+    "en": "UID optional",
+    "de": "UID optional",
+    "it": "Il vostro P.IVA",
+    "fr": "UID optional"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your UID number",
+    "en": "Your UID number",
+    "de": "Ihre UID Nummer",
+    "it": "La tua posizione",
+    "fr": "Your UID number"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your location",
+    "en": "Your location ...",
+    "de": "Dein Ort ...",
+    "it": "Trovare",
+    "fr": "Your location ..."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Find",
+    "en": "Find!",
+    "de": "Suchen!",
+    "it": "Di",
+    "fr": "Find!"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "From",
+    "en": "From",
+    "de": "Von",
+    "it": "al",
+    "fr": "From"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "until",
+    "en": "until",
+    "de": "bis",
+    "it": "Al",
+    "fr": "until"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Until",
+    "en": "Until",
+    "de": "Bis",
+    "it": "Non ci sono eventi da visualizzare ancora",
+    "fr": "Until"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "No events to display yet",
+    "en": "No events to display yet",
+    "de": "Noch keine Events zum Anzeigen vorhanden",
+    "it": "Evento",
+    "fr": "No events to display yet"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Event",
+    "en": "Event",
+    "de": "Event",
+    "it": "Data",
+    "fr": "Event"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Date",
+    "en": "Date",
+    "de": "Datum",
+    "it": "Ora",
+    "fr": "Date"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Time",
+    "en": "Time",
+    "de": "Zeit",
+    "it": "Durata",
+    "fr": "Time"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Duration",
+    "en": "Duration",
+    "de": "Dauer",
+    "it": "Durata in ore",
+    "fr": "Duration"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Duration in hours",
+    "en": "Duration in hours",
+    "de": "Dauer in Stunden",
+    "it": "Quantità",
+    "fr": "Duration in hours"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Qty",
+    "en": "Qty.",
+    "de": "Menge",
+    "it": "Logout",
+    "fr": "Qty."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Logout",
+    "en": "Logout",
+    "de": "Logout",
+    "it": "aggiungere immagini",
+    "fr": "Logout"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "add Image",
+    "en": "add Image",
+    "de": "Bild hinzufügen",
+    "it": "Le mie attività",
+    "fr": "add Image"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "My Activities",
+    "en": "My Activities",
+    "de": "Meine Aktivitäten",
+    "it": "Administrate all Activities",
+    "fr": "My Activities"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Admin All Activities",
+    "en": "Administrate all Activities",
+    "de": "Administration aller Aktivitäten",
+    "it": "Modifica il tuo profilo",
+    "fr": "Administrate all Activities"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Edit your Profile",
+    "en": "Edit your Profile",
+    "de": "Profil editieren",
+    "it": "Pubblicare attività",
+    "fr": "Edit your Profile"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Publish Activities",
+    "en": "Publish Activities",
+    "de": "Aktivitäten veröffentlichen",
+    "it": "Questa è la pagina di admin/tutte le attività",
+    "fr": "Publish Activities"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "This is the admin/allActivities view",
+    "en": "This is the admin/allActivities view.",
+    "de": "Das ist die Admin / Alle Aktivitäten Ansicht.",
+    "it": "Attività",
+    "fr": "This is the admin/allActivities view."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Activity",
+    "en": "Activity",
+    "de": "Aktivität",
+    "it": "Categoria principale",
+    "fr": "Activity"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Main Category",
+    "en": "Main Category",
+    "de": "Hauptkategorie",
+    "it": "Sottocategoria",
+    "fr": "Main Category"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Sub Category",
+    "en": "Sub Category",
+    "de": "Subkategorie",
+    "it": "Posizione",
+    "fr": "Sub Category"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Location",
+    "en": "Location",
+    "de": "Ort",
+    "it": "pubblicare",
+    "fr": "Location"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "publish",
+    "en": "publish",
+    "de": "veröffentlichen",
+    "it": "annullare la pubblicazione",
+    "fr": "publish"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "unpublish",
+    "en": "unpublish",
+    "de": "auf privat setzen",
+    "it": "Panoramica amministrazione",
+    "fr": "unpublish"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Administration overview",
+    "en": "Administration overview",
+    "de": "Administrations-Übersicht",
+    "it": "cancellare",
+    "fr": "Administration overview"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "delete",
+    "en": "delete",
+    "de": "löschen",
+    "it": "La vostra attività è pubblicato",
+    "fr": "delete"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your activity is published",
+    "en": "Your activity is published!",
+    "de": "Ihre Aktivität wurde veröffentlicht!",
+    "it": "La tua attività non è ancora pubblicato",
+    "fr": "Your activity is published!"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your activity isnt published yet",
+    "en": "Your activity isn't published yet!",
+    "de": "Ihre Aktivität wurde noch nicht veröffentlicht!",
+    "it": "Compagnia che offre il servizio/attività",
+    "fr": "Your activity isn't published yet!"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Company offering this activity",
+    "en": "Company offering this activity:",
+    "de": "Anbietende Firma:",
+    "it": "torna alle mie attività",
+    "fr": "Company offering this activity:"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "back to my activities",
+    "en": "Go to 'My Activities'",
+    "de": "Gehe zu \"Meine Aktivitäten\"",
+    "it": "modifica",
+    "fr": "Go to 'My Activities'"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "edit",
+    "en": "edit",
+    "de": "bearbeiten",
+    "it": "Si prega di creare eventi su prenotazione.",
+    "fr": "edit"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please create bookable events.",
+    "en": "Please create bookable events.",
+    "de": "Bitte erstellen Sie buchbare Events.",
+    "it": "Si prega di caricare un'immagine.",
+    "fr": "Please create bookable events."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter the name of the activity/activities.",
+    "en": "Please enter the name of the activity/activities.",
+    "de": "Bitte laden Sie ein Bild hoch.",
+    "it": "Si prega di inserire il nome dell'attività",
+    "fr": "Please enter the name of the activity/activities."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter the name of your company.",
+    "en": "Please enter the name of your company.",
+    "de": "Bitte geben Sie den/die Namen der Aktivität/en ein.",
+    "it": "Si prega d'inserire il  nome dell'attività.",
+    "fr": "Please enter the name of your company."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please upload an image.",
+    "en": "Please upload an image.",
+    "de": "Bitte geben Sie den Namen Ihrer Firma ein.",
+    "it": "salva evento",
+    "fr": "Please upload an image."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "save event",
+    "en": "Save event",
+    "de": "Event speichern",
+    "it": "Nuova attività",
+    "fr": "Save event"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "New activity",
+    "en": "New activity",
+    "de": "Neue Aktivität",
+    "it": "Informazioni generali sull attività",
+    "fr": "New activity"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Global Activity Info",
+    "en": "Global Activity Info",
+    "de": "Daten der Aktivität",
+    "it": "Nome dell' attività",
+    "fr": "Global Activity Info"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Name of Activity or Activities",
+    "en": "Name of Activity or Activities",
+    "de": "Bezeichnung der Aktivität/en",
+    "it": "Punto d'incontro per questa attività",
+    "fr": "Name of Activity or Activities"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Meeting spot of this activity",
+    "en": "Meeting spot of this activity",
+    "de": "Treffpunkt für diese Aktivität",
+    "it": "Si prega di inserire l'indirizzo del punto di riunione",
+    "fr": "Meeting spot of this activity"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Enter address of meeting spot",
+    "en": "Enter address of meeting spot",
+    "de": "Geben Sie die Adresse des Treffpunktes ein",
+    "it": "Invia indirizzo",
+    "fr": "Enter address of meeting spot"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Submit address",
+    "en": "Save address",
+    "de": "Adresse speichern",
+    "it": "Clicca sulla mappa per riposizionare la localizzazione delle attività",
+    "fr": "Save address"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Click in map to reposition location of activity",
+    "en": "Click in map to reposition location of activity",
+    "de": "Klicken Sie in die Karte, um den Ort der Aktivität anzupassen",
+    "it": "Seleziona categoria principale",
+    "fr": "Click in map to reposition location of activity"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Select Main Category",
+    "en": "Select Main Category",
+    "de": "Hauptkategorie auswählen",
+    "it": "È possibile scegliere due sottocategorie al massimo",
+    "fr": "Select Main Category"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "You can choose 2 Subcategories at most",
+    "en": "You can choose 2 Subcategories at most!",
+    "de": "Sie können höchstens 2 Subkategorien auswählen!",
+    "it": "È necessario scegliere almeno 1 Sottocategoria",
+    "fr": "You can choose 2 Subcategories at most!"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "You must choose at least 1 Subcategory",
+    "en": "You must choose at least 1 Subcategory!",
+    "de": "Sie müssen mindestens 1 Subkategorie auswählen!",
+    "it": "Descrizione",
+    "fr": "You must choose at least 1 Subcategory!"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Description",
+    "en": "Description",
+    "de": "Beschreibung",
+    "it": "Detailed description (min. 150 signs)",
+    "fr": "Description"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Detailed description",
+    "en": "Detailed description (min. 150 signs)",
+    "de": "Ausführliche Beschreibung (min. 150 Zeichen)",
+    "it": "Immagini",
+    "fr": "Detailed description (min. 150 signs)"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Images",
+    "en": "Images",
+    "de": "Bilder",
+    "it": "Cosa può essere prenotato",
+    "fr": "Images"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "What can be booked",
+    "en": "What can be booked?",
+    "de": "Was kann man buchen?",
+    "it": "Creare una nuova attività prenotabile",
+    "fr": "What can be booked?"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "create a new event",
+    "en": "Create a new event",
+    "de": "Erstellen Sie ein neues Ereignis",
+    "it": "Creare un elemento prenotabile",
+    "fr": "Create a new event"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "create a bookable item",
+    "en": "Create a bookable Item",
+    "de": "Erstellen Sie einen buchbaren Artikel",
+    "it": "Prezzo in €",
+    "fr": "Create a bookable Item"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Price in €",
+    "en": "Price in €",
+    "de": "Preis in €",
+    "it": "Prezzo",
+    "fr": "Price in €"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Price",
+    "en": "Price",
+    "de": "Preis",
+    "it": "Elimina",
+    "fr": "Price"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Delete Item",
+    "en": "Delete Item",
+    "de": "Event löschen",
+    "it": "Evento Schedule",
+    "fr": "Delete Item"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Schedule Event",
+    "en": "Schedule Event",
+    "de": "Zeitpunkte an denen das Event stattfindet",
+    "it": "Creare appuntamento",
+    "fr": "Schedule Event"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Add Event",
+    "en": "Add Event",
+    "de": "Termin hinzufügen",
+    "it": "Creare nuovo appuntamento",
+    "fr": "Add Event"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Add new Event",
+    "en": "Add new Event",
+    "de": "Neuen Termin hinzufügen",
+    "it": "Quantità",
+    "fr": "Add new Event"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Quantity",
+    "en": "Quantity",
+    "de": "Menge",
+    "it": "ripetere",
+    "fr": "Quantity"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "repeating Event",
+    "en": "repeating Event",
+    "de": "regelmäßiger Termin",
+    "it": "Lun",
+    "fr": "repeating Event"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Mon",
+    "en": "Mon",
+    "de": "Mo",
+    "it": "Mar",
+    "fr": "Mon"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Tue",
+    "en": "Tue",
+    "de": "Di",
+    "it": "Mer",
+    "fr": "Tue"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Wed",
+    "en": "Wed",
+    "de": "Mi",
+    "it": "Gio",
+    "fr": "Wed"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Thu",
+    "en": "Thu",
+    "de": "Do",
+    "it": "Ven",
+    "fr": "Thu"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Fri",
+    "en": "Fri",
+    "de": "Fr",
+    "it": "Sab",
+    "fr": "Fri"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Sat",
+    "en": "Sat",
+    "de": "Sa",
+    "it": "Dom",
+    "fr": "Sat"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Sun",
+    "en": "Sun",
+    "de": "So",
+    "it": "cancellare",
+    "fr": "Sun"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "remove",
+    "en": "remove",
+    "de": "entfernen",
+    "it": "salvare",
+    "fr": "remove"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "save",
+    "en": "save",
+    "de": "speichern",
+    "it": "cancellare",
+    "fr": "save"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "cancel",
+    "en": "cancel",
+    "de": "abbrechen",
+    "it": "Inserire ditta",
+    "fr": "cancel"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Enter company",
+    "en": "Enter company",
+    "de": "Firma eingeben",
+    "it": "Accesso negato",
+    "fr": "Enter company"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Access denied",
+    "en": "Access denied!",
+    "de": "Kein Zugriff!",
+    "it": "aggiungere attività",
+    "fr": "Access denied!"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "add activity",
+    "en": "add activity",
+    "de": "Aktivität  hinzufügen",
+    "it": "Profilo",
+    "fr": "add activity"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Profile",
+    "en": "User profile",
+    "de": "Benutzerprofil",
+    "it": "Modifica profilo utente",
+    "fr": "User profile"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Edit Profile",
+    "en": "Edit user profile",
+    "de": "Benutzerprofil editieren",
+    "it": "per esempio 4 ore tour (500ccm)",
+    "fr": "Edit user profile"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Bookable item description placeholder",
+    "en": "i.e. 4 hours tour (500ccm)",
+    "de": "z.B. 4 Stunden Tour (500ccm)",
+    "it": "Conto corrente bancario",
+    "fr": "i.e. 4 hours tour (500ccm)"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Bank account",
+    "en": "Bank account",
+    "de": "Bank account",
+    "it": "Banka",
+    "fr": "Bank account"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Bank",
+    "en": "Bank",
+    "de": "Bank",
+    "it": "Nome del vostro Bank",
+    "fr": "Bank"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Name of your Bank",
+    "en": "Name of your Bank",
+    "de": "Name of your Bank",
+    "it": "Si prega di inserire il nome del vostro Bank",
+    "fr": "Name of your Bank"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter the name of your Bank",
+    "en": "Please enter the name of your Bank",
+    "de": "Please enter the name of your Bank",
+    "it": "IBAN",
+    "fr": "Please enter the name of your Bank"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "IBAN",
+    "en": "IBAN",
+    "de": "IBAN",
+    "it": "Il vostro IBAN",
+    "fr": "IBAN"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your IBAN",
+    "en": "Your IBAN",
+    "de": "Your IBAN",
+    "it": "Si prega di inserire il vostro IBAN",
+    "fr": "Your IBAN"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your IBAN",
+    "en": "Please enter your IBAN",
+    "de": "Please enter your IBAN",
+    "it": "BIC",
+    "fr": "Please enter your IBAN"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "BIC",
+    "en": "BIC",
+    "de": "BIC",
+    "it": "Il vostro BIC",
+    "fr": "BIC"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your BIC",
+    "en": "Your BIC",
+    "de": "Your BIC",
+    "it": "Si prega di inserire il vostro BIC",
+    "fr": "Your BIC"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter your BIC",
+    "en": "Please enter your BIC",
+    "de": "Please enter your BIC",
+    "it": "Proprietario del conto",
+    "fr": "Please enter your BIC"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Account owner",
+    "en": "Account owner",
+    "de": "Account owner",
+    "it": "Nome del proprietario dell'account",
+    "fr": "Account owner"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Name of account owner",
+    "en": "Name of account owner",
+    "de": "Name of account owner",
+    "it": "Si prega di inserire il nome del titolare del conto",
+    "fr": "Name of account owner"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter the name of the account owner",
+    "en": "Please enter the name of the account owner",
+    "de": "Please enter the name of the account owner",
+    "it": "si, cancellare",
+    "fr": "Please enter the name of the account owner"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "yes, delete",
+    "en": "yes, delete",
+    "de": "ja, löschen",
+    "it": "no",
+    "fr": "yes, delete"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "no",
+    "en": "no",
+    "de": "nein",
+    "it": "Elimina voce prenotabile con tutti gli eventi?",
+    "fr": "no"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Delete bookable item with all events?",
+    "en": "Delete bookable item with all events?",
+    "de": "Dieses Event und alle Daten löschen?",
+    "it": "Si prega di selezionare una posizione.",
+    "fr": "Delete bookable item with all events?"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please select a location.",
+    "en": "Please select a location.",
+    "de": "Bitte wählen Sie einen Ort.",
+    "it": "I vostri dati non ancora salvati andranno persi se si lascia questa pagina",
+    "fr": "Please select a location."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your unsaved data will be lost if you leave this page",
+    "en": "Your unsaved data will be lost if you leave this page",
+    "de": "Ihre ungespeicherten Daten gehen verloren wenn Sie diese Seite jetzt verlassen",
+    "it": "activities found",
+    "fr": "Your unsaved data will be lost if you leave this page"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "activities found",
+    "en": "activities found",
+    "de": "activities found",
+    "it": "All dates from activity",
+    "fr": "activities found"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Personal data",
+    "en": "Personal data",
+    "de": "Persönliche Daten",
+    "it": "Dati personali",
+    "fr": "Personal data"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Company data",
+    "en": "Company data",
+    "de": "Firmendaten",
+    "it": "Dati aziendali",
+    "fr": "Company data"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your changes have been saved",
+    "en": "Your changes have been saved",
+    "de": "Ihre Änderungen wurden gespeichert",
+    "it": "Le modifiche sono state salvate",
+    "fr": "Your changes have been saved"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Your changes could not be saved",
+    "en": "Your changes could not be saved",
+    "de": "Ihre Änderungen konnten nicht gespeichert werden",
+    "it": "Le modifiche non potevano essere salvate",
+    "fr": "Your changes could not be saved"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please fill out the form correctly",
+    "en": "Please fill out the form correctly",
+    "de": "Bitte füllen Sie das Formular korrekt aus",
+    "it": "Si prega di compilare correttamente il modulo",
+    "fr": "Please fill out the form correctly"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "All dates from activity",
+    "en": "All dates from activity",
+    "de": "All dates from activity",
+    "it": "Fine evento è prima dell'inizio dell'evento",
+    "fr": "All dates from activity"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "endBeforeStart",
+    "en": "The end date is before the start date",
+    "de": "Das Event-Ende liegt vor dem Event-Start",
+    "it": "Map view",
+    "fr": "The end date is before the start date"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Map view",
+    "en": "Map view",
+    "de": "Kartenansicht",
+    "it": "No Activities found.",
+    "fr": "Map view"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "No Activities found.",
+    "en": "No Activities found.",
+    "de": "Keine Aktivitäten gefunden.",
+    "it": "Zoom out the map or reset your filter settings.",
+    "fr": "No Activities found."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Zoom out the map or reset your filter settings.",
+    "en": "Zoom out the map or reset your filter settings.",
+    "de": "Verkleinern Sie die Karte oder setzen Sie Ihre Filter-Einstellungen zurück.",
+    "it": "The repeating events will have the same starting time and duration as above",
+    "fr": "Zoom out the map or reset your filter settings."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "The repeating events will have the same starting time and duration as above",
+    "en": "The repeating events will have the same starting time and duration as above",
+    "de": "Die Wiederholungs-Events haben die gleiche Startzeit und Dauer",
+    "it": "Please select at least one day for repeating event.",
+    "fr": "The repeating events will have the same starting time and duration as above"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please select at least one day for repeating event.",
+    "en": "Please select at least one day for repeating event.",
+    "de": "Bitte wählen Sie mindestens einen Tag aus",
+    "it": "Create events until this date",
+    "fr": "Please select at least one day for repeating event."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "create event until",
+    "en": "Create events until this date",
+    "de": "Events bis zu diesem Datum erzeugen",
+    "it": "Please select a date until which the repeating events should be created",
+    "fr": "Create events until this date"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please select a date until which the repeating events should be created",
+    "en": "Please select a date until which the repeating events should be created",
+    "de": "Bitte wählen Sie ein Datum bis zu welchem die sich wiederholenden Events angelegt werden sollen",
+    "it": "Preise ab",
+    "fr": "Please select a date until which the repeating events should be created"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "starting from",
+    "en": "starting from",
+    "de": "Preise ab",
+    "it": "Info & Booking",
+    "fr": "starting from"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Info & Booking",
+    "en": "Info & Booking",
+    "de": "Info & Buchen",
+    "it": "close",
+    "fr": "Info & Booking"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "close",
+    "en": "close",
+    "de": "schließen",
+    "it": "Use as teaser image",
+    "fr": "close"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "maketeaser",
+    "en": "Use as teaser image",
+    "de": "Als Teaser-Bild verwenden",
+    "it": "Find your activity",
+    "fr": "Use as teaser image"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Find your activity",
+    "en": "Find your activity",
+    "de": "Find your activity",
+    "it": "Please enter a description.",
+    "fr": "Find your activity"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter a description.",
+    "en": "Please enter a description.",
+    "de": "Bitte geben Sie eine Beschreibung ein.",
+    "it": "Please enter a short description.",
+    "fr": "Please enter a description."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please enter a short description.",
+    "en": "Please enter a short description.",
+    "de": "Bitte geben Sie eine Kurzbeschreibung ein.",
+    "it": "ulteriori informazioni",
+    "fr": "Please enter a short description."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "more information",
+    "en": "more information",
+    "de": "weitere Informationen",
+    "it": "I accept the reacture affiliate agreement.",
+    "fr": "plus d'informations"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "I accept the reacture affiliate agreement",
+    "en": "I accept the reacture affiliate agreement.",
+    "de": "Ich stimme den Bedingungen des reActure Partnervertrages zu.",
+    "it": "Please accept the reacture affiliate agreement.",
+    "fr": "I accept the reacture affiliate agreement."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Please accept the reacture affiliate agreement",
+    "en": "Please accept the reacture affiliate agreement.",
+    "de": "Bitte stimmen Sie den Bedingungen des reActure Partnervertrages zu.",
+    "it": "Condizioni Generali Reacture",
+    "fr": "Please accept the reacture affiliate agreement."
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Affiliate agreement",
+    "en": "Affiliate agreement",
+    "de": "Partnervertrag",
+    "it": "Input hint",
+    "fr": "Affiliate agreement"
+  },
+  {
+    "Hilfetexte": "",
+    "key": "Payment",
+    "en": "Payment",
+    "de": "Bezahlung",
+    "it": "",
+    "fr": "Paiement"
+  }
+]
