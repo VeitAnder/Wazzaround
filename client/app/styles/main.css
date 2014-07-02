@@ -4637,7 +4637,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     height: 24px;
     padding: 0 7.5px; }
 
-shoppingcart.shoppingcart-rightside {
+shoppingcartbar {
   position: fixed;
   top: 0;
   right: 0;
@@ -4653,7 +4653,7 @@ shoppingcart.shoppingcart-rightside {
   text-decoration: none;
   -webkit-transition-property: all;
   transition-property: all; }
-  shoppingcart.shoppingcart-rightside .shoppingcart-toggle {
+  shoppingcartbar .shoppingcart-toggle {
     display: block;
     position: absolute;
     top: 0px;
@@ -4667,11 +4667,11 @@ shoppingcart.shoppingcart-rightside {
     text-decoration: none;
     -webkit-transition-property: background;
     transition-property: background; }
-    shoppingcart.shoppingcart-rightside .shoppingcart-toggle .innerwrap {
+    shoppingcartbar .shoppingcart-toggle .innerwrap {
       margin-top: 35px; }
-    shoppingcart.shoppingcart-rightside .shoppingcart-toggle:hover {
+    shoppingcartbar .shoppingcart-toggle:hover {
       background-color: rgba(102, 102, 102, 0.15); }
-  shoppingcart.shoppingcart-rightside .shoppingcart-element {
+  shoppingcartbar .shoppingcart-element {
     position: absolute;
     right: -325px;
     width: 330px;
@@ -4684,11 +4684,11 @@ shoppingcart.shoppingcart-rightside {
     text-decoration: none;
     -webkit-transition-property: all;
     transition-property: all; }
-  shoppingcart.shoppingcart-rightside.active {
+  shoppingcartbar.active {
     width: 370px; }
-    shoppingcart.shoppingcart-rightside.active .shoppingcart-element {
+    shoppingcartbar.active .shoppingcart-element {
       right: 0; }
-  shoppingcart.shoppingcart-rightside .shoppingcart-header {
+  shoppingcartbar .shoppingcart-header {
     padding-top: 12px; }
 
 .shoppingcart-element {

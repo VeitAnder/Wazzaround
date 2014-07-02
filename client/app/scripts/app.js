@@ -218,11 +218,6 @@ angular.module('anorakApp')
           }]
         }
       })
-      .when('/shoppingcart', {
-        templateUrl: 'views/shoppingcart.html',
-        controller: 'ShoppingCartCtrl'
-      })
-
       .when('/payment', {
         templateUrl: 'views/page_basetemplate.html',
         controller: 'PaymentPageCtrl'

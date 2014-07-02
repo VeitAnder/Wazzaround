@@ -1,52 +1,22 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('shoppingcart', function (shoppingcart, $timeout) {
+  .directive('shoppingcart', function (shoppingcart) {
     return {
       templateUrl: 'views/directives/shoppingcart.html',
       restrict: 'E',
+      scope: {
+
+      },
       link: function postLink(scope, element, attrs) {
-
-        var setToggleClass = function () {
-          if (shoppingcart.states.open) {
-            element.addClass("active");
-          } else {
-            element.removeClass("active");
-          }
+        scope.state = {
+          confirmationview: false
         };
-        setToggleClass();
 
+        if (attrs.confirmationview === "true") {
+          scope.state.confirmationview = true;
+        }
         scope.shoppingcart = shoppingcart;
-
-        scope.states = {
-          checkoutinprogress: false
-        };
-
-        scope.toggleShoppingCart = function () {
-          shoppingcart.states.open = !shoppingcart.states.open;
-          setToggleClass();
-        };
-
-        scope.checkout = function () {
-          if (scope.states.checkoutinprogress && shoppingcart.getTotal().num < 1) {
-            return;
-          }
-
-          scope.states.checkoutinprogress = true;
-
-          shoppingcart.checkout()
-            .then(function (result) {
-
-              $timeout(function () {
-                scope.states.checkoutinprogress = false;
-              }, 40000);
-
-              // empty basket
-              // redirect to kalixa
-
-            });
-        };
-
       }
     };
   });
