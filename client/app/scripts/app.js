@@ -224,8 +224,8 @@ angular.module('anorakApp')
       })
 
       .when('/payment', {
-        templateUrl: 'views/payment.html',
-        controller: 'PaymentCtrl'
+        templateUrl: 'views/page_basetemplate.html',
+        controller: 'PaymentPageCtrl'
       })
       .otherwise({
         redirectTo: '/'

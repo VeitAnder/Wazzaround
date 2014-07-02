@@ -1,7 +1,20 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('PaymentCtrl', function ($scope, models) {
+  .controller('PaymentPageCtrl', function ($scope, $translate) {
+    $scope.getPagePartial = function () {
+      return 'views/payment.html';
+    };
+
+    $scope.lang = $translate.use();
+    $scope.$watch(function () {
+      return $translate.use();
+    }, function () {
+      $scope.lang = $translate.use();
+    });
+
+  })
+    .controller('PaymentCtrl', function ($scope, models) {
 
     $scope.submitEnabled = true;
 
