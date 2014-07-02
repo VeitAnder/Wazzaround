@@ -1,0 +1,25 @@
+<div class="shoppingcart-element">
+  <div class="shoppingcart-toggle"
+       ng-click="toggleShoppingCart()"
+      >
+    <div class="innerwrap">
+      <span class="numberofitems">{{shoppingcart.getTotal().num}}</span>
+      <span class="hideme">Open Shoppingcart</span>
+    </div>
+  </div>
+
+  <shoppingcart></shoppingcart>
+
+  <div class="buttonbar">
+    <a ng-href="/#/payment/"
+       class="btn btn-negative"
+        >
+      Checkout
+    </a>
+  </div>
+
+  <div ng-show="states.checkoutinprogress">
+    Checkout in Progress - please fill in your data @ Kalixa.
+  </div>
+
+</div>

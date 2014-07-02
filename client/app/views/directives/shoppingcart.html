@@ -1,109 +1,111 @@
-<div class="shoppingcart-element">
-  <div class="shoppingcart-toggle"
-       ng-click="toggleShoppingCart()"
-      >
-    <div class="innerwrap">
-      <span class="numberofitems">{{shoppingcart.getTotal().num}}</span>
-      <span class="hideme">Open Shoppingcart</span>
-    </div>
-  </div>
-
+<div>
   <div class="shoppingcart-header">
-    <h3>
+    <h3
+        ng-hide="state.confirmationview"
+        >
       <strong>{{shoppingcart.getTotal().num}} Activities</strong>
       in shopping cart
     </h3>
   </div>
   <div class="shoppingcart-content"
        ng-repeat="item in shoppingcart.getCart()">
-
-    <!--SHOPPINGCART ITEM #1-->
-    <div class="shoppingcart-item"
-         data-ng-class="{
+    <form novalidate>
+      <!--SHOPPINGCART ITEM #1-->
+      <div class="shoppingcart-item"
+           data-ng-class="{
       'category-sports' : item.category === 'sports',
       'category-culture' : item.category === 'culture',
       'category-wellness' : item.category === 'wellness',
     }">
 
-      <cloudinaryimage data-publicid="{{item.image.public_id}}"
-                       data-format="{{item.image.format}}"
-                       data-width="100"
-                       data-height="60"
-          >
-      </cloudinaryimage>
+        <cloudinaryimage
+            ng-if="!state.confirmationview"
+            data-publicid="{{item.image.public_id}}"
+            data-format="{{item.image.format}}"
+            data-width="100"
+            data-height="60"
+            >
+        </cloudinaryimage>
 
-      <h4>
-        <span class="icon"></span>
-        <strong>
-          {{item.description[getAvailableTranslationLanguageKey(item.description)] }}
-        </strong>
-        / {{ {start:item.start, end:item.end} | duration }}
-      </h4>
+        <h4>
+          <span class="icon"></span>
+          <strong>
+            {{item.description[getAvailableTranslationLanguageKey(item.description)] }}
+          </strong>
+          / {{ {start:item.start, end:item.end} | duration }}
+        </h4>
 
-      <div class="shoppingcart-item-details">
-        <div class="shoppingcart-item-date">
-          {{ item.start | momentjs:{format: "ddd, MMM Do YYYY"} }}
+        <div class="shoppingcart-item-details">
+          <div class="shoppingcart-item-date">
+            {{ item.start | momentjs:{format: "ddd, MMM Do YYYY"} }}
+          </div>
+          <div class="shoppingcart-item-qty">
+
+            <input type="number"
+                   ng-hide="state.confirmationview"
+                   class="form-control input-mini"
+                   id="shoppingcartItemAmount1"
+                   name="shoppingcartItemAmount1"
+                   ng-model="item.quantity"
+                   min="1"
+                   required
+                >
+            <span
+                ng-show="state.confirmationview"
+                >
+                 {{item.quantity}}x
+                </span>
+
+          </div>
+
+          <div class="shoppingcart-item-price">
+            € {{item.price}}
+          </div>
         </div>
-        <div class="shoppingcart-item-qty">
-          <input type="number"
-                 class="form-control input-mini"
-                 id="shoppingcartItemAmount1"
-                 name="shoppingcartItemAmount1"
-                 value="1"
-                 min="1"
-                 max="99"
-                 maxlength="2"
-                 ng-model="item.quantity"
-                 required
-              >
-        </div>
-        <div class="shoppingcart-item-price">
-          € {{item.price}}
+
+        <div class="txt-icon-delete"
+             ng-hide="state.confirmationview"
+             ng-click="item.remove()">
+          <span class="hidden">Delete item</span>
+          <span></span>
         </div>
       </div>
 
-      <div class="txt-icon-delete"
-           ng-click="item.remove()">
-        <span class="hidden">Delete item</span>
-        <span></span>
-      </div>
-    </div>
+      <!--&lt;!&ndash;SHOPPINGCART ITEM #2&ndash;&gt;-->
 
-    <!--&lt;!&ndash;SHOPPINGCART ITEM #2&ndash;&gt;-->
+      <!--<div class="shoppingcart-item category-culture">-->
+      <!--<img src="https://cdn.zmescience.com/wp-content/uploads/2013/03/stonehenge2.jpg"/>-->
+      <!--<h4>-->
+      <!--<span class="icon"></span>-->
+      <!--<strong>Guided Tours</strong>-->
+      <!--/ 1-Day-Trip-->
+      <!--</h4>-->
 
-    <!--<div class="shoppingcart-item category-culture">-->
-    <!--<img src="https://cdn.zmescience.com/wp-content/uploads/2013/03/stonehenge2.jpg"/>-->
-    <!--<h4>-->
-    <!--<span class="icon"></span>-->
-    <!--<strong>Guided Tours</strong>-->
-    <!--/ 1-Day-Trip-->
-    <!--</h4>-->
+      <!--<div class="shoppingcart-item-details">-->
+      <!--<div class="shoppingcart-item-date">Wed, Mar 19th 14, 10:30 am</div>-->
+      <!--<div class="shoppingcart-item-qty">-->
+      <!--<input type="number"-->
+      <!--class="form-control input-mini"-->
+      <!--id="shoppingcartItemAmount2"-->
+      <!--name="shoppingcartItemAmount2"-->
+      <!--value="1"-->
+      <!--min="1"-->
+      <!--max="99"-->
+      <!--maxlength="2"-->
+      <!--required-->
+      <!--</div>-->
+      <!--<div class="shoppingcart-item-price">-->
+      <!--€ 250,–-->
+      <!--</div>-->
+      <!--</div>-->
 
-    <!--<div class="shoppingcart-item-details">-->
-    <!--<div class="shoppingcart-item-date">Wed, Mar 19th 14, 10:30 am</div>-->
-    <!--<div class="shoppingcart-item-qty">-->
-    <!--<input type="number"-->
-    <!--class="form-control input-mini"-->
-    <!--id="shoppingcartItemAmount2"-->
-    <!--name="shoppingcartItemAmount2"-->
-    <!--value="1"-->
-    <!--min="1"-->
-    <!--max="99"-->
-    <!--maxlength="2"-->
-    <!--required-->
-    <!--</div>-->
-    <!--<div class="shoppingcart-item-price">-->
-    <!--€ 250,–-->
-    <!--</div>-->
-    <!--</div>-->
+      <!--<div class="txt-icon-delete">-->
+      <!--<span class="hidden">Delete item</span>-->
+      <!--<span></span>-->
+      <!--</div>-->
 
-    <!--<div class="txt-icon-delete">-->
-    <!--<span class="hidden">Delete item</span>-->
-    <!--<span></span>-->
-    <!--</div>-->
-
-    <!--</div>-->
-
+      <!--</div>-->
+    </form>
   </div>
 
   <!--SHOPPINGCART ITEMS END-->
@@ -111,18 +113,6 @@
   <div class="shoppingcart-subtotal">
     <span class="description">Subtotal</span>
     <span class="value">€ {{shoppingcart.getTotal().price}}</span>
-  </div>
-
-  <div class="buttonbar">
-    <a ng-href="/#/payment/"
-       class="btn btn-negative"
-        >
-      Checkout
-    </a>
-  </div>
-
-  <div ng-show="states.checkoutinprogress">
-    Checkout in Progress - please fill in your data @ Kalixa.
   </div>
 
 </div>

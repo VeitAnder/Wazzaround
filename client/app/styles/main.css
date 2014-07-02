@@ -783,7 +783,6 @@ table {
     right: 0;
     left: auto; } }
 
-
 .map-debug {
   display: none;
   position: absolute;
@@ -2002,7 +2001,6 @@ sub {
 ul, ol, dl {
   margin: 0; }
 
-
 ul {
   margin: 0 0 32px 0;
   padding: 0; }
@@ -2823,7 +2821,6 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
     .input-label, label {
       font-size: 11px;
       line-height: 15.4px; } }
-
 
 .formdata-display {
   overflow: hidden;
@@ -4637,7 +4634,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
     height: 24px;
     padding: 0 7.5px; }
 
-shoppingcart.shoppingcart-rightside {
+shoppingcartbar {
   position: fixed;
   top: 0;
   right: 0;
@@ -4653,7 +4650,7 @@ shoppingcart.shoppingcart-rightside {
   text-decoration: none;
   -webkit-transition-property: all;
   transition-property: all; }
-  shoppingcart.shoppingcart-rightside .shoppingcart-toggle {
+  shoppingcartbar .shoppingcart-toggle {
     display: block;
     position: absolute;
     top: 0px;
@@ -4667,11 +4664,11 @@ shoppingcart.shoppingcart-rightside {
     text-decoration: none;
     -webkit-transition-property: background;
     transition-property: background; }
-    shoppingcart.shoppingcart-rightside .shoppingcart-toggle .innerwrap {
+    shoppingcartbar .shoppingcart-toggle .innerwrap {
       margin-top: 35px; }
-    shoppingcart.shoppingcart-rightside .shoppingcart-toggle:hover {
+    shoppingcartbar .shoppingcart-toggle:hover {
       background-color: rgba(102, 102, 102, 0.15); }
-  shoppingcart.shoppingcart-rightside .shoppingcart-element {
+  shoppingcartbar .shoppingcart-element {
     position: absolute;
     right: -325px;
     width: 330px;
@@ -4684,11 +4681,11 @@ shoppingcart.shoppingcart-rightside {
     text-decoration: none;
     -webkit-transition-property: all;
     transition-property: all; }
-  shoppingcart.shoppingcart-rightside.active {
+  shoppingcartbar.active {
     width: 370px; }
-    shoppingcart.shoppingcart-rightside.active .shoppingcart-element {
+    shoppingcartbar.active .shoppingcart-element {
       right: 0; }
-  shoppingcart.shoppingcart-rightside .shoppingcart-header {
+  shoppingcartbar .shoppingcart-header {
     padding-top: 12px; }
 
 .shoppingcart-element {
@@ -6788,7 +6785,6 @@ activitybardetail {
   .listheader .cell {
     padding: 5px 2.5px; }
 
-
 .listrow {
   display: block;
   -webkit-box-sizing: border-box;
@@ -7570,7 +7566,6 @@ body {
 /*
  * IE7 patches
  */
-
 .mobileheader {
   padding: 0 15px;
   height: 39px;
@@ -7873,6 +7868,5 @@ body {
  */
 .mobile iframe {
   max-width: 100%; }
-
 
 @media print { }

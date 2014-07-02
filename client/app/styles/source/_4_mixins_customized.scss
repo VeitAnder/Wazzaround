@@ -1005,53 +1005,50 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
-shoppingcart {
+shoppingcartbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  overflow: hidden;
+  width: $shoppingcart-toggle-width + 5px;
+  height: 100%;
+  @include animation_all;
+  .shoppingcart-toggle {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: - $shoppingcart-toggle-width;
+    height: 100%;
+    @include animation_background;
+    .innerwrap {
+      margin-top: 35px; // below uservoice
+    }
+    &:hover {
+      background-color: rgba($color_grey, 0.15);
+    }
 
-  &.shoppingcart-rightside {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 3;
-    overflow: hidden;
-    width: $shoppingcart-toggle-width + 5px;
+  }
+  .shoppingcart-element {
+    position: absolute;
+    right: - ($shoppingcart-rightside-width - 5px);
+    width: $shoppingcart-rightside-width;
     height: 100%;
     @include animation_all;
-    .shoppingcart-toggle {
-      display: block;
-      position: absolute;
-      top: 0px;
-      left: - $shoppingcart-toggle-width;
-      height: 100%;
-      @include animation_background;
-      .innerwrap {
-        margin-top: 35px; // below uservoice
-      }
-      &:hover {
-        background-color: rgba($color_grey, 0.15);
-      }
+  }
 
-    }
+  &.active {
+
+    width: $shoppingcart-rightside-width + $shoppingcart-toggle-width;
+
     .shoppingcart-element {
-      position: absolute;
-      right: - ($shoppingcart-rightside-width - 5px);
-      width: $shoppingcart-rightside-width;
-      height: 100%;
-      @include animation_all;
+      right: 0;
     }
-
-    &.active {
-
-      width: $shoppingcart-rightside-width + $shoppingcart-toggle-width;
-
-      .shoppingcart-element {
-        right: 0;
-      }
-      .shoppingcart-toggle {
-      }
+    .shoppingcart-toggle {
     }
-    .shoppingcart-header {
-      padding-top: $fs*0.75; // below uservoice
-    }
+  }
+  .shoppingcart-header {
+    padding-top: $fs*0.75; // below uservoice
   }
 }
 
@@ -1229,10 +1226,10 @@ shoppingcart {
 
 $payment-triangle-size: 60px;
 
-.payment-userdetails{
+.payment-userdetails {
   position: relative;
-  &:before{
-    content:"";
+  &:before {
+    content: "";
     position: absolute;
     top: 0;
     left: 50%;
@@ -1240,8 +1237,8 @@ $payment-triangle-size: 60px;
     margin-left: -($payment-triangle-size/2);
     @include triangle($payment-triangle-size, $color_white, down);
   }
-  &:after{
-    content:"";
+  &:after {
+    content: "";
     position: absolute;
     bottom: -($payment-triangle-size/2);
     left: 50%;
@@ -1251,8 +1248,6 @@ $payment-triangle-size: 60px;
     @include triangle($payment-triangle-size, $color_green_15, down);
   }
 }
-
-
 
 $activitybar-currentitem-width: 60%;
 $activitybar-height: 200px;

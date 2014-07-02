@@ -76,22 +76,31 @@ ActivityModel.writeFilter(function (doc, req) {
 
       doc.owner._reference = ownerRef;
     }
+    // allow global access to admin-user
+  }
+  else {
+    ownerRef = doc.owner._reference;
+    if (doc.owner._reference instanceof ObjectId) { // workaround for delete
+      ownerRef = ownerRef.toString();
+    }
 
-    return true;  // allow global access to admin-user
+    // don't allow to save activities where the user is not the owner
+    if (doc._id !== undefined && ownerRef !== req.session.user._id) {
+      return false;
+    }
+
+    // set the owner of the activity
+    doc.owner._reference = ObjectId(req.session.user._id);
   }
 
-  ownerRef = doc.owner._reference;
-  if (doc.owner._reference instanceof ObjectId) { // workaround for delete
-    ownerRef = ownerRef.toString();
-  }
+  // translate the activity
 
-  // don't allow to save activities where the user is not the owner
-  if (doc._id !== undefined && ownerRef !== req.session.user._id) {
-    return false;
-  }
 
-  // set the owner of the activity
-  doc.owner._reference = ObjectId(req.session.user._id);
+
+
+
+
+
   return true;
 });
 
