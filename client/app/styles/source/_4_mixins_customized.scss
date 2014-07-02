@@ -1227,6 +1227,33 @@ shoppingcart {
   }
 }
 
+$payment-triangle-size: 60px;
+
+.payment-userdetails{
+  position: relative;
+  &:before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    margin-left: -($payment-triangle-size/2);
+    @include triangle($payment-triangle-size, $color_white, down);
+  }
+  &:after{
+    content:"";
+    position: absolute;
+    bottom: -($payment-triangle-size/2);
+    left: 50%;
+    display: block;
+    margin-bottom: -($payment-triangle-size/2);
+    margin-left: -($payment-triangle-size/2);
+    @include triangle($payment-triangle-size, $color_green_15, down);
+  }
+}
+
+
+
 $activitybar-currentitem-width: 60%;
 $activitybar-height: 200px;
 

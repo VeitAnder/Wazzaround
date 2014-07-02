@@ -7,248 +7,260 @@
       </div>
     </div>
   </div>
+  <section class="payment-shoppingcart first">
+    <div class="container main-content">
+      <div class="row">
+        <div class="col-sm-12">
 
-  <div class="container main-content">
-    <div class="row payment-shoppingcart">
-      <div class="col-sm-12">
+          <h3 class="no-margin-top">Shopping cart</h3>
 
-        <h3 class="no-margin-top">Shopping cart</h3>
+          <div class="shoppingcart-content"
+               ng-repeat="item in shoppingcart.getCart()">
 
-        <div class="shoppingcart-content"
-             ng-repeat="item in shoppingcart.getCart()">
-
-          <!--SHOPPINGCART ITEM #1-->
-          <div class="shoppingcart-item"
-               data-ng-class="{
+            <!--SHOPPINGCART ITEM #1-->
+            <div class="shoppingcart-item"
+                 data-ng-class="{
       'category-sports' : item.category === 'sports',
       'category-culture' : item.category === 'culture',
       'category-wellness' : item.category === 'wellness',
     }">
 
-            <cloudinaryimage data-publicid="{{item.image.public_id}}"
-                             data-format="{{item.image.format}}"
-                             data-width="100"
-                             data-height="60"
-                >
-            </cloudinaryimage>
-
-            <h4>
-              <span class="icon"></span>
-              <strong>
-                {{item.description[getAvailableTranslationLanguageKey(item.description)] }}
-              </strong>
-              / {{ {start:item.start, end:item.end} | duration }}
-            </h4>
-
-            <div class="shoppingcart-item-details">
-              <div class="shoppingcart-item-date">
-                {{ item.start | momentjs:{format: "ddd, MMM Do YYYY"} }}
-              </div>
-              <div class="shoppingcart-item-qty">
-                <input type="number"
-                       class="form-control input-mini"
-                       id="shoppingcartItemAmount1"
-                       name="shoppingcartItemAmount1"
-                       value="1"
-                       min="1"
-                       max="99"
-                       maxlength="2"
-                       ng-model="item.quantity"
-                       required
-                    >
-              </div>
-              <div class="shoppingcart-item-price">
-                € {{item.price}}
-              </div>
-            </div>
-
-            <div class="txt-icon-delete"
-                 ng-click="item.remove()">
-              <span class="hidden">Delete item</span>
-              <span></span>
-            </div>
-          </div>
-        </div>
-
-        <!--SHOPPINGCART ITEMS END-->
-
-        <div class="shoppingcart-subtotal">
-          <span class="description">Subtotal</span>
-          <span class="value">€ {{shoppingcart.getTotal().price}}</span>
-        </div>
-
-
-        <div class="form-group form-group-btn">
-          <button
-              class="btn"
-              >
-            Next step – User Details
-          </button>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="row payment-userdetails">
-      <div class="col-sm-12">
-
-        <h3 class="no-margin-top">User details</h3>
-
-        <form class="standardform"
-              name="valForm"
-              novalidate
-            >
-
-          <div class="form-group-inline form-group-inline-5050">
-            <div class="form-group">
-              <label for="firstname">{{'First name' | translate}}</label>
-              <input name="firstname"
-                     id="firstname"
-                     ng-model="registrant.profile.firstName"
-                     class="input-block-level"
-                     required
-                     placeholder="{{ 'Your first name' | translate }}"
+              <cloudinaryimage data-publicid="{{item.image.public_id}}"
+                               data-format="{{item.image.format}}"
+                               data-width="100"
+                               data-height="60"
                   >
+              </cloudinaryimage>
 
-              <span ng-show="showError('firstname', 'required')"
-                    class="alert alert-error">{{'Please enter your first name' | translate}}
-              </span>
+              <h4>
+                <span class="icon"></span>
+                <strong>
+                  {{item.description[getAvailableTranslationLanguageKey(item.description)] }}
+                </strong>
+                / {{ {start:item.start, end:item.end} | duration }}
+              </h4>
 
-            </div>
+              <div class="shoppingcart-item-details">
+                <div class="shoppingcart-item-date">
+                  {{ item.start | momentjs:{format: "ddd, MMM Do YYYY"} }}
+                </div>
+                <div class="shoppingcart-item-qty">
+                  <input type="number"
+                         class="form-control input-mini"
+                         id="shoppingcartItemAmount1"
+                         name="shoppingcartItemAmount1"
+                         value="1"
+                         min="1"
+                         max="99"
+                         maxlength="2"
+                         ng-model="item.quantity"
+                         required
+                      >
+                </div>
+                <div class="shoppingcart-item-price">
+                  € {{item.price}}
+                </div>
+              </div>
 
-            <div class="form-group">
-              <label for="lastname">{{'Last name' | translate}}</label>
-              <input name="lastname"
-                     id="lastname"
-                     ng-model="registrant.profile.lastName"
-                     class="input-block-level"
-                     required
-                     placeholder="{{ 'Your last name' | translate }}"
-                  >
-
-              <span ng-show="showError('lastname', 'required')"
-                    class="alert alert-error">{{'Please enter your last name' | translate}}
-              </span>
-
+              <div class="txt-icon-delete"
+                   ng-click="item.remove()">
+                <span class="hidden">Delete item</span>
+                <span></span>
+              </div>
             </div>
           </div>
 
-          <div class="form-group-inline form-group-inline-5050">
-            <div class="form-group">
-              <label for="email">{{'E-mail' | translate}}</label>
-              <input name="email"
-                     id="email"
-                     ng-model="registrant.email"
-                     class="input-block-level"
-                     required
-                     autofocus
-                     ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
-                     placeholder="{{'Your e-mail address' | translate}}"
-                  >
+          <!--SHOPPINGCART ITEMS END-->
 
-              <span ng-show="showError('email', 'required')"
-                    class="alert alert-error">{{ 'Please enter your e-mail address.' | translate }}
-              </span>
-              <span ng-show="showError('email', 'pattern')"
-                    class="alert alert-error">{{ 'Please enter a valid e-mail address.' | translate }}
-              </span>
-
-            </div>
-
-            <div class="form-group">
-              <label for="tel">{{'Telephone' | translate}}</label>
-              <input name="tel"
-                     id="tel"
-                     ng-model="registrant.profile.tel"
-                     class="input-block-level"
-                     placeholder="{{ 'Your telephone number' | translate }}"
-                  >
-
-            </div>
+          <div class="shoppingcart-subtotal">
+            <span class="description">Subtotal</span>
+            <span class="value">€ {{shoppingcart.getTotal().price}}</span>
           </div>
-          <div class="form-group form-group-btn">
+
+          <div class="form-group form-group-btn align-right">
             <button
                 class="btn"
                 >
-              Next step – Payment options
+              Next step – User Details
             </button>
           </div>
 
-        </form>
-
-      </div>
-    </div>
-
-    <div class="row payment-paymentoptions">
-      <div class="col-sm-12">
-
-        <h3 class="no-margin-top">Payment options</h3>
-
-        <form class="standardform"
-              id="payment-form"
-              action=""
-              method="POST"
-              ng-submit="submitPayment()">
-
-          <!--<input class="card-amount-int" type="hidden" value="15" />-->
-          <!--<input class="card-currency" type="hidden" value="EUR" />-->
-
-          <div class="form-row">
-            <label>Card number</label>
-            <input class="card-number"
-                   type="text"
-                   size="20"/>
-          </div>
-
-          <div class="form-row">
-            <label>CVC</label>
-            <input class="card-cvc"
-                   type="text"
-                   size="4"/>
-          </div>
-
-          <div class="form-row">
-            <label>Name</label>
-            <input class="card-holdername"
-                   type="text"
-                   size="4"/>
-          </div>
-
-          <div class="form-row">
-            <label>Expiry date (MM/YYYY)</label>
-            <input class="card-expiry-month"
-                   type="text"
-                   size="2"/>
-            <span></span>
-            <input class="card-expiry-year"
-                   type="text"
-                   size="4"/>
-          </div>
-
-          <button class="submit-button"
-                  type="submit"
-                  ng-class="{disabled : !submitEnabled}">Submit
-          </button>
-
-        </form>
-
-        <div class="payment-errors"></div>
-
-        <p></p>
-        Wieviel:
-        <input type="text"
-               ng-model="ammount"
-               placeholder="EUR">
-
-        <div class="form-group form-group-btn">
-          <button
-              class="btn"
-              >
-            Next step – Checkout summary
-          </button>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+  <section class="payment-userdetails section-green">
+    <div class="container main-content">
+      <div class="row">
+        <div class="col-sm-12">
+
+          <h3 class="no-margin-top">User details</h3>
+
+          <form class="standardform"
+                name="valForm"
+                novalidate
+              >
+
+            <div class="form-group-inline form-group-inline-5050">
+              <div class="form-group">
+                <label for="firstname">{{'First name' | translate}}</label>
+                <input name="firstname"
+                       id="firstname"
+                       ng-model="registrant.profile.firstName"
+                       class="input-block-level"
+                       required
+                       placeholder="{{ 'Your first name' | translate }}"
+                    >
+
+                <span ng-show="showError('firstname', 'required')"
+                      class="alert alert-error">{{'Please enter your first name' | translate}}
+                </span>
+
+              </div>
+
+              <div class="form-group">
+                <label for="lastname">{{'Last name' | translate}}</label>
+                <input name="lastname"
+                       id="lastname"
+                       ng-model="registrant.profile.lastName"
+                       class="input-block-level"
+                       required
+                       placeholder="{{ 'Your last name' | translate }}"
+                    >
+
+                <span ng-show="showError('lastname', 'required')"
+                      class="alert alert-error">{{'Please enter your last name' | translate}}
+                </span>
+
+              </div>
+            </div>
+
+            <div class="form-group-inline form-group-inline-5050">
+              <div class="form-group">
+                <label for="email">{{'E-mail' | translate}}</label>
+                <input name="email"
+                       id="email"
+                       ng-model="registrant.email"
+                       class="input-block-level"
+                       required
+                       autofocus
+                       ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
+                       placeholder="{{'Your e-mail address' | translate}}"
+                    >
+
+                <span ng-show="showError('email', 'required')"
+                      class="alert alert-error">{{ 'Please enter your e-mail address.' | translate }}
+                </span>
+                <span ng-show="showError('email', 'pattern')"
+                      class="alert alert-error">{{ 'Please enter a valid e-mail address.' | translate }}
+                </span>
+
+              </div>
+
+              <div class="form-group">
+                <label for="tel">{{'Telephone' | translate}}</label>
+                <input name="tel"
+                       id="tel"
+                       ng-model="registrant.profile.tel"
+                       class="input-block-level"
+                       placeholder="{{ 'Your telephone number' | translate }}"
+                    >
+
+              </div>
+            </div>
+            <div class="form-group form-group-btn align-right">
+              <button
+                  class="btn"
+                  >
+                Next step – Payment options
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="payment-paymentoptions">
+    <div class="container main-content">
+      <div class="row">
+        <div class="col-sm-12">
+
+          <h3 class="no-margin-top">Payment options</h3>
+
+          <form class="standardform"
+                id="payment-form"
+                action=""
+                method="POST"
+                ng-submit="submitPayment()">
+
+            <!--<input class="card-amount-int" type="hidden" value="15" />-->
+            <!--<input class="card-currency" type="hidden" value="EUR" />-->
+            <div class="form-group-inline form-group-inline-7525">
+              <div class="form-group">
+
+                <label>Card number</label>
+                <input class="card-number"
+                       type="text"
+                       size="20"/>
+              </div>
+
+              <div class="form-group">
+                <label>CVC</label>
+                <input class="card-cvc"
+                       type="text"
+                       size="4"/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label>Name</label>
+              <input class="card-holdername"
+                     type="text"
+                     size="4"/>
+            </div>
+
+            <div class="form-group-inline form-group-inline-2525">
+              <div class="form-group">
+                <label>Expiry date (MM)</label>
+                <input class="card-expiry-month"
+                       type="text"
+                       size="2"/>
+              </div>
+              <div class="form-group">
+                <label>Expiry date (YYYY)</label>
+                <input class="card-expiry-year"
+                       type="text"
+                       size="4"/>
+              </div>
+            </div>
+            <button class="submit-button"
+                    type="submit"
+                    ng-class="{disabled : !submitEnabled}">Submit
+            </button>
+
+          </form>
+
+          <div class="payment-errors"></div>
+
+          <p></p>
+          Wieviel:
+          <input type="text"
+                 ng-model="ammount"
+                 placeholder="EUR">
+
+          <div class="form-group form-group-btn align-right">
+            <button
+                class="btn"
+                >
+              Next step – Checkout summary
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </div>

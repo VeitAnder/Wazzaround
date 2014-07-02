@@ -2318,23 +2318,27 @@ p.inline-screen-sm {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     -webkit-overflow-scrolling: touch; } }
 
-.section {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  border-top: dotted 1px #b3b3b3;
-  border-bottom: dotted 1px #b3b3b3; }
-  .section.section-grey {
+section {
+  padding-top: 44.8px;
+  padding-bottom: 44.8px;
+  border-top: dotted 1px #b3b3b3; }
+  section.first {
+    border-top: none;
+    padding-top: 0; }
+    section.first.section-grey {
+      padding-top: 44.8px; }
+  section.section-grey {
     border: none;
-    background-color: #666;
-    color: #FFF; }
-  .section.section-map {
+    background-color: #e8e8e8; }
+  section.section-green {
+    border: none;
+    background-color: #edf7d9; }
+  section.section-map {
     border: none;
     padding: 0; }
 
-.main-content .row {
-  padding-bottom: 44.8px; }
-  .main-content .row.first {
-    padding-top: 44.8px; }
+.section-grey + section, .section-green + section {
+  border-top: none; }
 
 header {
   color: #666;
@@ -2779,6 +2783,12 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
   width: 72.5%; }
   .form-group-inline.form-group-inline-2575 .form-group:first-child {
     width: 22.5%; }
+.form-group-inline.form-group-inline-7525 .form-group {
+  width: 22.5%; }
+  .form-group-inline.form-group-inline-7525 .form-group:first-child {
+    width: 72.5%; }
+.form-group-inline.form-group-inline-2525 .form-group {
+  width: 22.5%; }
 
 .form-group-btn {
   vertical-align: baseline; }
@@ -4894,6 +4904,36 @@ shoppingcart.shoppingcart-rightside {
   .shoppingcart-subtotal .value {
     text-align: right;
     margin-left: 2%; }
+
+.payment-userdetails {
+  position: relative; }
+  .payment-userdetails:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    margin-left: -30px;
+    height: 0;
+    width: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 30px;
+    border-top-color: #FFF; }
+  .payment-userdetails:after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    display: block;
+    margin-bottom: -30px;
+    margin-left: -30px;
+    height: 0;
+    width: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 30px;
+    border-top-color: #edf7d9; }
 
 .category {
   display: inline-block;

@@ -1475,15 +1475,24 @@ p.inline-screen-sm {
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-.section {
-  padding-top: $bu*2.0;
-  padding-bottom: $bu*2.0;
+section {
+  padding-top: $fs*$line-height_factor*2.0;
+  padding-bottom: $fs*$line-height_factor*2.0;
   @include seperator(top, $color_main_seperator);
-  @include seperator(bottom, $color_main_seperator);
+  &.first{
+    border-top: none;
+    padding-top: 0;
+    &.section-grey{
+      padding-top: $fs*$line-height_factor*2.0;
+    }
+  }
   &.section-grey {
     border: none;
-    background-color: $color_grey;
-    color: $color_white;
+    background-color: $color_grey_15;
+  }
+  &.section-green {
+    border: none;
+    background-color: $color_green_15;
   }
   &.section-map {
     border: none;
@@ -1491,14 +1500,11 @@ p.inline-screen-sm {
   }
 }
 
-.main-content{
-  .row{
-    padding-bottom: $fs*$line-height_factor*2.0;
-    &.first{
-      padding-top: $fs*$line-height_factor*2.0;
-    }
-  }
+.section-grey + section,
+.section-green + section{
+  border-top: none;
 }
+
 
 // HEADER / MAIN / FOOTER
 // ###########################################################################################################################
@@ -2011,6 +2017,19 @@ input[type="checkbox"]:focus {
       &:first-child {
         width: 22.5%;
       }
+    }
+  }
+  &.form-group-inline-7525 {
+    .form-group {
+      width: 22.5%;
+      &:first-child {
+        width: 72.5%;
+      }
+    }
+  }
+  &.form-group-inline-2525 {
+    .form-group {
+      width: 22.5%;
     }
   }
 }
