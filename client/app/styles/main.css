@@ -783,7 +783,6 @@ table {
     right: 0;
     left: auto; } }
 
-
 .map-debug {
   display: none;
   position: absolute;
@@ -2002,7 +2001,6 @@ sub {
 ul, ol, dl {
   margin: 0; }
 
-
 ul {
   margin: 0 0 32px 0;
   padding: 0; }
@@ -2823,7 +2821,6 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
     .input-label, label {
       font-size: 11px;
       line-height: 15.4px; } }
-
 
 .formdata-display {
   overflow: hidden;
@@ -6788,7 +6785,6 @@ activitybardetail {
   .listheader .cell {
     padding: 5px 2.5px; }
 
-
 .listrow {
   display: block;
   -webkit-box-sizing: border-box;
@@ -7570,7 +7566,6 @@ body {
 /*
  * IE7 patches
  */
-
 .mobileheader {
   padding: 0 15px;
   height: 39px;
@@ -7873,6 +7868,5 @@ body {
  */
 .mobile iframe {
   max-width: 100%; }
-
 
 @media print { }
