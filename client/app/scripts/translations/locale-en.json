@@ -303,7 +303,11 @@
   "Please accept the reacture affiliate agreement": "Please accept the reacture affiliate agreement.",
   "Affiliate agreement": "Affiliate agreement",
   "Payment": "Payment",
+  "Payment Confirmation": "Payment Confirmation",
   "Set Location": "Set Location",
   "Form can not be saved. Please fill in all required form fields first.": "Form can not be saved. Please fill in all required form fields first.",
-  "There are more events available": "There are more events available"
+  "There are more events available": "There are more events available",
+  "credit card": "Credit card",
+  "Order ID": "Order ID",
+  "Legal Notes": "Legal Notes"
 }

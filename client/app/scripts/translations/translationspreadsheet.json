@@ -2448,6 +2448,14 @@
     "fr": "Paiement"
   },
   {
+    "Description": "",
+    "key": "Payment Confirmation",
+    "en": "Payment Confirmation",
+    "de": "Bezahlungsbestätigung",
+    "it": "Payment Confirmation",
+    "fr": "Payment Confirmation"
+  },
+  {
     "Description": "Activity Edit set location",
     "key": "Set Location",
     "en": "Set Location",
@@ -2470,5 +2478,29 @@
     "de": "Es sind weitere Events verfügbar",
     "it": "There are more events available",
     "fr": "There are more events available"
+  },
+  {
+    "Description": "",
+    "key": "credit card",
+    "en": "Credit card",
+    "de": "Kreditkarte",
+    "it": "Credit card",
+    "fr": "Credit card"
+  },
+  {
+    "Description": "",
+    "key": "Order ID",
+    "en": "Order ID",
+    "de": "Buchungsnummer",
+    "it": "Order ID",
+    "fr": "Order ID"
+  },
+  {
+    "Description": "",
+    "key": "Legal Notes",
+    "en": "Legal Notes",
+    "de": "Impressum",
+    "it": "Legal Notes",
+    "fr": "Legal Notes"
   }
 ]

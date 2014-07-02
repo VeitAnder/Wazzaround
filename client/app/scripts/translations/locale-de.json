@@ -303,7 +303,11 @@
   "Please accept the reacture affiliate agreement": "Bitte stimmen Sie den Bedingungen des reActure Partnervertrages zu.",
   "Affiliate agreement": "Partnervertrag",
   "Payment": "Bezahlung",
+  "Payment Confirmation": "Bezahlungsbestätigung",
   "Set Location": "Ort setzen",
   "Form can not be saved. Please fill in all required form fields first.": "Formular kann nicht gespeichert werden. Bitte füllen Sie alle markierten Felder aus",
-  "There are more events available": "Es sind weitere Events verfügbar"
+  "There are more events available": "Es sind weitere Events verfügbar",
+  "credit card": "Kreditkarte",
+  "Order ID": "Buchungsnummer",
+  "Legal Notes": "Impressum"
 }

@@ -303,7 +303,11 @@
   "Please accept the reacture affiliate agreement": "Please accept the reacture affiliate agreement.",
   "Affiliate agreement": "Condizioni Generali Reacture",
   "Payment": "Pagamento",
+  "Payment Confirmation": "Payment Confirmation",
   "Set Location": "localizzazione",
   "Form can not be saved. Please fill in all required form fields first.": "Form can not be saved. Please fill in all required form fields first.",
-  "There are more events available": "There are more events available"
+  "There are more events available": "There are more events available",
+  "credit card": "Credit card",
+  "Order ID": "Order ID",
+  "Legal Notes": "Legal Notes"
 }
