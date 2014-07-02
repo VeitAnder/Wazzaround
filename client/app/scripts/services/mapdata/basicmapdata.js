@@ -44,11 +44,11 @@ angular.module('anorakApp')
       };
 
       // if end date is before start date, set to 1h after start date
-      var setEndDateDependingOnStartDate = function() {
+      var setEndDateDependingOnStartDate = function () {
         var start = moment(map.searchStartDate);
         var end = moment(map.searchEndDate);
 
-        if(start.isAfter(end)) {
+        if (start.isAfter(end)) {
           end = moment(start).add('weeks', 4);
           map.searchEndDate = end.toDate();
         }
@@ -111,12 +111,12 @@ angular.module('anorakApp')
         // bounds contain northeast and southwest lat/lng which we will use to search activities within
         map.bounds = {
           northeast: {
-            latitude: googleMap.getBounds().getNorthEast().k,
-            longitude: googleMap.getBounds().getNorthEast().A
+            latitude: googleMap.getBounds().getNorthEast().lat(),
+            longitude: googleMap.getBounds().getNorthEast().lng()
           },
           southwest: {
-            latitude: googleMap.getBounds().getSouthWest().k,
-            longitude: googleMap.getBounds().getSouthWest().A
+            latitude: googleMap.getBounds().getSouthWest().lat(),
+            longitude: googleMap.getBounds().getSouthWest().lng()
           }
         };
 
@@ -133,6 +133,7 @@ angular.module('anorakApp')
       };
 
       var saveMapStateToUsersession = function () {
+        // check map.bounds
         Usersessionstates.states.bounds = map.bounds;
         Usersessionstates.states.searchlocation = {
           coords: map.center
@@ -151,10 +152,10 @@ angular.module('anorakApp')
           .then(function (coords) {
             if (coords !== null) {
               console.log("CENTER MARKER AFTER SEARCH CHANGE", map.searchAddress);
-              map.center.latitude = coords.k;
-              map.center.longitude = coords.A;
-              map.centerMarker.latitude = coords.k;
-              map.centerMarker.longitude = coords.A;
+              map.center.latitude = coords.lat();
+              map.center.longitude = coords.lng();
+              map.centerMarker.latitude = coords.lat();
+              map.centerMarker.longitude = coords.lng();
               map.zoom = config.locationsearch.zoom;
 
               saveMapStateToUsersession();
@@ -248,6 +249,7 @@ angular.module('anorakApp')
         },
         events: {
           idle: onMapChange
+//          tilesloaded: onMapChange
         }
       };
 
@@ -307,13 +309,13 @@ angular.module('anorakApp')
                 if (coords !== null) {
                   var position = {
                     coords: {
-                      latitude: coords.k,
-                      longitude: coords.A
+                      latitude: coords.lat(),
+                      longitude: coords.lng()
                     }
                   };
                   setMapCenter(position);
-                  map.centerMarker.latitude = coords.k;
-                  map.centerMarker.longitude = coords.A;
+                  map.centerMarker.latitude = coords.lat();
+                  map.centerMarker.longitude = coords.lng();
                 }
                 return Q.resolve(map);
               });
