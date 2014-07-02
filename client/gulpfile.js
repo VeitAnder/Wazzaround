@@ -30,6 +30,8 @@ gulp.task('lint', function () {
 });
 
 gulp.task('html2js', function () {
+  console.log("html2js");
+
   gulp.src('./app/views/**/*.html')
     .pipe(html2js({
       outputModuleName: 'templates.app',
@@ -41,7 +43,7 @@ gulp.task('html2js', function () {
 
 // Serve tasks
 gulp.task('reload:html', function () {
-  return gulp.src('./app/index.html')
+  return gulp.src('./app/**/*.html')
     .pipe(refresh(lrserver));
 });
 
