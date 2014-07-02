@@ -194,19 +194,29 @@
 
             <!--<input class="card-amount-int" type="hidden" value="15" />-->
             <!--<input class="card-currency" type="hidden" value="EUR" />-->
+
+            <div class="input-label">Available Creditcards:</div>
+              <img src="/img/paymill/32x20_visa.png" />
+              <img src="/img/paymill/32x20_mastercard.png" />
+              <img src="/img/paymill/32x20_dinersclub.png" />
+              <img src="/img/paymill/32x20_amex.png" />
+
             <div class="form-group-inline form-group-inline-7525">
               <div class="form-group">
 
-                <label>Card number</label>
+                <label for="cardnumber">Card number</label>
                 <input class="card-number"
-                       type="text"
+                       id="cardnumber"
                        ng-model="payment.card.number"
-                       size="20"/>
+                       type="text"
+                       size="20"
+                    />
               </div>
 
               <div class="form-group">
-                <label>CVC</label>
+                <label for="cardcvc">CVC</label>
                 <input class="card-cvc"
+                       id="cardcvc"
                        type="text"
                        ng-model="payment.card.cvc"
                        size="4"/>
@@ -214,8 +224,9 @@
             </div>
 
             <div class="form-row">
-              <label>Holdername (Name auf der Kreditkarte)</label>
+              <label for="cardname">Holdername (Name auf der Kreditkarte)</label>
               <input class="card-holdername"
+                     id="cardname"
                      type="text"
                      ng-model="payment.card.name"
                      size="4"/>
@@ -223,15 +234,17 @@
 
             <div class="form-group-inline form-group-inline-2525">
               <div class="form-group">
-                <label>Expiry date (MM)</label>
+                <label for="expirymonth">Expiry date (MM)</label>
                 <input class="card-expiry-month"
+                       id="expirymonth"
                        type="text"
                        ng-model="payment.card.expiry_month"
                        size="2"/>
               </div>
               <div class="form-group">
-                <label>Expiry date (YYYY)</label>
+                <label for="expiryyear">Expiry date (YYYY)</label>
                 <input class="card-expiry-year"
+                       id="expiryyear"
                        type="text"
                        ng-model="payment.card.expiry_year"
                        size="4"/>
@@ -240,11 +253,11 @@
 
             <div class="form-group form-group-btn align-right">
               <button
-                  class="btn"
+                  class="btn btn-large"
                   ng-class="{disabled : !payment.submitEnabled}"
                   ng-click="payment.submitPayment()"
                   >
-                Next step – Checkout summary
+                Send Booking
               </button>
             </div>
 
