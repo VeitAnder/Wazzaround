@@ -16,10 +16,12 @@
       'category-wellness' : item.category === 'wellness',
     }">
 
-        <cloudinaryimage data-publicid="{{item.image.public_id}}"
-                         data-format="{{item.image.format}}"
-                         data-width="100"
-                         data-height="60"
+        <cloudinaryimage
+            ng-if="!state.confirmationview"
+            data-publicid="{{item.image.public_id}}"
+            data-format="{{item.image.format}}"
+            data-width="100"
+            data-height="60"
             >
         </cloudinaryimage>
 
