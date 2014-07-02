@@ -1,6 +1,8 @@
 <div>
   <div class="shoppingcart-header">
-    <h3>
+    <h3
+        ng-hide="state.confirmationview"
+        >
       <strong>{{shoppingcart.getTotal().num}} Activities</strong>
       in shopping cart
     </h3>
@@ -40,6 +42,7 @@
           <div class="shoppingcart-item-qty">
 
             <input type="number"
+                   ng-hide="state.confirmationview"
                    class="form-control input-mini"
                    id="shoppingcartItemAmount1"
                    name="shoppingcartItemAmount1"
@@ -47,6 +50,12 @@
                    min="1"
                    required
                 >
+            <span
+                ng-show="state.confirmationview"
+                >
+                 {{item.quantity}}x
+                </span>
+
           </div>
 
           <div class="shoppingcart-item-price">
@@ -55,6 +64,7 @@
         </div>
 
         <div class="txt-icon-delete"
+             ng-hide="state.confirmationview"
              ng-click="item.remove()">
           <span class="hidden">Delete item</span>
           <span></span>
