@@ -196,42 +196,49 @@
 
             <!--<input class="card-amount-int" type="hidden" value="15" />-->
             <!--<input class="card-currency" type="hidden" value="EUR" />-->
+
+            <div class="input-label">Available Creditcards:</div>
+              <img src="/img/paymill/32x20_visa.png" />
+              <img src="/img/paymill/32x20_mastercard.png" />
+              <img src="/img/paymill/32x20_dinersclub.png" />
+              <img src="/img/paymill/32x20_amex.png" />
+
             <div class="form-group-inline form-group-inline-7525">
               <div class="form-group">
 
-                <label>Card number</label>
+                <label for="cardnumber">Card number</label>
                 <input class="card-number"
-                       type="text"
-                       size="20"/>
+                       id="cardnumber"
+                       type="text"/>
               </div>
 
               <div class="form-group">
-                <label>CVC</label>
+                <label for="cardcvc">CVC</label>
                 <input class="card-cvc"
-                       type="text"
-                       size="4"/>
+                       id="cardcvc"
+                       type="text"/>
               </div>
             </div>
 
             <div class="form-row">
-              <label>Name</label>
+              <label for="cardname">Name</label>
               <input class="card-holdername"
-                     type="text"
-                     size="4"/>
+                     id="cardname"
+                     type="text"/>
             </div>
 
             <div class="form-group-inline form-group-inline-2525">
               <div class="form-group">
-                <label>Expiry date (MM)</label>
+                <label for="expirymonth">Expiry date (MM)</label>
                 <input class="card-expiry-month"
-                       type="text"
-                       size="2"/>
+                       id="expirymonth"
+                       type="text"/>
               </div>
               <div class="form-group">
-                <label>Expiry date (YYYY)</label>
+                <label for="expiryyear">Expiry date (YYYY)</label>
                 <input class="card-expiry-year"
-                       type="text"
-                       size="4"/>
+                       id="expiryyear"
+                       type="text"/>
               </div>
             </div>
             <button class="submit-button"
@@ -251,9 +258,9 @@
 
           <div class="form-group form-group-btn align-right">
             <button
-                class="btn"
+                class="btn btn-large"
                 >
-              Next step – Checkout summary
+              Send Booking
             </button>
           </div>
         </div>
