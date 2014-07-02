@@ -105,6 +105,10 @@ angular.module('anorakApp')
         templateUrl: 'views/page_basetemplate.html',
         controller: 'LegalnotesCtrl'
       })
+      .when('/affiliateagreement', {
+        templateUrl: 'views/page_basetemplate.html',
+        controller: 'AffiliateagreementCtrl'
+      })
       .when('/why', {
         templateUrl: 'views/page_basetemplate.html',
         controller: 'WhyCtrl'
