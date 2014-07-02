@@ -24,7 +24,7 @@ var setupStaticAssetsServer = function (app, maxAge, extconfig) {
   // cache lifetime for static assets
   // checkout static content serving on  http://blog.modulus.io/nodejs-and-express-static-content
   maxAgeStaticAssets = (86400000 * 3);
-  if (maxAge) {
+  if (maxAge !== undefined) {
     maxAgeStaticAssets = maxAge;
   }
 
