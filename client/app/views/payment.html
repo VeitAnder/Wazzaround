@@ -1,4 +1,4 @@
-<div data-ng-controller="PaymentCtrl">
+<div data-ng-controller="PaymentCtrl as payment">
 
   <div class="container">
     <div class="row">
@@ -190,9 +190,7 @@
 
           <form class="standardform"
                 id="payment-form"
-                action=""
-                method="POST"
-                ng-submit="submitPayment()">
+                >
 
             <!--<input class="card-amount-int" type="hidden" value="15" />-->
             <!--<input class="card-currency" type="hidden" value="EUR" />-->
@@ -202,6 +200,7 @@
                 <label>Card number</label>
                 <input class="card-number"
                        type="text"
+                       ng-model="payment.card.number"
                        size="20"/>
               </div>
 
@@ -209,14 +208,16 @@
                 <label>CVC</label>
                 <input class="card-cvc"
                        type="text"
+                       ng-model="payment.card.cvc"
                        size="4"/>
               </div>
             </div>
 
             <div class="form-row">
-              <label>Name</label>
+              <label>Holdername (Name auf der Kreditkarte)</label>
               <input class="card-holdername"
                      type="text"
+                     ng-model="payment.card.name"
                      size="4"/>
             </div>
 
@@ -225,37 +226,32 @@
                 <label>Expiry date (MM)</label>
                 <input class="card-expiry-month"
                        type="text"
+                       ng-model="payment.card.expiry_month"
                        size="2"/>
               </div>
               <div class="form-group">
                 <label>Expiry date (YYYY)</label>
                 <input class="card-expiry-year"
                        type="text"
+                       ng-model="payment.card.expiry_year"
                        size="4"/>
               </div>
             </div>
-            <button class="submit-button"
-                    type="submit"
-                    ng-class="{disabled : !submitEnabled}">Submit
-            </button>
+
+            <div class="form-group form-group-btn align-right">
+              <button
+                  class="btn"
+                  ng-class="{disabled : !payment.submitEnabled}"
+                  ng-click="payment.submitPayment()"
+                  >
+                Next step – Checkout summary
+              </button>
+            </div>
 
           </form>
 
           <div class="payment-errors"></div>
 
-          <p></p>
-          Wieviel:
-          <input type="text"
-                 ng-model="ammount"
-                 placeholder="EUR">
-
-          <div class="form-group form-group-btn align-right">
-            <button
-                class="btn"
-                >
-              Next step – Checkout summary
-            </button>
-          </div>
         </div>
       </div>
     </div>
