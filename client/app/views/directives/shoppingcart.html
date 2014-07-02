@@ -30,7 +30,7 @@
         <h4>
           <span class="icon"></span>
           <strong>
-            {{item.description[getAvailableTranslationLanguageKey(item.description)] }}
+            {{item.description[translationutils.getAvailableTranslationLanguageKey(item.description)] }}
           </strong>
           / {{ {start:item.start, end:item.end} | duration }}
         </h4>

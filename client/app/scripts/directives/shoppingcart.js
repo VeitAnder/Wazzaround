@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('shoppingcart', function (shoppingcart) {
+  .directive('shoppingcart', function (shoppingcart, translationutils) {
     return {
       templateUrl: 'views/directives/shoppingcart.html',
       restrict: 'E',
@@ -12,6 +12,8 @@ angular.module('anorakApp')
         scope.state = {
           confirmationview: false
         };
+
+        scope.translationutils = translationutils;
 
         if (attrs.confirmationview === "true") {
           scope.state.confirmationview = true;

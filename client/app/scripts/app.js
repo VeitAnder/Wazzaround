@@ -283,7 +283,7 @@ angular.module('anorakApp')
     $translateProvider.useLocalStorage();
 
   })
-  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate) {
+  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate, translationutils) {
     debug("application run called");
     $rootScope.debug = debug;
     $rootScope.models = models;
@@ -333,21 +333,7 @@ angular.module('anorakApp')
     });
 
     // service to determine available language in case of ng-model binding in view
-    $rootScope.getAvailableTranslationLanguageKey = function (multilanguageobject) {
-      var availablelangkey = "";
-      if (multilanguageobject[$translate.use()]) {
-        availablelangkey = $translate.use();
-      } else {
-        if (multilanguageobject.en) {
-          availablelangkey = "en";
-        } else if (multilanguageobject.de) {
-          availablelangkey = "de";
-        } else if (multilanguageobject.it) {
-          availablelangkey = "it";
-        }
-      }
-      return availablelangkey;
-    };
+    $rootScope.getAvailableTranslationLanguageKey = translationutils.getAvailableTranslationLanguageKey;
 
   }
 );
