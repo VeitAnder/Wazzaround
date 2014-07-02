@@ -106,7 +106,7 @@
                 <label for="firstname">{{'First name' | translate}}</label>
                 <input name="firstname"
                        id="firstname"
-                       ng-model="registrant.profile.firstName"
+                       ng-model="payment.profile.firstName"
                        class="input-block-level"
                        required
                        placeholder="{{ 'Your first name' | translate }}"
@@ -122,7 +122,7 @@
                 <label for="lastname">{{'Last name' | translate}}</label>
                 <input name="lastname"
                        id="lastname"
-                       ng-model="registrant.profile.lastName"
+                       ng-model="payment.profile.lastName"
                        class="input-block-level"
                        required
                        placeholder="{{ 'Your last name' | translate }}"
@@ -139,7 +139,7 @@
               <label for="email">{{'E-mail' | translate}}</label>
               <input name="email"
                      id="email"
-                     ng-model="registrant.email"
+                     ng-model="payment.profile.email"
                      class="input-block-level"
                      required
                      autofocus
@@ -263,7 +263,7 @@
 
           </form>
 
-          <div class="payment-errors"></div>
+          <div class="payment-errors">{{payment.errorMsg}}</div>
 
         </div>
       </div>

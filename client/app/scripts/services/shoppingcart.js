@@ -57,7 +57,7 @@ angular.module('anorakApp')
       };
     };
 
-    this.checkout = function () {
+    this.checkout = function (paymentToken, profile) {
       var params = [];
       for (var i in theShoppingCart) {
         params.push({
@@ -68,7 +68,14 @@ angular.module('anorakApp')
         });
       }
 
-      return models.BookingModel.checkout({'bookings': params});
+      return models.BookingModel.checkout({
+        'bookings': params,
+        'payment': {
+          'paymentToken' : paymentToken,
+          'amount_int' : Math.floor(this.getTotal().price * 100)
+        },
+        'profile' : profile
+      });
     };
 
   });

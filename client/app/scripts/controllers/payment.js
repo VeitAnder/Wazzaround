@@ -14,48 +14,48 @@ angular.module('anorakApp')
     });
 
   })
-  .controller('PaymentCtrl', function (models) {
+  .controller('PaymentCtrl', function ($scope, models, shoppingcart) {
     var payment = this;
 
     this.submitEnabled = true;
+    this.errorMsg;
 
     var PaymillResponseHandler = function (error, result) {
       if (error) {
-        console.log("error", error);
-        // Shows the error above the form
-        $(".payment-errors").text(error.apierror);
-        $(".submit-button").removeAttr("disabled");
+        console.log("PaymillResponseHandler error", error);
+
+        payment.errorMsg = error.apierror;
+        payment.submitEnabled = true;
+        $scope.$apply();
+
       } else {
-        var form = $("#payment-form");
+
         // Output token
         var token = result.token;
         console.log("token", token);
-        // Insert token into form in order to submit to server
-        //form.append("");
 
-        models.BookingModel.pay({
-          ammount: $scope.ammount,
-          paymentToken: token
-        });
+        shoppingcart.checkout(token, payment.profile);
       }
     };
 
+    this.profile = {};
     this.card = {};
+    this.amount_int = Math.floor(shoppingcart.getTotal().price * 100);
 
     this.submitPayment = function (event) {
-      console.log("submitPayment", payment.card);
+      console.log("submitPayment", payment.card, payment.profile, shoppingcart.getTotal());
 
       payment.submitEnabled = false;
 
-//      paymill.createToken({
-//        number: $('.card-number').val(),  // required, ohne Leerzeichen und Bindestriche
-//        exp_month: $('.card-expiry-month').val(),   // required
-//        exp_year: $('.card-expiry-year').val(),     // required, vierstellig z.B. "2016"
-//        cvc: $('.card-cvc').val(),                  // required
-//        amount_int: $('.card-amount-int').val(),    // required, integer, z.B. "15" für 0,15 Euro
-//        currency: $('.card-currency').val(),    // required, ISO 4217 z.B. "EUR" od. "GBP"
-//        cardholder: $('.card-holdername').val() // optional
-//      }, PaymillResponseHandler);                   // Antwort vom Server
+      paymill.createToken({
+        number: payment.card.number,            // required, ohne Leerzeichen und Bindestriche
+        exp_month: payment.card.expiry_month,   // required
+        exp_year: payment.card.expiry_year,     // required, vierstellig z.B. "2016"
+        cvc: payment.card.cvc,                  // required
+        amount_int: payment.amount_int,         // required, integer, z.B. "15" für 0,15 Euro
+        currency: 'EUR',                        // required, ISO 4217 z.B. "EUR" od. "GBP"
+        cardholder: payment.card.name           // optional
+      }, PaymillResponseHandler);    // Antwort vom Server
 
       return false;
     };

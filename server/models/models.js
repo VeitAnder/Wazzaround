@@ -166,22 +166,19 @@ var models = function () {
     })
   });
 
-//  // old do remove
-//  var BookingModel = new model('bookings', {
-//    activity: Ref(ActivityModel),
-//    item: Ref(EventModel),
-//    quantity: Attr(Type.number),
-//
-//    //booker: {},  // TODO: who booked
-//    owner: Ref(UserModel),
-//    buy: Operation()
-//  });
 
   var BookingModel = new model('bookings', {
     user: Ref(UserModel),  // welcher user hat gebucht - optional falls vorhanden
     bookingId: Attr(Type.string),
     state: Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
     date: Attr(Type.date, Attr.default(new Date())),
+
+    profile: {
+      firstName: Attr(Type.string),
+      lastName: Attr(Type.string),
+      email: Attr(Type.string),
+      tel: Attr(Type.string)
+    },
 
     checkout: Operation({
       bookings: [
@@ -191,13 +188,19 @@ var models = function () {
           event: Attr(Type.objectid),
           quantity: Attr(Type.number)
         }
-      ]
-    }),  // returns { bookingID : .., state: 'ok' }
+      ],
+      profile: {
+        firstName: Attr(Type.string),
+        lastName: Attr(Type.string),
+        email: Attr(Type.string),
+        tel: Attr(Type.string)
+      },
+      payment: {
+        amount_int: Attr(Type.number),
+        paymentToken: Attr(Type.string)
+      }
+    })  // returns { bookingID : .., state: 'ok' }
 
-    pay: Operation({
-      ammount: Attr(Type.number),
-      paymentToken : Attr(Type.string)
-    })
   });
 
   // This Model represents the booking of one Event
