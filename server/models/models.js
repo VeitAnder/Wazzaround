@@ -169,7 +169,8 @@ var models = function () {
 
   var BookingModel = new model('bookings', {
     user: Ref(UserModel),  // welcher user hat gebucht - optional falls vorhanden
-    bookingId: Attr(Type.string),
+    // bookingId: Attr(Type.string), // _id is used as booking id
+    transactionId: Attr(Type.string),  // the transaction id from the payment provider
     state: Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
     date: Attr(Type.date, Attr.default(new Date())),
 

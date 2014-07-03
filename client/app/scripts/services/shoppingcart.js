@@ -71,8 +71,9 @@ angular.module('anorakApp')
       return models.BookingModel.checkout({
         'bookings': params,
         'payment': {
-          'paymentToken' : paymentToken,
-          'amount_int' : Math.floor(this.getTotal().price * 100)
+          'token' : paymentToken,
+          'amount_int' : Math.floor(this.getTotal().price * 100),
+          'currency' : 'EUR'
         },
         'profile' : profile
       });

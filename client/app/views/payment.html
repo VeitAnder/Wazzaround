@@ -99,7 +99,7 @@
               <label for="tel">{{'Telephone' | translate}}</label>
               <input name="tel"
                      id="tel"
-                     ng-model="registrant.profile.tel"
+                     ng-model="payment.profile.tel"
                      class="input-block-level"
                      placeholder="{{ 'Your telephone number' | translate }}"
                   >
@@ -217,7 +217,7 @@
       <div class="row">
         <div class="col-sm-12">
           <h2 class="no-margin-bottom">{{ 'Payment Confirmation' | translate }}</h2>
-          <h4 class="no-margin-top">{{ 'Order ID' | translate }}: 558896121890</h4>
+          <h4 class="no-margin-top">{{ 'Order ID' | translate }}: {{payment.bookingId}}</h4>
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@ angular.module('anorakApp')
 
     this.submitEnabled = true;
     this.errorMsg;
+    this.bookingId;
 
     var PaymillResponseHandler = function (error, result) {
       if (error) {
@@ -34,7 +35,13 @@ angular.module('anorakApp')
         var token = result.token;
         console.log("token", token);
 
-        shoppingcart.checkout(token, payment.profile);
+        shoppingcart.checkout(token, payment.profile)
+          .then(function(res) {
+            console.log("checkout response", res);
+
+            payment.bookingId = res.bookingId;
+            $scope.$apply();
+          });
       }
     };
 
