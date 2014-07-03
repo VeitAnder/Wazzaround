@@ -1650,7 +1650,6 @@ activitybardetail {
 // ###########################################################################################################################
 // ###########################################################################################################################
 .nav-meta {
-  display: none;
   @include tmenu_class;
   ul {
     li {
@@ -2640,6 +2639,7 @@ $img-selector-teasertxtheight: 32px;
     padding: $bu;
     margin: 0;
     text-decoration: none;
+    @include ellipsis(no-wrap);
     &:hover {
       color: $color_white;
     }
@@ -2654,7 +2654,6 @@ $img-selector-teasertxtheight: 32px;
   clear: both;
   @include teaser-textformat;
   a, a:link {
-    @include ellipsis(no-wrap);
     padding-left: 35px;
     color: $color_green_25;
   }
@@ -2719,8 +2718,28 @@ $img-selector-teasertxtheight: 32px;
   .teaser-section-2 & {
     width: 50%;
   }
+  .teaser-section-3 & {
+    width: 40%;
+  }
   &:first-child {
     border-left: none;
+  }
+}
+
+.nav-footer{
+  @include teaser-textformat;
+  float: left;
+  @include seperator(left, $color_grey_50);
+  background-color: $color_grey_75;
+  a, a:link {
+    font-size: $fs;
+    color: $color_grey_25;
+  }
+  .teaser-section-2 & {
+    width: 50%;
+  }
+  .teaser-section-3 & {
+    width: 20%;
   }
 }
 
