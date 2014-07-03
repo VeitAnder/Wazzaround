@@ -2822,6 +2822,9 @@ select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="c
       font-size: 11px;
       line-height: 15.4px; } }
 
+.input-content img {
+  vertical-align: top; }
+
 .formdata-display {
   overflow: hidden;
   border-bottom: dotted 1px #d9d9d9;

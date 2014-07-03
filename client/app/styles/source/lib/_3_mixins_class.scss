@@ -2058,6 +2058,9 @@ input[type="checkbox"]:focus {
 
 .input-content {
   @include input-content;
+  img{
+    vertical-align: top;
+  }
 }
 
 .formdata-display {
