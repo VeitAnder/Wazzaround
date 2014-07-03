@@ -9,7 +9,8 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   concat = require('gulp-concat'),
   html2js = require('gulp-html2js'),
-  shell = require('gulp-shell');
+  shell = require('gulp-shell'),
+  open = require("open");
 
 // Constants
 var SERVER_PORT = 9000;
@@ -76,7 +77,7 @@ gulp.task('client', ['watch'], function () {
   lrserver.listen(LIVERELOAD_PORT);
 });
 
-gulp.task('clientdist', function () {
+gulp.task('clientdist', ['server'], function () {
   var app = express();
 
   var config = {
@@ -90,8 +91,12 @@ gulp.task('clientdist', function () {
   app.listen(SERVER_PORT);
 });
 
+gulp.task('openbrowser', function(){
+  open("http://localhost:9000");
+});
+
 // alias task for old serve
 gulp.task('serve', ['client']);
 
 // just gulp, and entire app starts!
-gulp.task('default', ['server', 'client']);
+gulp.task('default', ['server', 'client', 'openbrowser']);

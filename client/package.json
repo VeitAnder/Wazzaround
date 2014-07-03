@@ -65,7 +65,8 @@
     "requirejs": "2.1.14",
     "time-grunt": "0.3.2",
     "tiny-lr": "0.0.7",
-    "yo": "1.2.0"
+    "yo": "1.2.0",
+    "open": "0.0.5"
   },
   "engines": {
     "node": "0.10.x"
