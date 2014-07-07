@@ -783,7 +783,6 @@ table {
     right: 0;
     left: auto; } }
 
-
 .map-debug {
   display: none;
   position: absolute;
@@ -2002,7 +2001,6 @@ sub {
 ul, ol, dl {
   margin: 0; }
 
-
 ul {
   margin: 0 0 32px 0;
   padding: 0; }
@@ -2535,6 +2533,7 @@ header {
 
 input, textarea, select {
   display: block;
+  width: 100%;
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 22.4px;
@@ -6847,7 +6846,6 @@ activitybardetail {
   .listheader .cell {
     padding: 5px 2.5px; }
 
-
 .listrow {
   display: block;
   -webkit-box-sizing: border-box;
@@ -7629,7 +7627,6 @@ body {
 /*
  * IE7 patches
  */
-
 .mobileheader {
   padding: 0 15px;
   height: 39px;
@@ -7932,6 +7929,5 @@ body {
  */
 .mobile iframe {
   max-width: 100%; }
-
 
 @media print { }

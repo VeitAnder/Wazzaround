@@ -1837,6 +1837,7 @@ $input-height-mini: $fs*$line-height_factor + (2*$fs*0.0) + (2*$border-width);
 
 @mixin fieldformat_form {
   display: block;
+  width: 100%;
   @include textformat_form;
   @include input-padding;
   @include border-radius($border-radius_small);
