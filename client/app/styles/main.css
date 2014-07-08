@@ -2539,7 +2539,7 @@ input, textarea, select {
   line-height: 22.4px;
   color: #666;
   vertical-align: middle;
-  padding: 0 12px;
+  padding: 12px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -2567,16 +2567,16 @@ input, textarea, select {
       line-height: 19.04px; } }
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
     input, textarea, select {
-      padding: 0 8px; } }
+      padding: 4px 8px; } }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     input, textarea, select {
-      padding: 0 8px; } }
+      padding: 4px 8px; } }
   @media only screen and (max-width: 767px) {
     input, textarea, select {
-      padding: 0 8px; } }
+      padding: 4px 8px; } }
   @media only screen and (max-height: 768px) {
     input, textarea, select {
-      padding: 0 8px; } }
+      padding: 4px 8px; } }
   .form-inline input, .form-inline textarea, .form-inline select {
     display: inline-block; }
 
@@ -2965,50 +2965,33 @@ legend {
   width: 100%; }
 .form-group-helptext .aiotoggleitem {
   display: block;
-  margin-top: -27px; }
+  margin-top: -31px; }
   .form-group-helptext .aiotoggleitem .aiotoggleitemhead {
     float: right;
     margin-bottom: 7px; }
     .form-group-helptext .aiotoggleitem .aiotoggleitemhead i {
+      position: relative;
+      top: 1px;
       display: inline-block;
-      width: 16px;
-      height: 16px;
-      -webkit-border-radius: 8px;
-      -khtml-border-radius: 8px;
-      -moz-border-radius: 8px;
-      -ms-border-radius: 8px;
-      -o-border-radius: 8px;
-      border-radius: 8px;
-      font-size: 12px;
-      line-height: 16.8px;
+      width: 24px;
+      height: 24px;
+      padding-top: 1px;
+      -webkit-border-radius: 12px;
+      -khtml-border-radius: 12px;
+      -moz-border-radius: 12px;
+      -ms-border-radius: 12px;
+      -o-border-radius: 12px;
+      border-radius: 12px;
       font-family: 'Helvetica Neue', Helvetica, Arial;
       background-color: #a4d740;
       color: #FFF;
       font-style: normal;
       text-align: center;
       font-weight: 600; }
-      .form-group-helptext .aiotoggleitem .aiotoggleitemhead i p {
-        padding-bottom: 12px; }
-      @media only screen and (min-width: 992px) and (max-width: 1199px) {
-        .form-group-helptext .aiotoggleitem .aiotoggleitemhead i {
-          font-size: 11px;
-          line-height: 15.4px; } }
-      @media only screen and (min-width: 768px) and (max-width: 991px) {
-        .form-group-helptext .aiotoggleitem .aiotoggleitemhead i {
-          font-size: 11px;
-          line-height: 15.4px; } }
-      @media only screen and (max-width: 767px) {
-        .form-group-helptext .aiotoggleitem .aiotoggleitemhead i {
-          font-size: 11px;
-          line-height: 15.4px; } }
-      @media only screen and (max-height: 768px) {
-        .form-group-helptext .aiotoggleitem .aiotoggleitemhead i {
-          font-size: 11px;
-          line-height: 15.4px; } }
     .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
       font-size: 12px;
       line-height: 16.8px;
-      margin-left: 3px; }
+      margin-right: 5px; }
       .form-group-helptext .aiotoggleitem .aiotoggleitemhead span p {
         padding-bottom: 12px; }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -3039,30 +3022,10 @@ legend {
     .form-group-helptext .aiotoggleitem .aiotoggleitemhead:hover i {
       background-color: #85C900; }
   .form-group-helptext .aiotoggleitem .aiotoggleitembody {
-    font-size: 12px;
-    line-height: 16.8px;
     width: 100%;
     float: left;
     margin-bottom: 12px;
     color: #71ab00; }
-    .form-group-helptext .aiotoggleitem .aiotoggleitembody p {
-      padding-bottom: 12px; }
-    @media only screen and (min-width: 992px) and (max-width: 1199px) {
-      .form-group-helptext .aiotoggleitem .aiotoggleitembody {
-        font-size: 11px;
-        line-height: 15.4px; } }
-    @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .form-group-helptext .aiotoggleitem .aiotoggleitembody {
-        font-size: 11px;
-        line-height: 15.4px; } }
-    @media only screen and (max-width: 767px) {
-      .form-group-helptext .aiotoggleitem .aiotoggleitembody {
-        font-size: 11px;
-        line-height: 15.4px; } }
-    @media only screen and (max-height: 768px) {
-      .form-group-helptext .aiotoggleitem .aiotoggleitembody {
-        font-size: 11px;
-        line-height: 15.4px; } }
 
 .cursor-pointer {
   cursor: pointer; }

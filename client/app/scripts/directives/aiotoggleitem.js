@@ -4,7 +4,7 @@ angular.module('anorakApp')
   .directive('aiotoggleitem', function () {
     return {
       template: '<div ng-class="{open: state.open}">' +
-        '<a ng-click="state.toggle()" class="aiotoggleitemhead"><i>?</i><span>{{state.toggleitemlabel}}</span></a> ' +
+        '<a ng-click="state.toggle()" class="aiotoggleitemhead"><span>{{state.toggleitemlabel}}</span><i>?</i></a> ' +
         '<div ng-transclude ng-show="state.open" class="aiotoggleitembody"></div> ' +
         '</div>',
       restrict: 'A',

@@ -91,26 +91,6 @@
 
           <div class="divider"></div>
 
-          <div class="form-group form-group-helptext">
-            <label for="company">{{'Company' | translate}}</label>
-            <div aiotoggleitem
-                 toggleitemlabel="{{'helptext' | translate}}"
-                 class="aiotoggleitem">
-              {{'helptext registration company' | translate}}
-            </div>
-            <input name="company"
-                   id="company"
-                   ng-model="registrant.profile.company"
-                   class="input-block-level"
-                   required
-                   placeholder="{{ 'Your company' | translate }}"
-                >
-
-            <span ng-show="showError('company', 'required')"
-                  class="alert alert-error">{{'Please enter your company' | translate}}
-            </span>
-
-          </div>
           <div class="form-group-inline form-group-inline-5050">
             <div class="form-group">
               <label for="firstname">{{'First name' | translate}}</label>
@@ -145,21 +125,19 @@
             </div>
           </div>
 
-
           <div class="form-group-inline form-group-inline-7525">
             <div class="form-group">
               <label for="language">{{'language' | translate}}</label>
               <select name="language"
                       id="language"
-              <!--ng-model="user.profile.language"-->
-              class="input-block-level"
-              required
-              >
-              <option selected>{{'language for your activities' | translate}}</option>
-              <option>{{'english' | translate}}</option>
-              <option>{{'german' | translate}}</option>
-              <option>{{'italian' | translate}}</option>
-              <option>{{'french' | translate}}</option>
+                      class="input-block-level"
+                      required
+                  >
+                <option selected>{{'language for your activities' | translate}}</option>
+                <option>{{'english' | translate}}</option>
+                <option>{{'german' | translate}}</option>
+                <option>{{'italian' | translate}}</option>
+                <option>{{'french' | translate}}</option>
               </select>
 
               <span ng-show="showError('language', 'required')"
@@ -172,12 +150,11 @@
               <label for="currency">{{'currency' | translate}}</label>
               <select name="currency"
                       id="currency"
-              <!--ng-model="user.profile.currency"-->
-              class="input-block-level"
-              required
-              >
-              <option selected>EUR</option>
-              <option>USD</option>
+                      class="input-block-level"
+                      required
+                  >
+                <option selected>EUR</option>
+                <option>USD</option>
               </select>
 
               <span ng-show="showError('currency', 'required')"
@@ -187,7 +164,30 @@
             </div>
           </div>
 
+          <div class="divider">
+            <span>{{'Company data' | translate}}</span>
+          </div>
 
+          <div class="form-group form-group-helptext">
+            <label for="company">{{'Company' | translate}}</label>
+            <div aiotoggleitem
+                 toggleitemlabel="{{'helptext' | translate}}"
+                 class="aiotoggleitem">
+              {{'helptext registration company' | translate}}
+            </div>
+            <input name="company"
+                   id="company"
+                   ng-model="registrant.profile.company"
+                   class="input-block-level"
+                   required
+                   placeholder="{{ 'Your company' | translate }}"
+                >
+
+            <span ng-show="showError('company', 'required')"
+                  class="alert alert-error">{{'Please enter your company' | translate}}
+            </span>
+
+          </div>
 
           <div class="form-group">
             <label for="mobile">{{'Mobile Telephone' | translate}}</label>

@@ -1786,21 +1786,21 @@ header {
 }
 
 @mixin input-padding{
-  padding: 0 $fs*0.75;
+  padding: $fs*0.75;
   @include respond-to(screen-md){
-    padding: 0 $fs*0.5;
+    padding: $fs*0.25 $fs*0.5;
   }
 
   @include respond-to(screen-sm){
-    padding: 0 $fs*0.5;
+    padding: $fs*0.25 $fs*0.5;
   }
 
   @include respond-to(screen-nocols){
-    padding: 0 $fs*0.5;
+    padding: $fs*0.25 $fs*0.5;
   }
 
   @include respond-to(low-screen){
-    padding: 0 $fs*0.5;
+    padding: $fs*0.25 $fs*0.5;
   }
 }
 
@@ -2156,16 +2156,18 @@ legend {
   }
   .aiotoggleitem{
     display: block;
-    margin-top: -27px; // fixed label height
+    margin-top: -31px; // fixed label height
     .aiotoggleitemhead{
       float: right;
       margin-bottom: 7px;
       i{
+        position: relative;
+        top: 1px;
         display: inline-block;
-        width: $fs;
-        height: $fs;
-        @include border-radius($fs*0.5);
-        @include font-size_small;
+        width: $fs*1.5;
+        height: $fs*1.5;
+        padding-top: 1px;
+        @include border-radius($fs*0.75);
         font-family: 'Helvetica Neue', Helvetica, Arial;
         background-color: $color_green_75;
         color: $color_white;
@@ -2175,7 +2177,7 @@ legend {
       }
       span{
         @include font-size_small;
-        margin-left: 3px;
+        margin-right: 5px;
         @include respond-to(screen-xs) {
           display: none;
         }
@@ -2195,7 +2197,6 @@ legend {
       }
     }
     .aiotoggleitembody{
-      @include font-size_small;
       width: 100%;
       float: left;
       margin-bottom: $fs*$font-size_small_factor;
