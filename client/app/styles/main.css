@@ -2533,7 +2533,6 @@ header {
 
 input, textarea, select {
   display: block;
-  width: 100%;
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 22.4px;
@@ -2715,7 +2714,6 @@ input[type="radio"], input[type="checkbox"] {
   .radio.disabled, .checkbox.disabled {
     cursor: auto; }
   .radio label, .checkbox label {
-    display: inline;
     font-weight: normal;
     cursor: pointer;
     line-height: 22.4px; }
@@ -3016,9 +3014,8 @@ legend {
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
           display: none; } }
-      @media only screen and (min-width: 992px) and (max-width: 1199px) {
-        datetimepicker .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
-          display: none; } }
+      datetimepicker .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
+        display: none; }
     .form-group-helptext .aiotoggleitem .aiotoggleitemhead:hover i {
       background-color: #85C900; }
   .form-group-helptext .aiotoggleitem .aiotoggleitembody {
@@ -3631,7 +3628,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: solid 1px #b3b3b3;
-  line-height: 100%;
   padding: 15px;
   border-bottom: none; }
   .bookableitem-header:after {
@@ -3745,7 +3741,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     border-bottom: solid 1px #b3b3b3;
-    line-height: 100%;
     border: none; }
     .event-list.event-list-items:after {
       content: "";
@@ -3897,8 +3892,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border-bottom: solid 1px #b3b3b3;
-  line-height: 100%; }
+  border-bottom: solid 1px #b3b3b3; }
   .event-row:after {
     content: "";
     display: table;
@@ -4364,8 +4358,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border-bottom: solid 1px #b3b3b3;
-  line-height: 100%; }
+  border-bottom: solid 1px #b3b3b3; }
   .availability-entry:after {
     content: "";
     display: table;
@@ -4439,7 +4432,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: solid 1px #b3b3b3;
-  line-height: 100%;
   border-bottom: none;
   background-color: #e8e8e8;
   -webkit-border-radius: 3px;
@@ -6814,8 +6806,7 @@ activitybardetail {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border-bottom: solid 1px #b3b3b3;
-  line-height: 100%; }
+  border-bottom: solid 1px #b3b3b3; }
   .listrow:after {
     content: "";
     display: table;

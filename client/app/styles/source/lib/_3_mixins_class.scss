@@ -21,22 +21,22 @@ p {
   font-weight: $font-weight_light;
   @include sysfont_01;
 
-  @include respond-to(screen-md){
+  @include respond-to(screen-md) {
     font-size: $fs*$fs-md*$font-size_h1_factor;
     line-height: $fs*$fs-md*$font-size_h1_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(screen-sm){
+  @include respond-to(screen-sm) {
     font-size: $fs*$fs-sm*$font-size_h1_factor;
     line-height: $fs*$fs-sm*$font-size_h1_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     font-size: $fs*$fs-nocol*$font-size_h1_factor;
     line-height: $fs*$fs-nocol*$font-size_h1_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(low-screen){
+  @include respond-to(low-screen) {
     font-size: $fs*$fs-sm*$font-size_h1_factor;
     line-height: $fs*$fs-sm*$font-size_h1_factor*$line-height_headline-factor;
   }
@@ -54,22 +54,22 @@ h1 {
   font-weight: $font-weight_light;
   @include sysfont_01;
 
-  @include respond-to(screen-md){
+  @include respond-to(screen-md) {
     font-size: $fs*$fs-md*$font-size_h2_factor;
     line-height: $fs*$fs-md*$font-size_h2_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(screen-sm){
+  @include respond-to(screen-sm) {
     font-size: $fs*$fs-sm*$font-size_h2_factor;
     line-height: $fs*$fs-sm*$font-size_h2_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     font-size: $fs*$fs-nocol*$font-size_h2_factor;
     line-height: $fs*$fs-nocol*$font-size_h2_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(low-screen){
+  @include respond-to(low-screen) {
     font-size: $fs*$fs-sm*$font-size_h2_factor;
     line-height: $fs*$fs-sm*$font-size_h2_factor*$line-height_headline-factor;
   }
@@ -86,22 +86,22 @@ h2 {
   color: $color_main_h3;
   @include sysfont_01;
 
-  @include respond-to(screen-md){
+  @include respond-to(screen-md) {
     font-size: $fs*$fs-md*$font-size_h3_factor;
     line-height: $fs*$fs-md*$font-size_h3_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(screen-sm){
+  @include respond-to(screen-sm) {
     font-size: $fs*$fs-sm*$font-size_h3_factor;
     line-height: $fs*$fs-sm*$font-size_h3_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     font-size: $fs*$fs-nocol*$font-size_h3_factor;
     line-height: $fs*$fs-nocol*$font-size_h3_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(low-screen){
+  @include respond-to(low-screen) {
     font-size: $fs*$fs-sm*$font-size_h3_factor;
     line-height: $fs*$fs-sm*$font-size_h3_factor*$line-height_headline-factor;
   }
@@ -119,22 +119,22 @@ h3 {
   @include sysfont_01;
   font-weight: normal;
 
-  @include respond-to(screen-md){
+  @include respond-to(screen-md) {
     font-size: $fs*$fs-md*$font-size_h4_factor;
     line-height: $fs*$fs-md*$font-size_h4_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(screen-sm){
+  @include respond-to(screen-sm) {
     font-size: $fs*$fs-sm*$font-size_h4_factor;
     line-height: $fs*$fs-sm*$font-size_h4_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     font-size: $fs*$fs-nocol*$font-size_h4_factor;
     line-height: $fs*$fs-nocol*$font-size_h4_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(low-screen){
+  @include respond-to(low-screen) {
     font-size: $fs*$fs-sm*$font-size_h4_factor;
     line-height: $fs*$fs-sm*$font-size_h4_factor*$line-height_headline-factor;
   }
@@ -151,22 +151,22 @@ h4 {
   color: $color_main_h5;
   @include sysfont_01;
 
-  @include respond-to(screen-md){
+  @include respond-to(screen-md) {
     font-size: $fs*$fs-md*$font-size_h5_factor;
     line-height: $fs*$fs-md*$font-size_h5_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(screen-sm){
+  @include respond-to(screen-sm) {
     font-size: $fs*$fs-sm*$font-size_h5_factor;
     line-height: $fs*$fs-sm*$font-size_h5_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     font-size: $fs*$fs-nocol*$font-size_h5_factor;
     line-height: $fs*$fs-nocol*$font-size_h5_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(low-screen){
+  @include respond-to(low-screen) {
     font-size: $fs*$fs-sm*$font-size_h5_factor;
     line-height: $fs*$fs-sm*$font-size_h5_factor*$line-height_headline-factor;
   }
@@ -183,22 +183,22 @@ h5 {
   color: $color_main_h6;
   @include sysfont_01;
 
-  @include respond-to(screen-md){
+  @include respond-to(screen-md) {
     font-size: $fs*$fs-md*$font-size_h6_factor;
     line-height: $fs*$fs-md*$font-size_h6_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(screen-sm){
+  @include respond-to(screen-sm) {
     font-size: $fs*$fs-sm*$font-size_h6_factor;
     line-height: $fs*$fs-sm*$font-size_h6_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     font-size: $fs*$fs-nocol*$font-size_h6_factor;
     line-height: $fs*$fs-nocol*$font-size_h6_factor*$line-height_headline-factor;
   }
 
-  @include respond-to(low-screen){
+  @include respond-to(low-screen) {
     font-size: $fs*$fs-sm*$font-size_h6_factor;
     line-height: $fs*$fs-sm*$font-size_h6_factor*$line-height_headline-factor;
   }
@@ -236,7 +236,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .preface {
-//  @include h5;
+  //  @include h5;
   font-size: $fs*$font-size_h5_factor;
   line-height: $fs*$font-size_h5_factor*$line-height_factor;
   color: $color_text;
@@ -565,8 +565,7 @@ button.btn, .btn, a.btn {
   @include sprite_icons(-95px, 5px, no-repeat);
 }
 
-
-@mixin badge-category{
+@mixin badge-category {
   display: inline-block;
   margin-top: 0;
   background-color: $color_grey;
@@ -890,7 +889,6 @@ button.btn, .btn, a.btn {
   @include buttonbar;
 }
 
-
 // TEXTFORMAT BASICS
 // ###########################################################################################################################
 // ###########################################################################################################################
@@ -1108,7 +1106,6 @@ button.btn, .btn, a.btn {
 //mixin textformat_flow
 @include textformat_flow;
 
-
 .align-right {
   text-align: right;
 
@@ -1189,7 +1186,6 @@ button.btn, .btn, a.btn {
   font-weight: $font-weight_bold;
   line-height: 100%;
 }
-
 
 @mixin alert {
   @include label;
@@ -1479,10 +1475,10 @@ section {
   padding-top: $fs*$line-height_factor*2.0;
   padding-bottom: $fs*$line-height_factor*2.0;
   @include seperator(top, $color_main_seperator);
-  &.first{
+  &.first {
     border-top: none;
     padding-top: 0;
-    &.section-grey{
+    &.section-grey {
       padding-top: $fs*$line-height_factor*2.0;
     }
   }
@@ -1501,10 +1497,9 @@ section {
 }
 
 .section-grey + section,
-.section-green + section{
+.section-green + section {
   border-top: none;
 }
-
 
 // HEADER / MAIN / FOOTER
 // ###########################################################################################################################
@@ -1766,59 +1761,59 @@ header {
 // ###########################################################################################################################
 
 // line-height + padding + border
-@mixin input-height{
+@mixin input-height {
   height: $fs*$line-height_factor + (2*$fs*0.75) + (2*$border-width);
-  @include respond-to(screen-md){
+  @include respond-to(screen-md) {
     height: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
   }
 
-  @include respond-to(screen-sm){
+  @include respond-to(screen-sm) {
     height: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
   }
 
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     height: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
   }
 
-  @include respond-to(low-screen){
+  @include respond-to(low-screen) {
     height: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
   }
 }
 
-@mixin input-padding{
+@mixin input-padding {
   padding: $fs*0.75;
-  @include respond-to(screen-md){
+  @include respond-to(screen-md) {
     padding: $fs*0.25 $fs*0.5;
   }
 
-  @include respond-to(screen-sm){
+  @include respond-to(screen-sm) {
     padding: $fs*0.25 $fs*0.5;
   }
 
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     padding: $fs*0.25 $fs*0.5;
   }
 
-  @include respond-to(low-screen){
+  @include respond-to(low-screen) {
     padding: $fs*0.25 $fs*0.5;
   }
 }
 
-@mixin textarea-padding{
+@mixin textarea-padding {
   padding: $fs*0.5 $fs*0.75;
-  @include respond-to(screen-md){
+  @include respond-to(screen-md) {
     padding: $fs*0.25 $fs*0.5;
   }
 
-  @include respond-to(screen-sm){
+  @include respond-to(screen-sm) {
     padding: $fs*0.25 $fs*0.5;
   }
 
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     padding: $fs*0.25 $fs*0.5;
   }
 
-  @include respond-to(low-screen){
+  @include respond-to(low-screen) {
     padding: $fs*0.25 $fs*0.5;
   }
 }
@@ -1826,7 +1821,6 @@ header {
 $input-height: $fs*$line-height_factor + (2*$fs*0.75) + (2*$border-width);
 $input-height-small: $fs*$line-height_factor + (2*$fs*0.25) + (2*$border-width);
 $input-height-mini: $fs*$line-height_factor + (2*$fs*0.0) + (2*$border-width);
-
 
 @mixin textformat_form {
   @include sysfont_01;
@@ -1837,7 +1831,7 @@ $input-height-mini: $fs*$line-height_factor + (2*$fs*0.0) + (2*$border-width);
 
 @mixin fieldformat_form {
   display: block;
-  width: 100%;
+  //  width: 100%;
   @include textformat_form;
   @include input-padding;
   @include border-radius($border-radius_small);
@@ -1888,7 +1882,7 @@ textarea, input[type=checkbox] {
   height: auto;
 }
 
-textarea{
+textarea {
   @include textarea-padding;
 }
 
@@ -1935,7 +1929,7 @@ input[type="checkbox"] {
     cursor: auto;
   }
   label {
-    display: inline;
+    //    display: inline;
     font-weight: normal;
     cursor: pointer;
     line-height: $fs*$line-height_factor;
@@ -1985,12 +1979,12 @@ input[type="checkbox"]:focus {
   .btn {
     margin-top: $fs*0.5;
   }
-  .input-group-btn{
-    .btn{
+  .input-group-btn {
+    .btn {
       margin-top: 0;
     }
   }
-  &.emphasis{
+  &.emphasis {
     margin: 30px 0;
     padding: 10px 15px;
     @include border-radius($border-radius);
@@ -2042,7 +2036,7 @@ input[type="checkbox"]:focus {
 @mixin input-label {
   display: block;
   @include font-size_small;
-  line-height: 21px!important;
+  line-height: 21px !important;
   margin-right: 5px;
   color: $color_input_text;
   vertical-align: bottom;
@@ -2059,7 +2053,7 @@ input[type="checkbox"]:focus {
 
 .input-content {
   @include input-content;
-  img{
+  img {
     vertical-align: top;
   }
 }
@@ -2147,20 +2141,20 @@ legend {
   box-shadow: none;
 }
 
-.form-group-helptext{
-  label{
+.form-group-helptext {
+  label {
     padding-right: $fs;
   }
-  .input-group{
+  .input-group {
     width: 100%;
   }
-  .aiotoggleitem{
+  .aiotoggleitem {
     display: block;
     margin-top: -31px; // fixed label height
-    .aiotoggleitemhead{
+    .aiotoggleitemhead {
       float: right;
       margin-bottom: 7px;
-      i{
+      i {
         position: relative;
         top: 1px;
         display: inline-block;
@@ -2175,7 +2169,7 @@ legend {
         text-align: center;
         font-weight: $font-weight_bold;
       }
-      span{
+      span {
         @include font-size_small;
         margin-right: 5px;
         @include respond-to(screen-xs) {
@@ -2184,32 +2178,29 @@ legend {
         @include respond-to(screen-sm) {
           display: none;
         }
-        datetimepicker &{
-          @include respond-to(screen-md){
-            display: none;
-          }
+        datetimepicker & {
+          display: none;
         }
       }
-      &:hover{
-        i{
+      &:hover {
+        i {
           background-color: $color_green;
         }
       }
     }
-    .aiotoggleitembody{
+    .aiotoggleitembody {
       width: 100%;
       float: left;
       margin-bottom: $fs*$font-size_small_factor;
       color: $color_green_k15;
     }
 
-    .open{
+    .open {
       .aiotoggleitembody {
       }
     }
   }
 }
-
 
 // DIV-TABLE ELEMENTS
 // ###########################################################################################################################
@@ -2297,7 +2288,7 @@ legend {
   @include box-sizing(border-box);
   @include pie-clearfix;
   @include border(bottom, $color_grey_50);
-  line-height: 100%;
+  //  line-height: 100%;
 
   .cell {
     @include divtable_cell;
