@@ -7927,4 +7927,35 @@ body {
 .mobile iframe {
   max-width: 100%; }
 
-@media print { }
+body.print .col-container {
+  margin: 0;
+  border: none; }
+body.print .container {
+  width: 100%; }
+body.print .col-left-fixed, body.print .footer, body.print shoppingcartbar, body.print .uservoice-custom {
+  display: none; }
+body.print .col-right {
+  padding-bottom: 0; }
+body.print .page:before {
+  display: block;
+  width: 243px;
+  height: 96px;
+  padding: 15px;
+  content: url(/img/reacture_logo.svg); }
+
+@media print {
+  .col-container {
+    margin: 0;
+    border: none; }
+  .container {
+    width: 100%; }
+  .col-left-fixed, .footer, shoppingcartbar, .uservoice-custom {
+    display: none; }
+  .col-right {
+    padding-bottom: 0; }
+  .page:before {
+    display: block;
+    width: 243px;
+    height: 96px;
+    padding: 15px;
+    content: url(/img/reacture_logo.svg); } }

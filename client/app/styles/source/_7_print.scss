@@ -2,6 +2,35 @@
 
 @mixin print{
 
+  .col-container{
+    margin: 0;
+    border: none;
+  }
+
+  .container{
+    width: 100%;
+  }
+
+  .col-left-fixed,
+  .footer,
+  shoppingcartbar,
+  .uservoice-custom
+  {
+    display: none;
+  }
+
+  .col-right{
+    padding-bottom: 0;
+  }
+
+  .page:before{
+    display: block;
+    width: 243px;
+    height: 96px;
+    padding: 15px;
+    content: url(/img/reacture_logo.svg);
+  }
+
 }// mixin print
 
 body.print{
