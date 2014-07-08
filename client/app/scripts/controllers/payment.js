@@ -21,6 +21,8 @@ angular.module('anorakApp')
     this.errorMsg;
     this.bookingId;
 
+    this.readableBookingId;
+
     var PaymillResponseHandler = function (error, result) {
       if (error) {
         console.log("PaymillResponseHandler error", error);
@@ -40,6 +42,12 @@ angular.module('anorakApp')
             console.log("checkout response", res);
 
             payment.bookingId = res.bookingId;
+            payment.readableBookingId = res.bookingId.match(/.{1,4}/g).join("-");
+
+            $scope.$apply();
+          })
+          .fail(function(err){
+            payment.errorMsg = err.message;
             $scope.$apply();
           });
       }

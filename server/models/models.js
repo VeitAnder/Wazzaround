@@ -79,6 +79,7 @@ var models = function () {
     start: Attr(Type.date),
     end: Attr(Type.date),
     quantity: Attr(Type.number),
+    //availableQuantity : Attr(Type.number),  // virtual attribute (wir vom filter brechnet)
     //bookQuantity : VirtualAttr(Type.number),  // Ist nur bei filteredActivities verfügbar
     price: Attr(Type.number)
   });
@@ -181,6 +182,11 @@ var models = function () {
       tel: Attr(Type.string)
     },
 
+    payment: {
+      amount_int: Attr(Type.number),
+      currency: Attr(Type.string)
+    },
+
     checkout: Operation({
       bookings: [
         {
@@ -214,7 +220,6 @@ var models = function () {
 
     activityCopy: Attr(),  // kopie der Aktivität zum Buchungszeitpunkt
 
-    state: Attr(Type.string, Type.enum('booked', 'pending'), Attr.default('pending')),
     date: Attr(Type.date, Attr.default(new Date())),  // wann wurde das event gebucht
 
     bookedQuantity: Operation({    // wie oft wurde das Event gebucht

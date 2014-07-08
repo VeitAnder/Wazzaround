@@ -217,7 +217,7 @@
       <div class="row">
         <div class="col-sm-12">
           <h2 class="no-margin-bottom">{{ 'Payment Confirmation' | translate }}</h2>
-          <h4 class="no-margin-top">{{ 'Order ID' | translate }}: {{payment.bookingId}}</h4>
+          <h4 class="no-margin-top">{{ 'Order ID' | translate }}: {{payment.readableBookingId}}</h4>
         </div>
       </div>
     </div>
@@ -242,7 +242,7 @@
               {{'Name' | translate}}
             </div>
             <div class="input-content">
-              First Name + Last Name
+              {{payment.profile.firstName}} {{payment.profile.lastName}}
             </div>
           </div>
 
@@ -251,7 +251,7 @@
               {{'E-mail' | translate}}
             </div>
             <div class="input-content">
-              E-mail address
+              {{payment.profile.email}}
             </div>
           </div>
 
@@ -261,7 +261,7 @@
               {{'Telephone' | translate}}
             </div>
             <div class="input-content">
-              Tele
+              {{payment.profile.tel}}
             </div>
           </div>
 
@@ -279,7 +279,7 @@
               {{'Credit card' | translate}}
             </div>
             <div class="input-content">
-              <img src="/img/paymill/32x20_visa.png"/> **********5522
+              <img src="/img/paymill/32x20_visa.png"/> **********{{payment.card.number.substr(-4)}}
             </div>
           </div>
 

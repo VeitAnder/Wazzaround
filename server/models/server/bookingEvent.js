@@ -41,7 +41,7 @@ BookedEventModel.writeFilter(function (obj, req) {
 BookedEventModel.operationImpl("bookedQuantity", function (params, req) {
   assert(params.event, "event missing");
 
-  return BookedEventModel.find({"event._link": params.event})  // find alle Buchungen zu einem Event
+  return BookedEventModel.find({"event._link": ObjectId(params.event)})  // find alle Buchungen zu einem Event
     .then(function(events) {
       var quantity = 0;
       _.forEach(events, function(bookedEvent) {
