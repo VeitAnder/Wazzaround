@@ -2957,6 +2957,38 @@ legend {
       .no-svg .pwdvalidation ul li.valid .icon {
         background-image: url('/img/sprite_icons.png'); }
 
+.helptextlegend {
+  border: solid 1px #c2e480;
+  background-color: #f9fcf2;
+  -webkit-border-radius: 9px;
+  -khtml-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -o-border-radius: 9px;
+  border-radius: 9px;
+  padding: 10px 16px 16px; }
+  .helptextlegend i {
+    display: inline-block;
+    font-family: 'Helvetica Neue', Helvetica, Arial;
+    background-color: #a4d740;
+    color: #FFF;
+    font-style: normal;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+    top: 3px;
+    width: 32px;
+    height: 32px;
+    -webkit-border-radius: 16px;
+    -khtml-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    border-radius: 16px;
+    font-size: 24px;
+    padding-top: 6px;
+    margin-right: 5px; }
+
 .form-group-helptext label {
   padding-right: 16px; }
 .form-group-helptext .input-group {
@@ -2968,9 +3000,15 @@ legend {
     float: right;
     margin-bottom: 7px; }
     .form-group-helptext .aiotoggleitem .aiotoggleitemhead i {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Helvetica, Arial;
+      background-color: #a4d740;
+      color: #FFF;
+      font-style: normal;
+      text-align: center;
+      font-weight: 600;
       position: relative;
       top: 1px;
-      display: inline-block;
       width: 24px;
       height: 24px;
       padding-top: 1px;
@@ -2979,13 +3017,7 @@ legend {
       -moz-border-radius: 12px;
       -ms-border-radius: 12px;
       -o-border-radius: 12px;
-      border-radius: 12px;
-      font-family: 'Helvetica Neue', Helvetica, Arial;
-      background-color: #a4d740;
-      color: #FFF;
-      font-style: normal;
-      text-align: center;
-      font-weight: 600; }
+      border-radius: 12px; }
     .form-group-helptext .aiotoggleitem .aiotoggleitemhead span {
       font-size: 12px;
       line-height: 16.8px;

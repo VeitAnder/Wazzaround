@@ -6,6 +6,15 @@
 
         <h2>{{'Edit Profile' | translate}}</h2>
 
+        <div class="helptextlegend">
+          <i>?</i>
+          <span>
+            {{ 'helptext legend' | translate }}
+          </span>
+        </div>
+
+        <div class="divider"></div>
+
         <form name="valForm"
               class="standardform activity-edit"
               novalidate
@@ -97,8 +106,13 @@
             <span>{{'Company data' | translate}}</span>
           </div>
 
-          <div class="form-group">
+          <div class="form-group form-group-helptext">
             <label for="company">{{'Company' | translate}}</label>
+            <div aiotoggleitem
+                 toggleitemlabel="{{'helptext' | translate}}"
+                 class="aiotoggleitem">
+              {{'helptext registration company' | translate}}
+            </div>
             <input name="company"
                    id="company"
                    ng-model="user.profile.company"
@@ -153,8 +167,13 @@
                 >
           </div>
 
-          <div class="form-group">
+          <div class="form-group form-group-helptext">
             <label for="contactpersonname">{{'Name of contact person' | translate}}</label>
+            <div aiotoggleitem
+                 toggleitemlabel="{{'helptext' | translate}}"
+                 class="aiotoggleitem">
+              {{'helptext registration contact person' | translate}}
+            </div>
             <input name="contactpersonname"
                    id="contactpersonname"
                    ng-model="user.profile.contactperson.name"

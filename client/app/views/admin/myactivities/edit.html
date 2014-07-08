@@ -9,6 +9,15 @@
           <span ng-show="!activity.name">{{'New activity' | translate}}</span>
         </h2>
 
+        <div class="helptextlegend">
+          <i>?</i>
+          <span>
+            {{ 'helptext legend' | translate }}
+          </span>
+        </div>
+
+        <div class="divider"></div>
+
         <h6 class="no-margin-top">
           {{'Offered by' | translate}}
           <activityowner activity="activity"></activityowner>

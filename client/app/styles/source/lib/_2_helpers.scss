@@ -390,7 +390,13 @@ $break-low-screen: 768px;
 // ###########################################################################################################################
 
 @mixin seperator($type, $color) {
-  border-#{$type}: $seperator-style $seperator-width #{$color};
+  @if $type == all{
+    border: $seperator-style $seperator-width #{$color};
+  }
+  @else {
+    border-#{$type}: $seperator-style $seperator-width #{$color};
+  }
+
 }
 
 @mixin border($type, $color) {

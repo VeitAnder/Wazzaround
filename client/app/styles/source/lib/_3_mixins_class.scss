@@ -2141,6 +2141,38 @@ legend {
   box-shadow: none;
 }
 
+
+@mixin helptextsign{
+  display: inline-block;
+  font-family: 'Helvetica Neue', Helvetica, Arial;
+  background-color: $color_green_75;
+  color: $color_white;
+  font-style: normal;
+  text-align: center;
+  font-weight: $font-weight_bold;
+
+}
+
+
+.helptextlegend{
+  @include border(all, $color_green_50);
+  background-color: $color_green_05;
+  @include border-radius($border-radius_large);
+  padding: ($fs*1.0 - 6px) $fs*1.0 $fs*1.0;
+  i{
+    @include helptextsign;
+    position: relative;
+    top: 3px;
+    width: $fs*2.0;
+    height: $fs*2.0;
+    @include border-radius($fs*1.00);
+    font-size: $fs*1.5;
+    padding-top: 6px;
+    margin-right: 5px;
+  }
+}
+
+
 .form-group-helptext {
   label {
     padding-right: $fs;
@@ -2155,19 +2187,13 @@ legend {
       float: right;
       margin-bottom: 7px;
       i {
+        @include helptextsign;
         position: relative;
         top: 1px;
-        display: inline-block;
         width: $fs*1.5;
         height: $fs*1.5;
         padding-top: 1px;
         @include border-radius($fs*0.75);
-        font-family: 'Helvetica Neue', Helvetica, Arial;
-        background-color: $color_green_75;
-        color: $color_white;
-        font-style: normal;
-        text-align: center;
-        font-weight: $font-weight_bold;
       }
       span {
         @include font-size_small;
