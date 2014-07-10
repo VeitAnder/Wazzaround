@@ -1,7 +1,7 @@
 var config = require('../config.js');
 var upload = require('../routes/upload.js');
 
-var googleTranslate = require('google-translate')("AIzaSyDeA3pWT15QSri8b00AVVqVCmAY_Niqbvg");
+var googleTranslate = require('google-translate')(config.google.apikey);
 
 var RestApi = function (app, db) {
   // filter to allow cross origin requests

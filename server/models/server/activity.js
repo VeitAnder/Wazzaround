@@ -3,11 +3,15 @@
  */
 
 
-
+var config = require('../../config.js');
 var ObjectId = require('mongojs').ObjectId;
 
 var models = require('../models.js');
 var ActivityModel = require('../models.js').ActivityModel;
+
+var q = require('Q');
+
+var googleTranslate = require('google-translate')(config.google.apikey);
 
 ///////////////////////
 // read/write filters
@@ -52,6 +56,20 @@ ActivityModel.readFilter(function (req) {
 //  return obj;
 //});
 
+var translateActivity = function (doc) {
+  var deferred = q.defer();
+
+  console.log("inputlanguage", doc.inputlanguage);
+
+  googleTranslate.translate(doc.name[doc.inputlanguage], doc.inputlanguage, 'en', function (err, translation) {
+    console.log(translation);
+    doc.name.en = translation.translatedText;
+    deferred.resolve(doc);
+  });
+
+  return deferred.promise;
+};
+
 // TODO: das ist nur so kompliziert, weil delete das doc aus der datenbank hohlt...
 ActivityModel.writeFilter(function (doc, req) {
   var ownerRef;
@@ -94,14 +112,18 @@ ActivityModel.writeFilter(function (doc, req) {
   }
 
   // translate the activity
+//  return q.all([
+//    translateActivity(doc)
+//  ]);
+//
 
+  return translateActivity(doc)
+    .then(function (translateddoc) {
+      doc = translateddoc;
+      console.log("doc", doc);
+      return true;
+    });
 
-
-
-
-
-
-  return true;
 });
 
 ///////////////////////
