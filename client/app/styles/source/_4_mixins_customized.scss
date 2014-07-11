@@ -676,6 +676,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
     .event-item-quantity {
       @include font-size_small;
       white-space: nowrap;
+      &.bookedup{
+        color: $color_red;
+        font-weight: $font-weight_bold;
+      }
     }
     .event-item-book {
       float: left;
