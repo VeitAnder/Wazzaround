@@ -2746,7 +2746,7 @@ select[multiple], select[size] {
 
 select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
   outline: thin dotted #333;
-  outline: 5px auto-webkit-focus-ring-color;
+  outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
 .form-block input, .form-block textarea {
@@ -7917,7 +7917,7 @@ body {
   background-color: #262626; }
 
 .mobile.ios {
-  -webkit-text-size-adjust: none; }
+  -webkit-text-size-adjust: 100%; }
 
 .mobile img {
   max-width: 100%;

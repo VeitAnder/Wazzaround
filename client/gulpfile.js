@@ -10,7 +10,7 @@ var gulp = require('gulp'),
   concat = require('gulp-concat'),
   html2js = require('gulp-html2js'),
   shell = require('gulp-shell'),
-  open = require("open");
+  open = require('open');
 
 // Constants
 var SERVER_PORT = 9000;
