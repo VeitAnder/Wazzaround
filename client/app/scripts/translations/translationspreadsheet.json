@@ -2614,5 +2614,29 @@
     "de": "Impressum",
     "it": "Note legali",
     "fr": "Notes légales"
+  },
+  {
+    "Description": "",
+    "key": "… still",
+    "en": "… still",
+    "de": "… noch",
+    "it": "… still",
+    "fr": "… still"
+  },
+  {
+    "Description": "",
+    "key": "available!",
+    "en": "available!",
+    "de": "verfügbar!",
+    "it": "available!",
+    "fr": "available!"
+  },
+  {
+    "Description": "",
+    "key": "… booked up!",
+    "en": "… booked up!",
+    "de": "… ausgebucht!",
+    "it": "… booked up!",
+    "fr": "… booked up!"
   }
 ]
