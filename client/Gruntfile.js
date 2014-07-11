@@ -158,14 +158,6 @@ module.exports = function (grunt) {
         server: '.tmp'
       },
 
-      // Automatically inject Bower components into the app
-      'bower-install': {
-        app: {
-          src: '<%= yeoman.app %>/index.html',
-          ignorePath: '<%= yeoman.app %>/'
-        }
-      },
-
       // Renames files for browser caching purposes
       rev: {
         dist: {
@@ -329,7 +321,7 @@ module.exports = function (grunt) {
       // Run some tasks in parallel to speed up the build process
       concurrent: {
         options: {
-          limit: 50
+          limit: 500
         },
         server: [
           'sass:server',
@@ -588,7 +580,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-//    'bower-install', // creates mess with dependencies
     'useminPrepare',
     'html2js',
     'concurrent:dist',

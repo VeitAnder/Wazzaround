@@ -676,6 +676,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
     .event-item-quantity {
       @include font-size_small;
       white-space: nowrap;
+      &.bookedup{
+        color: $color_red;
+        font-weight: $font-weight_bold;
+      }
     }
     .event-item-book {
       float: left;
@@ -1343,8 +1347,8 @@ activitybarstripe {
     z-index: 1;
     bottom: $activitybar-height;
     left: 50%;
-    margin-left: -75px;
-    width: 150px;
+    margin-left: -115px;
+    width: 230px;
     height: 20px;
     @include border-top-radius(20px);
     background-color: $color_green;
