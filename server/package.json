@@ -34,7 +34,7 @@
     "passport-local": "1.0.0",
     "paymill-node": "^0.1.2",
     "postmark": "0.2.5",
-    "q": "1.0.1",
+    "q": "^1.0.1",
     "restify": "2.8.1",
     "serve-favicon": "^2.0.1",
     "token.js": "0.0.1",
