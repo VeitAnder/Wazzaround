@@ -30,7 +30,7 @@ logger.info("Node environment: NODE_ENV=%s", process.env.NODE_ENV);
 app.use(logger.expressLogger);
 
 //require("./servermodules/security.js").allowCors(app);
-require("./servermodules/serveclient.js").setupStaticAssetsServer(app, (86400000 * 3));
+require("./servermodules/serveclient.js").setupStaticAssetsServer(app, (86400000 * 30));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
