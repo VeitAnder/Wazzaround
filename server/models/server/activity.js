@@ -20,27 +20,29 @@ ActivityModel.readFilter(function (req) {
   // allow global read access
 
   // authorized users
-  if (req.session.auth) {
-    if (req.session.user.userType === 'user') {
-      return {
-        published: true
-      };
-    }
+  if (req.session) {
+    if (req.session.auth) {
+      if (req.session.user.userType === 'user') {
+        return {
+          published: true
+        };
+      }
 
-    if (req.session.user.userType === 'provider') {
-      return {
-        "$or": [
-          { "published": true },
-          { "owner._reference": ObjectId(req.session.user._id) }
-        ]
-      };
-    }
+      if (req.session.user.userType === 'provider') {
+        return {
+          "$or": [
+            { "published": true },
+            { "owner._reference": ObjectId(req.session.user._id) }
+          ]
+        };
+      }
 
-    if (req.session.user.userType === 'admin') {
-      return true;  // kann alles lesen
-    }
+      if (req.session.user.userType === 'admin') {
+        return true;  // kann alles lesen
+      }
 
-    return false;  //der rest (sollte nicht passieren) kann nix lesen
+      return false;  //der rest (sollte nicht passieren) kann nix lesen
+    }
   }
   // end authorized users
 

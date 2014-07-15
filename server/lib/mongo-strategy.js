@@ -5,7 +5,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var crypto = require('crypto');
 
-var Users = require('../models/model_users.js');
+//var UserModel = require('../models/models.js').UserModel;
 
 //encrypt method - same as in model_users.js !!
 var encrypt = function (str) {
@@ -38,25 +38,7 @@ MongoDBStrategy.name = "mongo";
 
 // Get a user by id
 MongoDBStrategy.prototype.get = function (id, done) {
-  Users.findOneQ({
-    _id: id
-  }).then(function (user) {
-      if (user === null) {
-        done(null, null);
-      } else {
-        done(null, user);
-      }
-    }, function (err) {
-      done(err, null);
-    })
-    .done();
-};
-
-// Find a user by their email
-MongoDBStrategy.prototype.findByEmail = function (email, done) {
-  Users.findOneQ({
-    email: email.toLowerCase()
-  })
+  return UserModel.find({_id: id})
     .then(function (user) {
       if (user === null) {
         done(null, null);
@@ -71,15 +53,57 @@ MongoDBStrategy.prototype.findByEmail = function (email, done) {
 
 // Check whether the user passed in is a valid one
 MongoDBStrategy.prototype.verifyUser = function (email, password, done) {
-  this.findByEmail(email, function (err, user) {
-    if (!err && user) {
-      //check also for accountconfirmed flag - added by reacture
-      if (user.password !== encrypt(password) || !user.accountconfirmed || !user.enabled) {
-        user = null;
+
+  console.log("verifyUser", email, password);
+
+//  if (!email || !password) {
+//    throw new Error("No User/Password provided!");
+//  }
+
+//  return UserModel.find({email: params.email.toLowerCase()})  // find this user
+//    .then(function (users) {
+//      if (users.length < 1) {
+//        throw new Error("User not found");
+//      }
+//      if (users.length > 1) {
+//        throw new Error("Found more then one user");
+//      }
+//
+//      console.log("logging in");
+//
+//      if (users[0].password === params.password) { // auth successful
+//        // remember in a session, that auth was successful
+//        req.session.auth = true;
+//        // remember the user in the session
+//        req.session.user = users[0];
+//        return users[0];
+//      } else {
+//        throw new Error('Invalid Password');
+//      }
+//    })
+//    .then(function (user) {  // store last login date
+//      user.lastlogindate = new Date();
+//      return user.save();
+//    })
+//    .then(function () {  // if login was ok
+//      return {status: "ok"};
+//    });
+
+  return UserModel.find({email: email})
+    .then(function (user) {
+      if (user === null) {
+        done(null, null);
+      } else {
+//      //check also for accountconfirmed flag - added by reacture
+//      if (user.password !== encrypt(password) || !user.accountconfirmed || !user.enabled) {
+//        user = null;
+//      }
+        done(null, user);
       }
-    }
-    done(err, user);
-  });
+    }, function (err) {
+      done(err, null);
+    });
+
 };
 
 module.exports = MongoDBStrategy;

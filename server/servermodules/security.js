@@ -31,7 +31,6 @@ var switchToHTTPS = function (app) {
 
 var useCSRFProtection = function (app) {
   var csrfValue = function (req) {
-
     var token = (req.body && req.body._csrf) || (req.query && req.query._csrf) || (req.headers['x-csrf-token']) || (req.headers['x-xsrf-token']) || (req.cookies['XSRF-TOKEN']);
     return token;
   };
