@@ -6,7 +6,7 @@ angular.module('anorakApp')
       templateUrl: 'views/directives/shoppingcart.html',
       restrict: 'E',
       scope: {
-
+        cart : '='
       },
       link: function postLink(scope, element, attrs) {
         scope.state = {
@@ -18,7 +18,14 @@ angular.module('anorakApp')
         if (attrs.confirmationview === "true") {
           scope.state.confirmationview = true;
         }
-        scope.shoppingcart = shoppingcart;
+
+        if (attrs.cart !== undefined) {
+          console.log('scope.cart;', scope.cart);
+          scope.shoppingcart = scope.cart;
+        } else {
+          console.log('shoppingcart;', shoppingcart);
+          scope.shoppingcart = shoppingcart;
+        }
       }
     };
   });

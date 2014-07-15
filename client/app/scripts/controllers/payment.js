@@ -17,11 +17,15 @@ angular.module('anorakApp')
   .controller('PaymentCtrl', function ($scope, models, shoppingcart) {
     var payment = this;
 
+    this.state = 'form';
+
     this.submitEnabled = true;
     this.errorMsg;
     this.bookingId;
 
     this.readableBookingId;
+
+    this.cartCopy = {};
 
     var PaymillResponseHandler = function (error, result) {
       if (error) {
@@ -44,6 +48,14 @@ angular.module('anorakApp')
             payment.bookingId = res.bookingId;
             payment.readableBookingId = res.bookingId.match(/.{1,4}/g).join("-");
 
+            payment.state = 'confirmation';
+
+            angular.copy(shoppingcart, payment.cartCopy);
+
+            shoppingcart.reset();
+
+            console.log(payment.cartCopy);
+
             $scope.$apply();
           })
           .fail(function(err){
@@ -59,6 +71,8 @@ angular.module('anorakApp')
 
     this.submitPayment = function (event) {
       console.log("submitPayment", payment.card, payment.profile, shoppingcart.getTotal());
+
+      if (payment.submitEnabled === false ) return;
 
       payment.submitEnabled = false;
 

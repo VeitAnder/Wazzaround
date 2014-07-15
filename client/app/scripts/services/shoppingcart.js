@@ -12,43 +12,50 @@ angular.module('anorakApp')
   .service('shoppingcart', function shoppingcart(models) {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
-    var theShoppingCart = {};
-    var dictCounter = 0;
+    var self = this;
+
+    this.theShoppingCart = {};
+    this.dictCounter = 0;
 
     // used for ui states that need to be persisted along with shoppingcart data
     this.states = {};
 
+    this.reset = function() {
+      this.theShoppingCart = {};
+      this.dictCounter = 0;
+    };
+
     this.add = function (item) {
-      var idxOfTheItem = dictCounter;
+      var idxOfTheItem = this.dictCounter;
 
       assert(item.price !== undefined, "provide a price for the item");
 
       // add item functions
       item.remove = function () {
-        delete theShoppingCart[idxOfTheItem];
+        delete self.theShoppingCart[idxOfTheItem];
       };
 
       // increase quantity if item is already in the cart
-      for (var i in theShoppingCart) {
+      for (var i in this.theShoppingCart) {
         // already in card
-        if (theShoppingCart[i].eventId === item.eventId) {
-          theShoppingCart[i].quantity += 1;
+        if (this.theShoppingCart[i].eventId === item.eventId) {
+          this.theShoppingCart[i].quantity += 1;
           return;
         }
       }
 
-      theShoppingCart[dictCounter] = item;
-      dictCounter += 1;
+      this.theShoppingCart[this.dictCounter] = item;
+      this.dictCounter += 1;
     };
 
     this.getCart = function () {
-      return theShoppingCart;
+      return this.theShoppingCart;
     };
 
     this.getTotal = function () {
       return {
-        num: Object.keys(theShoppingCart).length,
-        price: _.reduce(theShoppingCart, function (res, value, key) {
+        num: Object.keys(this.theShoppingCart).length,
+        price: _.reduce(this.theShoppingCart, function (res, value, key) {
           assert(value.price !== undefined, "price missing for item in the shoppingcart");
           assert(value.quantity, "quantity missing for item in the shoppingcart");
 
@@ -59,12 +66,12 @@ angular.module('anorakApp')
 
     this.checkout = function (paymentToken, profile) {
       var params = [];
-      for (var i in theShoppingCart) {
+      for (var i in this.theShoppingCart) {
         params.push({
-          activity: theShoppingCart[i].activityId,
-          item: theShoppingCart[i].bookableItemId,
-          event: theShoppingCart[i].eventId,
-          quantity: theShoppingCart[i].quantity
+          activity: this.theShoppingCart[i].activityId,
+          item: this.theShoppingCart[i].bookableItemId,
+          event: this.theShoppingCart[i].eventId,
+          quantity: this.theShoppingCart[i].quantity
         });
       }
 
