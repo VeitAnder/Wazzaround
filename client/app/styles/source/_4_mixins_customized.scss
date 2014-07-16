@@ -707,48 +707,16 @@ googleMap, .angular-google-map, .angular-google-map-container {
   display: block;
   @include border_all($color_grey_50);
   @include border-radius($border-radius);
-  padding: 5px $bu;
+  padding: $bu;
   margin: $bu 0;
   background-color: $color_grey_05;
   input {
     min-width: 0;
   }
   .form-group {
-    @include divtable_cell;
-    &.first {
-      padding-left: 0;
-    }
-    &.last {
-      padding-right: 0;
-    }
   }
   .form-group-helptext {
     white-space: normal;
-  }
-  .date-start {
-    width: 25%;
-  }
-  .date-end {
-    width: 25%;
-  }
-  .time-start {
-    width: 22.5%;
-  }
-  .time-end {
-    width: 22.5%;
-  }
-  .quantity {
-    width: 50%;
-    input {
-      text-align: right;
-    }
-  }
-
-  .price {
-    width: 50%;
-    input {
-      text-align: right;
-    }
   }
 
   .from-until {
@@ -768,12 +736,13 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
 
-  .event-duration-block {
-    background-color: $color_grey_25;
+  .event-end-block {
+    background-color: $color_grey_15;
     color: $color_grey;
     @include font-size_small;
     text-align: center;
     @include border-radius($border-radius_small);
+    margin-bottom: 30px;
     padding: 5px 10px;
     clear: both;
   }
@@ -1219,7 +1188,6 @@ shoppingcartbar {
   width: 15%;
   input {
     float: right;
-    text-align: right;
     width: 45px;
   }
 }
@@ -1227,7 +1195,6 @@ shoppingcartbar {
 .shoppingcart-item-price {
   float: left;
   width: 20%;
-  text-align: right;
 }
 
 .shoppingcart-subtotal {
