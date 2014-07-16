@@ -244,54 +244,58 @@
               <div class="currentactivity-body category-{{getSelectedActivity().category.main}}"
                    ng-click="toggleCurrentActivity()"
                   >
-                <cloudinaryimage
-                    data-publicid="{{getSelectedActivity().images[0].public_id}}"
-                    data-format="{{getSelectedActivity().images[0].format}}"
-                    data-width="650"
-                    data-height="200"
-                    >
-                </cloudinaryimage>
 
-                <div class="activity-distance-element">
-                  <div class="current-location"></div>
-                  <div class="activity-distance-txt">
-                    {{getSelectedActivity().distancetosearchlocation | mtokm }} km |
-                    {{getIndexFilteredActivities(getSelectedActivity()) }} {{'of' | translate }}
-                    {{states.filteredactivities.length}}
-                  </div>
-                  <div class="activity-location"></div>
-                </div>
+                <div class="currentactivity-img">
+                  <cloudinaryimage
+                      data-publicid="{{getSelectedActivity().images[0].public_id}}"
+                      data-format="{{getSelectedActivity().images[0].format}}"
+                      data-width="325"
+                      data-height="200"
+                      >
+                  </cloudinaryimage>
 
-                <div class="activity-text">
-                  <h5 class="category">
-                    <div class="innerwrap">
-                      {{getSelectedActivity().category.main | translate}}
-                      <span class="category-sub"
-                            ng-repeat="subcat in getSelectedActivity().category.subs">
-                        / {{subcat.key | translate}}
-                      </span>
+                  <div class="activity-distance-element">
+                    <div class="current-location"></div>
+                    <div class="activity-distance-txt">
+                      {{getSelectedActivity().distancetosearchlocation | mtokm }} km |
+                      {{getIndexFilteredActivities(getSelectedActivity()) }} {{'of' | translate }}
+                      {{states.filteredactivities.length}}
                     </div>
-                  </h5>
-
-                  <h4 class="title">
-                    {{getSelectedActivity().name | languageselect}}
-                  </h4>
-
-                  <div class="description">
-                       {{getSelectedActivity().shortdescription[getAvailableTranslationLanguageKey(getSelectedActivity().shortdescription)]}}
+                    <div class="activity-location"></div>
                   </div>
 
+                  <div class="activity-price-min">
+                    <div class="innerwrap">
+                      <span class="smalltext">{{'starting from' | translate }}</span>
+                      <span class="price">€ {{ lowestPriceOfSelectedActivity() }}</span>
+                    </div>
+                  </div>
 
                 </div>
 
-                <div class="activity-price-min">
-                  <div class="innerwrap">
-                    <span class="smalltext">{{'starting from' | translate }}</span>
-                    <span class="price">€ {{ lowestPriceOfSelectedActivity() }}</span>
+                <div class="currentactivity-txt">
+                  <div class="activity-text">
+                    <h5 class="category">
+                      <div class="innerwrap">
+                        {{getSelectedActivity().category.main | translate}}
+                        <span class="category-sub"
+                              ng-repeat="subcat in getSelectedActivity().category.subs">
+                          / {{subcat.key | translate}}
+                        </span>
+                      </div>
+                    </h5>
+
+                    <h4 class="title">
+                      {{getSelectedActivity().name | languageselect}}
+                    </h4>
+
+                    <div class="description">
+                      {{getSelectedActivity().shortdescription[getAvailableTranslationLanguageKey(getSelectedActivity().shortdescription)]}}
+                    </div>
+
                   </div>
                 </div>
 
-                <span class="triangle"></span>
               </div>
 
               <a ng-click="selectprev()"
