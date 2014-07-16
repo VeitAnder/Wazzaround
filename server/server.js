@@ -72,7 +72,7 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "developme
   require("./servermodules/security.js").useCSRFProtection(app);
 }
 
-require("./servermodules/restapi.js").RestApi(app, db);
+require("./servermodules/restapi.js").RestApi(app);
 
 require("./servermodules/serveclient.js").serveClient(app);
 
