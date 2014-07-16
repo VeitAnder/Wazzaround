@@ -66,9 +66,9 @@ var config = {
     colorize: true
   },
   cloudinary: {
-    cloud_name: 'dqe7zmb1k',
-    api_key: '619226866778758',
-    api_secret: 'yA_Xv9LXc9aEab05M9YNlEgpQsw'
+    cloud_name: 'www-reacture-com',
+    api_key: '352462286589814',
+    api_secret: 'hg2e2FKLKwTYsboxYNtQUYRwEwI'
   },
   google: {
     apikey: "AIzaSyDeA3pWT15QSri8b00AVVqVCmAY_Niqbvg"

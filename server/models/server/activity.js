@@ -75,7 +75,7 @@ var translateActivity = function (doc) {
 ActivityModel.writeFilter(function (doc, req) {
   var ownerRef;
 
-  if (!req.user) {
+  if (!req.isAuthenticated()) {
     return false;  // if not logged in don't allow write operations
   }
 

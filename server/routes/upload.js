@@ -4,13 +4,10 @@ var cloudinary = require('cloudinary');
 var fs = require("fs");
 var multiparty = require("multiparty");  // necessary as separate module since ExpressJS 4.0
 
-//var ObjectId = require('mongojs').ObjectId;
-//var models = require("../models/models.js");
-
 cloudinary.config(config.cloudinary);
 
 exports.postupload = function (req, res, next) {
-  if (!req.session.auth) {
+  if (!req.isAuthenticated()) {
     res.send(403, "Not Authorized");  // if not logged in don't allow write operations
     return;
   }
@@ -26,6 +23,11 @@ exports.postupload = function (req, res, next) {
 };
 
 exports.deleteupload = function (req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.send(403, "Not Authorized");  // if not logged in don't allow write operations
+    return;
+  }
+
   var resourceid = req.params.resourceid;
   cloudinary.api.delete_resources([resourceid], function (data) {
     res.send(data);

@@ -33,8 +33,8 @@ angular.module('anorakApp')
         debug: false,
         modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/",
         cloudinary : {
-          cloud_name: 'dqe7zmb1k',
-          api_key: '619226866778758'
+          cloud_name: 'www-reacture-com',
+          api_key: '162329319871877'
         }
       };
     } else {
@@ -50,8 +50,8 @@ angular.module('anorakApp')
         modelizerhost : $window.location.hostname,
         modelizerport : 3000,
         cloudinary : {
-          cloud_name: 'dqe7zmb1k',
-          api_key: '619226866778758'
+          cloud_name: 'www-reacture-com',
+          api_key: '162329319871877'
         }
       };
     }
