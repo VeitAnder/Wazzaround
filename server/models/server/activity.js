@@ -9,7 +9,7 @@ var ObjectId = require('mongojs').ObjectId;
 var models = require('../models.js');
 var ActivityModel = require('../models.js').ActivityModel;
 
-var q = require('q');
+var Q = require('q');
 
 var googleTranslate = require('google-translate')(config.google.apikey);
 
@@ -18,7 +18,6 @@ var googleTranslate = require('google-translate')(config.google.apikey);
 
 ActivityModel.readFilter(function (req) {
   // allow global read access
-  console.log("read filter");
 
   // authorized users
   if (req.user) {
@@ -59,7 +58,7 @@ ActivityModel.readFilter(function (req) {
 //});
 
 var translateActivity = function (doc) {
-  var deferred = q.defer();
+  var deferred = Q.defer();
 
   console.log("inputlanguage", doc.inputlanguage);
 

@@ -544,8 +544,23 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
 .bookableitem-body {
   padding: $bu;
-  background-color: $color_white;
+  background-color: $color_grey_25;
   @include border-bottom-radius($border-radius);
+  @include border(all, $color_grey_75);
+  border-width: 2px;
+
+  .event-header{
+    color: $color_grey;
+    border-color: $color_grey_50;
+  }
+  .event-list{
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  eventview{
+    border-color: $color_grey_50;
+  }
 }
 
 .bookableitem-name {
@@ -639,17 +654,20 @@ googleMap, .angular-google-map, .angular-google-map-container {
   @include divtable_header_small;
 }
 
-.event-row {
-  @include divtable_row_small;
-  .cell {
-    &.listaction {
-      white-space: normal;
-      overflow: visible;
+eventrow {
+  display: block;
+  eventview{
+    @include divtable_row_small;
+    .cell {
+      &.listaction {
+        white-space: normal;
+        overflow: visible;
+      }
     }
   }
 }
 
-.event-item {
+eventitem {
   display: block;
   overflow: hidden;
   margin-bottom: $bu*0.5;
@@ -703,52 +721,19 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
-.eventedit {
+eventedit {
   display: block;
-  @include border_all($color_grey_50);
   @include border-radius($border-radius);
-  padding: 5px $bu;
+  padding: $bu;
   margin: $bu 0;
   background-color: $color_grey_05;
   input {
     min-width: 0;
   }
   .form-group {
-    @include divtable_cell;
-    &.first {
-      padding-left: 0;
-    }
-    &.last {
-      padding-right: 0;
-    }
   }
   .form-group-helptext {
     white-space: normal;
-  }
-  .date-start {
-    width: 25%;
-  }
-  .date-end {
-    width: 25%;
-  }
-  .time-start {
-    width: 22.5%;
-  }
-  .time-end {
-    width: 22.5%;
-  }
-  .quantity {
-    width: 50%;
-    input {
-      text-align: right;
-    }
-  }
-
-  .price {
-    width: 50%;
-    input {
-      text-align: right;
-    }
   }
 
   .from-until {
@@ -768,12 +753,13 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
 
-  .event-duration-block {
-    background-color: $color_grey_25;
+  .event-end-block {
+    background-color: $color_green_50;
     color: $color_grey;
     @include font-size_small;
     text-align: center;
     @include border-radius($border-radius_small);
+    margin-bottom: 20px;
     padding: 5px 10px;
     clear: both;
   }
@@ -786,34 +772,42 @@ googleMap, .angular-google-map, .angular-google-map-container {
     display: block;
   }
 
-  .btn {
+  .divider{
+    margin: $bu (-$bu);
   }
 
   .buttonbar {
     width: auto;
     @include seperator(top, $color_grey_50);
-    margin: $bu (-$bu) 0 (-$bu);
+    margin: $bu (-$bu) (-$bu) (-$bu);
     @include border-radius(0);
     background-color: transparent;
   }
 }
 
 .event-new-repeat {
+  overflow: visible;
   @include clearfix;
   clear: both;
-  margin-top: $bu;
-  .checkbox {
-    label {
-      font-weight: $font-weight_bold;
+  padding: 10px;
+  @include border-radius($border-radius_small);
+  background-color: $color_grey_15;
+  .switch-element{
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .switch-element-right{
+    min-height: $switch-height;
+    .switch{
+      right: 0;
     }
   }
   .repeating {
     margin-top: 5px;
     padding-top: 5px;
-    //    @include seperator(top, $color_grey_50);
     .checkbox {
       float: left;
-      width: (100%) / 7;
+      width: (100%) / 4;
       label {
         font-weight: normal;
       }
@@ -1219,7 +1213,6 @@ shoppingcartbar {
   width: 15%;
   input {
     float: right;
-    text-align: right;
     width: 45px;
   }
 }
@@ -1227,7 +1220,6 @@ shoppingcartbar {
 .shoppingcart-item-price {
   float: left;
   width: 20%;
-  text-align: right;
 }
 
 .shoppingcart-subtotal {
