@@ -3778,9 +3778,20 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
 .bookableitem-body {
   padding: 15px;
-  background-color: #FFF;
+  background-color: #d9d9d9;
   border-bottom-right-radius: 6px;
-  border-bottom-left-radius: 6px; }
+  border-bottom-left-radius: 6px;
+  border: solid 1px #8c8c8c;
+  border-width: 3px; }
+  .bookableitem-body .event-header {
+    color: #666;
+    border-color: #b3b3b3; }
+  .bookableitem-body .event-list {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0; }
+  .bookableitem-body eventview {
+    border-color: #b3b3b3; }
 
 .bookableitem-name {
   width: 100%; }

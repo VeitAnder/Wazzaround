@@ -544,8 +544,24 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
 .bookableitem-body {
   padding: $bu;
-  background-color: $color_white;
+  background-color: $color_grey_25;
   @include border-bottom-radius($border-radius);
+  @include border(all, $color_grey_75);
+  border-width: 3px;
+
+  .event-header{
+    color: $color_grey;
+    border-color: $color_grey_50;
+  }
+  .event-list{
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  eventview{
+    border-color: $color_grey_50;
+//    background-color: $color_grey_50_l5;
+  }
 }
 
 .bookableitem-name {
