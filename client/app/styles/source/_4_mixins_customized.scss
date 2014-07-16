@@ -1003,266 +1003,6 @@ eventedit {
   }
 }
 
-shoppingcart {
-  display: block;
-  margin-bottom: $fs;
-}
-
-shoppingcartbar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 3;
-  overflow: hidden;
-  width: $shoppingcart-toggle-width + 5px;
-  height: 100%;
-  @include animation_all;
-  .shoppingcart-toggle {
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: - $shoppingcart-toggle-width;
-    height: 100%;
-    @include animation_background;
-    .innerwrap {
-      margin-top: 35px; // below uservoice
-    }
-    &:hover {
-      background-color: rgba($color_grey, 0.15);
-    }
-
-  }
-  .shoppingcart-element {
-    position: absolute;
-    right: - ($shoppingcart-rightside-width - 5px);
-    width: $shoppingcart-rightside-width;
-    height: 100%;
-    @include animation_all;
-  }
-
-  .shoppingcart-item {
-    img {
-      width: 60px;
-      height: auto;
-    }
-  }
-
-  .shoppingcart-item-date {
-    font-size: $fs*$font-size_small_factor;
-    line-height: 28px;
-  }
-
-  &.active {
-
-    width: $shoppingcart-rightside-width + $shoppingcart-toggle-width;
-
-    .shoppingcart-element {
-      right: 0;
-    }
-    .shoppingcart-toggle {
-    }
-  }
-  .shoppingcart-header {
-    padding-top: $fs*0.75; // below uservoice
-    h3 {
-      color: $color_white;
-    }
-  }
-}
-
-.shoppingcart-element {
-  background-color: $color_green;
-  padding: $bu*2.0 $bu*1.0;
-  @include color-white;
-  .buttonbar {
-    padding: 0;
-    border: none;
-    .btn {
-      width: 100%;
-      text-align: center;
-    }
-  }
-}
-
-.shoppingcart-toggle {
-  display: none; //hide = standard
-  @include hovercursor;
-
-  .innerwrap {
-    width: $shoppingcart-toggle-width;
-    height: $shoppingcart-toggle-width;
-    @include border-left-radius($border-radius_small);
-    background-color: $color_green;
-    @include sprite_icons(-141px, 15px, no-repeat);
-    text-align: right;
-    padding: 0 3px;
-  }
-
-  .numberofitems {
-    display: inline-block;
-    min-width: 15px;
-    height: 15px;
-    padding: 0 3px;
-    @include border-radius(7.5px);
-    background-color: $color_red;
-    color: $color_white;
-    @include font-size_smallest;
-    text-align: center;
-    font-weight: $font-weight_bold;
-    @include box-shadow_2px;
-  }
-  .active & {
-    .innerwrap {
-      background-color: $color_red;
-      background-position: -82px 13px;
-      background-size: 800%;
-    }
-    .numberofitems {
-      display: none;
-    }
-  }
-}
-
-.shoppingcart-header {
-  margin-bottom: $fs;
-  h3 {
-    font-weight: $font-weight_light;
-    @include h5;
-    margin: 0;
-  }
-}
-
-.shoppingcart-item {
-  position: relative;
-  @include seperator(top, $color_green_50);
-  padding: $fs*0.75 0;
-  h4 {
-    font-size: $fs;
-    line-height: $fs*$line-height_factor;
-    margin: 0;
-    padding-right: $bu*2.0;
-    .icon {
-      position: relative;
-      top: 2px;
-      display: inline-block;
-      width: 15px;
-      height: 15px;
-      @include border-radius(7.5px);
-      @include border_all($color_white);
-      border-width: 2px;
-      margin-right: $fs*0.25;
-    }
-  }
-  &.category-sports {
-    .icon {
-      background-color: $color_sports;
-    }
-  }
-
-  &.category-culture {
-    .icon {
-      background-color: $color_culture;
-    }
-  }
-
-  &.category-wellness {
-    .icon {
-      background-color: $color_wellness;
-    }
-  }
-
-  p {
-    padding-right: $bu*2.0;
-    margin: 0;
-  }
-  img {
-    @include border-image-mini;
-    border-color: $color_green_50;
-    width: 100px;
-    height: auto;
-    float: left;
-    margin-right: $fs*0.5;
-    margin-bottom: $fs*0.5;
-  }
-  .txt-icon-delete {
-    position: absolute;
-    top: 5px;
-    right: 0;
-    span {
-      background-color: $color_grey;
-      &:hover {
-        background-color: $color_red;
-      }
-    }
-  }
-}
-
-.shoppingcart-item-details {
-  @include clearfix;
-  clear: both;
-  margin-top: $fs*0.5;
-}
-
-.shoppingcart-item-date {
-  float: left;
-  width: 65%;
-}
-
-.shoppingcart-item-qty {
-  float: left;
-  width: 15%;
-  input {
-    float: right;
-    width: 45px;
-  }
-}
-
-.shoppingcart-item-price {
-  float: left;
-  width: 20%;
-}
-
-.shoppingcart-subtotal {
-  padding: $fs*0.5 0;
-  border-top: 1px solid $color_green_50;
-  border-bottom: 3px solid $color_green_50;
-  font-weight: $font-weight_bold;
-  @include clearfix;
-  .description, .value {
-    display: block;
-    float: left;
-    width: 49%;
-  }
-  .value {
-    text-align: right;
-    margin-left: 2%;
-  }
-}
-
-$payment-triangle-size: 60px;
-
-.payment-userdetails {
-  position: relative;
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    display: block;
-    margin-left: -($payment-triangle-size/2);
-    @include triangle($payment-triangle-size, $color_white, down);
-  }
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: -($payment-triangle-size/2);
-    left: 50%;
-    display: block;
-    margin-bottom: -($payment-triangle-size/2);
-    margin-left: -($payment-triangle-size/2);
-    @include triangle($payment-triangle-size, $color_green_15, down);
-  }
-}
 
 $activitybar-currentitem-width: 60%;
 $activitybar-height: 200px;
@@ -1590,6 +1330,271 @@ activitybardetail {
     margin-top: 0;
   }
 }
+
+
+
+shoppingcart {
+  display: block;
+  margin-bottom: $fs;
+}
+
+shoppingcartbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  overflow: hidden;
+  width: $shoppingcart-toggle-width + 5px;
+  height: 100%;
+  @include animation_all;
+  .shoppingcart-toggle {
+    display: block;
+    position: absolute;
+    bottom: $activitybar-height + $footer-height;
+    padding-top: $activitybar-height + $footer-height;
+    left: - $shoppingcart-toggle-width;
+    height: 100%;
+    @include animation_background;
+    .innerwrap {
+      margin-top: 35px; // below uservoice
+    }
+    &:hover {
+      background-color: rgba($color_grey, 0.15);
+    }
+
+  }
+  .shoppingcart-element {
+    position: absolute;
+    right: - ($shoppingcart-rightside-width - 5px);
+    width: $shoppingcart-rightside-width;
+    height: 100%;
+    @include animation_all;
+  }
+
+  .shoppingcart-item {
+    img {
+      width: 60px;
+      height: auto;
+    }
+  }
+
+  .shoppingcart-item-date {
+    font-size: $fs*$font-size_small_factor;
+    line-height: 28px;
+  }
+
+  &.active {
+
+    width: $shoppingcart-rightside-width + $shoppingcart-toggle-width;
+
+    .shoppingcart-element {
+      right: 0;
+    }
+    .shoppingcart-toggle {
+    }
+  }
+  .shoppingcart-header {
+    padding-top: $fs*0.75; // below uservoice
+    h3 {
+      color: $color_white;
+    }
+  }
+}
+
+.shoppingcart-element {
+  background-color: $color_green;
+  padding: $bu*2.0 $bu*1.0;
+  @include color-white;
+  .buttonbar {
+    padding: 0;
+    border: none;
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.shoppingcart-toggle {
+  display: none; //hide = standard
+  @include hovercursor;
+
+  .innerwrap {
+    width: $shoppingcart-toggle-width;
+    height: $shoppingcart-toggle-width;
+    @include border-left-radius($border-radius_small);
+    background-color: $color_green;
+    @include sprite_icons(-141px, 15px, no-repeat);
+    text-align: right;
+    padding: 0 3px;
+  }
+
+  .numberofitems {
+    display: inline-block;
+    min-width: 15px;
+    height: 15px;
+    padding: 0 3px;
+    @include border-radius(7.5px);
+    background-color: $color_red;
+    color: $color_white;
+    @include font-size_smallest;
+    text-align: center;
+    font-weight: $font-weight_bold;
+    @include box-shadow_2px;
+  }
+  .active & {
+    .innerwrap {
+      background-color: $color_red;
+      background-position: -82px 13px;
+      background-size: 800%;
+    }
+    .numberofitems {
+      display: none;
+    }
+  }
+}
+
+.shoppingcart-header {
+  margin-bottom: $fs;
+  h3 {
+    font-weight: $font-weight_light;
+    @include h5;
+    margin: 0;
+  }
+}
+
+.shoppingcart-item {
+  position: relative;
+  @include seperator(top, $color_green_50);
+  padding: $fs*0.75 0;
+  h4 {
+    font-size: $fs;
+    line-height: $fs*$line-height_factor;
+    margin: 0;
+    padding-right: $bu*2.0;
+    .icon {
+      position: relative;
+      top: 2px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      @include border-radius(7.5px);
+      @include border_all($color_white);
+      border-width: 2px;
+      margin-right: $fs*0.25;
+    }
+  }
+  &.category-sports {
+    .icon {
+      background-color: $color_sports;
+    }
+  }
+
+  &.category-culture {
+    .icon {
+      background-color: $color_culture;
+    }
+  }
+
+  &.category-wellness {
+    .icon {
+      background-color: $color_wellness;
+    }
+  }
+
+  p {
+    padding-right: $bu*2.0;
+    margin: 0;
+  }
+  img {
+    @include border-image-mini;
+    border-color: $color_green_50;
+    width: 100px;
+    height: auto;
+    float: left;
+    margin-right: $fs*0.5;
+    margin-bottom: $fs*0.5;
+  }
+  .txt-icon-delete {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    span {
+      background-color: $color_grey;
+      &:hover {
+        background-color: $color_red;
+      }
+    }
+  }
+}
+
+.shoppingcart-item-details {
+  @include clearfix;
+  clear: both;
+  margin-top: $fs*0.5;
+}
+
+.shoppingcart-item-date {
+  float: left;
+  width: 65%;
+}
+
+.shoppingcart-item-qty {
+  float: left;
+  width: 15%;
+  input {
+    float: right;
+    width: 45px;
+  }
+}
+
+.shoppingcart-item-price {
+  float: left;
+  width: 20%;
+}
+
+.shoppingcart-subtotal {
+  padding: $fs*0.5 0;
+  border-top: 1px solid $color_green_50;
+  border-bottom: 3px solid $color_green_50;
+  font-weight: $font-weight_bold;
+  @include clearfix;
+  .description, .value {
+    display: block;
+    float: left;
+    width: 49%;
+  }
+  .value {
+    text-align: right;
+    margin-left: 2%;
+  }
+}
+
+$payment-triangle-size: 60px;
+
+.payment-userdetails {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    margin-left: -($payment-triangle-size/2);
+    @include triangle($payment-triangle-size, $color_white, down);
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -($payment-triangle-size/2);
+    left: 50%;
+    display: block;
+    margin-bottom: -($payment-triangle-size/2);
+    margin-left: -($payment-triangle-size/2);
+    @include triangle($payment-triangle-size, $color_green_15, down);
+  }
+}
+
 
 // CONTENT ELEMENTS
 // ###########################################################################################################################
