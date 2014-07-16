@@ -133,11 +133,23 @@ UserModel.operationImpl("logout", function (params, req) {
 UserModel.factoryImpl("currentUser", function (params, req) {
   console.log("currentUser");
 
-  if (!req.user) {
+  var deferred = Q.defer();
+  if (!req.session.auth) {
     var err = new Error("not authorized");
     err.statusCode = 401;
-    return err;
+    deferred.reject(err);
+    return deferred.promise;
   }
+
+  //return models.UserModel.get(ObjectId(req.session.user_id));
+//  return UserModel.find({ _id: ObjectId(req.session.user._id)})
+//    .then(function (users) {
+//      console.log("users", users);
+//      if (users.length !== 1) throw new Error("User not found");
+//      return users[0];
+//    });
+//
+
 
   //return models.UserModel.get(ObjectId(req.session.user_id));
 //  return UserModel.find({ _id: ObjectId(req.session.user._id)})

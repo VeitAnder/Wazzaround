@@ -10,10 +10,9 @@ var cookieSession = require('cookie-session');
 var bodyParser = require('body-parser');
 
 var passport = require('passport');
-
 var config = require('./config.js');
 var logger = require('./lib/logger.js');
-var security = require('./lib/security');
+
 var cacheControl = require('./lib/cacheControl');
 
 var app = express();
@@ -48,31 +47,29 @@ var mongojs = require('mongojs');
 var db = mongojs('mongodb://' + config.mongo.username + ':' + config.mongo.password + '@' + config.mongo.host + ':' + config.mongo.port + '/' + config.mongo.dbName);
 
 app.use(cookieParser());
-
 app.use(cookieParser(config.server.cookieSecret));            // Hash cookies with this secret
 app.use(cookieSession({
   keys: [config.server.cookieSecret],
   secureProxy: false // if you do SSL outside of node
 }));
 
+
 // Passport/Express Config
 app.use(passport.initialize());                               // Initialize PassportJS
 // Use Passport's session authentication strategy - this stores the logged in user in the session and will now run on any request
 app.use(passport.session());
+// modelizer uses passport auth - so modelizer middleware has to be placed after passport middleware
+require("./servermodules/modelizer.js").initModelizer(app, db);
+// require security after modelizer!
+var security = require('./lib/security');
 security.initialize();                                        // Add a Mongo strategy for handling the authentication
 
-
-
-
 app.use(cacheControl);
-
-require("./servermodules/modelizer.js").initModelizer(app, db);
 
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "developmentmodulus") {
   require("./servermodules/security.js").switchToHTTPS(app);
   require("./servermodules/security.js").useCSRFProtection(app);
 }
-
 
 require("./servermodules/restapi.js").RestApi(app, db);
 

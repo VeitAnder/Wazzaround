@@ -5,7 +5,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var crypto = require('crypto');
 
-//var UserModel = require('../models/models.js').UserModel;
+var UserModel = require('../models/models.js').UserModel;
 
 //encrypt method - same as in model_users.js !!
 var encrypt = function (str) {
