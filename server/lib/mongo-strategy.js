@@ -54,13 +54,10 @@ MongoDBStrategy.prototype.verifyUser = function (email, password, done) {
         done(new Error("Found more then one user"), null);
       }
       if (users[0].password === password) { // auth successful
-        return users[0];
+        done(null, users[0]);
       } else {
         done(new Error("Invalid Password"), null);
       }
-    })
-    .then(function (user) {  // if login was ok
-      done(null, user);
     })
     .fail(function (err) {
       done(err, null);

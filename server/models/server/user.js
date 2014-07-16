@@ -133,7 +133,7 @@ UserModel.operationImpl("logout", function (params, req) {
 UserModel.factoryImpl("currentUser", function (params, req) {
   var deferred = Q.defer();
   if (!req.user) {
-    var err = new Error("not authorized");
+    var err = new Error("Not authorized");
     err.statusCode = 401;
     deferred.reject(err);
     return deferred.promise;

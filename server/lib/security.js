@@ -9,12 +9,16 @@ var security = {
   login: function (req, res, next) {
     var deferred = Q.defer();
     passport.authenticate(MongoStrategy.name, function (err, user, info) {
-      req.logIn(user, function (err) {
-        if (err) {
-          deferred.reject(err);
-        }
-        deferred.resolve(user);
-      });
+      if (user) {
+        req.logIn(user, function (err) {
+          if (err) {
+            deferred.reject(err);
+          }
+          deferred.resolve(user);
+        });
+      } else {
+        deferred.reject(new Error("Invalid user credentials provided"));
+      }
     })(req, res, next);
 
     return deferred.promise;
