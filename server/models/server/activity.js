@@ -9,7 +9,7 @@ var ObjectId = require('mongojs').ObjectId;
 var models = require('../models.js');
 var ActivityModel = require('../models.js').ActivityModel;
 
-var q = require('Q');
+var q = require('q');
 
 var googleTranslate = require('google-translate')(config.google.apikey);
 

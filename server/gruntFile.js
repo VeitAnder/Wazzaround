@@ -40,7 +40,7 @@ module.exports = function (grunt) {
         'routes/**/*.js',
         'monitoring/**/*.js',
         'servermodules/**/*.js',
-        '!models/**/*.js',
+        '!models/**/*.js'
       ]
     },
 
