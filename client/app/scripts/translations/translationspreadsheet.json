@@ -1875,7 +1875,7 @@
     "Description": "",
     "key": "save event",
     "en": "Save event",
-    "de": "Event speichern",
+    "de": "Termin speichern",
     "it": "Salva evento",
     "fr": "Save event"
   },
@@ -2066,10 +2066,10 @@
   {
     "Description": "",
     "key": "recurring Event",
-    "en": "recurring Event",
-    "de": "wiederkehrender Termin",
-    "it": "ripetere l´evento",
-    "fr": "recurring Event"
+    "en": "Recurring Event",
+    "de": "Wiederkehrender Termin",
+    "it": "Ripetere l´evento",
+    "fr": "Recurring Event"
   },
   {
     "Description": "",
@@ -2686,5 +2686,21 @@
     "de": "Dieser Termin endet am",
     "it": "This event ends on",
     "fr": "This event ends on"
+  },
+  {
+    "Description": "",
+    "key": "recurring event until",
+    "en": "Recurring event until",
+    "de": "Wiederkehrender Termin bis",
+    "it": "Recurring event until",
+    "fr": "Recurring event until"
+  },
+  {
+    "Description": "",
+    "key": "events on these weekdays",
+    "en": "Events on these weekdays",
+    "de": "Termine an diesen Wochentagen",
+    "it": "Events on these weekdays",
+    "fr": "Events on these weekdays"
   }
 ]

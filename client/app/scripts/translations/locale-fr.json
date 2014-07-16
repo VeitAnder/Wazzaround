@@ -252,7 +252,7 @@
   "Add Event": "Add Event",
   "Add new Event": "Add new Event",
   "Quantity": "Quantity",
-  "recurring Event": "recurring Event",
+  "recurring Event": "Recurring Event",
   "Mon": "Lundi",
   "Tue": "Mardi",
   "Wed": "mercredi",
@@ -329,5 +329,7 @@
   "days": "Days",
   "hours": "Hours",
   "minutes": "Minutes",
-  "this event ends on": "This event ends on"
+  "this event ends on": "This event ends on",
+  "recurring event until": "Recurring event until",
+  "events on these weekdays": "Events on these weekdays"
 }

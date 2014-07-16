@@ -228,7 +228,7 @@
   "Please enter the name of the activity/activities.": "Bitte laden Sie ein Bild hoch.",
   "Please enter the name of your company.": "Bitte geben Sie den/die Namen der Aktivität/en ein.",
   "Please upload an image.": "Bitte geben Sie den Namen Ihrer Firma ein.",
-  "save event": "Event speichern",
+  "save event": "Termin speichern",
   "New activity": "Neue Aktivität",
   "Global Activity Info": "Daten der Aktivität",
   "Name of Activity or Activities": "Bezeichnung der Aktivität/en",
@@ -252,7 +252,7 @@
   "Add Event": "Termin hinzufügen",
   "Add new Event": "Neuen Termin hinzufügen",
   "Quantity": "Menge",
-  "recurring Event": "wiederkehrender Termin",
+  "recurring Event": "Wiederkehrender Termin",
   "Mon": "Mo",
   "Tue": "Di",
   "Wed": "Mi",
@@ -329,5 +329,7 @@
   "days": "Tage",
   "hours": "Stunden",
   "minutes": "Minuten",
-  "this event ends on": "Dieser Termin endet am"
+  "this event ends on": "Dieser Termin endet am",
+  "recurring event until": "Wiederkehrender Termin bis",
+  "events on these weekdays": "Termine an diesen Wochentagen"
 }

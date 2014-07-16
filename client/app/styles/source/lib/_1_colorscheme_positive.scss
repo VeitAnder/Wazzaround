@@ -67,6 +67,9 @@ $color_grey_25_l5: lighten($color_grey_25, 5%);
 $color_grey_05_l5: lighten($color_grey_05, 5%);
 $color_grey_k15_l5: lighten($color_grey_k15, 5%);
 
+$color_grey_15_d5: darken($color_grey_15, 5%);
+$color_grey_75_d10: darken($color_grey_75, 10%);
+
 $color_11: lighten($color_grey, 45%);
 $color_12: lighten($color_grey, 30%);
 $color_13: lighten($color_grey, 20%);

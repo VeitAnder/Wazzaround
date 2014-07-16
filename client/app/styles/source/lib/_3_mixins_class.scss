@@ -420,10 +420,21 @@ button.btn, .btn, a.btn {
       border-color: $color_green;
       color: $color_white;
     }
+    .bookableitem-body & {
+      background-color: transparent;
+      &:hover {
+        background-color: $color_green;
+        border-color: $color_green;
+        color: $color_white;
+      }
+    }
     &.btn-alert {
       background-color: $color_white;
       border-color: $color_grey_50;
       color: $color_grey_75;
+      .bookableitem-body & {
+        background-color: transparent;
+      }
       &:hover {
         background-color: $color_red;
         border-color: $color_red;
@@ -1974,28 +1985,28 @@ input[type="checkbox"]:focus {
   }
 }
 
-.form-area{
+.form-area {
   padding: 7.5px;
   background-color: $color_grey_15;
   @include border-radius($border-radius_small);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   &.form-area-5050 {
     display: block;
     float: left;
-    width: 47.5%;
-    margin-left: 5%;
+    width: 48.75%;
+    margin-left: 2.5%;
     &:first-child {
       margin-left: 0;
     }
   }
-  .form-group{
-    margin-bottom: 0;
+  .form-group {
+    padding-bottom: 0;
   }
 }
 
 .form-group {
   vertical-align: top;
-  margin: 10px 0;
+  padding: 10px 0;
   .btn {
     margin-top: $fs*0.5;
   }
@@ -2013,6 +2024,7 @@ input[type="checkbox"]:focus {
 }
 
 .form-group-inline {
+  overflow: hidden;
   .form-group {
     display: block;
     float: left;
@@ -2166,8 +2178,7 @@ legend {
   box-shadow: none;
 }
 
-
-@mixin helptextsign{
+@mixin helptextsign {
   display: inline-block;
   font-family: 'Helvetica Neue', Helvetica, Arial;
   background-color: $color_green_75;
@@ -2178,13 +2189,12 @@ legend {
 
 }
 
-
-.helptextlegend{
+.helptextlegend {
   @include border(all, $color_green_50);
   background-color: $color_green_05;
   @include border-radius($border-radius_large);
   padding: ($fs*1.0 - 6px) $fs*1.0 $fs*1.0;
-  i{
+  i {
     @include helptextsign;
     position: relative;
     top: 3px;
@@ -2196,7 +2206,6 @@ legend {
     margin-right: 5px;
   }
 }
-
 
 .form-group-helptext {
   label {
@@ -2444,4 +2453,233 @@ legend {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+$switch-height: 24px;
+$switch-width: 50px;
+$switch-border-width: 2px;
+$switch-border-radius: 5px;
+
+@mixin switch {
+  position: relative;
+  display: block;
+  @include box-sizing(border-box);
+  width: $switch-width;
+  height: $switch-height;
+  background-color: $color_white;
+  @include border(all, $color_white);
+  border-width: $switch-border-width;
+  @include border-radius($switch-border-radius);
+  .switch-label-i, .switch-label-o {
+    display: block;
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    @include box-sizing(border-box);
+    top: ($switch-height - 8px) * 0.5 - $switch-border-width; // border-box!!!
+  }
+  .switch-label-i {
+    background-color: $color_white;
+    width: 2px;
+    left: 20%;
+  }
+  .switch-label-o {
+    right: 15%;
+    @include border-radius(4px);
+    @include border(all, $color_grey_50);
+    border-width: 2px;
+  }
+  .switch-btn {
+    position: absolute;
+    @include box-sizing(border-box);
+    display: none;
+    width: 55%;
+    height: $switch-height - $switch-border-width*2.0;
+    background-color: $color_grey;
+    @include border-radius($switch-border-radius - ($switch-border-width));
+  }
+  &.switch-on {
+    background-color: $color_green;
+    .switch-btn {
+      display: block;
+      right: 0;
+    }
+  }
+  &.switch-off {
+    .switch-btn {
+      display: block;
+      left: 0;
+    }
+  }
+}
+
+.switch-element {
+  position: relative;
+  background-color: $color_grey_15;
+  @include border-radius($border-radius_small);
+  padding: 10px;
+  margin-bottom: $fs*0.5;
+  overflow: hidden;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .switch-label {
+    @include box-sizing(border-box);
+    padding: ($switch-height - $fs*$line-height_factor)*0.5 0;
+    .icon_state {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+    }
+  }
+  .switch {
+    @include switch;
+  }
+  &.switch-on {
+    .switch {
+      background-color: $color_green;
+    }
+    .switch-label-i {
+      background-color: $color_white;
+    }
+    .switch-btn {
+      display: block;
+      right: 0;
+    }
+  }
+  &.switch-off {
+    .switch-btn {
+      display: block;
+      left: 0;
+    }
+  }
+
+  &:hover {
+    @include hovercursor;
+    .switch-label {
+    }
+    .switch-btn {
+      background-color: $color_grey_75_d10;
+    }
+  }
+
+  .alert {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
+}
+
+.switch-element-list {
+  display: block;
+
+  & + .switch-element-list {
+    .switch-element {
+      border-top: none;
+    }
+  }
+  .switch {
+    border-color: $color_grey_25;
+  }
+
+  .switch-element {
+    background-color: transparent;
+    padding: 5px 0;
+    margin-bottom: 0;
+    @include border-radius(0);
+    @include seperator(top, $color_grey_50);
+    @include seperator(bottom, $color_grey_50);
+  }
+  .disabled & {
+    .switch-label {
+      color: $color_grey_25;
+    }
+    .alert {
+      background-color: $color_grey_05;
+      color: $color_grey_15_d5;
+    }
+    .switch {
+      border-color: $color_grey_15;
+      .switch-label-i {
+        color: $color_grey_25;
+      }
+      .switch-label-o {
+        border-color: $color_grey_25;
+      }
+      .switch-btn {
+        background-color: $color_grey_25;
+      }
+    }
+    .switch-on {
+      .switch {
+        background-color: $color_grey_05;
+        .switch-label-i {
+          background-color: $color_grey_25;
+        }
+      }
+    }
+  }
+}
+
+.switch-element-right {
+  .switch-label {
+    margin-right: $switch-width + $fs;
+    float: left;
+  }
+  .switch {
+    position: absolute;
+    right: 10px;
+  }
+  .alert {
+    margin-top: 5px;
+  }
+
+}
+
+.switch-element-center {
+  &.switch-on {
+    .switch-label-on {
+      color: $color_green;
+      span {
+        background-color: $color_white;
+        @include box-shadow_1px-inset;
+      }
+    }
+  }
+  &.switch-off {
+    .switch-label-off {
+      color: $color_red;
+      span {
+        background-color: $color_white;
+        @include box-shadow_1px-inset;
+      }
+    }
+  }
+
+  .switch-label {
+    float: left;
+    width: 40%;
+    padding: 0;
+    text-align: center;
+    span {
+      @include box-sizing(border-box);
+      display: inline-block;
+      width: auto;
+      min-height: $switch-height;
+      padding: ($switch-height - $fs*$line-height_factor)*0.5 10px 0 10px;
+      @include border-radius($switch-height*0.5);
+    }
+
+    &.switch-label-on {
+      padding-left: 5px;
+    }
+    &.switch-label-off {
+      padding-right: 5px;
+    }
+  }
+  .switch {
+    float: left;
+    width: 20%;
+  }
 }

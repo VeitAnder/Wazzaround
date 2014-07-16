@@ -252,7 +252,7 @@
   "Add Event": "Creare appuntamento",
   "Add new Event": "Creare nuovo appuntamento",
   "Quantity": "Quantità",
-  "recurring Event": "ripetere l´evento",
+  "recurring Event": "Ripetere l´evento",
   "Mon": "Lun",
   "Tue": "Mar",
   "Wed": "Mer",
@@ -329,5 +329,7 @@
   "days": "Days",
   "hours": "Hours",
   "minutes": "Minutes",
-  "this event ends on": "This event ends on"
+  "this event ends on": "This event ends on",
+  "recurring event until": "Recurring event until",
+  "events on these weekdays": "Events on these weekdays"
 }

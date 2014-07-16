@@ -547,7 +547,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   background-color: $color_grey_25;
   @include border-bottom-radius($border-radius);
   @include border(all, $color_grey_75);
-  border-width: 3px;
+  border-width: 2px;
 
   .event-header{
     color: $color_grey;
@@ -560,7 +560,6 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
   eventview{
     border-color: $color_grey_50;
-//    background-color: $color_grey_50_l5;
   }
 }
 
@@ -724,7 +723,6 @@ eventitem {
 
 eventedit {
   display: block;
-  @include border_all($color_grey_50);
   @include border-radius($border-radius);
   padding: $bu;
   margin: $bu 0;
@@ -761,7 +759,7 @@ eventedit {
     @include font-size_small;
     text-align: center;
     @include border-radius($border-radius_small);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     padding: 5px 10px;
     clear: both;
   }
@@ -774,7 +772,8 @@ eventedit {
     display: block;
   }
 
-  .btn {
+  .divider{
+    margin: $bu (-$bu);
   }
 
   .buttonbar {
@@ -787,21 +786,28 @@ eventedit {
 }
 
 .event-new-repeat {
+  overflow: visible;
   @include clearfix;
   clear: both;
-  margin-top: $bu;
-  .checkbox {
-    label {
-      font-weight: $font-weight_bold;
+  padding: 10px;
+  @include border-radius($border-radius_small);
+  background-color: $color_grey_15;
+  .switch-element{
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .switch-element-right{
+    min-height: $switch-height;
+    .switch{
+      right: 0;
     }
   }
   .repeating {
     margin-top: 5px;
     padding-top: 5px;
-    //    @include seperator(top, $color_grey_50);
     .checkbox {
       float: left;
-      width: (100%) / 7;
+      width: (100%) / 4;
       label {
         font-weight: normal;
       }
