@@ -327,7 +327,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   display: block;
   top: 0;
   right: 0;
-  bottom: 200px + $footer-height;
+  bottom: 170px + $footer-height;
   left: 0;
 }
 
@@ -1026,8 +1026,8 @@ activitybar {
   width: 100%;
   position: absolute;
   bottom: 0;
-  background-color: $color_grey_25;
-  height: $activitybar-height;
+  background-color: $color_grey_05;
+  height: $activitybar-height - 30px;
 }
 
 activitybarstripe {
@@ -1036,37 +1036,31 @@ activitybarstripe {
 
   .activitybar-item-prev {
     position: absolute;
-    top: 95px;
-    left: 0;
+    top: (($activitybar-height - 65px) * 0.5) + (30px * 0.5);
+    left: -65px;
   }
 
   .activitybar-item-next {
     position: absolute;
-    top: 95px;
-    right: 0;
+    top: (($activitybar-height - 65px) * 0.5) + (30px * 0.5);
+    right: -65px;
   }
 
   .activity-nav {
-    position: absolute;
-    top: 50%;
-    margin-top: -65px*0.5;
+    background-color: $color_white;
     width: 65px;
     height: 65px;
-    background-color: $color_white;
+    padding: 20px;
     span {
       display: block;
-      margin-top: 20px;
-      margin-left: 19px;
       @include sprite_icons(7px, -100px, no-repeat);
       width: 25px;
       height: 25px;
     }
     &.activity-nav-next {
-      left: 0;
       @include border-right-radius($border-radius);
     }
     &.activity-nav-prev {
-      right: 0;
       @include border-left-radius($border-radius);
       span {
         @include transform(rotate(180deg));
@@ -1100,38 +1094,26 @@ activitybarstripe {
     }
   }
 
-  .activity-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    margin: 0;
-    padding: 0 (100px + $bu) $bu $bu;
-    width: 100%;
-    .category {
-      max-width: 100%;
-      margin: 0 0 $fs*0.5 0;
-      .innerwrap {
-        @include ellipsis();
-      }
-    }
+  .currentactivity-txt {
+    width: 50%;
+    height: $activitybar-height;
+    float: left;
+    padding: $bu;
     .title {
       @include h5;
-      color: $color_white;
       font-weight: $font-weight_extrabold;
       margin: 0;
       @include ellipsis();
     }
     .description {
       margin: 0;
-      color: $color_white;
-      @include ellipsis(no-wrap);
-      p {
-        margin: 0;
-        padding: 0;
-        @include ellipsis(no-wrap);
-      }
     }
+  }
+  .currentactivity-img{
+    position: relative;
+    width: 50%;
+    height: $activitybar-height;
+    float: left;
   }
   .activity-price-min {
     position: absolute;
@@ -1168,7 +1150,6 @@ activitybarstripe {
     top: 0;
     left: 0;
     margin: $bu 0 0 $bu;
-    //    display: table;
     min-height: 30px;
     padding: 5px;
     @include border-radius(15px);
@@ -1203,11 +1184,10 @@ activitybarstripe {
     background-position: -45px 6px;
     background-color: $color_green;
   }
-
 }
 
 currentactivity {
-  top: 0;
+  top: -30px;
   position: absolute;
   left: 50%;
   height: $activitybar-height;
@@ -1226,16 +1206,7 @@ currentactivity {
     height: $activitybar-height;
     border-top: 5px solid $color_green;
     @include animation_border;
-    &:before {
-      position: absolute;
-      top: $activitybar-height - 90px;
-      display: block;
-      width: 100%;
-      height: 90px;
-      content: "";
-      background: url('#{$img_path}activity-headline-BGshadow.png') repeat-x;
-    }
-  }
+ }
   &.activitydetailactive {
     .currentactivity-body {
       border-color: $color_red;
@@ -1317,16 +1288,16 @@ activitybardetail {
     display: inline-block;
     width: 40px;
     height: 49px;
-    margin-bottom: $bu;
+    margin-bottom: $fs*0.5;
     @include sprite_icons(-100px, -100px, no-repeat);
   }
   h4 {
-    color: $color_white;
+    color: $color_grey_50;
     font-weight: $font-weight_bold;
     margin: 0;
   }
   p {
-    color: $color_white;
+    color: $color_grey_50;
     margin-top: 0;
   }
 }
@@ -1359,7 +1330,7 @@ shoppingcartbar {
       margin-top: 35px; // below uservoice
     }
     &:hover {
-      background-color: rgba($color_grey, 0.15);
+      background-color: rgba($color_white, 0.50);
     }
 
   }
