@@ -3942,76 +3942,78 @@ googleMap, .angular-google-map, .angular-google-map-container {
   .event-header .cell {
     padding: 5px 2.5px; }
 
-.event-row {
-  display: block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border-bottom: solid 1px #b3b3b3; }
-  .event-row:after {
-    content: "";
-    display: table;
-    clear: both; }
-  .event-row .cell {
+eventrow {
+  display: block; }
+  eventrow eventview {
+    display: block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-text-overflow: ellipsis;
-    -khtml-text-overflow: ellipsis;
-    -moz-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    float: left;
-    vertical-align: middle;
-    min-height: 100%;
-    padding: 10px 5px; }
-    .event-row .cell.first {
-      padding-left: 10px; }
-    .event-row .cell.last {
-      padding-right: 10px; }
-    .event-row .cell.right {
-      text-align: right; }
-  .event-row .cell_wrap {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    white-space: normal; }
-  .enable_hover .event-row:hover {
-    cursor: pointer; }
-  .enable_hover .event-row:hover {
-    background-color: #85C900;
-    color: #FFF; }
-    .enable_hover .event-row:hover .cell {
-      border-color: #b3b3b3;
-      background-color: transparent; }
-      .enable_hover .event-row:hover .cell.first {
-        border: none; }
-    .enable_hover .event-row:hover .btn {
-      background-color: #FFF;
-      color: #85C900; }
-      .enable_hover .event-row:hover .btn:hover {
-        background-color: #e0f1bf;
+    border-bottom: solid 1px #b3b3b3; }
+    eventrow eventview:after {
+      content: "";
+      display: table;
+      clear: both; }
+    eventrow eventview .cell {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      white-space: nowrap;
+      overflow: hidden;
+      -webkit-text-overflow: ellipsis;
+      -khtml-text-overflow: ellipsis;
+      -moz-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      float: left;
+      vertical-align: middle;
+      min-height: 100%;
+      padding: 10px 5px; }
+      eventrow eventview .cell.first {
+        padding-left: 10px; }
+      eventrow eventview .cell.last {
+        padding-right: 10px; }
+      eventrow eventview .cell.right {
+        text-align: right; }
+    eventrow eventview .cell_wrap {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      white-space: normal; }
+    .enable_hover eventrow eventview:hover {
+      cursor: pointer; }
+    .enable_hover eventrow eventview:hover {
+      background-color: #85C900;
+      color: #FFF; }
+      .enable_hover eventrow eventview:hover .cell {
+        border-color: #b3b3b3;
+        background-color: transparent; }
+        .enable_hover eventrow eventview:hover .cell.first {
+          border: none; }
+      .enable_hover eventrow eventview:hover .btn {
+        background-color: #FFF;
         color: #85C900; }
-  .event-row .cell {
-    padding: 5px 2.5px; }
-    .event-row .cell.first {
-      padding-left: 10px; }
-    .event-row .cell.last {
-      padding-right: 10px; }
-  .event-row .cell.listaction {
-    white-space: normal;
-    overflow: visible; }
+        .enable_hover eventrow eventview:hover .btn:hover {
+          background-color: #e0f1bf;
+          color: #85C900; }
+    eventrow eventview .cell {
+      padding: 5px 2.5px; }
+      eventrow eventview .cell.first {
+        padding-left: 10px; }
+      eventrow eventview .cell.last {
+        padding-right: 10px; }
+    eventrow eventview .cell.listaction {
+      white-space: normal;
+      overflow: visible; }
 
-.event-item {
+eventitem {
   display: block;
   overflow: hidden;
   margin-bottom: 7.5px; }
-  .event-item:last-child {
+  eventitem:last-child {
     margin-bottom: 0; }
-  .event-item .event-item-header {
+  eventitem .event-item-header {
     padding: 5.5px;
     background-color: #f7f7f7;
     border: solid 1px #e6e6e6;
@@ -4019,44 +4021,44 @@ googleMap, .angular-google-map, .angular-google-map-container {
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     overflow: hidden; }
-    .event-item .event-item-header .event-item-description {
+    eventitem .event-item-header .event-item-description {
       float: left;
       width: 73%;
       margin-right: 2%; }
-    .event-item .event-item-header h6 {
+    eventitem .event-item-header h6 {
       margin: 0;
       color: #85C900;
       display: inline; }
-    .event-item .event-item-header .event-item-quantity {
+    eventitem .event-item-header .event-item-quantity {
       font-size: 12px;
       line-height: 16.8px;
       white-space: nowrap; }
-      .event-item .event-item-header .event-item-quantity p {
+      eventitem .event-item-header .event-item-quantity p {
         padding-bottom: 12px; }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
-        .event-item .event-item-header .event-item-quantity {
+        eventitem .event-item-header .event-item-quantity {
           font-size: 11px;
           line-height: 15.4px; } }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
-        .event-item .event-item-header .event-item-quantity {
+        eventitem .event-item-header .event-item-quantity {
           font-size: 11px;
           line-height: 15.4px; } }
       @media only screen and (max-width: 767px) {
-        .event-item .event-item-header .event-item-quantity {
+        eventitem .event-item-header .event-item-quantity {
           font-size: 11px;
           line-height: 15.4px; } }
       @media only screen and (max-height: 768px) {
-        .event-item .event-item-header .event-item-quantity {
+        eventitem .event-item-header .event-item-quantity {
           font-size: 11px;
           line-height: 15.4px; } }
-      .event-item .event-item-header .event-item-quantity.bookedup {
+      eventitem .event-item-header .event-item-quantity.bookedup {
         color: #C83C19;
         font-weight: 600; }
-    .event-item .event-item-header .event-item-book {
+    eventitem .event-item-header .event-item-book {
       float: left;
       text-align: right;
       width: 25%; }
-  .event-item .event-item-body {
+  eventitem .event-item-body {
     padding: 0 7.5px 3.75px 7.5px;
     background-color: #e6e6e6;
     border-bottom-right-radius: 6px;
@@ -4064,32 +4066,32 @@ googleMap, .angular-google-map, .angular-google-map-container {
     overflow: hidden;
     font-size: 12px;
     line-height: 16.8px; }
-    .event-item .event-item-body p {
+    eventitem .event-item-body p {
       padding-bottom: 12px; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
-      .event-item .event-item-body {
+      eventitem .event-item-body {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .event-item .event-item-body {
+      eventitem .event-item-body {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (max-width: 767px) {
-      .event-item .event-item-body {
+      eventitem .event-item-body {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (max-height: 768px) {
-      .event-item .event-item-body {
+      eventitem .event-item-body {
         font-size: 11px;
         line-height: 15.4px; } }
-    .event-item .event-item-body .input-label {
+    eventitem .event-item-body .input-label {
       margin-bottom: 0;
       margin-right: 0;
       vertical-align: baseline;
       display: inline;
       line-height: 16.8px; }
 
-.eventedit {
+eventedit {
   display: block;
   border: solid 1px #b3b3b3;
   -webkit-border-radius: 6px;
@@ -4101,11 +4103,11 @@ googleMap, .angular-google-map, .angular-google-map-container {
   padding: 15px;
   margin: 15px 0;
   background-color: #f7f7f7; }
-  .eventedit input {
+  eventedit input {
     min-width: 0; }
-  .eventedit .form-group-helptext {
+  eventedit .form-group-helptext {
     white-space: normal; }
-  .eventedit .from-until {
+  eventedit .from-until {
     height: 48.4px;
     width: 5%;
     margin-top: 36px;
@@ -4132,25 +4134,25 @@ googleMap, .angular-google-map, .angular-google-map-container {
     min-height: 100%;
     padding: 10px 5px;
     padding: 0; }
-    .eventedit .from-until.first {
+    eventedit .from-until.first {
       padding-left: 10px; }
-    .eventedit .from-until.last {
+    eventedit .from-until.last {
       padding-right: 10px; }
-    .eventedit .from-until.right {
+    eventedit .from-until.right {
       text-align: right; }
-    .eventedit .from-until span {
+    eventedit .from-until span {
       margin: 18.2px auto 0;
       display: block;
       width: 7px;
       height: 12px;
       background-position: -25px -62px;
       background-repeat: no-repeat; }
-      .svg .eventedit .from-until span {
+      .svg eventedit .from-until span {
         background-image: url('/img/sprite_icons.svg'); }
-      .no-svg .eventedit .from-until span {
+      .no-svg eventedit .from-until span {
         background-image: url('/img/sprite_icons.png'); }
-  .eventedit .event-end-block {
-    background-color: #e8e8e8;
+  eventedit .event-end-block {
+    background-color: #c2e480;
     color: #666;
     font-size: 12px;
     line-height: 16.8px;
@@ -4164,32 +4166,32 @@ googleMap, .angular-google-map, .angular-google-map-container {
     margin-bottom: 30px;
     padding: 5px 10px;
     clear: both; }
-    .eventedit .event-end-block p {
+    eventedit .event-end-block p {
       padding-bottom: 12px; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
-      .eventedit .event-end-block {
+      eventedit .event-end-block {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .eventedit .event-end-block {
+      eventedit .event-end-block {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (max-width: 767px) {
-      .eventedit .event-end-block {
+      eventedit .event-end-block {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (max-height: 768px) {
-      .eventedit .event-end-block {
+      eventedit .event-end-block {
         font-size: 11px;
         line-height: 15.4px; } }
-  .eventedit .date-until {
+  eventedit .date-until {
     width: 50%; }
-  .eventedit .alert {
+  eventedit .alert {
     display: block; }
-  .eventedit .buttonbar {
+  eventedit .buttonbar {
     width: auto;
     border-top: dotted 1px #b3b3b3;
-    margin: 15px -15px 0 -15px;
+    margin: 15px -15px -15px -15px;
     -webkit-border-radius: 0;
     -khtml-border-radius: 0;
     -moz-border-radius: 0;

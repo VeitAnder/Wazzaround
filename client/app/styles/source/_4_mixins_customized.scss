@@ -639,17 +639,20 @@ googleMap, .angular-google-map, .angular-google-map-container {
   @include divtable_header_small;
 }
 
-.event-row {
-  @include divtable_row_small;
-  .cell {
-    &.listaction {
-      white-space: normal;
-      overflow: visible;
+eventrow {
+  display: block;
+  eventview{
+    @include divtable_row_small;
+    .cell {
+      &.listaction {
+        white-space: normal;
+        overflow: visible;
+      }
     }
   }
 }
 
-.event-item {
+eventitem {
   display: block;
   overflow: hidden;
   margin-bottom: $bu*0.5;
@@ -703,7 +706,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
-.eventedit {
+eventedit {
   display: block;
   @include border_all($color_grey_50);
   @include border-radius($border-radius);
@@ -737,7 +740,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 
   .event-end-block {
-    background-color: $color_grey_15;
+    background-color: $color_green_50;
     color: $color_grey;
     @include font-size_small;
     text-align: center;
@@ -761,7 +764,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   .buttonbar {
     width: auto;
     @include seperator(top, $color_grey_50);
-    margin: $bu (-$bu) 0 (-$bu);
+    margin: $bu (-$bu) (-$bu) (-$bu);
     @include border-radius(0);
     background-color: transparent;
   }

@@ -252,7 +252,7 @@
   "Add Event": "Add Event",
   "Add new Event": "Add new Event",
   "Quantity": "Quantity",
-  "repeating Event": "repeating Event",
+  "recurring Event": "recurring Event",
   "Mon": "Lundi",
   "Tue": "Mardi",
   "Wed": "mercredi",
@@ -298,7 +298,7 @@
   "Map view": "Vue de la carte",
   "No Activities found.": "Aucune activité trouvée",
   "Zoom out the map or reset your filter settings.": "Réduire la carte ou rerégler les critères de recherche",
-  "The repeating events will have the same starting time and duration as above": "Les événements répétés auront la même durée et date de début que celui ci-dessu",
+  "Recurring events will have the same starting time and duration as above": "Les événements répétés auront la même durée et date de début que celui ci-dessu",
   "Please select at least one day for repeating event.": "Sélecionner au mi une date pour leévenéments qui se repètent",
   "create event until": "Créer un événement jusqu'à cette date",
   "Please select a date until which the repeating events should be created": "Sélectionner une date jusqu'à laquelle les événements repétés peuvent être crés",
@@ -323,5 +323,11 @@
   "Legal Notes": "Notes légales",
   "… still": "… still",
   "available!": "available!",
-  "… booked up!": "… booked up!"
+  "… booked up!": "… booked up!",
+  "event start": "Event start",
+  "event duration": "Event duration",
+  "days": "Days",
+  "hours": "Hours",
+  "minutes": "Minutes",
+  "this event ends on": "This event ends on"
 }

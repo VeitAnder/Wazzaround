@@ -2065,11 +2065,11 @@
   },
   {
     "Description": "",
-    "key": "repeating Event",
-    "en": "repeating Event",
-    "de": "regelmäßiger Termin",
+    "key": "recurring Event",
+    "en": "recurring Event",
+    "de": "wiederkehrender Termin",
     "it": "ripetere l´evento",
-    "fr": "repeating Event"
+    "fr": "recurring Event"
   },
   {
     "Description": "",
@@ -2433,16 +2433,16 @@
   },
   {
     "Description": "",
-    "key": "The repeating events will have the same starting time and duration as above",
-    "en": "The repeating events will have the same starting time and duration as above",
-    "de": "Die Wiederholungs-Events haben die gleiche Startzeit und Dauer",
+    "key": "Recurring events will have the same starting time and duration as above",
+    "en": "Recurring events will have the same starting time and duration as above",
+    "de": "Wiederkehrende Termine haben die gleiche Startzeit und Dauer",
     "it": "Gli eventi ripetuti avranno la stessa data di inizio e la stessa durata di quello sopra",
     "fr": "Les événements répétés auront la même durée et date de début que celui ci-dessu"
   },
   {
     "Description": "",
     "key": "Please select at least one day for repeating event.",
-    "en": "Please select at least one day for repeating event.",
+    "en": "Please select at least one day for recurring event.",
     "de": "Bitte wählen Sie mindestens einen Tag aus",
     "it": "Selezionare almeno na data per gli eventi che si ripetono",
     "fr": "Sélecionner au mi une date pour leévenéments qui se repètent"
@@ -2451,14 +2451,14 @@
     "Description": "",
     "key": "create event until",
     "en": "Create events until this date",
-    "de": "Events bis zu diesem Datum erzeugen",
+    "de": "Termine bis zu diesem Datum erzeugen",
     "it": "Creare un evento fino a questa data",
     "fr": "Créer un événement jusqu'à cette date"
   },
   {
     "Description": "",
     "key": "Please select a date until which the repeating events should be created",
-    "en": "Please select a date until which the repeating events should be created",
+    "en": "Please select a date until which the recurring events should be created",
     "de": "Bitte wählen Sie ein Datum bis zu welchem die sich wiederholenden Events angelegt werden sollen",
     "it": "Selezionare una data fino alla quale gli eventi ripeuti possono essere creati",
     "fr": "Sélectionner une date jusqu'à laquelle les événements repétés peuvent être crés"
@@ -2638,5 +2638,53 @@
     "de": "… ausgebucht!",
     "it": "… booked up!",
     "fr": "… booked up!"
+  },
+  {
+    "Description": "",
+    "key": "event start",
+    "en": "Event start",
+    "de": "Terminstart",
+    "it": "Event start",
+    "fr": "Event start"
+  },
+  {
+    "Description": "",
+    "key": "event duration",
+    "en": "Event duration",
+    "de": "Dauer des Termins",
+    "it": "Event duration",
+    "fr": "Event duration"
+  },
+  {
+    "Description": "",
+    "key": "days",
+    "en": "Days",
+    "de": "Tage",
+    "it": "Days",
+    "fr": "Days"
+  },
+  {
+    "Description": "",
+    "key": "hours",
+    "en": "Hours",
+    "de": "Stunden",
+    "it": "Hours",
+    "fr": "Hours"
+  },
+  {
+    "Description": "",
+    "key": "minutes",
+    "en": "Minutes",
+    "de": "Minuten",
+    "it": "Minutes",
+    "fr": "Minutes"
+  },
+  {
+    "Description": "",
+    "key": "this event ends on",
+    "en": "This event ends on",
+    "de": "Dieser Termin endet am",
+    "it": "This event ends on",
+    "fr": "This event ends on"
   }
 ]

@@ -1,6 +1,6 @@
 <div class="form-area form-area-5050">
   <h6 class="no-margin-bottom no-margin-top">
-    {{'Event start' | translate}}
+    {{'event start' | translate}}
   </h6>
 
   <div class="form-group-inline form-group-inline-5050">
@@ -41,40 +41,40 @@
 
 <div class="form-area form-area-5050">
   <h6 class="no-margin-bottom no-margin-top">
-    {{'Event duration' | translate}}
+    {{'event duration' | translate}}
   </h6>
 
   <div class="form-group-inline form-group-inline-333333">
     <div class="form-group">
-      <label for="durationdays">{{'Days' | translate}}</label>
+      <label for="durationdays">{{'days' | translate}}</label>
 
       <input type="number"
              class="form-control"
              id="durationdays"
              name="durationdays"
-             placeholder="{{'Days' | translate}}"
+             placeholder="{{'days' | translate}}"
           />
     </div>
 
     <div class="form-group">
-      <label for="durationhours">{{'Hours' | translate}}</label>
+      <label for="durationhours">{{'hours' | translate}}</label>
 
       <input type="number"
              class="form-control"
              id="durationhours"
              name="durationhours"
-             placeholder="{{'Hours' | translate}}"
+             placeholder="{{'hours' | translate}}"
           />
     </div>
 
     <div class="form-group">
-      <label for="durationminutes">{{'Minutes' | translate}}</label>
+      <label for="durationminutes">{{'minutes' | translate}}</label>
 
       <input type="number"
              class="form-control"
              id="durationminutes"
              name="durationminutes"
-             placeholder="{{'Minutes' | translate}}"
+             placeholder="{{'minutes' | translate}}"
           />
 
       <span ng-show="eventForm.price.$invalid && (eventForm.price.$dirty || state.submitted || eventForm.submitted)"
@@ -136,7 +136,7 @@
 
 
 <div class="event-end-block">
-  {{'This event ends on:' | translate}}
+  {{'this event ends on' | translate}}:
   <strong>
     {{ {start: event.start, end: event.end } | duration}}
   </strong>
