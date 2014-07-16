@@ -4216,13 +4216,13 @@ eventrow {
       white-space: normal;
       overflow: visible; }
 
-eventitem {
+.event-item {
   display: block;
   overflow: hidden;
   margin-bottom: 7.5px; }
-  eventitem:last-child {
+  .event-item:last-child {
     margin-bottom: 0; }
-  eventitem .event-item-header {
+  .event-item .event-item-header {
     padding: 5.5px;
     background-color: #f7f7f7;
     border: solid 1px #e6e6e6;
@@ -4230,44 +4230,44 @@ eventitem {
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     overflow: hidden; }
-    eventitem .event-item-header .event-item-description {
+    .event-item .event-item-header .event-item-description {
       float: left;
       width: 73%;
       margin-right: 2%; }
-    eventitem .event-item-header h6 {
+    .event-item .event-item-header h6 {
       margin: 0;
       color: #85C900;
       display: inline; }
-    eventitem .event-item-header .event-item-quantity {
+    .event-item .event-item-header .event-item-quantity {
       font-size: 12px;
       line-height: 16.8px;
       white-space: nowrap; }
-      eventitem .event-item-header .event-item-quantity p {
+      .event-item .event-item-header .event-item-quantity p {
         padding-bottom: 12px; }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
-        eventitem .event-item-header .event-item-quantity {
+        .event-item .event-item-header .event-item-quantity {
           font-size: 11px;
           line-height: 15.4px; } }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
-        eventitem .event-item-header .event-item-quantity {
+        .event-item .event-item-header .event-item-quantity {
           font-size: 11px;
           line-height: 15.4px; } }
       @media only screen and (max-width: 767px) {
-        eventitem .event-item-header .event-item-quantity {
+        .event-item .event-item-header .event-item-quantity {
           font-size: 11px;
           line-height: 15.4px; } }
       @media only screen and (max-height: 768px) {
-        eventitem .event-item-header .event-item-quantity {
+        .event-item .event-item-header .event-item-quantity {
           font-size: 11px;
           line-height: 15.4px; } }
-      eventitem .event-item-header .event-item-quantity.bookedup {
+      .event-item .event-item-header .event-item-quantity.bookedup {
         color: #C83C19;
         font-weight: 600; }
-    eventitem .event-item-header .event-item-book {
+    .event-item .event-item-header .event-item-book {
       float: left;
       text-align: right;
       width: 25%; }
-  eventitem .event-item-body {
+  .event-item .event-item-body {
     padding: 0 7.5px 3.75px 7.5px;
     background-color: #e6e6e6;
     border-bottom-right-radius: 6px;
@@ -4275,25 +4275,25 @@ eventitem {
     overflow: hidden;
     font-size: 12px;
     line-height: 16.8px; }
-    eventitem .event-item-body p {
+    .event-item .event-item-body p {
       padding-bottom: 12px; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
-      eventitem .event-item-body {
+      .event-item .event-item-body {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
-      eventitem .event-item-body {
+      .event-item .event-item-body {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (max-width: 767px) {
-      eventitem .event-item-body {
+      .event-item .event-item-body {
         font-size: 11px;
         line-height: 15.4px; } }
     @media only screen and (max-height: 768px) {
-      eventitem .event-item-body {
+      .event-item .event-item-body {
         font-size: 11px;
         line-height: 15.4px; } }
-    eventitem .event-item-body .input-label {
+    .event-item .event-item-body .input-label {
       margin-bottom: 0;
       margin-right: 0;
       vertical-align: baseline;
