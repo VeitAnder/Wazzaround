@@ -19,7 +19,7 @@ BookableItemModel.readFilter(function(req) {
 });
 
 BookableItemModel.writeFilter(function (doc, req) {
-  if (!req.session.auth) {
+  if (!req.isAuthenticated()) {
     return false;  // if not logged in don't allow write operations
   }
 

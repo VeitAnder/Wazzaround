@@ -19,7 +19,7 @@ var security = require('../../lib/security');
 
 // setup filters for the UserModel
 UserModel.readFilter(function (req) {
-  if (!req.session.auth) {
+  if (!req.isAuthenticated()) {
     return false;  // if not logged in don't allow read operations
   }
 
@@ -39,7 +39,7 @@ function checkRequiredFieldsForUserType(userDoc) {
 }
 
 UserModel.writeFilter(function (userDoc, req) {
-  if (!req.user) {
+  if (!req.isAuthenticated()) {
     return false;  // if not logged in don't allow write operations
   }
 
@@ -132,7 +132,7 @@ UserModel.operationImpl("logout", function (params, req) {
 
 UserModel.factoryImpl("currentUser", function (params, req) {
   var deferred = Q.defer();
-  if (!req.user) {
+  if (!req.isAuthenticated()) {
     var err = new Error("Not authorized");
     err.statusCode = 401;
     deferred.reject(err);

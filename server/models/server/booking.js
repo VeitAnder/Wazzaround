@@ -132,7 +132,7 @@ BookingModel.operationImpl("checkout", function (params, req) {
       booking.payment.amount_int = params.payment.amount_int;
       booking.payment.currency = params.payment.currency;
 
-      if (req.user) {  // user is loggedin save the user
+      if (req.isAuthenticated()) {  // user is loggedin save the user
         booking.user._reference = ObjectId(req.user._id);
       }
 

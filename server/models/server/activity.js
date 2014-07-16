@@ -131,7 +131,7 @@ ActivityModel.writeFilter(function (doc, req) {
 // Operation Impl.
 
 ActivityModel.factoryImpl("getMyActivities", function (params, req) {
-  if (!req.user) {
+  if (!req.isAuthenticated()) {
     return false;  // if not logged operation not allowed
   }
 
