@@ -99,4 +99,4 @@ gulp.task('openbrowser', function(){
 gulp.task('serve', ['client']);
 
 // just gulp, and entire app starts!
-gulp.task('default', ['server', 'client', 'openbrowser']);
+gulp.task('default', ['sass', 'server', 'client', 'openbrowser']);
