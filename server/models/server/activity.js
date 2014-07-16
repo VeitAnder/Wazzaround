@@ -20,8 +20,7 @@ ActivityModel.readFilter(function (req) {
   // allow global read access
 
   // authorized users
-  if (req.user) {
-    console.log("read filter");
+  if (req.isAuthenticated()) {
     if (req.user.userType === 'user') {
       return {
         published: true
@@ -60,8 +59,6 @@ ActivityModel.readFilter(function (req) {
 var translateActivity = function (doc) {
   var deferred = Q.defer();
 
-  console.log("inputlanguage", doc.inputlanguage);
-
   googleTranslate.translate(doc.name[doc.inputlanguage], doc.inputlanguage, 'en', function (err, translation) {
     console.log(translation);
     doc.name.en = translation.translatedText;
@@ -73,6 +70,9 @@ var translateActivity = function (doc) {
 
 // TODO: das ist nur so kompliziert, weil delete das doc aus der datenbank hohlt...
 ActivityModel.writeFilter(function (doc, req) {
+
+  var deferred = Q.defer();
+
   var ownerRef;
 
   if (!req.isAuthenticated()) {
@@ -104,7 +104,7 @@ ActivityModel.writeFilter(function (doc, req) {
     }
 
     // don't allow to save activities where the user is not the owner
-    if (doc._id !== undefined && ownerRef !== req.user._id) {
+    if (doc._id !== undefined && ownerRef !== req.user._id.toString()) {
       return false;
     }
 
@@ -122,7 +122,7 @@ ActivityModel.writeFilter(function (doc, req) {
     .then(function (translateddoc) {
       doc = translateddoc;
       console.log("doc", doc);
-      return true;
+      deferred.resolve();
     });
 
 });
