@@ -53,7 +53,6 @@ app.use(cookieSession({
   secureProxy: false // if you do SSL outside of node
 }));
 
-
 // Passport/Express Config
 app.use(passport.initialize());                               // Initialize PassportJS
 // Use Passport's session authentication strategy - this stores the logged in user in the session and will now run on any request

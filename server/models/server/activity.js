@@ -18,31 +18,31 @@ var googleTranslate = require('google-translate')(config.google.apikey);
 
 ActivityModel.readFilter(function (req) {
   // allow global read access
+  console.log("read filter");
 
   // authorized users
-  if (req.session) {
-    if (req.session.auth) {
-      if (req.session.user.userType === 'user') {
-        return {
-          published: true
-        };
-      }
-
-      if (req.session.user.userType === 'provider') {
-        return {
-          "$or": [
-            { "published": true },
-            { "owner._reference": ObjectId(req.session.user._id) }
-          ]
-        };
-      }
-
-      if (req.session.user.userType === 'admin') {
-        return true;  // kann alles lesen
-      }
-
-      return false;  //der rest (sollte nicht passieren) kann nix lesen
+  if (req.user) {
+    console.log("read filter");
+    if (req.user.userType === 'user') {
+      return {
+        published: true
+      };
     }
+
+    if (req.user.userType === 'provider') {
+      return {
+        "$or": [
+          { "published": true },
+          { "owner._reference": req.user._id }
+        ]
+      };
+    }
+
+    if (req.user.userType === 'admin') {
+      return true;  // kann alles lesen
+    }
+
+    return false;  //der rest (sollte nicht passieren) kann nix lesen
   }
   // end authorized users
 
@@ -76,16 +76,16 @@ var translateActivity = function (doc) {
 ActivityModel.writeFilter(function (doc, req) {
   var ownerRef;
 
-  if (!req.session.auth) {
+  if (!req.user) {
     return false;  // if not logged in don't allow write operations
   }
 
   // admin is allowed to publish activity
-  if (req.session.user.userType === 'admin') {
+  if (req.user.userType === 'admin') {
     // set owner to current user
 
     if (!doc.owner._reference) {  // prevent admin from stealing ownership
-      doc.owner._reference = ObjectId(req.session.user._id);
+      doc.owner._reference = req.user._id;
 
     } else { // todo: bug beim speichern von _references: wird als string statt object gespeichert!! :-(
 
@@ -101,16 +101,16 @@ ActivityModel.writeFilter(function (doc, req) {
   else {
     ownerRef = doc.owner._reference;
     if (doc.owner._reference instanceof ObjectId) { // workaround for delete
-      ownerRef = ownerRef.toString();
+      ownerRef = ownerRef;
     }
 
     // don't allow to save activities where the user is not the owner
-    if (doc._id !== undefined && ownerRef !== req.session.user._id) {
+    if (doc._id !== undefined && ownerRef !== req.user._id) {
       return false;
     }
 
     // set the owner of the activity
-    doc.owner._reference = ObjectId(req.session.user._id);
+    doc.owner._reference = req.user._id;
   }
 
   // translate the activity
@@ -132,12 +132,12 @@ ActivityModel.writeFilter(function (doc, req) {
 // Operation Impl.
 
 ActivityModel.factoryImpl("getMyActivities", function (params, req) {
-  if (!req.session.auth) {
+  if (!req.user) {
     return false;  // if not logged operation not allowed
   }
 
   return models.ActivityModel.find({
-    'owner._reference': ObjectId(req.session.user._id)
+    'owner._reference': req.user._id
   });
 });
 

@@ -47,13 +47,13 @@ var pay = function (bookingObj, paymentToken, amount_int, currency) {
 //          bookingObj.profile.lastName, bookingObj.profile.firstName, bookingObj.profile.tel)
 //      })
 //    })
-    .then(function() {
+    .then(function () {
       return Q.nfcall(paymill.payments.create, {  // eine Zahlung anlegen
         token: paymentToken
 //        client: client.id
       })
     })
-    .then(function(payment) {
+    .then(function (payment) {
       return Q.nfcall(paymill.transactions.create, {  // die Transaktion durchführen
         amount: amount_int,
         currency: currency,
@@ -62,7 +62,7 @@ var pay = function (bookingObj, paymentToken, amount_int, currency) {
           bookingObj._id, bookingObj.profile.firstName, bookingObj.profile.lastName, bookingObj.profile.email, bookingObj.profile.tel)
       })
     })
-    .then(function(transaction) {
+    .then(function (transaction) {
       console.log("transaction successfull");
       console.log("transaction", transaction.data);
 
@@ -90,11 +90,11 @@ BookingModel.operationImpl("checkout", function (params, req) {
   var booking = BookingModel.create();
 
   return Q()
-    .then(function() {
+    .then(function () {
 
       var checkAvailableBookings = [];
 
-      _.forEach(params.bookings, function(booking) {
+      _.forEach(params.bookings, function (booking) {
         var activity;
 
         checkAvailableBookings.push(
@@ -108,20 +108,20 @@ BookingModel.operationImpl("checkout", function (params, req) {
                 event: booking.event
               })
             })
-            .then(function(res) {
+            .then(function (res) {
               if (booking.quantity > activity.getChild(booking.event).quantity - res.quantity)
                 throw new Error("There are not enough events available for booking");
-          })
+            })
         );
 
       });
 
-      return Q.all(checkAvailableBookings)
-    }).then(function() {
+      return Q.all(checkAvailableBookings);
+    }).then(function () {
 
-      return booking.save()
+      return booking.save();
 
-    }).then(function() {
+    }).then(function () {
 
       // init profile
       booking.profile.firstName = params.profile.firstName;
@@ -132,12 +132,12 @@ BookingModel.operationImpl("checkout", function (params, req) {
       booking.payment.amount_int = params.payment.amount_int;
       booking.payment.currency = params.payment.currency;
 
-      if (req.session.user) {  // user is loggedin save the user
-        booking.user._reference = ObjectId(req.session.user._id);
+      if (req.user) {  // user is loggedin save the user
+        booking.user._reference = ObjectId(req.user._id);
       }
 
       // perform payment
-      return pay(booking, params.payment.token, params.payment.amount_int, params.payment.currency)
+      return pay(booking, params.payment.token, params.payment.amount_int, params.payment.currency);
     })
     .then(function () {
 
@@ -195,10 +195,10 @@ BookingModel.operationImpl("checkout", function (params, req) {
     .then(function () {
       return {
         state: "ok",
-        bookingId : booking._id
+        bookingId: booking._id
       };
     })
-    .fail(function(err) {
+    .fail(function (err) {
       console.error(err);
       return {
         state: "err",

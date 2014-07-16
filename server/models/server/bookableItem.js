@@ -28,12 +28,12 @@ BookableItemModel.writeFilter(function (doc, req) {
     ownerRef = ownerRef.toString();
   }
   // don't allow to save activities where the user is not the owner
-  if (doc._id !== undefined && ownerRef !== req.session.user._id) {
+  if (doc._id !== undefined && ownerRef !== req.user._id) {
     return false;
   }
 
   // set the owner of the activity
-  doc.owner._reference = ObjectId(req.session.user._id);
+  doc.owner._reference = ObjectId(req.user._id);
   return true;
 });
 

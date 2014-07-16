@@ -23,7 +23,7 @@ UserModel.readFilter(function (req) {
     return false;  // if not logged in don't allow read operations
   }
 
-  return {_id: ObjectId(req.session.user._id) };  // filter for only your documents (your user id)
+  return {_id: ObjectId(req.user._id) };  // filter for only your documents (your user id)
 });
 
 function checkRequiredFieldsForUserType(userDoc) {
@@ -39,7 +39,7 @@ function checkRequiredFieldsForUserType(userDoc) {
 }
 
 UserModel.writeFilter(function (userDoc, req) {
-  if (!req.session.auth) {
+  if (!req.user) {
     return false;  // if not logged in don't allow write operations
   }
 
@@ -59,7 +59,7 @@ UserModel.writeFilter(function (userDoc, req) {
 //    });
 
   // allow the user to save his own User Object
-  if (userDoc._id.toString() === req.session.user._id) {
+  if (userDoc._id.toString() === req.user._id.toString()) {
     return true;
   }
 
@@ -131,38 +131,21 @@ UserModel.operationImpl("logout", function (params, req) {
 });
 
 UserModel.factoryImpl("currentUser", function (params, req) {
-  console.log("currentUser");
-
   var deferred = Q.defer();
-  if (!req.session.auth) {
+  if (!req.user) {
     var err = new Error("not authorized");
     err.statusCode = 401;
     deferred.reject(err);
     return deferred.promise;
   }
 
-  //return models.UserModel.get(ObjectId(req.session.user_id));
-//  return UserModel.find({ _id: ObjectId(req.session.user._id)})
-//    .then(function (users) {
-//      console.log("users", users);
-//      if (users.length !== 1) throw new Error("User not found");
-//      return users[0];
-//    });
-//
-
-
-  //return models.UserModel.get(ObjectId(req.session.user_id));
-//  return UserModel.find({ _id: ObjectId(req.session.user._id)})
-//    .then(function (users) {
-//      console.log("users", users);
-//      if (users.length !== 1) {
-//        throw new Error("User not found");
-//      }
-//      return users[0];
-//    });
-//
-
-  return req.user;
+  return models.UserModel.get(req.user._id)
+    .then(function (user) {
+      return user;
+    })
+    .fail(function (err) {
+      return err;
+    });
 });
 
 UserModel.operationImpl("getProfile", function (params, req) {
