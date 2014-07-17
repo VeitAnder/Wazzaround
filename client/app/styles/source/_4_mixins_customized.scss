@@ -1130,8 +1130,6 @@ activitybarstripe {
       }
     }
     .title {
-      @include h5;
-      font-weight: $font-weight_extrabold;
       margin: 0;
       @include ellipsis();
     }
