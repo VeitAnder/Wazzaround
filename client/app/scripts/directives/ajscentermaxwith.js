@@ -5,7 +5,7 @@ angular.module('anorakApp')
     return {
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
-        var maxWidth = 650;
+        var maxWidth = 800;
         var $el = angular.element(element);
 
         var margin = 100;
