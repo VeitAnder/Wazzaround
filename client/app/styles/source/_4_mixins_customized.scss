@@ -1083,13 +1083,38 @@ activitybarstripe {
     line-height: 30px !important;
     text-transform: uppercase;
     .visual-button{
-
+      position: absolute;
+      top: -15px;
+      right: 0;
+      display: block;
+      width: 45px;
+      height: 45px;
+      @include border-top-radius($border-radius);
+      background-color: $color_green;
+      @include animation_background;
+      span{
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin: 12px auto;
+        @include sprite_icons(6px, -36px, no-repeat);
+        background-size: 920%;
+        @include transform(rotate(270deg));
+      }
+      .activitydetailactive &{
+      }
     }
   }
 
   .activitydetailactive {
     .activity-detail-toggle {
       background-color: $color_red;
+      .visual-button{
+        background-color: $color_red;
+        span{
+          @include transform(rotate(90deg));
+        }
+      }
     }
   }
 
@@ -1112,7 +1137,7 @@ activitybarstripe {
     }
     .description {
       margin: 0;
-      @include multiline(3);
+      @include multiline(2);
     }
   }
   .currentactivity-img{
@@ -1123,6 +1148,7 @@ activitybarstripe {
     overflow: hidden;
     background-color: $color_grey_15;
     @include img(nopic, center, center, no-repeat);
+    @include border-top-left-radius($border-radius);
   }
   .activity-price-min {
     position: absolute;
@@ -1201,6 +1227,7 @@ currentactivity {
   left: 50%;
   height: $activitybar-height;
   background-color: $color_white;
+  @include border-top-left-radius($border-radius);
 
   img {
     min-width: 100%;
@@ -1213,6 +1240,7 @@ currentactivity {
     height: $activitybar-height;
  }
   &.activitydetailactive {
+    @include border-radius(0);
     .currentactivity-body {
       border-color: $color_red;
     }
