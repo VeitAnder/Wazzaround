@@ -237,6 +237,7 @@
                   >
                 {{'close' | translate}}
               </span>
+              <span class="visual-button"></span>
             </div>
 
             <div ng-show="states.filteredactivities.length > 0">
@@ -274,26 +275,26 @@
                 </div>
 
                 <div class="currentactivity-txt">
-                  <div class="activity-text">
-                    <h5 class="category">
-                      <div class="innerwrap">
-                        {{getSelectedActivity().category.main | translate}}
-                        <span class="category-sub"
-                              ng-repeat="subcat in getSelectedActivity().category.subs">
-                          / {{subcat.key | translate}}
-                        </span>
-                      </div>
-                    </h5>
+                  <h5 class="category">
+                    <div class="innerwrap">
+                      {{getSelectedActivity().category.main | translate}}
+                      <span class="category-sub"
+                            ng-repeat="subcat in getSelectedActivity().category.subs">
+                        / {{subcat.key | translate}}
+                      </span>
+                    </div>
+                  </h5>
 
-                    <h4 class="title">
-                      {{getSelectedActivity().name | languageselect}}
-                    </h4>
+                  <h4 class="title">
+                    {{getSelectedActivity().name | languageselect}}
+                  </h4>
 
-                    <div class="description">
+                  <div class="description multiline">
+                    <div class="innerwrap">
                       {{getSelectedActivity().shortdescription[getAvailableTranslationLanguageKey(getSelectedActivity().shortdescription)]}}
                     </div>
-
                   </div>
+
                 </div>
 
               </div>

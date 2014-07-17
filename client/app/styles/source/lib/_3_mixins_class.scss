@@ -113,7 +113,7 @@ h3 {
 
 @mixin h4 {
   font-size: $fs*$font-size_h4_factor;
-  line-height: $fs*$font-size_h4_factor;
+  line-height: $fs*$font-size_h4_factor*$line-height_headline-factor;
   margin: $fs*$font-size_h4_factor 0;
   color: $color_main_h4;
   @include sysfont_01;
@@ -146,7 +146,7 @@ h4 {
 
 @mixin h5 {
   font-size: $fs*$font-size_h5_factor;
-  line-height: $fs*$font-size_h5_factor;
+  line-height: $fs*$font-size_h5_factor*$line-height_headline-factor;
   margin: $fs*$font-size_h5_factor 0;
   color: $color_main_h5;
   @include sysfont_01;

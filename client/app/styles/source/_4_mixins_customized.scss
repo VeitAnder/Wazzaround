@@ -1070,22 +1070,21 @@ activitybarstripe {
 
   .activity-detail-toggle {
     position: absolute;
-    z-index: 1;
-    bottom: $activitybar-height;
+    top: 0;
     left: 50%;
-    margin-left: -115px;
-    width: 230px;
-    height: 20px;
-    @include border-top-radius(20px);
+    width: 50%;
+    height: $bu*2.0;
+    padding-left: $bu;
     background-color: $color_green;
     @include animation_all;
-    text-align: center;
     color: $color_white;
     font-weight: $font-weight_bold;
     @include font-size_small;
-    line-height: 25px !important;
+    line-height: 30px !important;
     text-transform: uppercase;
+    .visual-button{
 
+    }
   }
 
   .activitydetailactive {
@@ -1098,7 +1097,13 @@ activitybarstripe {
     width: 50%;
     height: $activitybar-height;
     float: left;
-    padding: $bu;
+    padding: ($bu + $bu*2.0) $bu $bu $bu;
+    .category{
+      max-width: 100%;
+      .innerwrap{
+        @include ellipsis(no-wrap);
+      }
+    }
     .title {
       @include h5;
       font-weight: $font-weight_extrabold;
@@ -1107,6 +1112,7 @@ activitybarstripe {
     }
     .description {
       margin: 0;
+      @include multiline(3);
     }
   }
   .currentactivity-img{
@@ -1114,6 +1120,9 @@ activitybarstripe {
     width: 50%;
     height: $activitybar-height;
     float: left;
+    overflow: hidden;
+    background-color: $color_grey_15;
+    @include img(nopic, center, center, no-repeat);
   }
   .activity-price-min {
     position: absolute;
@@ -1191,21 +1200,17 @@ currentactivity {
   position: absolute;
   left: 50%;
   height: $activitybar-height;
+  background-color: $color_white;
 
   img {
     min-width: 100%;
     height: auto;
-
   }
-  background-color: $color_grey_50;
-  @include img(nopic, center, center, no-repeat);
 
   .currentactivity-body {
     @include hovercursor;
     overflow: hidden;
     height: $activitybar-height;
-    border-top: 5px solid $color_green;
-    @include animation_border;
  }
   &.activitydetailactive {
     .currentactivity-body {
