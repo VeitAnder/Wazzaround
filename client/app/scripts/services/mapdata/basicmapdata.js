@@ -31,7 +31,7 @@ angular.module('anorakApp')
           geocoder = new google.maps.Geocoder();
           geocoder.geocode({ 'address': address, 'region': 'it' }, function (results, status) {
             debug("FOUND ADDRESS!", status, results);
-            if (status === google.maps.GeocoderStatus.OK) {
+            if (status === "OK") {
               debug("AM DONE GEOCODING ADDRESS");
               return defer.resolve(results[0].geometry.location);
             } else {
