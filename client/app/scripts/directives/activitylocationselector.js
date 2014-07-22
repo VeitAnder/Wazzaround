@@ -32,8 +32,8 @@ angular.module('anorakApp')
                   if (coords !== null) {
 
                     scope.activity.location = {
-                      lng: coords.lat(),
-                      lat: coords.lng()
+                      lng: coords.lng(),
+                      lat: coords.lat()
                     };
 
                     $timeout(function () {
