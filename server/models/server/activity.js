@@ -3,11 +3,15 @@
  */
 
 
-
+var config = require('../../config.js');
 var ObjectId = require('mongojs').ObjectId;
 
 var models = require('../models.js');
 var ActivityModel = require('../models.js').ActivityModel;
+
+var Q = require('q');
+
+var googleTranslate = require('google-translate')(config.google.apikey);
 
 ///////////////////////
 // read/write filters
@@ -16,23 +20,23 @@ ActivityModel.readFilter(function (req) {
   // allow global read access
 
   // authorized users
-  if (req.session.auth) {
-    if (req.session.user.userType === 'user') {
+  if (req.isAuthenticated()) {
+    if (req.user.userType === 'user') {
       return {
         published: true
       };
     }
 
-    if (req.session.user.userType === 'provider') {
+    if (req.user.userType === 'provider') {
       return {
         "$or": [
           { "published": true },
-          { "owner._reference": ObjectId(req.session.user._id) }
+          { "owner._reference": req.user._id }
         ]
       };
     }
 
-    if (req.session.user.userType === 'admin') {
+    if (req.user.userType === 'admin') {
       return true;  // kann alles lesen
     }
 
@@ -52,20 +56,35 @@ ActivityModel.readFilter(function (req) {
 //  return obj;
 //});
 
+var translateActivity = function (doc) {
+  var deferred = Q.defer();
+
+  googleTranslate.translate(doc.name[doc.inputlanguage], doc.inputlanguage, 'en', function (err, translation) {
+    console.log(translation);
+    doc.name.en = translation.translatedText;
+    deferred.resolve(doc);
+  });
+
+  return deferred.promise;
+};
+
 // TODO: das ist nur so kompliziert, weil delete das doc aus der datenbank hohlt...
 ActivityModel.writeFilter(function (doc, req) {
+
+  var deferred = Q.defer();
+
   var ownerRef;
 
-  if (!req.session.auth) {
+  if (!req.isAuthenticated()) {
     return false;  // if not logged in don't allow write operations
   }
 
   // admin is allowed to publish activity
-  if (req.session.user.userType === 'admin') {
+  if (req.user.userType === 'admin') {
     // set owner to current user
 
     if (!doc.owner._reference) {  // prevent admin from stealing ownership
-      doc.owner._reference = ObjectId(req.session.user._id);
+      doc.owner._reference = req.user._id;
 
     } else { // todo: bug beim speichern von _references: wird als string statt object gespeichert!! :-(
 
@@ -81,39 +100,43 @@ ActivityModel.writeFilter(function (doc, req) {
   else {
     ownerRef = doc.owner._reference;
     if (doc.owner._reference instanceof ObjectId) { // workaround for delete
-      ownerRef = ownerRef.toString();
+      ownerRef = ownerRef;
     }
 
     // don't allow to save activities where the user is not the owner
-    if (doc._id !== undefined && ownerRef !== req.session.user._id) {
+    if (doc._id !== undefined && ownerRef !== req.user._id.toString()) {
       return false;
     }
 
     // set the owner of the activity
-    doc.owner._reference = ObjectId(req.session.user._id);
+    doc.owner._reference = req.user._id;
   }
 
   // translate the activity
+//  return q.all([
+//    translateActivity(doc)
+//  ]);
+//
 
+  return translateActivity(doc)
+    .then(function (translateddoc) {
+      doc = translateddoc;
+      console.log("doc", doc);
+      deferred.resolve();
+    });
 
-
-
-
-
-
-  return true;
 });
 
 ///////////////////////
 // Operation Impl.
 
 ActivityModel.factoryImpl("getMyActivities", function (params, req) {
-  if (!req.session.auth) {
+  if (!req.isAuthenticated()) {
     return false;  // if not logged operation not allowed
   }
 
   return models.ActivityModel.find({
-    'owner._reference': ObjectId(req.session.user._id)
+    'owner._reference': req.user._id
   });
 });
 

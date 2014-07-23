@@ -32,16 +32,16 @@ angular.module('anorakApp')
                   if (coords !== null) {
 
                     scope.activity.location = {
-                      lng: coords.A,
-                      lat: coords.k
+                      lng: coords.lng(),
+                      lat: coords.lat()
                     };
 
                     $timeout(function () {
-                      scope.activitybackendmap.map.clickedMarker.latitude = coords.k;
-                      scope.activitybackendmap.map.clickedMarker.longitude = coords.A;
+                      scope.activitybackendmap.map.clickedMarker.latitude = coords.lat();
+                      scope.activitybackendmap.map.clickedMarker.longitude = coords.lng();
 
-                      scope.activitybackendmap.map.center.latitude = coords.k;
-                      scope.activitybackendmap.map.center.longitude = coords.A;
+                      scope.activitybackendmap.map.center.latitude = coords.lat();
+                      scope.activitybackendmap.map.center.longitude = coords.lng();
                     });
                   }
                 });

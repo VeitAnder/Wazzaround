@@ -1,21 +1,9 @@
-var config = require('../config.js');
-
 var util = require('util');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var crypto = require('crypto');
 
-var Users = require('../models/model_users.js');
-
-//encrypt method - same as in model_users.js !!
-var encrypt = function (str) {
-  var algorithm = config.security.passwordencryptionalgorithm;
-  var key = config.security.passwordencryptionkey;
-  var pw = str;
-  var cipher = crypto.createCipher(algorithm, key);
-  var encrypted = cipher.update(pw, 'utf8', 'hex') + cipher.final('hex');
-  return encrypted;
-};
+var UserModel = require('../models/models.js').UserModel;
+var ObjectId = require('mongojs').ObjectId;
 
 function MongoDBStrategy() {
   // Call the super constructor - passing in our user verification function
@@ -38,48 +26,42 @@ MongoDBStrategy.name = "mongo";
 
 // Get a user by id
 MongoDBStrategy.prototype.get = function (id, done) {
-  Users.findOneQ({
-    _id: id
-  }).then(function (user) {
-      if (user === null) {
-        done(null, null);
-      } else {
-        done(null, user);
-      }
-    }, function (err) {
-      done(err, null);
-    })
-    .done();
-};
-
-// Find a user by their email
-MongoDBStrategy.prototype.findByEmail = function (email, done) {
-  Users.findOneQ({
-    email: email.toLowerCase()
-  })
+  UserModel.get(ObjectId(id))
     .then(function (user) {
       if (user === null) {
         done(null, null);
       } else {
         done(null, user);
       }
-    }, function (err) {
-      done(err, null);
     })
-    .done();
+    .fail(function (err) {
+      done(err, null);
+    });
 };
 
 // Check whether the user passed in is a valid one
 MongoDBStrategy.prototype.verifyUser = function (email, password, done) {
-  this.findByEmail(email, function (err, user) {
-    if (!err && user) {
-      //check also for accountconfirmed flag - added by reacture
-      if (user.password !== encrypt(password) || !user.accountconfirmed || !user.enabled) {
-        user = null;
+  if (!email || !password) {
+    done(new Error("No User/Password provided!"), null);
+  }
+
+  UserModel.find({email: email.toLowerCase()})  // find this user
+    .then(function (users) {
+      if (users.length < 1) {
+        done(new Error("User not found"), null);
       }
-    }
-    done(err, user);
-  });
+      if (users.length > 1) {
+        done(new Error("Found more then one user"), null);
+      }
+      if (users[0].password === password) { // auth successful
+        done(null, users[0]);
+      } else {
+        done(new Error("Invalid Password"), null);
+      }
+    })
+    .fail(function (err) {
+      done(err, null);
+    });
 };
 
 module.exports = MongoDBStrategy;

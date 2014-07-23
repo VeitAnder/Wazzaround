@@ -7,11 +7,10 @@
  */
 
 var model = require('modelizer');
-//var model = require('../../../modelizer/lib/modelizer');
-
-var config = require('../config.js');
 
 var initModelizer = function (app, db) {
+
+  console.log("initModelizer");
 
   // get a mongodb database connector
   var connector = model.MongoConnector(db);

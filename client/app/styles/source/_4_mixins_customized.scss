@@ -327,7 +327,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
   display: block;
   top: 0;
   right: 0;
-  bottom: 200px + $footer-height;
+  bottom: 170px + $footer-height;
   left: 0;
 }
 
@@ -544,8 +544,23 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
 .bookableitem-body {
   padding: $bu;
-  background-color: $color_white;
+  background-color: $color_grey_25;
   @include border-bottom-radius($border-radius);
+  @include border(all, $color_grey_75);
+  border-width: 2px;
+
+  .event-header{
+    color: $color_grey;
+    border-color: $color_grey_50;
+  }
+  .event-list{
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  eventview{
+    border-color: $color_grey_50;
+  }
 }
 
 .bookableitem-name {
@@ -639,12 +654,15 @@ googleMap, .angular-google-map, .angular-google-map-container {
   @include divtable_header_small;
 }
 
-.event-row {
-  @include divtable_row_small;
-  .cell {
-    &.listaction {
-      white-space: normal;
-      overflow: visible;
+eventrow {
+  display: block;
+  eventview{
+    @include divtable_row_small;
+    .cell {
+      &.listaction {
+        white-space: normal;
+        overflow: visible;
+      }
     }
   }
 }
@@ -676,6 +694,10 @@ googleMap, .angular-google-map, .angular-google-map-container {
     .event-item-quantity {
       @include font-size_small;
       white-space: nowrap;
+      &.bookedup{
+        color: $color_red;
+        font-weight: $font-weight_bold;
+      }
     }
     .event-item-book {
       float: left;
@@ -699,52 +721,19 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
-.eventedit {
+eventedit {
   display: block;
-  @include border_all($color_grey_50);
   @include border-radius($border-radius);
-  padding: 5px $bu;
+  padding: $bu;
   margin: $bu 0;
   background-color: $color_grey_05;
   input {
     min-width: 0;
   }
   .form-group {
-    @include divtable_cell;
-    &.first {
-      padding-left: 0;
-    }
-    &.last {
-      padding-right: 0;
-    }
   }
   .form-group-helptext {
     white-space: normal;
-  }
-  .date-start {
-    width: 25%;
-  }
-  .date-end {
-    width: 25%;
-  }
-  .time-start {
-    width: 22.5%;
-  }
-  .time-end {
-    width: 22.5%;
-  }
-  .quantity {
-    width: 50%;
-    input {
-      text-align: right;
-    }
-  }
-
-  .price {
-    width: 50%;
-    input {
-      text-align: right;
-    }
   }
 
   .from-until {
@@ -764,12 +753,13 @@ googleMap, .angular-google-map, .angular-google-map-container {
     }
   }
 
-  .event-duration-block {
-    background-color: $color_grey_25;
+  .event-end-block {
+    background-color: $color_green_50;
     color: $color_grey;
     @include font-size_small;
     text-align: center;
     @include border-radius($border-radius_small);
+    margin-bottom: 20px;
     padding: 5px 10px;
     clear: both;
   }
@@ -782,34 +772,42 @@ googleMap, .angular-google-map, .angular-google-map-container {
     display: block;
   }
 
-  .btn {
+  .divider{
+    margin: $bu (-$bu);
   }
 
   .buttonbar {
     width: auto;
     @include seperator(top, $color_grey_50);
-    margin: $bu (-$bu) 0 (-$bu);
+    margin: $bu (-$bu) (-$bu) (-$bu);
     @include border-radius(0);
     background-color: transparent;
   }
 }
 
 .event-new-repeat {
+  overflow: visible;
   @include clearfix;
   clear: both;
-  margin-top: $bu;
-  .checkbox {
-    label {
-      font-weight: $font-weight_bold;
+  padding: 10px;
+  @include border-radius($border-radius_small);
+  background-color: $color_grey_15;
+  .switch-element{
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .switch-element-right{
+    min-height: $switch-height;
+    .switch{
+      right: 0;
     }
   }
   .repeating {
     margin-top: 5px;
     padding-top: 5px;
-    //    @include seperator(top, $color_grey_50);
     .checkbox {
       float: left;
-      width: (100%) / 7;
+      width: (100%) / 4;
       label {
         font-weight: normal;
       }
@@ -1005,6 +1003,338 @@ googleMap, .angular-google-map, .angular-google-map-container {
   }
 }
 
+
+$activitybar-currentitem-width: 60%;
+$activitybar-height: 200px;
+
+@mixin activitybar-a-imghover {
+  img {
+    opacity: 0.25;
+  }
+  &:hover {
+    img {
+      opacity: 0.50;
+    }
+  }
+}
+
+.category {
+  @include badge-category;
+}
+
+activitybar {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: $color_grey_05;
+  height: $activitybar-height - 30px;
+}
+
+activitybarstripe {
+  position: absolute;
+  width: 100%;
+
+  .activitybar-item-prev {
+    position: absolute;
+    top: (($activitybar-height - 65px) * 0.5) + (30px * 0.5);
+    left: -65px;
+  }
+
+  .activitybar-item-next {
+    position: absolute;
+    top: (($activitybar-height - 65px) * 0.5) + (30px * 0.5);
+    right: -65px;
+  }
+
+  .activity-nav {
+    background-color: $color_white;
+    width: 65px;
+    height: 65px;
+    padding: 20px;
+    span {
+      display: block;
+      @include sprite_icons(7px, -100px, no-repeat);
+      width: 25px;
+      height: 25px;
+    }
+    &.activity-nav-next {
+      @include border-right-radius($border-radius);
+    }
+    &.activity-nav-prev {
+      @include border-left-radius($border-radius);
+      span {
+        @include transform(rotate(180deg));
+      }
+    }
+  }
+
+  .activity-detail-toggle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: $bu*2.0;
+    padding-left: $bu;
+    background-color: $color_green;
+    @include animation_all;
+    color: $color_white;
+    font-weight: $font-weight_bold;
+    @include font-size_small;
+    line-height: 30px !important;
+    text-transform: uppercase;
+    .visual-button{
+      position: absolute;
+      top: -15px;
+      right: 0;
+      display: block;
+      width: 45px;
+      height: 45px;
+      @include border-top-radius($border-radius);
+      background-color: $color_green;
+      @include animation_background;
+      span{
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin: 12px auto;
+        @include sprite_icons(6px, -36px, no-repeat);
+        background-size: 920%;
+        @include transform(rotate(270deg));
+      }
+      .activitydetailactive &{
+      }
+    }
+  }
+
+  .activitydetailactive {
+    .activity-detail-toggle {
+      background-color: $color_red;
+      .visual-button{
+        background-color: $color_red;
+        span{
+          @include transform(rotate(90deg));
+        }
+      }
+    }
+  }
+
+  .currentactivity-txt {
+    width: 50%;
+    height: $activitybar-height;
+    float: left;
+    padding: ($bu + $bu*2.0) $bu $bu $bu;
+    .category{
+      max-width: 100%;
+      .innerwrap{
+        @include ellipsis(no-wrap);
+      }
+    }
+    .title {
+      margin: 0;
+      @include ellipsis();
+    }
+    .description {
+      margin: 0;
+      @include multiline(2);
+    }
+  }
+  .currentactivity-img{
+    position: relative;
+    width: 50%;
+    height: $activitybar-height;
+    float: left;
+    overflow: hidden;
+    background-color: $color_grey_15;
+    @include img(nopic, center, center, no-repeat);
+    @include border-top-left-radius($border-radius);
+  }
+  .activity-price-min {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    width: 100px;
+    margin: 0 $bu $bu 0;
+    text-align: right;
+    .innerwrap {
+      display: inline-block;
+      padding: $fs*0.25 $fs*0.5;
+      color: $color_white;
+      background-color: $color_green;
+      @include border-radius($border-radius);
+    }
+    .price {
+      display: block;
+      font-weight: $font-weight_bold;
+      font-size: $fs*$font-size_h5_factor;
+      @include ellipsis(no-wrap);
+    }
+    .smalltext {
+      display: block;
+      @include font-size_small;
+      @include ellipsis(no-wrap);
+
+    }
+  }
+
+  .activity-distance-element {
+    opacity: 0.75;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: $bu 0 0 $bu;
+    min-height: 30px;
+    padding: 5px;
+    @include border-radius(15px);
+    background-color: $color_white;
+  }
+
+  .current-location {
+    vertical-align: middle;
+    display: table-cell;
+    width: 20px;
+    max-height: 20px;
+    @include sprite_icons(-200px, 0, no-repeat);
+  }
+
+  .activity-distance-txt {
+    display: table-cell;
+    color: $color_text;
+    font-weight: $font-weight_bold;
+    font-size: $fs*$font-size_small_factor;
+    border-left: 5px transparent solid;
+    border-right: 5px transparent solid;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  .activity-location {
+    @include icon;
+    height: auto;
+    max-height: 20px;
+    position: static;
+    display: table-cell;
+    background-position: -45px 6px;
+    background-color: $color_green;
+  }
+}
+
+currentactivity {
+  top: -30px;
+  position: absolute;
+  left: 50%;
+  height: $activitybar-height;
+  background-color: $color_white;
+  @include border-top-left-radius($border-radius);
+
+  img {
+    min-width: 100%;
+    height: auto;
+  }
+
+  .currentactivity-body {
+    @include hovercursor;
+    overflow: hidden;
+    height: $activitybar-height;
+ }
+  &.activitydetailactive {
+    @include border-radius(0);
+    .currentactivity-body {
+      border-color: $color_red;
+    }
+  }
+}
+
+activitybardetail {
+  position: absolute;
+  bottom: -100%;
+  left: 50%;
+
+  //  done via directive ajscentermaxwidth
+  //  margin-left: -$activitybar-currentitem-width*0.5;
+  //  width: $activitybar-currentitem-width;
+
+  padding: $bu*2.0;
+  background-color: #ffffff;
+  background-color: rgba($color_white, 0.90);
+  @include border-top-radius($border-radius);
+  @include activity-content;
+
+  .txt-icon-delete {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    span {
+      top: 0;
+      width: 30px;
+      height: 30px;
+      @include border-radius(15px);
+      background-position: -68px 7px;
+      border: 3px solid $color_white;
+      @include box-shadow_2px;
+    }
+  }
+
+  .description {
+    margin-top: 0;
+    @include multiline(3);
+  }
+  &.activitydetailactive {
+    bottom: $activitybar-height;
+  }
+  .title {
+    margin-top: 0;
+  }
+  .availability {
+    margin-top: $fs;
+  }
+  @include respond-to(low-screen) {
+    padding-bottom: $bu*2.0;
+    h4 {
+      display: none;
+    }
+    h6 {
+      display: none;
+    }
+    .availability {
+      .input-label {
+        display: none;
+      }
+    }
+    .description {
+      @include multiline(2);
+    }
+  }
+
+  //@TODO remove later  - only quick fix
+  .divider {
+    display: none;
+  }
+}
+
+.activitybar-noresult {
+  padding: $bu*2.0;
+  text-align: center;
+  .icon {
+    display: inline-block;
+    width: 40px;
+    height: 49px;
+    margin-bottom: $fs*0.5;
+    @include sprite_icons(-100px, -100px, no-repeat);
+  }
+  h4 {
+    color: $color_grey_50;
+    font-weight: $font-weight_bold;
+    margin: 0;
+  }
+  p {
+    color: $color_grey_50;
+    margin-top: 0;
+  }
+}
+
+
+
 shoppingcart {
   display: block;
   margin-bottom: $fs;
@@ -1022,7 +1352,8 @@ shoppingcartbar {
   .shoppingcart-toggle {
     display: block;
     position: absolute;
-    top: 0px;
+    bottom: $activitybar-height + $footer-height;
+    padding-top: $activitybar-height + $footer-height;
     left: - $shoppingcart-toggle-width;
     height: 100%;
     @include animation_background;
@@ -1030,7 +1361,7 @@ shoppingcartbar {
       margin-top: 35px; // below uservoice
     }
     &:hover {
-      background-color: rgba($color_grey, 0.15);
+      background-color: rgba($color_white, 0.50);
     }
 
   }
@@ -1215,7 +1546,6 @@ shoppingcartbar {
   width: 15%;
   input {
     float: right;
-    text-align: right;
     width: 45px;
   }
 }
@@ -1268,332 +1598,6 @@ $payment-triangle-size: 60px;
   }
 }
 
-$activitybar-currentitem-width: 60%;
-$activitybar-height: 200px;
-
-@mixin activitybar-a-imghover {
-  img {
-    opacity: 0.25;
-  }
-  &:hover {
-    img {
-      opacity: 0.50;
-    }
-  }
-}
-
-.category {
-  @include badge-category;
-}
-
-activitybar {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  background-color: $color_grey_25;
-  height: $activitybar-height;
-}
-
-activitybarstripe {
-  position: absolute;
-  width: 100%;
-
-  .activitybar-item-prev {
-    position: absolute;
-    top: 95px;
-    left: 0;
-  }
-
-  .activitybar-item-next {
-    position: absolute;
-    top: 95px;
-    right: 0;
-  }
-
-  .activity-nav {
-    position: absolute;
-    top: 50%;
-    margin-top: -65px*0.5;
-    width: 65px;
-    height: 65px;
-    background-color: $color_white;
-    span {
-      display: block;
-      margin-top: 20px;
-      margin-left: 19px;
-      @include sprite_icons(7px, -100px, no-repeat);
-      width: 25px;
-      height: 25px;
-    }
-    &.activity-nav-next {
-      left: 0;
-      @include border-right-radius($border-radius);
-    }
-    &.activity-nav-prev {
-      right: 0;
-      @include border-left-radius($border-radius);
-      span {
-        @include transform(rotate(180deg));
-      }
-    }
-  }
-
-  .activity-detail-toggle {
-    position: absolute;
-    z-index: 1;
-    bottom: $activitybar-height;
-    left: 50%;
-    margin-left: -75px;
-    width: 150px;
-    height: 20px;
-    @include border-top-radius(20px);
-    background-color: $color_green;
-    @include animation_all;
-    text-align: center;
-    color: $color_white;
-    font-weight: $font-weight_bold;
-    @include font-size_small;
-    line-height: 25px !important;
-    text-transform: uppercase;
-
-  }
-
-  .activitydetailactive {
-    .activity-detail-toggle {
-      background-color: $color_red;
-    }
-  }
-
-  .activity-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    margin: 0;
-    padding: 0 (100px + $bu) $bu $bu;
-    width: 100%;
-    .category {
-      max-width: 100%;
-      margin: 0 0 $fs*0.5 0;
-      .innerwrap {
-        @include ellipsis();
-      }
-    }
-    .title {
-      @include h5;
-      color: $color_white;
-      font-weight: $font-weight_extrabold;
-      margin: 0;
-      @include ellipsis();
-    }
-    .description {
-      margin: 0;
-      color: $color_white;
-      @include ellipsis(no-wrap);
-      p {
-        margin: 0;
-        padding: 0;
-        @include ellipsis(no-wrap);
-      }
-    }
-  }
-  .activity-price-min {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 2;
-    width: 100px;
-    margin: 0 $bu $bu 0;
-    text-align: right;
-    .innerwrap {
-      display: inline-block;
-      padding: $fs*0.25 $fs*0.5;
-      color: $color_white;
-      background-color: $color_green;
-      @include border-radius($border-radius);
-    }
-    .price {
-      display: block;
-      font-weight: $font-weight_bold;
-      font-size: $fs*$font-size_h5_factor;
-      @include ellipsis(no-wrap);
-    }
-    .smalltext {
-      display: block;
-      @include font-size_small;
-      @include ellipsis(no-wrap);
-
-    }
-  }
-
-  .activity-distance-element {
-    opacity: 0.75;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: $bu 0 0 $bu;
-    //    display: table;
-    min-height: 30px;
-    padding: 5px;
-    @include border-radius(15px);
-    background-color: $color_white;
-  }
-
-  .current-location {
-    vertical-align: middle;
-    display: table-cell;
-    width: 20px;
-    max-height: 20px;
-    @include sprite_icons(-200px, 0, no-repeat);
-  }
-
-  .activity-distance-txt {
-    display: table-cell;
-    color: $color_text;
-    font-weight: $font-weight_bold;
-    font-size: $fs*$font-size_small_factor;
-    border-left: 5px transparent solid;
-    border-right: 5px transparent solid;
-    max-width: 100%;
-    white-space: nowrap;
-  }
-
-  .activity-location {
-    @include icon;
-    height: auto;
-    max-height: 20px;
-    position: static;
-    display: table-cell;
-    background-position: -45px 6px;
-    background-color: $color_green;
-  }
-
-}
-
-currentactivity {
-  top: 0;
-  position: absolute;
-  left: 50%;
-  height: $activitybar-height;
-
-  img {
-    min-width: 100%;
-    height: auto;
-
-  }
-  background-color: $color_grey_50;
-  @include img(nopic, center, center, no-repeat);
-
-  .currentactivity-body {
-    @include hovercursor;
-    overflow: hidden;
-    height: $activitybar-height;
-    border-top: 5px solid $color_green;
-    @include animation_border;
-    &:before {
-      position: absolute;
-      top: $activitybar-height - 90px;
-      display: block;
-      width: 100%;
-      height: 90px;
-      content: "";
-      background: url('#{$img_path}activity-headline-BGshadow.png') repeat-x;
-    }
-  }
-  &.activitydetailactive {
-    .currentactivity-body {
-      border-color: $color_red;
-    }
-  }
-}
-
-activitybardetail {
-  position: absolute;
-  bottom: -100%;
-  left: 50%;
-
-  //  done via directive ajscentermaxwidth
-  //  margin-left: -$activitybar-currentitem-width*0.5;
-  //  width: $activitybar-currentitem-width;
-
-  padding: $bu*2.0;
-  background-color: #ffffff;
-  background-color: rgba($color_white, 0.90);
-  @include border-top-radius($border-radius);
-  @include activity-content;
-
-  .txt-icon-delete {
-    position: absolute;
-    right: -15px;
-    top: -15px;
-    span {
-      top: 0;
-      width: 30px;
-      height: 30px;
-      @include border-radius(15px);
-      background-position: -68px 7px;
-      border: 3px solid $color_white;
-      @include box-shadow_2px;
-    }
-  }
-
-  .description {
-    margin-top: 0;
-    @include multiline(3);
-  }
-  &.activitydetailactive {
-    bottom: $activitybar-height;
-  }
-  .title {
-    margin-top: 0;
-  }
-  .availability {
-    margin-top: $fs;
-  }
-  @include respond-to(low-screen) {
-    padding-bottom: $bu*2.0;
-    h4 {
-      display: none;
-    }
-    h6 {
-      display: none;
-    }
-    .availability {
-      .input-label {
-        display: none;
-      }
-    }
-    .description {
-      @include multiline(2);
-    }
-  }
-
-  //@TODO remove later  - only quick fix
-  .divider {
-    display: none;
-  }
-}
-
-.activitybar-noresult {
-  padding: $bu*2.0;
-  text-align: center;
-  .icon {
-    display: inline-block;
-    width: 40px;
-    height: 49px;
-    margin-bottom: $bu;
-    @include sprite_icons(-100px, -100px, no-repeat);
-  }
-  h4 {
-    color: $color_white;
-    font-weight: $font-weight_bold;
-    margin: 0;
-  }
-  p {
-    color: $color_white;
-    margin-top: 0;
-  }
-}
 
 // CONTENT ELEMENTS
 // ###########################################################################################################################

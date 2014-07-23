@@ -9,7 +9,7 @@
 //// ------------------------------------------------------
 
 $break-high-screen: 1280px;
-$break-low-screen: 768px;
+$break-low-screen: 850px;
 
 @mixin respond-to($media) {
   @if $media == screen-xs {

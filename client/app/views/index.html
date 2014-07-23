@@ -237,6 +237,9 @@
                   >
                 {{'close' | translate}}
               </span>
+              <span class="visual-button">
+                <span></span>
+              </span>
             </div>
 
             <div ng-show="states.filteredactivities.length > 0">
@@ -244,25 +247,36 @@
               <div class="currentactivity-body category-{{getSelectedActivity().category.main}}"
                    ng-click="toggleCurrentActivity()"
                   >
-                <cloudinaryimage
-                    data-publicid="{{getSelectedActivity().images[0].public_id}}"
-                    data-format="{{getSelectedActivity().images[0].format}}"
-                    data-width="650"
-                    data-height="200"
-                    >
-                </cloudinaryimage>
 
-                <div class="activity-distance-element">
-                  <div class="current-location"></div>
-                  <div class="activity-distance-txt">
-                    {{getSelectedActivity().distancetosearchlocation | mtokm }} km |
-                    {{getIndexFilteredActivities(getSelectedActivity()) }} {{'of' | translate }}
-                    {{states.filteredactivities.length}}
+                <div class="currentactivity-img">
+                  <cloudinaryimage
+                      data-publicid="{{getSelectedActivity().images[0].public_id}}"
+                      data-format="{{getSelectedActivity().images[0].format}}"
+                      data-width="400"
+                      data-height="200"
+                      >
+                  </cloudinaryimage>
+
+                  <div class="activity-distance-element">
+                    <div class="current-location"></div>
+                    <div class="activity-distance-txt">
+                      {{getSelectedActivity().distancetosearchlocation | mtokm }} km |
+                      {{getIndexFilteredActivities(getSelectedActivity()) }} {{'of' | translate }}
+                      {{states.filteredactivities.length}}
+                    </div>
+                    <div class="activity-location"></div>
                   </div>
-                  <div class="activity-location"></div>
+
+                  <div class="activity-price-min">
+                    <div class="innerwrap">
+                      <span class="smalltext">{{'starting from' | translate }}</span>
+                      <span class="price">€ {{ lowestPriceOfSelectedActivity() }}</span>
+                    </div>
+                  </div>
+
                 </div>
 
-                <div class="activity-text">
+                <div class="currentactivity-txt">
                   <h5 class="category">
                     <div class="innerwrap">
                       {{getSelectedActivity().category.main | translate}}
@@ -273,25 +287,18 @@
                     </div>
                   </h5>
 
-                  <h4 class="title">
+                  <h5 class="title">
                     {{getSelectedActivity().name | languageselect}}
-                  </h4>
+                  </h5>
 
-                  <div class="description">
-                       {{getSelectedActivity().shortdescription[getAvailableTranslationLanguageKey(getSelectedActivity().shortdescription)]}}
+                  <div class="description multiline">
+                    <div class="innerwrap">
+                      {{getSelectedActivity().shortdescription[getAvailableTranslationLanguageKey(getSelectedActivity().shortdescription)]}}
+                    </div>
                   </div>
-
 
                 </div>
 
-                <div class="activity-price-min">
-                  <div class="innerwrap">
-                    <span class="smalltext">{{'starting from' | translate }}</span>
-                    <span class="price">€ {{ lowestPriceOfSelectedActivity() }}</span>
-                  </div>
-                </div>
-
-                <span class="triangle"></span>
               </div>
 
               <a ng-click="selectprev()"

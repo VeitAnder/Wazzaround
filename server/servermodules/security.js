@@ -1,7 +1,7 @@
-var express = require('express');
+var csurf = require('csurf');
 
 // allow Cross Origin Requests for development on localhost
-// yeoman grunt serve runs on port 9000, reacture REST API on port 3000
+// yeoman grunt serve runs on port 9000, REST API on port 3000
 var allowCors = function (app) {
   app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Credentials', true);
@@ -21,10 +21,10 @@ var switchToHTTPS = function (app) {
   // always fall back to production settings when relying on unreliable process.env.NODE_ENV  !
   app.use(function (req, res, next) {
     var schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
-    if (schema === 'https') {
-      next();
-    } else {
+    if (schema === 'http') {
       res.redirect('https://' + req.headers.host + req.url);
+    } else {
+      next();
     }
   });
 };
@@ -35,7 +35,7 @@ var useCSRFProtection = function (app) {
     var token = (req.body && req.body._csrf) || (req.query && req.query._csrf) || (req.headers['x-csrf-token']) || (req.headers['x-xsrf-token']) || (req.cookies['XSRF-TOKEN']);
     return token;
   };
-  app.use(express.csrf({value: csrfValue}));                  // XSRF protection via express filter - http://expressjs.com/api.html#csrf
+  app.use(csurf({value: csrfValue}));                  // XSRF protection via express filter - http://expressjs.com/api.html#csrf // csurf in expressjs >= v4.x
   app.use(function (req, res, next) {
     res.cookie('XSRF-TOKEN', req.csrfToken());
     next();

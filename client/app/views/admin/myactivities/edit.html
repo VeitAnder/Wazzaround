@@ -318,7 +318,7 @@
                     </div>
 
                     <div class="form-group form-group-helptext">
-                    <!--<div class="bookableitem-name cell first last">-->
+                      <!--<div class="bookableitem-name cell first last">-->
 
                       <label for="itemDescription">{{'Description' | translate}}</label>
 
@@ -395,167 +395,201 @@
 
                           <datetimepicker event="event"></datetimepicker>
 
-                          <div class="form-group form-group-helptext quantity first">
-                            <label>Quantity</label>
-
-                            <div aiotoggleitem
-                                 toggleitemlabel="{{'helptext' | translate}}"
-                                 class="aiotoggleitem">
-                              {{'helptext activity quantity' | translate}}
-                            </div>
-
-                            <input type="number"
-                                   class="form-control"
-                                   id="quantity"
-                                   name="quantity"
-                                   placeholder="{{'Quantity' | translate}}"
-                                   ng-model="event.quantity"
-                                   required
-                                >
-
-                            <span ng-show="eventForm.quantity.$invalid && (eventForm.quantity.$dirty || state.submitted || eventForm.submitted)"
-                                  class="alert alert-error"
-                                >
-                              {{'Please enter a number only.' | translate}}
-                            </span>
-
-                          </div>
-
-                          <div class="form-group form-group-helptext price last">
-                            <label>Price</label>
-
-                            <div aiotoggleitem
-                                 toggleitemlabel="{{'helptext' | translate}}"
-                                 class="aiotoggleitem">
-                              {{'helptext activity price' | translate}}
-                            </div>
-
-                            <input type="number"
-                                   class="form-control"
-                                   ng-model="event.price"
-                                   id="price"
-                                   name="price"
-                                   placeholder="{{'Price in €' | translate}}"
-                                   required
-                                />
-
-                            <span ng-show="eventForm.price.$invalid && (eventForm.price.$dirty || state.submitted || eventForm.submitted)"
-                                  class="alert alert-error">
-                              {{'Please enter a number only.' | translate}}
-                            </span>
-
-                          </div>
-
-                          <!-- REPEATING EVENT begin -->
-
-                          <div class="event-new-repeat form-group-helptext">
-                            <div class="checkbox">
-                              <label>
-                                <input type="checkbox"
-                                       ng-model="event.repeating">
-                                {{'repeating Event' | translate}}
-                              </label>
+                          <div class="form-group-inline form-group-inline-5050">
+                            <div class="form-group form-group-helptext">
+                              <label for="quantity">{{'Quantity' | translate}}</label>
 
                               <div aiotoggleitem
                                    toggleitemlabel="{{'helptext' | translate}}"
                                    class="aiotoggleitem">
-                                {{'helptext activity repeating' | translate}}
+                                {{'helptext activity quantity' | translate}}
                               </div>
+
+                              <input type="number"
+                                     class="form-control"
+                                     id="quantity"
+                                     name="quantity"
+                                     placeholder="{{'Quantity' | translate}}"
+                                     ng-model="event.quantity"
+                                     required
+                                  >
+
+                              <span ng-show="eventForm.quantity.$invalid && (eventForm.quantity.$dirty || state.submitted || eventForm.submitted)"
+                                    class="alert alert-error"
+                                  >
+                                {{'Please enter a number only.' | translate}}
+                              </span>
+
+                            </div>
+
+                            <div class="form-group form-group-helptext">
+                              <label for="price">{{'Price in €' | translate}}</label>
+
+                              <div aiotoggleitem
+                                   toggleitemlabel="{{'helptext' | translate}}"
+                                   class="aiotoggleitem">
+                                {{'helptext activity price' | translate}}
+                              </div>
+
+                              <input type="number"
+                                     class="form-control"
+                                     ng-model="event.price"
+                                     id="price"
+                                     name="price"
+                                     placeholder="{{'Price in €' | translate}}"
+                                     required
+                                  />
+
+                              <span ng-show="eventForm.price.$invalid && (eventForm.price.$dirty || state.submitted || eventForm.submitted)"
+                                    class="alert alert-error">
+                                {{'Please enter a number only.' | translate}}
+                              </span>
+
+                            </div>
+                          </div>
+
+                          <div class="divider"></div>
+
+                          <!-- REPEATING EVENT begin -->
+
+                          <div class="event-new-repeat">
+                            <div class="switch-element switch-element-right"
+                                 ng-model="event.repeating"
+                                 data-ng-class="{
+                               'switch-off': !event.repeating,
+                               'switch-on': event.repeating
+                               }"
+                                >
+                              <div class="switch-label">
+                                <h6 class="no-margin-bottom no-margin-top">
+                                  {{'recurring Event' | translate}}
+                                </h6>
+                              </div>
+                              <div class="switch">
+                                <span class="switch-label-i"></span>
+                                <span class="switch-label-o"></span>
+                                <span class="switch-btn"></span>
+                              </div>
+
+                              <input type="checkbox"
+                                     ng-model="event.repeating"
+                                     style="display: block; clear: both">
 
                             </div>
                             <div class="repeating"
                                  ng-show="event.repeating">
 
                               <div class="alert alert-info">
-                                {{'The repeating events will have the same starting time and duration as above' |
+                                {{'Recurring events will have the same starting time and duration as above' |
                                 translate }}
                               </div>
 
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"
-                                         ng-model="event.dayOfWeek.day1">
-                                  {{'Mon' | translate}}
-                                </label>
-                              </div>
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"
-                                         ng-model="event.dayOfWeek.day2">
-                                  {{'Tue' | translate}}
-                                </label>
-                              </div>
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"
-                                         ng-model="event.dayOfWeek.day3">
-                                  {{'Wed' | translate}}
-                                </label>
-                              </div>
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"
-                                         ng-model="event.dayOfWeek.day4">
-                                  {{'Thu' | translate}}
-                                </label>
-                              </div>
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"
-                                         ng-model="event.dayOfWeek.day5">
-                                  {{'Fri' | translate}}
-                                </label>
-                              </div>
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"
-                                         ng-model="event.dayOfWeek.day6">
-                                  {{'Sat' | translate}}
-                                </label>
-                              </div>
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"
-                                         ng-model="event.dayOfWeek.day0"
-                                         ng-required="!isAtLeastOneWeekdaySelected(event) && event.repeating"
+                              <div class="form-group-inline form-group-inline-5050">
+                                <div class="form-group">
+                                  <label>
+                                    {{'events on these weekdays' | translate }}
+                                  </label>
+
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox"
+                                             ng-model="event.dayOfWeek.day1">
+                                      {{'Mon' | translate}}
+                                    </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox"
+                                             ng-model="event.dayOfWeek.day2">
+                                      {{'Tue' | translate}}
+                                    </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox"
+                                             ng-model="event.dayOfWeek.day3">
+                                      {{'Wed' | translate}}
+                                    </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox"
+                                             ng-model="event.dayOfWeek.day4">
+                                      {{'Thu' | translate}}
+                                    </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox"
+                                             ng-model="event.dayOfWeek.day5">
+                                      {{'Fri' | translate}}
+                                    </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox"
+                                             ng-model="event.dayOfWeek.day6">
+                                      {{'Sat' | translate}}
+                                    </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox"
+                                             ng-model="event.dayOfWeek.day0"
+                                             ng-required="!isAtLeastOneWeekdaySelected(event) && event.repeating"
+                                          >
+                                      {{'Sun' | translate}}
+                                    </label>
+                                  </div>
+
+                                  <br/>
+
+                                  <span ng-show="(state.submitted || eventForm.submitted) && !isAtLeastOneWeekdaySelected(event)"
+                                        class="alert alert-error"
                                       >
-                                  {{'Sun' | translate}}
-                                </label>
-                              </div>
+                                    {{'Please select at least one day for repeating event.' | translate}}
+                                  </span>
 
-                              <br/>
+                                </div>
 
-                              <span ng-show="(state.submitted || eventForm.submitted) && !isAtLeastOneWeekdaySelected(event)"
-                                    class="alert alert-error"
-                                  >
-                                {{'Please select at least one day for repeating event.' | translate}}
-                              </span>
+                                <div class="form-group date-until first">
+                                  <label for="dateuntil">{{'recurring event until' | translate }}</label>
+                                  <input type="text"
+                                         class="form-control"
+                                         ng-model="event.endrepeatDate"
+                                         data-min-date="{{event.start}}"
+                                         data-max-date="{{ moment(event.start).add('years', 1).toString() }}"
+                                         placeholder="{{'Date' | translate}}"
+                                         bs-datepicker
+                                         autoclose="true"
+                                         id="dateuntil"
+                                         name="dateuntil"
+                                         ng-required="event.repeating"
+                                      >
 
-                              <div class="form-group date-until first">
-                                <label>{{'create event until' | translate }}</label>
-                                <input type="text"
-                                       class="form-control"
-                                       ng-model="event.endrepeatDate"
-                                       data-min-date="{{event.start}}"
-                                       data-max-date="{{ moment(event.start).add('years', 1).toString() }}"
-                                       placeholder="{{'Date' | translate}}"
-                                       bs-datepicker
-                                       autoclose="true"
-                                       name="dateuntil"
-                                       ng-required="event.repeating"
-                                    >
-
-                                <span ng-show="(state.submitted || eventForm.submitted) && eventForm.dateuntil.$error.required"
-                                      class="alert alert-error"
-                                    >
-                                  {{'Please select a date until which the repeating events should be created' |
-                                  translate}}
-                                </span>
+                                  <span ng-show="(state.submitted || eventForm.submitted) && eventForm.dateuntil.$error.required"
+                                        class="alert alert-error"
+                                      >
+                                    {{'Please select a date until which the repeating events should be created' |
+                                    translate}}
+                                  </span>
+                                </div>
                               </div>
 
                             </div>
-
                           </div>
+
+                          <!--
+                                                    <div class="event-new-repeat form-group-helptext">
+
+                                                                                    <div aiotoggleitem
+                                                                                         toggleitemlabel="{{'helptext' | translate}}"
+                                                                                         class="aiotoggleitem">
+                                                                                      {{'helptext activity repeating' | translate}}
+                                                                                    </div>
+
+                                                    </div>
+                          -->
 
                           <!-- REPEATING EVENT endn -->
 
@@ -582,11 +616,11 @@
                     </eventrow>
 
                     <div class="event-add">
-                      <a class="txt-icon-add"
-                         ng-click="createEvent(bookableItem)">
+                      <button class="btn-add"
+                              ng-click="createEvent(bookableItem)">
                         <span class="btn-icon-left"></span>
                         {{'Add new Event' | translate}}
-                      </a>
+                      </button>
 
                     </div>
 
