@@ -55,12 +55,12 @@ ActivityModel.readFilter(function (req) {
 ActivityModel.afterReadFilter(function (obj) {
   // berechne die verfügbare quantity
 
-  var promieses = [];
+  var promises = [];
 
   _.forEach(obj.bookableItems, function(item) {
     _.forEach(item.events, function(event) {
 
-      promieses.push(
+      promises.push(
         models.BookedEventModel.find({"event._link": ObjectId(event._id)})  // find alle Buchungen zu einem Event
           .then(function(bookedEvents) {
             var bookedQuantity = 0;
@@ -68,14 +68,14 @@ ActivityModel.afterReadFilter(function (obj) {
               bookedQuantity += bookedEvent.quantity;
             });
 
-            event.quantity = event.quantity - bookedQuantity;
+            event.availableQuantity = event.quantity - bookedQuantity;
           })
       );
 
     });
   });
 
-  return Q.all(promieses);  // wait until all promises resolved
+  return Q.all(promises);  // wait until all promises resolved
 });
 
 var translateActivity = function (doc) {

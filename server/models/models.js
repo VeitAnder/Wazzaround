@@ -79,8 +79,7 @@ var models = function () {
     start: Attr(Type.date),
     end: Attr(Type.date),
     quantity: Attr(Type.number),
-    //availableQuantity : Attr(Type.number),  // virtual attribute (wir vom filter brechnet)
-    //bookQuantity : VirtualAttr(Type.number),  // Ist nur bei filteredActivities verfügbar
+    availableQuantity: Attr(Type.number), // wird von afterReadFilter berechnet/aktualisiert
     price: Attr(Type.number)
   });
 
