@@ -72,7 +72,8 @@ var config = {
   },
   google: {
     apikey: "AIzaSyDeA3pWT15QSri8b00AVVqVCmAY_Niqbvg"
-  }
+  },
+  PAYMILL_PRIVATE_KEY : '34e632de2eb8de9a92caea85fab7f380'
 };
 
 module.exports = config;

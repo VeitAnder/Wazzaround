@@ -10,6 +10,8 @@ var util = require('util');
 var models = require('../models.js');
 var BookingModel = require('../models.js').BookingModel;
 
+var config = require('../../config');
+
 function assert(condition, message) {
   if (!condition) {
     console.log('Assertion failed', message);
@@ -32,8 +34,7 @@ BookingModel.writeFilter(function (obj, req) {
 ///////////////////////
 // Operation Impl.
 
-var PAYMILL_PRIVATE_KEY = '34e632de2eb8de9a92caea85fab7f380';
-var paymill = require('paymill-node')(PAYMILL_PRIVATE_KEY);
+var paymill = require('paymill-node')(config.PAYMILL_PRIVATE_KEY);
 
 // run payment with paymill-backend
 var pay = function (bookingObj, paymentToken, amount_int, currency) {
@@ -95,21 +96,10 @@ BookingModel.operationImpl("checkout", function (params, req) {
       var checkAvailableBookings = [];
 
       _.forEach(params.bookings, function (booking) {
-        var activity;
-
         checkAvailableBookings.push(
-          Q()
-            .then(function () {
-              return models.ActivityModel.get(ObjectId(booking.activity));
-            })
-            .then(function (_activity) {
-              activity = _activity;
-              return models.BookedEventModel.bookedQuantity({
-                event: booking.event
-              });
-            })
-            .then(function (res) {
-              if (booking.quantity > activity.getChild(booking.event).quantity - res.quantity)
+          models.ActivityModel.get(ObjectId(booking.activity))
+            .then(function (activity) {
+              if (booking.quantity > activity.getChild(booking.event).availableQuantity)
                 throw new Error("There are not enough events available for booking");
             })
         );
@@ -155,25 +145,6 @@ BookingModel.operationImpl("checkout", function (params, req) {
               return models.ActivityModel.get(ObjectId(bookingEvent.activity));
             })
             .then(function (activity) {  // get an _id
-
-              // todo quantity calculation
-              /*
-               _.forEach(params.bookings, function(booking) {
-               // check if is avaiable
-               var quantity_total;
-               models.ActivityModel.get(ObjectId(booking.activity))
-               .then(function(activity) {
-               quantity_total = activity.getChild(booking.event).quantity;
-
-               return models.BookedEventModel.bookedQuantity({event : booking.event});
-               })
-               .then(function(bookedEvents) {
-               var quantity_booked = bookedEvents.quantity;
-               var quantity_availabe = quantity_total - quantity_booked;
-               })
-               // create booked event
-               });
-               */
 
               var bookedEvent = models.BookedEventModel.create();
               bookedEvent.booking.setObject(booking);
