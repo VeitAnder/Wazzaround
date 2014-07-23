@@ -7,10 +7,9 @@ angular.module('anorakApp')
       restrict: 'E',
       scope: {
         activity: '=',
-        filter: '=',
-        limit: '='
+        filter: '='
       },
-      controller: function ($scope, models) {
+      controller: function ($scope, $element, $attrs) {
 
         var isItemEnabled = function (itemIdx) {
           if (!$scope.filter) return true;  // nicht filtern, wenn kein filter definiert ist
@@ -51,25 +50,30 @@ angular.module('anorakApp')
           return sortedEvents;
         };
 
+        if ($attrs.limit) {
+          $scope.limit = $attrs.limit;
+        } else {
+          $scope.limit = 1000000000000;
+        }
+
         $scope.sortedEvents = createSortedEvents();
 
-
-        $scope.$watch('filter', function(oldValue, newValue) {
+        $scope.$watch('filter', function (oldValue, newValue) {
           console.log('filter');
           $scope.sortedEvents = createSortedEvents();
         }, true);
 
-        $scope.$watch('activity', function(oldValue, newValue) {
+        $scope.$watch('activity', function (oldValue, newValue) {
           console.log('activity');
           $scope.sortedEvents = createSortedEvents();
         });
 
         var dateAt = [];
-        $scope.showDate = function(idx, date) {
+        $scope.showDate = function (idx, date) {
           dateAt[idx] = moment(date);
           if (idx == 0) return true;
 
-          if (moment(date).diff(dateAt[idx-1], 'days') >= 1) return true;
+          if (moment(date).diff(dateAt[idx - 1], 'days') >= 1) return true;
           else return false;
 
         };

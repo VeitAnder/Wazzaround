@@ -78,23 +78,32 @@ ActivityModel.afterReadFilter(function (obj) {
   return Q.all(promises);  // wait until all promises resolved
 });
 
-var translateActivity = function (doc) {
+//var translateActivity = function (doc) {
+//  var deferred = Q.defer();
+//
+//  googleTranslate.translate(doc.name[doc.inputlanguage], doc.inputlanguage, 'en', function (err, translation) {
+//    console.log(translation);
+//    doc.name.en = translation.translatedText;
+//    deferred.resolve(doc);
+//  });
+//
+//  return deferred.promise;
+//};
+
+var translateString = function (text, sourcelang, targetlang) {
   var deferred = Q.defer();
-
-  googleTranslate.translate(doc.name[doc.inputlanguage], doc.inputlanguage, 'en', function (err, translation) {
-    console.log(translation);
-    doc.name.en = translation.translatedText;
-    deferred.resolve(doc);
+  googleTranslate.translate(text, sourcelang, targetlang, function (err, translation) {
+    if (err) {
+      deferred.reject(err);
+    } else {
+      deferred.resolve(translation.translatedText);
+    }
   });
-
   return deferred.promise;
 };
 
 // TODO: das ist nur so kompliziert, weil delete das doc aus der datenbank hohlt...
 ActivityModel.writeFilter(function (doc, req) {
-
-  var deferred = Q.defer();
-
   var ownerRef;
 
   if (!req.isAuthenticated()) {
@@ -122,7 +131,7 @@ ActivityModel.writeFilter(function (doc, req) {
   else {
     ownerRef = doc.owner._reference;
     if (doc.owner._reference instanceof ObjectId) { // workaround for delete
-      ownerRef = ownerRef;
+      ownerRef = ownerRef.toString();
     }
 
     // don't allow to save activities where the user is not the owner
@@ -135,16 +144,16 @@ ActivityModel.writeFilter(function (doc, req) {
   }
 
   // translate the activity
-//  return q.all([
-//    translateActivity(doc)
-//  ]);
-//
-
-  return translateActivity(doc)
-    .then(function (translateddoc) {
-      doc = translateddoc;
-      console.log("doc", doc);
-      deferred.resolve();
+  return Q.all([
+    translateString(doc.name[doc.inputlanguage], doc.inputlanguage, 'en'),
+    translateString(doc.name[doc.inputlanguage], doc.inputlanguage, 'it')
+  ])
+    .spread(function (en, it) {
+      doc.name.en = en;
+      doc.name.it = it;
+    })
+    .fail(function (err) {
+      return err;
     });
 
 });
