@@ -17,7 +17,7 @@
 
         <div class="filter-category filter-category-{{category.key}}"
              data-ng-class="{active: areItemsInThisCategorySelected(category), open: category.open }"
-             ng-repeat="category in categories"
+             ng-repeat="category in categories track by category._id"
             >
           <div class="filter-category-header"
                data-ng-click="toggleFilter(category)"

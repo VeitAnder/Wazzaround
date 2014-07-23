@@ -49,14 +49,17 @@ MongoDBStrategy.prototype.verifyUser = function (email, password, done) {
     .then(function (users) {
       if (users.length < 1) {
         done(new Error("User not found"), null);
+        return;
       }
       if (users.length > 1) {
         done(new Error("Found more then one user"), null);
+        return;
       }
       if (users[0].password === password) { // auth successful
         done(null, users[0]);
       } else {
         done(new Error("Invalid Password"), null);
+        return;
       }
     })
     .fail(function (err) {
