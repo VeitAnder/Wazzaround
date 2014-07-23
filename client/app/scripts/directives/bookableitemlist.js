@@ -74,28 +74,28 @@ angular.module('anorakApp')
 
         };
 
-        //TODO: maybe do that on the server
-        // calc available quantity
-        var calcEventsPromises = [];
-        angular.forEach($scope.activity.bookableItems, function (bookableItem, itemIdx) {
-            angular.forEach(bookableItem.events, function (event) {
-              event.availableQuantity = "?";
-
-              calcEventsPromises.push(
-                models.BookedEventModel.bookedQuantity({
-                  event: event._id
-                }).then(function(res) {
-                  event.availableQuantity = event.quantity - res.quantity;
-                })
-              );
-            });
-        });
-
-        Q.all(calcEventsPromises)
-          .then(function() {
-            console.log("Q.all");
-            $scope.$apply();
-          });
+//        //TODO: maybe do that on the server
+//        // calc available quantity
+//        var calcEventsPromises = [];
+//        angular.forEach($scope.activity.bookableItems, function (bookableItem, itemIdx) {
+//            angular.forEach(bookableItem.events, function (event) {
+//              event.availableQuantity = "?";
+//
+//              calcEventsPromises.push(
+//                models.BookedEventModel.bookedQuantity({
+//                  event: event._id
+//                }).then(function(res) {
+//                  event.availableQuantity = event.quantity - res.quantity;
+//                })
+//              );
+//            });
+//        });
+//
+//        Q.all(calcEventsPromises)
+//          .then(function() {
+//            console.log("Q.all");
+//            $scope.$apply();
+//          });
 
       }
     };

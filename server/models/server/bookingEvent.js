@@ -38,16 +38,16 @@ BookedEventModel.writeFilter(function (obj, req) {
  *    event : Attr(Type.objectid)
  *  })  // returns { quantity : X }
  */
-BookedEventModel.operationImpl("bookedQuantity", function (params, req) {
-  assert(params.event, "event missing");
-
-  return BookedEventModel.find({"event._link": ObjectId(params.event)})  // find alle Buchungen zu einem Event
-    .then(function(events) {
-      var quantity = 0;
-      _.forEach(events, function(bookedEvent) {
-        quantity += bookedEvent.quantity;
-      });
-
-      return {'quantity' : quantity };
-    });
-});
+//BookedEventModel.operationImpl("bookedQuantity", function (params, req) {
+//  assert(params.event, "event missing");
+//
+//  return BookedEventModel.find({"event._link": ObjectId(params.event)})  // find alle Buchungen zu einem Event
+//    .then(function(events) {
+//      var quantity = 0;
+//      _.forEach(events, function(bookedEvent) {
+//        quantity += bookedEvent.quantity;
+//      });
+//
+//      return {'quantity' : quantity };
+//    });
+//});

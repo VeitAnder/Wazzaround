@@ -10,6 +10,7 @@ var models = require('../models.js');
 var ActivityModel = require('../models.js').ActivityModel;
 
 var Q = require('q');
+var _ = require('lodash');
 
 var googleTranslate = require('google-translate')(config.google.apikey);
 
@@ -51,10 +52,31 @@ ActivityModel.readFilter(function (req) {
 
 });
 
-//ActivityModel.postReadFilter(function (req, obj) {
-//
-//  return obj;
-//});
+ActivityModel.afterReadFilter(function (obj) {
+  // berechne die verfügbare quantity
+
+  var promieses = [];
+
+  _.forEach(obj.bookableItems, function(item) {
+    _.forEach(item.events, function(event) {
+
+      promieses.push(
+        models.BookedEventModel.find({"event._link": ObjectId(event._id)})  // find alle Buchungen zu einem Event
+          .then(function(bookedEvents) {
+            var bookedQuantity = 0;
+            _.forEach(bookedEvents, function(bookedEvent) {
+              bookedQuantity += bookedEvent.quantity;
+            });
+
+            event.quantity = event.quantity - bookedQuantity;
+          })
+      );
+
+    });
+  });
+
+  return Q.all(promieses);  // wait until all promises resolved
+});
 
 var translateActivity = function (doc) {
   var deferred = Q.defer();
