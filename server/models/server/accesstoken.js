@@ -4,12 +4,10 @@ var AccesstokenModel = require('../models.js').AccesstokenModel;
 var token = require('token.js');
 var mail = require('../../lib/mail.js');
 
-
 ///////////////////////
 // read/write filters
 
-
-AccesstokenModel.readFilter(function(req) {
+AccesstokenModel.readFilter(function (req) {
   return false;   // only server is allowed to read that
 });
 
@@ -17,11 +15,8 @@ AccesstokenModel.writeFilter(function (obj, req) {
   return false;  // only server is allowed to make changes
 });
 
-
-
 ///////////////////////
 // Operation Impl.
-
 
 AccesstokenModel.operationImpl("sendReactivation", function (params, req) {
   var tokenObj = models.AccesstokenModel.create();

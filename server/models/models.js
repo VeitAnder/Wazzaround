@@ -72,7 +72,7 @@ var models = function () {
 
     currentUser: Factory(),
 
-    getProfile : Operation()
+    getProfile: Operation()
   });
 
   var EventModel = new model("events", {
@@ -107,14 +107,11 @@ var models = function () {
       it: Attr(Type.string)
     },
 
-
     shortdescription: {
       en: Attr(Type.string),
       de: Attr(Type.string),
       it: Attr(Type.string)
     },
-
-
 
     images: [
       {
@@ -165,7 +162,6 @@ var models = function () {
       endDate: Attr(Type.date)
     })
   });
-
 
   var BookingModel = new model('bookings', {
     user: Ref(UserModel),  // welcher user hat gebucht - optional falls vorhanden

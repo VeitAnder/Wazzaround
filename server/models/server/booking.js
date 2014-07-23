@@ -51,7 +51,7 @@ var pay = function (bookingObj, paymentToken, amount_int, currency) {
       return Q.nfcall(paymill.payments.create, {  // eine Zahlung anlegen
         token: paymentToken
 //        client: client.id
-      })
+      });
     })
     .then(function (payment) {
       return Q.nfcall(paymill.transactions.create, {  // die Transaktion durchführen
@@ -60,7 +60,7 @@ var pay = function (bookingObj, paymentToken, amount_int, currency) {
         payment: payment.data.id,
         description: util.format('Booking id: %s (From: %s %s, E-Mail: %s, Tel: %s)',
           bookingObj._id, bookingObj.profile.firstName, bookingObj.profile.lastName, bookingObj.profile.email, bookingObj.profile.tel)
-      })
+      });
     })
     .then(function (transaction) {
       console.log("transaction successfull");
@@ -106,7 +106,7 @@ BookingModel.operationImpl("checkout", function (params, req) {
               activity = _activity;
               return models.BookedEventModel.bookedQuantity({
                 event: booking.event
-              })
+              });
             })
             .then(function (res) {
               if (booking.quantity > activity.getChild(booking.event).quantity - res.quantity)

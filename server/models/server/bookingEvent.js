@@ -2,11 +2,9 @@
  * Created by jonathan on 23.04.14.
  */
 
-var Q = require('q');
 var ObjectId = require('mongojs').ObjectId;
 var _ = require('lodash');
 
-var models = require('../models.js');
 var BookedEventModel = require('../models.js').BookedEventModel;
 
 function assert(condition, message) {
@@ -17,18 +15,16 @@ function assert(condition, message) {
   }
 }
 
-
 ///////////////////////
 // read/write filters
 
-BookedEventModel.readFilter(function(req) {
+BookedEventModel.readFilter(function (req) {
   return false;  // only server is allowed to make changes
 });
 
 BookedEventModel.writeFilter(function (obj, req) {
   return false;  // only server is allowed to make changes
 });
-
 
 ///////////////////////
 // Operation Impl.
@@ -42,12 +38,12 @@ BookedEventModel.operationImpl("bookedQuantity", function (params, req) {
   assert(params.event, "event missing");
 
   return BookedEventModel.find({"event._link": ObjectId(params.event)})  // find alle Buchungen zu einem Event
-    .then(function(events) {
+    .then(function (events) {
       var quantity = 0;
-      _.forEach(events, function(bookedEvent) {
+      _.forEach(events, function (bookedEvent) {
         quantity += bookedEvent.quantity;
       });
 
-      return {'quantity' : quantity };
+      return {'quantity': quantity };
     });
 });
