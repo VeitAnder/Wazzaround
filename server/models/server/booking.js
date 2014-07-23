@@ -59,8 +59,7 @@ var pay = function (bookingObj, paymentToken, amount_int, currency) {
         amount: amount_int,
         currency: currency,
         payment: payment.data.id,
-        description: util.format('Booking id: %s (From: %s %s, E-Mail: %s, Tel: %s)',
-          bookingObj._id, bookingObj.profile.firstName, bookingObj.profile.lastName, bookingObj.profile.email, bookingObj.profile.tel)
+        description: JSON.stringify({bookingId: bookingObj._id, profile: { firstName: bookingObj.profile.firstName, lastName: bookingObj.profile.lastName, email: bookingObj.profile.email, tel: bookingObj.profile.tel} })
       });
     })
     .then(function (transaction) {
