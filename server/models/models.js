@@ -10,6 +10,7 @@ var models = function () {
   var model = require('modelizer');
 
   var Attr = model.Attr;
+  var VirualAttr = model.VirtualAttr;
   var Type = model.Attr.Types;
   var Ref = model.Ref;
   var ObjArray = model.ObjArray;
@@ -79,7 +80,7 @@ var models = function () {
     start: Attr(Type.date),
     end: Attr(Type.date),
     quantity: Attr(Type.number),
-    availableQuantity: Attr(Type.number), // wird von afterReadFilter berechnet/aktualisiert
+    availableQuantity: VirualAttr(Type.number), // wird von afterReadFilter berechnet/aktualisiert
     price: Attr(Type.number)
   });
 
