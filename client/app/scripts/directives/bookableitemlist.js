@@ -50,11 +50,7 @@ angular.module('anorakApp')
           return sortedEvents;
         };
 
-        if ($attrs.limit) {
-          $scope.limit = $attrs.limit;
-        } else {
-          $scope.limit = 1000000000000;
-        }
+        $scope.limit = $attrs.limit;
 
         $scope.sortedEvents = createSortedEvents();
 

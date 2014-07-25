@@ -76,8 +76,7 @@ var pay = function (bookingObj, paymentToken, amount_int, currency) {
 
 /**
  *  TODO:
- *   - verfügbarkeits check zuerst
- *   - profile optional machen (vlt ist der user schon eingeloggt
+ *   - Der Client rechnet zur Zeit den gesamt Betrag aus
  */
 
 BookingModel.operationImpl("checkout", function (params, req) {

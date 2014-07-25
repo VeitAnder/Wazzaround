@@ -206,30 +206,4 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
       }
     },
     req);
-  /*.then(function(activities) {
-
-   var events = [];
-   _.forEach(activities, function(activity) {
-   _.forEach(activity.bookableItems, function(item) {
-   _.forEach(item.events, function(event) {
-   events.push(event);
-   });
-   });
-   });
-
-   var bookQuantityPromises = [];
-   _.forEach(events, function(event) {
-   bookQuantityPromises.push(
-   models.BookedEventModel.bookedQuantity({event: event._id})
-   .then(function(bookedEvent) {
-   event.bookQuantity = event.quantity - bookedEvent.quantity;
-   })
-   );
-   });
-
-   return Q.all(bookQuantityPromises)  // wait for all changes..
-   .then(function() {
-   return activities;
-   })
-   });*/
 });

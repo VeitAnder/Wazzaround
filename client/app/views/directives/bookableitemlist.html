@@ -2,7 +2,7 @@
   <h5>{{'No events to display yet' | translate}}</h5>
 </div>
 
-<div ng-repeat="event in sortedEvents | limitTo:limit"
+<div ng-repeat="event in sortedEvents | bookableList:limit"
      class="event-list event-list-items">
 
   <div class="divider"
