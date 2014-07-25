@@ -147,12 +147,13 @@ BookingModel.operationImpl("checkout", function (params, req) {
               var bookedEvent = models.BookedEventModel.create();
               bookedEvent.booking.setObject(booking);
               bookedEvent.activity.setObject(activity);
+              bookedEvent.activity_owner = activity.owner;
               bookedEvent.item._link = ObjectId(bookingEvent.item);
               bookedEvent.event._link = ObjectId(bookingEvent.event);
 
               bookedEvent.quantity = bookingEvent.quantity;
 
-              //bookedEvent.activityCopy = activity;  // kopie der orginal-daten
+              bookedEvent.activityCopy = activity;  // kopie der orginal-daten
               return bookedEvent.save();
             })
         );

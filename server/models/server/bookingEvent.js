@@ -19,7 +19,11 @@ function assert(condition, message) {
 // read/write filters
 
 BookedEventModel.readFilter(function (req) {
-  return false;  // only server is allowed to make changes
+  if (!req.isAuthenticated()) {
+    return false;
+  }
+
+  return { "activity_owner._reference": req.user._id };  // allow activity owner to see his bookedEvents
 });
 
 BookedEventModel.writeFilter(function (obj, req) {

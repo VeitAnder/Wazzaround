@@ -210,11 +210,12 @@ var models = function () {
   var BookedEventModel = new model('bookedEvents', {
     booking: Ref(BookingModel),                       // zu dieser Buchung gehört das Event
     activity: Ref(ActivityModel),                      // gebuchte Aktivität
+    activity_owner : Ref(UserModel),                  // der Besitzer der Aktivität
     item: Link(ActivityModel, BookableItemModel),  // gebuchtes Item
     event: Link(ActivityModel, EventModel),         // gebuchtes Event
     quantity: Attr(Type.number),                       // gebuchte Menge
 
-    activityCopy: Attr(),  // kopie der Aktivität zum Buchungszeitpunkt
+    activityCopy: ActivityModel,  // kopie der Aktivität zum Buchungszeitpunkt
 
     date: Attr(Type.date, Attr.default(new Date())),  // wann wurde das event gebucht
 
