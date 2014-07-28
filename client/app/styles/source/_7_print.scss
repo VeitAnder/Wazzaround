@@ -23,6 +23,11 @@
     padding-bottom: 0;
   }
 
+  .page{
+    height: auto;
+    min-width: 0;
+  }
+
   .page:before{
     display: block;
     width: 243px;
