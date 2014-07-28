@@ -229,6 +229,7 @@
   "Please enter the name of your company.": "Bitte geben Sie den/die Namen der Aktivität/en ein.",
   "Please upload an image.": "Bitte geben Sie den Namen Ihrer Firma ein.",
   "save event": "Termin speichern",
+  "create repeating events": "Erzeuge {{numberofevents}} Termine",
   "New activity": "Neue Aktivität",
   "Global Activity Info": "Daten der Aktivität",
   "Name of Activity or Activities": "Bezeichnung der Aktivität/en",

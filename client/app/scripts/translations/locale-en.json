@@ -229,6 +229,7 @@
   "Please enter the name of your company.": "Please enter the name of your company.",
   "Please upload an image.": "Please upload an image.",
   "save event": "Save event",
+  "create repeating events": "Create {{numberofevents}} events",
   "New activity": "New activity",
   "Global Activity Info": "Global Activity Info",
   "Name of Activity or Activities": "Name of Activity or Activities",

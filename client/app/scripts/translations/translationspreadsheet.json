@@ -1881,6 +1881,14 @@
   },
   {
     "Description": "",
+    "key": "create repeating events",
+    "en": "Create {{numberofevents}} events",
+    "de": "Erzeuge {{numberofevents}} Termine",
+    "it": "Salva  {{numberofevents}} eventos",
+    "fr": "Create {{numberofevents}} events"
+  },
+  {
+    "Description": "",
     "key": "New activity",
     "en": "New activity",
     "de": "Neue Aktivität",

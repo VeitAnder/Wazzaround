@@ -155,6 +155,32 @@ angular.module('anorakApp')
       event.repeating = false;
     };
 
+    $scope.getNumberOfEventsToBeCreated = function (item, event) {
+      var result = {
+        numberofevents: 0
+      };
+
+      if (!event.endrepeatDate || !event.dayOfWeek) {
+        return result;
+      }
+
+      var dayoffset = 0;
+      var iteratorDate = angular.copy(event.start);
+      iteratorDate = moment(iteratorDate);
+      var endrepeatDate = moment(event.endrepeatDate).hour(23).minute(59);
+
+      while (iteratorDate <= endrepeatDate) {
+        // add new event
+        if (event.dayOfWeek['day' + moment(event.start).add('days', dayoffset).day()]) {  // Wochentag angehakt
+          result.numberofevents++;
+        }
+        dayoffset += 1;
+        iteratorDate.add('days', 1);
+      }
+
+      return result;
+    };
+
     $scope.createEvent = function (bookableItem) {
       var event = bookableItem.createEvents();
       event.start = new Date();

@@ -458,7 +458,6 @@
 
                           <div class="event-new-repeat">
                             <label class="switch-element switch-element-right"
-                                   ng-model="event.repeating"
                                    data-ng-class="{
                                'switch-off': !event.repeating,
                                'switch-on': event.repeating
@@ -558,17 +557,18 @@
 
                                 <div class="form-group date-until first">
                                   <label for="dateuntil">{{'recurring event until' | translate }}</label>
-                                  <input type="text"
-                                         class="form-control"
-                                         ng-model="event.endrepeatDate"
-                                         data-min-date="{{event.start}}"
-                                         data-max-date="{{ moment(event.start).add('years', 1).toString() }}"
-                                         placeholder="{{'Date' | translate}}"
-                                         bs-datepicker
-                                         autoclose="true"
-                                         id="dateuntil"
-                                         name="dateuntil"
-                                         ng-required="event.repeating"
+                                  <input
+                                      bs-datepicker
+                                      type="text"
+                                      class="form-control"
+                                      ng-model="event.endrepeatDate"
+                                      data-min-date="{{event.start}}"
+                                      data-max-date="{{ moment(event.start).add('years', 1).toDate() }}"
+                                      data-autoclose="1"
+                                      placeholder="{{'Date' | translate}}"
+                                      id="dateuntil"
+                                      name="dateuntil"
+                                      ng-required="event.repeating"
                                       >
 
                                   <span ng-show="(state.submitted || eventForm.submitted) && eventForm.dateuntil.$error.required"
@@ -583,26 +583,23 @@
                             </div>
                           </div>
 
-                          <!--
-                                                    <div class="event-new-repeat form-group-helptext">
-
-                                                                                    <div aiotoggleitem
-                                                                                         toggleitemlabel="{{'helptext' | translate}}"
-                                                                                         class="aiotoggleitem">
-                                                                                      {{'helptext activity repeating' | translate}}
-                                                                                    </div>
-
-                                                    </div>
-                          -->
-
-                          <!-- REPEATING EVENT endn -->
+                          <!-- REPEATING EVENT end -->
 
                           <div class="buttonbar">
                             <a class="btn btn-small"
                                ng-click="createEventSeries(bookableItem, event, eventForm);"
                                ng-class="{disabled: eventForm.$invalid}"
                                 >
-                              {{'save event' | translate}}
+
+                              <span ng-show="!event.repeating">
+                                {{'save event' | translate}}
+                              </span>
+
+                              <span ng-show="event.repeating">
+                                {{'create repeating events' | translate:getNumberOfEventsToBeCreated(bookableItem,
+                                event, eventForm) }}
+                              </span>
+
                             </a>
 
                             <a ng-show="event.mode === 'new'"
