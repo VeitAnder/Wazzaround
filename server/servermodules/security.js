@@ -10,7 +10,7 @@ var allowCors = function (app) {
     res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
 
     if ('OPTIONS' === req.method) {
-      res.send(200);
+      res.status(200).end();
     } else {
       next();
     }
