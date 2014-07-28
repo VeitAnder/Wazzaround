@@ -367,21 +367,21 @@
 
                       <!--use ng-if to refresh one-time bound data after event edit -->
                       <eventview ng-if="event.mode != 'edit' && event.mode != 'new'">
-                        <div class="event-date cell">{{:: event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
-                        <div class="event-time cell">{{:: event.start | momentjs:{format: "h:mm a"} }}</div>
+                        <div class="event-date cell">{{event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
+                        <div class="event-time cell">{{event.start | momentjs:{format: "h:mm a"} }}</div>
                         <div class="event-duration cell">
-                          {{:: {start:event.start, end:event.end} | duration }}
+                          {{{start:event.start, end:event.end} | duration }}
                         </div>
                         <div class="event-quantity cell">{{::event.quantity}}x</div>
                         <div class="event-price cell">{{::event.price}}</div>
                         <div class="listaction cell">
                           <a class="btn btn-mini btn-ordinary"
                              ng-click="startEventEdit(event)">
-                            <span>{{::'edit' | translate}}</span>
+                            <span>{{'edit' | translate}}</span>
                           </a>
                           <a class="btn btn-mini btn-alert btn-ordinary"
                              ng-click="removeEvent(bookableItem, idx)">
-                            <span>{{::'delete' | translate}}</span>
+                            <span>{{'delete' | translate}}</span>
                           </a>
                         </div>
                       </eventview>
@@ -605,14 +605,14 @@
                                ng-click="removeEvent(bookableItem, $index)"
                                class="space-left"
                                 >
-                              cancel
+                              {{'cancel' | translate}}
                             </a>
 
                             <a ng-show="event.mode !== 'new'"
                                ng-click="cancelEventEdit(event)"
                                class="space-left"
                                 >
-                              cancel
+                              {{'cancel' | translate}}
                             </a>
 
                           </div>
