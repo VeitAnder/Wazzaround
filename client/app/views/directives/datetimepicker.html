@@ -59,10 +59,6 @@
                required
             />
       </div>
-      
-      <pre>
-       {{datetimepickerForm.durationdays | json}}
-      </pre>
 
       <div ng-messages="datetimepickerForm.durationdays.$error"
           >
@@ -95,6 +91,7 @@
                class="form-control"
                id="durationhours"
                name="durationhours"
+               ng-model="event.durationhours"
                min="0"
                max="23"
                value="1"
@@ -109,6 +106,7 @@
                class="form-control"
                id="durationminutes"
                name="durationminutes"
+               ng-model="event.durationminutes"
                step="15"
                min="0"
                max="45"
@@ -175,7 +173,10 @@
   <div class="event-end-block">
     {{'this event ends on' | translate}}:
     <strong>
-      {{ {start: event.start, end: event.end } | duration}}
+      {{event.end | momentjs:{format: "ddd, MMM Do YYYY"} }}, {{event.end | momentjs:{format: "HH:mm"} }}
+    </strong>
+    – {{'Duration' | translate}}:
+    <strong>{{ {start: event.start, end: event.end } | duration}}
     </strong>
 
   </div>

@@ -367,11 +367,13 @@
 
                       <!--use ng-if to refresh one-time bound data after event edit -->
                       <eventview ng-if="event.mode != 'edit' && event.mode != 'new'">
-                        <div class="event-date cell">{{event.start | momentjs:{format: "ddd, MMM Do YY"} }}</div>
-                        <div class="event-time cell">{{event.start | momentjs:{format: "h:mm a"} }}</div>
+                        <div class="event-date cell">{{event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}</div>
+                        <div class="event-time cell">{{event.start | momentjs:{format: "HH:mm"} }}</div>
+
                         <div class="event-duration cell">
                           {{{start:event.start, end:event.end} | duration }}
                         </div>
+
                         <div class="event-quantity cell">{{::event.quantity}}x</div>
                         <div class="event-price cell">{{::event.price}}</div>
                         <div class="listaction cell">
@@ -411,6 +413,7 @@
                                      name="quantity"
                                      placeholder="{{'Quantity' | translate}}"
                                      ng-model="event.quantity"
+                                     min="1"
                                      required
                                   >
 
@@ -436,6 +439,7 @@
                                      ng-model="event.price"
                                      id="price"
                                      name="price"
+                                     min="0"
                                      placeholder="{{'Price in €' | translate}}"
                                      required
                                   />
@@ -453,9 +457,9 @@
                           <!-- REPEATING EVENT begin -->
 
                           <div class="event-new-repeat">
-                            <div class="switch-element switch-element-right"
-                                 ng-model="event.repeating"
-                                 data-ng-class="{
+                            <label class="switch-element switch-element-right"
+                                   ng-model="event.repeating"
+                                   data-ng-class="{
                                'switch-off': !event.repeating,
                                'switch-on': event.repeating
                                }"
@@ -465,17 +469,17 @@
                                   {{'recurring Event' | translate}}
                                 </h6>
                               </div>
+                              <input type="checkbox"
+                                     ng-model="event.repeating"
+                                     style="display:none;"
+                                  >
                               <div class="switch">
                                 <span class="switch-label-i"></span>
                                 <span class="switch-label-o"></span>
                                 <span class="switch-btn"></span>
                               </div>
 
-                              <input type="checkbox"
-                                     ng-model="event.repeating"
-                                     style="display: block; clear: both">
-
-                            </div>
+                            </label>
                             <div class="repeating"
                                  ng-show="event.repeating">
 

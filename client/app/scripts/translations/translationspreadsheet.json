@@ -36,7 +36,7 @@
     "key": "currency",
     "en": "Currency",
     "de": "Währung",
-    "it": "Currency",
+    "it": "Valuta",
     "fr": "Currency"
   },
   {
@@ -148,7 +148,7 @@
     "key": "helptext",
     "en": "input hint",
     "de": "Eingabehilfe",
-    "it": "Help text",
+    "it": "Aituo",
     "fr": "Input hint"
   },
   {
@@ -580,7 +580,7 @@
     "key": "forfree",
     "en": "Activity for free",
     "de": "Gratisaktivitäten",
-    "it": "Activity for free",
+    "it": "Attivitá gratis",
     "fr": "Activity for free"
   },
   {
@@ -1172,7 +1172,7 @@
     "key": "Password must meet the following requirements",
     "en": "Password must meet the following requirements:",
     "de": "Das Passwort muss folgende Kriterien erfüllen:",
-    "it": "",
+    "it": "Il password deve soddisfare i seguenti criteri",
     "fr": "Password must meet the following requirements:"
   },
   {
@@ -1268,7 +1268,7 @@
     "key": "Request a link to reset your password",
     "en": "Request a link to reset your password",
     "de": "Link zum Zurücksetzen des Passworts anfordern",
-    "it": "Request a link to reset your password",
+    "it": "Richiesta link per resettare la tua password",
     "fr": "Request a link to reset your password"
   },
   {
@@ -2572,7 +2572,7 @@
     "key": "Set Location",
     "en": "Set Location",
     "de": "Ort setzen",
-    "it": "localizzazione",
+    "it": "loccalizzare il evento",
     "fr": "localisation"
   },
   {
@@ -2620,7 +2620,7 @@
     "key": "… still",
     "en": "… still",
     "de": "… noch",
-    "it": "… still",
+    "it": "... anchora",
     "fr": "… still"
   },
   {
@@ -2628,7 +2628,7 @@
     "key": "available!",
     "en": "available!",
     "de": "verfügbar!",
-    "it": "available!",
+    "it": "disponibili",
     "fr": "available!"
   },
   {
@@ -2636,7 +2636,7 @@
     "key": "… booked up!",
     "en": "… booked up!",
     "de": "… ausgebucht!",
-    "it": "… booked up!",
+    "it": "...già pieno",
     "fr": "… booked up!"
   },
   {
@@ -2644,7 +2644,7 @@
     "key": "event start",
     "en": "Event start",
     "de": "Terminstart",
-    "it": "Event start",
+    "it": "inizio evento",
     "fr": "Event start"
   },
   {
@@ -2652,7 +2652,7 @@
     "key": "event duration",
     "en": "Event duration",
     "de": "Dauer des Termins",
-    "it": "Event duration",
+    "it": "durata evento",
     "fr": "Event duration"
   },
   {
@@ -2660,7 +2660,7 @@
     "key": "days",
     "en": "Days",
     "de": "Tage",
-    "it": "Days",
+    "it": "giorni",
     "fr": "Days"
   },
   {
@@ -2668,7 +2668,7 @@
     "key": "hours",
     "en": "Hours",
     "de": "Stunden",
-    "it": "Hours",
+    "it": "ore",
     "fr": "Hours"
   },
   {
@@ -2676,7 +2676,7 @@
     "key": "minutes",
     "en": "Minutes",
     "de": "Minuten",
-    "it": "Minutes",
+    "it": "minuti",
     "fr": "Minutes"
   },
   {
@@ -2684,7 +2684,7 @@
     "key": "this event ends on",
     "en": "This event ends on",
     "de": "Dieser Termin endet am",
-    "it": "This event ends on",
+    "it": "L´evento termina il",
     "fr": "This event ends on"
   },
   {
@@ -2692,7 +2692,7 @@
     "key": "recurring event until",
     "en": "Recurring event until",
     "de": "Wiederkehrender Termin bis",
-    "it": "Recurring event until",
+    "it": "L´evento si ripete fino il",
     "fr": "Recurring event until"
   },
   {
