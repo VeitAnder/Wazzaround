@@ -45,6 +45,7 @@
     </h6>
 
     <div class="form-group-inline form-group-inline-333333">
+
       <div class="form-group">
         <label for="durationdays">{{'days' | translate}}</label>
 
@@ -58,30 +59,33 @@
                placeholder="{{'days' | translate}}"
                required
             />
-      </div>
 
-      <div ng-messages="datetimepickerForm.durationdays.$error"
-          >
-        <div ng-message="min"
-             class="alert alert-error"
+        <ng-messages
+            for="datetimepickerForm.durationdays.$error"
+            multiple
             >
-          days min error
-        </div>
-        <div ng-message="max"
-             class="alert alert-error"
-            >
-          days max error
-        </div>
-        <div ng-message="number"
-             class="alert alert-error"
-            >
-          days got to be a number error
-        </div>
-        <div ng-message="required"
-             class="alert alert-error"
-            >
-          days required error
-        </div>
+          <ng-message when="min"
+                      class="alert alert-error"
+              >
+            days min error
+          </ng-message>
+          <ng-message when="max"
+                      class="alert alert-error"
+              >
+            days max error
+          </ng-message>
+          <ng-message when="number"
+                      class="alert alert-error"
+              >
+            days got to be a number error
+          </ng-message>
+          <ng-message when="required"
+                      class="alert alert-error"
+              >
+            days required error
+          </ng-message>
+        </ng-messages>
+
       </div>
 
       <div class="form-group">
@@ -96,7 +100,35 @@
                max="23"
                value="1"
                placeholder="{{'hours' | translate}}"
+               required
             />
+
+        <ng-messages
+            for="datetimepickerForm.durationhours.$error"
+            multiple
+            >
+          <ng-message when="min"
+                      class="alert alert-error"
+              >
+            hours min error
+          </ng-message>
+          <ng-message when="max"
+                      class="alert alert-error"
+              >
+            hours max error
+          </ng-message>
+          <ng-message when="number"
+                      class="alert alert-error"
+              >
+            hours got to be a number error
+          </ng-message>
+          <ng-message when="required"
+                      class="alert alert-error"
+              >
+            hours required error
+          </ng-message>
+        </ng-messages>
+
       </div>
 
       <div class="form-group">
@@ -112,63 +144,39 @@
                max="45"
                value="0"
                placeholder="{{'minutes' | translate}}"
+               required
             />
 
-        <span ng-show="eventForm.price.$invalid && (eventForm.price.$dirty || state.submitted || eventForm.submitted)"
-              class="alert alert-error">
-          {{'Please enter a number only.' | translate}}
-        </span>
+        <ng-messages
+            for="datetimepickerForm.durationminutes.$error"
+            multiple
+            >
+          <ng-message when="min"
+                      class="alert alert-error"
+              >
+            minutes min error
+          </ng-message>
+          <ng-message when="max"
+                      class="alert alert-error"
+              >
+            minutes max error
+          </ng-message>
+          <ng-message when="number"
+                      class="alert alert-error"
+              >
+            minutes got to be a number error
+          </ng-message>
+          <ng-message when="required"
+                      class="alert alert-error"
+              >
+            minutes required error
+          </ng-message>
+        </ng-messages>
 
       </div>
 
     </div>
   </div>
-
-  <!--
-    <div class="from-until">
-      <span></span>
-    </div>
-  -->
-
-  <!--
-    <div class="form-group form-group-helptext date-end">
-      <label>End date</label>
-
-      <div aiotoggleitem
-           toggleitemlabel="{{'helptext' | translate}}"
-           class="aiotoggleitem">
-        {{'helptext activity end date' | translate}}
-      </div>
-
-      <input type="text"
-             size="10"
-             class="form-control"
-             ng-model="event.end"
-             data-min-date="{{event.start | minusOneDay}}"
-             data-autoclose="0"
-             placeholder="{{'Date' | translate}}"
-             bs-datepicker
-          >
-    </div>
-    <div class="form-group form-group-helptext time-end last">
-      <label>End time</label>
-
-      <div aiotoggleitem
-           toggleitemlabel="{{'helptext' | translate}}"
-           class="aiotoggleitem">
-        {{'helptext activity end time' | translate}}
-      </div>
-
-      <input type="text"
-             size="8"
-             class="form-control"
-             ng-model="event.end"
-             placeholder="{{'Time' | translate}}"
-             bs-timepicker
-             data-min-time="{{getMinTimeForEndTime()}}"
-          >
-    </div>
-  -->
 
   <div class="event-end-block">
     {{'this event ends on' | translate}}:
