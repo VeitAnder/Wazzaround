@@ -159,8 +159,23 @@ angular.module('anorakApp')
       var event = bookableItem.createEvents();
       event.start = new Date();
       event.end = moment(event.start).add('hours', 1).toDate();
-
       bookableItem.events[bookableItem.events.length - 1].mode = 'new';
+    };
+
+    $scope.startEventEdit = function (event) {
+      event.originalState = angular.copy(event);
+      event.mode = 'edit';
+    };
+
+    $scope.cancelEventEdit = function (event) {
+      // restore original values
+      _.assign(event, event.originalState);
+      // reset repeating event data
+      event.repeating = false;
+      event.dayOfWeek = null;
+      event.endrepeatDate = null;
+      // reset edit mode
+      event.mode = 'view';
     };
 
     $scope.removeEvent = function (item, event_idx) {
