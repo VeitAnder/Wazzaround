@@ -149,8 +149,10 @@
                          id="CreditCardNumber"
                          ng-model="payment.card.number"
                          type="text"
-                         size="20"
+                         size="16"
+                         pattern="[0-9]{16}"
                          name="CreditCardNumber"
+                         required
                       />
                 </div>
 
@@ -159,6 +161,9 @@
                   <input class="card-cvc"
                          id="cardcvc"
                          type="text"
+                         size="3"
+                         pattern="[0-9]{3}"
+                         required
                          ng-model="payment.card.cvc"
                          size="4"/>
                 </div>
@@ -169,6 +174,7 @@
                 <input class="card-holdername"
                        id="cardname"
                        type="text"
+                       required
                        ng-model="payment.card.name"
                        size="4"/>
               </div>
@@ -179,6 +185,8 @@
                   <input class="card-expiry-month"
                          id="expirymonth"
                          type="text"
+                         pattern="[0-9]{2}"
+                         required
                          ng-model="payment.card.expiry_month"
                          size="2"/>
                 </div>
@@ -187,6 +195,8 @@
                   <input class="card-expiry-year"
                          id="expiryyear"
                          type="text"
+                         pattern="[0-9]{4}"
+                         required
                          ng-model="payment.card.expiry_year"
                          size="4"/>
                 </div>
