@@ -8,18 +8,39 @@
     </div>
   </div>
 
-  <shoppingcart></shoppingcart>
+  <form
+      name="sidebarForm"
+      novalidate
+      >
+    
+    
 
-  <div class="buttonbar">
-    <a ng-href="/#/payment/"
-       class="btn btn-negative"
+    <shoppingcart></shoppingcart>
+
+    <div class="buttonbar"
+         ng-class="{disabled: sidebarForm.$invalid}"
         >
-      Checkout
-    </a>
-  </div>
+      <a ng-href="/#/payment/"
+         ng-show="sidebarForm.$valid"
+         class="btn btn-negative"
+          >
+        Checkout
+      </a>
 
-  <div ng-show="states.checkoutinprogress">
-    Checkout in Progress - please fill in your data @ Kalixa.
-  </div>
+      <a
+          ng-href="#"
+          class="btn btn-negative"
+         ng-show="sidebarForm.$invalid"
+          >
+        Checkout
+      </a>
+
+    </div>
+
+        <pre>
+     {{sidebarForm | json}}
+    </pre>
+
+  </form>
 
 </div>

@@ -20,7 +20,7 @@ angular.module('anorakApp')
     // used for ui states that need to be persisted along with shoppingcart data
     this.states = {};
 
-    this.reset = function() {
+    this.reset = function () {
       this.theShoppingCart = {};
       this.dictCounter = 0;
     };
@@ -52,6 +52,10 @@ angular.module('anorakApp')
       return this.theShoppingCart;
     };
 
+    this.getNumberOfItems = function () {
+      return this.dictCounter;
+    };
+
     this.getTotal = function () {
       return {
         num: Object.keys(this.theShoppingCart).length,
@@ -78,11 +82,11 @@ angular.module('anorakApp')
       return models.BookingModel.checkout({
         'bookings': params,
         'payment': {
-          'token' : paymentToken,
-          'amount_int' : Math.floor(this.getTotal().price * 100),
-          'currency' : 'EUR'
+          'token': paymentToken,
+          'amount_int': Math.floor(this.getTotal().price * 100),
+          'currency': 'EUR'
         },
-        'profile' : profile
+        'profile': profile
       });
     };
 

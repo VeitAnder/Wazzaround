@@ -27,6 +27,15 @@ angular.module('anorakApp')
           scope.shoppingcart = shoppingcart;
         }
 
+        scope.$watch("shoppingcart", function (newVal, oldVal) {
+          console.log("scope.shoppingcartForm", scope.shoppingcartForm.$setValidity);
+          if (shoppingcart.getNumberOfItems() < 1) {
+            scope.shoppingcartForm.$setValidity(false);
+          } else {
+            scope.shoppingcartForm.$setValidity(true);
+          }
+        }, true);
+
       }
     };
   });

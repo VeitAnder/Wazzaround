@@ -1,4 +1,6 @@
-<div>
+<ng-form
+    name="shoppingcartForm"
+    >
   <div class="shoppingcart-header">
     <h3
         ng-hide="state.confirmationview"
@@ -9,7 +11,10 @@
   </div>
   <div class="shoppingcart-content"
        ng-repeat="item in shoppingcart.getCart()">
-    <form novalidate>
+    <ng-form
+        name="shoppingcartItemForm"
+        novalidate
+        >
       <!--SHOPPINGCART ITEM #1-->
       <div class="shoppingcart-item"
            data-ng-class="{
@@ -76,41 +81,7 @@
         </div>
       </div>
 
-      <!--&lt;!&ndash;SHOPPINGCART ITEM #2&ndash;&gt;-->
-
-      <!--<div class="shoppingcart-item category-culture">-->
-      <!--<img src="https://cdn.zmescience.com/wp-content/uploads/2013/03/stonehenge2.jpg"/>-->
-      <!--<h4>-->
-      <!--<span class="icon"></span>-->
-      <!--<strong>Guided Tours</strong>-->
-      <!--/ 1-Day-Trip-->
-      <!--</h4>-->
-
-      <!--<div class="shoppingcart-item-details">-->
-      <!--<div class="shoppingcart-item-date">Wed, Mar 19th 14, 10:30 am</div>-->
-      <!--<div class="shoppingcart-item-qty">-->
-      <!--<input type="number"-->
-      <!--class="form-control input-mini"-->
-      <!--id="shoppingcartItemAmount2"-->
-      <!--name="shoppingcartItemAmount2"-->
-      <!--value="1"-->
-      <!--min="1"-->
-      <!--max="99"-->
-      <!--maxlength="2"-->
-      <!--required-->
-      <!--</div>-->
-      <!--<div class="shoppingcart-item-price">-->
-      <!--€ 250,–-->
-      <!--</div>-->
-      <!--</div>-->
-
-      <!--<div class="txt-icon-delete">-->
-      <!--<span class="hidden">Delete item</span>-->
-      <!--<span></span>-->
-      <!--</div>-->
-
-      <!--</div>-->
-    </form>
+    </ng-form>
   </div>
 
   <!--SHOPPINGCART ITEMS END-->
@@ -120,4 +91,4 @@
     <span class="value">€ {{shoppingcart.getTotal().price}}</span>
   </div>
 
-</div>
+</ng-form>

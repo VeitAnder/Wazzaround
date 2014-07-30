@@ -1,346 +1,441 @@
 <div data-ng-controller="PaymentCtrl as payment">
-
-  <div ng-show="payment.state === 'form'">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <h2>{{ 'Payment' | translate }}</h2>
-        </div>
-      </div>
-    </div>
-    <section class="payment-shoppingcart first">
-      <div class="container main-content">
+  <form
+      name="paymentForm"
+      novalidate
+      >
+    <div ng-show="payment.state === 'form'">
+      <div class="container">
         <div class="row">
           <div class="col-sm-12">
-
-            <h3 class="no-margin-top">Shopping cart</h3>
-
-            <shoppingcart></shoppingcart>
-
-            <!--          <div class="form-group form-group-btn align-right">
-                        <button
-                            class="btn"
-                            >
-                          Next step – User Details
-                        </button>
-                      </div>-->
-
+            <h2>{{ 'Payment' | translate }}</h2>
           </div>
         </div>
       </div>
-    </section>
-    <section class="payment-userdetails section-green">
-      <div class="container main-content">
-        <div class="row">
-          <div class="col-sm-12">
+      <section class="payment-shoppingcart first">
+        <div class="container main-content">
+          <div class="row">
+            <div class="col-sm-12">
 
-            <h3 class="no-margin-top">User details</h3>
+              <h3 class="no-margin-top">Shopping cart</h3>
 
-            <form class="standardform"
-                  name="valForm"
-                  novalidate
-                >
-              <div class="form-group-inline form-group-inline-5050">
+              <shoppingcart></shoppingcart>
+
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="payment-userdetails section-green">
+        <div class="container main-content">
+          <div class="row">
+            <div class="col-sm-12">
+
+              <h3 class="no-margin-top">User details</h3>
+
+              <ng-form class="standardform"
+                       name="customerForm"
+                       novalidate
+                  >
+                <div class="form-group-inline form-group-inline-5050">
+                  <div class="form-group">
+                    <label for="firstname">{{'First name' | translate}}</label>
+                    <input name="firstname"
+                           id="firstname"
+                           ng-model="payment.profile.firstName"
+                           class="input-block-level"
+                           placeholder="{{ 'Your first name' | translate }}"
+                           required
+                        >
+
+                    <ng-messages
+                        for="customerForm.firstname.$error"
+                        >
+                      <ng-message
+                          when="required"
+                          class="alert alert-error"
+                          >
+                        firstname required error
+                      </ng-message>
+                    </ng-messages>
+
+                  </div>
+
+                  <div class="form-group">
+                    <label for="lastname">{{'Last name' | translate}}</label>
+                    <input name="lastname"
+                           id="lastname"
+                           ng-model="payment.profile.lastName"
+                           class="input-block-level"
+                           placeholder="{{ 'Your last name' | translate }}"
+                           required
+                        >
+
+                    <ng-messages
+                        for="customerForm.lastname.$error"
+                        >
+                      <ng-message
+                          when="required"
+                          class="alert alert-error"
+                          >
+                        lastname required error
+                      </ng-message>
+                    </ng-messages>
+
+                  </div>
+                </div>
+
                 <div class="form-group">
-                  <label for="firstname">{{'First name' | translate}}</label>
-                  <input name="firstname"
-                         id="firstname"
-                         ng-model="payment.profile.firstName"
+                  <label for="email">{{'E-mail' | translate}}</label>
+                  <input name="email"
+                         id="email"
+                         ng-model="payment.profile.email"
                          class="input-block-level"
-                         placeholder="{{ 'Your first name' | translate }}"
+                         required
+                         autofocus
+                         ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
+                         placeholder="{{'Your e-mail address' | translate}}"
+                      >
+
+                  <ng-messages
+                      for="customerForm.email.$error"
+                      >
+                    <ng-message
+                        when="pattern"
+                        class="alert alert-error"
+                        >
+                      email not valid
+                    </ng-message>
+                    <ng-message
+                        when="required"
+                        class="alert alert-error"
+                        >
+                      email required error
+                    </ng-message>
+                  </ng-messages>
+
+                </div>
+
+                <div class="form-group">
+                  <label for="tel">{{'Telephone' | translate}}</label>
+                  <input name="tel"
+                         id="tel"
+                         ng-model="payment.profile.tel"
+                         class="input-block-level"
+                         placeholder="{{ 'Your telephone number' | translate }}"
                          required
                       >
 
                   <ng-messages
-                      for="valForm.firstname.$error"
+                      for="customerForm.tel.$error"
                       >
                     <ng-message
                         when="required"
                         class="alert alert-error"
                         >
-                      firstname required error
-                    </ng-message>
-                  </ng-messages>
-
-
-                </div>
-
-                <div class="form-group">
-                  <label for="lastname">{{'Last name' | translate}}</label>
-                  <input name="lastname"
-                         id="lastname"
-                         ng-model="payment.profile.lastName"
-                         class="input-block-level"
-                         placeholder="{{ 'Your last name' | translate }}"
-                         required
-                      >
-
-                  <ng-messages
-                      for="valForm.lastname.$error"
-                      >
-                    <ng-message
-                        when="required"
-                        class="alert alert-error"
-                        >
-                      lastname required error
+                      tel required error
                     </ng-message>
                   </ng-messages>
 
                 </div>
-              </div>
-
-              <div class="form-group">
-                <label for="email">{{'E-mail' | translate}}</label>
-                <input name="email"
-                       id="email"
-                       ng-model="payment.profile.email"
-                       class="input-block-level"
-                       required
-                       autofocus
-                       ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
-                       placeholder="{{'Your e-mail address' | translate}}"
-                    >
-
-                <ng-messages
-                    for="valForm.email.$error"
-                    >
-                  <ng-message
-                      when="pattern"
-                      class="alert alert-error"
+                <!--<div class="form-group form-group-btn align-right">
+                  <button
+                      class="btn"
                       >
-                    email not valid
-                  </ng-message>
-                  <ng-message
-                      when="required"
-                      class="alert alert-error"
-                      >
-                    email required error
-                  </ng-message>
-                </ng-messages>
+                    Next step – Payment options
+                  </button>
+                </div>-->
 
-              </div>
+              </ng-form>
 
-              <div class="form-group">
-                <label for="tel">{{'Telephone' | translate}}</label>
-                <input name="tel"
-                       id="tel"
-                       ng-model="payment.profile.tel"
-                       class="input-block-level"
-                       placeholder="{{ 'Your telephone number' | translate }}"
-                       required
-                    >
-
-                <ng-messages
-                    for="valForm.tel.$error"
-                    >
-                  <ng-message
-                      when="required"
-                      class="alert alert-error"
-                      >
-                    tel required error
-                  </ng-message>
-                </ng-messages>
-
-              </div>
-              <!--<div class="form-group form-group-btn align-right">
-                <button
-                    class="btn"
-                    >
-                  Next step – Payment options
-                </button>
-              </div>-->
-
-            </form>
-
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="payment-paymentoptions">
-      <div class="container main-content">
-        <div class="row">
-          <div class="col-sm-12">
+      <section class="payment-paymentoptions">
+        <div class="container main-content">
+          <div class="row">
+            <div class="col-sm-12">
 
-            <h3 class="no-margin-top">Payment options</h3>
+              <h3 class="no-margin-top">Payment options</h3>
 
-            <form class="standardform"
+              <ng-form
+                  name="cardForm"
+                  class="standardform"
                   id="payment-form"
-                >
+                  >
 
-              <!--<input class="card-amount-int" type="hidden" value="15" />-->
-              <!--<input class="card-currency" type="hidden" value="EUR" />-->
+                <!--<input class="card-amount-int" type="hidden" value="15" />-->
+                <!--<input class="card-currency" type="hidden" value="EUR" />-->
 
-              <div class="input-label">Available Creditcards:</div>
-              <img src="/img/paymill/32x20_visa.png"/>
-              <img src="/img/paymill/32x20_mastercard.png"/>
-              <img src="/img/paymill/32x20_dinersclub.png"/>
-              <img src="/img/paymill/32x20_amex.png"/>
+                <div class="input-label">Available Creditcards:</div>
+                <img src="/img/paymill/32x20_visa.png"/>
+                <img src="/img/paymill/32x20_mastercard.png"/>
+                <img src="/img/paymill/32x20_dinersclub.png"/>
+                <img src="/img/paymill/32x20_amex.png"/>
 
-              <div class="form-group-inline form-group-inline-7525">
-                <div class="form-group">
+                <div class="form-group-inline form-group-inline-7525">
+                  <div class="form-group">
 
-                  <label for="CreditCardNumber">Card number</label>
-                  <input class="card-number"
-                         id="CreditCardNumber"
-                         ng-model="payment.card.number"
-                         type="text"
-                         size="16"
-                         pattern="[0-9]{16}"
-                         name="CreditCardNumber"
-                         required
+                    <label for="CreditCardNumber">Card number</label>
+                    <input
+                        class="card-number"
+                        id="CreditCardNumber"
+                        ng-model="payment.card.number"
+                        type="text"
+                        pattern="^[0-9]{16}$"
+                        name="CreditCardNumber"
+                        required
+                        />
+
+                    <ng-messages
+                        for="cardForm.CreditCardNumber.$error"
+                        >
+                      <ng-message
+                          when="pattern"
+                          class="alert alert-error"
+                          >
+                        pattern not valid
+                      </ng-message>
+                      <ng-message
+                          when="required"
+                          class="alert alert-error"
+                          >
+                        required error
+                      </ng-message>
+                    </ng-messages>
+
+                  </div>
+
+                  <div class="form-group">
+                    <label for="cardcvc">CVC</label>
+                    <input
+                        class="card-cvc"
+                        id="cardcvc"
+                        type="text"
+                        pattern="^[0-9]{3}$"
+                        required
+                        ng-model="payment.card.cvc"
+                        name="cardcvc"
+                        />
+
+                    <ng-messages
+                        for="cardForm.cardcvc.$error"
+                        >
+                      <ng-message
+                          when="pattern"
+                          class="alert alert-error"
+                          >
+                        pattern not valid
+                      </ng-message>
+                      <ng-message
+                          when="required"
+                          class="alert alert-error"
+                          >
+                        required error
+                      </ng-message>
+                    </ng-messages>
+
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <label for="cardname">Holdername (Name auf der Kreditkarte)</label>
+                  <input
+                      class="card-holdername"
+                      id="cardname"
+                      name="cardname"
+                      type="text"
+                      ng-model="payment.card.name"
+                      required
                       />
+
+                  <ng-messages
+                      for="cardForm.cardname.$error"
+                      >
+                    <ng-message
+                        when="pattern"
+                        class="alert alert-error"
+                        >
+                      pattern not valid
+                    </ng-message>
+                    <ng-message
+                        when="required"
+                        class="alert alert-error"
+                        >
+                      required error
+                    </ng-message>
+                  </ng-messages>
+
                 </div>
 
-                <div class="form-group">
-                  <label for="cardcvc">CVC</label>
-                  <input class="card-cvc"
-                         id="cardcvc"
-                         type="text"
-                         size="3"
-                         pattern="[0-9]{3}"
-                         required
-                         ng-model="payment.card.cvc"
-                         size="4"/>
+                <div class="form-group-inline form-group-inline-2525">
+                  <div class="form-group">
+                    <label for="expirymonth">Expiry date (MM)</label>
+                    <input
+                        class="card-expiry-month"
+                        id="expirymonth"
+                        name="expirymonth"
+                        type="text"
+                        pattern="^[0-9]{2}$"
+                        required
+                        ng-model="payment.card.expiry_month"
+                        />
+
+                    <ng-messages
+                        for="cardForm.expirymonth.$error"
+                        >
+                      <ng-message
+                          when="pattern"
+                          class="alert alert-error"
+                          >
+                        pattern not valid
+                      </ng-message>
+                      <ng-message
+                          when="required"
+                          class="alert alert-error"
+                          >
+                        required error
+                      </ng-message>
+                    </ng-messages>
+
+                  </div>
+                  <div class="form-group">
+                    <label for="expiryyear">Expiry date (YYYY)</label>
+                    <input
+                        class="card-expiry-year"
+                        id="expiryyear"
+                        name="expiryyear"
+                        type="text"
+                        pattern="^[0-9]{4}$"
+                        required
+                        ng-model="payment.card.expiry_year"
+                        />
+
+                    <ng-messages
+                        for="cardForm.expiryyear.$error"
+                        >
+                      <ng-message
+                          when="pattern"
+                          class="alert alert-error"
+                          >
+                        pattern not valid
+                      </ng-message>
+                      <ng-message
+                          when="required"
+                          class="alert alert-error"
+                          >
+                        required error
+                      </ng-message>
+                    </ng-messages>
+
+                  </div>
                 </div>
-              </div>
 
-              <div class="form-row">
-                <label for="cardname">Holdername (Name auf der Kreditkarte)</label>
-                <input class="card-holdername"
-                       id="cardname"
-                       type="text"
-                       required
-                       ng-model="payment.card.name"
-                       size="4"/>
-              </div>
-
-              <div class="form-group-inline form-group-inline-2525">
-                <div class="form-group">
-                  <label for="expirymonth">Expiry date (MM)</label>
-                  <input class="card-expiry-month"
-                         id="expirymonth"
-                         type="text"
-                         pattern="[0-9]{2}"
-                         required
-                         ng-model="payment.card.expiry_month"
-                         size="2"/>
+                <div class="form-group form-group-btn align-right">
+                  <button
+                      class="btn btn-large"
+                      ng-class="{disabled : paymentForm.$invalid}"
+                      ng-click="payment.submitPayment()"
+                      >
+                    <img src="/img/loading/loading-bubbles.svg"
+                         ng-hide="payment.submitEnabled">
+                    &NonBreakingSpace;
+                    Send Booking
+                  </button>
                 </div>
-                <div class="form-group">
-                  <label for="expiryyear">Expiry date (YYYY)</label>
-                  <input class="card-expiry-year"
-                         id="expiryyear"
-                         type="text"
-                         pattern="[0-9]{4}"
-                         required
-                         ng-model="payment.card.expiry_year"
-                         size="4"/>
-                </div>
-              </div>
 
-              <div class="form-group form-group-btn align-right">
-                <button
-                    class="btn btn-large"
-                    ng-class="{disabled : !payment.submitEnabled}"
-                    ng-click="payment.submitPayment()"
-                    >
-                  <img src="/img/loading/loading-bubbles.svg"
-                       ng-hide="payment.submitEnabled">
-                  &NonBreakingSpace;
-                  Send Booking
-                </button>
-              </div>
+              </ng-form>
 
-            </form>
+              <div class="payment-errors">{{payment.errorMsg}}</div>
 
-            <div class="payment-errors">{{payment.errorMsg}}</div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </div>
-
-  <paymentconfirmation ng-show="payment.state === 'confirmation'">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <h2 class="no-margin-bottom">{{ 'Payment Confirmation' | translate }}</h2>
-
-          <h4 class="no-margin-top">{{ 'Order ID' | translate }}: {{payment.readableBookingId}}</h4>
-        </div>
-      </div>
-    </div>
-    <div class="container main-content">
-      <div class="row">
-        <div class="col-sm-12">
-
-          <h5 class="no-margin-top">Shopping cart</h5>
-
-          <shoppingcart confirmationview="true"
-                        cart="payment.cartCopy"></shoppingcart>
-
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-
-          <h5>User details</h5>
-
-          <div class="formdata-display">
-            <div class="input-label">
-              {{'Name' | translate}}
-            </div>
-            <div class="input-content">
-              {{payment.profile.firstName}} {{payment.profile.lastName}}
             </div>
           </div>
-
-          <div class="formdata-display">
-            <div class="input-label">
-              {{'E-mail' | translate}}
-            </div>
-            <div class="input-content">
-              {{payment.profile.email}}
-            </div>
-          </div>
-
-          <div class="formdata-display">
-
-            <div class="input-label">
-              {{'Telephone' | translate}}
-            </div>
-            <div class="input-content">
-              {{payment.profile.tel}}
-            </div>
-          </div>
-
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-
-          <h5>Payment options</h5>
-
-          <div class="formdata-display">
-            <div class="input-label">
-              {{'Credit card' | translate}}
-            </div>
-            <div class="input-content">
-              <img src="/img/paymill/32x20_visa.png"/>
-              **********{{payment.card.number.substr(-4)}}
-            </div>
-          </div>
-
-        </div>
-      </div>
+      </section>
 
     </div>
 
-  </paymentconfirmation>
+    <paymentconfirmation ng-show="payment.state === 'confirmation'">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h2 class="no-margin-bottom">{{ 'Payment Confirmation' | translate }}</h2>
+
+            <h4 class="no-margin-top">{{ 'Order ID' | translate }}: {{payment.readableBookingId}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="container main-content">
+        <div class="row">
+          <div class="col-sm-12">
+
+            <h5 class="no-margin-top">Shopping cart</h5>
+
+            <shoppingcart confirmationview="true"
+                          cart="payment.cartCopy"></shoppingcart>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+
+            <h5>User details</h5>
+
+            <div class="formdata-display">
+              <div class="input-label">
+                {{'Name' | translate}}
+              </div>
+              <div class="input-content">
+                {{payment.profile.firstName}} {{payment.profile.lastName}}
+              </div>
+            </div>
+
+            <div class="formdata-display">
+              <div class="input-label">
+                {{'E-mail' | translate}}
+              </div>
+              <div class="input-content">
+                {{payment.profile.email}}
+              </div>
+            </div>
+
+            <div class="formdata-display">
+
+              <div class="input-label">
+                {{'Telephone' | translate}}
+              </div>
+              <div class="input-content">
+                {{payment.profile.tel}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+
+            <h5>Payment options</h5>
+
+            <div class="formdata-display">
+              <div class="input-label">
+                {{'Credit card' | translate}}
+              </div>
+              <div class="input-content">
+                <img src="/img/paymill/32x20_visa.png"/>
+                **********{{payment.card.number.substr(-4)}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </paymentconfirmation>
+
+  </form>
 
 </div>
