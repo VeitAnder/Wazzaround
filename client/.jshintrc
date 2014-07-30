@@ -101,6 +101,7 @@
     "Dropzone": true,
     "$": true,
     "Q": true,
-    "CryptoJS": true
+    "CryptoJS": true,
+    "assert": true
   }
 }

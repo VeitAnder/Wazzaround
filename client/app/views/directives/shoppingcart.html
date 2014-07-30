@@ -43,7 +43,6 @@
             {{ item.start | momentjs:{format: "ddd, MMM Do YYYY"} }}
           </div>
           <div class="shoppingcart-item-qty">
-
             <input type="number"
                    ng-hide="state.confirmationview"
                    class="form-control input-mini"
@@ -51,8 +50,11 @@
                    name="shoppingcartItemAmount1"
                    ng-model="item.quantity"
                    min="1"
+                   max="{{item.availableQuantity}}"
                    required
+                   defaultvalue="1"
                 >
+
             <span
                 ng-show="state.confirmationview"
                 >

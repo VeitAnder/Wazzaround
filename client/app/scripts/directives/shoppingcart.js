@@ -6,7 +6,7 @@ angular.module('anorakApp')
       templateUrl: 'views/directives/shoppingcart.html',
       restrict: 'E',
       scope: {
-        cart : '='
+        cart: '='
       },
       link: function postLink(scope, element, attrs) {
         scope.state = {
@@ -26,6 +26,7 @@ angular.module('anorakApp')
           console.log('shoppingcart;', shoppingcart);
           scope.shoppingcart = shoppingcart;
         }
+
       }
     };
   });
