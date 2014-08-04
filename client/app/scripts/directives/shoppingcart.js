@@ -20,10 +20,8 @@ angular.module('anorakApp')
         }
 
         if ($attrs.cart !== undefined) {
-          console.log('scope.cart;', $scope.cart);
           $scope.shoppingcart = $scope.cart;
         } else {
-          console.log('shoppingcart;', shoppingcart);
           $scope.shoppingcart = shoppingcart;
         }
 

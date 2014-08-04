@@ -9,51 +9,62 @@
 //};
 
 angular.module('anorakApp')
-  .service('shoppingcart', function shoppingcart(models, $localStorage) {
+  .factory('shoppingcart', function shoppingcart(models, $localStorage) {
+
     // AngularJS will instantiate a singleton by calling "new" on this function
 
-    var $storage = $localStorage.$default({
-      theShoppingCart: {},
-      dictCounter: 0
-    });
-
-    // used for ui states that need to be persisted along with shoppingcart data
-    this.states = {};
-
-    this.reset = function () {
-      $storage.theShoppingCart = {};
-      $storage.dictCounter = 0;
+    var shoppingCart = function (storage) {
+      this.storage = storage;
+      this.states = {};
     };
 
-    this.add = function (item) {
+    shoppingCart.prototype.add = function (item) {
       assert(item.price !== undefined, "provide a price for the item");
 
-      if ($storage.theShoppingCart[item.eventId]) {
-        $storage.theShoppingCart[item.eventId].quantity += 1;
+      if (this.storage.theShoppingCart[item.eventId]) {
+        this.storage.theShoppingCart[item.eventId].quantity += 1;
         return;
       }
 
-      $storage.theShoppingCart[item.eventId] = item;
-      $storage.dictCounter += 1;
+      this.storage.theShoppingCart[item.eventId] = item;
+      this.storage.dictCounter += 1;
     };
 
-    this.remove = function (item) {
-      delete $storage.theShoppingCart[item.eventId];
-      $storage.dictCounter -= 1;
+    shoppingCart.prototype.reset = function () {
+      this.storage.theShoppingCart = {};
+      this.storage.dictCounter = 0;
     };
 
-    this.getCart = function () {
-      return $storage.theShoppingCart;
+    shoppingCart.prototype.add = function (item) {
+      assert(item.price !== undefined, "provide a price for the item");
+
+      if (this.storage.theShoppingCart[item.eventId]) {
+        this.storage.theShoppingCart[item.eventId].quantity += 1;
+        return;
+      }
+
+      this.storage.theShoppingCart[item.eventId] = item;
+      this.storage.dictCounter += 1;
     };
 
-    this.getNumberOfItems = function () {
-      return $storage.dictCounter;
+    shoppingCart.prototype.remove = function (item) {
+      delete this.storage.theShoppingCart[item.eventId];
+      this.storage.dictCounter -= 1;
     };
 
-    this.getTotal = function () {
+    shoppingCart.prototype.getCart = function () {
+      return this.storage.theShoppingCart;
+    };
+
+    shoppingCart.prototype.getNumberOfItems = function () {
+      return this.storage.dictCounter;
+    };
+
+    shoppingCart.prototype.getTotal = function () {
+      console.log(this.storage);
       return {
-        num: Object.keys($storage.theShoppingCart).length,
-        price: _.reduce($storage.theShoppingCart, function (res, value, key) {
+        num: Object.keys(this.storage.theShoppingCart).length,
+        price: _.reduce(this.storage.theShoppingCart, function (res, value, key) {
           assert(value.price !== undefined, "price missing for item in the shoppingcart");
           assert(value.quantity, "quantity missing for item in the shoppingcart");
 
@@ -62,14 +73,14 @@ angular.module('anorakApp')
       };
     };
 
-    this.checkout = function (paymentToken, profile) {
+    shoppingCart.prototype.checkout = function (paymentToken, profile) {
       var params = [];
-      for (var i in $storage.theShoppingCart) {
+      for (var i in this.storage.theShoppingCart) {
         params.push({
-          activity: $storage.theShoppingCart[i].activityId,
-          item: $storage.theShoppingCart[i].bookableItemId,
-          event: $storage.theShoppingCart[i].eventId,
-          quantity: $storage.theShoppingCart[i].quantity
+          activity: this.storage.theShoppingCart[i].activityId,
+          item: this.storage.theShoppingCart[i].bookableItemId,
+          event: this.storage.theShoppingCart[i].eventId,
+          quantity: this.storage.theShoppingCart[i].quantity
         });
       }
 
@@ -83,5 +94,20 @@ angular.module('anorakApp')
         'profile': profile
       });
     };
+
+    shoppingCart.prototype.getCopy = function () {
+      var copy = new shoppingCart({
+        theShoppingCart: angular.copy(this.storage.theShoppingCart),
+        dictCounter: this.storage.dictCounter
+      });
+
+      return copy;
+    };
+
+    return new shoppingCart($localStorage.$default({
+        theShoppingCart: {},
+        dictCounter: 0
+      })
+    );
 
   });

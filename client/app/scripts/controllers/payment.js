@@ -42,23 +42,20 @@ angular.module('anorakApp')
         console.log("token", token);
 
         shoppingcart.checkout(token, payment.profile)
-          .then(function(res) {
+          .then(function (res) {
             console.log("checkout response", res);
 
             payment.bookingId = res.bookingId;
             payment.readableBookingId = res.bookingId.match(/.{1,4}/g).join("-");
 
-            payment.state = 'confirmation';
-
-            angular.copy(shoppingcart, payment.cartCopy);
+            payment.cartCopy = shoppingcart.getCopy();
 
             shoppingcart.reset();
 
-            console.log(payment.cartCopy);
-
+            payment.state = 'confirmation';
             $scope.$apply();
           })
-          .fail(function(err){
+          .fail(function (err) {
             payment.errorMsg = err.message;
             $scope.$apply();
           });
@@ -70,11 +67,11 @@ angular.module('anorakApp')
     this.amount_int = Math.floor(shoppingcart.getTotal().price * 100);
 
     this.submitPayment = function (event) {
-      console.log("submitPayment", payment.card, payment.profile, shoppingcart.getTotal());
-
-      if (payment.submitEnabled === false ) return;
-
+      if (!this.isPaymentFormValid()) return;
+      if (payment.submitEnabled === false) return;
       payment.submitEnabled = false;
+
+      console.log("submitPayment", payment.card, payment.profile, shoppingcart.getTotal());
 
       paymill.createToken({
         number: payment.card.number,            // required, ohne Leerzeichen und Bindestriche
@@ -88,4 +85,9 @@ angular.module('anorakApp')
 
       return false;
     };
+
+    this.isPaymentFormValid = function () {
+      return $scope.paymentForm.$valid && shoppingcart.getNumberOfItems() > 0
+    };
+
   });
