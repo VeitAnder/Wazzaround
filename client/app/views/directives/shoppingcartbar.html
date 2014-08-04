@@ -1,6 +1,6 @@
 <div class="shoppingcart-element">
   <div class="shoppingcart-toggle"
-       ng-click="toggleShoppingCart()"
+       ng-click="toggleShoppingCartBar()"
       >
     <div class="innerwrap">
       <span class="numberofitems">{{shoppingcart.getTotal().num}}</span>
@@ -8,39 +8,23 @@
     </div>
   </div>
 
-  <form
-      name="sidebarForm"
-      novalidate
+  <shoppingcart></shoppingcart>
+
+  <div class="buttonbar"
       >
-    
-    
-
-    <shoppingcart></shoppingcart>
-
-    <div class="buttonbar"
-         ng-class="{disabled: sidebarForm.$invalid}"
+    <a class="btn btn-negative disabled"
+       ng-hide="shoppingcart.getNumberOfItems() > 0"
         >
-      <a ng-href="/#/payment/"
-         ng-show="sidebarForm.$valid"
-         class="btn btn-negative"
-          >
-        Checkout
-      </a>
+      Checkout
+    </a>
 
-      <a
-          ng-href="#"
-          class="btn btn-negative"
-         ng-show="sidebarForm.$invalid"
-          >
-        Checkout
-      </a>
+    <a ng-click="gotoPaymentPage()"
+       class="btn btn-negative"
+       ng-show="shoppingcart.getNumberOfItems() > 0"
+        >
+      Checkout
+    </a>
 
-    </div>
-
-        <pre>
-     {{sidebarForm | json}}
-    </pre>
-
-  </form>
+  </div>
 
 </div>

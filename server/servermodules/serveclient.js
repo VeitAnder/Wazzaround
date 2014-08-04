@@ -38,7 +38,7 @@ var setupStaticAssetsServer = function (app, maxAge, extconfig) {
 
   // error handling for not available static assets eg. /img/notavailable.png
   handle404 = function (req, res) {
-    res.send(404); // If we get here then the request for a static file is invalid
+    res.status(404).end(); // If we get here then the request for a static file is invalid
   };
 
   app.use("/bower_components", function (req, res) {

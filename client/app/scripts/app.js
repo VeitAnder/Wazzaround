@@ -42,7 +42,7 @@ angular.module('anorakApp', [
   'directives.customvalidation',
   'ui.keypress',
   'pascalprecht.translate',
-  'LocalStorageModule'
+  'ngStorage'
 ]);
 
 angular.module('anorakApp').constant('I18NMESSAGES', {

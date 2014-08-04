@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('shoppingcartbar', function (shoppingcart) {
+  .directive('shoppingcartbar', function (shoppingcart, $location, $timeout) {
     return {
       templateUrl: 'views/directives/shoppingcartbar.html',
       restrict: 'E',
@@ -18,9 +18,21 @@ angular.module('anorakApp')
 
         scope.shoppingcart = shoppingcart;
 
-        scope.toggleShoppingCart = function () {
+        scope.toggleShoppingCartBar = function () {
           shoppingcart.states.open = !shoppingcart.states.open;
           setToggleClass();
+        };
+
+        scope.closeShoppingCartBar = function () {
+          shoppingcart.states.open = false;
+          setToggleClass();
+        };
+
+        scope.gotoPaymentPage = function () {
+          scope.closeShoppingCartBar();
+          $timeout(function () {
+            $location.path("/payment");
+          }, 250);
         };
 
       }
