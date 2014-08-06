@@ -11,8 +11,10 @@
 
  */
 
+///// dump from mongolab
+// mongodump -h ds027419.mongolab.com:27419 -d reactureappdev -u reactureappdev -p pGjRLG72qvXBGo -o .
+// mongorestore -d reactureappdev reactureappdev/
 
-// changed mongo because of heartbleed, login with: reactureapp / 3wHsQJyPjM9MEB
 
 var config = {
   host: "http://localhost:3000/",

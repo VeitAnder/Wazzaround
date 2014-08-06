@@ -91,6 +91,9 @@ ActivityModel.afterReadFilter(function (obj) {
 //};
 
 var translateString = function (text, sourcelang, targetlang) {
+  // btw: einfacher!
+  //return Q.nfcall(googleTranslate.translate, text, sourcelang, targetlang);
+
   var deferred = Q.defer();
   googleTranslate.translate(text, sourcelang, targetlang, function (err, translation) {
     if (err) {

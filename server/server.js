@@ -46,8 +46,11 @@ if (process.env.NODE_ENV === "production") {
 
 // init mongodb database connection
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://' + config.mongo.username + ':' + config.mongo.password + '@' + config.mongo.host + ':' + config.mongo.port + '/' + config.mongo.dbName);
-
+if (config.mongo.local) {
+  var db = mongojs('mongodb://127.0.0.1:27017/' + config.mongo.dbName);
+} else {
+  var db = mongojs('mongodb://' + config.mongo.username + ':' + config.mongo.password + '@' + config.mongo.host + ':' + config.mongo.port + '/' + config.mongo.dbName);
+}
 app.use(cookieParser());
 app.use(cookieParser(config.server.cookieSecret));            // Hash cookies with this secret
 app.use(cookieSession({
