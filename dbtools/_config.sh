@@ -9,8 +9,6 @@ SECRETCONFIGFILE_PRODUCTION=
 
 MONGOLAB_COLLECTIONS=(accesstokens activities bookedEvents bookings categories objectlabs-system objectlabs-system.admin.collections users)
 
-BACKUPDATEID=`date +%Y-%m-%d-%H-%M-%s`
-
 # check if planfred truecrypt folder is accessible
 #if [ ! -f ${SECRETCONFIGFILE_PRODUCTION} ] || [ ! -f ${SECRETCONFIGFILE_DEV} ]
 #then
