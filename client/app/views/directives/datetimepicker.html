@@ -64,25 +64,29 @@
             for="datetimepickerForm.durationdays.$error"
             multiple
             >
+<!--
           <ng-message when="min"
                       class="alert alert-error"
               >
-            days min error
+            Numbers only
           </ng-message>
+-->
           <ng-message when="max"
                       class="alert alert-error"
               >
-            days max error
+            {{'error message event duration_days' | translate}}
           </ng-message>
+<!--
           <ng-message when="number"
                       class="alert alert-error"
               >
-            days got to be a number error
+            Numbers only
           </ng-message>
+-->
           <ng-message when="required"
                       class="alert alert-error"
               >
-            days required error
+            {{'error message event duration_days' | translate}}
           </ng-message>
         </ng-messages>
 
@@ -107,25 +111,29 @@
             for="datetimepickerForm.durationhours.$error"
             multiple
             >
+<!--
           <ng-message when="min"
                       class="alert alert-error"
               >
             hours min error
           </ng-message>
+-->
           <ng-message when="max"
                       class="alert alert-error"
               >
-            hours max error
+            {{'error message event duration_hours' | translate}}
           </ng-message>
+<!--
           <ng-message when="number"
                       class="alert alert-error"
               >
             hours got to be a number error
           </ng-message>
+-->
           <ng-message when="required"
                       class="alert alert-error"
               >
-            hours required error
+            {{'error message event duration_hours' | translate}}
           </ng-message>
         </ng-messages>
 
@@ -141,7 +149,7 @@
                ng-model="event.durationminutes"
                step="15"
                min="0"
-               max="45"
+               max="59"
                value="0"
                placeholder="{{'minutes' | translate}}"
                required
@@ -151,25 +159,28 @@
             for="datetimepickerForm.durationminutes.$error"
             multiple
             >
+<!--
           <ng-message when="min"
                       class="alert alert-error"
               >
-            minutes min error
+            {{'error message event duration_minutes' | translate}}
           </ng-message>
+-->
           <ng-message when="max"
                       class="alert alert-error"
               >
-            minutes max error
+            {{'error message event duration_minutes' | translate}}
           </ng-message>
-          <ng-message when="number"
+<!--         <ng-message when="number"
                       class="alert alert-error"
               >
             minutes got to be a number error
           </ng-message>
+-->
           <ng-message when="required"
                       class="alert alert-error"
               >
-            minutes required error
+            {{'error message event duration_minutes' | translate}}
           </ng-message>
         </ng-messages>
 

@@ -332,5 +332,9 @@
   "minutes": "Minutes",
   "this event ends on": "l'événement termine le",
   "recurring event until": "l'événement se répète jusqu'au",
-  "events on these weekdays": "Evénements de la semaine"
+  "events on these weekdays": "Evénements de la semaine",
+  "error message event duration_days": "Enter a number (max. 365)",
+  "error message event duration_hours": "Enter a number (max. 23)",
+  "error message event duration_minutes": "Enter a number (max. 59)",
+  "error message event number": "Please enter a number"
 }

@@ -2710,5 +2710,37 @@
     "de": "Termine an diesen Wochentagen",
     "it": "Eventi della settimana",
     "fr": "Evénements de la semaine"
+  },
+  {
+    "Description": "",
+    "key": "error message event duration_days",
+    "en": "Enter a number (max. 365)",
+    "de": "Nummer eingeben (max. 365)",
+    "it": "Enter a number (max. 365)",
+    "fr": "Enter a number (max. 365)"
+  },
+  {
+    "Description": "",
+    "key": "error message event duration_hours",
+    "en": "Enter a number (max. 23)",
+    "de": "Nummer eingeben (max. 23)",
+    "it": "Enter a number (max. 23)",
+    "fr": "Enter a number (max. 23)"
+  },
+  {
+    "Description": "",
+    "key": "error message event duration_minutes",
+    "en": "Enter a number (max. 59)",
+    "de": "Nummer eingeben (max. 59)",
+    "it": "Enter a number (max. 59)",
+    "fr": "Enter a number (max. 59)"
+  },
+  {
+    "Description": "",
+    "key": "error message event number",
+    "en": "Please enter a number",
+    "de": "Bitte geben Sie eine Nummer ein",
+    "it": "Please enter a number",
+    "fr": "Please enter a number"
   }
 ]
