@@ -219,6 +219,13 @@ var models = function () {
 
     date: Attr(Type.date, Attr.default(new Date())),  // wann wurde das event gebucht
 
+    bookingProfile : {
+      firstName: Attr(Type.string),
+      lastName: Attr(Type.string),
+      email: Attr(Type.string),
+      tel: Attr(Type.string)
+    },
+
     bookedQuantity: Operation({    // wie oft wurde das Event gebucht
       event: Attr(Type.objectid)
     })  // returns { quantity : X }

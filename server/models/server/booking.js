@@ -146,8 +146,16 @@ BookingModel.operationImpl("checkout", function (params, req) {
 
               var bookedEvent = models.BookedEventModel.create();
               bookedEvent.booking.setObject(booking);
+
+              bookedEvent.bookingProfile.firstName = booking.profile.firstName;
+              bookedEvent.bookingProfile.lastName = booking.profile.lastName;
+              bookedEvent.bookingProfile.email = booking.profile.email;
+              bookedEvent.bookingProfile.tel = booking.profile.tel;
+
+
               bookedEvent.activity.setObject(activity);
               bookedEvent.activity_owner = activity.owner;
+
               bookedEvent.item._link = ObjectId(bookingEvent.item);
               bookedEvent.event._link = ObjectId(bookingEvent.event);
 

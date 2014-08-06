@@ -10,6 +10,8 @@ angular.module('anorakApp')
     _.forEach(bookedEvents, function(bookedEvent) {
       bookedEvent.item = bookedEvent.getChild(bookedEvent.item._link);
       bookedEvent.event = bookedEvent.getChild(bookedEvent.event._link);
+      var booking_id = bookedEvent.booking._reference;
+      bookedEvent.booking_id = booking_id.substring(booking_id.length-4);
     });
 
     $scope.bookedEvents = bookedEvents;
