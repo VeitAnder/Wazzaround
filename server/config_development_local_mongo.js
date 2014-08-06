@@ -19,7 +19,8 @@ var config = {
   clienthost: "http://localhost:9000/",
   mongo: {
     local : true,
-    dbName: 'reactureappdev'                                // The name of database that contains the security information
+    dbName: 'reactureappdev',                                // The name of database that contains the security information
+    host: 'localhost'                                // The name of database that contains the security information
   },
   security: {
     usersCollection: 'users',                                   // The name of the collection contains user information
