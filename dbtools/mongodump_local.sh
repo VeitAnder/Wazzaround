@@ -6,7 +6,7 @@ CONFIGJSONFILE=$SECRETCONFIGFILE_LOCAL
 MONGODB_HOST=`node -e "console.log( require('$CONFIGJSONFILE').mongo.host )"`
 MONGODB_DATABASENAME=`node -e "console.log( require('$CONFIGJSONFILE').mongo.dbName )"`
 
-BACKUPDIR=$BACKUPLOCATION/local/$BACKUPDATEID
+BACKUPDIR=$BACKUPLOCATION/local
 
 # MongoDB Backup
 # dump json

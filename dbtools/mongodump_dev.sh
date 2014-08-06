@@ -8,7 +8,7 @@ MONGODB_DATABASENAME=`node -e "console.log( require('$CONFIGJSONFILE').mongo.dbN
 MONGODB_USERNAME=`node -e "console.log( require('$CONFIGJSONFILE').mongo.username )"`
 MONGODB_PASSWORD=`node -e "console.log( require('$CONFIGJSONFILE').mongo.password )"`
 
-BACKUPDIR=$BACKUPLOCATION/dev/$BACKUPDATEID
+BACKUPDIR=$BACKUPLOCATION/dev
 
 # MongoDB Backup
 # dump json
