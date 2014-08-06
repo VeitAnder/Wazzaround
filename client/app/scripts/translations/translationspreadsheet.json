@@ -2713,27 +2713,35 @@
   },
   {
     "Description": "",
-    "key": "error message event duration_days",
-    "en": "Enter a number (max. 365)",
-    "de": "Nummer eingeben (max. 365)",
-    "it": "Enter a number (max. 365)",
-    "fr": "Enter a number (max. 365)"
+    "key": "error message event duration days",
+    "en": "Enter a number (max.365)",
+    "de": "Nummer eingeben (max.365)",
+    "it": "Enter a number (max.365)",
+    "fr": "Enter a number (max.365)"
   },
   {
     "Description": "",
-    "key": "error message event duration_hours",
-    "en": "Enter a number (max. 23)",
-    "de": "Nummer eingeben (max. 23)",
-    "it": "Enter a number (max. 23)",
-    "fr": "Enter a number (max. 23)"
+    "key": "error message event duration hours",
+    "en": "Enter a number (max.23)",
+    "de": "Nummer eingeben (max.23)",
+    "it": "Enter a number (max.23)",
+    "fr": "Enter a number (max.23)"
   },
   {
     "Description": "",
-    "key": "error message event duration_minutes",
-    "en": "Enter a number (max. 59)",
-    "de": "Nummer eingeben (max. 59)",
-    "it": "Enter a number (max. 59)",
-    "fr": "Enter a number (max. 59)"
+    "key": "error message event duration minutes",
+    "en": "Enter a number (max.59)",
+    "de": "Nummer eingeben (max.59)",
+    "it": "Enter a number (max.59)",
+    "fr": "Enter a number (max.59)"
+  },
+  {
+    "Description": "",
+    "key": "error message negative number",
+    "en": "Enter a number (min.0)",
+    "de": "Nummer eingeben (min.0)",
+    "it": "Enter a number (min.0)",
+    "fr": "Enter a number (min.0)"
   },
   {
     "Description": "",

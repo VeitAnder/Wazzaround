@@ -333,8 +333,9 @@
   "this event ends on": "L´evento termina il",
   "recurring event until": "L´evento si ripete fino il",
   "events on these weekdays": "Eventi della settimana",
-  "error message event duration_days": "Enter a number (max. 365)",
-  "error message event duration_hours": "Enter a number (max. 23)",
-  "error message event duration_minutes": "Enter a number (max. 59)",
+  "error message event duration days": "Enter a number (max.365)",
+  "error message event duration hours": "Enter a number (max.23)",
+  "error message event duration minutes": "Enter a number (max.59)",
+  "error message negative number": "Enter a number (min.0)",
   "error message event number": "Please enter a number"
 }
