@@ -1,6 +1,0 @@
-{ "token" : "x2fpktivi3a7mtd2parju485hari0ebz", "expires" : { "$date" : 1395774840123 }, "user" : { "_reference" : { "$oid" : "533083e8ab49b40000000001" } }, "_id" : { "$oid" : "533083f8ab49b40000000002" } }
-{ "token" : "1kmz8xp6oh7rov0rsxwhiz3pzcaiyr55", "expires" : { "$date" : 1395775451380 }, "user" : { "_reference" : { "$oid" : "533083e8ab49b40000000001" } }, "_id" : { "$oid" : "5330865b5a7cce0000000001" } }
-{ "token" : "o4zspkz0wzzaccd8sjhkuld972zjua6v", "expires" : { "$date" : 1395775896402 }, "user" : { "_reference" : { "$oid" : "533083e8ab49b40000000001" } }, "_id" : { "$oid" : "5330881877a0530000000001" } }
-{ "token" : "ebq9badf9tb2cicdh4h677ulxc9qy433", "expires" : { "$date" : 1397925647690 }, "user" : { "_reference" : { "$oid" : "53515568fb8f0be173000002" } }, "_id" : { "$oid" : "5351558ffb8f0be173000003" } }
-{ "token" : "oglwjohlaxna97d7h4blc4kcc32mpesb", "expires" : { "$date" : 1406385826040 }, "user" : { "_reference" : { "$oid" : "53d26d22e25894f241ea071e" } }, "_id" : { "$oid" : "53d26d22e25894f241ea071f" } }
-{ "token" : "8uz5x0y3eoum69nwhx1qwlr4eiqfb7r8", "expires" : { "$date" : 1406529963150 }, "user" : { "_reference" : { "$oid" : "53d4a02be25894f241ea0722" } }, "_id" : { "$oid" : "53d4a02be25894f241ea0723" } }
