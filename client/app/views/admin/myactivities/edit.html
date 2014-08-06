@@ -45,9 +45,18 @@
                      ng-model="activity.name[getInputLanguage()]"
                      required
                   >
-              <span ng-show="showError('activityname', 'required')"
-                    class="alert alert-error">{{'Please enter the name of the activity/activities.' | translate}}
-              </span>
+
+              <ng-messages
+                  for="valForm.activityname.$error"
+                  ng-show="state.submitted"
+                  >
+                <ng-message
+                    when="required"
+                    class="alert alert-error"
+                    >
+                  {{'Please enter the name of the activity/activities.' | translate}}
+                </ng-message>
+              </ng-messages>
 
             </div>
 
@@ -73,10 +82,17 @@
                 </option>
               </select>
 
-              <span ng-show="showError('categoryMain', 'required')"
-                    class="alert alert-error">
-                {{'Please select a category.' | translate}}
-              </span>
+              <ng-messages
+                  for="valForm.categoryMain.$error"
+                  ng-show="state.submitted"
+                  >
+                <ng-message
+                    when="required"
+                    class="alert alert-error"
+                    >
+                  {{'Please select a category.' | translate}}
+                </ng-message>
+              </ng-messages>
 
             </div>
 
@@ -99,13 +115,12 @@
               </div>
 
               <span class="alert alert-info"
-                    data-ng-show="activity.category.subs.length >= 2">
+                    ng-show="activity.category.subs.length >= 2">
                 {{'You can choose 2 Subcategories at most' | translate}}!
               </span>
               <span class="alert alert-error"
-                    data-ng-show="activity.category.subs.length === 0">
-                {{'You must choose at least 1 Subcategory' | translate
-                }}!
+                    ng-show="activity.category.subs.length === 0">
+                {{'You must choose at least 1 Subcategory' | translate}}!
               </span>
 
             </div>
@@ -121,15 +136,17 @@
                   required
                   />
 
-              <div ng-messages="valForm.shortdescription.$error"
-                   ng-show="state.submitted"
+              <ng-messages
+                  for="valForm.shortdescription.$error"
+                  ng-show="state.submitted"
                   >
-                <div ng-message="required"
-                     class="alert alert-error"
+                <ng-message
+                    when="required"
+                    class="alert alert-error"
                     >
                   {{'Please enter a shortdescription.' | translate}}
-                </div>
-              </div>
+                </ng-message>
+              </ng-messages>
 
             </div>
 
@@ -151,21 +168,25 @@
                   >
               </textarea>
 
-              <div ng-messages="valForm.description.$error"
-                   ng-show="state.submitted"
+              <ng-messages
+                  for="valForm.description.$error"
+                  ng-show="state.submitted"
                   >
-                <div ng-message="required"
-                     class="alert alert-error"
+                <ng-message
+                    when="required"
+                    class="alert alert-error"
                     >
                   {{'Please enter a description.' | translate}}
-                </div>
+                </ng-message>
 
-                <div ng-message="minlength"
-                     class="alert alert-error"
+                <ng-message
+                    when="minlength"
+                    class="alert alert-error"
                     >
                   {{'Please enter a description which is at least 150 characters long.' | translate}}
-                </div>
-              </div>
+                </ng-message>
+              </ng-messages>
+
             </div>
 
             <imageselector class="form-group img-selector">
@@ -645,7 +666,7 @@
                 {{'create a bookable item' | translate}}
               </button>
 
-              <span ng-show="!state.additionalformchecks.bookableevents"
+              <span ng-show="!state.additionalformchecks.bookableevents && state.submitted"
                     class="alert alert-error">{{'Please create bookable events.' | translate}}
               </span>
 
