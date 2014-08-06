@@ -1,1 +1,0 @@
-{ "options" : { "create" : "categories" }, "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "reactureappdev.categories", "name" : "_id_" } ] }
