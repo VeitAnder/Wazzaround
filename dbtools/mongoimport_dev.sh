@@ -12,7 +12,7 @@ if [ $1 ]
   then
     echo $1
 else
-    echo "\nPlease provide the relative path to the backup as first argument with a trailing slash. \neg. ./backups/local/2014-06-12-14-53-14025776075/ "
+    echo "\nPlease provide the relative path to the backup as first argument with a trailing slash. \neg. ./dumps/local/ "
     exit 1
 fi
 
