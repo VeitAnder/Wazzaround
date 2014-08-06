@@ -2819,6 +2819,34 @@ $img-selector-teasertxtheight: 32px;
   }
 }
 
+.bookings-list{
+  .cell{
+    @include ellipsis(none);
+    white-space: normal;
+  }
+  .bookingdate{
+    width: 20%;
+  }
+  .bookingnumber{
+    width: 20%;
+  }
+  .activity{
+    width: 30%;
+  }
+  .profile{
+    width: 30%;
+  }
+
+
+  .activityname{
+    display: block;
+    font-weight: $font-weight_bold;
+  }
+  .activitystart{
+    display: block;
+  }
+}
+
 @mixin language-flags {
   a {
     display: block;

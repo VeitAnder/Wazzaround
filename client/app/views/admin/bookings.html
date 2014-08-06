@@ -4,22 +4,19 @@
 
       <h2>{{'Bookings' | translate}}</h2>
 
-      <div class="bookings-list enable_hover">
+      <div class="bookings-list">
         <div class="listheader">
-          <div class="activity cell first">
-            {{'Booked Activity' | translate}}
+          <div class="bookingdate cell first">
+            {{'Booking date' | translate}}
           </div>
-          <div class="category-main cell">
-            {{'Booked Item' | translate}}
+          <div class="bookingnumber cell">
+            {{'#' | translate}}
           </div>
-          <div class="category-sub cell">
-            {{'Sub Category' | translate}}
+          <div class="activity cell">
+            {{'Activity' | translate}}
           </div>
-          <div class="location cell">
-            {{'Booked Time' | translate}}
-          </div>
-          <div class="edit cell last">
-
+          <div class="profile cell last">
+            {{'Profile' | translate}}
           </div>
         </div>
 
@@ -29,48 +26,42 @@
                ng-repeat="bookedEvent in bookedEvents"
               >
 
-            <div class="category-sub cell">
-              Gebucht am:
+            <div class="bookingdate cell first">
               {{bookedEvent.date | momentjs:{format: "ddd, MMM Do YY"} }}
             </div>
-            <div class="activity cell first">
-              Name der Aktivität:
-              {{bookedEvent.activityCopy.name | languageselect}}
-            </div>
-            <div class="category-sub cell">
-              Wann fängt die Aktivität an
-              {{bookedEvent.event.start | momentjs:{format: "ddd, MMM Do YY"} }}
-            </div>
-
-            <div class="location cell">
-              Buchungs Nummer:
+            <div class="bookingnumber cell">
               {{ bookedEvent.booking_id }}
             </div>
-
-            <div class="cell whom">
-              {{ bookedEvent.quantity }}
+            <div class="activity cell">
+              <span class="activityname">
+                <a href="#/activities/{{bookedEvent.activity._reference}}/">
+                  {{bookedEvent.activityCopy.name | languageselect}}
+                </a>
+              </span>
+              <span class="activitystart">
+                {{bookedEvent.event.start | momentjs:{format: "ddd, MMM Do YY"} }}
+              </span>
+              <span class="activityquantity">
+                {{ 'Quantity' | translate }}:
+                {{ bookedEvent.quantity }}
+              </span>
             </div>
 
-            <div class="edit cell last align-right">
-                {{ bookedEvent.bookingProfile.lastName }}, {{ bookedEvent.bookingProfile.lastName }}
-            </div>
-
-            <div class="edit cell last align-right">
-              {{ bookedEvent.bookingProfile.email }}
-            </div>
-
-            <div class="edit cell last align-right">
-              {{ bookedEvent.bookingProfile.tel }}
-            </div>
-
-            <div class="edit cell last align-right">
-              <a href="#/activities/{{bookedEvent.activity._reference}}/">link</a>
+            <div class="profile cell last">
+              <span class="profilename">
+                {{ bookedEvent.bookingProfile.firstName }} {{ bookedEvent.bookingProfile.lastName }}
+              </span>
+              <span class="profileemail">
+                {{ bookedEvent.bookingProfile.email }}
+              </span>
+              <span class="profilephone">
+                {{ bookedEvent.bookingProfile.tel }}
+              </span>
             </div>
 
           </div>
         </div>
 
-
+      </div>
     </div>
   </div>
-</div>
