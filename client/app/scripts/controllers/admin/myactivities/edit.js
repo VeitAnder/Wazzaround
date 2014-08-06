@@ -286,7 +286,9 @@ angular.module('anorakApp')
 
         $scope.state.saveinprogress = true;
 
+        // add dynamic properties to activity model
         $scope.activity.company = currentUser.user.profile.company;
+        $scope.activity.inputlanguage =  $scope.getInputLanguage();
 
         $scope.activity.save()  // save the activity
           .then(function (activity) {

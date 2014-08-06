@@ -3,7 +3,7 @@
  */
 
 
-var config = require('../../config.js');
+//var config = require('../../config.js');
 var ObjectId = require('mongojs').ObjectId;
 
 var models = require('../models.js');
@@ -12,7 +12,7 @@ var ActivityModel = require('../models.js').ActivityModel;
 var Q = require('q');
 var _ = require('lodash');
 
-var googleTranslate = require('google-translate')(config.google.apikey);
+var translationutil = require('../../lib/translation');
 
 ///////////////////////
 // read/write filters
@@ -78,33 +78,6 @@ ActivityModel.afterReadFilter(function (obj) {
   return Q.all(promises);  // wait until all promises resolved
 });
 
-//var translateActivity = function (doc) {
-//  var deferred = Q.defer();
-//
-//  googleTranslate.translate(doc.name[doc.inputlanguage], doc.inputlanguage, 'en', function (err, translation) {
-//    console.log(translation);
-//    doc.name.en = translation.translatedText;
-//    deferred.resolve(doc);
-//  });
-//
-//  return deferred.promise;
-//};
-
-var translateString = function (text, sourcelang, targetlang) {
-  // btw: einfacher!
-  //return Q.nfcall(googleTranslate.translate, text, sourcelang, targetlang);
-
-  var deferred = Q.defer();
-  googleTranslate.translate(text, sourcelang, targetlang, function (err, translation) {
-    if (err) {
-      deferred.reject(err);
-    } else {
-      deferred.resolve(translation.translatedText);
-    }
-  });
-  return deferred.promise;
-};
-
 // TODO: das ist nur so kompliziert, weil delete das doc aus der datenbank hohlt...
 ActivityModel.writeFilter(function (doc, req) {
   var ownerRef;
@@ -146,15 +119,21 @@ ActivityModel.writeFilter(function (doc, req) {
     doc.owner._reference = req.user._id;
   }
 
-  // translate the activity
-  return Q.all([
-    translateString(doc.name[doc.inputlanguage], doc.inputlanguage, 'en'),
-    translateString(doc.name[doc.inputlanguage], doc.inputlanguage, 'it')
-  ])
-    .spread(function (en, it) {
-      doc.name.en = en;
-      doc.name.it = it;
-    })
+  var translateBookableItems = function (bookableItems) {
+    var translationPromises = [];
+    _.forEach(bookableItems, function (bookableitem) {
+      translationPromises.push(translationutil.translate(bookableitem.description, doc.inputlanguage));
+    });
+    return translationPromises;
+  };
+
+  // translate the activity before writing document
+  return Q.all(_.flatten([
+    translationutil.translate(doc.name, doc.inputlanguage),
+    translationutil.translate(doc.description, doc.inputlanguage),
+    translationutil.translate(doc.shortdescription, doc.inputlanguage),
+    translateBookableItems(doc.bookableItems)
+  ]))
     .fail(function (err) {
       return err;
     });
