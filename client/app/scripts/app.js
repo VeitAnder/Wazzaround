@@ -296,7 +296,7 @@ angular.module('anorakApp')
     $translateProvider.useLocalStorage();
 
   })
-  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate, translationutils) {
+  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate, translationutils, $window) {
     debug("application run called");
     $rootScope.debug = debug;
     $rootScope.models = models;
@@ -342,6 +342,8 @@ angular.module('anorakApp')
           $location.path('/admin');
         }
       }
+
+      $window.scrollTo(0, 0);
 
     });
 
