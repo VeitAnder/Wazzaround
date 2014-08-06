@@ -213,7 +213,7 @@ angular.module('anorakApp')
     };
 
     $scope.moment = moment;
-    $scope.moment.lang($translate.use());
+    $scope.moment.locale($translate.use());
 
     $scope.isNewMode = function () {
       return $scope.newMode;

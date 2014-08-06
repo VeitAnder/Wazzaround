@@ -12,7 +12,7 @@ angular.module('momentjs', []).
   })
   .filter('momentjs', function ($translate) {
     return function (data, config) {
-      moment.lang($translate.use());
+      moment.locale($translate.use());
       return moment(data).format(config.format);
     };
   })

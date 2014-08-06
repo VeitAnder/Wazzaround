@@ -351,11 +351,11 @@ angular.module('anorakApp')
 // when language changes globally, reset also in directive
     $rootScope.$on('$translateChangeSuccess', function () {
       $route.reload();
-      $scope.moment.lang($translate.use());
+      $scope.moment.locale($translate.use());
     });
 
     $scope.moment = moment;
-    $scope.moment.lang($translate.use());
+    $scope.moment.locale($translate.use());
 
     $scope.$watch("categories", function (newCats, oldCats) {
       Usersessionstates.states.selectedcategories = angular.copy($scope.categories);

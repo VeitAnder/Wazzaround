@@ -310,7 +310,7 @@ angular.module('anorakApp')
       model.connection(connector);
     });
 
-    moment.lang($translate.use());  // setup moment language
+    moment.locale($translate.use());  // setup moment language
 
     checkRouteForAuthorization = function () {
       debug("routeChangeStart", $route.current.$$route.originalPath);
