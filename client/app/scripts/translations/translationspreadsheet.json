@@ -248,12 +248,220 @@
     "fr": "il nous permet de comprendre jusqu’ù quand une activitè peut se répéter"
   },
   {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
     "Description": "Shopping Cart",
     "key": "",
     "en": "",
     "de": "",
     "it": "",
     "fr": ""
+  },
+  {
+    "Description": "",
+    "key": "Checkout",
+    "en": "Checkout",
+    "de": "Zur Kasse",
+    "it": "Checkout",
+    "fr": "Checkout"
+  },
+  {
+    "Description": "",
+    "key": "in shopping cart",
+    "en": "in shopping cart",
+    "de": "im Warenkorb",
+    "it": "in shopping cart",
+    "fr": "in shopping cart"
+  },
+  {
+    "Description": "",
+    "key": "Subtotal",
+    "en": "Subtotal",
+    "de": "Zwischensumme",
+    "it": "Subtotal",
+    "fr": "Subtotal"
+  },
+  {
+    "Description": "",
+    "key": "Shopping cart",
+    "en": "Shopping cart",
+    "de": "Warenkorb",
+    "it": "Shopping cart",
+    "fr": "Shopping cart"
+  },
+  {
+    "Description": "",
+    "key": "Payment options",
+    "en": "Payment options",
+    "de": "Zahlungsmodalitäten",
+    "it": "Payment options",
+    "fr": "Payment options"
+  },
+  {
+    "Description": "",
+    "key": "Available Creditcards",
+    "en": "Available Creditcards",
+    "de": "Verfügbare Kreditkarten",
+    "it": "Available Creditcards",
+    "fr": "Available Creditcards"
+  },
+  {
+    "Description": "",
+    "key": "Card number",
+    "en": "Card number",
+    "de": "Kartennummer",
+    "it": "Card number",
+    "fr": "Card number"
+  },
+  {
+    "Description": "",
+    "key": "CVC",
+    "en": "CVC",
+    "de": "CVC",
+    "it": "CVC",
+    "fr": "CVC"
+  },
+  {
+    "Description": "",
+    "key": "Holdername",
+    "en": "Holdername",
+    "de": "Name auf der Kreditkarte",
+    "it": "Holdername",
+    "fr": "Holdername"
+  },
+  {
+    "Description": "",
+    "key": "Expiry date month",
+    "en": "Expiry date (MM)",
+    "de": "Gültig bis (MM)",
+    "it": "Expiry date (MM)",
+    "fr": "Expiry date (MM)"
+  },
+  {
+    "Description": "",
+    "key": "Expiry date year",
+    "en": "Expiry date (YYYY)",
+    "de": "Gültig bis (JJJJ)",
+    "it": "Expiry date (YYYY)",
+    "fr": "Expiry date (YYYY)"
+  },
+  {
+    "Description": "",
+    "key": "Send booking",
+    "en": "Send booking",
+    "de": "Buchung absenden",
+    "it": "Send booking",
+    "fr": "Send booking"
+  },
+  {
+    "Description": "",
+    "key": "Please enter a valid card number",
+    "en": "Please enter a valid card number",
+    "de": "Bitte geben Sie eine gültige Kartennummer ein",
+    "it": "Please enter a valid card number",
+    "fr": "Please enter a valid card number"
+  },
+  {
+    "Description": "",
+    "key": "Please enter your card number",
+    "en": "Please enter your card number",
+    "de": "Bitte geben Sie Ihre Kartennummer ein",
+    "it": "Please enter your card number",
+    "fr": "Please enter your card number"
+  },
+  {
+    "Description": "",
+    "key": "Please enter a valid CVC",
+    "en": "Please enter a valid verification number (CVC)",
+    "de": "Bitte geben Sie eine gültige Prüfnummer (CVC) ein",
+    "it": "Please enter a valid verification number (CVC)",
+    "fr": "Please enter a valid verification number (CVC)"
+  },
+  {
+    "Description": "",
+    "key": "Please enter your CVC",
+    "en": "Please enter your verification number (CVC)",
+    "de": "Bitte geben Sie Ihre Prüfnummer (CVC) ein",
+    "it": "Please enter your verification number (CVC)",
+    "fr": "Please enter your verification number (CVC)"
+  },
+  {
+    "Description": "",
+    "key": "Please enter a valid holdername",
+    "en": "Please enter a valid holdername",
+    "de": "Bitte geben Sie eine gültigen Namen ein",
+    "it": "Please enter a valid holdername",
+    "fr": "Please enter a valid holdername"
+  },
+  {
+    "Description": "",
+    "key": "Please enter your holdername",
+    "en": "Please enter your holdername",
+    "de": "Bitte geben Sie den Namen der auf der Kreditkarte steht ein",
+    "it": "Please enter your holdername",
+    "fr": "Please enter your holdername"
+  },
+  {
+    "Description": "",
+    "key": "Please enter a valid number month",
+    "en": "Please enter a valid number (MM)",
+    "de": "Bitte geben Sie eine gültige, 2-stellige Zahl ein",
+    "it": "Please enter a valid number for month",
+    "fr": "Please enter a valid number for month"
+  },
+  {
+    "Description": "",
+    "key": "Please enter the month of the expiry date",
+    "en": "Please enter the month of the expiry date",
+    "de": "Bitte geben Sie das Monat des Ablaufdatums ein",
+    "it": "Please enter the month of the expiry date",
+    "fr": "Please enter the month of the expiry date"
+  },
+  {
+    "Description": "",
+    "key": "Please enter a valid number year",
+    "en": "Please enter a valid number year",
+    "de": "Bitte geben Sie eine gültige, 4-stellige Zahl ein",
+    "it": "Please enter a valid number year",
+    "fr": "Please enter a valid number year"
+  },
+  {
+    "Description": "",
+    "key": "Please enter the year of the expiry date",
+    "en": "Please enter the year of the expiry date",
+    "de": "Bitte geben Sie das Jahr des Ablaufdatums ein",
+    "it": "Please enter the year of the expiry date",
+    "fr": "Please enter the year of the expiry date"
   },
   {
     "Description": "",
@@ -1457,6 +1665,14 @@
   },
   {
     "Description": "",
+    "key": "E-mail",
+    "en": "E-mail",
+    "de": "E-Mail",
+    "it": "E-mail",
+    "fr": "E-mail"
+  },
+  {
+    "Description": "",
     "key": "Telephone",
     "en": "Telephone",
     "de": "Telefon",
@@ -1814,6 +2030,14 @@
     "de": "Aktivität",
     "it": "Attività",
     "fr": "Activité"
+  },
+  {
+    "Description": "",
+    "key": "Activities",
+    "en": "Activities",
+    "de": "Aktivitäten",
+    "it": "Activities",
+    "fr": "Activities"
   },
   {
     "Description": "",
@@ -2822,5 +3046,13 @@
     "de": "Bitte geben Sie eine Nummer ein",
     "it": "Please enter a number",
     "fr": "Please enter a number"
+  },
+  {
+    "Description": "",
+    "key": "Contact our support",
+    "en": "Contact our support",
+    "de": "Kontaktieren Sie unseren Support",
+    "it": "Contact our support",
+    "fr": "Contact our support"
   }
 ]

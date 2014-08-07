@@ -16,7 +16,9 @@
           <div class="row">
             <div class="col-sm-12">
 
-              <h3 class="no-margin-top">Shopping cart</h3>
+              <h3 class="no-margin-top">
+                {{ 'Shopping cart' | translate }}
+              </h3>
 
               <shoppingcart></shoppingcart>
 
@@ -29,7 +31,9 @@
           <div class="row">
             <div class="col-sm-12">
 
-              <h3 class="no-margin-top">User details</h3>
+              <h3 class="no-margin-top">
+                {{ 'Personal data' | translate }}
+              </h3>
 
               <ng-form class="standardform"
                        name="customerForm"
@@ -54,7 +58,7 @@
                           when="required"
                           class="alert alert-error"
                           >
-                        firstname required error
+                        {{'Please enter your first name' | translate}}
                       </ng-message>
                     </ng-messages>
 
@@ -78,7 +82,7 @@
                           when="required"
                           class="alert alert-error"
                           >
-                        lastname required error
+                        {{'Please enter your last name' | translate}}
                       </ng-message>
                     </ng-messages>
 
@@ -86,7 +90,9 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="email">{{'E-mail' | translate}}</label>
+                  <label for="email">
+                    {{'E-mail' | translate}}
+                  </label>
                   <input name="email"
                          id="email"
                          ng-model="payment.profile.email"
@@ -106,13 +112,13 @@
                         when="pattern"
                         class="alert alert-error"
                         >
-                      email not valid
+                      {{ 'Please enter a valid e-mail address.' | translate }}
                     </ng-message>
                     <ng-message
                         when="required"
                         class="alert alert-error"
                         >
-                      email required error
+                      {{ 'Please enter your e-mail address.' | translate }}
                     </ng-message>
                   </ng-messages>
 
@@ -136,7 +142,7 @@
                         when="required"
                         class="alert alert-error"
                         >
-                      tel required error
+                      {{'Please enter your telephone number' | translate}}
                     </ng-message>
                   </ng-messages>
 
@@ -161,7 +167,9 @@
           <div class="row">
             <div class="col-sm-12">
 
-              <h3 class="no-margin-top">Payment options</h3>
+              <h3 class="no-margin-top">
+                {{ 'Payment options' | translate }}
+              </h3>
 
               <ng-form
                   name="cardForm"
@@ -172,7 +180,9 @@
                 <!--<input class="card-amount-int" type="hidden" value="15" />-->
                 <!--<input class="card-currency" type="hidden" value="EUR" />-->
 
-                <div class="input-label">Available Creditcards:</div>
+                <div class="input-label">
+                  {{ 'Available Creditcards' | translate }}:
+                </div>
                 <img src="/img/paymill/32x20_visa.png"/>
                 <img src="/img/paymill/32x20_mastercard.png"/>
                 <img src="/img/paymill/32x20_dinersclub.png"/>
@@ -181,7 +191,9 @@
                 <div class="form-group-inline form-group-inline-7525">
                   <div class="form-group">
 
-                    <label for="CreditCardNumber">Card number</label>
+                    <label for="CreditCardNumber">
+                      {{ 'Card number' | translate }}
+                    </label>
                     <input
                         class="card-number"
                         id="CreditCardNumber"
@@ -202,20 +214,22 @@
                           when="pattern"
                           class="alert alert-error"
                           >
-                        pattern not valid
+                        {{ 'Please enter a valid card number' | translate}}
                       </ng-message>
                       <ng-message
                           when="required"
                           class="alert alert-error"
                           >
-                        required error
+                        {{ 'Please enter your card number' | translate }}
                       </ng-message>
                     </ng-messages>
 
                   </div>
 
                   <div class="form-group">
-                    <label for="cardcvc">CVC</label>
+                    <label for="cardcvc">
+                      {{ 'CVC' | translate }}
+                    </label>
                     <input
                         class="card-cvc"
                         id="cardcvc"
@@ -236,13 +250,13 @@
                           when="pattern"
                           class="alert alert-error"
                           >
-                        pattern not valid
+                        {{ 'Please enter a valid CVC' | translate }}
                       </ng-message>
                       <ng-message
                           when="required"
                           class="alert alert-error"
                           >
-                        required error
+                        {{ 'Please enter your CVC' | translate }}
                       </ng-message>
                     </ng-messages>
 
@@ -250,7 +264,9 @@
                 </div>
 
                 <div class="form-row">
-                  <label for="cardname">Holdername (Name auf der Kreditkarte)</label>
+                  <label for="cardname">
+                    {{ 'Holdername' | translate }}
+                  </label>
                   <input
                       class="card-holdername"
                       id="cardname"
@@ -268,13 +284,13 @@
                         when="pattern"
                         class="alert alert-error"
                         >
-                      pattern not valid
+                      {{ 'Please enter a valid holdername' | translate }}
                     </ng-message>
                     <ng-message
                         when="required"
                         class="alert alert-error"
                         >
-                      required error
+                      {{ 'Please enter your holdername' | translate }}
                     </ng-message>
                   </ng-messages>
 
@@ -282,7 +298,9 @@
 
                 <div class="form-group-inline form-group-inline-2525">
                   <div class="form-group">
-                    <label for="expirymonth">Expiry date (MM)</label>
+                    <label for="expirymonth">
+                      {{ 'Expiry date month' | translate}}
+                    </label>
                     <input
                         class="card-expiry-month"
                         id="expirymonth"
@@ -303,19 +321,21 @@
                           when="pattern"
                           class="alert alert-error"
                           >
-                        pattern not valid
+                        {{ 'Please enter a valid number month' | translate }}
                       </ng-message>
                       <ng-message
                           when="required"
                           class="alert alert-error"
                           >
-                        required error
+                        {{ 'Please enter the month of the expiry date' | translate }}
                       </ng-message>
                     </ng-messages>
 
                   </div>
                   <div class="form-group">
-                    <label for="expiryyear">Expiry date (YYYY)</label>
+                    <label for="expiryyear">
+                      {{ 'Expiry date year' | translate}}
+                    </label>
                     <input
                         class="card-expiry-year"
                         id="expiryyear"
@@ -336,13 +356,13 @@
                           when="pattern"
                           class="alert alert-error"
                           >
-                        pattern not valid
+                        {{ 'Please enter a valid number year' | translate }}
                       </ng-message>
                       <ng-message
                           when="required"
                           class="alert alert-error"
                           >
-                        required error
+                        {{ 'Please enter the year of the expiry date' | translate }}
                       </ng-message>
                     </ng-messages>
 
@@ -357,9 +377,9 @@
                       >
                     <img src="/img/loading/loading-bubbles.svg"
                          ng-hide="payment.submitEnabled">
-                    &NonBreakingSpace;
-                    Send Booking
+                    {{ 'Send booking' | translate }}
                   </button>
+
                 </div>
 
               </ng-form>
@@ -374,7 +394,7 @@
                   class="alert alert-error"
                   ng-show="paymentForm.$invalid && payment.states.submitted"
                   >
-                bitte alle Formularfelder ausfüllen
+                <b>{{'Please fill out the form correctly' | translate}}</b>
               </div>
 
             </div>
@@ -399,7 +419,9 @@
         <div class="row">
           <div class="col-sm-12">
 
-            <h5 class="no-margin-top">Shopping cart</h5>
+            <h5 class="no-margin-top">
+              {{ 'Shopping cart' | translate }}
+            </h5>
 
             <shoppingcart confirmationview="true"
                           cart="payment.cartCopy"
@@ -412,7 +434,9 @@
         <div class="row">
           <div class="col-sm-12">
 
-            <h5>User details</h5>
+            <h5>
+              {{ 'Personal data' | translate }}
+            </h5>
 
             <div class="formdata-display">
               <div class="input-label">
@@ -448,7 +472,9 @@
         <div class="row">
           <div class="col-sm-12">
 
-            <h5>Payment options</h5>
+            <h5>
+              {{ 'Payment options' | translate }}
+            </h5>
 
             <div class="formdata-display">
               <div class="input-label">

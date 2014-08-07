@@ -15,16 +15,14 @@
     <a class="btn btn-negative disabled"
        ng-hide="shoppingcart.getNumberOfItems() > 0"
         >
-      Checkout
+      {{ 'Checkout' | translate }}
     </a>
 
     <a ng-click="gotoPaymentPage()"
        class="btn btn-negative"
        ng-show="shoppingcart.getNumberOfItems() > 0"
         >
-      Checkout
+      {{ 'Checkout' | translate }}
     </a>
-
   </div>
-
 </div>
