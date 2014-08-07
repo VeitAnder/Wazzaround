@@ -33,6 +33,12 @@
               {{ bookedEvent.booking_id }}
             </div>
             <div class="activity cell">
+              <cloudinaryimage data-publicid="{{bookedEvent.activityCopy.images[0].public_id}}"
+                               data-format="{{bookedEvent.activityCopy.images[0].format}}"
+                               data-width="50"
+                               data-height="50"
+                  >
+              </cloudinaryimage>
               <span class="activityname">
                 <a href="#/admin/myactivities/{{bookedEvent.activity._reference}}/">
                   {{bookedEvent.activityCopy.name | languageselect}}

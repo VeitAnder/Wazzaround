@@ -38,7 +38,14 @@
                ng-repeat="activity in activities"
                data-ng-click="open(activity)"
               >
+
             <div class="activity cell first">
+              <cloudinaryimage data-publicid="{{activity.images[0].public_id}}"
+                               data-format="{{activity.images[0].format}}"
+                               data-width="50"
+                               data-height="50"
+                  >
+              </cloudinaryimage>
               {{activity.name | languageselect}}
             </div>
             <div class="category-main cell">
