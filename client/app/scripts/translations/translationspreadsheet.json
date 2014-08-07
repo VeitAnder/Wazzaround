@@ -257,11 +257,11 @@
   },
   {
     "Description": "",
-    "key": "",
-    "en": "",
-    "de": "",
-    "it": "",
-    "fr": ""
+    "key": "Checkout",
+    "en": "Checkout",
+    "de": "Zur Kasse",
+    "it": "Checkout",
+    "fr": "Checkout"
   },
   {
     "Description": "",
@@ -1814,6 +1814,14 @@
     "de": "Aktivität",
     "it": "Attività",
     "fr": "Activité"
+  },
+  {
+    "Description": "",
+    "key": "Activities",
+    "en": "Activities",
+    "de": "Aktivitäten",
+    "it": "Activities",
+    "fr": "Activities"
   },
   {
     "Description": "",
