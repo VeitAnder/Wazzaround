@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('languageselect', function ($translate) {
+  .directive('languageselect', function ($translate, $timeout) {
     return {
       templateUrl: 'views/directives/languageselect.html',
       restrict: 'E',
@@ -9,8 +9,10 @@ angular.module('anorakApp')
         scope.activelanguage = $translate.use();
 
         scope.changeLanguage = function (langKey) {
-          $translate.use(langKey);
-          scope.activelanguage = $translate.use();
+          $translate.use(langKey)
+            .then(function () {
+              scope.activelanguage = $translate.use();
+            });
         };
       }
     };
