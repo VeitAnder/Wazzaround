@@ -34,7 +34,7 @@ BookingModel.writeFilter(function (obj, req) {
 ///////////////////////
 // Operation Impl.
 
-var paymill = require('paymill-node')(config.PAYMILL_PRIVATE_KEY);
+var paymill = require('paymill-node')(config.paymill.PAYMILL_PRIVATE_KEY);
 
 // run payment with paymill-backend
 var pay = function (bookingObj, paymentToken, amount_int, currency) {

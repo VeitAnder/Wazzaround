@@ -71,7 +71,9 @@ var config = {
   google: {
     apikey: "AIzaSyD-bZExsAXqT0ZyfFdjt7rxpuF8xmD5gZQ"
   },
-  PAYMILL_PRIVATE_KEY : '34e632de2eb8de9a92caea85fab7f380'
+  paymill: {
+    PAYMILL_PRIVATE_KEY: '34e632de2eb8de9a92caea85fab7f380'
+  }
 };
 
 module.exports = config;
