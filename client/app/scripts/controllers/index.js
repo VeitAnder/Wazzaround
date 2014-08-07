@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates, $timeout) {
+  .controller('indexCtrl', function ($scope, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates) {
 
     $scope.currentUser = currentUser;
 
@@ -347,10 +347,9 @@ angular.module('anorakApp')
       debug("Put into shopping cart", activity, event);
     };
 
-// when user changes language, reload controller so that all translations are correct
-// when language changes globally, reset also in directive
+    // when user changes language, reload controller so that all translations are correct
+    // when language changes globally, reset also in directive
     $rootScope.$on('$translateChangeSuccess', function () {
-      $route.reload();
       $scope.moment.locale($translate.use());
     });
 
