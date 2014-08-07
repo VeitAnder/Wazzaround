@@ -16,7 +16,7 @@
             {{'Activity' | translate}}
           </div>
           <div class="profile cell last">
-            {{'Profile' | translate}}
+            {{'Booked by' | translate}}
           </div>
         </div>
 
@@ -49,7 +49,9 @@
 
             <div class="profile cell last">
               <span class="profilename">
-                {{ bookedEvent.bookingProfile.firstName }} {{ bookedEvent.bookingProfile.lastName }}
+                <strong>
+                  {{ bookedEvent.bookingProfile.firstName }} {{ bookedEvent.bookingProfile.lastName }}
+                </strong>
               </span>
               <span class="profileemail">
                 {{ bookedEvent.bookingProfile.email }}

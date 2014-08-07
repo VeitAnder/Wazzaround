@@ -248,6 +248,78 @@
     "fr": "il nous permet de comprendre jusqu’ù quand une activitè peut se répéter"
   },
   {
+    "Description": "Shopping Cart",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": ""
+  },
+  {
+    "Description": "",
+    "key": "Bookings",
+    "en": "Bookings",
+    "de": "Buchungs-Übersicht",
+    "it": "Bookings",
+    "fr": "Bookings"
+  },
+  {
+    "Description": "",
+    "key": "Booking date",
+    "en": "Booking date",
+    "de": "Buchungs-Datum",
+    "it": "Booking date",
+    "fr": "Booking date"
+  },
+  {
+    "Description": "",
+    "key": "Booked by",
+    "en": "Booked by",
+    "de": "Gebucht von",
+    "it": "Booked by",
+    "fr": "Booked by"
+  },
+  {
     "Description": "",
     "key": "Why reacture",
     "en": "Why reActure?",
