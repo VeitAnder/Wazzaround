@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates) {
+  .controller('indexCtrl', function ($scope, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates, $timeout) {
 
     $scope.currentUser = currentUser;
 
@@ -149,10 +149,13 @@ angular.module('anorakApp')
           marker.selected = false;
         }
       });
-      // set detail id
-      $scope.states.selectedactivityid = markerClicked._id;
-      // open detail view of activity when marker got clicked
-      $scope.states.activitydetailactive = true;
+      $timeout(function () {
+        // set detail id
+        $scope.states.selectedactivityid = markerClicked._id;
+        // open detail view of activity when marker got clicked
+        $scope.states.activitydetailactive = true;
+        $scope.$apply();
+      });
     };
 
     $scope.selectedCategoryFilter = function (activity) {
@@ -441,12 +444,12 @@ angular.module('anorakApp')
       return index + 1;
     };
 
-    $scope.lowestPriceOfSelectedActivity = function() {
+    $scope.lowestPriceOfSelectedActivity = function () {
 
       var bookableItems = $scope.getSelectedActivity().bookableItems;
 
       var min = _.min(
-        _.map(bookableItems, function(item) {
+        _.map(bookableItems, function (item) {
           return _.min(item.events, 'price').price;
         })
       );
