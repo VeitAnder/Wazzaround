@@ -4,7 +4,6 @@ var config;
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = "development_local_mongo";
   console.log("\nprocess.env.NODE_ENV not set. Auto-Change to '"+process.env.NODE_ENV+"' \n");
-
 }
 
 if (process.env.NODE_ENV === "developmentlocalhost") {
