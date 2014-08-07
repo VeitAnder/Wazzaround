@@ -61,7 +61,6 @@ angular.module('anorakApp')
     };
 
     shoppingCart.prototype.getTotal = function () {
-      console.log(this.storage);
       return {
         num: Object.keys(this.storage.theShoppingCart).length,
         price: _.reduce(this.storage.theShoppingCart, function (res, value, key) {
