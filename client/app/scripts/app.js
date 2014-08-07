@@ -335,16 +335,16 @@ angular.module('anorakApp')
       .done();
 
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
-
       // if you try to access the register route being authenticated -> redirect to /admin
       if (currentUser.authenticated) {
         if (next.$$route.originalPath.match(/^\/registration/)) {
           $location.path('/admin');
         }
       }
+    });
 
+    $rootScope.$on('$routeChangeSuccess', function (event, next, current) {
       $window.scrollTo(0, 0);
-
     });
 
     // service to determine available language in case of ng-model binding in view
