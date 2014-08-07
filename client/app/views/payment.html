@@ -48,6 +48,7 @@
 
                     <ng-messages
                         for="customerForm.firstname.$error"
+                        ng-show="payment.states.submitted || customerForm.firstname.$dirty"
                         >
                       <ng-message
                           when="required"
@@ -71,6 +72,7 @@
 
                     <ng-messages
                         for="customerForm.lastname.$error"
+                        ng-show="payment.states.submitted || customerForm.lastname.$dirty"
                         >
                       <ng-message
                           when="required"
@@ -88,6 +90,7 @@
                   <input name="email"
                          id="email"
                          ng-model="payment.profile.email"
+                         ng-model-options="{ updateOn: 'default blur', debounce: {'default': 750, 'blur': 0} }"
                          class="input-block-level"
                          required
                          autofocus
@@ -97,6 +100,7 @@
 
                   <ng-messages
                       for="customerForm.email.$error"
+                      ng-show="payment.states.submitted || customerForm.email.$dirty"
                       >
                     <ng-message
                         when="pattern"
@@ -126,6 +130,7 @@
 
                   <ng-messages
                       for="customerForm.tel.$error"
+                      ng-show="payment.states.submitted || customerForm.tel.$dirty"
                       >
                     <ng-message
                         when="required"
@@ -181,6 +186,7 @@
                         class="card-number"
                         id="CreditCardNumber"
                         ng-model="payment.card.number"
+                        ng-model-options="{ updateOn: 'default blur', debounce: {'default': 750, 'blur': 0} }"
                         type="text"
                         pattern="^[0-9]{16}$"
                         name="CreditCardNumber"
@@ -190,6 +196,7 @@
 
                     <ng-messages
                         for="cardForm.CreditCardNumber.$error"
+                        ng-show="payment.states.submitted || cardForm.CreditCardNumber.$dirty"
                         >
                       <ng-message
                           when="pattern"
@@ -216,12 +223,14 @@
                         pattern="^[0-9]{3}$"
                         required
                         ng-model="payment.card.cvc"
+                        ng-model-options="{ updateOn: 'default blur', debounce: {'default': 750, 'blur': 0} }"
                         name="cardcvc"
                         maxlength="3"
                         />
 
                     <ng-messages
                         for="cardForm.cardcvc.$error"
+                        ng-show="payment.states.submitted || cardForm.cardcvc.$dirty"
                         >
                       <ng-message
                           when="pattern"
@@ -253,6 +262,7 @@
 
                   <ng-messages
                       for="cardForm.cardname.$error"
+                      ng-show="payment.states.submitted || cardForm.cardname.$dirty"
                       >
                     <ng-message
                         when="pattern"
@@ -281,11 +291,13 @@
                         pattern="^[0-9]{2}$"
                         required
                         ng-model="payment.card.expiry_month"
+                        ng-model-options="{ updateOn: 'default blur', debounce: {'default': 750, 'blur': 0} }"
                         maxlength="2"
                         />
 
                     <ng-messages
                         for="cardForm.expirymonth.$error"
+                        ng-show="payment.states.submitted || cardForm.expirymonth.$dirty"
                         >
                       <ng-message
                           when="pattern"
@@ -312,11 +324,13 @@
                         pattern="^[0-9]{4}$"
                         required
                         ng-model="payment.card.expiry_year"
+                        ng-model-options="{ updateOn: 'default blur', debounce: {'default': 750, 'blur': 0} }"
                         maxlength="4"
                         />
 
                     <ng-messages
                         for="cardForm.expiryyear.$error"
+                        ng-show="payment.states.submitted || cardForm.expiryyear.$dirty"
                         >
                       <ng-message
                           when="pattern"
@@ -350,7 +364,18 @@
 
               </ng-form>
 
-              <div class="payment-errors">{{payment.errorMsg}}</div>
+              <div
+                  ng-show="payment.errorMsg"
+                  class="alert alert-error"
+                  >
+                {{payment.errorMsg}}
+              </div>
+              <div
+                  class="alert alert-error"
+                  ng-show="paymentForm.$invalid && payment.states.submitted"
+                  >
+                bitte alle Formularfelder ausfüllen
+              </div>
 
             </div>
           </div>

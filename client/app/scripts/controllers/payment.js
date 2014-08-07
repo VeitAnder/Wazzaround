@@ -20,6 +20,10 @@ angular.module('anorakApp')
     this.state = 'form';
 
     this.submitEnabled = true;
+    this.states = {
+      submitted : false
+    };
+
     this.errorMsg;
     this.bookingId;
 
@@ -67,6 +71,8 @@ angular.module('anorakApp')
     this.amount_int = Math.floor(shoppingcart.getTotal().price * 100);
 
     this.submitPayment = function (event) {
+      payment.states.submitted = true;
+
       if (!this.isPaymentFormValid()) return;
       if (payment.submitEnabled === false) return;
       payment.submitEnabled = false;
