@@ -1338,16 +1338,16 @@
   {
     "Description": "",
     "key": "Please enter your e-mail address.",
-    "en": "Please enter your e-mail address.",
-    "de": "Bitte geben Sie Ihre E-Mail Adresse ein.",
+    "en": "Please enter your e-mail address",
+    "de": "Bitte geben Sie Ihre E-Mail Adresse ein",
     "it": "Si prega di inserire il vostro indirizzo e-mail",
     "fr": "Veuillez entrer votre adresse email"
   },
   {
     "Description": "",
     "key": "Please enter a valid e-mail address.",
-    "en": "Please enter a valid e-mail address.",
-    "de": "Bitte geben Sie eine gültige E-Mail Adresse ein.",
+    "en": "Please enter a valid e-mail address",
+    "de": "Bitte geben Sie eine gültige E-Mail Adresse ein",
     "it": "Si prega di inserire un indirizzo e-mail valido",
     "fr": "veuillez saisir une adresse email valide"
   },
@@ -1402,16 +1402,16 @@
   {
     "Description": "",
     "key": "Please retype the password.",
-    "en": "Please retype the password.",
-    "de": "Bitte geben Sie das Passwort nochmals ein.",
+    "en": "Please retype the password",
+    "de": "Bitte geben Sie das Passwort nochmals ein",
     "it": "Si prega di ripetere la password",
     "fr": "veuillez répéter votre mot de passe"
   },
   {
     "Description": "",
     "key": "The passwords have to match.",
-    "en": "The passwords have to match.",
-    "de": "Die Passwörter müssen übereinstimmen.",
+    "en": "The passwords have to match",
+    "de": "Die Passwörter müssen übereinstimmen",
     "it": "Le password devono corrispondere",
     "fr": "les mots de passe doivent correspondre"
   },
@@ -1466,16 +1466,16 @@
   {
     "Description": "",
     "key": "Passwords dont match",
-    "en": "Passwords don't match.",
-    "de": "Die Passwörter stimmen nicht überein.",
+    "en": "Passwords don't match",
+    "de": "Die Passwörter stimmen nicht überein",
     "it": "Le password non corrispondono",
     "fr": "les mots de passe ne correspondent pas"
   },
   {
     "Description": "",
     "key": "Please fill out this field",
-    "en": "Please fill out this field.",
-    "de": "Bitte füllen Sie dieses Feld aus.",
+    "en": "Please fill out this field",
+    "de": "Bitte füllen Sie dieses Feld aus",
     "it": "Si prega di compilare questo campo",
     "fr": "veuillez remplir ce champ"
   },
@@ -2162,8 +2162,8 @@
   {
     "Description": "",
     "key": "Please upload an image.",
-    "en": "Please upload an image.",
-    "de": "Bitte geben Sie den Namen Ihrer Firma ein.",
+    "en": "Please upload an image",
+    "de": "Bitte laden Sie ein Bild hoch",
     "it": "Si prega di caricare un'immagine",
     "fr": "Veuillez télécharger une image"
   },
