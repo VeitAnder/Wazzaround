@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('languageselect', function ($translate, $timeout) {
+  .directive('languageselect', function ($translate) {
     return {
       templateUrl: 'views/directives/languageselect.html',
       restrict: 'E',
