@@ -273,8 +273,6 @@ angular.module('anorakApp')
       suffix: '.json?' + APP_CLIENTINFO.version
     });
 
-    console.log("APP_CLIENTINFO.version", APP_CLIENTINFO.version);
-
     $translateProvider.registerAvailableLanguageKeys(['en', 'de', 'it'], {
       'en_US': 'en',
       'en_us': 'en',
