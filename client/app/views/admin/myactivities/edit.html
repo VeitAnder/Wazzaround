@@ -9,10 +9,17 @@
           <span ng-show="!activity.name">{{'New activity' | translate}}</span>
         </h2>
 
-        <div class="helptextlegend">
+        <p class="helptextlegend">
           <i>?</i>
           <span>
             {{ 'helptext legend' | translate }}
+          </span>
+        </p>
+
+        <div class="alert alert-info alert-large alert-block">
+          <languageselect class="activity"></languageselect>
+          <span>
+            &nbsp; {{ 'helptext autotranslation' | translate }}
           </span>
         </div>
 

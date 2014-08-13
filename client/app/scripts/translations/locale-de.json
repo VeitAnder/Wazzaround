@@ -365,5 +365,7 @@
   "error message event duration minutes": "Nummer eingeben (max.59)",
   "error message negative number": "Nummer eingeben (min.0)",
   "error message event number": "Bitte geben Sie eine Nummer ein",
-  "Contact our support": "Kontaktieren Sie unseren Support"
+  "Contact our support": "Kontaktieren Sie unseren Support",
+  "Orders will be possible soon": "Bestellungen sind derzeit noch nicht möglich! Dieses Feature wird bald aktiviert.",
+  "helptext autotranslation": "Die Aktivität wird automatisch in die anderen Sprachen übersetzt. Änderungen in den anderen Sprachen werden durch die automatische Übersetzung überschrieben."
 }

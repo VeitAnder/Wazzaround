@@ -238,7 +238,7 @@
   "Publish Activities": "Publier Activités",
   "This is the admin/allActivities view": "c'est la page d'administration/de toutes les activités",
   "Activity": "Activité",
-  "Activities": "Activities",
+  "Activities": "Activité",
   "Main Category": "Catégorie principale",
   "Sub Category": "Sous-catégorie",
   "Location": "Localisation",
@@ -360,10 +360,12 @@
   "this event ends on": "l'événement termine le",
   "recurring event until": "l'événement se répète jusqu'au",
   "events on these weekdays": "Evénements de la semaine",
-  "error message event duration days": "Enter a number (max.365)",
-  "error message event duration hours": "Enter a number (max.23)",
-  "error message event duration minutes": "Enter a number (max.59)",
-  "error message negative number": "Enter a number (min.0)",
-  "error message event number": "Please enter a number",
-  "Contact our support": "Contact our support"
+  "error message event duration days": "Entrez un numéro (max.365)",
+  "error message event duration hours": "Entrez un numéro (max.23)",
+  "error message event duration minutes": "Entrez un numéro (max.59)",
+  "error message negative number": "Entrez un numéro (min.0)",
+  "error message event number": "S'il vous plaît entrer un numéro",
+  "Contact our support": "Contactez notre support",
+  "Orders will be possible soon": "Orders are not possible yet. This feature will be available soon!",
+  "helptext autotranslation": "The activity will be automatically translated to the other languages. Changes in the other languages will be overwritten by the auto translation. "
 }

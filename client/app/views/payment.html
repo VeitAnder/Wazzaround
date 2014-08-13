@@ -10,7 +10,15 @@
             <h2>{{ 'Payment' | translate }}</h2>
           </div>
         </div>
+
+        <div
+            class="alert alert-error alert-large"
+            >
+          <b>{{'Orders will be possible soon' | translate}}</b>
+        </div>
+
       </div>
+
       <section class="payment-shoppingcart first">
         <div class="container main-content">
           <div class="row">
@@ -370,6 +378,8 @@
                 </div>
 
                 <div class="form-group form-group-btn align-right">
+
+                  <!--
                   <button
                       class="btn btn-large"
                       ng-class="{disabled : !payment.isPaymentFormValid()}"
@@ -379,6 +389,13 @@
                          ng-hide="payment.submitEnabled">
                     {{ 'Send booking' | translate }}
                   </button>
+                  -->
+
+                  <div
+                      class="alert alert-error alert-large"
+                      >
+                    <b>{{'Orders will be possible soon' | translate}}</b>
+                  </div>
 
                 </div>
 

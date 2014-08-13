@@ -2898,25 +2898,36 @@ $img-selector-teasertxtheight: 32px;
   }
 }
 
-.language-select {
-  @include language-flags;
-  position: absolute;
-  top: $bu;
-  right: $bu;
-  a {
-    padding: 2px;
-    border: 2px solid transparent;
-    @include border-radius($border-radius_small);
-    &:hover {
-      border-color: $color_grey_25;
-    }
-  }
-  .active {
+languageselect{
+  .language-select {
+    @include language-flags;
     a {
-      border-color: $color_grey_50;
+      padding: 2px;
+      border: 2px solid transparent;
+      @include border-radius($border-radius_small);
+      &:hover {
+        border-color: $color_grey_25;
+      }
+    }
+    .active {
+      a {
+        border-color: $color_grey_50;
+      }
     }
   }
 }
+
+.col-left-fixed{
+  languageselect{
+    position: absolute;
+    top: $bu;
+    right: $bu;
+  }
+}
+
+
+
+
 
 .language-tabs {
   @include language-flags;

@@ -2036,8 +2036,8 @@
     "key": "Activities",
     "en": "Activities",
     "de": "Aktivitäten",
-    "it": "Activities",
-    "fr": "Activities"
+    "it": "Attività",
+    "fr": "Activité"
   },
   {
     "Description": "",
@@ -3012,47 +3012,63 @@
     "key": "error message event duration days",
     "en": "Enter a number (max.365)",
     "de": "Nummer eingeben (max.365)",
-    "it": "Enter a number (max.365)",
-    "fr": "Enter a number (max.365)"
+    "it": "Inserire un numero (max.365)",
+    "fr": "Entrez un numéro (max.365)"
   },
   {
     "Description": "",
     "key": "error message event duration hours",
     "en": "Enter a number (max.23)",
     "de": "Nummer eingeben (max.23)",
-    "it": "Enter a number (max.23)",
-    "fr": "Enter a number (max.23)"
+    "it": "Inserire un numero (max.23)",
+    "fr": "Entrez un numéro (max.23)"
   },
   {
     "Description": "",
     "key": "error message event duration minutes",
     "en": "Enter a number (max.59)",
     "de": "Nummer eingeben (max.59)",
-    "it": "Enter a number (max.59)",
-    "fr": "Enter a number (max.59)"
+    "it": "Inserire un numero (max.59)",
+    "fr": "Entrez un numéro (max.59)"
   },
   {
     "Description": "",
     "key": "error message negative number",
     "en": "Enter a number (min.0)",
     "de": "Nummer eingeben (min.0)",
-    "it": "Enter a number (min.0)",
-    "fr": "Enter a number (min.0)"
+    "it": "Inserire un numero (min.0)",
+    "fr": "Entrez un numéro (min.0)"
   },
   {
     "Description": "",
     "key": "error message event number",
     "en": "Please enter a number",
     "de": "Bitte geben Sie eine Nummer ein",
-    "it": "Please enter a number",
-    "fr": "Please enter a number"
+    "it": "Prego inserire un numero",
+    "fr": "S'il vous plaît entrer un numéro"
   },
   {
     "Description": "",
     "key": "Contact our support",
     "en": "Contact our support",
     "de": "Kontaktieren Sie unseren Support",
-    "it": "Contact our support",
-    "fr": "Contact our support"
+    "it": "Contatta il nostro supporto",
+    "fr": "Contactez notre support"
+  },
+  {
+    "Description": "",
+    "key": "Orders will be possible soon",
+    "en": "Orders are not possible yet. This feature will be available soon!",
+    "de": "Bestellungen sind derzeit noch nicht möglich! Dieses Feature wird bald aktiviert.",
+    "it": "Orders are not possible yet. This feature will be available soon!",
+    "fr": "Orders are not possible yet. This feature will be available soon!"
+  },
+  {
+    "Description": "",
+    "key": "helptext autotranslation",
+    "en": "The activity will be automatically translated to the other languages. Changes in the other languages will be overwritten by the auto translation. ",
+    "de": "Die Aktivität wird automatisch in die anderen Sprachen übersetzt. Änderungen in den anderen Sprachen werden durch die automatische Übersetzung überschrieben.",
+    "it": "The activity will be automatically translated to the other languages. Changes in the other languages will be overwritten by the auto translation. ",
+    "fr": "The activity will be automatically translated to the other languages. Changes in the other languages will be overwritten by the auto translation. "
   }
 ]
