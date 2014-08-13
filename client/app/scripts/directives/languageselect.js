@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('languageselect', function ($translate) {
+  .directive('languageselect', function ($translate, $timeout, $rootScope) {
     return {
       templateUrl: 'views/directives/languageselect.html',
       restrict: 'E',
@@ -11,9 +11,19 @@ angular.module('anorakApp')
         scope.changeLanguage = function (langKey) {
           $translate.use(langKey)
             .then(function () {
-              scope.activelanguage = $translate.use();
+              $timeout(function () {
+                scope.activelanguage = $translate.use();
+              });
             });
         };
+
+        // listen to translateChangeSuccess and change scope.activelanguage
+        // necessary if languageselect is used multiple times on one page, eg. activity edit page
+        $rootScope.$on('$translateChangeSuccess', function () {
+          $timeout(function () {
+            scope.activelanguage = $translate.use();
+          });
+        });
       }
     };
   });

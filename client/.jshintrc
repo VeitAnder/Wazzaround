@@ -84,6 +84,7 @@
 // Custom Globals
   "globals": {
 // additional predefined global variables
+    "APP_CLIENTINFO": true,
     "angular": true,
     "Spinner": true,
     "Modernizr": true,

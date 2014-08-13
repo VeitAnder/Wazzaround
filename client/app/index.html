@@ -178,6 +178,15 @@
 
 <!--Browser warnings end-->
 
+
+<script type="text/javascript">
+  var APP_CLIENTINFO = {
+    "version": "@@buildversion",
+    "date": "@@timestamp"
+  };
+</script>
+
+
 <script src='https://maps.googleapis.com/maps/api/js?sensor=false&language=en&region=IT&key=AIzaSyDeA3pWT15QSri8b00AVVqVCmAY_Niqbvg'></script>
 
 <!-- build:js scripts/vendor.js -->
@@ -305,10 +314,7 @@
   angular.module('anorakApp')
       .factory('APP_CLIENTINFO', function () {
         "use strict";
-        return {
-          "version": "@@buildversion",
-          "date": "@@timestamp"
-        };
+        return APP_CLIENTINFO;
       });
 </script>
 

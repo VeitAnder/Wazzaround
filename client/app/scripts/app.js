@@ -270,8 +270,10 @@ angular.module('anorakApp')
     // Google-User: reactureapp@gmail.com
     $translateProvider.useStaticFilesLoader({
       prefix: '/scripts/translations/locale-',
-      suffix: '.json'
+      suffix: '.json?' + APP_CLIENTINFO.version
     });
+
+    console.log("APP_CLIENTINFO.version", APP_CLIENTINFO.version);
 
     $translateProvider.registerAvailableLanguageKeys(['en', 'de', 'it'], {
       'en_US': 'en',
