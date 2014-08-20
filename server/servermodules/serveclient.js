@@ -28,13 +28,13 @@ var setupStaticAssetsServer = function (app, maxAge, extconfig) {
     maxAgeStaticAssets = maxAge;
   }
 
-  app.use("/bower_components", express.static(config.server.distFolder + "/bower_components", {maxAge: maxAgeStaticAssets }));
-  app.use("/fonts", express.static(config.server.distFolder + "/fonts", {maxAge: maxAgeStaticAssets }));
-  app.use("/img", express.static(config.server.distFolder + "/img", {maxAge: maxAgeStaticAssets }));
-  app.use("/styles", express.static(config.server.distFolder + "/styles", {maxAge: maxAgeStaticAssets }));
-  app.use("/scripts", express.static(config.server.distFolder + "/scripts", {maxAge: maxAgeStaticAssets }));
-  app.use("/views", express.static(config.server.distFolder + "/views", {maxAge: maxAgeStaticAssets }));
-  app.use("/favicon", express.static(config.server.distFolder + "/favicon", {maxAge: maxAgeStaticAssets }));
+  app.use("/bower_components", express.static(config.server.distFolder + "/bower_components", {maxAge: maxAgeStaticAssets, etag: false }));
+  app.use("/fonts", express.static(config.server.distFolder + "/fonts", {maxAge: maxAgeStaticAssets, etag: false }));
+  app.use("/img", express.static(config.server.distFolder + "/img", {maxAge: maxAgeStaticAssets, etag: false }));
+  app.use("/styles", express.static(config.server.distFolder + "/styles", {maxAge: maxAgeStaticAssets, etag: false }));
+  app.use("/scripts", express.static(config.server.distFolder + "/scripts", {maxAge: maxAgeStaticAssets, etag: false }));
+  app.use("/views", express.static(config.server.distFolder + "/views", {maxAge: maxAgeStaticAssets, etag: false }));
+  app.use("/favicon", express.static(config.server.distFolder + "/favicon", {maxAge: maxAgeStaticAssets, etag: false }));
 
   // error handling for not available static assets eg. /img/notavailable.png
   handle404 = function (req, res) {
