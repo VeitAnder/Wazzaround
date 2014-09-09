@@ -577,14 +577,6 @@
   },
   {
     "Description": "",
-    "key": "culture",
-    "en": "Culture",
-    "de": "Kultur",
-    "it": "Cultura",
-    "fr": "Culture"
-  },
-  {
-    "Description": "",
     "key": "wellness",
     "en": "Wellness & Relax",
     "de": "Wellness & Entspannung",
@@ -625,10 +617,10 @@
   },
   {
     "Description": "",
-    "key": "Culture",
-    "en": "Culture",
-    "de": "Kultur",
-    "it": "Cultura",
+    "key": "culture",
+    "en": "Culture & Binge",
+    "de": "Kultur & Genuss",
+    "it": "Cultura & Squisitezza",
     "fr": "Culture"
   },
   {
