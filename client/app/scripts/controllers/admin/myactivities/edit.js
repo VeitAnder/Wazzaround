@@ -124,7 +124,7 @@ angular.module('anorakApp')
 
       var endrepeatDate = moment(event.endrepeatDate).hour(23).minute(59);
 
-      if (moment().subtract('days', 1) > endrepeatDate) {
+      if (moment().subtract(1,'days') > endrepeatDate) {
         console.log("you're trying to add events in the past");
         return;
       }

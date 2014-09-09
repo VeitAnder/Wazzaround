@@ -23,9 +23,9 @@ angular.module('anorakApp')
 
             var getEndDate = function () {
               var endDate = new moment(scope.event.start);
-              endDate.add('days', scope.event.durationdays);
-              endDate.add('hours', scope.event.durationhours);
-              endDate.add('minutes', scope.event.durationminutes);
+              endDate.add(scope.event.durationdays, 'days');
+              endDate.add(scope.event.durationhours, 'hours');
+              endDate.add(scope.event.durationminutes, 'minutes');
               return endDate;
             };
 

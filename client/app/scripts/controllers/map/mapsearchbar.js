@@ -6,8 +6,8 @@ angular.module('anorakApp')
     $scope.frontendmap = frontendmap;
 
     $scope.search = {
-      minDate: moment().subtract('days', 1).toDate(),
-      maxDate: moment(frontendmap.map.searchStartDate).add('months', 18).toDate(),
+      minDate: moment().subtract(1, 'days').toDate(),
+      maxDate: moment(frontendmap.map.searchStartDate).add(18, 'months').toDate(),
       fromDate: new Date()
     };
 

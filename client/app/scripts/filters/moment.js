@@ -7,7 +7,7 @@ angular.module('momentjs', []).
   })
   .filter('minusOneDay', function () {
     return function (dateString) {
-      return moment(dateString).subtract('days', 1).toDate();
+      return moment(dateString).subtract(1, 'days').toDate();
     };
   })
   .filter('momentjs', function ($translate) {
