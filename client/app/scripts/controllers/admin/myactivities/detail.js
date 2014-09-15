@@ -6,6 +6,10 @@ angular.module('anorakApp')
       return 'views/admin/myactivities/detail.html';
     };
 
+    $scope.state = {
+      actionlinkisopen: false
+    };
+
     $scope.activity = activity;
 
     $scope.map = {
@@ -38,8 +42,5 @@ angular.module('anorakApp')
           $scope.$apply();
         }).done();
     };
-
-
-
 
   });

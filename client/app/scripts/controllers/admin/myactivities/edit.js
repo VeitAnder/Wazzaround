@@ -15,23 +15,20 @@ angular.module('anorakApp')
     $scope.vm = {
     };
 
-    console.log("AdminMyactivitiesEditCtrl executed");
-
-    $translate('Your unsaved data will be lost if you leave this page').then(function (leavepagequestion) {
-      $scope.$on("$locationChangeStart", function (event) {
-        var leavepage;
-        if (!$scope.noDataEntered() && !$scope.state.saveinprogress) {
-          leavepage = confirm(leavepagequestion);
-          if (!leavepage) {
-            event.preventDefault();
+    $translate('Your unsaved data will be lost if you leave this page')
+      .then(function (leavepagequestion) {
+        $scope.$on("$locationChangeStart", function (event) {
+          var leavepage;
+          if (!$scope.noDataEntered() && !$scope.state.saveinprogress && !$scope.state.deleteinprogress) {
+            leavepage = confirm(leavepagequestion);
+            if (!leavepage) {
+              event.preventDefault();
+            }
           }
-        }
+        });
       });
-    });
 
-    $scope.originalActivity = {
-
-    };
+    $scope.originalActivity = {};
 
     $scope.noDataEntered = function () {
       return angular.equals($scope.originalActivity, $scope.activity);
@@ -71,7 +68,8 @@ angular.module('anorakApp')
       additionalformchecks: {
         images: true,
         bookableevents: true
-      }
+      },
+      deleteinprogress: false
     };
 
     $scope.start = { time: moment().hours(9).minute(0).toDate() };
@@ -124,7 +122,7 @@ angular.module('anorakApp')
 
       var endrepeatDate = moment(event.endrepeatDate).hour(23).minute(59);
 
-      if (moment().subtract(1,'days') > endrepeatDate) {
+      if (moment().subtract(1, 'days') > endrepeatDate) {
         console.log("you're trying to add events in the past");
         return;
       }
@@ -288,7 +286,7 @@ angular.module('anorakApp')
 
         // add dynamic properties to activity model
         $scope.activity.company = currentUser.user.profile.company;
-        $scope.activity.inputlanguage =  $scope.getInputLanguage();
+        $scope.activity.inputlanguage = $scope.getInputLanguage();
 
         $scope.activity.save()  // save the activity
           .then(function (activity) {
@@ -306,11 +304,13 @@ angular.module('anorakApp')
     };
 
     $scope.delete = function () {
+      $scope.state.deleteinprogress = true;
       $scope.activity.remove()
         .then(function () {
           $location.path("/admin/myactivities/");
           $scope.$apply();
-        }).done();
+        })
+        .done();
     };
 
     $scope.cancel = function () {
@@ -395,6 +395,14 @@ angular.module('anorakApp')
       }
 
       arraymove($scope.activity.images, index, 0);
+    };
+
+    $scope.onActionLinkOpen = function () {
+      $scope.state.actionlinkisopen = true;
+    };
+
+    $scope.onActionLinkCancel = function () {
+      $scope.state.actionlinkisopen = false;
     };
 
   });

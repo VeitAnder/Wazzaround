@@ -25,6 +25,7 @@
   "helptext activity quantity": "Allows you to choose how many clients can simultaneously book your activity.",
   "helptext activity price": "Allows you to choose how much your activity costs.",
   "helptext activity repeating": "Tell us until when this event should be repeated.",
+  "Do you want to delete the entire activity": "Do you want to delete this activity including all its events?",
   "Checkout": "Checkout",
   "in shopping cart": "in shopping cart",
   "Subtotal": "Subtotal",

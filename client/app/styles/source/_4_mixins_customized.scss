@@ -469,12 +469,11 @@ googleMap, .angular-google-map, .angular-google-map-container {
   margin-bottom: $bu*2.0;
   border: 2px solid transparent;
   @include border-radius($border-radius + 2px);
+}
 
-  &.deletemode {
-    border-color: $color_red;
-    box-shadow: rgba($color_red, 1.0) 0px 0px 15px;
-  }
-
+.deletemode {
+  border-color: $color_red;
+  box-shadow: rgba($color_red, 1.0) 0px 0px 15px;
 }
 
 .bookableitem-header {
@@ -549,16 +548,16 @@ googleMap, .angular-google-map, .angular-google-map-container {
   @include border(all, $color_grey_75);
   border-width: 2px;
 
-  .event-header{
+  .event-header {
     color: $color_grey;
     border-color: $color_grey_50;
   }
-  .event-list{
+  .event-list {
     border-top: none;
     padding-top: 0;
     margin-top: 0;
   }
-  eventview{
+  eventview {
     border-color: $color_grey_50;
   }
 }
@@ -656,7 +655,7 @@ googleMap, .angular-google-map, .angular-google-map-container {
 
 eventrow {
   display: block;
-  eventview{
+  eventview {
     @include divtable_row_small;
     .cell {
       &.listaction {
@@ -694,7 +693,7 @@ eventrow {
     .event-item-quantity {
       @include font-size_small;
       white-space: nowrap;
-      &.bookedup{
+      &.bookedup {
         color: $color_red;
         font-weight: $font-weight_bold;
       }
@@ -772,7 +771,7 @@ eventedit {
     display: block;
   }
 
-  .divider{
+  .divider {
     margin: $bu (-$bu);
   }
 
@@ -792,13 +791,13 @@ eventedit {
   padding: 10px;
   @include border-radius($border-radius_small);
   background-color: $color_grey_15;
-  .switch-element{
+  .switch-element {
     padding: 0;
     margin-bottom: 0;
   }
-  .switch-element-right{
+  .switch-element-right {
     min-height: $switch-height;
-    .switch{
+    .switch {
       right: 0;
     }
   }
@@ -1003,7 +1002,6 @@ eventedit {
   }
 }
 
-
 $activitybar-currentitem-width: 60%;
 $activitybar-height: 200px;
 
@@ -1082,7 +1080,7 @@ activitybarstripe {
     @include font-size_small;
     line-height: 30px !important;
     text-transform: uppercase;
-    .visual-button{
+    .visual-button {
       position: absolute;
       top: -15px;
       right: 0;
@@ -1092,7 +1090,7 @@ activitybarstripe {
       @include border-top-radius($border-radius);
       background-color: $color_green;
       @include animation_background;
-      span{
+      span {
         display: block;
         width: 20px;
         height: 20px;
@@ -1101,7 +1099,7 @@ activitybarstripe {
         background-size: 920%;
         @include transform(rotate(270deg));
       }
-      .activitydetailactive &{
+      .activitydetailactive & {
       }
     }
   }
@@ -1109,9 +1107,9 @@ activitybarstripe {
   .activitydetailactive {
     .activity-detail-toggle {
       background-color: $color_red;
-      .visual-button{
+      .visual-button {
         background-color: $color_red;
-        span{
+        span {
           @include transform(rotate(90deg));
         }
       }
@@ -1123,9 +1121,9 @@ activitybarstripe {
     height: $activitybar-height;
     float: left;
     padding: ($bu + $bu*2.0) $bu $bu $bu;
-    .category{
+    .category {
       max-width: 100%;
-      .innerwrap{
+      .innerwrap {
         @include ellipsis(no-wrap);
       }
     }
@@ -1138,7 +1136,7 @@ activitybarstripe {
       @include multiline(2);
     }
   }
-  .currentactivity-img{
+  .currentactivity-img {
     position: relative;
     width: 50%;
     height: $activitybar-height;
@@ -1236,7 +1234,7 @@ currentactivity {
     @include hovercursor;
     overflow: hidden;
     height: $activitybar-height;
- }
+  }
   &.activitydetailactive {
     @include border-radius(0);
     .currentactivity-body {
@@ -1332,8 +1330,6 @@ activitybardetail {
     margin-top: 0;
   }
 }
-
-
 
 shoppingcart {
   display: block;
@@ -1597,7 +1593,6 @@ $payment-triangle-size: 60px;
     @include triangle($payment-triangle-size, $color_green_15, down);
   }
 }
-
 
 // CONTENT ELEMENTS
 // ###########################################################################################################################
@@ -2819,30 +2814,29 @@ $img-selector-teasertxtheight: 32px;
   }
 }
 
-.bookings-list{
-  .cell{
+.bookings-list {
+  .cell {
     @include ellipsis(none);
     white-space: normal;
   }
-  .bookingdate{
+  .bookingdate {
     width: 20%;
   }
-  .bookingnumber{
+  .bookingnumber {
     width: 20%;
   }
-  .activity{
+  .activity {
     width: 30%;
   }
-  .profile{
+  .profile {
     width: 30%;
   }
 
-
-  .activityname{
+  .activityname {
     display: block;
     font-weight: $font-weight_bold;
   }
-  .activitystart{
+  .activitystart {
     display: block;
   }
 }
@@ -2898,7 +2892,7 @@ $img-selector-teasertxtheight: 32px;
   }
 }
 
-languageselect{
+languageselect {
   .language-select {
     @include language-flags;
     a {
@@ -2917,17 +2911,13 @@ languageselect{
   }
 }
 
-.col-left-fixed{
-  languageselect{
+.col-left-fixed {
+  languageselect {
     position: absolute;
     top: $bu;
     right: $bu;
   }
 }
-
-
-
-
 
 .language-tabs {
   @include language-flags;
@@ -3608,4 +3598,14 @@ label + .language-tabs {
   }
 }
 
+action-confirmation-link {
+  display: block;
+  margin-top: 5px;
 
+  a {
+    color: $color_red;
+    &:hover {
+      color: $color_red_15;
+    }
+  }
+}

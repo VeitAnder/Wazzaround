@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
-
+    <div class="col-sm-12"
+         ng-class="{deletemode: state.actionlinkisopen}"
+        >
       <h2>{{'My Activities' | translate}}</h2>
 
       <div
@@ -12,9 +13,15 @@
           <a class="btn btn-small"
              href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
           </a>
-          <a class="btn btn-alert btn-small"
-             data-ng-click="delete()">{{'delete' | translate}}
-          </a>
+          <action-confirmation-link
+              callback="delete()"
+              label="{{'delete' | translate}}"
+              confirmation-label="{{'yes, delete' | translate}}"
+              confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
+              cancel-label="{{'no' | translate}}"
+              is-open="state.actionlinkisopen"
+              >
+          </action-confirmation-link>
         </div>
 
         <p class="alert alert-large alert-block alert-success"
@@ -161,9 +168,15 @@
           <a class="btn btn-small"
              href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
           </a>
-          <a class="btn btn-alert btn-small"
-             data-ng-click="delete()">{{'delete' | translate}}
-          </a>
+          <action-confirmation-link
+              callback="delete()"
+              label="{{'delete' | translate}}"
+              confirmation-label="{{'yes, delete' | translate}}"
+              confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
+              cancel-label="{{'no' | translate}}"
+              is-open="state.actionlinkisopen"
+              >
+          </action-confirmation-link>
         </div>
 
       </div>

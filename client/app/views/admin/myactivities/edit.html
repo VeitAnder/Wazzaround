@@ -1,7 +1,8 @@
 <div ng-controller="AdminMyactivitiesEditCtrl">
-
   <div class="container">
-    <div class="row">
+    <div class="row"
+         ng-class="{deletemode:state.actionlinkisopen}"
+        >
       <div class="col-sm-12">
 
         <h2>
@@ -321,7 +322,9 @@
                 <div class="bookableitem-header">
                   <ng-form name="bookableItemForm">
 
-                    <div class="buttonbar buttonbar-top">
+                    <div
+                        class="buttonbar buttonbar-top"
+                        >
 
                       <a ng-click="bookableItem.deletemode = true"
                          ng-show="!bookableItem.deletemode"
@@ -683,11 +686,6 @@
 
           <div class="buttonbar margin-top">
 
-            <a data-ng-show="!isNewMode()"
-               class="btn btn-alert float-left"
-               data-ng-click="delete()">{{'delete' | translate}}
-            </a>
-
             <button class="btn"
                     ng-click="save()"
                     ng-class="{disabled: valForm.$invalid || !additionalFormChecks()}"
@@ -699,6 +697,19 @@
                 >
               {{'cancel' | translate}}
             </a>
+
+            <action-confirmation-link
+                ng-show="!isNewMode()"
+                class="float-left"
+
+                callback="delete()"
+                label="{{'delete' | translate}}"
+                confirmation-label="{{'yes, delete' | translate}}"
+                confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
+                cancel-label="{{'no' | translate}}"
+                is-open="state.actionlinkisopen"
+                >
+            </action-confirmation-link>
 
           </div>
 

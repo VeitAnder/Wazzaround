@@ -25,6 +25,7 @@
   "helptext activity quantity": "Gib an, wieviele Kunden gleichzeitig Deine Aktivität buchen können.",
   "helptext activity price": "Gib an, wieviel Deine Aktivität kostet.",
   "helptext activity repeating": "Gib an, bis wann sich dieses Event automatisch wiederholen soll.",
+  "Do you want to delete the entire activity": "Möchten Sie diese Aktivität samt allen Events wirklich löschen?",
   "Checkout": "Zur Kasse",
   "in shopping cart": "im Warenkorb",
   "Subtotal": "Zwischensumme",

@@ -1,0 +1,28 @@
+<a
+    ng-hide="isOpen"
+    ng-click="openActionLink()"
+    >
+  {{label}}
+</a>
+
+<span
+    class="description"
+    ng-show="isOpen"
+    >
+  {{confirmationDescription}}
+</span>
+
+<button
+    class="yes btn btn-alert btn-small"
+    ng-show="isOpen"
+    ng-click="callback()"
+    >
+  {{confirmationLabel}}
+</button>
+<button
+    class="no btn btn-small"
+    ng-click="closeActionLink()"
+    ng-show="isOpen"
+    >
+  {{cancelLabel}}
+</button>
