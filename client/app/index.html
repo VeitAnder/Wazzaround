@@ -24,7 +24,8 @@
   <meta http-equiv="Content-type"
         content="text/html; charset=UTF-8"/>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
 
   <title>reActure - find your activity</title>
 
@@ -51,6 +52,32 @@
 </head>
 
 <body ng-controller="AppCtrl">
+
+<noscript
+    >
+  <style type="text/css">
+    .uservoice-custom {
+      display: none;
+    }
+
+    body {
+      width: 100%;
+      min-width: 100%;
+    }
+  </style>
+
+  <img src="/img/reacture_logo.png"/>
+  <p>
+    <strong>Please turn on JavaScript. Thank you!</strong>
+  </p>
+  <p>
+    Please turn on JavaScript in your browser in order to use www.reacture.com. Thank You!
+  </p>
+
+  <p>
+    Bitte aktivieren Sie JavaScript in Ihrem Browser um www.reacture.com nutzen zu können. Danke!
+  </p>
+</noscript>
 
 <!--SVG check-->
 <script type="text/javascript">
@@ -130,7 +157,6 @@
      class="page">
 </div>
 
-
 <!--Browser warnings start-->
 
 <!--[if lt IE 10]>
@@ -178,14 +204,12 @@
 
 <!--Browser warnings end-->
 
-
 <script type="text/javascript">
   var APP_CLIENTINFO = {
     "version": "@@buildversion",
     "date": "@@timestamp"
   };
 </script>
-
 
 <script src='https://maps.googleapis.com/maps/api/js?sensor=false&language=en&region=IT&key=AIzaSyDeA3pWT15QSri8b00AVVqVCmAY_Niqbvg'></script>
 
@@ -323,7 +347,8 @@
   // jonathans test key
   var PAYMILL_PUBLIC_KEY = '744618362999c5386cdc5e61fee63d2c';
 </script>
-<script type="text/javascript" src="https://bridge.paymill.com/"></script>
+<script type="text/javascript"
+        src="https://bridge.paymill.com/"></script>
 
 <script>
   (function (i, s, o, g, r, a, m) {
@@ -369,26 +394,26 @@
 
   // Identify the user and pass traits
   // To enable, replace sample data with actual user traits and uncomment the line
-/*  UserVoice.push(['identify', {
-    //email:      'john.doe@example.com', // User’s email address
-    //name:       'John Doe', // User’s real name
-    //created_at: 1364406966, // Unix timestamp for the date the user signed up
-    //id:         123, // Optional: Unique id of the user (if set, this should not change)
-    //type:       'Owner', // Optional: segment your users by type
-    //account: {
-    //  id:           123, // Optional: associate multiple users with a single account
-    //  name:         'Acme, Co.', // Account name
-    //  created_at:   1364406966, // Unix timestamp for the date the account was created
-    //  monthly_rate: 9.99, // Decimal; monthly rate of the account
-    //  ltv:          1495.00, // Decimal; lifetime value of the account
-    //  plan:         'Enhanced' // Plan name for the account
-    //}
-  }]);*/
+  /*  UserVoice.push(['identify', {
+   //email:      'john.doe@example.com', // User’s email address
+   //name:       'John Doe', // User’s real name
+   //created_at: 1364406966, // Unix timestamp for the date the user signed up
+   //id:         123, // Optional: Unique id of the user (if set, this should not change)
+   //type:       'Owner', // Optional: segment your users by type
+   //account: {
+   //  id:           123, // Optional: associate multiple users with a single account
+   //  name:         'Acme, Co.', // Account name
+   //  created_at:   1364406966, // Unix timestamp for the date the account was created
+   //  monthly_rate: 9.99, // Decimal; monthly rate of the account
+   //  ltv:          1495.00, // Decimal; lifetime value of the account
+   //  plan:         'Enhanced' // Plan name for the account
+   //}
+   }]);*/
 
   // Add default trigger to the bottom-right corner of the window:
-/*
-  UserVoice.push(['addTrigger', { trigger_style: 'tab', mode: 'contact', trigger_position: 'top-right' }]);
-*/
+  /*
+   UserVoice.push(['addTrigger', { trigger_style: 'tab', mode: 'contact', trigger_position: 'top-right' }]);
+   */
 
   // Or, use your own custom trigger:
   //UserVoice.push(['addTrigger', '#id', { mode: 'contact' }]);
@@ -405,7 +430,6 @@
     <span class="txt">{{ 'Contact our support' | translate }}!</span>
   </a>
 </div>
-
 
 </body>
 </html>
