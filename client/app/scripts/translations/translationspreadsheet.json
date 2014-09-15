@@ -300,48 +300,48 @@
     "key": "in shopping cart",
     "en": "in shopping cart",
     "de": "im Warenkorb",
-    "it": "in shopping cart",
-    "fr": "in shopping cart"
+    "it": "nel carrello della spesa",
+    "fr": "dans le panier"
   },
   {
     "Description": "",
     "key": "Subtotal",
     "en": "Subtotal",
     "de": "Zwischensumme",
-    "it": "Subtotal",
-    "fr": "Subtotal"
+    "it": "totale parziale",
+    "fr": "Sous-total"
   },
   {
     "Description": "",
     "key": "Shopping cart",
     "en": "Shopping cart",
     "de": "Warenkorb",
-    "it": "Shopping cart",
-    "fr": "Shopping cart"
+    "it": "carrello della spesa",
+    "fr": "panier"
   },
   {
     "Description": "",
     "key": "Payment options",
     "en": "Payment options",
     "de": "Zahlungsmodalitäten",
-    "it": "Payment options",
-    "fr": "Payment options"
+    "it": "opzioni di pagamento",
+    "fr": "options de paiement"
   },
   {
     "Description": "",
     "key": "Available Creditcards",
     "en": "Available Creditcards",
     "de": "Verfügbare Kreditkarten",
-    "it": "Available Creditcards",
-    "fr": "Available Creditcards"
+    "it": "carte disponibili",
+    "fr": "cartes de crédit disponibles"
   },
   {
     "Description": "",
     "key": "Card number",
     "en": "Card number",
     "de": "Kartennummer",
-    "it": "Card number",
-    "fr": "Card number"
+    "it": "numero di carta",
+    "fr": "numéro de carte"
   },
   {
     "Description": "",
@@ -356,112 +356,112 @@
     "key": "Holdername",
     "en": "Holdername",
     "de": "Name auf der Kreditkarte",
-    "it": "Holdername",
-    "fr": "Holdername"
+    "it": "titolare/intestatario della carta di credito",
+    "fr": "titulaire de la carte de crédit"
   },
   {
     "Description": "",
     "key": "Expiry date month",
     "en": "Expiry date (MM)",
     "de": "Gültig bis (MM)",
-    "it": "Expiry date (MM)",
-    "fr": "Expiry date (MM)"
+    "it": "data di scadenza (MM)",
+    "fr": "date d'expiration (MM)"
   },
   {
     "Description": "",
     "key": "Expiry date year",
     "en": "Expiry date (YYYY)",
     "de": "Gültig bis (JJJJ)",
-    "it": "Expiry date (YYYY)",
-    "fr": "Expiry date (YYYY)"
+    "it": "data di scadenza (YYYY)",
+    "fr": "date d'expiration (YYYY)"
   },
   {
     "Description": "",
     "key": "Send booking",
     "en": "Send booking",
     "de": "Buchung absenden",
-    "it": "Send booking",
-    "fr": "Send booking"
+    "it": "invia la prenotazione",
+    "fr": "envoyer votre réservation"
   },
   {
     "Description": "",
     "key": "Please enter a valid card number",
     "en": "Please enter a valid card number",
     "de": "Bitte geben Sie eine gültige Kartennummer ein",
-    "it": "Please enter a valid card number",
-    "fr": "Please enter a valid card number"
+    "it": "inserire un numero di carta valido",
+    "fr": "Veuillez saisir un numéro de carte valide"
   },
   {
     "Description": "",
     "key": "Please enter your card number",
     "en": "Please enter your card number",
     "de": "Bitte geben Sie Ihre Kartennummer ein",
-    "it": "Please enter your card number",
-    "fr": "Please enter your card number"
+    "it": "inserire il vostro numero di carta",
+    "fr": "Veuillez saisir votre numéro de carte"
   },
   {
     "Description": "",
     "key": "Please enter a valid CVC",
     "en": "Please enter a valid verification number (CVC)",
     "de": "Bitte geben Sie eine gültige Prüfnummer (CVC) ein",
-    "it": "Please enter a valid verification number (CVC)",
-    "fr": "Please enter a valid verification number (CVC)"
+    "it": "inserire un valido numero di verifica (CVC)",
+    "fr": "Veuillez saisir un numéro de vérification valide (CVC)"
   },
   {
     "Description": "",
     "key": "Please enter your CVC",
     "en": "Please enter your verification number (CVC)",
     "de": "Bitte geben Sie Ihre Prüfnummer (CVC) ein",
-    "it": "Please enter your verification number (CVC)",
-    "fr": "Please enter your verification number (CVC)"
+    "it": "inserire il vostro numero di verifica (CVC)",
+    "fr": "Veuillez saisir votre numéro de vérification (CVC)"
   },
   {
     "Description": "",
     "key": "Please enter a valid holdername",
     "en": "Please enter a valid holdername",
     "de": "Bitte geben Sie eine gültigen Namen ein",
-    "it": "Please enter a valid holdername",
-    "fr": "Please enter a valid holdername"
+    "it": "inserire il nome valido del titolare della carta",
+    "fr": "Veuillez saisir le nom du titulaire de la carte de crédit valide"
   },
   {
     "Description": "",
     "key": "Please enter your holdername",
     "en": "Please enter your holdername",
     "de": "Bitte geben Sie den Namen der auf der Kreditkarte steht ein",
-    "it": "Please enter your holdername",
-    "fr": "Please enter your holdername"
+    "it": "inserire il nome del titolare della CC",
+    "fr": "Veuillez saisir le nom du titulaire de la carte de crédit"
   },
   {
     "Description": "",
     "key": "Please enter a valid number month",
     "en": "Please enter a valid number (MM)",
     "de": "Bitte geben Sie eine gültige, 2-stellige Zahl ein",
-    "it": "Please enter a valid number for month",
-    "fr": "Please enter a valid number for month"
+    "it": "inserire un numero valido per il mese",
+    "fr": "Veuillez entrer un numéro pour le mois valide"
   },
   {
     "Description": "",
     "key": "Please enter the month of the expiry date",
     "en": "Please enter the month of the expiry date",
     "de": "Bitte geben Sie das Monat des Ablaufdatums ein",
-    "it": "Please enter the month of the expiry date",
-    "fr": "Please enter the month of the expiry date"
+    "it": "inserire il mese della data di scadenza",
+    "fr": "Veuillez entrer le mois de la date d'expiration"
   },
   {
     "Description": "",
     "key": "Please enter a valid number year",
     "en": "Please enter a valid number year",
     "de": "Bitte geben Sie eine gültige, 4-stellige Zahl ein",
-    "it": "Please enter a valid number year",
-    "fr": "Please enter a valid number year"
+    "it": "inserire un numero valido per l'anno",
+    "fr": "Veuillez entrer un numéro pour l'année valide"
   },
   {
     "Description": "",
     "key": "Please enter the year of the expiry date",
     "en": "Please enter the year of the expiry date",
     "de": "Bitte geben Sie das Jahr des Ablaufdatums ein",
-    "it": "Please enter the year of the expiry date",
-    "fr": "Please enter the year of the expiry date"
+    "it": "Inserire l'anno della data di scadenza",
+    "fr": "Veuillez entrer l'année de la date d'expiration"
   },
   {
     "Description": "",
@@ -508,24 +508,24 @@
     "key": "Bookings",
     "en": "Bookings",
     "de": "Buchungs-Übersicht",
-    "it": "Bookings",
-    "fr": "Bookings"
+    "it": "Prenotazioni",
+    "fr": "Réservations"
   },
   {
     "Description": "",
     "key": "Booking date",
     "en": "Booking date",
     "de": "Buchungs-Datum",
-    "it": "Booking date",
-    "fr": "Booking date"
+    "it": "data della prenotazione",
+    "fr": "date de réservation"
   },
   {
     "Description": "",
     "key": "Booked by",
     "en": "Booked by",
     "de": "Gebucht von",
-    "it": "Booked by",
-    "fr": "Booked by"
+    "it": "prenotato da",
+    "fr": "réservé par"
   },
   {
     "Description": "",
@@ -541,7 +541,7 @@
     "en": "Work with us",
     "de": "Arbeiten Sie mit uns",
     "it": "Lavora con noi",
-    "fr": "travaille avec nous"
+    "fr": "Travaille avec nous"
   },
   {
     "Description": "",
@@ -565,7 +565,7 @@
     "en": "Please choose",
     "de": "Bitte wählen Sie",
     "it": "Si prega di scegliere",
-    "fr": "veuillez sélectionner"
+    "fr": "Veuillez sélectionner"
   },
   {
     "Description": "",
@@ -618,10 +618,10 @@
   {
     "Description": "",
     "key": "culture",
-    "en": "Culture & Binge",
+    "en": "Culture & Taste",
     "de": "Kultur & Genuss",
-    "it": "Cultura & Squisitezza",
-    "fr": "Culture"
+    "it": "Cultura & Gusto",
+    "fr": "Culture & Goût"
   },
   {
     "Description": "",
@@ -1068,7 +1068,7 @@
     "key": "Account",
     "en": "Your account",
     "de": "Benutzerkonto",
-    "it": "Conto",
+    "it": "Account",
     "fr": "votre compte/account"
   },
   {
@@ -1092,7 +1092,7 @@
     "key": "Not registered",
     "en": "Register as Customer",
     "de": "Noch nicht registriert?",
-    "it": "Non registrata?",
+    "it": "Registrati",
     "fr": "Déjà inscrit?"
   },
   {

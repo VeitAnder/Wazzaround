@@ -52,4 +52,4 @@ modulus logout
 echo "remove clientapp dir from server dir"
 rm -R ${SCRIPTPATH}/clientapp
 
-open http://beta.reacture.com
+open http://www.reacture.com
