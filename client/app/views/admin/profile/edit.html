@@ -261,7 +261,7 @@
                    class="input-block-level"
                    required
                    placeholder="{{ 'Your country' | translate }}"
-
+                   ng-blur="Countrylist.validateCountrySelection(user.profile)"
                    ng-options="country as country.name for country in Countrylist.get()"
                    value="{{user.profile.country.name}}"
                    bs-typeahead

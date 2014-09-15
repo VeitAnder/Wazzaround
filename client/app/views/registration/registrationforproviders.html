@@ -134,7 +134,6 @@
             </div>
           </div>
 
-
           <div class="divider">
             <span>{{'Company data' | translate}}</span>
           </div>
@@ -292,7 +291,7 @@
                    class="input-block-level"
                    required
                    placeholder="{{ 'Your country' | translate }}"
-
+                   ng-blur="Countrylist.validateCountrySelection(registrant.profile)"
                    ng-options="country as country.name for country in Countrylist.get()"
                    bs-typeahead
                 >
@@ -302,6 +301,10 @@
             </span>
 
           </div>
+          
+          <pre>
+           {{registrant.profile.country | json}}
+          </pre>
 
           <div class="form-group emphasis">
             <div class="checkbox">
