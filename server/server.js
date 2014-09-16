@@ -75,7 +75,8 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "developme
   require("./servermodules/security.js").useCSRFProtection(app);
 }
 
-require("./servermodules/restapi.js").RestApi(app);
+app.use('/' + config.api.apiversion + 'upload', require("./routes/upload.js"));
+app.use('/' + config.api.apiversion + 'registration', require("./routes/registration.js"));
 
 require("./servermodules/serveclient.js").serveClient(app);
 

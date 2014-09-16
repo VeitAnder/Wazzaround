@@ -1,17 +1,19 @@
 var config = require("../config.js");
 
+var express = require('express');
+var router = express.Router();
+
+var security = require("../lib/security.js");
+
 var cloudinary = require('cloudinary');
 var fs = require("fs");
 var multiparty = require("multiparty");  // necessary as separate module since ExpressJS 4.0
 
 cloudinary.config(config.cloudinary);
 
-exports.postupload = function (req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.send(403, "Not Authorized");  // if not logged in don't allow write operations
-    return;
-  }
+router.use(security.isAuthenticated);
 
+router.post('/activityimage', function (req, res, next) {
   var form = new multiparty.Form();
   form.parse(req, function (err, fields, files) {
     var imageStream = fs.createReadStream(files.file[0].path, { encoding: 'binary' });
@@ -20,16 +22,13 @@ exports.postupload = function (req, res, next) {
     });
     imageStream.on('data', cloudStream.write).on('end', cloudStream.end);
   });
-};
+});
 
-exports.deleteupload = function (req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.send(403, "Not Authorized");  // if not logged in don't allow write operations
-    return;
-  }
-
+router.delete('/activityimage/:resourceid/?', function (req, res, next) {
   var resourceid = req.params.resourceid;
   cloudinary.api.delete_resources([resourceid], function (data) {
     res.send(data);
   });
-};
+});
+
+module.exports = router;

@@ -26,6 +26,15 @@ var security = {
   logout: function (req) {
     req.logout();
     return;
+  },
+  isAuthenticated: function (req, res, next) {
+    if (!req.isAuthenticated()) {
+      res.send(401, "Not Authorized");  // if not logged in don't allow write operations
+      return;
+    } else {
+      next();
+      return;
+    }
   }
 };
 

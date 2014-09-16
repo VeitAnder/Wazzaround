@@ -112,8 +112,7 @@ UserModel.operationImpl("register", function (params, req) {
       return tokenObj;
     })
     .then(function (tokenObj) {
-      return;
-//      return mail.sendActivationTokenEmail(tokenObj.user.ref(), tokenObj.token);
+      return mail.sendActivationTokenEmail(tokenObj.user.ref(), tokenObj.token);
     })
     .then(function () {  // if save was ok
       return {status: "ok"};

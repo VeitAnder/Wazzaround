@@ -4,7 +4,6 @@
 
       <h2>{{'Profile' | translate}}</h2>
 
-
       <h4>{{'Personal data' | translate}}:</h4>
 
       <div class="formdata-display">
@@ -26,25 +25,24 @@
         </div>
       </div>
 
+      <!--      <div class="formdata-display">
+              <div class="input-label">
+                {{'language' | translate}}
+              </div>
+              <div class="input-content">
+                {{user.language}}
+              </div>
+            </div>
+            <div class="formdata-display">
+              <div class="input-label">
+                {{'currency' | translate}}
+              </div>
+              <div class="input-content">
+                {{user.currency}}
+              </div>
+            </div>-->
 
-<!--      <div class="formdata-display">
-        <div class="input-label">
-          {{'language' | translate}}
-        </div>
-        <div class="input-content">
-          {{user.language}}
-        </div>
-      </div>
-      <div class="formdata-display">
-        <div class="input-label">
-          {{'currency' | translate}}
-        </div>
-        <div class="input-content">
-          {{user.currency}}
-        </div>
-      </div>-->
-
-      <div ng-show="user.userType === 'provider' || user.userType === 'admin'">
+      <!--<div ng-show="user.userType === 'provider' || user.userType === 'admin'">-->
 
         <h4>{{'Company data' | translate}}:</h4>
 
@@ -106,13 +104,13 @@
           </div>
         </div>
 
-        <div class="buttonbar buttonbar-default">
-          <a class="btn"
-             href="#/admin/profile/edit/">
-            {{'Edit your Profile' | translate}}
-          </a>
-        </div>
+      <!--</div>-->
 
+      <div class="buttonbar buttonbar-default">
+        <a class="btn"
+           href="#/admin/profile/edit/">
+          {{'Edit your Profile' | translate}}
+        </a>
       </div>
 
     </div>

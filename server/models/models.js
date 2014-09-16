@@ -1,5 +1,4 @@
 'use strict';
-
 var models = function () {
 
 //  if (typeof window === 'undefined') {
@@ -37,7 +36,8 @@ var models = function () {
     password: Attr(Type.string),
     registrationdate: Attr(Type.date, Attr.default(new Date())),
     lastlogindate: Attr(Type.date),
-
+    enabled: Attr(Type.date, Attr.default(true)),
+    accountconfirmed: Attr(Type.boolean, Attr.default(false)),
     profile: {
       firstName: Attr(Type.string),
       lastName: Attr(Type.string),
@@ -210,7 +210,7 @@ var models = function () {
   var BookedEventModel = new model('bookedEvents', {
     booking: Ref(BookingModel),                       // zu dieser Buchung gehört das Event
     activity: Ref(ActivityModel),                      // gebuchte Aktivität
-    activity_owner : Ref(UserModel),                  // der Besitzer der Aktivität
+    activity_owner: Ref(UserModel),                  // der Besitzer der Aktivität
     item: Link(ActivityModel, BookableItemModel),  // gebuchtes Item
     event: Link(ActivityModel, EventModel),         // gebuchtes Event
     quantity: Attr(Type.number),                       // gebuchte Menge
@@ -219,7 +219,7 @@ var models = function () {
 
     date: Attr(Type.date, Attr.default(new Date())),  // wann wurde das event gebucht
 
-    bookingProfile : {
+    bookingProfile: {
       firstName: Attr(Type.string),
       lastName: Attr(Type.string),
       email: Attr(Type.string),

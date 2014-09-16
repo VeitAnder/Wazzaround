@@ -48,7 +48,7 @@ angular.module('anorakApp')
           })
           .then(function () {
             $scope.$apply(function () {
-              $location.path('/admin/');
+              $location.path('/admin/profile/');
             });
           })
           .fail(function (err) {
