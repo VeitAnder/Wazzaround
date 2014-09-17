@@ -5,7 +5,7 @@ set -e
 source _config.sh
 CONFIGJSONFILE=$SECRETCONFIGFILE_PRODUCTION
 
-MONGODB_HOST=`node -e "console.log( require('$CONFIGJSONFILE').mongo.host )"`
+MONGODB_HOST=`node -e "console.log( require('$CONFIGJSONFILE').mongo.dumpHost )"`
 MONGODB_DATABASENAME=`node -e "console.log( require('$CONFIGJSONFILE').mongo.dbName )"`
 MONGODB_USERNAME=`node -e "console.log( require('$CONFIGJSONFILE').mongo.readonlyuser )"`
 MONGODB_PASSWORD=`node -e "console.log( require('$CONFIGJSONFILE').mongo.readonlypass )"`

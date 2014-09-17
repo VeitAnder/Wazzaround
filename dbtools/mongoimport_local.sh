@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 source _config.sh
 CONFIGJSONFILE=$SECRETCONFIGFILE_LOCAL
 

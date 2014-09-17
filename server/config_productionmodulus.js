@@ -6,6 +6,7 @@ var config = {
     password: 'pDDbi6FYWsVUftsH9',
     dbName: 'reactureapp',                                // The name of database that contains the security information
     host: 'ds029780-a0.mongolab.com:29780,ds029780-a1.mongolab.com:29780',                         // mongolab mongodb connection url
+    dumpHost : "ds029780-a0.mongolab.com:29780",
     readonlyuser : 'readonlyuser',
     readonlypass : 'Kod:byT#Or[Zy.wel*her'
   },
