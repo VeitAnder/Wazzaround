@@ -5,7 +5,9 @@ var config = {
     username: 'reactureapp',
     password: 'pDDbi6FYWsVUftsH9',
     dbName: 'reactureapp',                                // The name of database that contains the security information
-    host: 'ds029780-a0.mongolab.com:29780,ds029780-a1.mongolab.com:29780'                         // mongolab mongodb connection url
+    host: 'ds029780-a0.mongolab.com:29780,ds029780-a1.mongolab.com:29780',                         // mongolab mongodb connection url
+    readonlyuser : 'readonlyuser',
+    readonlypass : 'Kod:byT#Or[Zy.wel*her'
   },
   security: {
     usersCollection: 'users',                                   // The name of the collection contains user information
