@@ -41,20 +41,21 @@
     "winston": "0.7.x"
   },
   "devDependencies": {
-    "grunt-bump": "0.0.15",
-    "supervisor": "0.6.0",
+    "URIjs": "1.14.0",
     "grunt": "0.4",
+    "grunt-bump": "0.0.15",
+    "grunt-contrib-handlebars": "0.8.0",
     "grunt-contrib-jshint": "0.10",
     "grunt-contrib-nodeunit": "0.4.1",
-    "grunt-contrib-handlebars": "0.8.0",
     "grunt-contrib-watch": "0.6.1",
-    "grunt-jasmine-node": "0.2.1",
-    "supertest": "0.13.0",
-    "shelljs": "0.3.x",
-    "URIjs": "1.14.0",
     "grunt-env": "0.4.1",
+    "grunt-jasmine-node": "0.2.1",
     "jshint-stylish": "0.4.0",
-    "repl.history": "0.1.2"
+    "mongodb-migrations": "^0.2.0",
+    "repl.history": "0.1.2",
+    "shelljs": "0.3.x",
+    "supertest": "0.13.0",
+    "supervisor": "0.6.0"
   },
   "scripts": {
     "start": "server.js"

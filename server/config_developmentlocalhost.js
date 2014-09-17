@@ -22,8 +22,7 @@ var config = {
     username: 'reactureappdev',
     password: 'pGjRLG72qvXBGo',
     dbName: 'reactureappdev',                                // The name of database that contains the security information
-    host: 'ds027419.mongolab.com',                         // mongolab mongodb connection url
-    port: '27419'
+    host: 'ds027419.mongolab.com:27419'                         // mongolab mongodb connection url
   },
   security: {
     usersCollection: 'users',                                   // The name of the collection contains user information
