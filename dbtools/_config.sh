@@ -4,8 +4,8 @@
 BACKUPLOCATION=./dumps
 
 SECRETCONFIGFILE_LOCAL=../server/config_development_local_mongo.js
-SECRETCONFIGFILE_DEV=/Volumes/truecrypt/reactureapp/config_developmentmodulus.js
-SECRETCONFIGFILE_PRODUCTION=
+SECRETCONFIGFILE_DEV=../config_developmentmodulus.js
+SECRETCONFIGFILE_PRODUCTION="./../server/config_productionmodulus.js"
 
 MONGOLAB_COLLECTIONS=(accesstokens activities bookedEvents bookings categories objectlabs-system objectlabs-system.admin.collections users)
 

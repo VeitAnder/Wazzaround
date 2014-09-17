@@ -12,7 +12,7 @@ angular.module('anorakApp')
       templateUrl: 'views/directives/action-confirmation-link.html',
       restrict: 'E',
       scope: {
-        callback: "&",
+        action: "&",
         label: "@",
         confirmationLabel: "@",
         cancelLabel: "@",

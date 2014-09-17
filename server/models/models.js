@@ -72,6 +72,7 @@ var models = function () {
     userType: Attr(Type.string, Type.enum('user', 'admin', 'provider'), Attr.default('user')),
 
     currentUser: Factory(),
+    getProviders: Factory(),
 
     getProfile: Operation()
   });
@@ -149,6 +150,7 @@ var models = function () {
     owner: Ref(UserModel),
 
     getMyActivities: Factory(),
+    byOwner : Factory(),
 
     filteredActivities: Factory({
       from: {  // <bottom left coordinates>

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h2>{{provider.profile.company}} {{'Details' | translate}}</h2>
+
+
+      <div ng-include="'views/admin/profile/list.html'"></div>
+
+      <h2>Activities of {{provider.profile.company}}</h2>
+
+      <div ng-include="'views/admin/allActivitiesList.html'" ></div>
+
+      <!--<pre>{{provider | json}}</pre>-->
+
+    </div>
+  </div>
+</div>

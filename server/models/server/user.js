@@ -23,7 +23,9 @@ UserModel.readFilter(function (req) {
     return false;  // if not logged in don't allow read operations
   }
 
-  return {_id: ObjectId(req.user._id) };  // filter for only your documents (your user id)
+  if (req.user.userType === 'admin') return true;  // allow admin to access all users
+
+    return {_id: ObjectId(req.user._id) };  // filter for only your documents (your user id)
 });
 
 function checkRequiredFieldsForUserType(userDoc) {
@@ -154,4 +156,21 @@ UserModel.operationImpl("getProfile", function (params, req) {
         company: user.profile.company
       };
     });
+});
+
+UserModel.factoryImpl("getProviders", function (params, req) {
+    var deferred = Q.defer();
+    if (!req.isAuthenticated()) {
+        var err = new Error("Not authorized");
+        err.statusCode = 401;
+        deferred.reject(err);
+        return deferred.promise;
+    } else if(req.user.userType !== 'admin') {
+        var err = new Error("Not allowed");
+        err.statusCode = 405;
+        deferred.reject(err);
+        return deferred.promise;
+    }
+
+    return UserModel.find({userType:"provider"});
 });
