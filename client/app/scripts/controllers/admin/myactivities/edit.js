@@ -288,6 +288,8 @@ angular.module('anorakApp')
         $scope.activity.company = currentUser.user.profile.company;
         $scope.activity.inputlanguage = $scope.getInputLanguage();
 
+        $scope.activity.unreviewedChanges += 1;
+
         $scope.activity.save()  // save the activity
           .then(function (activity) {
             $location.path("/admin/myactivities/" + activity._id + "/");

@@ -8,14 +8,4 @@ angular.module('anorakApp')
 
     $scope.activities = activities;
 
-    $scope.open = function (activity) {
-      $location.path("/admin/allactivities/" + activity._id + "/");
-    };
-
-    $scope.toggle = function(activity) {
-      activity.published = !activity.published;
-
-      activity.save().done();
-    };
-
   });

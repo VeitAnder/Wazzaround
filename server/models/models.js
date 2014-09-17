@@ -133,6 +133,8 @@ var models = function () {
       ]
     },
 
+    unreviewedChanges : Attr(Type.number, Attr.default(0)),
+
     // http://docs.mongodb.org/manual/core/geospatial-indexes/#multi-location-documents-for-2d-indexes
     // http://myadventuresincoding.wordpress.com/2011/10/02/mongodb-geospatial-queries/
     // don' forget to create an index via:
