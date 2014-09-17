@@ -20,6 +20,26 @@ angular.module('anorakApp')
             activity.save().done();
           };
 
+          $scope.publish = function($event, activity) {
+            $event.stopPropagation();
+
+            activity.published = true;
+            activity.denied = false;
+            activity.unreviewedChanges = 0;
+
+            activity.save().done();
+          };
+
+          $scope.deny = function($event, activity) {
+            $event.stopPropagation();
+
+            activity.published = false;
+            activity.denied = true;
+            activity.unreviewedChanges = 0;
+
+            activity.save().done();
+          };
+
           $scope.verify = function($event, activity) {
             $event.stopPropagation();
             activity.published = true;

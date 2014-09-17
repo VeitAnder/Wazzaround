@@ -17,19 +17,23 @@
     </div>
   </div>
 
+  <style>
+    .denied {text-decoration: line-through;}
+  </style>
+
   <div class="listbody">
 
     <div class="listrow"
          ng-repeat="activity in activities"
          data-ng-click="open(activity)"
         >
-      <div class="activity cell first">
+      <div class="activity cell first" ng-class="{denied : activity.denied }">
         {{activity.name | languageselect}}
       </div>
-      <div class="category-main cell">
+      <div class="category-main cell" ng-class="{denied : activity.denied }">
         {{activity.category.main | translate}}
       </div>
-      <div class="category-sub cell">
+      <div class="category-sub cell" ng-class="{denied : activity.denied }">
               <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}
                 <br>
               </span>
@@ -47,8 +51,16 @@
                 <span ng-switch-when="false"
                       class="btn btn-mini"
                       style="background-color: #df401c; border-color: #df401c;"
-                      data-ng-click="toggle($event, activity)">
+                      data-ng-click="publish($event, activity)">
                   {{'publish' | translate}}
+                </span>
+                <br/>
+                <span ng-switch-when="false"
+                      ng-if="!activity.denied"
+                      class="btn btn-mini"
+                      style="background-color: #583216; border-color: #583216;"
+                      data-ng-click="deny($event, activity)">
+                  deny
                 </span>
                 <span ng-switch-when="true">
                     <span ng-switch="activity.unreviewedChanges > 0">
