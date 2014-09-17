@@ -12,9 +12,4 @@ angular.module('anorakApp')
 
         $scope.activities = activities;
 
-        $scope.toggle = function(activity) {
-            activity.published = !activity.published;
-
-            activity.save().done();
-        };
     });

@@ -132,6 +132,11 @@ var models = function () {
       ]
     },
 
+    // TODO security: der user könnte das hier schon auf true setzten
+    published: Attr(Type.boolean, Attr.default(false)),
+    unreviewedChanges : Attr(Type.number, Attr.default(0)),
+    denied : Attr(Type.boolean, Attr.default(false)),
+
     // http://docs.mongodb.org/manual/core/geospatial-indexes/#multi-location-documents-for-2d-indexes
     // http://myadventuresincoding.wordpress.com/2011/10/02/mongodb-geospatial-queries/
     // don' forget to create an index via:
@@ -142,9 +147,6 @@ var models = function () {
     },
 
     bookableItems: ObjArray(BookableItemModel),
-
-    // TODO security: der user könnte das hier schon auf true setzten
-    published: Attr(Type.boolean, Attr.default(false)),
 
     owner: Ref(UserModel),
 

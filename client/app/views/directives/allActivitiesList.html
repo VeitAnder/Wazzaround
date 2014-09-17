@@ -1,0 +1,97 @@
+<div class="myactivities-list enable_hover">
+  <div class="listheader">
+    <div class="activity cell first">
+      {{'Activity' | translate}}
+    </div>
+    <div class="category-main cell">
+      {{'Main Category' | translate}}
+    </div>
+    <div class="category-sub cell">
+      {{'Sub Category' | translate}}
+    </div>
+    <div class="location cell">
+      {{'Location' | translate}}
+    </div>
+    <div class="edit cell last">
+
+    </div>
+  </div>
+
+  <style>
+    .denied {text-decoration: line-through;}
+  </style>
+
+  <div class="listbody">
+
+    <div class="listrow"
+         ng-repeat="activity in activities"
+         data-ng-click="open(activity)"
+        >
+      <div class="activity cell first" ng-class="{denied : activity.denied }">
+        {{activity.name | languageselect}}
+      </div>
+      <div class="category-main cell" ng-class="{denied : activity.denied }">
+        {{activity.category.main | translate}}
+      </div>
+      <div class="category-sub cell" ng-class="{denied : activity.denied }">
+              <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}
+                <br>
+              </span>
+      </div>
+
+      <div class="location cell">
+        {{activity.address}}
+      </div>
+
+      <div class="edit cell last align-right">
+              <span ng-if="activity.unreviewedChanges > 0">
+                + {{activity.unreviewedChanges}} changes
+              </span>
+              <span ng-switch="activity.published">
+                <span ng-switch-when="false"
+                      class="btn btn-mini"
+                      style="background-color: #df401c; border-color: #df401c;"
+                      data-ng-click="publish($event, activity)">
+                  {{'publish' | translate}}
+                </span>
+                <br/>
+                <span ng-switch-when="false"
+                      ng-if="!activity.denied"
+                      class="btn btn-mini"
+                      style="background-color: #583216; border-color: #583216;"
+                      data-ng-click="deny($event, activity)">
+                  deny
+                </span>
+                <span ng-switch-when="true">
+                    <span ng-switch="activity.unreviewedChanges > 0">
+                      <br/>
+                      <span ng-switch-when="true">
+
+                        <span class="btn btn-mini"
+                              style="background-color: #1c7ddf; border-color: #1c7ddf;"
+                              data-ng-click="verify($event, activity)">
+                              verify
+                        </span>
+
+                        <span class="btn btn-mini"
+                              style="background-color: #c59b4d; border-color: #c59b4d;"
+                              data-ng-click="remove($event, activity)">
+                              remove
+                        </span>
+
+                      </span>
+                      <span ng-switch-when="false"
+                            class="btn btn-mini"
+                            data-ng-click="toggle($event, activity)">
+                         {{'unpublish' | translate}}
+                      </span>
+                    </span>
+
+                </span>
+                <span ng-switch-default>-</span>
+              </span>
+      </div>
+
+    </div>
+  </div>
+</div>
