@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h2>{{'Providers Overview' | translate}}</h2>
+
+      <div>
+        Filter:
+        <input type="text" ng-model="query">
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Company</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="provider in providers | filter:query">
+          <td>{{provider.profile.company}}</td>
+          <td>{{provider.profile.firstName}}</td>
+          <td>{{provider.profile.lastName}}</td>
+          <td><a href="#/admin/provider/{{provider._id}}"><span class="btn btn-mini">Details</span></a></td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <!--<pre>{{providers | json}}</pre>-->
+
+    </div>
+  </div>
+</div>
