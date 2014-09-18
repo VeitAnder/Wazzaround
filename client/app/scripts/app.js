@@ -222,27 +222,27 @@ angular.module('anorakApp')
           }]
         }
       })
-        .when('/admin/providers', {
-            templateUrl: 'views/admin/admin_basetemplate.html',
-            controller: 'ProvidersCtrl',
-            resolve: {
-                providers: ['models', function (models) {
-                    return models.UserModel.getProviders();
-                }]
-            }
-        })
-        .when('/admin/provider/:id', {
-            templateUrl: 'views/admin/admin_basetemplate.html',
-            controller: 'ProviderDetailCtrl',
-            resolve: {
-                provider: ['$route', 'models', function ($route, models) {
-                    return models.UserModel.get($route.current.params.id);
-                }],
-                activities: ['$route', 'models', function ($route, models) {
-                    return models.ActivityModel.byOwner({id:$route.current.params.id});
-                }]
-            }
-        })
+      .when('/admin/providers', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'ProvidersCtrl',
+        resolve: {
+          providers: ['models', function (models) {
+            return models.UserModel.getProviders();
+          }]
+        }
+      })
+      .when('/admin/provider/:id', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'ProviderDetailCtrl',
+        resolve: {
+          provider: ['$route', 'models', function ($route, models) {
+            return models.UserModel.get($route.current.params.id);
+          }],
+          activities: ['$route', 'models', function ($route, models) {
+            return models.ActivityModel.byOwner({id: $route.current.params.id});
+          }]
+        }
+      })
       .when('/activities/:id/', {
         templateUrl: 'views/page_basetemplate.html',
         controller: 'ActivityPageCtrl',

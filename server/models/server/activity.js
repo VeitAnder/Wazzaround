@@ -191,14 +191,14 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
 });
 
 ActivityModel.factoryImpl("byOwner", function (params, req) {
-    if (!req.isAuthenticated()) {
-        return false;  // if not logged operation not allowed
-    }
-    if (req.user.userType !== 'admin') {
-        return false;
-    }
+  if (!req.isAuthenticated()) {
+    return false;  // if not logged operation not allowed
+  }
+  if (req.user.userType !== 'admin') {
+    return false;
+  }
 
-    return models.ActivityModel.find({
-        'owner._reference': ObjectId(params.id)
-    });
+  return models.ActivityModel.find({
+    'owner._reference': ObjectId(params.id)
+  });
 });
