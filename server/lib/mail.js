@@ -239,7 +239,6 @@ exports.sendResetPasswordMail = function (user, token) {
 };
 
 exports.sendActivationTokenEmail = function (token) {
-  console.log("token", token, token.user.ref());
   //E-Mail Body
   var sendmessage = {
     data: {

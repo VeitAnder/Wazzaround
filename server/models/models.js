@@ -135,8 +135,8 @@ var models = function () {
 
     // TODO security: der user könnte das hier schon auf true setzten
     published: Attr(Type.boolean, Attr.default(false)),
-    unreviewedChanges : Attr(Type.number, Attr.default(0)),
-    denied : Attr(Type.boolean, Attr.default(false)),
+    unreviewedChanges: Attr(Type.number, Attr.default(0)),
+    denied: Attr(Type.boolean, Attr.default(false)),
 
     // http://docs.mongodb.org/manual/core/geospatial-indexes/#multi-location-documents-for-2d-indexes
     // http://myadventuresincoding.wordpress.com/2011/10/02/mongodb-geospatial-queries/
@@ -152,7 +152,7 @@ var models = function () {
     owner: Ref(UserModel),
 
     getMyActivities: Factory(),
-    byOwner : Factory(),
+    byOwner: Factory(),
 
     filteredActivities: Factory({
       from: {  // <bottom left coordinates>
@@ -254,6 +254,11 @@ var models = function () {
     "user": Ref(UserModel),
     "sendReactivation": Operation(),
     "setNewPassword": Operation()
+  });
+
+  AccesstokenModel.method("isExpired");
+  AccesstokenModel.methodImpl("isExpired", function () {
+    return this.expires < new Date();
   });
 
   return {

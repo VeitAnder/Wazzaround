@@ -7,20 +7,19 @@ angular.module('anorakApp')
       return 'views/registration/registrationforproviders.html';
     };
   })
-  .controller('RegistrationRegistrationforprovidersCtrl', function ($scope, $routeParams, $location, models, currentUser, Countrylist) {
-    // don't initalize registrant here - overrides all data when changing language !!
-    // @TODO write test case for this
-    // $scope.registrant = {};
-
-    $scope.state = {
-      submitted: false,
-      registrationfailed: false
-    };
-
+  .controller('RegistrationRegistrationforprovidersCtrl', function ($scope, $routeParams, $location, models, currentUser, Countrylist, $timeout) {
     // redirect to amin interface if user is logged in
     if (currentUser.authenticated) {
       $location.path('/admin/');
     }
+
+    $scope.registrant = {};
+
+    $scope.state = {
+      submitted: false,
+      registrationfailed: false,
+      registrationsuccess: false
+    };
 
     $scope.register = function () {
       var user;
@@ -44,17 +43,16 @@ angular.module('anorakApp')
         user.userType = "provider";
         models.UserModel.register(user)
           .then(function () {
-            return currentUser.login(user.email, user.password);
-          })
-          .then(function () {
-            $scope.$apply(function () {
-              $location.path('/admin/profile/');
+            $timeout(function () {
+              $scope.state.registrationsuccess = true;
+              $scope.state.errormessage = "";
             });
           })
           .fail(function (err) {
-            $scope.state.registrationfailed = true;
-            $scope.state.errormessage = err.message;
-            $scope.$apply();
+            $timeout(function () {
+              $scope.state.registrationfailed = true;
+              $scope.state.errormessage = err.message;
+            });
           });
       }
     };

@@ -7,6 +7,7 @@
         <form class="standardform registerform"
               name="valForm"
               novalidate
+              ng-hide="state.registrationsuccess"
             >
 
           <h2>{{'Account' | translate}}</h2>
@@ -417,6 +418,12 @@
           </div>
 
         </form>
+
+        <confirmation-mail-sent-message
+            ng-show="state.registrationsuccess"
+            ng-include="'views/registration/_confirmation-mail-sent-message.html'"
+            >
+        </confirmation-mail-sent-message>
 
       </div>
     </div>

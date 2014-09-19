@@ -6,18 +6,20 @@ angular.module('anorakApp')
       return 'views/registration/index.html';
     };
   })
-  .controller('RegisterCtrl', function ($scope, $routeParams, $location, currentUser, models) {
-    $scope.registrant = {};
-
-    $scope.state = {
-      submitted: false,
-      registrationfailed: false
-    };
-
+  .controller('RegisterCtrl', function ($scope, $routeParams, $location, currentUser, models, $timeout) {
     // redirect to amin interface if user is logged in
     if (currentUser.authenticated) {
       $location.path('/admin/');
     }
+
+    $scope.registrant = {};
+
+    $scope.state = {
+      submitted: false,
+      registrationfailed: false,
+      registrationsuccess: false,
+      errormessage: ""
+    };
 
     $scope.register = function () {
       var user;
@@ -28,17 +30,16 @@ angular.module('anorakApp')
         user.password = CryptoJS.SHA256($scope.registrant.password).toString(CryptoJS.enc.Base64);
         models.UserModel.register(user)
           .then(function () {
-            return currentUser.login(user.email, user.password);
-          })
-          .then(function () {
-            $scope.$apply(function () {
-              $location.path('/admin/profile/');
+            $timeout(function () {
+              $scope.state.registrationsuccess = true;
+              $scope.state.errormessage = "";
             });
           })
           .fail(function (err) {
-            $scope.state.registrationfailed = true;
-            $scope.state.errormessage = err.message;
-            $scope.$apply();
+            $timeout(function () {
+              $scope.state.registrationfailed = true;
+              $scope.state.errormessage = err.message;
+            });
           });
       }
     };
@@ -58,4 +59,5 @@ angular.module('anorakApp')
       return showerror;
     };
 
-  });
+  }
+);
