@@ -110,11 +110,10 @@ UserModel.operationImpl("register", function (params, req) {
     })
     .then(function (user) {
       tokenObj.user.setObject(user);
-      tokenObj.save();
-      return tokenObj;
+      return tokenObj.save();
     })
     .then(function (tokenObj) {
-      return mail.sendActivationTokenEmail(tokenObj.user.ref(), tokenObj.token);
+      return mail.sendActivationTokenEmail(tokenObj);
     })
     .then(function () {  // if save was ok
       return {status: "ok"};

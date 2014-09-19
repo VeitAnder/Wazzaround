@@ -77,6 +77,7 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "developme
 
 app.use('/' + config.api.apiversion + 'upload', require("./routes/upload.js"));
 app.use('/' + config.api.apiversion + 'registration', require("./routes/registration.js"));
+app.use('/' + config.api.apiversion + 'users', require("./routes/users.js"));
 
 require("./servermodules/serveclient.js").serveClient(app);
 

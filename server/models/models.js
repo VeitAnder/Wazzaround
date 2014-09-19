@@ -36,7 +36,8 @@ var models = function () {
     password: Attr(Type.string),
     registrationdate: Attr(Type.date, Attr.default(new Date())),
     lastlogindate: Attr(Type.date),
-    enabled: Attr(Type.boolean, Attr.default(false)),
+    enabled: Attr(Type.boolean, Attr.default(true)),
+    emailconfirmed: Attr(Type.boolean, Attr.default(false)),
     profile: {
       firstName: Attr(Type.string),
       lastName: Attr(Type.string),

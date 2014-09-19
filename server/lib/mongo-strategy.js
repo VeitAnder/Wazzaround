@@ -55,7 +55,7 @@ MongoDBStrategy.prototype.verifyUser = function (email, password, done) {
         done(new Error("Found more then one user"), null);
         return;
       }
-      if (users[0].password === password && users[0].enabled) { // auth successful
+      if (users[0].password === password && users[0].enabled && users[0].emailconfirmed) { // auth successful
         done(null, users[0]);
       } else {
         done(new Error("Invalid Password"), null);

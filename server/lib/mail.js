@@ -238,19 +238,20 @@ exports.sendResetPasswordMail = function (user, token) {
   return send(sendmessage);
 };
 
-exports.sendActivationTokenEmail = function (user, token) {
+exports.sendActivationTokenEmail = function (token) {
+  console.log("token", token, token.user.ref());
   //E-Mail Body
   var sendmessage = {
     data: {
-      user: user,
-      activationurl: config.clienthost + "registration/confirmuserregistration/" + token + "/" + user.email + "/",
+      user: token.user.ref(),
+      activationurl: config.host + config.api.apiversion + "users/" + token.user.ref()._id + "/activate/" + token._id + "/" + token.token + "/",
       template: {
         accountactivationtoken: true
       }
     },
     postmarkmail: {
       "From": config.postmark.from,
-      "To": user.email,
+      "To": token.user.ref().email,
       "Subject": "reacture – Bestätigung der Registrierung",
       "Tag": "accountactivationtoken",
       "ReplyTo": config.postmark.replyto

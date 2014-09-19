@@ -1,5 +1,10 @@
 var config = require("../config.js");
 
+if (process.env.NODE_ENV === "production") {
+  console.error("migration on NODE_ENV=production server not allowed yet - has to be tested and secured!!!");
+  process.exit(1);
+}
+
 var collection = "mm-migration";
 var directory = "migrations";
 var mm_config;
