@@ -16,6 +16,7 @@ var models = function () {
   var Operation = model.Operation;
   var Factory = model.Factory;
   var Link = model.Link;
+  var Method = model.Method;
 
   var validators = {
     email: function (value) {
@@ -253,12 +254,10 @@ var models = function () {
     "expires": Attr(Type.date),
     "user": Ref(UserModel),
     "sendReactivation": Operation(),
-    "setNewPassword": Operation()
-  });
-
-  AccesstokenModel.method("isExpired");
-  AccesstokenModel.methodImpl("isExpired", function () {
-    return this.expires < new Date();
+    "setNewPassword": Operation(),
+    "isExpired": Method(function () {
+      return this.expires < new Date();
+    })
   });
 
   return {
