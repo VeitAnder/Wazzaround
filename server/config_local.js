@@ -11,18 +11,16 @@
 
  */
 
-///// dump from mongolab
-// mongodump -h ds027419.mongolab.com:27419 -d reactureappdev -u reactureappdev -p pGjRLG72qvXBGo -o .
-// mongorestore -d reactureappdev reactureappdev/
+
+// changed mongo because of heartbleed, login with: reactureapp / 3wHsQJyPjM9MEB
 
 var config = {
   host: "http://localhost:3000/",
   clienthost: "http://localhost:9000/",
   mongo: {
-    username: 'reactureappdev',
-    password: 'pGjRLG72qvXBGo',
-    dbName: 'reactureappdev',                                // The name of database that contains the security information
-    host: 'ds027419.mongolab.com:27419'                         // mongolab mongodb connection url
+    local : true,
+    host: 'localhost',
+    dbName: 'reactureappdev'                                // The name of database that contains the security information
   },
   security: {
     usersCollection: 'users',                                   // The name of the collection contains user information

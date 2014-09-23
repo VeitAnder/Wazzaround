@@ -1,4 +1,19 @@
 <div class="myactivities-list enable_hover">
+
+
+  <style>
+    .denied {
+      text-decoration: line-through;
+    }
+  </style>
+
+  <filterbar ng-controller="AdminactivityfilterbarCtrl as adminActivityFilterBarCtrl">
+    <input type="text"
+           ng-model="adminActivityFilterBarCtrl.query"
+        />
+  </filterbar>
+
+
   <div class="listheader">
     <div class="activity cell first">
       {{'Activity' | translate}}
@@ -17,17 +32,6 @@
     </div>
   </div>
 
-  <style>
-    .denied {
-      text-decoration: line-through;
-    }
-  </style>
-
-  <filterbar ng-controller="AdminactivityfilterbarCtrl as adminActivityFilterBarCtrl">
-    <input type="text"
-           ng-model="adminActivityFilterBarCtrl.query"
-        />
-  </filterbar>
 
   <div class="listbody">
     <div class="listrow"

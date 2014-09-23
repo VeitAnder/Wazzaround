@@ -3,9 +3,9 @@
 # global project configurations
 BACKUPLOCATION=./dumps
 
-SECRETCONFIGFILE_LOCAL=../server/config_development_local_mongo.js
-SECRETCONFIGFILE_DEV=../config_developmentmodulus.js
-SECRETCONFIGFILE_PRODUCTION="./../server/config_productionmodulus.js"
+SECRETCONFIGFILE_LOCAL=../server/config_local.js
+SECRETCONFIGFILE_DEV=../server/config_developmentmodulus.js
+SECRETCONFIGFILE_PRODUCTION=../server/config_productionmodulus.js
 
 MONGOLAB_COLLECTIONS=(mm-migration accesstokens activities bookedEvents bookings categories users)
 
