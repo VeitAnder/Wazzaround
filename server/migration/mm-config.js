@@ -5,7 +5,7 @@ if (process.env.NODE_ENV === "production") {
   process.exit(1);
 }
 
-var collection = "mm-migration";
+var collection = "migration";
 var directory = "migrations";
 var mm_config;
 

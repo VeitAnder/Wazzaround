@@ -7,7 +7,7 @@ SECRETCONFIGFILE_LOCAL=../server/config_local.js
 SECRETCONFIGFILE_DEV=../server/config_developmentmodulus.js
 SECRETCONFIGFILE_PRODUCTION=../server/config_productionmodulus.js
 
-MONGOLAB_COLLECTIONS=(mm-migration accesstokens activities bookedEvents bookings categories users)
+MONGOLAB_COLLECTIONS=(migration accesstokens activities bookedEvents bookings categories users)
 
 # check if planfred truecrypt folder is accessible
 #if [ ! -f ${SECRETCONFIGFILE_PRODUCTION} ] || [ ! -f ${SECRETCONFIGFILE_DEV} ]
