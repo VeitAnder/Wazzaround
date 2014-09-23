@@ -6,8 +6,55 @@
 
       <div>
         Filter:
-        <input type="text" ng-model="query">
+        <input type="text"
+               ng-model="query">
       </div>
+
+      <div class="bookings-list">
+        <div class="listheader">
+
+          <div class="company cell first">
+            Company
+          </div>
+          <div class="firstname cell">
+            Company
+          </div>
+          <div class="lastname cell first">
+            Company
+          </div>
+          <div class="listaction cell last">
+            Company
+          </div>
+
+        </div>
+
+        <div class="listbody">
+
+          <div class="listrow"
+               ng-repeat="provider in providers | filter:query"
+              >
+
+            <div class="company cell first">
+              {{provider.profile.company}}
+            </div>
+            <div class="firstname cell">
+              {{provider.profile.firstName}}
+            </div>
+            <div class="lastname cell">
+              {{provider.profile.lastName}}
+            </div>
+            <div class="listaction cell last">
+              <a href="#/admin/provider/{{provider._id}}">
+                <span class="btn btn-mini">Details</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
 
       <table class="table table-striped">
         <thead>
@@ -23,11 +70,14 @@
           <td>{{provider.profile.company}}</td>
           <td>{{provider.profile.firstName}}</td>
           <td>{{provider.profile.lastName}}</td>
-          <td><a href="#/admin/provider/{{provider._id}}"><span class="btn btn-mini">Details</span></a></td>
+          <td>
+            <a href="#/admin/provider/{{provider._id}}">
+              <span class="btn btn-mini">Details</span>
+            </a>
+          </td>
         </tr>
         </tbody>
       </table>
-
 
       <!--<pre>{{providers | json}}</pre>-->
 
