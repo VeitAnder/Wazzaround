@@ -684,33 +684,36 @@
 
           </fieldset>
 
-          <div class="buttonbar margin-top">
+          <div class="buttonbar buttonbar-5050 margin-top">
 
-            <button class="btn"
-                    ng-click="save()"
-                    ng-class="{disabled: valForm.$invalid || !additionalFormChecks()}"
-                >
-              {{'save' | translate}}
-            </button>
-            <a class="cancel"
-               ng-click="cancel()"
-                >
-              {{'cancel' | translate}}
-            </a>
+            <div class="cell">
+              <action-confirmation-link
+                  ng-show="!isNewMode()"
 
-            <action-confirmation-link
-                ng-show="!isNewMode()"
-                class="float-left"
+                  action="delete()"
+                  label="{{'delete' | translate}}"
+                  confirmation-label="{{'yes, delete' | translate}}"
+                  confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
+                  cancel-label="{{'no' | translate}}"
+                  is-open="state.actionlinkisopen"
+                  >
+              </action-confirmation-link>
+            </div>
 
-                action="delete()"
-                label="{{'delete' | translate}}"
-                confirmation-label="{{'yes, delete' | translate}}"
-                confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
-                cancel-label="{{'no' | translate}}"
-                is-open="state.actionlinkisopen"
-                >
-            </action-confirmation-link>
+            <div class="cell">
+              <button class="btn"
+                      ng-click="save()"
+                      ng-class="{disabled: valForm.$invalid || !additionalFormChecks()}"
+                  >
+                {{'save' | translate}}
+              </button>
+              <a class="cancel"
+                 ng-click="cancel()"
+                  >
+                {{'cancel' | translate}}
+              </a>
 
+            </div>
           </div>
 
           <div ng-show="(valForm.$invalid || !additionalFormChecks() ) && state.submitted"

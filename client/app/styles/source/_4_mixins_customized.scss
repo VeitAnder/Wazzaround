@@ -3614,14 +3614,40 @@ label + .language-tabs {
   }
 }
 
+.buttonbar-5050{
+  padding: 0;
+  @include divtable_row;
+  .cell{
+    @include divtable_cell;
+    white-space: normal;
+    width: 50%;
+  }
+}
+
+
 action-confirmation-link {
   display: block;
-  margin-top: 5px;
 
   a {
     color: $color_red;
     &:hover {
       color: $color_red_15;
+    }
+  }
+}
+
+.activity-edit,
+.activity-detail{
+  action-confirmation-link {
+    text-align: left;
+    .description{
+      display: block;
+      margin-bottom: $fs*0.5;
+    }
+    a{
+      display: block;
+      padding-top: $fs*0.25;
+      padding-bottom: $fs*0.25;
     }
   }
 }

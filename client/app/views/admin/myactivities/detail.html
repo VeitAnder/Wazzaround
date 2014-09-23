@@ -8,20 +8,23 @@
       <div
           class="activity-detail detail-category-{{activity.category.main}}"
           >
-
-        <div class="buttonbar buttonbar-top">
-          <a class="btn btn-small"
-             href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
-          </a>
-          <action-confirmation-link
-              action="delete()"
-              label="{{'delete' | translate}}"
-              confirmation-label="{{'yes, delete' | translate}}"
-              confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
-              cancel-label="{{'no' | translate}}"
-              is-open="state.actionlinkisopen"
-              >
-          </action-confirmation-link>
+        <div class="buttonbar buttonbar-5050 buttonbar-top">
+          <div class="cell">
+            <action-confirmation-link
+                action="delete()"
+                label="{{'delete' | translate}}"
+                confirmation-label="{{'yes, delete' | translate}}"
+                confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
+                cancel-label="{{'no' | translate}}"
+                is-open="state.actionlinkisopen"
+                >
+            </action-confirmation-link>
+          </div>
+          <div class="cell">
+            <a class="btn btn-small"
+               href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
+            </a>
+          </div>
         </div>
 
         <div ng-controller="PublishstateCtrl as publishstatectrl">
@@ -216,23 +219,31 @@
           </bookableitemlist>
 
         </div>
-        <div class="buttonbar margin-top">
-          <a class="text-link float-left"
+        <div class="buttonbar buttonbar-5050 margin-top">
+          <div class="cell">
+            <action-confirmation-link
+                action="delete()"
+                label="{{'delete' | translate}}"
+                confirmation-label="{{'yes, delete' | translate}}"
+                confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
+                cancel-label="{{'no' | translate}}"
+                is-open="state.actionlinkisopen"
+                >
+            </action-confirmation-link>
+          </div>
+          <div class="cell">
+            <a class="btn btn-small"
+               href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
+            </a>
+          </div>
+        </div>
+        <p
+            ng-hide="state.actionlinkisopen"
+            >
+          <a class="text-link"
              href="#/admin/myactivities/">{{'back to my activities' | translate}}
           </a>
-          <a class="btn btn-small"
-             href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
-          </a>
-          <action-confirmation-link
-              action="delete()"
-              label="{{'delete' | translate}}"
-              confirmation-label="{{'yes, delete' | translate}}"
-              confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
-              cancel-label="{{'no' | translate}}"
-              is-open="state.actionlinkisopen"
-              >
-          </action-confirmation-link>
-        </div>
+        </p>
 
       </div>
 
