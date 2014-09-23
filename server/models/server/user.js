@@ -104,9 +104,17 @@ UserModel.operationImpl("register", function (params, req) {
     })
     .then(function (users) {
       if (users.length > 0) {
-        throw new Error("User already exists");
+        if (users[0].email === user.email && !users[0].emailconfirmed && users[0].enabled) {
+          // resend activation token email to this user if the users email has not been confirmed yet
+          // re-save existing user
+          return users[0];
+        } else {
+          throw new Error("User already exists and can't be registered again. Please contact our support.");
+        }
       }
-      return user.save();  // save the new user
+
+      // create new user and save this user
+      return user.save();
     })
     .then(function (user) {
       tokenObj.user.setObject(user);
