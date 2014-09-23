@@ -1,6 +1,6 @@
 {
   "name": "anorak",
-  "version": "0.46.2",
+  "version": "0.46.3",
   "dependencies": {
     "compression": "1.1.0",
     "serve-favicon": "2.1.4"
@@ -27,7 +27,7 @@
     "grunt-express": "1.4.1",
     "grunt-favicons": "0.6.4",
     "grunt-google-cdn": "0.4.3",
-    "grunt-gss": "1.0.4",
+    "grunt-gss": "0.4.6",
     "grunt-html2js": "0.2.9",
     "grunt-karma": "0.9.0",
     "grunt-newer": "0.7.0",
