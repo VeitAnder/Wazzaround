@@ -22,10 +22,8 @@ module.exports.up = function (done) {
     .then(function (users) {
       var promises = [];
       _.each(users, function (user) {
-        if (!user.hasOwnProperty("emailconfirmed")) {
-          user.emailconfirmed = true;
-          promises.push(user.save());
-        }
+        user.emailconfirmed = true;
+        promises.push(user.save());
       });
       return Q.all(promises);
     })

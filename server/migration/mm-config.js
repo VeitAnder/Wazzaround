@@ -1,3 +1,5 @@
+console.log("Current process.env.NODE_ENV: ", process.env.NODE_ENV);
+
 var config = require("../config.js");
 
 if (process.env.NODE_ENV === "production") {
