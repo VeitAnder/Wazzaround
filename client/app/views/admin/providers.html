@@ -6,30 +6,46 @@
 
       <div>
         Filter:
-        <input type="text" ng-model="query">
+        <input type="text"
+               ng-model="query">
       </div>
 
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Company</th>
-          <th>First name</th>
-          <th>Last name</th>
-          <th>Details</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="provider in providers | filter:query">
-          <td>{{provider.profile.company}}</td>
-          <td>{{provider.profile.firstName}}</td>
-          <td>{{provider.profile.lastName}}</td>
-          <td><a href="#/admin/provider/{{provider._id}}"><span class="btn btn-mini">Details</span></a></td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="providers-list enable_hover">
+        <div class="listheader">
 
+          <div class="company cell first">
+            Company
+          </div>
+          <div class="firstname cell">
+            First name
+          </div>
+          <div class="lastname cell last">
+            Last name
+          </div>
 
-      <!--<pre>{{providers | json}}</pre>-->
+        </div>
+
+        <div class="listbody">
+
+          <div class="listrow"
+               ng-repeat="provider in providers | filter:query"
+               ng-click="handleItemClick(provider)"
+              >
+
+            <div class="company cell first">
+              {{provider.profile.company}}
+            </div>
+            <div class="firstname cell">
+              {{provider.profile.firstName}}
+            </div>
+            <div class="lastname cell last">
+              {{provider.profile.lastName}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
 
     </div>
   </div>
