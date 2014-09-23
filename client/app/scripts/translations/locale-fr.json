@@ -256,7 +256,7 @@
   "Please enter the name of your company.": "Veuillez saisir le nom de votre entreprise",
   "Please upload an image.": "Veuillez télécharger une image",
   "save event": "sauvegardez l'événement",
-  "create repeating events": "Creéz {{le numéro d'événements) les événements",
+  "create repeating events": "Creéz {{numberofevents}} les événements",
   "New activity": "nouvelle activité",
   "Global Activity Info": "informations générales sur l'activité",
   "Name of Activity or Activities": "Nom de l'activité",

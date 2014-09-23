@@ -256,7 +256,7 @@
   "Please enter the name of your company.": "Si prega di inserire il nome dell'impresa/ditta/azienda",
   "Please upload an image.": "Si prega di caricare un'immagine",
   "save event": "Salva evento",
-  "create repeating events": "crea {{numero di eventi}} gli eventi",
+  "create repeating events": "crea {{numberofevents}} gli eventi",
   "New activity": "Nuova attività",
   "Global Activity Info": "Informazioni generali sull'attività",
   "Name of Activity or Activities": "Nome dell' attività",
