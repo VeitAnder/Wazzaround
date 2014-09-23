@@ -2841,6 +2841,22 @@ $img-selector-teasertxtheight: 32px;
   }
 }
 
+.providers-list {
+  .cell {
+    @include ellipsis(none);
+    white-space: normal;
+  }
+  .company {
+    width: (100%) / 3;
+  }
+  .firstname{
+    width: (100%) / 3;
+  }
+  .lastname{
+    width: (100%) / 3;
+  }
+}
+
 @mixin language-flags {
   a {
     display: block;
