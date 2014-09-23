@@ -127,21 +127,21 @@
   },
   {
     "Description": "",
-    "key": "",
-    "en": "",
-    "de": "",
-    "it": "",
-    "fr": "",
-    "sp": ""
+    "key": "registration confirmation message 1",
+    "en": "Please confirm your e-mail address",
+    "de": "Bitte bestätigen Sie Ihre E-Mail Adresse",
+    "it": "Please confirm your e-mail address",
+    "fr": "Please confirm your e-mail address",
+    "sp": "Please confirm your e-mail address"
   },
   {
     "Description": "",
-    "key": "",
-    "en": "",
-    "de": "",
-    "it": "",
-    "fr": "",
-    "sp": ""
+    "key": "registration confirmation message 2",
+    "en": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
+    "de": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
+    "it": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
+    "fr": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
+    "sp": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!"
   },
   {
     "Description": "",
@@ -2441,7 +2441,7 @@
   {
     "Description": "",
     "key": "create repeating events",
-    "en": "Create <strong> {{numberofevents}} </strong> events",
+    "en": "Create {{numberofevents}} events",
     "de": "Erzeuge {{numberofevents}} Termine",
     "it": "crea {{numberofevents}} gli eventi",
     "fr": "Creéz {{numberofevents}} les événements",
