@@ -12,6 +12,8 @@
   "italiano": "italiano",
   "francais": "francais",
   "helptext legend": "Dieses Zeichen unterstützt Dich beim Ausfüllen des folgenden Formulars.",
+  "registration confirmation message 1": "Bitte bestätigen Sie Ihre E-Mail Adresse",
+  "registration confirmation message 2": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
   "helptext": "Eingabehilfe",
   "helptext activity name": "Gib Deiner Aktivität einen Namen! Dieser sollte beschreiben, was Du anbietest.",
   "helptext activity meeting spot": "Gib an, wo Dich Deine Kunden treffen werden.",
