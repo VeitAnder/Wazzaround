@@ -21,14 +21,14 @@
     "jquery": "2.1.1",
     "dropzone": "https://github.com/maximilianschmid/dropzone-patched.git",
     "cloudinary-client": "https://github.com/maximilianschmid/cloudinary-client.git",
-    "angular-translate": "2.2.0",
-    "angular-translate-storage-local": "2.2.0",
+    "angular-translate": "2.4.0",
+    "angular-translate-storage-local": "2.4.0",
+    "angular-translate-storage-cookie": "2.4.0",
+    "angular-translate-loader-static-files": "2.4.0",
     "cryptojslib": "3.1.2",
     "assert": "0.1.0",
     "gsap": "1.13.2",
     "angular-local-storage": "0.0.7",
-    "angular-translate-storage-cookie": "2.2.0",
-    "angular-translate-loader-static-files": "2.2.0",
     "ngstorage": "0.3.0"
   },
   "devDependencies": {
