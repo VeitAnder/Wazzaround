@@ -1,19 +1,3 @@
-/*
- [07.02.14 16:22:57] Maximilian Schmid: reactureapp
- [07.02.14 16:23:01] Maximilian Schmid: 7kdtaTPV9ooAnA
-
- [07.02.14 16:23:15] Maximilian Schmid: gmail: reactureapp@gmail.com
- [07.02.14 16:23:20] Maximilian Schmid: HpsQni3UJkEEd2
-
- [07.02.14 16:23:37] Maximilian Schmid: modulus:
- [07.02.14 16:23:38] Maximilian Schmid: reactureapp
- sYpZo2TzWn4HAK
-
- */
-
-
-// changed mongo because of heartbleed, login with: reactureapp / 3wHsQJyPjM9MEB
-
 var config = {
   host: "http://localhost:3000/",
   clienthost: "http://localhost:9000/",
