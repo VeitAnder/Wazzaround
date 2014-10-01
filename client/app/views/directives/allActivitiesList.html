@@ -8,9 +8,24 @@
   </style>
 
   <filterbar ng-controller="AdminactivityfilterbarCtrl as adminActivityFilterBarCtrl">
+    <form name="filterBar">
     <input type="text"
            ng-model="adminActivityFilterBarCtrl.query"
         />
+
+    <label ng-repeat="(filter,enabled) in adminActivityFilterBarCtrl.filters">
+      <input
+          type="checkbox"
+          ng-model="adminActivityFilterBarCtrl.filters[filter]"
+          > {{filter}} <br/>
+
+          <input ng-disabled="!enabled" style="display: inline;" type="radio" ng-model="adminActivityFilterBarCtrl.filtersState[filter]" ng-value=true>true
+          <input ng-disabled="!enabled" style="display: inline;" type="radio" ng-model="adminActivityFilterBarCtrl.filtersState[filter]" ng-value=false>false
+
+          <br/>
+
+    </label>
+    </form>
   </filterbar>
 
 
@@ -64,7 +79,6 @@
         <span ng-switch="activity.published">
           <span ng-switch-when="false"
                 class="btn btn-mini"
-                style="background-color: #df401c; border-color: #df401c;"
                 data-ng-click="publishstateCtrl.publish($event, activity)"
               >
             {{'publish' | translate}}
@@ -100,6 +114,7 @@
               </span>
               <span ng-switch-when="false"
                     class="btn btn-mini"
+                    style="background-color: #df401c; border-color: #df401c;"
                     data-ng-click="publishstateCtrl.toggle($event, activity)"
                   >
                 {{'unpublish' | translate}}
