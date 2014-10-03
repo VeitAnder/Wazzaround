@@ -24,7 +24,7 @@
     "de": "Gib uns den Namen der Person an, mit der wir unter der oben genannten Nummer in Kontakt treten können.",
     "it": "Inserire il nome della persona che è responsabile della attività",
     "fr": "Insérez le nom du responsable de l'activité",
-    "sp": "introducir el nombre del responsable de la empresa"
+    "sp": "Introducir el nombre del responsable de la empresa"
   },
   {
     "Description": "",
@@ -33,7 +33,7 @@
     "de": "Sprache",
     "it": "Lingua",
     "fr": "Langue",
-    "sp": "lengua"
+    "sp": "Lengua"
   },
   {
     "Description": "",
@@ -68,7 +68,7 @@
     "en": "Please select the language for your activities",
     "de": "Bitte gib die Sprache für deine Aktivitäten ein",
     "it": "Selezionare la lingua per le vostre attività",
-    "fr": "veuillez sélectionner la langue pour vos activités",
+    "fr": "Veuillez sélectionner la langue pour vos activités",
     "sp": "Seleccione la lengua para su actividades"
   },
   {
@@ -77,7 +77,7 @@
     "en": "Please select the currency for your activities",
     "de": "Bitte gib die Währung für deine Aktivitäten ein",
     "it": "Selezionare la valuta per le vostre attività",
-    "fr": "veuillez sélectionner la devise pour vos activités",
+    "fr": "Veuillez sélectionner la devise pour vos activités",
     "sp": "Seleccione a divisa para su actividades"
   },
   {
@@ -121,8 +121,8 @@
     "key": "helptext legend",
     "en": "This sign will support you filling out the following form.",
     "de": "Dieses Zeichen unterstützt Dich beim Ausfüllen des folgenden Formulars.",
-    "it": "questo segnale/simbolo vi aiuterà nella compilazione del seguente formulario/modulo",
-    "fr": "ce signal/symbole vous aidera en remplissant le formulaire suivant",
+    "it": "Questo segnale/simbolo vi aiuterà nella compilazione del seguente formulario/modulo",
+    "fr": "Ce signal/symbole vous aidera en remplissant le formulaire suivant",
     "sp": ""
   },
   {
@@ -166,8 +166,8 @@
     "key": "helptext",
     "en": "input hint",
     "de": "Eingabehilfe",
-    "it": "accessibilità",
-    "fr": "l'accessibilité",
+    "it": "Accessibilità",
+    "fr": "L'accessibilité",
     "sp": "Accesibilidad"
   },
   {
@@ -193,8 +193,8 @@
     "key": "helptext activity short descricption",
     "en": "helptext activity short descricption",
     "de": "Hilfetext Aktivitäten ",
-    "it": "breve testo descrittivo della vostra attività",
-    "fr": "bref descriptif de votre activité",
+    "it": "Breve testo descrittivo della vostra attività",
+    "fr": "Bref descriptif de votre activité",
     "sp": "Breve decscripción de su actividad"
   },
   {
@@ -202,8 +202,8 @@
     "key": "helptext activity description",
     "en": "Describe your activity! The more details you indicate , the more likely you will get bookings. Enter all information that may interest your customers. Does your city tour include a meal? Which languages do you speak? For how long have you been offering this activity? Do your customers need anything to bring with them (cloth, shoes, sleeping bag....)?",
     "de": "Beschreibe Deine Aktivität! Je mehr Details Du angibst, umso eher wirst Du Buchungen erhalten. Wichtig sind alle Informationen, die Deine Kunden interessieren könnten. Ist bei Deiner Stadttour ein Restaurantbesuch inkludiert? Sprichst Du mehrere Sprachen? Wie lange bist Du schon in Deinem Bereich tätig? Müssen Deine Kunden selbst etwas mitnehmen (Kleidung, Schuhe, Schlafsack...)? Prinzipiell gilt: Je mehr Infos umso besser für Dich und Deine Kunden!",
-    "it": "descrivi la tua attività! maggiori dettagli fornirai, maggiori saranno le probabilità di ricevere prenotazioni. Inserisci tutte le informazioni che potrebbero interessare ai tuoi clienti. Il tuo city tour include un pasto? Quali lingue parli? Da quanto tempo fornisci questo servizio? I tuoi clienti necessitano di portare con se’ delle attrezzature (vestiti, scarpe, sacco a pelo..)?",
-    "fr": "décrivez Votre activité! Insérez la majorité de détails et la possibilité de recevoir des réservations sera majeure. Nous Vous conseillons d’insérer toutes les informations qui pourraient être utiles à Vos clients afin de mieux comprendre de quoi il s’agit. Votre tour de la ville inclut un plat ? Combien de langues parlez-Vous ? Depuis combien de temps Vous avez cette activité ? Vos clients nécessitent de vêtements spécifiques ou équipement particulier ?",
+    "it": "Descrivi la tua attività! maggiori dettagli fornirai, maggiori saranno le probabilità di ricevere prenotazioni. Inserisci tutte le informazioni che potrebbero interessare ai tuoi clienti. Il tuo city tour include un pasto? Quali lingue parli? Da quanto tempo fornisci questo servizio? I tuoi clienti necessitano di portare con se’ delle attrezzature (vestiti, scarpe, sacco a pelo..)?",
+    "fr": "Décrivez Votre activité! Insérez la majorité de détails et la possibilité de recevoir des réservations sera majeure. Nous Vous conseillons d’insérer toutes les informations qui pourraient être utiles à Vos clients afin de mieux comprendre de quoi il s’agit. Votre tour de la ville inclut un plat ? Combien de langues parlez-Vous ? Depuis combien de temps Vous avez cette activité ? Vos clients nécessitent de vêtements spécifiques ou équipement particulier ?",
     "sp": "Describa su actividad. Introduzca la mayoría de detalles y las posibilidades de recibir reservas aumentarán. Introduzca todads la s informaciones que podrían interesar a tus clientes. Su vuelta de la ciudad incluye una comida? Qué lenguas habla? Desde cuanto tiempo abastece este servicio? Tus clientes necesitan traer algunas herramientas ( prendas, zapatos, saco de dormir..)?"
   },
   {
@@ -211,8 +211,8 @@
     "key": "helptext activity item description",
     "en": "Describe in a short sentence, what exactly your customers can book.",
     "de": "Beschreibe in einem kurzen Satz, was genau Deine Kunden buchen können.",
-    "it": "descrivi con una frase breve cosa possono prenotare esattamente i tuoi clienti",
-    "fr": "décrivez brièvement et précisément ce que les clients peuvent réserver",
+    "it": "Descrivi con una frase breve cosa possono prenotare esattamente i tuoi clienti",
+    "fr": "Décrivez brièvement et précisément ce que les clients peuvent réserver",
     "sp": "Describa brevemente y precisamente lo que tus clientes pueden reservar"
   },
   {
@@ -220,8 +220,8 @@
     "key": "helptext activity start date",
     "en": "Choose when this activity takes place for the first time.",
     "de": "Gib an, wann diese Aktivität das erste Mal stattfindet.",
-    "it": "scegli quando questa attività avrà luogo la prima volta",
-    "fr": "indiquez quand l’activité aura lieu",
+    "it": "Scegli quando questa attività avrà luogo la prima volta",
+    "fr": "Indiquez quand l’activité aura lieu",
     "sp": "Indica cuando tu actividad tendrá lugar"
   },
   {
@@ -230,7 +230,7 @@
     "en": "Choose at what time your customers should meet you at the meeting point.",
     "de": "Gib an, um welche Uhrzeit Deine Kunden am Treffpunkt sein sollen.",
     "it": "Indica a che ora i clienti devono trovarsi al punto d’incontro",
-    "fr": "indiquez l’horaire à laquelle vos client vont se regrouper au point de rencontre",
+    "fr": "Indiquez l’horaire à laquelle vos client vont se regrouper au point de rencontre",
     "sp": "Indica el horario en el cual tus clientes tienen que llegar al punto de encuentro"
   },
   {
@@ -239,7 +239,7 @@
     "en": "Enter the date your activity end. Normally it will end the same day, only hours later …",
     "de": "Gib an, wieviele Tage diese Aktivität dauert.",
     "it": "Indica la data in cui la tua attività termina. Normalmente lo stesso giorno, ore dopo",
-    "fr": "indiquez quand l’activité terminera",
+    "fr": "Indiquez quand l’activité terminera",
     "sp": "Indica la fecha en la cual tu actividad termina."
   },
   {
@@ -247,8 +247,8 @@
     "key": "helptext activity end time",
     "en": "Allows you to choose when your activity ends.",
     "de": "Gib an, wann Deine Aktivität endet.",
-    "it": "decidi quando terminare la tua attività",
-    "fr": "choisissez quand terminer Votre activié",
+    "it": "Decidi quando terminare la tua attività",
+    "fr": "Choisissez quand terminer Votre activié",
     "sp": "Decida cuando terminar su actividad"
   },
   {
@@ -258,32 +258,32 @@
     "de": "Gib an, wieviele Kunden gleichzeitig Deine Aktivität buchen können.",
     "it": "Permette di decidere quante persone possono prenotare contemporaneamente prenotare la tua attività",
     "fr": "Cela Vous permet de choisir combien de personne peuvent réserver simultanément l’activité",
-    "sp": "permite decidir cuantas personas pueden reservar en el mismo tiempo tu actividad"
+    "sp": "Permite decidir cuantas personas pueden reservar en el mismo tiempo tu actividad"
   },
   {
     "Description": "Price",
     "key": "helptext activity price",
     "en": "Allows you to choose how much your activity costs.",
     "de": "Gib an, wieviel Deine Aktivität kostet.",
-    "it": "permette di inserire il costo",
-    "fr": "vous pouvez insérer le tarif",
-    "sp": "permite introducir el precio"
+    "it": "Permette di inserire il costo",
+    "fr": "Vous pouvez insérer le tarif",
+    "sp": "Permite introducir el precio"
   },
   {
     "Description": "repeating Event",
     "key": "helptext activity repeating",
     "en": "Tell us until when this event should be repeated.",
     "de": "Gib an, bis wann sich dieses Event automatisch wiederholen soll.",
-    "it": "ci permette di capire fino a quando questo evento può ripetersi",
-    "fr": "il nous permet de comprendre jusqu’ù quand une activitè peut se répéter",
-    "sp": "permite saber hasta cuando este evento se puede repetir"
+    "it": "Ci permette di capire fino a quando questo evento può ripetersi",
+    "fr": "Il nous permet de comprendre jusqu’ù quand une activitè peut se répéter",
+    "sp": "Permite saber hasta cuando este evento se puede repetir"
   },
   {
     "Description": "",
     "key": "Do you want to delete the entire activity",
     "en": "Do you want to delete this activity including all its events?",
     "de": "Möchten Sie diese Aktivität samt allen Events wirklich löschen?",
-    "it": "Vuoi cancellare questa attività comprese tutte le sue eventi?",
+    "it": "Vuoi cancellare questa attività comprese tutti i suoi eventi?",
     "fr": "Voulez-vous supprimer cette activité, compris tous ses événements?",
     "sp": ""
   },
@@ -330,15 +330,15 @@
     "de": "Zur Kasse",
     "it": "Checkout",
     "fr": "Checkout",
-    "sp": ""
+    "sp": "Checkout"
   },
   {
     "Description": "",
     "key": "in shopping cart",
     "en": "in shopping cart",
-    "de": "im Warenkorb",
-    "it": "nel carrello della spesa",
-    "fr": "dans le panier",
+    "de": "Im Warenkorb",
+    "it": "Nel carrello della spesa",
+    "fr": "Dans le panier",
     "sp": ""
   },
   {
@@ -346,7 +346,7 @@
     "key": "Subtotal",
     "en": "Subtotal",
     "de": "Zwischensumme",
-    "it": "totale parziale",
+    "it": "Totale parziale",
     "fr": "Sous-total",
     "sp": ""
   },
@@ -355,8 +355,8 @@
     "key": "Shopping cart",
     "en": "Shopping cart",
     "de": "Warenkorb",
-    "it": "carrello della spesa",
-    "fr": "panier",
+    "it": "Carrello della spesa",
+    "fr": "Panier",
     "sp": ""
   },
   {
@@ -364,8 +364,8 @@
     "key": "Payment options",
     "en": "Payment options",
     "de": "Zahlungsmodalitäten",
-    "it": "opzioni di pagamento",
-    "fr": "options de paiement",
+    "it": "Opzioni di pagamento",
+    "fr": "Options de paiement",
     "sp": ""
   },
   {
@@ -373,8 +373,8 @@
     "key": "Available Creditcards",
     "en": "Available Creditcards",
     "de": "Verfügbare Kreditkarten",
-    "it": "carte disponibili",
-    "fr": "cartes de crédit disponibles",
+    "it": "Carte disponibili",
+    "fr": "Cartes de crédit disponibles",
     "sp": ""
   },
   {
@@ -382,9 +382,9 @@
     "key": "Card number",
     "en": "Card number",
     "de": "Kartennummer",
-    "it": "numero di carta",
-    "fr": "numéro de carte",
-    "sp": ""
+    "it": "Numero di carta",
+    "fr": "Numéro de carte",
+    "sp": "Nùmero de tarjeta"
   },
   {
     "Description": "",
@@ -393,15 +393,15 @@
     "de": "CVC",
     "it": "CVC",
     "fr": "CVC",
-    "sp": ""
+    "sp": "CVC"
   },
   {
     "Description": "",
     "key": "Holdername",
     "en": "Holdername",
     "de": "Name auf der Kreditkarte",
-    "it": "titolare/intestatario della carta di credito",
-    "fr": "titulaire de la carte de crédit",
+    "it": "Titolare/intestatario della carta di credito",
+    "fr": "Titulaire de la carte de crédit",
     "sp": ""
   },
   {
@@ -409,8 +409,8 @@
     "key": "Expiry date month",
     "en": "Expiry date (MM)",
     "de": "Gültig bis (MM)",
-    "it": "data di scadenza (MM)",
-    "fr": "date d'expiration (MM)",
+    "it": "Data di scadenza (MM)",
+    "fr": "Date d'expiration (MM)",
     "sp": ""
   },
   {
@@ -418,8 +418,8 @@
     "key": "Expiry date year",
     "en": "Expiry date (YYYY)",
     "de": "Gültig bis (JJJJ)",
-    "it": "data di scadenza (YYYY)",
-    "fr": "date d'expiration (YYYY)",
+    "it": "Data di scadenza (YYYY)",
+    "fr": "Date d'expiration (YYYY)",
     "sp": ""
   },
   {
@@ -427,8 +427,8 @@
     "key": "Send booking",
     "en": "Send booking",
     "de": "Buchung absenden",
-    "it": "invia la prenotazione",
-    "fr": "envoyer votre réservation",
+    "it": "Invia la prenotazione",
+    "fr": "Envoyer votre réservation",
     "sp": ""
   },
   {
@@ -436,7 +436,7 @@
     "key": "Please enter a valid card number",
     "en": "Please enter a valid card number",
     "de": "Bitte geben Sie eine gültige Kartennummer ein",
-    "it": "inserire un numero di carta valido",
+    "it": "Inserire un numero di carta valido",
     "fr": "Veuillez saisir un numéro de carte valide",
     "sp": ""
   },
@@ -445,7 +445,7 @@
     "key": "Please enter your card number",
     "en": "Please enter your card number",
     "de": "Bitte geben Sie Ihre Kartennummer ein",
-    "it": "inserire il vostro numero di carta",
+    "it": "Inserire il vostro numero di carta",
     "fr": "Veuillez saisir votre numéro de carte",
     "sp": ""
   },
@@ -454,7 +454,7 @@
     "key": "Please enter a valid CVC",
     "en": "Please enter a valid verification number (CVC)",
     "de": "Bitte geben Sie eine gültige Prüfnummer (CVC) ein",
-    "it": "inserire un valido numero di verifica (CVC)",
+    "it": "Inserire un valido numero di verifica (CVC)",
     "fr": "Veuillez saisir un numéro de vérification valide (CVC)",
     "sp": ""
   },
@@ -463,7 +463,7 @@
     "key": "Please enter your CVC",
     "en": "Please enter your verification number (CVC)",
     "de": "Bitte geben Sie Ihre Prüfnummer (CVC) ein",
-    "it": "inserire il vostro numero di verifica (CVC)",
+    "it": "Inserire il vostro numero di verifica (CVC)",
     "fr": "Veuillez saisir votre numéro de vérification (CVC)",
     "sp": ""
   },
@@ -472,7 +472,7 @@
     "key": "Please enter a valid holdername",
     "en": "Please enter a valid holdername",
     "de": "Bitte geben Sie eine gültigen Namen ein",
-    "it": "inserire il nome valido del titolare della carta",
+    "it": "Inserire il nome valido del titolare della carta",
     "fr": "Veuillez saisir le nom du titulaire de la carte de crédit valide",
     "sp": ""
   },
@@ -481,7 +481,7 @@
     "key": "Please enter your holdername",
     "en": "Please enter your holdername",
     "de": "Bitte geben Sie den Namen der auf der Kreditkarte steht ein",
-    "it": "inserire il nome del titolare della CC",
+    "it": "Inserire il nome del titolare della CC",
     "fr": "Veuillez saisir le nom du titulaire de la carte de crédit",
     "sp": ""
   },
@@ -490,7 +490,7 @@
     "key": "Please enter a valid number month",
     "en": "Please enter a valid number (MM)",
     "de": "Bitte geben Sie eine gültige, 2-stellige Zahl ein",
-    "it": "inserire un numero valido per il mese",
+    "it": "Inserire un numero valido per il mese",
     "fr": "Veuillez entrer un numéro pour le mois valide",
     "sp": ""
   },
@@ -499,7 +499,7 @@
     "key": "Please enter the month of the expiry date",
     "en": "Please enter the month of the expiry date",
     "de": "Bitte geben Sie das Monat des Ablaufdatums ein",
-    "it": "inserire il mese della data di scadenza",
+    "it": "Inserire il mese della data di scadenza",
     "fr": "Veuillez entrer le mois de la date d'expiration",
     "sp": ""
   },
@@ -508,7 +508,7 @@
     "key": "Please enter a valid number year",
     "en": "Please enter a valid number year",
     "de": "Bitte geben Sie eine gültige, 4-stellige Zahl ein",
-    "it": "inserire un numero valido per l'anno",
+    "it": "Inserire un numero valido per l'anno",
     "fr": "Veuillez entrer un numéro pour l'année valide",
     "sp": ""
   },
@@ -580,8 +580,8 @@
     "key": "Booking date",
     "en": "Booking date",
     "de": "Buchungs-Datum",
-    "it": "data della prenotazione",
-    "fr": "date de réservation",
+    "it": "Data della prenotazione",
+    "fr": "Date de réservation",
     "sp": ""
   },
   {
@@ -589,8 +589,8 @@
     "key": "Booked by",
     "en": "Booked by",
     "de": "Gebucht von",
-    "it": "prenotato da",
-    "fr": "réservé par",
+    "it": "Prenotato da",
+    "fr": "Réservé par",
     "sp": ""
   },
   {
@@ -600,7 +600,7 @@
     "de": "Warum reActure?",
     "it": "Perchè reActure?",
     "fr": "Pourquoi reActure?",
-    "sp": "por qué Reacture?"
+    "sp": "Por qué Reacture?"
   },
   {
     "Description": "",
@@ -609,7 +609,7 @@
     "de": "Arbeiten Sie mit uns",
     "it": "Lavora con noi",
     "fr": "Travaille avec nous",
-    "sp": "trabaja con nosotros"
+    "sp": "Trabaja con nosotros"
   },
   {
     "Description": "",
@@ -636,7 +636,7 @@
     "de": "Bitte wählen Sie",
     "it": "Si prega di scegliere",
     "fr": "Veuillez sélectionner",
-    "sp": "le rogamos que eliga"
+    "sp": "Le rogamos que eliga"
   },
   {
     "Description": "",
@@ -680,8 +680,8 @@
     "en": "Select all",
     "de": "Alle auswählen",
     "it": "Seleziona tutto",
-    "fr": "sélectionner tout",
-    "sp": "seleccionar todo"
+    "fr": "Sélectionner tout",
+    "sp": "Seleccionar todo"
   },
   {
     "Description": "",
@@ -689,8 +689,8 @@
     "en": "Deselect all",
     "de": "Keine auswählen",
     "it": "Deseleziona tutto",
-    "fr": "désélectionner tout",
-    "sp": "deseleccionar todo"
+    "fr": "Désélectionner tout",
+    "sp": "Deseleccionar todo"
   },
   {
     "Description": "",
@@ -715,9 +715,9 @@
     "key": "Show all",
     "en": "Show all",
     "de": "Alle anzeigen",
-    "it": "mostra tutto",
-    "fr": "montrez tout",
-    "sp": "muestre todo"
+    "it": "Mostra tutto",
+    "fr": "Montrez tout",
+    "sp": "Muestre todo"
   },
   {
     "Description": "",
@@ -725,8 +725,8 @@
     "en": "Hide all",
     "de": "Keine anzeigen",
     "it": "Nascondi tutto",
-    "fr": "cachez tout",
-    "sp": "esconda todo"
+    "fr": "Cachez tout",
+    "sp": "Esconda todo"
   },
   {
     "Description": "",
@@ -734,8 +734,8 @@
     "en": "Offered by:",
     "de": "Angeboten von:",
     "it": "Offerto da:",
-    "fr": "offert par:",
-    "sp": "ofrecido por:"
+    "fr": "Offert par:",
+    "sp": "Ofrecido por:"
   },
   {
     "Description": "",
@@ -743,8 +743,8 @@
     "en": "Availability:",
     "de": "Verfügbarkeit:",
     "it": "Disponibilità:",
-    "fr": "disponibilité:",
-    "sp": "disponibilidad"
+    "fr": "Disponibilité:",
+    "sp": "Disponibilidad"
   },
   {
     "Description": "",
@@ -752,8 +752,8 @@
     "en": "Next available Dates",
     "de": "Nächste Verfügbarkeit",
     "it": "Date prossime",
-    "fr": "prochaines dates disponibles",
-    "sp": "proximas fechas"
+    "fr": "Prochaines dates disponibles",
+    "sp": "Proximas fechas"
   },
   {
     "Description": "",
@@ -788,7 +788,7 @@
     "en": "Next",
     "de": "Später",
     "it": "Più tardi",
-    "fr": "plus tard",
+    "fr": "Plus tard",
     "sp": "Más tarde"
   },
   {
@@ -797,7 +797,7 @@
     "en": "Trekking, Biking, Hiking",
     "de": "Trekking, Biking, Hiking",
     "it": "Trekking, Bike, Scalata",
-    "fr": "trekking, vélo, escalade",
+    "fr": "Trekking, vélo, escalade",
     "sp": "Trekking, bici, escalada"
   },
   {
@@ -816,7 +816,7 @@
     "de": "Yoga, Pilates & Fitness",
     "it": "Yoga, Pilates & Fitness",
     "fr": "Yoga, Pilates & Fitness",
-    "sp": "Yoga, pilate & Fitness"
+    "sp": "Yoga, Pilates & Fitness"
   },
   {
     "Description": "",
@@ -824,8 +824,8 @@
     "en": "Full day activities",
     "de": "Ganztagsaktivitäten",
     "it": "Attività intera giornata",
-    "fr": "journée complète d'activités",
-    "sp": "jornada comleta de actividades"
+    "fr": "Journée complète d'activités",
+    "sp": "Jornada comleta de actividades"
   },
   {
     "Description": "",
@@ -833,7 +833,7 @@
     "en": "Water Sports",
     "de": "Wassersport",
     "it": "Sports acquatici/nautici",
-    "fr": "sports aquatiques/nautiques",
+    "fr": "Sports aquatiques/nautiques",
     "sp": "Deportes acuaticos/ nauticos"
   },
   {
@@ -842,8 +842,8 @@
     "en": "Winter Sports",
     "de": "Wintersport",
     "it": "Sports invernali",
-    "fr": "sports d'hiver",
-    "sp": "deportes invernales"
+    "fr": "Sports d'hiver",
+    "sp": "Deportes invernales"
   },
   {
     "Description": "",
@@ -851,7 +851,7 @@
     "en": "Motorized Sports",
     "de": "Motorsport",
     "it": "Sports motoristici",
-    "fr": "sports mécaniques",
+    "fr": "Sports mécaniques",
     "sp": "Deportes motorizados"
   },
   {
@@ -860,7 +860,7 @@
     "en": "Extreme Sports",
     "de": "Extremsport",
     "it": "Sports estremi",
-    "fr": "sports extrêmes",
+    "fr": "Sports extrêmes",
     "sp": "Deportes extremos"
   },
   {
@@ -869,7 +869,7 @@
     "en": "Trekking, Biking, Hiking",
     "de": "Trekking, Biking, Hiking",
     "it": "Trekking, Bike, Scalata",
-    "fr": "trekking, vélo, escalade",
+    "fr": "Trekking, vélo, escalade",
     "sp": "Trekking, bici, escalada"
   },
   {
@@ -887,7 +887,7 @@
     "en": "Water Sports",
     "de": "Wassersport",
     "it": "Sports acquatici/nautici",
-    "fr": "sports aquatiques/nautiques",
+    "fr": "Sports aquatiques/nautiques",
     "sp": "Deportes acuaticos/ nauticos"
   },
   {
@@ -896,7 +896,7 @@
     "en": "Motorized Sports",
     "de": "Motorsport",
     "it": "Sports motoristici",
-    "fr": "sports mécaniques",
+    "fr": "Sports mécaniques",
     "sp": "Deportes motorizados"
   },
   {
@@ -914,7 +914,7 @@
     "en": "Full day activities",
     "de": "Ganztagsaktivitäten",
     "it": "Attività intera giornata",
-    "fr": "journée complète d'activités",
+    "fr": "Journée complète d'activités",
     "sp": "Jornada completa de actividades"
   },
   {
@@ -923,7 +923,7 @@
     "en": "Winter Sports",
     "de": "Wintersport",
     "it": "Sports invernali",
-    "fr": "sports d'hiver",
+    "fr": "Sports d'hiver",
     "sp": "Deportes invernales"
   },
   {
@@ -932,7 +932,7 @@
     "en": "Extreme Sports",
     "de": "Extremsport",
     "it": "Sports estremi",
-    "fr": "sports extrêmes",
+    "fr": "Sports extrêmes",
     "sp": "Deportes extremos"
   },
   {
@@ -950,8 +950,8 @@
     "en": "Guided Tours",
     "de": "Führungen",
     "it": "Tour guidati",
-    "fr": "tours guidés",
-    "sp": "exursión guiada"
+    "fr": "Tours guidés",
+    "sp": "Excursiónes guiadas"
   },
   {
     "Description": "",
@@ -959,7 +959,7 @@
     "en": "Activity for free",
     "de": "Gratisaktivitäten",
     "it": "Attivitá gratis",
-    "fr": "activités gratuites",
+    "fr": "Activités gratuites",
     "sp": "Actividades gratuitas"
   },
   {
@@ -968,7 +968,7 @@
     "en": "Animal Sports",
     "de": "Tiersport",
     "it": "Attività con animali",
-    "fr": "activités avec les animaux",
+    "fr": "Activités avec les animaux",
     "sp": "Actividades con animales"
   },
   {
@@ -977,7 +977,7 @@
     "en": "Competitions",
     "de": "Wettbewerbe",
     "it": "Competizioni",
-    "fr": "compétitions",
+    "fr": "Compétitions",
     "sp": "Competiciones"
   },
   {
@@ -986,7 +986,7 @@
     "en": "More days",
     "de": "Mehrtägig",
     "it": "Più giorni",
-    "fr": "plusieurs jours",
+    "fr": "Plusieurs jours",
     "sp": "Más dÍas"
   },
   {
@@ -994,9 +994,9 @@
     "key": "beautyandestetica",
     "en": "Beatuy + Aesthetics",
     "de": "Schönheit + Äesthetik",
-    "it": "Estetica+bellezza",
+    "it": "Estetica+Bellezza",
     "fr": "Beauté + Esthétique",
-    "sp": "Belleza+estética"
+    "sp": "Belleza+Estética"
   },
   {
     "Description": "",
@@ -1022,8 +1022,8 @@
     "en": "Exhibitions & Fairs",
     "de": "Ausstellungen & Messen",
     "it": "Esposizioni & Fiere",
-    "fr": "Expositions & foires",
-    "sp": "Exposiciones+ ferias"
+    "fr": "Expositions & Foires",
+    "sp": "Exposiciones+ Ferias"
   },
   {
     "Description": "",
@@ -1032,7 +1032,7 @@
     "de": "Oper & Theater",
     "it": "Opera & Teatro",
     "fr": "Opéra & Théâtre",
-    "sp": "Opera+teatro"
+    "sp": "Opera+Teatro"
   },
   {
     "Description": "",
@@ -1040,8 +1040,8 @@
     "en": "Music & Film",
     "de": "Musik & Film",
     "it": "Musica & Cinema",
-    "fr": "Musique & film",
-    "sp": "Música+peliculas"
+    "fr": "Musique & Film",
+    "sp": "Música+Peliculas"
   },
   {
     "Description": "",
@@ -1058,8 +1058,8 @@
     "en": "Exhibitions & Fairs",
     "de": "Ausstellungen & Messen",
     "it": "Esposizioni & Fiere",
-    "fr": "Expositions & foires",
-    "sp": "Exposiciones+ ferias"
+    "fr": "Expositions & Foires",
+    "sp": "Exposiciones+ Ferias"
   },
   {
     "Description": "",
@@ -1067,8 +1067,8 @@
     "en": "Music & Film",
     "de": "Musik & Film",
     "it": "Musica & Cinema",
-    "fr": "Musique & film",
-    "sp": "Música+peliculas"
+    "fr": "Musique & Film",
+    "sp": "Música+Peliculas"
   },
   {
     "Description": "",
@@ -1077,7 +1077,7 @@
     "de": "Führungen",
     "it": "Tour guidati",
     "fr": "tours guidés",
-    "sp": "exursión guiada"
+    "sp": "Exursiónes guiadas"
   },
   {
     "Description": "",
@@ -1086,7 +1086,7 @@
     "de": "Oper & Theater",
     "it": "Opera & Teatro",
     "fr": "Opéra & Théâtre",
-    "sp": "Opera+teatro"
+    "sp": "Opera+Teatro"
   },
   {
     "Description": "",
@@ -1122,7 +1122,7 @@
     "de": "Spa & Sauna",
     "it": "Spa & Sauna",
     "fr": "Spa & Sauna",
-    "sp": "Spa&sauna"
+    "sp": "Spa & Sauna"
   },
   {
     "Description": "",
@@ -1139,7 +1139,7 @@
     "en": "Beauty",
     "de": "Schönheit",
     "it": "Bellezza",
-    "fr": "beauté",
+    "fr": "Beauté",
     "sp": "Belleza"
   },
   {
@@ -1148,7 +1148,7 @@
     "en": "Medical Treatments",
     "de": "Medizinische Behanldungen",
     "it": "Trattamenti medici specifici",
-    "fr": "soins médicaux spécifiques",
+    "fr": "Soins médicaux spécifiques",
     "sp": "Tratamientos médicos específicos"
   },
   {
@@ -1158,7 +1158,7 @@
     "de": "Spa & Sauna",
     "it": "Spa & Sauna",
     "fr": "Spa & Sauna",
-    "sp": "Spa&sauna"
+    "sp": "Spa & Sauna"
   },
   {
     "Description": "",
@@ -1166,7 +1166,7 @@
     "en": "Your current search location",
     "de": "Ihre Suchposition",
     "it": "Posizione di ricerca",
-    "fr": "votre position actuelle",
+    "fr": "Votre position actuelle",
     "sp": "Su posición actual"
   },
   {
@@ -1183,9 +1183,9 @@
     "key": "your Activities",
     "en": "your activities",
     "de": "Ihre Aktivitäten",
-    "it": "le vostre attività",
-    "fr": "vos activités",
-    "sp": "vos actividades"
+    "it": "Le vostre attività",
+    "fr": "Vos activités",
+    "sp": "Vos actividades"
   },
   {
     "Description": "",
@@ -1202,7 +1202,7 @@
     "en": "Your account",
     "de": "Benutzerkonto",
     "it": "Account",
-    "fr": "votre compte/account",
+    "fr": "Votre compte/account",
     "sp": "Cuenta"
   },
   {
@@ -1220,7 +1220,7 @@
     "en": "Password",
     "de": "Passwort",
     "it": "Password",
-    "fr": "mot de passe",
+    "fr": "Mot de passe",
     "sp": "Contraseña"
   },
   {
@@ -1248,7 +1248,7 @@
     "de": "Passwort vergessen?",
     "it": "Dimenticato la password?",
     "fr": "Avez-vous oublié votre mot de passe?",
-    "sp": "has olvidado tu contraseña?"
+    "sp": "Has olvidado tu contraseña?"
   },
   {
     "Description": "",
@@ -1256,8 +1256,8 @@
     "en": "Your e-mail address",
     "de": "Ihre E-Mail Adresse",
     "it": "Vostro indirizzo email",
-    "fr": "votre adresse email",
-    "sp": "su correo electrónico"
+    "fr": "Votre adresse email",
+    "sp": "Su correo electrónico"
   },
   {
     "Description": "",
@@ -1265,8 +1265,8 @@
     "en": "Your password",
     "de": "Ihr Passwort",
     "it": "Vostra password",
-    "fr": "votre mot de passe",
-    "sp": "su contraseña"
+    "fr": "Votre mot de passe",
+    "sp": "Su contraseña"
   },
   {
     "Description": "",
@@ -1274,8 +1274,8 @@
     "en": "Invalid password",
     "de": "Ungültiges Passwort",
     "it": "Password non valida",
-    "fr": "mot de passe non valide",
-    "sp": "contraseña no válida"
+    "fr": "Mot de passe non valide",
+    "sp": "Contraseña no válida"
   },
   {
     "Description": "",
@@ -1283,8 +1283,8 @@
     "en": "This user does not exist",
     "de": "Dieser User existiert nicht",
     "it": "Non trovato",
-    "fr": "cet utlisateur n'existe pas",
-    "sp": "no válido"
+    "fr": "Cet utlisateur n'existe pas",
+    "sp": "No válido"
   },
   {
     "Description": "",
@@ -1319,8 +1319,8 @@
     "en": "Quality",
     "de": "Qualität",
     "it": "Qualità",
-    "fr": "qualité",
-    "sp": "calidad"
+    "fr": "Qualité",
+    "sp": "Calidad"
   },
   {
     "Description": "",
@@ -1336,16 +1336,16 @@
     "key": "marketing",
     "en": "marketing",
     "de": "Marketing",
-    "it": "marketing",
-    "fr": "marketing",
-    "sp": "marketing"
+    "it": "Marketing",
+    "fr": "Marketing",
+    "sp": "Marketing"
   },
   {
     "Description": "",
     "key": "International",
     "en": "International",
     "de": "Internationale",
-    "it": "internazionale",
+    "it": "Internazionale",
     "fr": "International",
     "sp": "International"
   },
@@ -1356,7 +1356,7 @@
     "de": "Plattform",
     "it": "Piattaforma",
     "fr": "Plate-forme",
-    "sp": "plataforma"
+    "sp": "Plataforma"
   },
   {
     "Description": "",
@@ -1365,7 +1365,7 @@
     "de": "One-Stop Philosophie",
     "it": "La filosofia One-stop",
     "fr": "One-Stop Philosophy",
-    "sp": "la filosofía one-stop"
+    "sp": "La filosofía one-stop"
   },
   {
     "Description": "",
@@ -1374,7 +1374,7 @@
     "de": "Lokal",
     "it": "Regionale",
     "fr": "Local",
-    "sp": "regional"
+    "sp": "Regional"
   },
   {
     "Description": "",
@@ -1382,8 +1382,8 @@
     "en": "Get",
     "de": "Erhalten Sie",
     "it": "Ricevi",
-    "fr": "recevez",
-    "sp": "recibe"
+    "fr": "Recevez",
+    "sp": "Recibe"
   },
   {
     "Description": "",
@@ -1427,17 +1427,17 @@
     "en": "No fixed costs",
     "de": "Keine Fixkosten",
     "it": "Nessun costo fisso",
-    "fr": "aucun prix fixé",
-    "sp": "ningún coste fijo"
+    "fr": "Aucun prix fixé",
+    "sp": "Ningún coste fijo"
   },
   {
     "Description": "",
     "key": "provision based model",
     "en": "provision based model",
     "de": "provisionsbasiertes Modell",
-    "it": "modello basato su disposizione",
+    "it": "modello di commissione",
     "fr": "prestation basée sur le modèle",
-    "sp": ""
+    "sp": "modelo de comisiòn"
   },
   {
     "Description": "",
@@ -1445,8 +1445,8 @@
     "en": "No reservation costs",
     "de": "Keine Reservierungskosten",
     "it": "Nessun costo di prenotazione",
-    "fr": "aucun frais de réservation",
-    "sp": "ningun coste de reserva"
+    "fr": "Aucun frais de réservation",
+    "sp": "Ningun coste de reserva"
   },
   {
     "Description": "",
@@ -1454,16 +1454,16 @@
     "en": "Secure",
     "de": "Sicheres",
     "it": "Sicura",
-    "fr": "sécurisé",
-    "sp": "seguridad"
+    "fr": "Sécurisé",
+    "sp": "Seguridad"
   },
   {
     "Description": "",
     "key": "booking",
     "en": "booking",
     "de": "Buchen",
-    "it": "prenotazione",
-    "fr": "réservation",
+    "it": "Prenotazione",
+    "fr": "Réservation",
     "sp": "Reserva"
   },
   {
@@ -1471,7 +1471,7 @@
     "key": "Quality managment",
     "en": "Quality managment",
     "de": "Qualitätsmanagement",
-    "it": "gestione della qualità",
+    "it": "Gestione della qualità",
     "fr": "Gestion de la qualité",
     "sp": "Gestión de la calidad"
   },
@@ -1508,7 +1508,7 @@
     "en": "Please enter a valid e-mail address",
     "de": "Bitte geben Sie eine gültige E-Mail Adresse ein",
     "it": "Si prega di inserire un indirizzo e-mail valido",
-    "fr": "veuillez saisir une adresse email valide",
+    "fr": "Veuillez saisir une adresse email valide",
     "sp": "Se ruega agregar un correo electrónico válido"
   },
   {
@@ -1517,8 +1517,8 @@
     "en": "Password must meet the following requirements:",
     "de": "Das Passwort muss folgende Kriterien erfüllen:",
     "it": "La password deve contenere almeno",
-    "fr": "le mot de passe doit contenir au moins",
-    "sp": "la contraseña debe contener por lo menos"
+    "fr": "Le mot de passe doit contenir au moins",
+    "sp": "La contraseña debe contener por lo menos"
   },
   {
     "Description": "",
@@ -1526,8 +1526,8 @@
     "en": "At least",
     "de": "Mindestens",
     "it": "Almeno",
-    "fr": "au moins",
-    "sp": "por lo menos"
+    "fr": "Au moins",
+    "sp": "Por lo menos"
   },
   {
     "Description": "",
@@ -1562,7 +1562,7 @@
     "en": "Retype Password",
     "de": "Passwort wiederholen",
     "it": "Ripetere la password",
-    "fr": "répétez le mot de passe",
+    "fr": "Répétez le mot de passe",
     "sp": "Repetir contraseña"
   },
   {
@@ -1571,7 +1571,7 @@
     "en": "Please retype the password",
     "de": "Bitte geben Sie das Passwort nochmals ein",
     "it": "Si prega di ripetere la password",
-    "fr": "veuillez répéter votre mot de passe",
+    "fr": "Veuillez répéter votre mot de passe",
     "sp": "Repita su contraseña"
   },
   {
@@ -1580,7 +1580,7 @@
     "en": "The passwords have to match",
     "de": "Die Passwörter müssen übereinstimmen",
     "it": "Le password devono corrispondere",
-    "fr": "les mots de passe doivent correspondre",
+    "fr": "Les mots de passe doivent correspondre",
     "sp": "Las contraseñas tienen que corresponder"
   },
   {
@@ -1588,8 +1588,8 @@
     "key": "back to login",
     "en": "back to login",
     "de": "Zurück zum Login",
-    "it": "torna alla Login",
-    "fr": "retournez à la connexion/login",
+    "it": "Torna alla Login",
+    "fr": "Retournez à la connexion/login",
     "sp": "Vuelve a la conexión"
   },
   {
@@ -1598,7 +1598,7 @@
     "en": "User already exists",
     "de": "Dieser User existiert bereits",
     "it": "Utente esiste già",
-    "fr": "l'utilisateur existe déjà",
+    "fr": "L'utilisateur existe déjà",
     "sp": "Este usuario ya existe"
   },
   {
@@ -1607,8 +1607,8 @@
     "en": "Enter your new password",
     "de": "Geben Sie Ihr neues Passwort ein",
     "it": "Inserisca il Suo nuova password",
-    "fr": "saisissez votre nouveau mot de passe",
-    "sp": "introduzca su nueva contraseña"
+    "fr": "Saisissez votre nouveau mot de passe",
+    "sp": "Introduzca su nueva contraseña"
   },
   {
     "Description": "",
@@ -1616,8 +1616,8 @@
     "en": "New Password",
     "de": "Neues Passwort",
     "it": "Nuova password",
-    "fr": "nouveau mot de passe",
-    "sp": "nueva contraseña"
+    "fr": "Nouveau mot de passe",
+    "sp": "Nueva contraseña"
   },
   {
     "Description": "",
@@ -1625,7 +1625,7 @@
     "en": "Password must meet the following requirements:",
     "de": "Das Passwort muss folgende Kriterien erfüllen:",
     "it": "Il password deve soddisfare i seguenti criteri",
-    "fr": "le mot de passe doit satisfaire les exigeances suivantes",
+    "fr": "Le mot de passe doit satisfaire les exigeances suivantes",
     "sp": "La contraseña debe satisfacher los siguientes criterios"
   },
   {
@@ -1634,7 +1634,7 @@
     "en": "Repeat new password",
     "de": "Passwort wiederholen",
     "it": "Ripetere la password",
-    "fr": "répétez le mot de passe",
+    "fr": "Répétez le mot de passe",
     "sp": "Repetir la contraseña"
   },
   {
@@ -1643,7 +1643,7 @@
     "en": "Passwords don't match",
     "de": "Die Passwörter stimmen nicht überein",
     "it": "Le password non corrispondono",
-    "fr": "les mots de passe ne correspondent pas",
+    "fr": "Les mots de passe ne correspondent pas",
     "sp": "Las contraseñas no corresponden"
   },
   {
@@ -1652,7 +1652,7 @@
     "en": "Please fill out this field",
     "de": "Bitte füllen Sie dieses Feld aus",
     "it": "Si prega di compilare questo campo",
-    "fr": "veuillez remplir ce champ",
+    "fr": "Veuillez remplir ce champ",
     "sp": "Se ruega rellenar este espacio"
   },
   {
@@ -1661,8 +1661,8 @@
     "en": "Save new password",
     "de": "Neues Passwort speichern",
     "it": "Salvare la nuova password",
-    "fr": "sauvegardez le nouveau mot de passe",
-    "sp": "guardar nueva contraseña"
+    "fr": "Sauvegardez le nouveau mot de passe",
+    "sp": "Guardar nueva contraseña"
   },
   {
     "Description": "",
@@ -1670,7 +1670,7 @@
     "en": "The new password was successfully saved.",
     "de": "Das neue Passwort wurde erfolgreich gespeichert.",
     "it": "La nuova password è stata salvata con successo",
-    "fr": "votre nouveau mot de passe a été enregistré avec succès",
+    "fr": "Votre nouveau mot de passe a été enregistré avec succès",
     "sp": "La nueva contraseña ha sido guardada"
   },
   {
@@ -1679,7 +1679,7 @@
     "en": "An error happened. The new password could not be saved.",
     "de": "Es gab einen Fehler. Das neue Passwort konnte nicht erfolgreich gespeichert werden.",
     "it": "È accaduto un errore. Impossibile salvare la nuova password",
-    "fr": "une erreur s'est produite. Le nouveau mot de passe ne peut pas être enregistré",
+    "fr": "Une erreur s'est produite. Le nouveau mot de passe ne peut pas être enregistré",
     "sp": "Ha ocurrido un error. Imposible guardar su contraseña"
   },
   {
@@ -1688,7 +1688,7 @@
     "en": "The password has to contain at least one capital letter, one number and has to have a minimum length of 8.",
     "de": "Das Passwort muss zumindest einen Großbuchstaben und eine Zahl enthalten, und aus mindestens 8 Zeichen bestehen.",
     "it": "La password deve contenere almeno una lettera maiuscola, un numero e deve avere una lunghezza minima di 8.",
-    "fr": "le mot de passe doit contenir au moins une lettre majuscule, un chiffre et une longueur minimum de 8",
+    "fr": "Le mot de passe doit contenir au moins une lettre majuscule, un chiffre et une longueur minimum de 8",
     "sp": "Su contraseña tiene que contener por lo menos una letra mayúscula, un número, y un largo mínimo de 8 carácteres"
   },
   {
@@ -1696,8 +1696,8 @@
     "key": "Your new password",
     "en": "Your new password",
     "de": "Ihr neues Passwort",
-    "it": "la sua nuova password",
-    "fr": "votre nouveau mot de passe",
+    "it": "La sua nuova password",
+    "fr": "Votre nouveau mot de passe",
     "sp": "Su nueva contraseña"
   },
   {
@@ -1706,7 +1706,7 @@
     "en": "Retype your new password",
     "de": "Wiederholen Sie Ihr neues Passwort",
     "it": "Ripetere la nuova password",
-    "fr": "répétez le nouveau mot de passe",
+    "fr": "Répétez le nouveau mot de passe",
     "sp": "Repetir la contraseña nueva"
   },
   {
@@ -1715,7 +1715,7 @@
     "en": "Retype your password",
     "de": "Geben Sie Ihr Passwort nochmals ein",
     "it": "Ripetere la password",
-    "fr": "répétez votre mot de passe",
+    "fr": "Répétez votre mot de passe",
     "sp": "Repetir contraseña"
   },
   {
@@ -1724,7 +1724,7 @@
     "en": "Enter your password",
     "de": "Geben Sie Ihr Passwort ein",
     "it": "Inserire una password",
-    "fr": "entrez un mot de passe",
+    "fr": "Entrez un mot de passe",
     "sp": "introducir una contraseña"
   },
   {
@@ -1733,7 +1733,7 @@
     "en": "Request a link to reset your password",
     "de": "Link zum Zurücksetzen des Passworts anfordern",
     "it": "Richiesta link per resettare la tua password",
-    "fr": "demandez un lien pour réinitialiser votre mot de passe",
+    "fr": "Demandez un lien pour réinitialiser votre mot de passe",
     "sp": "Petición de enlace para resetar su contraseña"
   },
   {
@@ -1742,7 +1742,7 @@
     "en": "The link to reset your password was successfully sent to",
     "de": "Der Link zum Zurücksetzen des Passworts wurde erfolgreich gesendet an",
     "it": "Il link per reimpostare la password è stata inviata con successo al",
-    "fr": "le lien pour réinitialiser le mot de passe a été envoyé avec succès à",
+    "fr": "Le lien pour réinitialiser le mot de passe a été envoyé avec succès à",
     "sp": "El enlace para resetar su contraseña ha sido enviado con éxito a"
   },
   {
@@ -1750,8 +1750,8 @@
     "key": "This user does not exist. Check if the email address is correct",
     "en": "This user does not exist. Check if the email address is correct.",
     "de": "Dieser Account existiert nicht. Überprüfen Sie, ob die E-Mail Adresse stimmt.",
-    "it": "l' account non esiste. Controllare se l'indirizzo email è corretto",
-    "fr": "l'utilisateur n'existe pas. Veuillez contrôler si l'adresse email est corrècte.",
+    "it": "L' account non esiste. Controllare se l'indirizzo email è corretto",
+    "fr": "L'utilisateur n'existe pas. Veuillez contrôler si l'adresse email est corrècte.",
     "sp": "El account no existe. Verifique su correo elctrónico"
   },
   {
@@ -1779,7 +1779,7 @@
     "de": "Firma",
     "it": "Attività",
     "fr": "Activité",
-    "sp": "actividad"
+    "sp": "Actividad"
   },
   {
     "Description": "",
@@ -1842,7 +1842,7 @@
     "de": "Name",
     "it": "Nome",
     "fr": "Prénom",
-    "sp": "nombre"
+    "sp": "Nombre"
   },
   {
     "Description": "",
@@ -1851,7 +1851,7 @@
     "de": "Ihr Nachname",
     "it": "Il vostro cognome",
     "fr": "Votre nom",
-    "sp": "su apellido"
+    "sp": "Su apellido"
   },
   {
     "Description": "",
@@ -1905,7 +1905,7 @@
     "de": "Mobil-Telefon",
     "it": "Telefono mobile",
     "fr": "Numéro de portable",
-    "sp": "móvil"
+    "sp": "Móvil"
   },
   {
     "Description": "",
@@ -1932,7 +1932,7 @@
     "de": "Fax",
     "it": "Fax",
     "fr": "Fax",
-    "sp": "fax"
+    "sp": "Fax"
   },
   {
     "Description": "",
@@ -1986,7 +1986,7 @@
     "de": "Postleitzahl",
     "it": "Codice postale",
     "fr": "Code Postale",
-    "sp": "código postal"
+    "sp": "Código postal"
   },
   {
     "Description": "",
@@ -1995,7 +1995,7 @@
     "de": "Ihre Postleitzahl",
     "it": "Il vostro codice postale",
     "fr": "Votre code postale",
-    "sp": "su código postal"
+    "sp": "Su código postal"
   },
   {
     "Description": "",
@@ -2013,7 +2013,7 @@
     "de": "Stadt",
     "it": "Città",
     "fr": "Ville",
-    "sp": "ciudad"
+    "sp": "Ciudad"
   },
   {
     "Description": "",
@@ -2022,7 +2022,7 @@
     "de": "Ihre Stadt",
     "it": "La vostra città",
     "fr": "Votre Ville",
-    "sp": "tu ciudad"
+    "sp": "Tu ciudad"
   },
   {
     "Description": "",
@@ -2031,7 +2031,7 @@
     "de": "Bitte geben Sie Ihre Stadt ein",
     "it": "Si prega d'inserire la vostra città",
     "fr": "Veuillez insérer le nome de Votre ville",
-    "sp": "se ruega introducir el nombre de su ciudad"
+    "sp": "Se ruega introducir el nombre de su ciudad"
   },
   {
     "Description": "",
@@ -2057,7 +2057,7 @@
     "en": "Please enter your country",
     "de": "Bitte geben Sie Ihr Land ein",
     "it": "Si prega d'inserire il vostro paese",
-    "fr": "veuillez insérer le nom de Votre pays",
+    "fr": "Veuillez insérer le nom de Votre pays",
     "sp": "Se ruega inroducir el nombre de su país"
   },
   {
@@ -2066,7 +2066,7 @@
     "en": "Name of contact person",
     "de": "Name der Ansprechperson",
     "it": "Nome di un contatto",
-    "fr": "nom d'un référent",
+    "fr": "Nom d'un référent",
     "sp": "Nombre de un contacto"
   },
   {
@@ -2075,7 +2075,7 @@
     "en": "Please enter the name of the contact person",
     "de": "Bitte geben Sie den Namen des Ansprechpartners / der Ansprechpartnerin ein",
     "it": "Si prega d'inserire un nome di un contatto",
-    "fr": "veuillez insérer le nom d'un référent",
+    "fr": "Veuillez insérer le nom d'un référent",
     "sp": "Se ruega introducir el nombre de un contacto"
   },
   {
@@ -2103,7 +2103,7 @@
     "de": "Dein Ort ...",
     "it": "La tua posizione",
     "fr": "Votre position",
-    "sp": "tu posición"
+    "sp": "Tu posición"
   },
   {
     "Description": "",
@@ -2111,8 +2111,8 @@
     "en": "Find!",
     "de": "Suchen!",
     "it": "Trovare",
-    "fr": "trouvez!",
-    "sp": "encontrar"
+    "fr": "Trouvez!",
+    "sp": "Encontrar"
   },
   {
     "Description": "",
@@ -2127,8 +2127,8 @@
     "Description": "",
     "key": "until",
     "en": "until",
-    "de": "bis",
-    "it": "al",
+    "de": "Bis",
+    "it": "Al",
     "fr": "Au",
     "sp": "Al"
   },
@@ -2147,7 +2147,7 @@
     "en": "No events to display yet",
     "de": "Noch keine Events zum Anzeigen vorhanden",
     "it": "Non ci sono eventi da visualizzare ancora",
-    "fr": "pas d'événements à voir",
+    "fr": "Pas d'événements à voir",
     "sp": "No hay eventos para visualizar"
   },
   {
@@ -2156,8 +2156,8 @@
     "en": "Event",
     "de": "Event",
     "it": "Evento",
-    "fr": "événement",
-    "sp": "evento"
+    "fr": "Evénement",
+    "sp": "Evento"
   },
   {
     "Description": "",
@@ -2165,8 +2165,8 @@
     "en": "Date",
     "de": "Datum",
     "it": "Data",
-    "fr": "date",
-    "sp": "fecha"
+    "fr": "Date",
+    "sp": "Fecha"
   },
   {
     "Description": "",
@@ -2174,8 +2174,8 @@
     "en": "Time",
     "de": "Zeit",
     "it": "Ora",
-    "fr": "heure",
-    "sp": "hora"
+    "fr": "Heure",
+    "sp": "Hora"
   },
   {
     "Description": "",
@@ -2183,8 +2183,8 @@
     "en": "Duration",
     "de": "Dauer",
     "it": "Durata",
-    "fr": "durée",
-    "sp": "duración"
+    "fr": "Durée",
+    "sp": "Duración"
   },
   {
     "Description": "",
@@ -2192,7 +2192,7 @@
     "en": "Duration in hours",
     "de": "Dauer in Stunden",
     "it": "Durata in ore",
-    "fr": "heure de durée",
+    "fr": "Heure de durée",
     "sp": "Duración en horas"
   },
   {
@@ -2201,8 +2201,8 @@
     "en": "Qty.",
     "de": "Menge",
     "it": "Quantità",
-    "fr": "quantité",
-    "sp": "cantidad"
+    "fr": "Quantité",
+    "sp": "Cantidad"
   },
   {
     "Description": "",
@@ -2218,9 +2218,9 @@
     "key": "add Image",
     "en": "add Image",
     "de": "Bild hinzufügen",
-    "it": "aggiungere immagini",
-    "fr": "ajouter des images",
-    "sp": "añadir imagenes"
+    "it": "Aggiungere immagini",
+    "fr": "Ajouter des images",
+    "sp": "Añadir imagenes"
   },
   {
     "Description": "",
@@ -2229,7 +2229,7 @@
     "de": "Meine Aktivitäten",
     "it": "Le mie attività",
     "fr": "Mes activités",
-    "sp": "mis actividades"
+    "sp": "Mis actividades"
   },
   {
     "Description": "",
@@ -2264,7 +2264,7 @@
     "en": "This is the admin/allActivities view.",
     "de": "Das ist die Admin / Alle Aktivitäten Ansicht.",
     "it": "Questa è la pagina di admin/tutte le attività",
-    "fr": "c'est la page d'administration/de toutes les activités",
+    "fr": "C'est la page d'administration/de toutes les activités",
     "sp": "Esta es la página de la administración/ de todad las actividades"
   },
   {
@@ -2274,7 +2274,7 @@
     "de": "Aktivität",
     "it": "Attività",
     "fr": "Activité",
-    "sp": "actividades encontradas"
+    "sp": "Actividades encontradas"
   },
   {
     "Description": "",
@@ -2310,24 +2310,24 @@
     "de": "Ort",
     "it": "Posizione",
     "fr": "Localisation",
-    "sp": "localisación"
+    "sp": "Localisación"
   },
   {
     "Description": "",
     "key": "publish",
     "en": "publish",
-    "de": "veröffentlichen",
-    "it": "pubblicare",
-    "fr": "publier",
-    "sp": "publicar"
+    "de": "Veröffentlichen",
+    "it": "Pubblicare",
+    "fr": "Publier",
+    "sp": "Publicar"
   },
   {
     "Description": "",
     "key": "unpublish",
     "en": "unpublish",
     "de": "auf privat setzen",
-    "it": "annullare la pubblicazione",
-    "fr": "annuler la publication",
+    "it": "Annullare la pubblicazione",
+    "fr": "Annuler la publication",
     "sp": "Anular la publicación"
   },
   {
@@ -2343,10 +2343,10 @@
     "Description": "",
     "key": "delete",
     "en": "delete",
-    "de": "löschen",
-    "it": "cancellare",
-    "fr": "effacer",
-    "sp": "borrar"
+    "de": "Löschen",
+    "it": "Cancellare",
+    "fr": "Effacer",
+    "sp": "Borrar"
   },
   {
     "Description": "",
@@ -2355,7 +2355,7 @@
     "de": "Ihre Aktivität wurde veröffentlicht!",
     "it": "La vostra attività è pubblicata",
     "fr": "Votre activité est publiée",
-    "sp": "su actividad ha sido publicada"
+    "sp": "Su actividad ha sido publicada"
   },
   {
     "Description": "",
@@ -2364,7 +2364,7 @@
     "de": "Ihre Aktivität wurde noch nicht veröffentlicht!",
     "it": "La tua attività non è ancora pubblicato",
     "fr": "Votre activitè n'a pas encore été publiée",
-    "sp": "tu actividad aún no ha sido publicada"
+    "sp": "Tu actividad aún no ha sido publicada"
   },
   {
     "Description": "",
@@ -2388,10 +2388,10 @@
     "Description": "",
     "key": "edit",
     "en": "edit",
-    "de": "bearbeiten",
-    "it": "modifica",
-    "fr": "modifier",
-    "sp": "modificar"
+    "de": "Bearbeiten",
+    "it": "Modifica",
+    "fr": "Modifier",
+    "sp": "Modificar"
   },
   {
     "Description": "",
@@ -2435,7 +2435,7 @@
     "en": "Save event",
     "de": "Termin speichern",
     "it": "Salva evento",
-    "fr": "sauvegardez l'événement",
+    "fr": "Sauvegardez l'événement",
     "sp": "Guarde el evento"
   },
   {
@@ -2453,7 +2453,7 @@
     "en": "New activity",
     "de": "Neue Aktivität",
     "it": "Nuova attività",
-    "fr": "nouvelle activité",
+    "fr": "Nouvelle activité",
     "sp": "Nueva actividad"
   },
   {
@@ -2462,7 +2462,7 @@
     "en": "Global Activity Info",
     "de": "Daten der Aktivität",
     "it": "Informazioni generali sull'attività",
-    "fr": "informations générales sur l'activité",
+    "fr": "Informations générales sur l'activité",
     "sp": "Informaciones generales sobre la actividad"
   },
   {
@@ -2498,7 +2498,7 @@
     "en": "Save address",
     "de": "Adresse speichern",
     "it": "Invia indirizzo",
-    "fr": "enregistrer adresse",
+    "fr": "Enregistrer adresse",
     "sp": "Evíe la dirección"
   },
   {
@@ -2507,7 +2507,7 @@
     "en": "Click in map to reposition location of activity",
     "de": "Klicken Sie in die Karte, um den Ort der Aktivität anzupassen",
     "it": "Clicca sulla mappa per riposizionare la localizzazione delle attività",
-    "fr": "cliquez sur la carte pour relocaliser l'activité",
+    "fr": "Cliquez sur la carte pour relocaliser l'activité",
     "sp": "Clique sobre el mapa para relocalizar la actividad"
   },
   {
@@ -2516,7 +2516,7 @@
     "en": "Select Main Category",
     "de": "Hauptkategorie auswählen",
     "it": "Seleziona categoria principale",
-    "fr": "sélectionner la catègorie principale",
+    "fr": "Sélectionner la catègorie principale",
     "sp": "Eliga la categoría principal"
   },
   {
@@ -2534,7 +2534,7 @@
     "en": "You must choose at least 1 Subcategory!",
     "de": "Sie müssen mindestens 1 Subkategorie auswählen!",
     "it": "È necessario scegliere almeno 1 Sottocategoria",
-    "fr": "vous devez choisir minimum 1 sous catégorie",
+    "fr": "Vous devez choisir minimum 1 sous catégorie",
     "sp": "Hace falta elegir por lo menos una subcategoría"
   },
   {
@@ -2543,7 +2543,7 @@
     "en": "Description",
     "de": "Beschreibung",
     "it": "Descrizione",
-    "fr": "déscription",
+    "fr": "Déscription",
     "sp": "Descripción"
   },
   {
@@ -2552,7 +2552,7 @@
     "en": "Detailed description (min. 150 signs)",
     "de": "Ausführliche Beschreibung (min. 150 Zeichen)",
     "it": "Descrizione detagliata (min 150 lettere)",
-    "fr": "déscription détaillée (minimum 150 mots)",
+    "fr": "Déscription détaillée (minimum 150 mots)",
     "sp": "Descripción detallada (mínimo 150 palabras)"
   },
   {
@@ -2598,7 +2598,7 @@
     "de": "Preis in €",
     "it": "Prezzo in €",
     "fr": "Prix en €",
-    "sp": "precio en €"
+    "sp": "Precio en €"
   },
   {
     "Description": "",
@@ -2607,7 +2607,7 @@
     "de": "Preis",
     "it": "Prezzo",
     "fr": "Prix",
-    "sp": "precio"
+    "sp": "Precio"
   },
   {
     "Description": "",
@@ -2616,16 +2616,16 @@
     "de": "Event löschen",
     "it": "Elimina",
     "fr": "Annulez",
-    "sp": "elimina"
+    "sp": "Elimina"
   },
   {
     "Description": "",
     "key": "Schedule Event",
     "en": "Schedule Event",
     "de": "Zeitpunkte an denen das Event stattfindet",
-    "it": "programma/calendario eventi",
-    "fr": "programme de l'événement",
-    "sp": "programa de eventos"
+    "it": "Programma/calendario eventi",
+    "fr": "Programme de l'événement",
+    "sp": "Programa de eventos"
   },
   {
     "Description": "",
@@ -2633,8 +2633,8 @@
     "en": "Add Event",
     "de": "Termin hinzufügen",
     "it": "Creare un evento",
-    "fr": "créez un événement",
-    "sp": "crer un evento"
+    "fr": "Créez un événement",
+    "sp": "Crear un evento"
   },
   {
     "Description": "",
@@ -2642,8 +2642,8 @@
     "en": "Add new Event",
     "de": "Neuen Termin hinzufügen",
     "it": "Creare nuovo evento",
-    "fr": "créez un nouveau événement",
-    "sp": "crear un evento nuevo"
+    "fr": "Créez un nouveau événement",
+    "sp": "Crear un evento nuevo"
   },
   {
     "Description": "",
@@ -2651,8 +2651,8 @@
     "en": "Quantity",
     "de": "Menge",
     "it": "Quantità",
-    "fr": "quantité",
-    "sp": "cantidad"
+    "fr": "Quantité",
+    "sp": "Cantidad"
   },
   {
     "Description": "",
@@ -2661,7 +2661,7 @@
     "de": "Wiederkehrender Termin",
     "it": "Ripetere l´evento",
     "fr": "Répéter l'événement",
-    "sp": "repetir el evento"
+    "sp": "Repetir el evento"
   },
   {
     "Description": "",
@@ -2687,7 +2687,7 @@
     "en": "Wed",
     "de": "Mi",
     "it": "Mer",
-    "fr": "mercredi",
+    "fr": "Mercredi",
     "sp": "Miércoles"
   },
   {
@@ -2697,7 +2697,7 @@
     "de": "Do",
     "it": "Gio",
     "fr": "Jeudi",
-    "sp": "jueves"
+    "sp": "Jueves"
   },
   {
     "Description": "",
@@ -2706,7 +2706,7 @@
     "de": "Fr",
     "it": "Ven",
     "fr": "Vendredi",
-    "sp": "viernes"
+    "sp": "Viernes"
   },
   {
     "Description": "",
@@ -2732,7 +2732,7 @@
     "en": "remove",
     "de": "entfernen",
     "it": "cancellare",
-    "fr": "Effacer",
+    "fr": "effacer",
     "sp": "borrar"
   },
   {
@@ -2760,7 +2760,7 @@
     "de": "Firma eingeben",
     "it": "Inserire ditta",
     "fr": "Insérer entreprise",
-    "sp": "introducir empresa"
+    "sp": "Introducir empresa"
   },
   {
     "Description": "",
@@ -2768,7 +2768,7 @@
     "en": "Access denied!",
     "de": "Kein Zugriff!",
     "it": "Accesso negato",
-    "fr": "accès nié!",
+    "fr": "Accès nié!",
     "sp": "Acceso prohibido"
   },
   {
@@ -2778,7 +2778,7 @@
     "de": "Aktivität  hinzufügen",
     "it": "Aggiungere attività",
     "fr": "Ajouter activité",
-    "sp": "añadir actividad"
+    "sp": "Añadir actividad"
   },
   {
     "Description": "",
@@ -2787,7 +2787,7 @@
     "de": "Benutzerprofil",
     "it": "Profilo",
     "fr": "Profil de l'utilisateur",
-    "sp": "profilo del usuario"
+    "sp": "Profilo del usuario"
   },
   {
     "Description": "",
@@ -2795,16 +2795,16 @@
     "en": "Edit user profile",
     "de": "Benutzerprofil editieren",
     "it": "Modifica profilo utente",
-    "fr": "modifier le profil de l'utilisateur",
-    "sp": "modificar el profilo del usuario"
+    "fr": "Modifier le profil de l'utilisateur",
+    "sp": "Modificar el profilo del usuario"
   },
   {
     "Description": "",
     "key": "Bookable item description placeholder",
     "en": "i.e. 4 hours tour (500ccm)",
     "de": "z.B. 4 Stunden Tour (500ccm)",
-    "it": "per esempio 4 ore tour (500ccm)",
-    "fr": "par exemple 4 heures de tour",
+    "it": "Per esempio 4 ore tour (500ccm)",
+    "fr": "Par exemple 4 heures de tour",
     "sp": "Por ejemplo 4 horas de tour"
   },
   {
@@ -2813,7 +2813,7 @@
     "en": "Bank account",
     "de": "Bank account",
     "it": "Conto corrente bancario",
-    "fr": "compte de la banque",
+    "fr": "Compte de la banque",
     "sp": "Cuenta corriente"
   },
   {
@@ -2823,7 +2823,7 @@
     "de": "Bank",
     "it": "Banka",
     "fr": "Banque",
-    "sp": "banco"
+    "sp": "Banco"
   },
   {
     "Description": "",
@@ -2832,7 +2832,7 @@
     "de": "Name of your Bank",
     "it": "Nome del vostro Bank",
     "fr": "Nom de Votre banque",
-    "sp": "nombre de su banco"
+    "sp": "Nombre de su banco"
   },
   {
     "Description": "",
@@ -2840,8 +2840,8 @@
     "en": "Please enter the name of your Bank",
     "de": "Please enter the name of your Bank",
     "it": "Si prega di inserire il nome del vostro Bank",
-    "fr": "veuillez insérer le nom de Votre banque",
-    "sp": "se ruega introducir el nombre de su banco"
+    "fr": "Veuillez insérer le nom de Votre banque",
+    "sp": "Se ruega introducir el nombre de su banco"
   },
   {
     "Description": "",
@@ -2859,7 +2859,7 @@
     "de": "Your IBAN",
     "it": "Il vostro IBAN",
     "fr": "Votre IBAN",
-    "sp": "su IBAN"
+    "sp": "Su IBAN"
   },
   {
     "Description": "",
@@ -2868,7 +2868,7 @@
     "de": "Please enter your IBAN",
     "it": "Si prega di inserire il vostro IBAN",
     "fr": "Veuillez insérer Votre IBAN",
-    "sp": "se ruega introducir su IBAN"
+    "sp": "Se ruega introducir su IBAN"
   },
   {
     "Description": "",
@@ -2886,7 +2886,7 @@
     "de": "Your BIC",
     "it": "Il vostro BIC",
     "fr": "Votre BIC",
-    "sp": "su BIC"
+    "sp": "Su BIC"
   },
   {
     "Description": "",
@@ -2895,7 +2895,7 @@
     "de": "Please enter your BIC",
     "it": "Si prega di inserire il vostro BIC",
     "fr": "Veuillez insérer Votre BIC",
-    "sp": "se ruega introducir su BIC"
+    "sp": "Se ruega introducir su BIC"
   },
   {
     "Description": "",
@@ -2904,7 +2904,7 @@
     "de": "Account owner",
     "it": "Proprietario del conto",
     "fr": "Propriétaire du compte",
-    "sp": "propietario de la cuenta"
+    "sp": "Propietario de la cuenta"
   },
   {
     "Description": "",
@@ -2912,8 +2912,8 @@
     "en": "Name of account owner",
     "de": "Name of account owner",
     "it": "Nome del proprietario dell'account",
-    "fr": "nom du propriétaire du compte",
-    "sp": "nombre del propietario de la cuenta"
+    "fr": "Nom du propriétaire du compte",
+    "sp": "Nombre del propietario de la cuenta"
   },
   {
     "Description": "",
@@ -2921,8 +2921,8 @@
     "en": "Please enter the name of the account owner",
     "de": "Please enter the name of the account owner",
     "it": "Si prega di inserire il nome del titolare del conto",
-    "fr": "veuillez entrer le nom du propriétaire du compte",
-    "sp": "se ruega introducir el nombre del propietario de la cuenta"
+    "fr": "Veuillez entrer le nom du propriétaire du compte",
+    "sp": "Se ruega introducir el nombre del propietario de la cuenta"
   },
   {
     "Description": "",
@@ -2957,8 +2957,8 @@
     "en": "Please select a location.",
     "de": "Bitte wählen Sie einen Ort.",
     "it": "Si prega di selezionare una posizione.",
-    "fr": "sélectionner une localisation",
-    "sp": "se ruega elegir una posición"
+    "fr": "Sélectionner une localisation",
+    "sp": "Se ruega elegir una posición"
   },
   {
     "Description": "",
@@ -2967,7 +2967,7 @@
     "de": "Ihre ungespeicherten Daten gehen verloren wenn Sie diese Seite jetzt verlassen",
     "it": "I vostri dati non ancora salvati andranno persi se si lascia questa pagina",
     "fr": "Vos données qui ne sont pas encore enregistreés, seront automatiquement éffaceés une fois que vous abandonnez cette page",
-    "sp": "sus datos aún no guardados serán eliminados si abandona esta página"
+    "sp": "Sus datos aún no guardados serán eliminados si abandona esta página"
   },
   {
     "Description": "",
@@ -2976,7 +2976,7 @@
     "de": "activities found",
     "it": "Attività trovate",
     "fr": "Activités trouvées",
-    "sp": "actividades encontradas"
+    "sp": "Actividades encontradas"
   },
   {
     "Description": "",
@@ -2985,7 +2985,7 @@
     "de": "Persönliche Daten",
     "it": "Dati personali",
     "fr": "Données personnelles",
-    "sp": "datos personales"
+    "sp": "Datos personales"
   },
   {
     "Description": "",
@@ -2994,7 +2994,7 @@
     "de": "Firmendaten",
     "it": "Dati aziendali",
     "fr": "Donneés de l'entreprise",
-    "sp": "datos de la empresa"
+    "sp": "Datos de la empresa"
   },
   {
     "Description": "",
@@ -3002,8 +3002,8 @@
     "en": "Your changes have been saved",
     "de": "Ihre Änderungen wurden gespeichert",
     "it": "I dati sono salvati",
-    "fr": "vos données ont été enregistrées",
-    "sp": "los datos están guardados"
+    "fr": "Vos données ont été enregistrées",
+    "sp": "Los datos están guardados"
   },
   {
     "Description": "",
@@ -3012,7 +3012,7 @@
     "de": "Ihre Änderungen konnten nicht gespeichert werden",
     "it": "Le modifiche sono state salvate",
     "fr": "Vos modifications ont été enregistrées",
-    "sp": "los cambios han sido guardados"
+    "sp": "Los cambios han sido guardados"
   },
   {
     "Description": "",
@@ -3021,7 +3021,7 @@
     "de": "Bitte füllen Sie das Formular korrekt aus",
     "it": "Le modifiche non potevano essere salvate",
     "fr": "Vos modifications ne peuvent pas être enregistrées",
-    "sp": "los cambios no podían ser guardados"
+    "sp": "Los cambios no podían ser guardados"
   },
   {
     "Description": "",
@@ -3029,17 +3029,17 @@
     "en": "All dates from activity",
     "de": "All dates from activity",
     "it": "Si prega di compilare correttamente il modulo",
-    "fr": "veuillez bien remplir le formulaire",
-    "sp": "se ruega rellenar el formulario correctamente"
+    "fr": "Veuillez bien remplir le formulaire",
+    "sp": "Se ruega rellenar el formulario correctamente"
   },
   {
     "Description": "",
     "key": "endBeforeStart",
     "en": "The end date is before the start date",
     "de": "Das Event-Ende liegt vor dem Event-Start",
-    "it": "la data di fine evento è prima di quella d'inizio",
+    "it": "La data di fine evento è prima di quella d'inizio",
     "fr": "La date de fin est antérieure à la date de début",
-    "sp": "la fecha de fin está antes la del comienzo"
+    "sp": "La fecha de fin está antes la del comienzo"
   },
   {
     "Description": "",
@@ -3048,7 +3048,7 @@
     "de": "Kartenansicht",
     "it": "Vista della mappa",
     "fr": "Vue de la carte",
-    "sp": "vista del mapa"
+    "sp": "Vista del mapa"
   },
   {
     "Description": "",
@@ -3057,7 +3057,7 @@
     "de": "Keine Aktivitäten gefunden.",
     "it": "Nessuna attività trovata",
     "fr": "Aucune activité trouvée",
-    "sp": "ninguna actividad encontrada"
+    "sp": "Ninguna actividad encontrada"
   },
   {
     "Description": "",
@@ -3066,7 +3066,7 @@
     "de": "Verkleinern Sie die Karte oder setzen Sie Ihre Filter-Einstellungen zurück.",
     "it": "Rimpicciolisci la mappa o re imposta i criteri di ricerca",
     "fr": "Réduisez la carte ou reréglez les critères de recherche",
-    "sp": "empequeñece el mapa o replantea los criterios de busqueda"
+    "sp": "Empequeñece el mapa o replantea los criterios de busqueda"
   },
   {
     "Description": "",
@@ -3093,7 +3093,7 @@
     "de": "Termine bis zu diesem Datum erzeugen",
     "it": "Creare un evento fino a questa data",
     "fr": "Créez un événement jusqu'à cette date",
-    "sp": "crear un evento hasta esta fecha"
+    "sp": "Crear un evento hasta esta fecha"
   },
   {
     "Description": "",
@@ -3111,7 +3111,7 @@
     "de": "Preise ab",
     "it": "Inizio dal",
     "fr": "Début du",
-    "sp": "comienzo desde"
+    "sp": "Comienzo desde"
   },
   {
     "Description": "",
@@ -3138,7 +3138,7 @@
     "de": "Als Teaser-Bild verwenden",
     "it": "Utilizzare come immagine pubblicitaria",
     "fr": "Utilser comme bande-annonce",
-    "sp": "usar como imagen publicitaria"
+    "sp": "Usar como imagen publicitaria"
   },
   {
     "Description": "",
@@ -3183,7 +3183,7 @@
     "de": "Ich stimme den Bedingungen des reActure Partnervertrages zu.",
     "it": "Accetto le condizioni di reacture per i parrtner affiliati",
     "fr": "J'accepte les conditions de reActure pour les partners affiliés",
-    "sp": "acepto las condiciones de Reacture para los partners afiliados"
+    "sp": "Acepto las condiciones de Reacture para los partners afiliados"
   },
   {
     "Description": "",
@@ -3201,7 +3201,7 @@
     "de": "Partnervertrag",
     "it": "Condizioni Generali di vendita Reacture",
     "fr": "Conditions Générales de vente de Reacture",
-    "sp": "condiciones generales de venta Reacture"
+    "sp": "Condiciones generales de venta Reacture"
   },
   {
     "Description": "",
@@ -3210,7 +3210,7 @@
     "de": "Bezahlung",
     "it": "Pagamento",
     "fr": "Paiement",
-    "sp": "pago"
+    "sp": "Pago"
   },
   {
     "Description": "",
@@ -3218,17 +3218,17 @@
     "en": "Payment Confirmation",
     "de": "Bezahlungsbestätigung",
     "it": "Conferma di pagamento",
-    "fr": "confirmation de payment",
-    "sp": "confirmación de pago"
+    "fr": "Confirmation de payment",
+    "sp": "Confirmación de pago"
   },
   {
     "Description": "Activity Edit set location",
     "key": "Set Location",
     "en": "Set Location",
     "de": "Ort setzen",
-    "it": "localizzare l'evento",
-    "fr": "localiser un événement",
-    "sp": "localizar el evento"
+    "it": "Localizzare l'evento",
+    "fr": "Localiser un événement",
+    "sp": "Localizar el evento"
   },
   {
     "Description": "",
@@ -3237,7 +3237,7 @@
     "de": "Formular kann nicht gespeichert werden. Bitte füllen Sie alle markierten Felder aus",
     "it": "Modulo non salvabile. Compilare tutti i campi richiesti",
     "fr": "Formulaire pas enregistré. Veuillez remplir toutes les sections demandées",
-    "sp": "formulario no salvable. Rellenar todos los espacios pedidos"
+    "sp": "Formulario no salvable. Rellenar todos los espacios pedidos"
   },
   {
     "Description": "",
@@ -3246,7 +3246,7 @@
     "de": "Es sind weitere Events verfügbar",
     "it": "Diverse attività disponibili",
     "fr": "Plusieurs activités diponibles",
-    "sp": "varias actividades disponibles"
+    "sp": "Varias actividades disponibles"
   },
   {
     "Description": "",
@@ -3282,7 +3282,7 @@
     "de": "… noch",
     "it": "... ancora",
     "fr": "...encore",
-    "sp": "todavía"
+    "sp": "...todavía"
   },
   {
     "Description": "",
@@ -3307,45 +3307,45 @@
     "key": "event start",
     "en": "Event start",
     "de": "Terminstart",
-    "it": "inizio evento",
-    "fr": "début de l'événement",
-    "sp": "comienzo del evento"
+    "it": "Inizio evento",
+    "fr": "Début de l'événement",
+    "sp": "Comienzo del evento"
   },
   {
     "Description": "",
     "key": "event duration",
     "en": "Event duration",
     "de": "Dauer des Termins",
-    "it": "durata evento",
-    "fr": "durée de l'événement",
-    "sp": "duración del evento"
+    "it": "Durata evento",
+    "fr": "Durée de l'événement",
+    "sp": "Duración del evento"
   },
   {
     "Description": "",
     "key": "days",
     "en": "Days",
     "de": "Tage",
-    "it": "giorni",
-    "fr": "jours",
-    "sp": "días"
+    "it": "Giorni",
+    "fr": "Jours",
+    "sp": "Días"
   },
   {
     "Description": "",
     "key": "hours",
     "en": "Hours",
     "de": "Stunden",
-    "it": "ore",
-    "fr": "heures",
-    "sp": "horas"
+    "it": "Ore",
+    "fr": "Heures",
+    "sp": "Horas"
   },
   {
     "Description": "",
     "key": "minutes",
     "en": "Minutes",
     "de": "Minuten",
-    "it": "minuti",
+    "it": "Minuti",
     "fr": "Minutes",
-    "sp": "minutos"
+    "sp": "Minutos"
   },
   {
     "Description": "",
@@ -3353,8 +3353,8 @@
     "en": "This event ends on",
     "de": "Dieser Termin endet am",
     "it": "L´evento termina il",
-    "fr": "l'événement termine le",
-    "sp": "el evento acaba el"
+    "fr": "L'événement termine le",
+    "sp": "El evento acaba el"
   },
   {
     "Description": "",
@@ -3362,8 +3362,8 @@
     "en": "Recurring event until",
     "de": "Wiederkehrender Termin bis",
     "it": "L´evento si ripete fino il",
-    "fr": "l'événement se répète jusqu'au",
-    "sp": "el evento se repite hasta el"
+    "fr": "L'événement se répète jusqu'au",
+    "sp": "El evento se repite hasta el"
   },
   {
     "Description": "",
@@ -3372,7 +3372,7 @@
     "de": "Termine an diesen Wochentagen",
     "it": "Eventi della settimana",
     "fr": "Evénements de la semaine",
-    "sp": "eventos de la semana"
+    "sp": "Eventos de la semana"
   },
   {
     "Description": "",
@@ -3381,7 +3381,7 @@
     "de": "Nummer eingeben (max.365)",
     "it": "Inserire un numero (max.365)",
     "fr": "Entrez un numéro (max.365)",
-    "sp": ""
+    "sp": "Introducir un nùmero (max.365)"
   },
   {
     "Description": "",
@@ -3390,7 +3390,7 @@
     "de": "Nummer eingeben (max.23)",
     "it": "Inserire un numero (max.23)",
     "fr": "Entrez un numéro (max.23)",
-    "sp": ""
+    "sp": "Introducir un nùmero (max.23)"
   },
   {
     "Description": "",
@@ -3399,7 +3399,7 @@
     "de": "Nummer eingeben (max.59)",
     "it": "Inserire un numero (max.59)",
     "fr": "Entrez un numéro (max.59)",
-    "sp": ""
+    "sp": "Introducir un nùmero (max.59)"
   },
   {
     "Description": "",
@@ -3408,7 +3408,7 @@
     "de": "Nummer eingeben (min.0)",
     "it": "Inserire un numero (min.0)",
     "fr": "Entrez un numéro (min.0)",
-    "sp": ""
+    "sp": "Introducir un numero (min.0)"
   },
   {
     "Description": "",
@@ -3417,7 +3417,7 @@
     "de": "Bitte geben Sie eine Nummer ein",
     "it": "Prego inserire un numero",
     "fr": "S'il vous plaît entrer un numéro",
-    "sp": ""
+    "sp": "Por favor, introduzca un nùmero"
   },
   {
     "Description": "",
@@ -3426,7 +3426,7 @@
     "de": "Kontaktieren Sie unseren Support",
     "it": "Contatta il nostro supporto",
     "fr": "Contactez notre support",
-    "sp": ""
+    "sp": "Pòngase en contacto con nuestro apoyo"
   },
   {
     "Description": "",

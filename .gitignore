@@ -1,8 +1,6 @@
 .project
 .idea
 productionbackups
-config_developmentmodulus.js
-config_productionserver.js
 .DS_Store
 
 client/app/styles/main.css
