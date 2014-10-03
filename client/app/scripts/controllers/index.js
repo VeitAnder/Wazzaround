@@ -2,6 +2,16 @@
 
 angular.module('anorakApp')
   .controller('indexCtrl', function ($scope, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates, $timeout) {
+    $scope.frontendmap = frontendmap;
+
+    $scope.$on('$viewContentLoaded', function () {
+      //Here your view content is fully loaded !!
+      // initialize map here to not block ui-rendering by accessing navigation.geolocation in initializeMapWithUserSearchLocation
+      frontendmap.initializeMapWithUserSearchLocation()
+        .then(function () {
+          $scope.$apply();
+        });
+    });
 
     $scope.currentUser = currentUser;
 
@@ -131,8 +141,6 @@ angular.module('anorakApp')
         category.open = true;
       }
     };
-
-    $scope.frontendmap = frontendmap;
 
     $scope.windowOptions = {
       "zIndex": 1000
@@ -310,8 +318,6 @@ angular.module('anorakApp')
     $scope.totalNumberOfCategory = function (category) {
       return _.where($scope.frontendmap.map.markers, {category: {main: category.key}}).length;
     };
-
-    $scope.getAddress = frontendmap.getAddress;
 
 //
 //

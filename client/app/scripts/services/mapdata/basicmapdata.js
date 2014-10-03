@@ -288,6 +288,8 @@ angular.module('anorakApp')
       };
 
       this.initializeMapWithUserSearchLocation = function () {
+        var deferred = Q.defer();
+
         map.markers = [];
 
         setTimeOnStartAndEndDate();
@@ -317,15 +319,14 @@ angular.module('anorakApp')
                   map.centerMarker.latitude = coords.lat();
                   map.centerMarker.longitude = coords.lng();
                 }
-                return Q.resolve(map);
+                deferred.resolve(map);
               });
           } else {
             setMapCenter(Usersessionstates.states.searchlocation);
-            return Q.resolve(map);
+            deferred.resolve(map);
           }
 
         } else {
-          var deferred = Q.defer();
           // try to get user's position
           // it works --> map is filled with new data, set that data to Usersessionstates
           // it fails --> map is filled with standard data, set that data to Usersessionstates
@@ -342,7 +343,7 @@ angular.module('anorakApp')
                   map.centerMarker.longitude = position.coords.longitude;
                 }
                 saveMapStateToUsersession();
-                return deferred.resolve(map);
+                deferred.resolve(map);
               });
 
           }, function (err) {
@@ -350,10 +351,10 @@ angular.module('anorakApp')
             saveMapStateToUsersession();
             map.centerMarker.latitude = map.center.latitude;
             map.centerMarker.longitude = map.center.longitude;
-            return deferred.resolve(map);
+            deferred.resolve(map);
           });
-          return deferred.promise;
         }
+        return deferred.promise;
       };
 
       this.getMarkerIcon = function (maincategorykey) {
