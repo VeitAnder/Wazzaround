@@ -368,4 +368,60 @@ iframe{
   }
 }
 
-  
+
+
+// N O - C O L S   L A Y O U T
+// ###########################################################################################################################
+// ###########################################################################################################################
+// ###########################################################################################################################
+// ###########################################################################################################################
+
+
+@include respond-to(screen-nocols){
+  html, body, .page{
+    height: auto;
+    min-width: 0;
+  }
+
+  .map-selection-block{
+    .col-left-fixed{
+      float: none;
+      width: auto;
+    }
+    .map-wrap{
+      margin: 0;
+      bottom: 0;
+    }
+    .map-innerwrap{
+      display: none;
+    }
+  }
+
+
+
+
+  .col-container{
+    margin-left: 0;
+    border: none;
+    .col-left-fixed{
+      width: 100%;
+      margin-left: 0;
+      padding: 0 15px;
+      nav, buildinfo{
+        display: none;
+      }
+    }
+    .col-right{
+      padding-top: 0;
+      padding-bottom: 0;
+      .col-sm-12 h2{
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .footer, shoppingcartbar, .uservoice-custom{
+    display: none;
+  }
+}
