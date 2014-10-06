@@ -1,6 +1,5 @@
 <div class="myactivities-list enable_hover">
 
-
   <style>
     .denied {
       text-decoration: line-through;
@@ -8,26 +7,47 @@
   </style>
 
   <filterbar ng-controller="AdminactivityfilterbarCtrl as adminActivityFilterBarCtrl">
-    <form name="filterBar">
-    <input type="text"
-           ng-model="adminActivityFilterBarCtrl.query"
-        />
+    {{adminActivityFilterBarCtrl.adminActivityFilter.random}}
+    <button
+        ng-click="adminActivityFilterBarCtrl.adminActivityFilter.reset()"
+        >
+      All
+    </button>
 
-    <label ng-repeat="(filter,enabled) in adminActivityFilterBarCtrl.filters">
-      <input
-          type="checkbox"
-          ng-model="adminActivityFilterBarCtrl.filters[filter]"
-          > {{filter}} <br/>
+    <input
+        type="radio"
+        ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
+        value="published"
+        >
+    published
+    <input
+        type="radio"
+        ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
+        value="unpublished"
+        >
+    unpublished
+    <input
+        type="radio"
+        ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
+        value="all"
+        >
+    published & unpublished
 
-          <input ng-disabled="!enabled" style="display: inline;" type="radio" ng-model="adminActivityFilterBarCtrl.filtersState[filter]" ng-value=true>true
-          <input ng-disabled="!enabled" style="display: inline;" type="radio" ng-model="adminActivityFilterBarCtrl.filtersState[filter]" ng-value=false>false
+    <input
+        type="checkbox"
+        ng-model="adminActivityFilterBarCtrl.adminActivityFilter.unreviewedChanges"
+        >
+    unreviewed changes
 
-          <br/>
+    <input
+        type="checkbox"
+        ng-model="adminActivityFilterBarCtrl.adminActivityFilter.denied"
+        >
+    denied
 
-    </label>
-    </form>
   </filterbar>
 
+  <div> {{vm.filteredActivities.length}} {{'of' | translate}} {{activities.length}}</div>
 
   <div class="listheader">
     <div class="activity cell first">
@@ -46,7 +66,6 @@
 
     </div>
   </div>
-
 
   <div class="listbody">
     <div class="listrow"
@@ -128,4 +147,18 @@
 
     </div>
   </div>
+
+  <div
+      ng-show="vm.filteredActivities.length === 0"
+      >
+    Keine Ergebnisse gefunden -
+    <a
+        ng-click="adminActivityFilter.reset()"
+        >
+
+    reset Filter
+    </a>
+
+  </div>
+
 </div>

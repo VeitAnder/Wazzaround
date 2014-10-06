@@ -8,51 +8,47 @@
  * Controller of the anorakApp
  */
 angular.module('anorakApp')
-    .controller('AdminactivityfilterbarCtrl', function ($scope, $filter) {
+  .controller('AdminactivityfilterbarCtrl', function ($scope, $filter, adminActivityFilterAllActivities, $timeout) {
 
-      var self = this;
+    var self = this;
 
-      this.query = '';
+    this.adminActivityFilter = adminActivityFilterAllActivities;
 
-      this.filters = {'published': false, 'denied': false, 'unreviewedChanges': false};
-      this.filtersState = {'published': true, 'denied': true, 'unreviewedChanges': true};
+    $scope.$watch(function (scope) {
+      return self;
 
-      $scope.$watch(function (scope) {
-        return self;
+    }, function () {
+      var filteredActivities = $scope.activities;
 
-      }, function () {
-        var filteredActivities = $scope.activities;
+      filteredActivities = $filter('filter')(filteredActivities, self.adminActivityFilter.query);
 
-        filteredActivities = $filter('filter')($scope.activities, self.query);
-
-        if (self.filters.published) {
+      if (self.adminActivityFilter.publishedState !== "all") {
+        if (self.adminActivityFilter.publishedState === "published") {
           filteredActivities = $filter('filter')(filteredActivities, {
-            published: self.filtersState.published
+            published: true
           });
         }
 
-
-        if (self.filters.denied) {
+        if (self.adminActivityFilter.publishedState === "unpublished") {
           filteredActivities = $filter('filter')(filteredActivities, {
-            denied: self.filtersState.denied
+            published: false
           });
         }
+      }
 
+      if (self.adminActivityFilter.denied) {
+        filteredActivities = $filter('filter')(filteredActivities, {
+          denied: true
+        });
+      }
 
-        if (self.filters.unreviewedChanges) {
-          if (self.filtersState.unreviewedChanges) {
-            filteredActivities = $filter('filter')(filteredActivities, {
-              unreviewedChanges: '!0'
-            });
-          } else {
-            filteredActivities = $filter('filter')(filteredActivities, {
-              unreviewedChanges: 0
-            });
-          }
-        }
+      if (self.adminActivityFilter.unreviewedChanges) {
+        filteredActivities = $filter('filter')(filteredActivities, {
+          unreviewedChanges: '!0'
+        });
+      }
 
+      $scope.vm.filteredActivities = filteredActivities;
+    }, true);
 
-        $scope.vm.filteredActivities = filteredActivities;
-      }, true);
-
-    });
+  });
