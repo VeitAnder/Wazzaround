@@ -2858,6 +2858,9 @@ $img-selector-teasertxtheight: 32px;
     &.published{
       border-left-color: $color_green;
     }
+    &.unreviewedChanges{
+      background-color: $color_yellow;
+    }
   }
 
 }
