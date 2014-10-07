@@ -2332,6 +2332,24 @@
   },
   {
     "Description": "",
+    "key": "approve",
+    "en": "approve",
+    "de": "bestätigen",
+    "it": "approve",
+    "fr": "approve",
+    "sp": "approve"
+  },
+  {
+    "Description": "",
+    "key": "deny",
+    "en": "deny",
+    "de": "ablehnen",
+    "it": "deny",
+    "fr": "deny",
+    "sp": "deny"
+  },
+  {
+    "Description": "",
     "key": "Administration overview",
     "en": "Administration overview",
     "de": "Administrations-Übersicht",
@@ -2365,6 +2383,60 @@
     "it": "La tua attività non è ancora pubblicato",
     "fr": "Votre activitè n'a pas encore été publiée",
     "sp": "Tu actividad aún no ha sido publicada"
+  },
+  {
+    "Description": "",
+    "key": "Denied activity",
+    "en": "Denied activity",
+    "de": "Abgelehnte Aktivität",
+    "it": "Denied activity",
+    "fr": "Denied activity",
+    "sp": "Denied activity"
+  },
+  {
+    "Description": "",
+    "key": "New activity – Please review",
+    "en": "New activity – Please review",
+    "de": "Neue Aktivität – bitte überprüfen",
+    "it": "New activity – Please review",
+    "fr": "New activity – Please review",
+    "sp": "New activity – Please review"
+  },
+  {
+    "Description": "",
+    "key": "Changed activity – Please review",
+    "en": "Changed activity – Please review",
+    "de": "",
+    "it": "Changed activity – Please review",
+    "fr": "Changed activity – Please review",
+    "sp": "Changed activity – Please review"
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
   },
   {
     "Description": "",

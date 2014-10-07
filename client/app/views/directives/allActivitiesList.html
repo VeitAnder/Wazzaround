@@ -1,11 +1,5 @@
 <div class="myactivities-list enable_hover">
 
-  <style>
-    .denied {
-      text-decoration: line-through;
-    }
-  </style>
-
   <filterbar ng-controller="AdminactivityfilterbarCtrl as adminActivityFilterBarCtrl">
     <button
         ng-click="adminActivityFilterBarCtrl.adminActivityFilter.reset()"
@@ -101,7 +95,7 @@
                 ng-if="activity.denied"
                 class="label label-danger"
                 >
-              denied
+              {{'denied' | translate}}
             </span>
 
             <span ng-switch="activity.unreviewedChanges === 1">
@@ -113,7 +107,7 @@
                   >
 
                 <span class="label label-info">
-                  New
+                  {{'new' | translate}}
                 </span>
               </span>
 
@@ -128,7 +122,7 @@
               <span ng-switch-when="true">
 
                 <span class="label label-warning">
-                  Changed
+                  {{'changed' | translate}}
                 </span>
 
               </span>

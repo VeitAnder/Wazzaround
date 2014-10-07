@@ -21,6 +21,7 @@
 
     <div class="listrow"
          ng-repeat="activity in activities"
+         ng-class="{denied : activity.denied, published : activity.published}"
          data-ng-click="open(activity)"
         >
 
@@ -47,9 +48,54 @@
       </div>
 
       <div class="edit cell last align-right">
-        <a class="btn btn-mini"
-           ng-href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
-        </a>
+
+        <span ng-switch="activity.published">
+
+          <!--ALL UNPUBLISHED ACTIVITIES-->
+
+          <!-- DENIED = unpublished + denied -->
+          <span ng-switch-when="false">
+            <span
+                ng-if="activity.denied"
+                class="label label-danger"
+                >
+              {{'denied' | translate}}
+            </span>
+
+            <span ng-switch="activity.unreviewedChanges > 0">
+
+
+              <!-- NEW = unpublished + unreviewedChanges + not denied -->
+              <span ng-switch-when="true"
+                    ng-if="!activity.denied"
+                  >
+
+                <span class="label label-info">
+                  {{'under review' | translate}}
+                </span>
+              </span>
+
+            </span>
+          </span>
+
+          <!--ALL PUBLISHED ACTIVITIES-->
+
+          <span ng-switch-when="true">
+
+            <span ng-switch="activity.unreviewedChanges > 0">
+              <span ng-switch-when="true">
+
+                <span class="label label-info">
+                  {{'under review' | translate}}
+                </span>
+
+              </span>
+            </span>
+
+          </span>
+          <span ng-switch-default>-</span>
+        </span>
+
       </div>
 
     </div>
