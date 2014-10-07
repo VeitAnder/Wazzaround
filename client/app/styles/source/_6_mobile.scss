@@ -404,16 +404,10 @@ iframe {
 
 @include respond-to(screen-nocols) {
   html, body, .page {
-//    height: 1000px;
     min-width: 0;
   }
-//
-//  .mapsearchbar, .filter, .filter-toggle{
-//    display:none;
-//  }
 
-  .section-map, .map-selection-block{
-//    min-height:1000px;
+  .section-map, .map-selection-block {
   }
 
   .map-selection-block {
@@ -426,23 +420,22 @@ iframe {
       bottom: 0;
     }
     .map-innerwrap {
-      display:block;
-      position:relative;
-//      display: none;
-      margin-left:0;
-      bottom:0;
-      height:600px;
-      margin-top:0px;
+      display: block;
+      position: relative;
+      margin-left: 0;
+      bottom: 0;
+      height: 600px;
+      margin-top: 0px;
     }
   }
 
-  .col-container {
+  .col-container, .section-map {
     margin-left: 0;
     border: none;
     .col-left-fixed {
       width: 100%;
       margin-left: 0;
-      padding: 0 15px;
+      padding: 15px;
       buildinfo {
         display: none;
       }
@@ -463,6 +456,10 @@ iframe {
 
   activitybar {
     display: none;
+  }
+
+  h3.title{
+    margin-top: 0;
   }
 
 }

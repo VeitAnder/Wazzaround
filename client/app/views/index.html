@@ -13,16 +13,20 @@
            data-ng-include="'views/map/mapsearchbar.html'">
       </div>
 
-      
-      <pre>
-       {{states.showfilter | json}}
-      </pre>
-      
       <a
           class="mobilefilterblocktoggle"
           ng-click="toggleFilterBlockOnMobiles()"
           >
-        Kategoriefilter anpassen
+        <span
+            ng-show="showfilterblock"
+            >
+          {{'close filter' | translate }}
+        </span>
+        <span
+            ng-hide="showfilterblock"
+            >
+          {{'category filter' | translate }}
+        </span>
       </a>
 
       <div class="filter"

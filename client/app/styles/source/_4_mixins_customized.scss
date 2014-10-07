@@ -307,6 +307,10 @@ body:before {
 .mapsearchbar {
   @include clearfix;
   margin-bottom: $bu;
+
+  @include respond-to(screen-nocols){
+    margin-bottom: 0;
+  }
 }
 
 .map-wrap {
@@ -1617,6 +1621,13 @@ $payment-triangle-size: 60px;
   width: 243px;
   height: 96px;
   background: url(#{$img_path}reacture_logo.svg) no-repeat 0 0;
+
+  @include respond-to(screen-nocols) {
+    width: 175px;
+    background-size: 100%;
+    height: 70px;
+    margin-top: 0;
+  }
 }
 
 .image-expand {
@@ -2126,6 +2137,36 @@ $payment-triangle-size: 60px;
 mobilenav {
   z-index: 10;
   display: none;
+
+  navitems {
+    display: block;
+    margin-top: -15px;
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: $color_grey_15;
+  }
+
+  languageselect {
+    margin: $fs*0.5 0;
+  }
+
+  .nav-sub ul {
+    margin-bottom: $fs*0.5;
+  }
+  .loginbutton {
+    a {
+      @include button;
+    }
+  }
+
+  .navbutton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    @include button;
+  }
 }
 
 @include respond-to(screen-nocols) {
@@ -2329,6 +2370,9 @@ $filter-category-arrow-width: 65px;
   .input-label {
     display: none;
   }
+  @include respond-to(screen-nocols){
+    margin-top: $fs*0.5;
+  }
 }
 
 .filter-category {
@@ -2519,6 +2563,21 @@ $filter-category-arrow-width: 65px;
     }
   }
 
+  @include respond-to(screen-nocols) {
+    margin-right: 0;
+    .filter-category-sub{
+      @include font-size_small;
+    }
+    .filter-category-header{
+      padding-left: 10px;
+      padding-right: 10px;
+      h4{
+        font-size: $fs*$font-size_h5_factor;
+        line-height: $fs*$font-size_h5_factor*$line-height_headline-factor;
+      }
+    }
+  }
+
 }
 
 .filter-toggle {
@@ -2574,6 +2633,7 @@ $filter-category-arrow-width: 65px;
 
 .mobilefilterblocktoggle {
   display: none;
+  text-align: right;
 }
 
 @include respond-to(screen-nocols) {
@@ -2831,6 +2891,9 @@ $img-selector-teasertxtheight: 32px;
     &.date-until {
       width: 48%;
       margin-left: 4%;
+      select {
+        width: 100%;
+      }
     }
   }
   .form-control {
@@ -2978,6 +3041,9 @@ $img-selector-teasertxtheight: 32px;
 }
 
 languageselect {
+  position: absolute;
+  top: $bu;
+  right: $bu;
   overflow: hidden;
   .language-select {
     @include language-flags;
@@ -2995,28 +3061,15 @@ languageselect {
       }
     }
   }
-}
 
-@include respond-to(screen-nocols) {
-  .col-left-fixed {
-    languageselect {
-      display: none;
-    }
-
-    mobilenav languageselect {
-      display: block;
+  @include respond-to(screen-nocols) {
+    display: none;
+    mobilenav & {
+      display: inline-block;
       position: relative;
       top: auto;
       right: auto;
     }
-  }
-}
-
-.col-left-fixed {
-  languageselect {
-    position: absolute;
-    top: $bu;
-    right: $bu;
   }
 }
 
@@ -3747,28 +3800,28 @@ activitystatearea {
   .alert.alert-large {
     margin: 0;
   }
-  .activitystatedescription{
+  .activitystatedescription {
     display: block;
     padding: 10px 10px 5px;
     vertical-align: middle;
-    p{
+    p {
       margin: 0;
     }
   }
 }
 
-filterbar{
+filterbar {
   display: block;
   @include border-radius($border-radius);
   background-color: $color_grey_15;
   padding: 15px;
-  & *{
+  & * {
     display: inline-block;
   }
-  input[type = radio]{
+  input[type = radio] {
     margin-left: 10px;
   }
-  input[type = checkbox]{
+  input[type = checkbox] {
     display: block;
   }
 
