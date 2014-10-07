@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, currentUser, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates, $timeout) {
+  .controller('indexCtrl', function ($scope, currentUser, mediaquery, $location, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates, $timeout) {
     $scope.frontendmap = frontendmap;
 
     $scope.$on('$viewContentLoaded', function () {
@@ -147,23 +147,32 @@ angular.module('anorakApp')
     };
 
     $scope.onMarkerClicked = function (markerClicked) {
-      //deselect all except clicked on
-      _.each($scope.frontendmap.map.markers, function (marker) {
-        if (marker._id === markerClicked._id) {
-          marker.showWindow = true;
-          marker.selected = true;
-        } else {
-          marker.showWindow = false;
-          marker.selected = false;
-        }
-      });
-      $timeout(function () {
-        // set detail id
-        $scope.states.selectedactivityid = markerClicked._id;
-        // open detail view of activity when marker got clicked
-        $scope.states.activitydetailactive = true;
-        $scope.$apply();
-      });
+      if (mediaquery.isNoCols()) {
+        // mobile handler
+        $scope.$apply(function () {
+          $location.path("/activities/" + markerClicked._id);
+        });
+      } else {
+
+        //deselect all except clicked on
+        _.each($scope.frontendmap.map.markers, function (marker) {
+          if (marker._id === markerClicked._id) {
+            marker.showWindow = true;
+            marker.selected = true;
+          } else {
+            marker.showWindow = false;
+            marker.selected = false;
+          }
+        });
+        $timeout(function () {
+          // set detail id
+          $scope.states.selectedactivityid = markerClicked._id;
+          // open detail view of activity when marker got clicked
+          $scope.states.activitydetailactive = true;
+          $scope.$apply();
+        });
+
+      }
     };
 
     $scope.selectedCategoryFilter = function (activity) {

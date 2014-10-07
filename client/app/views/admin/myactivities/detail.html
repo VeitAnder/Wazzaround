@@ -3,31 +3,21 @@
     <div class="col-sm-12"
          ng-class="{deletemode: state.actionlinkisopen}"
         >
-      <h2>{{'My Activities' | translate}}</h2>
+      <h2>{{'Activities' | translate}}</h2>
 
-      <div
-          class="activity-detail detail-category-{{activity.category.main}}"
-          >
-        <div class="buttonbar buttonbar-5050 buttonbar-top">
-          <div class="cell">
-            <action-confirmation-link
-                action="delete()"
-                label="{{'delete' | translate}}"
-                confirmation-label="{{'yes, delete' | translate}}"
-                confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
-                cancel-label="{{'no' | translate}}"
-                is-open="state.actionlinkisopen"
-                >
-            </action-confirmation-link>
-          </div>
-          <div class="cell">
-            <a class="btn btn-small"
-               href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
-            </a>
-          </div>
-        </div>
+      <!-- ## PUBLISH STATES AREA ################################################################################-->
 
-<!--
+      <activitystate>
+
+        <p class="alert alert-large alert-block alert-success"
+           ng-if="activity.published">
+          <b>{{'This activity is published' | translate}}</b>
+        </p>
+        <p class="alert alert-large alert-block alert-error"
+           ng-if="!activity.published">
+          <b>{{'This activity is not published yet' | translate}}</b>
+        </p>
+
         <div ng-controller="PublishstateCtrl as publishstatectrl">
 
           <span ng-if="activity.unreviewedChanges > 0">
@@ -82,16 +72,29 @@
             <span ng-switch-default>-</span>
           </span>
         </div>
--->
+      </activitystate>
 
-        <p class="alert alert-large alert-block alert-success"
-           ng-if="activity.published">
-          <b>{{'Your activity is published' | translate}}</b>
-        </p>
-        <p class="alert alert-large alert-block alert-error"
-           ng-if="!activity.published">
-          <b>{{'Your activity isnt published yet' | translate}}</b>
-        </p>
+      <div
+          class="activity-detail detail-category-{{activity.category.main}}"
+          >
+        <div class="buttonbar buttonbar-5050 buttonbar-top">
+          <div class="cell">
+            <action-confirmation-link
+                action="delete()"
+                label="{{'delete' | translate}}"
+                confirmation-label="{{'yes, delete' | translate}}"
+                confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
+                cancel-label="{{'no' | translate}}"
+                is-open="state.actionlinkisopen"
+                >
+            </action-confirmation-link>
+          </div>
+          <div class="cell">
+            <a class="btn btn-small"
+               href="#/admin/myactivities/{{activity._id}}/edit/">{{'edit' | translate}}
+            </a>
+          </div>
+        </div>
 
         <!-- ## TITLE & DESCRIPTION ################################################################################ -->
 

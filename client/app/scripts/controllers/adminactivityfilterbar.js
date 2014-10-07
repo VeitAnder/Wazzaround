@@ -8,11 +8,12 @@
  * Controller of the anorakApp
  */
 angular.module('anorakApp')
-  .controller('AdminactivityfilterbarCtrl', function ($scope, $filter, adminActivityFilterAllActivities, $timeout) {
+  .controller('AdminactivityfilterbarCtrl', function ($scope, $filter) {
+    assert($scope.publishstateCtrl, "AdminactivityfilterbarCtrl has to be used in context of publishstateCtrl");
 
     var self = this;
 
-    this.adminActivityFilter = adminActivityFilterAllActivities;
+    this.adminActivityFilter = $scope.publishstateCtrl.adminActivityFilter;
 
     $scope.$watch(function (scope) {
       return self;

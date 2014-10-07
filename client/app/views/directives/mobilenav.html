@@ -1,0 +1,18 @@
+<a
+    class="navbutton"
+    ng-click="toggle()"
+    >
+    toggle nav
+</a>
+
+<navitems
+    ng-show="states.open"
+    >
+  <div data-ng-include="'views/directives/navglobal.html'"></div>
+  <div data-ng-include="'views/directives/navuser.html'"></div>
+
+  <languageselect></languageselect>
+
+  <loginstatus></loginstatus>
+</navitems>
+

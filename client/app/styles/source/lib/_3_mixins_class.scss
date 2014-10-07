@@ -2349,7 +2349,6 @@ legend {
   @include box-sizing(border-box);
   @include pie-clearfix;
   @include border(bottom, $color_grey_50);
-  //  line-height: 100%;
 
   .cell {
     @include divtable_cell;
@@ -2361,8 +2360,7 @@ legend {
   .enable_hover & {
     @include hovercursor;
     &:hover {
-      background-color: $color_green;
-      color: $color_white;
+      background-color: $color_green_15!important;
       .cell {
         border-color: $color_grey_50;
         background-color: transparent;
@@ -2371,14 +2369,7 @@ legend {
         }
       }
       .even {
-      }
-      .btn {
-        background-color: $color_white;
-        color: $color_green;
-        &:hover {
-          background-color: $color_green_25;
-          color: $color_green;
-        }
+        background-color: $color_grey_15_d5!important;
       }
     }
   }
