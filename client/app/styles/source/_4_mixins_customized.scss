@@ -2096,7 +2096,41 @@ $payment-triangle-size: 60px;
   // ul 1
 }
 
+@include respond-to(screen-nocols) {
+  .nav-sub {
+    display: none;
+
+    loginstatus {
+      display: none;
+    }
+
+  }
+
+  mobilenav .nav-sub {
+    display: block;
+  }
+}
+
 //nav-sub
+
+// mobilenav
+mobilenav {
+  z-index: 10;
+  display: none;
+}
+
+@include respond-to(screen-nocols) {
+  mobilenav {
+    display: block;
+
+    loginstatus {
+      display: block;
+      clear: both;
+      margin-top: 20px;
+    }
+
+  }
+}
 
 // SITEMAP (CSC-SITEMAP)
 // ###########################################################################################################################
@@ -2928,6 +2962,7 @@ $img-selector-teasertxtheight: 32px;
 }
 
 languageselect {
+  overflow: hidden;
   .language-select {
     @include language-flags;
     a {
@@ -2942,6 +2977,21 @@ languageselect {
       a {
         border-color: $color_grey_50;
       }
+    }
+  }
+}
+
+@include respond-to(screen-nocols) {
+  .col-left-fixed {
+    languageselect {
+      display: none;
+    }
+
+    mobilenav languageselect {
+      display: block;
+      position: relative;
+      top: auto;
+      right: auto;
     }
   }
 }
@@ -3633,10 +3683,10 @@ label + .language-tabs {
   }
 }
 
-.buttonbar-5050{
+.buttonbar-5050 {
   padding: 0;
   @include divtable_row;
-  .cell{
+  .cell {
     @include divtable_cell;
     white-space: normal;
     width: 50%;
@@ -3656,10 +3706,10 @@ action-confirmation-link {
 }
 
 .activity-edit,
-.activity-detail{
+.activity-detail {
   action-confirmation-link {
     text-align: left;
-    .description{
+    .description {
       display: block;
       margin-bottom: $fs*0.5;
     }
@@ -3686,6 +3736,6 @@ noscript {
     display: block;
     font-size: 16px !important;
     line-height: 1.5em;
-    margin:0;
+    margin: 0;
   }
 }
