@@ -277,7 +277,7 @@ body:before {
 // MAP ELEMENTS
 // ###########################################################################################################################
 
-googleMap, .angular-google-map, .angular-google-map-container {
+.angular-google-map, .angular-google-map-container {
   width: 100%;
   height: 100%;
 }
@@ -318,6 +318,15 @@ googleMap, .angular-google-map, .angular-google-map-container {
   right: 0;
   bottom: $footer-height;
   left: 0;
+}
+
+@include respond-to(screen-nocols) {
+  .map-wrap {
+    position: relative;
+    margin-left: 0px;
+    height: 300px;
+    clear: both;
+  }
 }
 
 .map-innerwrap {
@@ -2563,6 +2572,16 @@ $filter-category-arrow-width: 65px;
   }
 }
 
+.mobilefilterblocktoggle {
+  display: none;
+}
+
+@include respond-to(screen-nocols) {
+  .mobilefilterblocktoggle {
+    display: block;
+  }
+}
+
 .div-row {
   overflow: hidden;
 }
@@ -2847,18 +2866,17 @@ $img-selector-teasertxtheight: 32px;
     width: 15%;
   }
 
-
-  .listrow{
+  .listrow {
     @include border(left, $color_red);
     border-left-width: 4px;
     margin-top: 2px;
-    .first{
+    .first {
       margin-left: -4px;
     }
-    &.published{
+    &.published {
       border-left-color: $color_green;
     }
-    &.unreviewedChanges{
+    &.unreviewedChanges {
       background-color: $color_yellow;
     }
   }
@@ -2900,15 +2918,13 @@ $img-selector-teasertxtheight: 32px;
   .company {
     width: (100%) / 3;
   }
-  .firstname{
+  .firstname {
     width: (100%) / 3;
   }
-  .lastname{
+  .lastname {
     width: (100%) / 3;
   }
 }
-
-
 
 @mixin language-flags {
   a {
@@ -3693,7 +3709,6 @@ label + .language-tabs {
   }
 }
 
-
 action-confirmation-link {
   display: block;
 
@@ -3713,8 +3728,8 @@ action-confirmation-link {
       display: block;
       margin-bottom: $fs*0.5;
     }
-    a{
-//      display: block;
+    a {
+      //      display: block;
       padding-top: $fs*0.25;
       padding-bottom: $fs*0.25;
     }
