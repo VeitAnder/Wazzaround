@@ -2349,7 +2349,6 @@ legend {
   @include box-sizing(border-box);
   @include pie-clearfix;
   @include border(bottom, $color_grey_50);
-  //  line-height: 100%;
 
   .cell {
     @include divtable_cell;
