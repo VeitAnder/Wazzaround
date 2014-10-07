@@ -13,8 +13,12 @@ angular.module('anorakApp')
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
 
-        scope.state = {
+        scope.states = {
           open: false
+        };
+
+        scope.toggle = function () {
+          scope.states.open = !scope.states.open;
         };
 
       }
