@@ -88,6 +88,8 @@ angular.module('anorakApp')
         debug("SEARCHING FOR SOUTHWEST", map.bounds.southwest.latitude, map.bounds.southwest.longitude);
         debug("SEARCHING FOR DATE", map.searchStartDate, map.searchEndDate);
 
+        console.log("map.searchStartDate, map.searchEndDate", map.searchStartDate, map.searchEndDate);
+        
         // @TODO for Jonathan - abort filteredActivities request if new one is fired!
         return models.ActivityModel.filteredActivities({
           from: {  //  <bottom left coordinates>   southwest
@@ -173,8 +175,9 @@ angular.module('anorakApp')
       this.onSearchDateChange = function () {
         console.log("search date changed");
 
-        setEndDateDependingOnStartDate();
-        setTimeOnStartAndEndDate();
+        // todo: funktioniert nicht mit ner dropdown box
+        // setEndDateDependingOnStartDate();
+        // setTimeOnStartAndEndDate();
 
         findActivities()
           .then(function (activities) {
@@ -195,10 +198,12 @@ angular.module('anorakApp')
         }
       };
 
+      var startDate = new Date();
+
       var map = {
         searchAddress: "",
-        searchStartDate: new Date(),
-        searchEndDate: moment(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDay(), 23, 59, 59)).add(6, 'month').toDate(),
+        searchStartDate: startDate,
+        searchEndDate: moment(startDate).add(1, 'year').toDate(),
         bounds: {
           northeast: {
             latitude: 0,

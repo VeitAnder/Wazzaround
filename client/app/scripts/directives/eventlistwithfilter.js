@@ -8,7 +8,7 @@ angular.module('anorakApp')
       scope : {
         activity : "="
       },
-      controller : function ($scope, frontendmap) {
+      controller : function ($scope, $filter, frontendmap) {
 //        $scope.acticity = angular.copy($scope.activity);
 
 //        $scope.vm = {
@@ -16,6 +16,8 @@ angular.module('anorakApp')
 //        };
 
         var filter = function() {
+          var self = this;
+
 
           this.bookableItems = [];
 
@@ -77,9 +79,40 @@ angular.module('anorakApp')
           this.until_max = new Date(this.until);
 
 
-          this.setUntilDays = function(d) {
-            this.until = moment().add(d, 'days');
-          };
+          this.calDaysOptions = [
+            {
+              days: 2,
+              text: $filter('translate')('today and tomorrow')
+            },
+            {
+              days: 7,
+              text: $filter('translate')('7 days')
+            },
+            {
+              days: 14,
+              text: $filter('translate')('14 days')
+            },
+            {
+              days: 30,
+              text: $filter('translate')('30 days')
+            },
+            {
+              days: 360,
+              text: $filter('translate')('one year')
+            }
+          ];
+
+          this.calDaysOptionsSelected = { selection : this.calDaysOptions[3].days };
+
+          $scope.$watch(function() { return self.calDaysOptionsSelected; }, function() {
+            self.until = moment(self.from)
+                .add(self.calDaysOptionsSelected.selection, 'days').toDate();
+          }, true);
+
+          $scope.$watch(function() { return self.from; }, function() {
+            self.until = moment(self.from)
+                .add(self.calDaysOptionsSelected.selection, 'days').toDate();
+          });
 
         };
         $scope.filter = new filter();
