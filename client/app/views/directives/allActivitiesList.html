@@ -70,20 +70,20 @@
   <div class="listbody">
     <div class="listrow"
          ng-repeat="activity in vm.filteredActivities"
+         ng-class="{denied : activity.denied, unreviewedChanges : activity.unreviewedChanges, published : activity.published}"
          data-ng-click="publishstateCtrl.open(activity)"
         >
       <div class="activity cell first"
-           ng-class="{denied : activity.denied }">
+          >
         {{activity.name | languageselect}}
       </div>
       <div class="category-main cell"
-           ng-class="{denied : activity.denied }">
+          >
         {{activity.category.main | translate}}
       </div>
       <div class="category-sub cell"
-           ng-class="{denied : activity.denied }">
+          >
         <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}
-          <br>
         </span>
       </div>
 
@@ -92,7 +92,60 @@
       </div>
 
       <div class="edit cell last align-right">
-        <span ng-if="activity.unreviewedChanges > 0">
+        <span ng-switch="activity.published">
+
+          <!--ALL UNPUBLISHED ACTIVITIES-->
+
+          <!-- DENIED = unpublished + denied -->
+          <span ng-switch-when="false">
+            <span
+                ng-if="activity.denied"
+                class="label label-danger"
+                >
+              denied
+            </span>
+
+            <span ng-switch="activity.unreviewedChanges === 1">
+
+
+              <!-- NEW = unpublished + unreviewedChanges + not denied -->
+              <span ng-switch-when="true"
+                    ng-if="!activity.denied"
+                  >
+
+                <span class="label label-info"
+                      data-ng-click="publishstateCtrl.verify($event, activity)"
+                    >
+                  New
+                </span>
+              </span>
+
+            </span>
+          </span>
+
+          <!--ALL PUBLISHED ACTIVITIES-->
+
+          <span ng-switch-when="true">
+
+            <span ng-switch="activity.unreviewedChanges > 0">
+              <span ng-switch-when="true">
+
+                <span class="label label-warning"
+                      data-ng-click="publishstateCtrl.verify($event, activity)"
+                    >
+                  Changed
+                </span>
+
+              </span>
+            </span>
+
+          </span>
+          <span ng-switch-default>-</span>
+        </span>
+
+        <!--ORIGINAL CODE FROM JONATHAN-->
+
+        <!--        <span ng-if="activity.unreviewedChanges > 0">
           + {{activity.unreviewedChanges}} changes
         </span>
         <span ng-switch="activity.published">
@@ -142,7 +195,7 @@
 
           </span>
           <span ng-switch-default>-</span>
-        </span>
+        </span>-->
       </div>
 
     </div>
@@ -156,7 +209,7 @@
         ng-click="adminActivityFilter.reset()"
         >
 
-    reset Filter
+      reset Filter
     </a>
 
   </div>

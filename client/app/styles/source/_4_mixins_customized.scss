@@ -2812,6 +2812,20 @@ $img-selector-teasertxtheight: 32px;
   .edit {
     width: 15%;
   }
+
+
+  .listrow{
+    @include border(left, $color_red);
+    border-left-width: 4px;
+    margin-top: 2px;
+    .first{
+      margin-left: -4px;
+    }
+    &.published{
+      border-left-color: $color_green;
+    }
+  }
+
 }
 
 .bookings-list {
@@ -2856,6 +2870,8 @@ $img-selector-teasertxtheight: 32px;
     width: (100%) / 3;
   }
 }
+
+
 
 @mixin language-flags {
   a {
