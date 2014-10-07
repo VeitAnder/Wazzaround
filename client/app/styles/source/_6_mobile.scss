@@ -5,9 +5,7 @@
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-
-
-.mobileheader{
+.mobileheader {
   padding: 0 $bu;
   height: 39px;
   @include border(top, $color_mobileheader_border);
@@ -17,84 +15,87 @@
   line-height: $fs_mobile*$line-height_factor;
   color: $color_mobileheader_link;
 
-}// .mobileheader
+}
 
+// .mobileheader
 
-.mobileheader_togglebuttons{
+.mobileheader_togglebuttons {
   @include pie-clearfix;
 }
 
-@mixin mobileheader_togglebutton{
+@mixin mobileheader_togglebutton {
   //@include box-sizing(border-box);
   width: 33.33%;
-  span{
+  span {
     display: inline-block;
     @include sprite_mobile-icons(0, 0, no-repeat);
     text-transform: uppercase;
     font-weight: $font-weight_bold;
-    @include text-shadow(rgba($color_black,0.5) 0 -1px 0);
+    @include text-shadow(rgba($color_black, 0.5) 0 -1px 0);
   }
 }
 
-@mixin mobileheader_togglebutton_left{
+@mixin mobileheader_togglebutton_left {
   @include mobileheader_togglebutton;
   float: left;
-  span{
+  span {
     padding: 10px 0 10px 25px;
   }
 }
-@mixin mobileheader_togglebutton_center{
+
+@mixin mobileheader_togglebutton_center {
   @include mobileheader_togglebutton;
   float: left;
   text-align: center;
-  span{
+  span {
     padding: 10px 0 10px 25px;
   }
 }
-@mixin mobileheader_togglebutton_right{
+
+@mixin mobileheader_togglebutton_right {
   @include mobileheader_togglebutton;
   float: right;
   text-align: right;
-  span{
+  span {
     padding: 10px 25px 10px 0;
   }
 }
 
-.mobilesidebarnav_togglebutton{
-  display:none;
+.mobilesidebarnav_togglebutton {
+  display: none;
   @include mobileheader_togglebutton_left;
-  span{
+  span {
     background-position: -60px -240px;
   }
 }
 
-.mobilecontact_togglebutton{
+.mobilecontact_togglebutton {
   @include mobileheader_togglebutton_center;
-  width:100%;
-  span{
+  width: 100%;
+  span {
     background-position: -60px -141px;
   }
 }
 
-.mobilelanguagemenu_togglebutton{
-  display:none;
+.mobilelanguagemenu_togglebutton {
+  display: none;
   @include mobileheader_togglebutton_right;
-  span{
+  span {
     background-position: right -192px;
   }
 }
 
-@mixin mobileheader_content{
+@mixin mobileheader_content {
   display: none;
-  &.open{
+  &.open {
     display: block;
   }
   position: relative;
   z-index: 100;
   margin-top: 10px;
   padding-top: 10px;
-  
-  .innerwrap{
+
+  .innerwrap {
     //@include box-sizing(border-box);
     width: 100%;
     @include border(top, $color_black_75);
@@ -102,237 +103,267 @@
     @include border-radius($border-radius_large);
     background-color: $color_black_85;
     padding: 15px;
-    box-shadow: rgba($color_black,0.5) 0px 2px 0;
+    box-shadow: rgba($color_black, 0.5) 0px 2px 0;
   }
-}//@mixin mobileheader_content
+}
 
-.mobileheader_content_contact{
+//@mixin mobileheader_content
+
+.mobileheader_content_contact {
   @include mobileheader_content;
 
-
-  //position center to work in mobile firefox  
+  //position center to work in mobile firefox
   //checkout http://stackoverflow.com/questions/252856/center-align-on-a-absolutely-positioned-div
-  width:300px;
+  width: 300px;
   margin-left: -150px;
-  position:absolute;
-  left:50%;
-  
-  
-  .buttons{
+  position: absolute;
+  left: 50%;
+
+  .buttons {
     margin-bottom: $fs;
     overflow: hidden;
-    
-    .button{
+
+    .button {
       width: 33.33%;
-     
-      a{
+
+      a {
         display: block;
         height: 39px;
-        span{
+        span {
           display: none;
         }
       }
     }
-    
-    .button{
+
+    .button {
       float: left;
     }
-    
-    .button:first-child{
+
+    .button:first-child {
       margin: 0;
       float: left;
     }
-    
-    .button:last-child{
+
+    .button:last-child {
       margin: 0;
       float: right;
     }
-    
-    
-    .map{
-      a{
+
+    .map {
+      a {
         @include sprite_mobile-icons(right, top, no-repeat);
       }
     }
-    .email{
-      a{
+    .email {
+      a {
         @include sprite_mobile-icons(center, -50px, no-repeat);
       }
     }
-    .phone{
-      a{
+    .phone {
+      a {
         @include sprite_mobile-icons(left, -100px, no-repeat);
       }
     }
-  }// .buttons
-}// .mobileheader_content_contact
+  }
+  // .buttons
+}
 
-.mobileheader_content_language{
+// .mobileheader_content_contact
+
+.mobileheader_content_language {
   @include mobileheader_content;
   @include sprite_mobile-icons(right, -337px, no-repeat);
   right: 10px;
   position: absolute;
-}// .mobileheader_content_language
+}
 
+// .mobileheader_content_language
 
 // M O B I L E   N A V I G A T I O N
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-@mixin color_mobilesidebarnav_current{
+@mixin color_mobilesidebarnav_current {
   background-color: $color_mobilesidebarnav_background_current;
   color: $color_mobilesidebarnav_link_current;
   border-top-color: $color_mobilesidebarnav_seperator_current;
   border-bottom-color: $color_mobilesidebarnav_seperator_current;
 }
-@mixin color_mobilesidebarnav_level1{
+
+@mixin color_mobilesidebarnav_level1 {
   background-color: $color_mobilesidebarnav_background;
   color: $color_mobilesidebarnav_link;
   @include border(top, $color_mobilesidebarnav_seperator);
   @include border(bottom, $color_mobilesidebarnav_seperator_shadow);
   border-width: 1px;
 }
-@mixin color_mobilesidebarnav_level2{
+
+@mixin color_mobilesidebarnav_level2 {
   background-color: $color_mobilesidebarnav_level2_background;
   color: $color_mobilesidebarnav_level2_link;
   border-top-color: $color_mobilesidebarnav_level2_seperator;
   border-bottom-color: $color_mobilesidebarnav_level2_seperator_shadow;
 }
-@mixin color_mobilesidebarnav_level3{
+
+@mixin color_mobilesidebarnav_level3 {
   background-color: $color_mobilesidebarnav_level3_background;
   color: $color_mobilesidebarnav_level3_link;
   border-top-color: $color_mobilesidebarnav_level3_seperator;
   border-bottom-color: $color_mobilesidebarnav_level3_seperator_shadow;
 }
-@mixin color_mobilesidebarnav_level4{
+
+@mixin color_mobilesidebarnav_level4 {
   background-color: $color_mobilesidebarnav_level4_background;
   color: $color_mobilesidebarnav_level4_link;
   border-top-color: $color_mobilesidebarnav_level4_seperator;
   border-bottom-color: $color_mobilesidebarnav_level4_seperator_shadow;
 }
 
-
-@mixin mobilesidebarnav_ul{
+@mixin mobilesidebarnav_ul {
   @include tmenu_mobile;
-  ul{
-//----------------- LEVEL 01 -----------------
-    li{
-      a{
+  ul {
+    //----------------- LEVEL 01 -----------------
+    li {
+      a {
         @include color_mobilesidebarnav_level1;
-        @include text-shadow(rgba($color_black,0.5) 0 -1px 0);
+        @include text-shadow(rgba($color_black, 0.5) 0 -1px 0);
         font-size: 17px;
         font-weight: $font-weight_bold;
 
         box-shadow: rgba($color_black,0.5) -10px 0px 15px -10px inset;
 
-        span{
+        span {
           padding: 10px;
         }
       }
-    &.current, &.currentandsub{
-      a{
-        @include color_mobilesidebarnav_current;
+      &.current, &.currentandsub {
+        a {
+          @include color_mobilesidebarnav_current;
+        }
+        li {
+          a {
+            @include color_mobilesidebarnav_level2;
+          }
+        }
       }
-      li{ a{ @include color_mobilesidebarnav_level2; } }
-    }//.current
-    
-    &.activeandsub{
-      a{
-        @include color_mobilesidebarnav_level2;
+      //.current
+
+      &.activeandsub {
+        a {
+          @include color_mobilesidebarnav_level2;
+        }
       }
-    }//.activeandsub
-    
-//----------------- LEVEL 02 -----------------
-      li{
-        a{
+      //.activeandsub
+
+      //----------------- LEVEL 02 -----------------
+      li {
+        a {
           @include color_mobilesidebarnav_level2;
           font-size: 14px;
           font-weight: $font-weight_light;
-          span{
+          span {
             padding: 5px 10px 5px 20px;
-          }//span-2
-        }//a-2
-      &.current, &.currentandsub{
-        a{
-          @include color_mobilesidebarnav_current;
+          }
+          //span-2
         }
-        li{ a{ @include color_mobilesidebarnav_level3; } }
-      }//.current
-      
-      &.activeandsub{
-        a{
-          @include color_mobilesidebarnav_level3;
-        }
-      }//.activeandsub
-//----------------- LEVEL 03 -----------------
-        li{
-          a{
-            @include color_mobilesidebarnav_level3;
-            span{
-              padding-left: 30px;
-            }
-          }//a-3
-        &.current, &.currentandsub{
-          a{
+        //a-2
+        &.current, &.currentandsub {
+          a {
             @include color_mobilesidebarnav_current;
           }
-          li{ a{ @include color_mobilesidebarnav_level4; } }
-        }//.current
-        
-        &.activeandsub{
-          a{
-            @include color_mobilesidebarnav_level4;
+          li {
+            a {
+              @include color_mobilesidebarnav_level3;
+            }
           }
-        }//.activeandsub
-        }//li-3
-      }//li-2
-    }//li-1
-  }//ul-1
-}//@mixin mobilesidebarnav_ul
+        }
+        //.current
 
-@mixin sidebarnav_shadow{
+        &.activeandsub {
+          a {
+            @include color_mobilesidebarnav_level3;
+          }
+        }
+        //.activeandsub
+        //----------------- LEVEL 03 -----------------
+        li {
+          a {
+            @include color_mobilesidebarnav_level3;
+            span {
+              padding-left: 30px;
+            }
+          }
+          //a-3
+          &.current, &.currentandsub {
+            a {
+              @include color_mobilesidebarnav_current;
+            }
+            li {
+              a {
+                @include color_mobilesidebarnav_level4;
+              }
+            }
+          }
+          //.current
+
+          &.activeandsub {
+            a {
+              @include color_mobilesidebarnav_level4;
+            }
+          }
+          //.activeandsub
+        }
+        //li-3
+      }
+      //li-2
+    }
+    //li-1
+  }
+  //ul-1
+}
+
+//@mixin mobilesidebarnav_ul
+
+@mixin sidebarnav_shadow {
   box-shadow: rgba($color_black,0.5) -10px 0px 15px -10px inset;
 }
 
-.mobilesidebarnav{
+.mobilesidebarnav {
 
-  .mobilesidebarnav_innerwrap{
+  .mobilesidebarnav_innerwrap {
     @include sidebarnav_shadow;
   }
-  
-  .nav-main_ul_wrap{
+
+  .nav-main_ul_wrap {
     @include mobilesidebarnav_ul;
   }
 
-  .nav-meta{
+  .nav-meta {
     padding-top: 5px;
-    li{
+    li {
       display: inline-block;
     }
-    a{
+    a {
       color: $color_mobilesidebarnav-meta_link;
       font-size: 12px;
-      span{
+      span {
         padding: 5px 10px;
       }
     }
   }
 
 }
-  
-.mobilesidebarnav_header{
+
+.mobilesidebarnav_header {
   //@include box-sizing(border-box);
   padding: 8px 0 0 0;
   height: 40px;
   @include sidebarnav_shadow;
   background-color: $color_mobilesidebarnav_header_background;
 
-}//.mobilesidebarnav_header
-  
+}
 
-
-
-
+//.mobilesidebarnav_header
 
 // I N C L U D E S
 // B O D Y . M O B I L E
@@ -341,17 +372,14 @@
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-
-.mobile.ios{
+.mobile.ios {
   // disable font-scaling on mobile devices
   // necessary for orientation-bug fix on iOS
-  -webkit-text-size-adjust:100%;
+  -webkit-text-size-adjust: 100%;
 }
 
-
-
 //full width images
-img{
+img {
   .mobile & {
     max-width: 100%;
     height: auto;
@@ -362,13 +390,11 @@ img{
  * prevent images from beeing too big in mobile rendering
  * eg. include Google Maps etc.
  */
-iframe{
-  .mobile &{
+iframe {
+  .mobile & {
     max-width: 100%;
   }
 }
-
-
 
 // N O - C O L S   L A Y O U T
 // ###########################################################################################################################
@@ -376,52 +402,53 @@ iframe{
 // ###########################################################################################################################
 // ###########################################################################################################################
 
-
-@include respond-to(screen-nocols){
-  html, body, .page{
+@include respond-to(screen-nocols) {
+  html, body, .page {
     height: auto;
     min-width: 0;
   }
 
-  .map-selection-block{
-    .col-left-fixed{
+  .map-selection-block {
+    .col-left-fixed {
       float: none;
       width: auto;
     }
-    .map-wrap{
+    .map-wrap {
       margin: 0;
       bottom: 0;
     }
-    .map-innerwrap{
-      display: none;
+    .map-innerwrap {
+      //      display: none;
     }
   }
 
-
-
-
-  .col-container{
+  .col-container {
     margin-left: 0;
     border: none;
-    .col-left-fixed{
+    .col-left-fixed {
       width: 100%;
       margin-left: 0;
       padding: 0 15px;
-      nav, buildinfo{
+      nav, buildinfo {
         display: none;
       }
     }
-    .col-right{
+    .col-right {
       padding-top: 0;
       padding-bottom: 0;
-      .col-sm-12 h2{
+      .col-sm-12 h2 {
         margin-top: 0;
         margin-bottom: 15px;
       }
     }
   }
 
-  .footer, shoppingcartbar, .uservoice-custom{
+  .footer, shoppingcartbar, .uservoice-custom {
     display: none;
   }
+
+  activitybar {
+    display: none;
+  }
+
 }

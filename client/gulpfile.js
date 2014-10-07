@@ -58,7 +58,7 @@ gulp.task('server', [], function () {
   require("../server/server.js");
 });
 
-gulp.task('client', ['watch'], function () {
+gulp.task('client', ['sass', 'watch'], function () {
   var app = express();
   var config = {
     server: {
