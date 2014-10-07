@@ -5,40 +5,45 @@ angular.module('anorakApp')
     return {
       templateUrl: 'views/directives/eventListWithFilter.html',
       restrict: 'E',
-      scope : {
-        activity : "="
+      scope: {
+        activity: "="
       },
-      controller : function ($scope, $filter, frontendmap) {
+      controller: function ($scope, $filter, frontendmap) {
 //        $scope.acticity = angular.copy($scope.activity);
 
 //        $scope.vm = {
 //          activity : angular.copy($scope.activity)
 //        };
 
-        var filter = function() {
+        var filter = function () {
           var self = this;
-
 
           this.bookableItems = [];
 
           // init enabled bookableItem-Filter
           for (var i in $scope.activity.bookableItems) {
-            this.bookableItems[i] = new function() {
+            this.bookableItems[i] = new function () {
               this.value = true;
-              this.enabled = function() { return this.value; };
-              this.toggle = function() { this.value = !this.value; };
-              this.set = function(v) { this.value = v; };
+              this.enabled = function () {
+                return this.value;
+              };
+              this.toggle = function () {
+                this.value = !this.value;
+              };
+              this.set = function (v) {
+                this.value = v;
+              };
               this.num = $scope.activity.bookableItems[i].events.length;
             };
           }
 
-          this.numAllEvents = _.reduce(_.map(this.bookableItems, 'num'), function(sum, num) {
+          this.numAllEvents = _.reduce(_.map(this.bookableItems, 'num'), function (sum, num) {
             return sum + num;
           });
 
-          this.bookableItemsIsAllSelected = function() {
+          this.bookableItemsIsAllSelected = function () {
             var res = true;
-            _.forEach(this.bookableItems, function(item) {
+            _.forEach(this.bookableItems, function (item) {
               if (!item.enabled()) {
                 res = false;
               }
@@ -46,13 +51,12 @@ angular.module('anorakApp')
             return res;
           };
 
-          this.bookableItemsToggleAll = function() {
+          this.bookableItemsToggleAll = function () {
             var value = !this.bookableItemsIsAllSelected();
-            _.forEach(this.bookableItems, function(item) {
+            _.forEach(this.bookableItems, function (item) {
               item.set(value);
             });
           };
-
 
 //          // finde frühestes event
 //          this.from = new Date(_.min(
@@ -78,7 +82,6 @@ angular.module('anorakApp')
           this.until_min = new Date(this.from);
           this.until_max = new Date(this.until);
 
-
           this.calDaysOptions = [
             {
               days: 2,
@@ -102,16 +105,22 @@ angular.module('anorakApp')
             }
           ];
 
-          this.calDaysOptionsSelected = { selection : this.calDaysOptions[3].days };
+          this.calDaysOptionsSelected = {
+            selection: this.calDaysOptions[3].days
+          };
 
-          $scope.$watch(function() { return self.calDaysOptionsSelected; }, function() {
+          $scope.$watch(function () {
+            return self.calDaysOptionsSelected;
+          }, function () {
             self.until = moment(self.from)
-                .add(self.calDaysOptionsSelected.selection, 'days').toDate();
+              .add(self.calDaysOptionsSelected.selection, 'days').toDate();
           }, true);
 
-          $scope.$watch(function() { return self.from; }, function() {
+          $scope.$watch(function () {
+            return self.from;
+          }, function () {
             self.until = moment(self.from)
-                .add(self.calDaysOptionsSelected.selection, 'days').toDate();
+              .add(self.calDaysOptionsSelected.selection, 'days').toDate();
           });
 
         };

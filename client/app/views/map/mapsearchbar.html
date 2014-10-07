@@ -37,7 +37,10 @@
           >
     </div>
     <div class="form-group date-until">
-      <select ng-model="calDaysOptionsSelected.selection" ng-options="o.days as o.text for o in calDaysOptions"></select>
+      <select ng-model="calDaysOptionsSelected.selection"
+              ng-options="o.days as o.text for o in calDaysOptions"
+          >
+      </select>
       <!--
       <label>{{'until' | translate}}</label>
       <input type="text"
