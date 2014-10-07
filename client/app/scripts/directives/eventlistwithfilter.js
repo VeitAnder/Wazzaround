@@ -8,7 +8,7 @@ angular.module('anorakApp')
       scope : {
         activity : "="
       },
-      controller : function ($scope) {
+      controller : function ($scope, frontendmap) {
 //        $scope.acticity = angular.copy($scope.activity);
 
 //        $scope.vm = {
@@ -52,25 +52,34 @@ angular.module('anorakApp')
           };
 
 
-          // finde frühestes event
-          this.from = new Date(_.min(
-            _.map($scope.activity.bookableItems, function(item) {
-              return _.min(_.map(item.events, 'start'));
-            })
-          ));
+//          // finde frühestes event
+//          this.from = new Date(_.min(
+//            _.map($scope.activity.bookableItems, function(item) {
+//              return _.min(_.map(item.events, 'start'));
+//            })
+//          ));
+//
+//          // finde spätestes event
+//          this.until = new Date( _.max(
+//            _.map($scope.activity.bookableItems, function(item) {
+//              return _.max(_.map(item.events, 'end'));
+//            })
+//          ));
 
-          // finde spätestes event
-          this.until = new Date( _.max(
-            _.map($scope.activity.bookableItems, function(item) {
-              return _.max(_.map(item.events, 'end'));
-            })
-          ));
+          // benutze globale datums selektion
+          this.from = frontendmap.map.searchStartDate;
+          this.until = frontendmap.map.searchEndDate;
 
           this.from_min = new Date(this.from);
           this.from_max = new Date(this.until);
 
           this.until_min = new Date(this.from);
           this.until_max = new Date(this.until);
+
+
+          this.setUntilDays = function(d) {
+            this.until = moment().add(d, 'days');
+          };
 
         };
         $scope.filter = new filter();
