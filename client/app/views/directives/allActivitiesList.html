@@ -112,9 +112,7 @@
                     ng-if="!activity.denied"
                   >
 
-                <span class="label label-info"
-                      data-ng-click="publishstateCtrl.verify($event, activity)"
-                    >
+                <span class="label label-info">
                   New
                 </span>
               </span>
@@ -129,9 +127,7 @@
             <span ng-switch="activity.unreviewedChanges > 0">
               <span ng-switch-when="true">
 
-                <span class="label label-warning"
-                      data-ng-click="publishstateCtrl.verify($event, activity)"
-                    >
+                <span class="label label-warning">
                   Changed
                 </span>
 

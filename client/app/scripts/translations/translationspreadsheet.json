@@ -2350,18 +2350,18 @@
   },
   {
     "Description": "",
-    "key": "Your activity is published",
-    "en": "Your activity is published!",
-    "de": "Ihre Aktivität wurde veröffentlicht!",
+    "key": "This activity is published",
+    "en": "This activity is published!",
+    "de": "Diese Aktivität wurde veröffentlicht!",
     "it": "La vostra attività è pubblicata",
     "fr": "Votre activité est publiée",
     "sp": "Su actividad ha sido publicada"
   },
   {
     "Description": "",
-    "key": "Your activity isnt published yet",
-    "en": "Your activity isn't published yet!",
-    "de": "Ihre Aktivität wurde noch nicht veröffentlicht!",
+    "key": "This activity is not published yet",
+    "en": "This activity is not published yet!",
+    "de": "Diese Aktivität wurde noch nicht veröffentlicht!",
     "it": "La tua attività non è ancora pubblicato",
     "fr": "Votre activitè n'a pas encore été publiée",
     "sp": "Tu actividad aún no ha sido publicada"
