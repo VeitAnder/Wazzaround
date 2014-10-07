@@ -472,4 +472,18 @@ angular.module('anorakApp')
       return min;
     };
 
+    $scope.toggleFilterBlockOnMobiles = function () {
+      $scope.showfilterblock = !$scope.showfilterblock;
+    };
+
+    $scope.$watch(function () {
+      return $window.innerWidth;
+    }, function () {
+      if (mediaquery.isNoCols()) {
+        $scope.showfilterblock = false;
+      } else {
+        $scope.showfilterblock = true;
+      }
+    });
+
   });

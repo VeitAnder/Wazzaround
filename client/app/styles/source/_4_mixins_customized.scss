@@ -277,7 +277,7 @@ body:before {
 // MAP ELEMENTS
 // ###########################################################################################################################
 
-googleMap, .angular-google-map, .angular-google-map-container {
+.angular-google-map, .angular-google-map-container {
   width: 100%;
   height: 100%;
 }
@@ -318,6 +318,15 @@ googleMap, .angular-google-map, .angular-google-map-container {
   right: 0;
   bottom: $footer-height;
   left: 0;
+}
+
+@include respond-to(screen-nocols) {
+  .map-wrap {
+    position: relative;
+    margin-left: 0px;
+    height: 300px;
+    clear: both;
+  }
 }
 
 .map-innerwrap {
@@ -2560,6 +2569,16 @@ $filter-category-arrow-width: 65px;
         color: $color_grey;
       }
     }
+  }
+}
+
+.mobilefilterblocktoggle {
+  display: none;
+}
+
+@include respond-to(screen-nocols) {
+  .mobilefilterblocktoggle {
+    display: block;
   }
 }
 

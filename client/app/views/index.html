@@ -13,7 +13,21 @@
            data-ng-include="'views/map/mapsearchbar.html'">
       </div>
 
-      <div class="filter">
+      
+      <pre>
+       {{states.showfilter | json}}
+      </pre>
+      
+      <a
+          class="mobilefilterblocktoggle"
+          ng-click="toggleFilterBlockOnMobiles()"
+          >
+        Kategoriefilter anpassen
+      </a>
+
+      <div class="filter"
+           ng-show="showfilterblock"
+          >
         <span class="input-label">{{ 'Please choose' | translate }}:</span>
 
         <div class="filter-category filter-category-{{category.key}}"
@@ -87,7 +101,9 @@
         </div>
       </div>
 
-      <div class="filter-toggle">
+      <div class="filter-toggle"
+           ng-show="showfilterblock"
+          >
         <div class="filter-toggle-show"
              data-ng-class="{active: allSelected()}"
              data-ng-click="selectAllCategories()"
