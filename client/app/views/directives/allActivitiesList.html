@@ -7,7 +7,6 @@
   </style>
 
   <filterbar ng-controller="AdminactivityfilterbarCtrl as adminActivityFilterBarCtrl">
-    {{adminActivityFilterBarCtrl.adminActivityFilter.random}}
     <button
         ng-click="adminActivityFilterBarCtrl.adminActivityFilter.reset()"
         >
@@ -206,7 +205,7 @@
       >
     Keine Ergebnisse gefunden -
     <a
-        ng-click="adminActivityFilter.reset()"
+        ng-click="publishstateCtrl.adminActivityFilter.reset()"
         >
 
       reset Filter
