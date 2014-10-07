@@ -2847,18 +2847,17 @@ $img-selector-teasertxtheight: 32px;
     width: 15%;
   }
 
-
-  .listrow{
+  .listrow {
     @include border(left, $color_red);
     border-left-width: 4px;
     margin-top: 2px;
-    .first{
+    .first {
       margin-left: -4px;
     }
-    &.published{
+    &.published {
       border-left-color: $color_green;
     }
-    &.unreviewedChanges{
+    &.unreviewedChanges {
       background-color: $color_yellow;
     }
   }
@@ -2900,15 +2899,13 @@ $img-selector-teasertxtheight: 32px;
   .company {
     width: (100%) / 3;
   }
-  .firstname{
+  .firstname {
     width: (100%) / 3;
   }
-  .lastname{
+  .lastname {
     width: (100%) / 3;
   }
 }
-
-
 
 @mixin language-flags {
   a {
@@ -3693,14 +3690,13 @@ label + .language-tabs {
   }
 }
 
-
 action-confirmation-link {
   display: block;
 
   a {
     color: $color_red;
     &:hover {
-      color: $color_red_15;
+      color: $color_red_l5;
     }
   }
 }
@@ -3713,12 +3709,49 @@ action-confirmation-link {
       display: block;
       margin-bottom: $fs*0.5;
     }
-    a{
-//      display: block;
+    a {
       padding-top: $fs*0.25;
       padding-bottom: $fs*0.25;
     }
   }
+}
+
+activitystatearea {
+  display: block;
+  margin-bottom: 50px;
+  //  background-color: $color_grey_15;
+  @include border(all, $color_grey_15);
+  border-width: 4px;
+  @include border-radius($border-radius);
+  padding: 5px;
+  .alert.alert-large {
+    margin: 0;
+  }
+  .activitystatedescription{
+    display: block;
+    padding: 10px 10px 5px;
+    vertical-align: middle;
+    p{
+      margin: 0;
+    }
+  }
+}
+
+filterbar{
+  display: block;
+  @include border-radius($border-radius);
+  background-color: $color_grey_15;
+  padding: 15px;
+  & *{
+    display: inline-block;
+  }
+  input[type = radio]{
+    margin-left: 10px;
+  }
+  input[type = checkbox]{
+    display: block;
+  }
+
 }
 
 noscript {
