@@ -7,11 +7,13 @@
  * # mobilenav
  */
 angular.module('anorakApp')
-  .directive('mobilenav', function ($timeout, $location) {
+  .directive('mobilenav', function ($timeout, $location, shoppingcart) {
     return {
       templateUrl: 'views/directives/mobilenav.html',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
+
+        scope.shoppingcart = shoppingcart;
 
         scope.states = {
           open: false

@@ -308,7 +308,7 @@ body:before {
   @include clearfix;
   margin-bottom: $bu;
 
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     margin-bottom: 0;
   }
 }
@@ -838,7 +838,7 @@ eventedit {
     padding-top: 0;
     padding-bottom: 0;
   }
-  select{
+  select {
     width: 100%;
   }
 }
@@ -1347,6 +1347,20 @@ activitybardetail {
   }
 }
 
+@mixin shoppingcart-numberofitems {
+  display: inline-block;
+  min-width: 15px;
+  height: 15px;
+  padding: 0 3px;
+  @include border-radius(7.5px);
+  background-color: $color_red;
+  color: $color_white;
+  @include font-size_smallest;
+  text-align: center;
+  font-weight: $font-weight_bold;
+  @include box-shadow_2px;
+}
+
 shoppingcart {
   display: block;
   margin-bottom: $fs;
@@ -1444,17 +1458,7 @@ shoppingcartbar {
   }
 
   .numberofitems {
-    display: inline-block;
-    min-width: 15px;
-    height: 15px;
-    padding: 0 3px;
-    @include border-radius(7.5px);
-    background-color: $color_red;
-    color: $color_white;
-    @include font-size_smallest;
-    text-align: center;
-    font-weight: $font-weight_bold;
-    @include box-shadow_2px;
+    @include shoppingcart-numberofitems;
   }
   .active & {
     .innerwrap {
@@ -2136,11 +2140,10 @@ $payment-triangle-size: 60px;
 
 //nav-sub
 
-
-@mixin mobilenavbutton{
+@mixin mobilenavbutton {
   @include button;
   padding: 2px 4px;
-  span{
+  span {
     display: none;
   }
 }
@@ -2186,16 +2189,22 @@ mobilenav {
     right: 15px;
     background-color: $color_grey_l5;
     border-color: $color_grey_l5;
-    &:hover{
+    &:hover {
       background-color: $color_grey_75;
       border-color: $color_grey_75;
     }
   }
-  .checkoutbutton{
+  .checkoutbutton {
     @include mobilenavbutton;
     position: absolute;
     top: 15px;
     right: 50px;
+    .numberofitems {
+      @include shoppingcart-numberofitems;
+      position: absolute;
+      top: -10px;
+      left: -10px;
+    }
   }
 }
 
@@ -2400,7 +2409,7 @@ $filter-category-arrow-width: 65px;
   .input-label {
     display: none;
   }
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     margin-top: $fs*0.5;
   }
 }
@@ -2595,13 +2604,13 @@ $filter-category-arrow-width: 65px;
 
   @include respond-to(screen-nocols) {
     margin-right: 0;
-    .filter-category-sub{
+    .filter-category-sub {
       @include font-size_small;
     }
-    .filter-category-header{
+    .filter-category-header {
       padding-left: 10px;
       padding-right: 10px;
-      h4{
+      h4 {
         font-size: $fs*$font-size_h5_factor;
         line-height: $fs*$font-size_h5_factor*$line-height_headline-factor;
       }
