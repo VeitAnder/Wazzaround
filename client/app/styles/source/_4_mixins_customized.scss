@@ -838,6 +838,9 @@ eventedit {
     padding-top: 0;
     padding-bottom: 0;
   }
+  select{
+    width: 100%;
+  }
 }
 
 .bookableitem-tags {
@@ -2159,6 +2162,12 @@ mobilenav {
 
   languageselect {
     margin: $fs*0.5 0;
+    .language-select {
+      a {
+        background-color: $color_white;
+        border-color: $color_grey_15;
+      }
+    }
   }
 
   .nav-sub ul {

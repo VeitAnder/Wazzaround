@@ -17,6 +17,7 @@
       </div>
 
       <div class="form-group date-until">
+        <label>{{'period of time' | translate}}</label>
         <select
             ng-model="filter.calDaysOptionsSelected.selection"
             ng-options="o.days as o.text for o in filter.calDaysOptions"
