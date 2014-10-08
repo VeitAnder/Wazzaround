@@ -7,7 +7,7 @@
  http://stackoverflow.com/questions/13619837/angular-js-inject-new-instance-of-class
  */
 angular.module('anorakApp')
-  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates, $timeout) {
+  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates, $timeout, $filter) {
 
     var mapdata = function () {
       var geocoder;
@@ -383,6 +383,33 @@ angular.module('anorakApp')
           lng: this.map.centerMarker.longitude,
           lat: this.map.centerMarker.latitude
         };
+      };
+
+      this.calDaysOptions = [
+        {
+          days: 2,
+          text: $filter('translate')('+ tomorrow')
+        },
+        {
+          days: 7,
+          text: $filter('translate')('+ 7 days')
+        },
+        {
+          days: 14,
+          text: $filter('translate')('+ 14 days')
+        },
+        {
+          days: 30,
+          text: $filter('translate')('+ 30 days')
+        },
+        {
+          days: 360,
+          text: $filter('translate')('+ one year')
+        }
+      ];
+
+      this.calDaysOptionsSelected = {
+        selection: this.calDaysOptions[3].days
       };
 
     };
