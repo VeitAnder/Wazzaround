@@ -1,0 +1,28 @@
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1399366855263 }, "user" : { "_reference" : { "$oid" : "53318be3d6854d0000000020" } }, "_id" : { "$oid" : "5368c30e32a82dd69827abeb" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1399366855263 }, "user" : {}, "_id" : { "$oid" : "536bf71632a82dd69827abed" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1400083000461 }, "user" : { "_reference" : { "$oid" : "5335c8aec2a52a000000000f" } }, "_id" : { "$oid" : "5374b2ec2fe8c65eb010cfc4" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1400082998792 }, "user" : {}, "_id" : { "$oid" : "5374fc9144bb5465b0ed1bb9" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1400082998792 }, "user" : {}, "_id" : { "$oid" : "5374fc9744bb5465b0ed1bba" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1400082998792 }, "user" : {}, "_id" : { "$oid" : "5374fc9844bb5465b0ed1bbb" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1400082998792 }, "user" : {}, "_id" : { "$oid" : "5374fd5844bb5465b0ed1bbc" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1400083000461 }, "user" : {}, "_id" : { "$oid" : "537bade62fe8c65eb010cfc9" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1400083000461 }, "user" : {}, "_id" : { "$oid" : "53807ca32fe8c65eb010cfcb" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1400083000461 }, "user" : {}, "_id" : { "$oid" : "5383a18d2fe8c65eb010cfce" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1400083000461 }, "user" : {}, "_id" : { "$oid" : "5383a1db2fe8c65eb010cfcf" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1400083000461 }, "user" : {}, "_id" : { "$oid" : "5383a59b2fe8c65eb010cfd0" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1401892822304 }, "user" : {}, "_id" : { "$oid" : "538f3eafb7b7559cdf8a6c51" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1402304335883 }, "user" : {}, "_id" : { "$oid" : "5396cddff6cfaa10ec278932" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1403175805105 }, "user" : { "_reference" : { "$oid" : "53318be3d6854d0000000020" } }, "_id" : { "$oid" : "53a433086f975c00009752f2" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1403175805105 }, "user" : { "_reference" : { "$oid" : "5335c8aec2a52a000000000f" } }, "_id" : { "$oid" : "53a53a316f975c000097530b" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1403702358809 }, "user" : {}, "_id" : { "$oid" : "53ac412b3283040000149d63" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1403702358809 }, "user" : {}, "_id" : { "$oid" : "53ad00cd3283040000149d68" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1403702358809 }, "user" : {}, "_id" : { "$oid" : "53ad36273283040000149d6d" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1404304219751 }, "user" : {}, "_id" : { "$oid" : "53bad44c2405200000b928fb" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1404304219751 }, "user" : {}, "_id" : { "$oid" : "53bfa2aa2405200000b928fc" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1404304219751 }, "user" : {}, "_id" : { "$oid" : "53c283202405200000b92901" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1404304219751 }, "user" : {}, "_id" : { "$oid" : "53cd2b052405200000b9290f" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1406027451477 }, "user" : {}, "_id" : { "$oid" : "53d10c998c60b90000b7b4e7" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1406027451477 }, "user" : {}, "_id" : { "$oid" : "53d10c998c60b90000b7b4e8" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1406027451477 }, "user" : {}, "_id" : { "$oid" : "53da14a18c60b90000b7b4f5" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1406027451477 }, "user" : {}, "_id" : { "$oid" : "53da14a78c60b90000b7b4f6" } }
+{ "bookingId" : null, "state" : "pending", "date" : { "$date" : 1406027450627 }, "user" : {}, "_id" : { "$oid" : "53eb3d0d8425a200008c7c26" } }

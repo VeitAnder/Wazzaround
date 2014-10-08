@@ -1,6 +1,6 @@
 var config = {
-  host: "http://dev.reacture.anorak.io/",
-  clienthost: "http://dev.reacture.anorak.io/",
+  host: "https://reactureappdev-10669.onmodulus.net/",
+  clienthost: "https://reactureappdev-10669.onmodulus.net/",
   mongo: {
     username: 'reactureapppdevonmodulus',
     password: 'T88XXE987987cfkKfits',
