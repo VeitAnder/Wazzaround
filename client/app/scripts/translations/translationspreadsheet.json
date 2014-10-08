@@ -1405,6 +1405,15 @@
   },
   {
     "Description": "",
+    "key": "period of time",
+    "en": "period of time",
+    "de": "Zeitraum",
+    "it": "period of time",
+    "fr": "period of time",
+    "sp": "period of time"
+  },
+  {
+    "Description": "",
     "key": "potential clients",
     "en": "potential clients",
     "de": "potentiellen KundInnen",
