@@ -65,6 +65,7 @@
          ng-repeat="activity in vm.filteredActivities"
          ng-class="{denied : activity.denied, unreviewedChanges : activity.unreviewedChanges, published : activity.published}"
          data-ng-click="publishstateCtrl.open(activity)"
+         ng-controller="ChangeStateCtrl as changeStateCtrl"
         >
       <div class="activity cell first"
           >
@@ -85,106 +86,23 @@
       </div>
 
       <div class="edit cell last align-right">
-        <span ng-switch="activity.published">
 
-          <!--ALL UNPUBLISHED ACTIVITIES-->
+        <span ng-switch="changeStateCtrl.activity">
 
-          <!-- DENIED = unpublished + denied -->
-          <span ng-switch-when="false">
-            <span
-                ng-if="activity.denied"
-                class="label label-danger"
-                >
-              {{'denied' | translate}}
-            </span>
-
-            <span ng-switch="activity.unreviewedChanges === 1">
-
-
-              <!-- NEW = unpublished + unreviewedChanges + not denied -->
-              <span ng-switch-when="true"
-                    ng-if="!activity.denied"
-                  >
-
-                <span class="label label-info">
-                  {{'new' | translate}}
-                </span>
-              </span>
-
-            </span>
+          <span ng-switch-when="new" class="label label-info">
+            {{'new' | translate}}
           </span>
 
-          <!--ALL PUBLISHED ACTIVITIES-->
-
-          <span ng-switch-when="true">
-
-            <span ng-switch="activity.unreviewedChanges > 0">
-              <span ng-switch-when="true">
-
-                <span class="label label-warning">
-                  {{'changed' | translate}}
-                </span>
-
-              </span>
-            </span>
-
+          <span ng-switch-when="denied" class="label label-danger">
+            {{'denied' | translate}}
           </span>
-          <span ng-switch-default>-</span>
+
         </span>
 
-        <!--ORIGINAL CODE FROM JONATHAN-->
-
-        <!--        <span ng-if="activity.unreviewedChanges > 0">
-          + {{activity.unreviewedChanges}} changes
+        <span class="label label-warning" ng-show="changeStateCtrl.changes">
+          {{'changed' | translate}}
         </span>
-        <span ng-switch="activity.published">
-          <span ng-switch-when="false"
-                class="btn btn-mini"
-                data-ng-click="publishstateCtrl.publish($event, activity)"
-              >
-            {{'publish' | translate}}
-          </span>
-          <br/>
-          <span ng-switch-when="false"
-                ng-if="!activity.denied"
-                class="btn btn-mini"
-                style="background-color: #583216; border-color: #583216;"
-                data-ng-click="publishstateCtrl.deny($event, activity)"
-              >
-            deny
-          </span>
-          <span ng-switch-when="true">
-            <span ng-switch="activity.unreviewedChanges > 0">
-              <br/>
-              <span ng-switch-when="true">
 
-                <span class="btn btn-mini"
-                      style="background-color: #1c7ddf; border-color: #1c7ddf;"
-                      data-ng-click="publishstateCtrl.verify($event, activity)"
-                    >
-                  verify
-                </span>
-
-                <span class="btn btn-mini"
-                      style="background-color: #c59b4d; border-color: #c59b4d;"
-                      data-ng-click="publishstateCtrl.remove($event, activity)"
-                    >
-                  remove
-                </span>
-
-              </span>
-              <span ng-switch-when="false"
-                    class="btn btn-mini"
-                    style="background-color: #df401c; border-color: #df401c;"
-                    data-ng-click="publishstateCtrl.toggle($event, activity)"
-                  >
-                {{'unpublish' | translate}}
-              </span>
-            </span>
-
-          </span>
-          <span ng-switch-default>-</span>
-        </span>-->
       </div>
 
     </div>
