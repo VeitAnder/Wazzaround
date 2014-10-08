@@ -7,7 +7,23 @@
 
       <!-- ## PUBLISH STATES AREA ################################################################################-->
 
-      <activitystatearea>
+      <activitystatearea ng-controller="ChangeStateCtrl as changeStateCtrl">
+
+        <!--
+
+        Zustände:
+          changeStateCtrl.activity === "new"
+          changeStateCtrl.activity === "denied"
+          changeStateCtrl.activity === "published"
+
+          changeStateCtrl.changes === true
+          changeStateCtrl.changes === false
+
+        Aktionen:
+          changeStateCtrl.publish($event)
+          changeStateCtrl.deny($event)
+
+        -->
 
         <p class="alert alert-large alert-block alert-success"
            ng-show="activity.published">
@@ -45,7 +61,7 @@
 
                 <button
                     class="btn btn-mini"
-                    data-ng-click="publishstatectrl.publish($event, activity)"
+                    data-ng-click="changeStateCtrl.publish($event)"
                     >
                   {{'publish' | translate}}
                 </button>
@@ -62,13 +78,13 @@
                   </p>
                   <button
                       class="btn btn-mini"
-                      data-ng-click="publishstatectrl.verify($event, activity)"
+                      data-ng-click="changeStateCtrl.verify($event)"
                       >
                     {{'approve' | translate}}
                   </button>
                   <button
                       class="btn btn-mini btn-alert"
-                      data-ng-click="publishstatectrl.deny($event, activity)"
+                      data-ng-click="changeStateCtrl.deny($event)"
                       >
                     {{'deny' | translate}}
                   </button>
@@ -92,13 +108,13 @@
                   </p>
                   <button
                       class="btn btn-mini"
-                      data-ng-click="publishstatectrl.verify($event, activity)"
+                      data-ng-click="changeStateCtrl.verify($event)"
                       >
                     {{'approve' | translate}}
                   </button>
                   <button
                       class="btn btn-mini btn-alert"
-                      data-ng-click="publishstatectrl.deny($event, activity)"
+                      data-ng-click="changeStateCtrl.deny($event)"
                       >
                     {{'deny' | translate}}
                   </button>
@@ -107,7 +123,7 @@
                 <span ng-switch-when="false">
                   <button
                       class="btn btn-mini btn-alert"
-                      data-ng-click="publishstatectrl.deny($event, activity)"
+                      data-ng-click="changeStateCtrl.deny($event)"
                       >
                     {{'deny' | translate}}
                   </button>
