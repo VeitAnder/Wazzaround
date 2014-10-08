@@ -4,6 +4,8 @@ angular.module('anorakApp')
   .controller('ChangeStateCtrl', function ($scope) {
     assert($scope.activity, "$scope.activity required for ChangeStateCtrl")
 
+    var self = this;
+
     var activity = $scope.activity;
 
     this.toggle = function ($event) {
@@ -11,8 +13,8 @@ angular.module('anorakApp')
 
       activity.published = !activity.published;
       activity.unreviewedChanges = 0;
-
       activity.save().done();
+
     };
 
     this.publish = function ($event) {
@@ -51,23 +53,26 @@ angular.module('anorakApp')
       activity.save().done();
     };
 
-    // die verschieden states abbilden
-    if (activity.published === false && activity.denied === false ) {
-      this.activity = "new";
-      this.changes = false;  // hier sollte das egal sein
-    } else if (activity.published === true) {
-      this.activity = "published";
+    $scope.$watch(function () {
+      return activity;
+    }, function () {
+      // die verschieden states abbilden
+      if (activity.published === false && activity.denied === false) {
+        self.activity = "new";
+        self.changes = false;  // hier sollte das egal sein
+      } else if (activity.published === true) {
+        self.activity = "published";
 
-      if (activity.unreviewedChanges > 0) this.changes = true;
-      else this.changes = false;
-    } else if (activity.denied === true) {
-      this.activity = "denied";
+        if (activity.unreviewedChanges > 0) self.changes = true;
+        else self.changes = false;
+      } else if (activity.denied === true) {
+        self.activity = "denied";
 
-      if (activity.unreviewedChanges > 0) this.changes = true;
-      else this.changes = false;
-    } else {
-      assert(false, "unknown state");
-    }
-
+        if (activity.unreviewedChanges > 0) self.changes = true;
+        else self.changes = false;
+      } else {
+        assert(false, "unknown state");
+      }
+    }, true);
 
   });

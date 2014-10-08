@@ -1,6 +1,7 @@
 <div class="myactivities-list enable_hover">
 
   <filterbar ng-controller="AdminactivityfilterbarCtrl as adminActivityFilterBarCtrl">
+
     <button
         ng-click="adminActivityFilterBarCtrl.adminActivityFilter.reset()"
         >
@@ -38,6 +39,12 @@
         >
     denied
 
+    <div>
+      Filter:
+      <input type="text"
+             ng-model="adminActivityFilterBarCtrl.adminActivityFilter.query">
+    </div>
+
   </filterbar>
 
   <div> {{vm.filteredActivities.length}} {{'of' | translate}} {{activities.length}}</div>
@@ -62,7 +69,7 @@
 
   <div class="listbody">
     <div class="listrow"
-         ng-repeat="activity in vm.filteredActivities"
+         ng-repeat="activity in vm.filteredActivities | filter:adminActivityFilterBarCtrl.adminActivityFilter.query"
          ng-class="{denied : changeStateCtrl.activity === 'denied', new : changeStateCtrl.activity === 'new', published : changeStateCtrl.activity === 'published', changed : changeStateCtrl.changes === true}"
          data-ng-click="publishstateCtrl.open(activity)"
          ng-controller="ChangeStateCtrl as changeStateCtrl"
@@ -89,17 +96,20 @@
 
         <span ng-switch="changeStateCtrl.activity">
 
-          <span ng-switch-when="new" class="label label-info">
+          <span ng-switch-when="new"
+                class="label label-info">
             {{'new' | translate}}
           </span>
 
-          <span ng-switch-when="denied" class="label label-danger">
+          <span ng-switch-when="denied"
+                class="label label-danger">
             {{'denied' | translate}}
           </span>
 
         </span>
 
-        <span class="label label-warning" ng-show="changeStateCtrl.changes">
+        <span class="label label-warning"
+              ng-show="changeStateCtrl.changes">
           {{'changed' | translate}}
         </span>
 
