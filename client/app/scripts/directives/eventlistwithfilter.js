@@ -18,6 +18,8 @@ angular.module('anorakApp')
         var filter = function () {
           var self = this;
 
+          this.frontendmap = frontendmap;
+
           this.bookableItems = [];
 
           // init enabled bookableItem-Filter
@@ -82,32 +84,9 @@ angular.module('anorakApp')
           this.until_min = new Date(this.from);
           this.until_max = new Date(this.until);
 
-          this.calDaysOptions = [
-            {
-              days: 2,
-              text: $filter('translate')('today and tomorrow')
-            },
-            {
-              days: 7,
-              text: $filter('translate')('7 days')
-            },
-            {
-              days: 14,
-              text: $filter('translate')('14 days')
-            },
-            {
-              days: 30,
-              text: $filter('translate')('30 days')
-            },
-            {
-              days: 360,
-              text: $filter('translate')('one year')
-            }
-          ];
+          this.calDaysOptions = frontendmap.calDaysOptions;
 
-          this.calDaysOptionsSelected = {
-            selection: this.calDaysOptions[3].days
-          };
+          this.calDaysOptionsSelected = frontendmap.calDaysOptionsSelected;
 
           $scope.$watch(function () {
             return self.calDaysOptionsSelected;
@@ -125,6 +104,7 @@ angular.module('anorakApp')
 
         };
         $scope.filter = new filter();
+
 
       }
     };

@@ -32,32 +32,10 @@ angular.module('anorakApp')
       return frontendmap.getGoogleAddressAutoCompletionList(viewValue);
     };
 
-    $scope.calDaysOptions = [
-      {
-        days: 2,
-        text: $filter('translate')('today and tomorrow')
-      },
-      {
-        days: 7,
-        text: $filter('translate')('7 days')
-      },
-      {
-        days: 14,
-        text: $filter('translate')('14 days')
-      },
-      {
-        days: 30,
-        text: $filter('translate')('30 days')
-      },
-      {
-        days: 360,
-        text: $filter('translate')('one year')
-      }
-    ];
+    $scope.calDaysOptions = $scope.frontendmap.calDaysOptions;
 
-    $scope.calDaysOptionsSelected = {
-      selection: $scope.calDaysOptions[3].days
-    };
+    $scope.calDaysOptionsSelected = $scope.frontendmap.calDaysOptionsSelected;
+
 
     $scope.$watch('calDaysOptionsSelected', function () {
       $scope.frontendmap.map.searchEndDate = moment(frontendmap.map.searchStartDate)
