@@ -7,7 +7,7 @@
  * # mobilenav
  */
 angular.module('anorakApp')
-  .directive('mobilenav', function () {
+  .directive('mobilenav', function ($timeout, $location) {
     return {
       templateUrl: 'views/directives/mobilenav.html',
       restrict: 'E',
@@ -19,6 +19,12 @@ angular.module('anorakApp')
 
         scope.toggle = function () {
           scope.states.open = !scope.states.open;
+        };
+
+        scope.gotoPaymentPage = function () {
+          $timeout(function () {
+            $location.path("/payment");
+          }, 0);
         };
 
       }
