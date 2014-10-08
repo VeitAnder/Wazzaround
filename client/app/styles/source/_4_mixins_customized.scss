@@ -3854,19 +3854,66 @@ activitystatearea {
 
 filterbar {
   display: block;
-  @include border-radius($border-radius);
+  position: relative;
+  @include border-top-radius($border-radius);
   background-color: $color_grey_15;
   padding: 15px;
-  & * {
-    display: inline-block;
-  }
-  input[type = radio] {
-    margin-left: 10px;
-  }
-  input[type = checkbox] {
-    display: block;
-  }
 
+  .checkboxsearch-selectbar {
+    display: table;
+    table-layout: fixed;
+    border-collapse: separate;
+    width: 100%;
+    margin-top: $fs*1.0;
+    padding-top: $fs*1.0;
+    @include seperator(top, $color_grey_50);
+
+  }
+  .checkbox-area {
+    display: table-cell;
+    width: 1%;
+    vertical-align: top;
+  }
+  .textsearch {
+    display: table-cell;
+    width: 1%;
+    vertical-align: top;
+    label {
+      display: none;
+    }
+    .input-group{
+      margin-bottom: 0;
+    }
+    input {
+      width: 100%;
+    }
+    .input-group-addon{
+      background-color: $color_white;
+      border-color: $color_input_border;
+    }
+  }
+  .checkbox {
+    display: inline-block;
+    label {
+      @include font-size-default;
+      margin-right: 15px;
+    }
+  }
+}
+
+.filterbar-searchhits {
+  font-weight: $font-weight_bold;
+  text-align: center;
+  padding: 5px;
+  @include border(all, $color_grey_15);
+  border-width: 2px;
+  @include border-bottom-radius($border-radius);
+  margin-bottom: $fs*2.0;
+}
+
+.filterbar-noresults{
+  text-align: center;
+  margin-top: $fs*2.0;
 }
 
 noscript {

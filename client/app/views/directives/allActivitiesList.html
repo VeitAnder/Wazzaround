@@ -2,52 +2,88 @@
 
   <filterbar ng-controller="AdminactivityfilterbarCtrl as adminActivityFilterBarCtrl">
 
-    <button
-        ng-click="adminActivityFilterBarCtrl.adminActivityFilter.reset()"
-        >
-      All
-    </button>
+    <!--
+        <button ng-click="adminActivityFilterBarCtrl.adminActivityFilter.reset()">All</button>
+    -->
 
-    <input
-        type="radio"
-        ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
-        value="published"
-        >
-    published
-    <input
-        type="radio"
-        ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
-        value="unpublished"
-        >
-    unpublished
-    <input
-        type="radio"
-        ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
-        value="all"
-        >
-    published & unpublished
+    <div class="radio-selectbar">
+      <div class="radio">
+        <label>
+          <input
+              type="radio"
+              ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
+              value="published"
+              >
+          <span>{{'published' | translate }}</span>
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input
+              type="radio"
+              ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
+              value="unpublished"
+              >
+          <span>{{'unpublished' | translate }}</span>
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input
+              type="radio"
+              ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
+              value="all"
+              >
+          <span>{{'all' | translate }}</span>
+        </label>
+      </div>
+    </div>
 
-    <input
-        type="checkbox"
-        ng-model="adminActivityFilterBarCtrl.adminActivityFilter.unreviewedChanges"
-        >
-    unreviewed changes
-
-    <input
-        type="checkbox"
-        ng-model="adminActivityFilterBarCtrl.adminActivityFilter.denied"
-        >
-    denied
-
-    <div>
-      Filter:
-      <input type="text"
-             ng-model="adminActivityFilterBarCtrl.adminActivityFilter.query">
+    <div class="checkboxsearch-selectbar">
+      <div class="checkbox-area">
+        <div class="checkbox">
+          <label>
+            <input
+                type="checkbox"
+                ng-model="adminActivityFilterBarCtrl.adminActivityFilter.unreviewedChanges"
+                >
+            {{'changed activities' | translate }}
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input
+                type="checkbox"
+                ng-model="adminActivityFilterBarCtrl.adminActivityFilter.denied"
+                >
+            {{'denied activities' | translate }}
+          </label>
+        </div>
+      </div>
+      <div class="textsearch">
+        <label for="filterbarquery">
+          {{'textsearch' | translate }}:
+        </label>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-search"></i>
+          </span>
+          <input type="text"
+                 ng-model="adminActivityFilterBarCtrl.adminActivityFilter.query"
+                 id="filterbarquery"
+                 class="form-control"
+              >
+        </div>
+      </div>
     </div>
 
   </filterbar>
 
-  <div> {{vm.filteredActivities.length}} {{'of' | translate}} {{activities.length}}</div>
+  <div class="filterbar-searchhits">
+    <span>
+      {{vm.filteredActivities.length}} {{'of' | translate}} {{activities.length}}
+    </span>
+  </div>
 
   <div class="listheader">
     <div class="activity cell first">
@@ -120,13 +156,15 @@
 
   <div
       ng-show="vm.filteredActivities.length === 0"
+      class="filterbar-noresults"
       >
-    Keine Ergebnisse gefunden -
+    {{'no results' | translate }} –
     <a
         ng-click="publishstateCtrl.adminActivityFilter.reset()"
         >
-
-      reset Filter
+      <strong>
+        {{'reset all filters' | translate }}
+      </strong>
     </a>
 
   </div>

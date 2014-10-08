@@ -886,7 +886,6 @@ button.btn, .btn, a.btn {
   }
 }
 
-
 @mixin buttonbar_small {
   @include buttonbar;
   padding: 5px;
@@ -2086,6 +2085,59 @@ input[type="checkbox"]:focus {
   @include input-label;
 }
 
+.radio-selectbar {
+  display: table;
+  table-layout: fixed;
+  border-collapse: separate;
+  width: 100%;
+  @include border-radius($border-radius);
+  @include border(all, $color_grey_50);
+  .radio {
+    display: table-cell;
+    width: 1%;
+    min-height: 0;//reset
+    padding: 0;//reset
+    text-align: center;
+    &:first-child{
+      span {
+        @include border-left-radius($border-radius - ($border-width/2));
+        border: none;
+      }
+    }
+    &:last-child{
+      span {
+        @include border-right-radius($border-radius - ($border-width/2));
+        border: none;
+      }
+    }
+    label {
+      @include font-size-default;
+      width: 100%;
+      margin: 0;
+    }
+    input {
+      display: none;
+      &:checked + span {
+        background-color: $color_green;
+        color: $color_white;
+      }
+    }
+    span{
+      display: block;
+      background-color: $color_white;
+      font-weight: $font-weight_bold;
+      @include border(left, $color_grey_50);
+      @include border(right, $color_grey_50);
+      @include ellipsis(nowrap);
+      &:hover{
+        background-color: $color_grey_15_l5;
+      }
+//      padding: $fs*0.50 $fs*0.25;
+      @include input-padding;
+    }
+  }
+}
+
 @mixin input-content {
 }
 
@@ -2275,7 +2327,7 @@ legend {
   font-weight: $font-weight_bold;
   color: $color_green;
   @include border(bottom, $color_green);
-  border-bottom-width: 3px;
+  border-bottom-width: 2px;
 
   &.sortable {
     :hover {
@@ -2360,7 +2412,7 @@ legend {
   .enable_hover & {
     @include hovercursor;
     &:hover {
-      background-color: $color_green_15!important;
+      background-color: $color_green_15 !important;
       .cell {
         border-color: $color_grey_50;
         background-color: transparent;
@@ -2369,7 +2421,7 @@ legend {
         }
       }
       .even {
-        background-color: $color_grey_15_d5!important;
+        background-color: $color_grey_15_d5 !important;
       }
     }
   }

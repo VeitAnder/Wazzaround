@@ -75,6 +75,7 @@
   "Prev": "Früher",
   "Show all Dates": "Alle Termine anzeigen",
   "Next": "Später",
+  "next day": "nächster Tag",
   "trekkingbikinghiking": "Trekking, Biking, Hiking",
   "adventure": "Abenteuer",
   "yogapilates": "Yoga, Pilates & Fitness",
@@ -264,6 +265,10 @@
   "this activity was denied and is not published": "Diese Aktivität wurde abgelehnt und ist nicht veröffentlicht!",
   "this activity is published": "Diese Aktivität ist veröffentlicht!",
   "this activity is under review but still published": "Diese Aktivität wird gerade überprüft, ist aber noch veröffentlicht!",
+  "no results": "Keine Ergebnisse gefunden",
+  "changed activities": "Geänderte Aktivitäten",
+  "denied activities": "Abgelehnte Aktivitäten",
+  "reset all filters": "Alle Filter zurücksetzen",
   "Administration overview": "Administrations-Übersicht",
   "delete": "Löschen",
   "close category filter": "Kategorie-Filter schließen",
@@ -387,5 +392,6 @@
   "error message event number": "Bitte geben Sie eine Nummer ein",
   "Contact our support": "Kontaktieren Sie unseren Support",
   "Orders will be possible soon": "Bestellungen sind derzeit noch nicht möglich! Dieses Feature wird bald aktiviert.",
-  "helptext autotranslation": "Die Aktivität wird automatisch in die anderen Sprachen übersetzt. Änderungen in den anderen Sprachen werden durch die automatische Übersetzung überschrieben."
+  "helptext autotranslation": "Die Aktivität wird automatisch in die anderen Sprachen übersetzt. Änderungen in den anderen Sprachen werden durch die automatische Übersetzung überschrieben.",
+  "one year": "ein Jahr"
 }
