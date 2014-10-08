@@ -10,6 +10,8 @@ angular.module('anorakApp')
   .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates, $timeout, $filter) {
 
     var mapdata = function () {
+      var self = this;
+
       var geocoder;
 
       var setMarkers = function (activities) {
@@ -89,7 +91,7 @@ angular.module('anorakApp')
         debug("SEARCHING FOR DATE", map.searchStartDate, map.searchEndDate);
 
         console.log("map.searchStartDate, map.searchEndDate", map.searchStartDate, map.searchEndDate);
-        
+
         // @TODO for Jonathan - abort filteredActivities request if new one is fired!
         return models.ActivityModel.filteredActivities({
           from: {  //  <bottom left coordinates>   southwest
@@ -385,28 +387,37 @@ angular.module('anorakApp')
         };
       };
 
-      this.calDaysOptions = [
-        {
-          days: 2,
-          text: $filter('translate')('+ next day')
-        },
-        {
-          days: 7,
-          text: $filter('translate')('+ 7 days')
-        },
-        {
-          days: 14,
-          text: $filter('translate')('+ 14 days')
-        },
-        {
-          days: 30,
-          text: $filter('translate')('+ 30 days')
-        },
-        {
-          days: 360,
-          text: $filter('translate')('+ one year')
-        }
-      ];
+      this.setCalDaysOptions = function () {
+        this.calDaysOptions = [
+          {
+            days: 2,
+            text: "+ " + $filter('translate')('next day')
+          },
+          {
+            days: 7,
+            text: "+ 7 " + $filter('translate')('days')
+          },
+          {
+            days: 14,
+            text: "+ 14 " + $filter('translate')('days')
+          },
+          {
+            days: 30,
+            text: "+ 30 " + $filter('translate')('days')
+          },
+          {
+            days: 365,
+            text: "+ " + $filter('translate')('one year')
+          }
+        ];
+
+      };
+      this.setCalDaysOptions();
+
+      // when language changes globally, reset also in directive
+      $rootScope.$on('$translateChangeSuccess', function () {
+        self.setCalDaysOptions();
+      });
 
       this.calDaysOptionsSelected = {
         selection: this.calDaysOptions[3].days

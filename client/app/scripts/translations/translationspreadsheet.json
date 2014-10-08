@@ -793,6 +793,15 @@
   },
   {
     "Description": "",
+    "key": "next day",
+    "en": "next day",
+    "de": "nächster Tag",
+    "it": "piú giorno",
+    "fr": "jour prochain",
+    "sp": ""
+  },
+  {
+    "Description": "",
     "key": "trekkingbikinghiking",
     "en": "Trekking, Biking, Hiking",
     "de": "Trekking, Biking, Hiking",
@@ -3643,5 +3652,14 @@
     "it": "The activity will be automatically translated to the other languages. Changes in the other languages will be overwritten by the auto translation. ",
     "fr": "The activity will be automatically translated to the other languages. Changes in the other languages will be overwritten by the auto translation. ",
     "sp": ""
+  },
+  {
+    "Description": "",
+    "key": "one year",
+    "en": "one year",
+    "de": "ein Jahr",
+    "it": "un anno",
+    "fr": "une année ",
+    "sp": "one year"
   }
 ]

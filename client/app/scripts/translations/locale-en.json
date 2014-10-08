@@ -75,6 +75,7 @@
   "Prev": "Prev",
   "Show all Dates": "Show all Dates",
   "Next": "Next",
+  "next day": "next day",
   "trekkingbikinghiking": "Trekking, Biking, Hiking",
   "adventure": "Adventure",
   "yogapilates": "Yoga, Pilates & Fitness",
@@ -387,5 +388,6 @@
   "error message event number": "Please enter a number",
   "Contact our support": "Contact our support",
   "Orders will be possible soon": "Orders are not possible yet. This feature will be available soon!",
-  "helptext autotranslation": "The activity will be automatically translated to the other languages. Changes in the other languages will be overwritten by the auto translation. "
+  "helptext autotranslation": "The activity will be automatically translated to the other languages. Changes in the other languages will be overwritten by the auto translation. ",
+  "one year": "one year"
 }
