@@ -44,12 +44,16 @@
   <!--</span>-->
 
   <!--</div>-->
-
-  <bookableitemlist
-      activity="getSelectedActivity()"
-      limit="3"
-      >
-  </bookableitemlist>
+  <span ng-init="activity = getSelectedActivity()" >
+    <span ng-controller="EventListFilterCtrl">
+        <bookableitemlist
+            activity="getSelectedActivity()"
+            filter="filter"
+            limit="3"
+            >
+        </bookableitemlist>
+    </span>
+  </span>
 </div>
 
 <!--
