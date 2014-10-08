@@ -20,7 +20,7 @@
   {
     "Description": "Name of contact person",
     "key": "helptext registration contact person",
-    "en": "Enter the name of the person who is responsible for this activity.",
+    "en": "close filter",
     "de": "Gib uns den Namen der Person an, mit der wir unter der oben genannten Nummer in Kontakt treten können.",
     "it": "Inserire il nome della persona che è responsabile della attività",
     "fr": "Insérez le nom du responsable de l'activité",
@@ -2316,7 +2316,7 @@
     "Description": "",
     "key": "publish",
     "en": "publish",
-    "de": "Veröffentlichen",
+    "de": "veröffentlichen",
     "it": "Pubblicare",
     "fr": "Publier",
     "sp": "Publicar"
@@ -2347,6 +2347,51 @@
     "it": "deny",
     "fr": "deny",
     "sp": "deny"
+  },
+  {
+    "Description": "",
+    "key": "changed",
+    "en": "changed",
+    "de": "geändert",
+    "it": "changed",
+    "fr": "changed",
+    "sp": "changed"
+  },
+  {
+    "Description": "",
+    "key": "new",
+    "en": "new",
+    "de": "neu",
+    "it": "New",
+    "fr": "New",
+    "sp": "New"
+  },
+  {
+    "Description": "",
+    "key": "denied",
+    "en": "denied",
+    "de": "abgelehnt",
+    "it": "denied",
+    "fr": "denied",
+    "sp": "denied"
+  },
+  {
+    "Description": "",
+    "key": "under review",
+    "en": "under review",
+    "de": "wird überprüft",
+    "it": "under review",
+    "fr": "under review",
+    "sp": "under review"
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
   },
   {
     "Description": "",
@@ -2406,28 +2451,28 @@
     "Description": "",
     "key": "Changed activity – Please review",
     "en": "Changed activity – Please review",
-    "de": "",
+    "de": "Geänderte Aktivität – bitte überprüfen",
     "it": "Changed activity – Please review",
     "fr": "Changed activity – Please review",
     "sp": "Changed activity – Please review"
   },
   {
     "Description": "",
-    "key": "",
-    "en": "",
-    "de": "",
-    "it": "",
-    "fr": "",
-    "sp": ""
+    "key": "close category filter",
+    "en": "Close Category Filter",
+    "de": "Kategorie-Filter schließen",
+    "it": "Close Filter",
+    "fr": "Close Filter",
+    "sp": "Close Filter"
   },
   {
     "Description": "",
-    "key": "",
-    "en": "",
-    "de": "",
-    "it": "",
-    "fr": "",
-    "sp": ""
+    "key": "open category filter",
+    "en": "Open Category Filter",
+    "de": "Kategorie-Filter öffnen",
+    "it": "category filter",
+    "fr": "category filter",
+    "sp": "category filter"
   },
   {
     "Description": "",
@@ -3217,7 +3262,7 @@
     "key": "Find your activity",
     "en": "Find your activity",
     "de": "Find your activity",
-    "it": "Trovare un'attvità",
+    "it": "Trovare un'attività",
     "fr": "Trouver Votre activité",
     "sp": "Buscar una actividad"
   },
