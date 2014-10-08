@@ -388,7 +388,7 @@ angular.module('anorakApp')
       this.calDaysOptions = [
         {
           days: 2,
-          text: $filter('translate')('+ tomorrow')
+          text: $filter('translate')('+ next day')
         },
         {
           days: 7,
