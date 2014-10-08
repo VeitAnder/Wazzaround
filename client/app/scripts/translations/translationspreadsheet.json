@@ -2395,6 +2395,123 @@
   },
   {
     "Description": "",
+    "key": "This activity is published",
+    "en": "This activity is published!",
+    "de": "Diese Aktivität wurde veröffentlicht!",
+    "it": "La vostra attività è pubblicata",
+    "fr": "Votre activité est publiée",
+    "sp": "Su actividad ha sido publicada"
+  },
+  {
+    "Description": "",
+    "key": "This activity is not published yet",
+    "en": "This activity is not published yet!",
+    "de": "Diese Aktivität wurde noch nicht veröffentlicht!",
+    "it": "La tua attività non è ancora pubblicato",
+    "fr": "Votre activitè n'a pas encore été publiée",
+    "sp": "Tu actividad aún no ha sido publicada"
+  },
+  {
+    "Description": "",
+    "key": "published",
+    "en": "Published",
+    "de": "Veröffentlicht",
+    "it": "Published",
+    "fr": "Published",
+    "sp": "Published"
+  },
+  {
+    "Description": "",
+    "key": "unpublished",
+    "en": "Unpublished",
+    "de": "Nicht veröffentlicht",
+    "it": "Unpublished",
+    "fr": "Unpublished",
+    "sp": "Unpublished"
+  },
+  {
+    "Description": "",
+    "key": "Denied activity",
+    "en": "Denied activity",
+    "de": "Abgelehnte Aktivität",
+    "it": "Denied activity",
+    "fr": "Denied activity",
+    "sp": "Denied activity"
+  },
+  {
+    "Description": "",
+    "key": "New activity – Please review",
+    "en": "New activity – Please review",
+    "de": "Neue Aktivität – bitte überprüfen!",
+    "it": "New activity – Please review",
+    "fr": "New activity – Please review",
+    "sp": "New activity – Please review"
+  },
+  {
+    "Description": "",
+    "key": "Changed activity – Please review",
+    "en": "Changed activity – Please review",
+    "de": "Geänderte Aktivität – bitte überprüfen!",
+    "it": "Changed activity – Please review",
+    "fr": "Changed activity – Please review",
+    "sp": "Changed activity – Please review"
+  },
+  {
+    "Description": "",
+    "key": "this activity is under review and not published yet",
+    "en": "This activity is under review and not published yet!",
+    "de": "Diese Aktivität wird gerade überprüft und ist derzeit nicht veröffentlicht!",
+    "it": "This activity is under review and not published yet!",
+    "fr": "This activity is under review and not published yet!",
+    "sp": "This activity is under review and not published yet!"
+  },
+  {
+    "Description": "",
+    "key": "this activity was denied and is not published",
+    "en": "This activity was denied and is not published!",
+    "de": "Diese Aktivität wurde abgelehnt und ist nicht veröffentlicht!",
+    "it": "This activity was denied and is not published!",
+    "fr": "This activity was denied and is not published!",
+    "sp": "This activity was denied and is not published!"
+  },
+  {
+    "Description": "",
+    "key": "this activity is published",
+    "en": "This activity is published!",
+    "de": "Diese Aktivität ist veröffentlicht!",
+    "it": "This activity is published!",
+    "fr": "This activity is published!",
+    "sp": "This activity is published!"
+  },
+  {
+    "Description": "",
+    "key": "this activity is under review but still published",
+    "en": "This activity is under review but still published!",
+    "de": "Diese Aktivität wird gerade überprüft, ist aber noch veröffentlicht!",
+    "it": "This activity is under review but still published!",
+    "fr": "This activity is under review but still published!",
+    "sp": "This activity is under review but still published!"
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
+  },
+  {
+    "Description": "",
     "key": "",
     "en": "",
     "de": "",
@@ -2419,51 +2536,6 @@
     "it": "Cancellare",
     "fr": "Effacer",
     "sp": "Borrar"
-  },
-  {
-    "Description": "",
-    "key": "This activity is published",
-    "en": "This activity is published!",
-    "de": "Diese Aktivität wurde veröffentlicht!",
-    "it": "La vostra attività è pubblicata",
-    "fr": "Votre activité est publiée",
-    "sp": "Su actividad ha sido publicada"
-  },
-  {
-    "Description": "",
-    "key": "This activity is not published yet",
-    "en": "This activity is not published yet!",
-    "de": "Diese Aktivität wurde noch nicht veröffentlicht!",
-    "it": "La tua attività non è ancora pubblicato",
-    "fr": "Votre activitè n'a pas encore été publiée",
-    "sp": "Tu actividad aún no ha sido publicada"
-  },
-  {
-    "Description": "",
-    "key": "Denied activity",
-    "en": "Denied activity",
-    "de": "Abgelehnte Aktivität",
-    "it": "Denied activity",
-    "fr": "Denied activity",
-    "sp": "Denied activity"
-  },
-  {
-    "Description": "",
-    "key": "New activity – Please review",
-    "en": "New activity – Please review",
-    "de": "Neue Aktivität – bitte überprüfen",
-    "it": "New activity – Please review",
-    "fr": "New activity – Please review",
-    "sp": "New activity – Please review"
-  },
-  {
-    "Description": "",
-    "key": "Changed activity – Please review",
-    "en": "Changed activity – Please review",
-    "de": "Geänderte Aktivität – bitte überprüfen",
-    "it": "Changed activity – Please review",
-    "fr": "Changed activity – Please review",
-    "sp": "Changed activity – Please review"
   },
   {
     "Description": "",

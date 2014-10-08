@@ -12,9 +12,9 @@
         <!--
 
         Zustände:
-          changeStateCtrl.activity === "new"
-          changeStateCtrl.activity === "denied"
-          changeStateCtrl.activity === "published"
+          changeStateCtrl.activity === 'new'
+          changeStateCtrl.activity === 'denied'
+          changeStateCtrl.activity === 'published'
 
           changeStateCtrl.changes === true
           changeStateCtrl.changes === false
@@ -25,162 +25,108 @@
 
         -->
 
-        <p class="alert alert-large alert-block alert-success"
-           ng-show="activity.published">
-          {{'This activity is published' | translate}}
-        </p>
+        <div class="alert alert-large alert-block alert-success"
+             ng-show="activity.published">
+          {{'published' | translate}}
+        </div>
 
-        <p class="alert alert-large alert-block alert-error"
-           ng-show="!activity.published">
-          {{'This activity is not published yet' | translate}}
-        </p>
+        <div class="alert alert-large alert-block alert-error"
+             ng-show="!activity.published">
+          {{'unpublished' | translate}}
+        </div>
 
-        <p class="alert alert-large"
-           ng-show="currentUser.user.userType === 'provider'">
-          Nachricht an den Provider
-        </p>
-
-        <div ng-controller="PublishstateCtrl as publishstatectrl"
-             ng-show="currentUser.user.userType === 'admin'"
+        <!-- Message for PROVIDER only -->
+        <div ng-show="currentUser.user.userType === 'provider'"
+             class="activitystatedescription"
             >
+          <!--NEW-->
+          <span ng-show="changeStateCtrl.activity === 'new'">
+            <p>
+              {{'this activity is under review and not published yet' | translate }}
+            </p>
+          </span>
+          <!--PUBLISHED-->
+          <span ng-show="changeStateCtrl.activity === 'published' && changeStateCtrl.changes === false">
+            <p>
+              {{'this activity is published' | translate }}
+            </p>
+          </span>
+          <!--CHANGED-->
+          <span ng-show="changeStateCtrl.changes === true">
+            <p>
+              {{'this activity is under review but still published' | translate }}
+            </p>
+          </span>
+          <!--DENIED-->
+          <span ng-show="changeStateCtrl.activity === 'denied'">
+            <p>
+              {{'this activity was denied and is not published' | translate }}
+            </p>
+          </span>
+        </div>
 
-          <span ng-switch="activity.published">
-
-            <!--ALL UNPUBLISHED ACTIVITIES-->
-
-            <!-- DENIED = unpublished + denied -->
-            <span ng-switch-when="false"
-                  class="activitystatedescription"
+        <!-- Message for ADMIN only -->
+        <div
+            ng-show="currentUser.user.userType === 'admin'"
+            class="activitystatedescription"
+            >
+          <!--NEW-->
+          <span ng-show="changeStateCtrl.activity === 'new'">
+            <p>{{'New activity – Please review' | translate }}</p>
+            <button
+                class="btn btn-mini"
+                data-ng-click="changeStateCtrl.publish($event)"
                 >
-              <span
-                  ng-show="activity.denied"
-                  >
-                <p>
-                  <b>{{'Denied activity' | translate}}</b>
-                </p>
-
-                <button
-                    class="btn btn-mini"
-                    data-ng-click="changeStateCtrl.publish($event)"
-                    >
-                  {{'publish' | translate}}
-                </button>
-              </span>
-
-              <span ng-switch="activity.unreviewedChanges > 0">
-
-                <!-- NEW = unpublished + unreviewedChanges + not denied -->
-                <span ng-switch-when="true"
-                      ng-show="!activity.denied"
-                    >
-                  <p>
-                    <b>{{'New activity – Please review' | translate}}</b>
-                  </p>
-                  <button
-                      class="btn btn-mini"
-                      data-ng-click="changeStateCtrl.verify($event)"
-                      >
-                    {{'approve' | translate}}
-                  </button>
-                  <button
-                      class="btn btn-mini btn-alert"
-                      data-ng-click="changeStateCtrl.deny($event)"
-                      >
-                    {{'deny' | translate}}
-                  </button>
-                </span>
-
-              </span>
-            </span>
-
-            <!--ALL PUBLISHED ACTIVITIES-->
-
-            <span
-                ng-switch-when="true"
-                class="activitystatedescription"
+              {{'publish' | translate}}
+            </button>
+            <button
+                class="btn btn-mini btn-alert"
+                data-ng-click="changeStateCtrl.deny($event)"
                 >
-
-              <span ng-switch="activity.unreviewedChanges > 0">
-                <span ng-switch-when="true">
-
-                  <p>
-                    <b>{{'Changed activity – Please review' | translate}}</b>
-                  </p>
-                  <button
-                      class="btn btn-mini"
-                      data-ng-click="changeStateCtrl.verify($event)"
-                      >
-                    {{'approve' | translate}}
-                  </button>
-                  <button
-                      class="btn btn-mini btn-alert"
-                      data-ng-click="changeStateCtrl.deny($event)"
-                      >
-                    {{'deny' | translate}}
-                  </button>
-
-                </span>
-                <span ng-switch-when="false">
-                  <button
-                      class="btn btn-mini btn-alert"
-                      data-ng-click="changeStateCtrl.deny($event)"
-                      >
-                    {{'deny' | translate}}
-                  </button>
-
-                </span>
-
-              </span>
-
-            </span>
-            <span ng-switch-default>-</span>
+              {{'deny' | translate}}
+            </button>
           </span>
 
-          <!--          <span ng-show="activity.unreviewedChanges > 0">
-                      + {{activity.unreviewedChanges}} changes
-                    </span>
-                    <span ng-switch="activity.published">
-                      <span ng-switch-when="false"
-                            class="btn btn-mini"
-                            data-ng-click="publishstatectrl.publish($event, activity)"
-                          >
-                        {{'publish' | translate}}
-                      </span>
-                      <span ng-switch-when="false"
-                            ng-show="!activity.denied"
-                            class="btn btn-mini"
-                            data-ng-click="publishstatectrl.deny($event, activity)"
-                          >
-                        deny
-                      </span>
-                      <span ng-switch-when="true">
-                        <span ng-switch="activity.unreviewedChanges > 0">
-                          <span ng-switch-when="true">
+          <!--PUBLISHED-->
+          <span ng-show="changeStateCtrl.activity === 'published' && changeStateCtrl.changes === false"
+          ">
+          <p>{{'this activity is published' | translate }}</p>
+          <button
+              class="btn btn-mini btn-alert"
+              data-ng-click="changeStateCtrl.deny($event)"
+              >
+            {{'deny' | translate}}
+          </button>
+          </span>
 
-                            <span class="btn btn-mini"
-                                  data-ng-click="publishstatectrl.verify($event, activity)"
-                                >
-                              verify
-                            </span>
+          <!--CHANGED-->
+          <span ng-show="changeStateCtrl.changes === true">
+            <p>{{'Changed activity – Please review' | translate }}</p>
+            <button
+                class="btn btn-mini"
+                data-ng-click="changeStateCtrl.publish($event)"
+                >
+              {{'publish' | translate}}
+            </button>
+            <button
+                class="btn btn-mini btn-alert"
+                data-ng-click="changeStateCtrl.deny($event)"
+                >
+              {{'deny' | translate}}
+            </button>
+          </span>
 
-                            <span class="btn btn-mini"
-                                  data-ng-click="publishstatectrl.remove($event, activity)"
-                                >
-                              remove
-                            </span>
+          <!--DENIED-->
+          <span ng-show="changeStateCtrl.activity === 'denied'">
+            <p>{{'Denied activity' | translate }}</p>
+            <button
+                class="btn btn-mini"
+                data-ng-click="changeStateCtrl.publish($event)"
+                >
+              {{'publish' | translate}}
+            </button>
+          </span>
 
-                          </span>
-                          <span ng-switch-when="false"
-                                class="btn btn-mini"
-                                data-ng-click="publishstatectrl.toggle($event, activity)"
-                              >
-                            {{'unpublish' | translate}}
-                          </span>
-                        </span>
-
-                      </span>
-                      <span ng-switch-default>-</span>
-                    </span>-->
         </div>
       </activitystatearea>
 

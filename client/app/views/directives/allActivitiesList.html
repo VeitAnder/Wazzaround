@@ -63,7 +63,7 @@
   <div class="listbody">
     <div class="listrow"
          ng-repeat="activity in vm.filteredActivities"
-         ng-class="{denied : activity.denied, unreviewedChanges : activity.unreviewedChanges, published : activity.published}"
+         ng-class="{denied : changeStateCtrl.activity === 'denied', new : changeStateCtrl.activity === 'new', published : changeStateCtrl.activity === 'published', changed : changeStateCtrl.changes === true}"
          data-ng-click="publishstateCtrl.open(activity)"
          ng-controller="ChangeStateCtrl as changeStateCtrl"
         >

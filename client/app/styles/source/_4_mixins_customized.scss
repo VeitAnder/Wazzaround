@@ -2969,7 +2969,8 @@ $img-selector-teasertxtheight: 32px;
     &.published {
       border-left-color: $color_green;
     }
-    &.unreviewedChanges {
+    &.changed,
+    &.new {
       background-color: $color_yellow;
     }
   }
@@ -3822,20 +3823,22 @@ action-confirmation-link {
 activitystatearea {
   display: block;
   margin-bottom: 50px;
-  //  background-color: $color_grey_15;
-  @include border(all, $color_grey_15);
-  border-width: 4px;
-  @include border-radius($border-radius);
-  padding: 5px;
   .alert.alert-large {
     margin: 0;
+    @include border-bottom-radius(0);
+    box-shadow: none;
   }
   .activitystatedescription {
-    display: block;
-    padding: 10px 10px 5px;
-    vertical-align: middle;
+    @include border(all, $color_grey_15);
+    border-width: 2px;
+    border-top: none;
+    @include border-bottom-radius($border-radius);
+    padding: 10px 15px;
     p {
-      margin: 0;
+      display: inline;
+      & + button {
+        margin-left: $fs*0.5;
+      }
     }
   }
 }
