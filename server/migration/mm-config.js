@@ -2,10 +2,10 @@ console.log("Current process.env.NODE_ENV: ", process.env.NODE_ENV);
 
 var config = require("../config.js");
 
-//if (process.env.NODE_ENV === "production") {
-//  console.error("migration on NODE_ENV=production server not allowed yet - has to be tested and secured!!!");
-//  process.exit(1);
-//}
+if (process.env.NODE_ENV === "production") {
+  console.error("migration on NODE_ENV=production server not allowed yet - has to be tested and secured!!!");
+  process.exit(1);
+}
 
 var collection = "migration";
 var directory = "migrations";
