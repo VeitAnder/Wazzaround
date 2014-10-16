@@ -122,45 +122,43 @@
 
     </div>
 
+
     <div class="map-wrap">
       <div class="map-innerwrap">
 
-        <google-map
+        <ui-gmap-google-map
             center='frontendmap.map.center'
             zoom='frontendmap.map.zoom'
             draggable='true'
             events='frontendmap.map.events'
             options='frontendmap.map.options'
             >
-          <marker
+          <ui-gmap-marker
               ng-repeat="m in states.filteredactivities = (frontendmap.map.markers | filter:selectedCategoryFilter | adddistancetosearchlocation | orderBy:'distancetosearchlocation' | markercoordsfilter) track by m._id"
               coords='m'
               click='onMarkerClicked(m)'
-              options='markerOptions'
               icon='getMarkerIcon(m)'
               idKey='m._id'
+              options="{labelContent: m.name[getAvailableTranslationLanguageKey(m.name)], labelAnchor:'22 0', labelClass: 'marker-labels marker-label-category-' + m.category.main }"
               >
 
-            <marker-label content="m.name[getAvailableTranslationLanguageKey(m.name)]"
-                          anchor="22 0"
-                          class="marker-labels marker-label-category-{{m.category.main}}"
-                />
-          </marker>
+            <!--options='markerOptions'-->
+            <!--<ui-gmap-marker-label content="m.name[getAvailableTranslationLanguageKey(m.name)]"-->
+            <!--anchor="22 0"-->
+            <!--class="marker-labels marker-label-category-{{m.category.main}}"-->
+            <!--/>-->
+          </ui-gmap-marker>
 
           <!--marker for clicked position can not put google.frontendmap.map.animations.BOUNCE , since it is not initialized yet-->
-          <div ng-init="opts = {animation:0}">
-            <marker coords="frontendmap.map.centerMarker"
-                    options="opts"
-                    idKey='1'
-                >
-              <marker-label content="frontendmap.map.centerMarker.title | translate"
-                            anchor="22 0"
-                            class="marker-labels marker-labels-your-location"
-                  />
-            </marker>
-          </div>
+          <ui-gmap-marker
+              coords="frontendmap.map.centerMarker"
+              options="{labelContent: 'your location', labelAnchor:'22 0', labelClass:'marker-labels marker-labels-your-location', draggable: true}"
+              idKey='1'
+              >
+            <!--frontendmap.map.centerMarker.title | translate-->
+          </ui-gmap-marker>
 
-        </google-map>
+        </ui-gmap-google-map>
 
       </div>
       <!-- map-innerwrap-->

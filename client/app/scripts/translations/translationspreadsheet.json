@@ -123,7 +123,7 @@
     "de": "Dieses Zeichen unterstützt Dich beim Ausfüllen des folgenden Formulars.",
     "it": "Questo segnale/simbolo vi aiuterà nella compilazione del seguente formulario/modulo",
     "fr": "Ce signal/symbole vous aidera en remplissant le formulaire suivant",
-    "sp": ""
+    "sp": "Este simbolo os aiudarà en la compilaciòn del formulario siguiente"
   },
   {
     "Description": "",
@@ -137,11 +137,11 @@
   {
     "Description": "",
     "key": "registration confirmation message 2",
-    "en": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
+    "en": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration",
     "de": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
-    "it": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
-    "fr": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
-    "sp": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!"
+    "it": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration",
+    "fr": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration",
+    "sp": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration"
   },
   {
     "Description": "",
@@ -285,7 +285,7 @@
     "de": "Möchten Sie diese Aktivität samt allen Events wirklich löschen?",
     "it": "Vuoi cancellare questa attività comprese tutti i suoi eventi?",
     "fr": "Voulez-vous supprimer cette activité, compris tous ses événements?",
-    "sp": ""
+    "sp": "Quieres borrar esta actividad y sus eventos?"
   },
   {
     "Description": "",
@@ -339,7 +339,7 @@
     "de": "Im Warenkorb",
     "it": "Nel carrello della spesa",
     "fr": "Dans le panier",
-    "sp": ""
+    "sp": "en el carrito de la compra"
   },
   {
     "Description": "",
@@ -348,7 +348,7 @@
     "de": "Zwischensumme",
     "it": "Totale parziale",
     "fr": "Sous-total",
-    "sp": ""
+    "sp": "Total parcial"
   },
   {
     "Description": "",
@@ -357,7 +357,7 @@
     "de": "Warenkorb",
     "it": "Carrello della spesa",
     "fr": "Panier",
-    "sp": ""
+    "sp": "carrito de la compra"
   },
   {
     "Description": "",
@@ -366,7 +366,7 @@
     "de": "Zahlungsmodalitäten",
     "it": "Opzioni di pagamento",
     "fr": "Options de paiement",
-    "sp": ""
+    "sp": "Opciones de pago"
   },
   {
     "Description": "",
@@ -375,7 +375,7 @@
     "de": "Verfügbare Kreditkarten",
     "it": "Carte disponibili",
     "fr": "Cartes de crédit disponibles",
-    "sp": ""
+    "sp": "Tarjetas de crédito disponibles"
   },
   {
     "Description": "",
@@ -384,7 +384,7 @@
     "de": "Kartennummer",
     "it": "Numero di carta",
     "fr": "Numéro de carte",
-    "sp": "Nùmero de tarjeta"
+    "sp": "Número de tarjeta"
   },
   {
     "Description": "",
@@ -402,7 +402,7 @@
     "de": "Name auf der Kreditkarte",
     "it": "Titolare/intestatario della carta di credito",
     "fr": "Titulaire de la carte de crédit",
-    "sp": ""
+    "sp": "titular de la tarjeta de crédito"
   },
   {
     "Description": "",
@@ -411,7 +411,7 @@
     "de": "Gültig bis (MM)",
     "it": "Data di scadenza (MM)",
     "fr": "Date d'expiration (MM)",
-    "sp": ""
+    "sp": "Fecha de caducidad (MM)"
   },
   {
     "Description": "",
@@ -420,7 +420,7 @@
     "de": "Gültig bis (JJJJ)",
     "it": "Data di scadenza (YYYY)",
     "fr": "Date d'expiration (YYYY)",
-    "sp": ""
+    "sp": "Fecha de caducidad (AAAA)"
   },
   {
     "Description": "",
@@ -429,7 +429,7 @@
     "de": "Buchung absenden",
     "it": "Invia la prenotazione",
     "fr": "Envoyer votre réservation",
-    "sp": ""
+    "sp": "Envie su reserva"
   },
   {
     "Description": "",
@@ -438,7 +438,7 @@
     "de": "Bitte geben Sie eine gültige Kartennummer ein",
     "it": "Inserire un numero di carta valido",
     "fr": "Veuillez saisir un numéro de carte valide",
-    "sp": ""
+    "sp": "Introduzca un número de tarjeta válido"
   },
   {
     "Description": "",
@@ -447,7 +447,7 @@
     "de": "Bitte geben Sie Ihre Kartennummer ein",
     "it": "Inserire il vostro numero di carta",
     "fr": "Veuillez saisir votre numéro de carte",
-    "sp": ""
+    "sp": "Introduzca su número de tarjeta"
   },
   {
     "Description": "",
@@ -456,7 +456,7 @@
     "de": "Bitte geben Sie eine gültige Prüfnummer (CVC) ein",
     "it": "Inserire un valido numero di verifica (CVC)",
     "fr": "Veuillez saisir un numéro de vérification valide (CVC)",
-    "sp": ""
+    "sp": "Introduzca un número de verificación válido (CVC)"
   },
   {
     "Description": "",
@@ -465,7 +465,7 @@
     "de": "Bitte geben Sie Ihre Prüfnummer (CVC) ein",
     "it": "Inserire il vostro numero di verifica (CVC)",
     "fr": "Veuillez saisir votre numéro de vérification (CVC)",
-    "sp": ""
+    "sp": "Introduzca su número de verificación"
   },
   {
     "Description": "",
@@ -474,7 +474,7 @@
     "de": "Bitte geben Sie eine gültigen Namen ein",
     "it": "Inserire il nome valido del titolare della carta",
     "fr": "Veuillez saisir le nom du titulaire de la carte de crédit valide",
-    "sp": ""
+    "sp": "Introduzca el nombre válido del titular de la tarjeta"
   },
   {
     "Description": "",
@@ -483,7 +483,7 @@
     "de": "Bitte geben Sie den Namen der auf der Kreditkarte steht ein",
     "it": "Inserire il nome del titolare della CC",
     "fr": "Veuillez saisir le nom du titulaire de la carte de crédit",
-    "sp": ""
+    "sp": "Introduzca el nombre del titular de la tarjeta de crédito"
   },
   {
     "Description": "",
@@ -492,7 +492,7 @@
     "de": "Bitte geben Sie eine gültige, 2-stellige Zahl ein",
     "it": "Inserire un numero valido per il mese",
     "fr": "Veuillez entrer un numéro pour le mois valide",
-    "sp": ""
+    "sp": "Introduzca un número válido para el més"
   },
   {
     "Description": "",
@@ -501,7 +501,7 @@
     "de": "Bitte geben Sie das Monat des Ablaufdatums ein",
     "it": "Inserire il mese della data di scadenza",
     "fr": "Veuillez entrer le mois de la date d'expiration",
-    "sp": ""
+    "sp": "Introduzca el mes de la fecha de caducidad"
   },
   {
     "Description": "",
@@ -510,7 +510,7 @@
     "de": "Bitte geben Sie eine gültige, 4-stellige Zahl ein",
     "it": "Inserire un numero valido per l'anno",
     "fr": "Veuillez entrer un numéro pour l'année valide",
-    "sp": ""
+    "sp": "Introduzca un número válido para el año"
   },
   {
     "Description": "",
@@ -519,7 +519,7 @@
     "de": "Bitte geben Sie das Jahr des Ablaufdatums ein",
     "it": "Inserire l'anno della data di scadenza",
     "fr": "Veuillez entrer l'année de la date d'expiration",
-    "sp": ""
+    "sp": "Introduzca el año de la fecha de caducidad"
   },
   {
     "Description": "",
@@ -573,7 +573,7 @@
     "de": "Buchungs-Übersicht",
     "it": "Prenotazioni",
     "fr": "Réservations",
-    "sp": ""
+    "sp": "Reservas"
   },
   {
     "Description": "",
@@ -582,7 +582,7 @@
     "de": "Buchungs-Datum",
     "it": "Data della prenotazione",
     "fr": "Date de réservation",
-    "sp": ""
+    "sp": "Fecha de reserva"
   },
   {
     "Description": "",
@@ -591,7 +591,7 @@
     "de": "Gebucht von",
     "it": "Prenotato da",
     "fr": "Réservé par",
-    "sp": ""
+    "sp": "Reservadi por"
   },
   {
     "Description": "",
@@ -796,9 +796,9 @@
     "key": "next day",
     "en": "next day",
     "de": "nächster Tag",
-    "it": "piú giorno",
+    "it": "prossimo gionro",
     "fr": "jour prochain",
-    "sp": ""
+    "sp": "dia sigiuente"
   },
   {
     "Description": "",
@@ -1417,9 +1417,9 @@
     "key": "period of time",
     "en": "period of time",
     "de": "Zeitraum",
-    "it": "period of time",
-    "fr": "period of time",
-    "sp": "period of time"
+    "it": "periodo di tempo",
+    "fr": "période de temps",
+    "sp": "período de tiempo"
   },
   {
     "Description": "",

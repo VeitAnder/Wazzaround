@@ -28,7 +28,7 @@ angular.module('anorakApp', [
   'ngCookies',
   'ngSanitize',
   'ngMessages',
-  'google-maps',
+  'google-maps'.ns(),
   'mgcrea.ngStrap',
   'textAngular',
   'ui.keypress',

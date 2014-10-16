@@ -2,29 +2,29 @@
   "name": "anorak",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "1.3.0-beta.18",
-    "angular-animate": "1.3.0-beta.18",
-    "angular-route": "1.3.0-beta.18",
-    "angular-sanitize": "1.3.0-beta.18",
-    "angular-cookies": "1.3.0-beta.18",
-    "angular-messages": "1.3.0-beta.18",
+    "angular": "1.3.0",
+    "angular-animate": "1.3.0",
+    "angular-route": "1.3.0",
+    "angular-sanitize": "1.3.0",
+    "angular-cookies": "1.3.0",
+    "angular-messages": "1.3.0",
     "ua-parser-js": "https://github.com/planmanager/ua-parser-js.git",
     "lodash": "2.4.1",
     "moment": "2.8.3",
     "spinjs": "1.3.2",
     "angular-ui-utils": "bower-keypress",
     "bourbon": "3.1.8",
-    "angular-google-maps": "1.2.1",
+    "angular-google-maps": "2.0.1",
     "q": "2.0.2",
     "angular-strap": "2.1.0",
     "textAngular": "1.2.1",
     "jquery": "2.1.1",
     "dropzone": "https://github.com/maximilianschmid/dropzone-patched.git",
     "cloudinary-client": "https://github.com/maximilianschmid/cloudinary-client.git",
-    "angular-translate": "2.4.0",
-    "angular-translate-storage-local": "2.4.0",
-    "angular-translate-storage-cookie": "2.4.0",
-    "angular-translate-loader-static-files": "2.4.0",
+    "angular-translate": "2.4.1",
+    "angular-translate-storage-local": "2.4.1",
+    "angular-translate-storage-cookie": "2.4.1",
+    "angular-translate-loader-static-files": "2.4.1",
     "cryptojslib": "3.1.2",
     "assert": "0.1.0",
     "gsap": "1.13.2",
@@ -32,13 +32,13 @@
     "ngstorage": "0.3.0"
   },
   "devDependencies": {
-    "angular-mocks": "1.3.0-beta.18",
-    "angular-scenario": "1.3.0-beta.18"
+    "angular-mocks": "1.3.0",
+    "angular-scenario": "1.3.0"
   },
   "resolutions": {
     "angular-translate": "2.2.0",
     "angular-translate-storage-cookie": "2.2.0",
-    "angular": "1.3.0-beta.18",
-    "angular-animate": "1.3.0-beta.18"
+    "angular": "1.3.0",
+    "angular-animate": "1.3.0"
   }
 }
