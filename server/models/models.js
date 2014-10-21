@@ -1,11 +1,11 @@
 'use strict';
+
 var models = function () {
 
-//  if (typeof window === 'undefined') {
-//    var model = require('../../../modelizer/lib/modelizer');
-//  } else {
-//    var model = require('modelizer');
-//  }
+  if (typeof window === 'undefined') {
+//    var CryptoJS = require("crypto-js");
+  }
+
   var model = require('modelizer');
 
   var Attr = model.Attr;
@@ -17,6 +17,7 @@ var models = function () {
   var Factory = model.Factory;
   var Link = model.Link;
   var Method = model.Method;
+  var RefArray = model.RefArray;
 
   var validators = {
     email: function (value) {
@@ -75,8 +76,20 @@ var models = function () {
     currentUser: Factory(),
     getProviders: Factory(),
 
-    getProfile: Operation()
+    getProfile: Operation(),
+    enteredpromocode: Attr(Type.string)
   });
+
+  var PromotionModel = new model("promotion", {
+    promocode: Attr(Type.string),
+    acquiredproviders: RefArray(UserModel)
+  });
+
+  // @TODO
+  // wenn promocode bei der Registrierung eingegeben wurde, beim user mit promocode in acquiredproviders hinzufügen
+
+  UserModel.attrObj("promotion", PromotionModel);
+
 
   var EventModel = new model("events", {
     start: Attr(Type.date),

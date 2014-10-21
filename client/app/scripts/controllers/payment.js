@@ -93,7 +93,7 @@ angular.module('anorakApp')
     };
 
     this.isPaymentFormValid = function () {
-      return $scope.paymentForm.$valid && shoppingcart.getNumberOfItems() > 0
+      return $scope.paymentForm.$valid && shoppingcart.getNumberOfItems() > 0;
     };
 
   });
