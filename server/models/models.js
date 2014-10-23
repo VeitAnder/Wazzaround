@@ -68,7 +68,7 @@ var models = function () {
     login: Operation(),
     logout: Operation(),
     register: Operation(),
-    saveUserProfile: Operation(),
+
     // TODO: add security
     userType: Attr(Type.string, Type.enum('user', 'admin', 'provider'), Attr.default('user')),
 

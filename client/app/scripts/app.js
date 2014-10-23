@@ -324,7 +324,6 @@ angular.module('anorakApp')
 
   })
   .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate, translationutils, $window) {
-    debug("application run called");
     $rootScope.debug = debug;
     $rootScope.models = models;
     var checkRouteForAuthorization;
@@ -340,7 +339,6 @@ angular.module('anorakApp')
     moment.locale($translate.use());  // setup moment language
 
     checkRouteForAuthorization = function () {
-      debug("routeChangeStart", $route.current.$$route.originalPath);
 
       // if you try to access a admin route without being authenticated -> redirect to /login
       if (!currentUser.authenticated) {

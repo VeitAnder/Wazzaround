@@ -43,12 +43,9 @@ angular.module('anorakApp')
 
         // Output token
         var token = result.token;
-        console.log("token", token);
 
         shoppingcart.checkout(token, payment.profile)
           .then(function (res) {
-            console.log("checkout response", res);
-
             payment.bookingId = res.bookingId;
             payment.readableBookingId = res.bookingId.match(/.{1,4}/g).join("-");
 

@@ -10,30 +10,30 @@
       <div class="radio">
         <label>
           <input
-              type="radio"
-              ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
-              value="published"
-              >
+            type="radio"
+            ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
+            value="published"
+            >
           <span>{{'published' | translate }}</span>
         </label>
       </div>
       <div class="radio">
         <label>
           <input
-              type="radio"
-              ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
-              value="unpublished"
-              >
+            type="radio"
+            ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
+            value="unpublished"
+            >
           <span>{{'unpublished' | translate }}</span>
         </label>
       </div>
       <div class="radio">
         <label>
           <input
-              type="radio"
-              ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
-              value="all"
-              >
+            type="radio"
+            ng-model="adminActivityFilterBarCtrl.adminActivityFilter.publishedState"
+            value="all"
+            >
           <span>{{'all' | translate }}</span>
         </label>
       </div>
@@ -44,18 +44,18 @@
         <div class="checkbox">
           <label>
             <input
-                type="checkbox"
-                ng-model="adminActivityFilterBarCtrl.adminActivityFilter.unreviewedChanges"
-                >
+              type="checkbox"
+              ng-model="adminActivityFilterBarCtrl.adminActivityFilter.unreviewedChanges"
+              >
             {{'changed activities' | translate }}
           </label>
         </div>
         <div class="checkbox">
           <label>
             <input
-                type="checkbox"
-                ng-model="adminActivityFilterBarCtrl.adminActivityFilter.denied"
-                >
+              type="checkbox"
+              ng-model="adminActivityFilterBarCtrl.adminActivityFilter.denied"
+              >
             {{'denied activities' | translate }}
           </label>
         </div>
@@ -72,7 +72,7 @@
                  ng-model="adminActivityFilterBarCtrl.adminActivityFilter.query"
                  id="filterbarquery"
                  class="form-control"
-              >
+            >
         </div>
       </div>
     </div>
@@ -106,20 +106,26 @@
   <div class="listbody">
     <div class="listrow"
          ng-repeat="activity in vm.filteredActivities | filter:adminActivityFilterBarCtrl.adminActivityFilter.query"
-         ng-class="{denied : changeStateCtrl.activity === 'denied', new : changeStateCtrl.activity === 'new', published : changeStateCtrl.activity === 'published', changed : changeStateCtrl.changes === true}"
+         ng-class="
+         {
+         denied : changeStateCtrl.activity === 'denied' && changeStateCtrl.changes === false,
+         new : changeStateCtrl.activity === 'new',
+         published : changeStateCtrl.activity === 'published',
+         changed : changeStateCtrl.changes === true
+         }"
          data-ng-click="publishstateCtrl.open(activity)"
          ng-controller="ChangeStateCtrl as changeStateCtrl"
-        >
+      >
       <div class="activity cell first"
-          >
+        >
         {{activity.name | languageselect}}
       </div>
       <div class="category-main cell"
-          >
+        >
         {{activity.category.main | translate}}
       </div>
       <div class="category-sub cell"
-          >
+        >
         <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}
         </span>
       </div>
@@ -130,22 +136,26 @@
 
       <div class="edit cell last align-right">
 
-        <span ng-switch="changeStateCtrl.activity">
-
-          <span ng-switch-when="new"
-                class="label label-info">
-            {{'new' | translate}}
-          </span>
-
-          <span ng-switch-when="denied"
-                class="label label-danger">
-            {{'denied' | translate}}
-          </span>
-
+        <!--NEW-->
+        <span
+          ng-show="changeStateCtrl.activity === 'new'"
+          class="label label-info">
+          {{'new' | translate}}
         </span>
 
-        <span class="label label-warning"
-              ng-show="changeStateCtrl.changes">
+        <!--DENIED-->
+        <span
+          ng-show="changeStateCtrl.activity === 'denied' && changeStateCtrl.changes === false"
+          class="label label-danger"
+          >
+          {{'denied' | translate}}
+        </span>
+
+        <!--CHANGED-->
+        <span
+          class="label label-warning"
+          ng-show="changeStateCtrl.changes === true"
+          >
           {{'changed' | translate}}
         </span>
 
@@ -155,13 +165,13 @@
   </div>
 
   <div
-      ng-show="vm.filteredActivities.length === 0"
-      class="filterbar-noresults"
-      >
+    ng-show="vm.filteredActivities.length === 0"
+    class="filterbar-noresults"
+    >
     {{'no results' | translate }} –
     <a
-        ng-click="publishstateCtrl.adminActivityFilter.reset()"
-        >
+      ng-click="publishstateCtrl.adminActivityFilter.reset()"
+      >
       <strong>
         {{'reset all filters' | translate }}
       </strong>
@@ -170,3 +180,4 @@
   </div>
 
 </div>
+

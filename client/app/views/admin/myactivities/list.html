@@ -23,6 +23,7 @@
          ng-repeat="activity in activities"
          ng-class="{denied : activity.denied, published : activity.published}"
          data-ng-click="open(activity)"
+         ng-controller="ChangeStateCtrl as changeStateCtrl"
       >
 
       <div class="activity cell first">
@@ -49,50 +50,43 @@
 
       <div class="edit cell last align-right">
 
-        <span ng-switch="activity.published">
+        <!--
 
-          <!--ALL UNPUBLISHED ACTIVITIES-->
+          Zustände:
+          changeStateCtrl.activity === 'new'
+          changeStateCtrl.activity === 'denied'
+          changeStateCtrl.activity === 'published'
 
-          <!-- DENIED = unpublished + denied -->
-          <span ng-switch-when="false">
-            <span
-              ng-if="activity.denied"
-              class="label label-danger"
-              >
-              {{'denied' | translate}}
-            </span>
+          changeStateCtrl.changes === true
+          changeStateCtrl.changes === false
 
-            <span ng-switch="activity.unreviewedChanges > 0">
+          Aktionen:
+          changeStateCtrl.publish($event)
+          changeStateCtrl.deny($event)
 
-              <!-- NEW = unpublished + unreviewedChanges + not denied -->
-              <span ng-switch-when="true"
-                    ng-if="!activity.denied"
-                >
+          -->
 
-                <span class="label label-info">
-                  {{'under review' | translate}}
-                </span>
-              </span>
+        <!--NEW-->
+        <span
+          ng-show="changeStateCtrl.activity === 'new'"
+          class="label label-info">
+          {{'new' | translate}}
+        </span>
 
-            </span>
-          </span>
+        <!--DENIED-->
+        <span
+          ng-show="changeStateCtrl.activity === 'denied' && changeStateCtrl.changes === false"
+          class="label label-danger"
+          >
+          {{'denied' | translate}}
+        </span>
 
-          <!--ALL PUBLISHED ACTIVITIES-->
-
-          <span ng-switch-when="true">
-
-            <span ng-switch="activity.unreviewedChanges > 0">
-              <span ng-switch-when="true">
-
-                <span class="label label-info">
-                  {{'under review' | translate}}
-                </span>
-
-              </span>
-            </span>
-
-          </span>
-          <span ng-switch-default>-</span>
+        <!--CHANGED-->
+        <span
+          class="label label-warning"
+          ng-show="changeStateCtrl.changes === true"
+          >
+          {{'under review' | translate}}
         </span>
 
       </div>
