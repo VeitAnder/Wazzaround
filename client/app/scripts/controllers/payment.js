@@ -43,12 +43,9 @@ angular.module('anorakApp')
 
         // Output token
         var token = result.token;
-        console.log("token", token);
 
         shoppingcart.checkout(token, payment.profile)
           .then(function (res) {
-            console.log("checkout response", res);
-
             payment.bookingId = res.bookingId;
             payment.readableBookingId = res.bookingId.match(/.{1,4}/g).join("-");
 
@@ -93,7 +90,7 @@ angular.module('anorakApp')
     };
 
     this.isPaymentFormValid = function () {
-      return $scope.paymentForm.$valid && shoppingcart.getNumberOfItems() > 0
+      return $scope.paymentForm.$valid && shoppingcart.getNumberOfItems() > 0;
     };
 
   });

@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h2>{{'My Acquired Providers' | translate}}</h2>
+
+      <div
+        ng-repeat="user in promotionUserList"
+        >
+      </div>
+
+      <div class="">
+        <div class="listheader">
+          <div class="activity cell first">
+            {{ 'E-mail' | translate }}
+          </div>
+          <div class="activity cell last">
+            {{ 'Name' | translate }}
+          </div>
+        </div>
+
+        <div class="listbody">
+          <div class="listrow"
+               ng-repeat="user in promotionUserList"
+            >
+            <div class="cell first">
+              {{user.email}}
+            </div>
+
+            <div class="cell last">
+              {{user.profile.firstName}}
+              {{user.profile.lastName}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

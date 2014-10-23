@@ -67,7 +67,6 @@ angular.module('anorakApp')
         else self.changes = false;
       } else if (activity.denied === true) {
         self.activity = "denied";
-
         if (activity.unreviewedChanges > 0) self.changes = true;
         else self.changes = false;
       } else {

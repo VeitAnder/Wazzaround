@@ -23,14 +23,15 @@
          ng-repeat="activity in activities"
          ng-class="{denied : activity.denied, published : activity.published}"
          data-ng-click="open(activity)"
-        >
+         ng-controller="ChangeStateCtrl as changeStateCtrl"
+      >
 
       <div class="activity cell first">
         <cloudinaryimage data-publicid="{{activity.images[0].public_id}}"
                          data-format="{{activity.images[0].format}}"
                          data-width="50"
                          data-height="50"
-            >
+          >
         </cloudinaryimage>
         {{activity.name | languageselect}}
       </div>
@@ -38,9 +39,9 @@
         {{activity.category.main | translate}}
       </div>
       <div class="category-sub cell">
-              <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}
-                <br>
-              </span>
+        <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}
+          <br>
+        </span>
       </div>
 
       <div class="location cell">
@@ -49,51 +50,43 @@
 
       <div class="edit cell last align-right">
 
-        <span ng-switch="activity.published">
+        <!--
 
-          <!--ALL UNPUBLISHED ACTIVITIES-->
+          Zustände:
+          changeStateCtrl.activity === 'new'
+          changeStateCtrl.activity === 'denied'
+          changeStateCtrl.activity === 'published'
 
-          <!-- DENIED = unpublished + denied -->
-          <span ng-switch-when="false">
-            <span
-                ng-if="activity.denied"
-                class="label label-danger"
-                >
-              {{'denied' | translate}}
-            </span>
+          changeStateCtrl.changes === true
+          changeStateCtrl.changes === false
 
-            <span ng-switch="activity.unreviewedChanges > 0">
+          Aktionen:
+          changeStateCtrl.publish($event)
+          changeStateCtrl.deny($event)
 
+          -->
 
-              <!-- NEW = unpublished + unreviewedChanges + not denied -->
-              <span ng-switch-when="true"
-                    ng-if="!activity.denied"
-                  >
+        <!--NEW-->
+        <span
+          ng-show="changeStateCtrl.activity === 'new'"
+          class="label label-info">
+          {{'new' | translate}}
+        </span>
 
-                <span class="label label-info">
-                  {{'under review' | translate}}
-                </span>
-              </span>
+        <!--DENIED-->
+        <span
+          ng-show="changeStateCtrl.activity === 'denied' && changeStateCtrl.changes === false"
+          class="label label-danger"
+          >
+          {{'denied' | translate}}
+        </span>
 
-            </span>
-          </span>
-
-          <!--ALL PUBLISHED ACTIVITIES-->
-
-          <span ng-switch-when="true">
-
-            <span ng-switch="activity.unreviewedChanges > 0">
-              <span ng-switch-when="true">
-
-                <span class="label label-info">
-                  {{'under review' | translate}}
-                </span>
-
-              </span>
-            </span>
-
-          </span>
-          <span ng-switch-default>-</span>
+        <!--CHANGED-->
+        <span
+          class="label label-warning"
+          ng-show="changeStateCtrl.changes === true"
+          >
+          {{'under review' | translate}}
         </span>
 
       </div>
@@ -102,3 +95,4 @@
 
   </div>
 </div>
+

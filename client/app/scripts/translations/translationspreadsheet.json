@@ -3688,5 +3688,14 @@
     "it": "un anno",
     "fr": "une année ",
     "sp": "one year"
+  },
+  {
+    "Description": "",
+    "key": "Promotioncode",
+    "en": "Promotioncode",
+    "de": "Promotioncode",
+    "it": "Promotioncode",
+    "fr": "Promotioncode",
+    "sp": "Promotioncode"
   }
 ]

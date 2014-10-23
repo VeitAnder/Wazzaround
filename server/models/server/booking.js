@@ -66,6 +66,9 @@ var pay = function (bookingObj, paymentToken, amount_int, currency) {
       console.log("transaction successfull");
       console.log("transaction", transaction.data);
 
+      // @TODO
+      // E-Mail versenden ohne Promise - E-Mailversand darf auch fehlschlagen
+
       // update booking state
       bookingObj.state = "booked";
       bookingObj.transactionId = transaction.data.id;

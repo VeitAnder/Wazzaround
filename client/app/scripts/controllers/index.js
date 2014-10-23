@@ -206,7 +206,6 @@ angular.module('anorakApp')
     };
 
     $scope.selectAllCategories = function () {
-      console.log("selectAllCategories");
       _.each($scope.categories, function (mainCat) {
         $scope.selectAllFromCategory(mainCat);
       });
@@ -361,9 +360,7 @@ angular.module('anorakApp')
 //
 //
 
-    $scope.putIntoShoppingCart = function (activity, event) {
-      debug("Put into shopping cart", activity, event);
-    };
+    $scope.putIntoShoppingCart = function (activity, event) { };
 
     // when user changes language, reload controller so that all translations are correct
     // when language changes globally, reset also in directive

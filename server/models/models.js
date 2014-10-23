@@ -1,11 +1,10 @@
 'use strict';
+
 var models = function () {
 
-//  if (typeof window === 'undefined') {
-//    var model = require('../../../modelizer/lib/modelizer');
-//  } else {
-//    var model = require('modelizer');
-//  }
+  //if (typeof window === 'undefined') {
+  //}
+
   var model = require('modelizer');
 
   var Attr = model.Attr;
@@ -17,6 +16,7 @@ var models = function () {
   var Factory = model.Factory;
   var Link = model.Link;
   var Method = model.Method;
+  var RefArray = model.RefArray;
 
   var validators = {
     email: function (value) {
@@ -68,15 +68,24 @@ var models = function () {
     login: Operation(),
     logout: Operation(),
     register: Operation(),
-    saveUserProfile: Operation(),
+
     // TODO: add security
     userType: Attr(Type.string, Type.enum('user', 'admin', 'provider'), Attr.default('user')),
 
     currentUser: Factory(),
     getProviders: Factory(),
+    getMyPromotedUsers : Operation(),
 
-    getProfile: Operation()
+    getProfile: Operation(),
+    enteredpromocode: Attr(Type.string)
   });
+
+  var PromotionModel = new model("promotion", {
+    promocode: Attr(Type.string),
+    acquiredproviders: RefArray(UserModel)
+  });
+
+  UserModel.attrObj("promotion", PromotionModel);
 
   var EventModel = new model("events", {
     start: Attr(Type.date),
@@ -134,7 +143,7 @@ var models = function () {
       ]
     },
 
-    // TODO security: der user könnte das hier schon auf true setzten
+    // TODO security: der user könnte das hier schon auf true setzen
     published: Attr(Type.boolean, Attr.default(false)),
     unreviewedChanges: Attr(Type.number, Attr.default(0)),
     denied: Attr(Type.boolean, Attr.default(false)),

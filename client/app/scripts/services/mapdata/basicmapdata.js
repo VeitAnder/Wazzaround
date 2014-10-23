@@ -32,9 +32,7 @@ angular.module('anorakApp')
         } else {
           geocoder = new google.maps.Geocoder();
           geocoder.geocode({ 'address': address, 'region': 'it' }, function (results, status) {
-            debug("FOUND ADDRESS!", status, results);
             if (status === "OK") {
-              debug("AM DONE GEOCODING ADDRESS");
               return defer.resolve(results[0].geometry.location);
             } else {
               debug("Status not OK!, failing", status);
@@ -86,11 +84,6 @@ angular.module('anorakApp')
       // there may be a start date and an end date or only one of them or none
       // find only activities that are within a northeast and southwest lat/lng
       var findActivities = function () {
-        debug("SEARCHING FOR NORTHEAST", map.bounds.northeast.latitude, map.bounds.northeast.longitude);
-        debug("SEARCHING FOR SOUTHWEST", map.bounds.southwest.latitude, map.bounds.southwest.longitude);
-        debug("SEARCHING FOR DATE", map.searchStartDate, map.searchEndDate);
-
-        console.log("map.searchStartDate, map.searchEndDate", map.searchStartDate, map.searchEndDate);
 
         // @TODO for Jonathan - abort filteredActivities request if new one is fired!
         return models.ActivityModel.filteredActivities({
@@ -106,7 +99,6 @@ angular.module('anorakApp')
           endDate: map.searchEndDate
         })
           .then(function (activities) {
-            debug("GOT DATE FILTERED ACTIVITIES", activities.length, activities);
             return activities;
           });
       };
@@ -264,7 +256,6 @@ angular.module('anorakApp')
       var findAddressForCoordinates = function (latitude, longitude) {
 
         var deferred = Q.defer();
-        debug("LOOKING FOR ADDRESS FOR", latitude, longitude);
 
         var latlng = new google.maps.LatLng(latitude, longitude);
 
@@ -272,7 +263,6 @@ angular.module('anorakApp')
         geocoder.geocode({ 'latLng': latlng }, function (results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
             if (results[1]) {
-              debug("GOT ADDRESS FROM COORDS", results[1]);
               deferred.resolve(results[1].formatted_address);
             } else {
               debug('No address found for coordinates');
@@ -304,7 +294,6 @@ angular.module('anorakApp')
 
         // if there are session stored, check what is stored and fill into map
         if ((Usersessionstates.states.searchlocation && Usersessionstates.states.searchlocation.coords) || !navigator.geolocation) {
-          debug("Got Usersessionstates, will set position");
 
           if (Usersessionstates.states.zoom) {
             map.zoom = Usersessionstates.states.zoom;
@@ -337,7 +326,6 @@ angular.module('anorakApp')
           // it works --> map is filled with new data, set that data to Usersessionstates
           // it fails --> map is filled with standard data, set that data to Usersessionstates
           // update Usersessionstates
-          debug("Got Nothing, will determine browser postion and set");
           navigator.geolocation.getCurrentPosition(function (position) {
             setMapCenter(position);
 

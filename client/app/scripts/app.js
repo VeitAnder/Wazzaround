@@ -174,6 +174,15 @@ angular.module('anorakApp')
           }]
         }
       })
+      .when('/admin/promotion/', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'PromotionIndexCtrl',
+        resolve: {
+          promotionUserList: ['currentUser', function (currentUser) {
+            return models.UserModel.getMyPromotedUsers();
+          }]
+        }
+      })
       .when('/admin/bookings/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminBookingsCtrl',
@@ -246,7 +255,7 @@ angular.module('anorakApp')
         resolve: {     // TODO shall be included in Operator of Activitymodel!
           activity: ['$route', 'models', function ($route, models) {
             return models.ActivityModel.get($route.current.params.id);
-          }],
+          }]
         }
       })
       .when('/payment', {
@@ -315,7 +324,6 @@ angular.module('anorakApp')
 
   })
   .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate, translationutils, $window) {
-    debug("application run called");
     $rootScope.debug = debug;
     $rootScope.models = models;
     var checkRouteForAuthorization;
@@ -331,7 +339,6 @@ angular.module('anorakApp')
     moment.locale($translate.use());  // setup moment language
 
     checkRouteForAuthorization = function () {
-      debug("routeChangeStart", $route.current.$$route.originalPath);
 
       // if you try to access a admin route without being authenticated -> redirect to /login
       if (!currentUser.authenticated) {
@@ -390,3 +397,4 @@ angular.module('anorakApp')
       autoclose: 1
     });
   }]);
+

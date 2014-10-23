@@ -103,6 +103,7 @@
     "$": true,
     "Q": true,
     "CryptoJS": true,
-    "assert": true
+    "assert": true,
+    "models": true
   }
 }
