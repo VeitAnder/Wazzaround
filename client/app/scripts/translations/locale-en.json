@@ -13,7 +13,7 @@
   "francais": "francais",
   "helptext legend": "This sign will support you filling out the following form.",
   "registration confirmation message 1": "Please confirm your e-mail address",
-  "registration confirmation message 2": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
+  "registration confirmation message 2": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration",
   "helptext": "input hint",
   "helptext activity name": "Give your activity a name! Choose a title that describes what you are offering.",
   "helptext activity meeting spot": "Allows you to choose where you will meet your customers.",
@@ -394,5 +394,6 @@
   "Contact our support": "Contact our support",
   "Orders will be possible soon": "Orders are not possible yet. This feature will be available soon!",
   "helptext autotranslation": "The activity will be automatically translated to the other languages. Changes in the other languages will be overwritten by the auto translation. ",
-  "one year": "one year"
+  "one year": "one year",
+  "Promotioncode": "Promotioncode"
 }
