@@ -5,12 +5,12 @@
   <h6>{{'Account' | translate}}</h6>
   <ul>
     <!--<li>-->
-    <!--<a href="#/admin/">Administration overview</a>-->
+    <!--<a href="/#/admin/">Administration overview</a>-->
     <!--</li>-->
     <li
       ng-show="currentUser.user.userType === 'admin' || currentUser.user.userType === 'provider'"
       >
-      <a href="#/admin/myactivities">
+      <a href="/#/admin/myactivities">
         <span>
           {{'My Activities' | translate}}
         </span>
@@ -20,7 +20,7 @@
     <li
       ng-show="currentUser.user.userType === 'admin'"
       >
-      <a href="#/admin/allactivities">
+      <a href="/#/admin/allactivities">
         <span>
           {{'Admin All Activities' | translate}}
         </span>
@@ -28,7 +28,7 @@
     </li>
 
     <li>
-      <a href="#/admin/profile">
+      <a href="/#/admin/profile">
         <span>
           {{'Profile' | translate}}
         </span>
@@ -36,7 +36,7 @@
     </li>
 
     <li>
-      <a href="#/admin/bookings">
+      <a href="/#/admin/bookings">
         <span>
           {{'Bookings' | translate}}
         </span>
@@ -46,7 +46,7 @@
     <li
       ng-show="currentUser.user.userType === 'provider'"
       >
-      <a href="#/admin/promotion/">
+      <a href="/#/admin/promotion/">
         <span>
           {{'My Acquired Providers' | translate}}
         </span>
@@ -56,7 +56,7 @@
     <li
       ng-show="currentUser.user.userType === 'admin'"
       >
-      <a href="#/admin/providers">
+      <a href="/#/admin/providers">
         <span>
           {{'Providers Overview' | translate}}
         </span>

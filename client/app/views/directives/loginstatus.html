@@ -1,13 +1,13 @@
 <div class="loginbutton"
      ng-hide='currentUser.authenticated'
     >
-  <a href="#/login/">{{'Login' | translate}}</a>
+  <a href="/#/login/">{{'Login' | translate}}</a>
 </div>
 
 <div class="loginbutton"
      ng-show='currentUser.authenticated'
     >
-  <a href="#/admin/"
+  <a href="/#/admin/"
      class="accountlink"
       >{{'Account' | translate}} (<strong>{{currentUser.user.email}}</strong>)
   </a>
