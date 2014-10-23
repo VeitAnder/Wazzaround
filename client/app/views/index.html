@@ -141,21 +141,14 @@
               idKey='m._id'
               options="{labelContent: m.name[getAvailableTranslationLanguageKey(m.name)], labelAnchor:'22 0', labelClass: 'marker-labels marker-label-category-' + m.category.main }"
               >
-
-            <!--options='markerOptions'-->
-            <!--<ui-gmap-marker-label content="m.name[getAvailableTranslationLanguageKey(m.name)]"-->
-            <!--anchor="22 0"-->
-            <!--class="marker-labels marker-label-category-{{m.category.main}}"-->
-            <!--/>-->
           </ui-gmap-marker>
 
           <!--marker for clicked position can not put google.frontendmap.map.animations.BOUNCE , since it is not initialized yet-->
           <ui-gmap-marker
               coords="frontendmap.map.centerMarker"
-              options="{labelContent: 'your location', labelAnchor:'22 0', labelClass:'marker-labels marker-labels-your-location', draggable: true}"
+              options="{labelContent: frontendmap.map.centerMarkerTitle(), labelAnchor:'22 0', labelClass:'marker-labels marker-labels-your-location', draggable: true}"
               idKey='1'
               >
-            <!--frontendmap.map.centerMarker.title | translate-->
           </ui-gmap-marker>
 
         </ui-gmap-google-map>

@@ -31,7 +31,7 @@
 
         <div class="description"
              ng-bind-html="vm.activity.description[getAvailableTranslationLanguageKey(vm.activity.description)] | nohtml | linebreak"
-            >
+          >
         </div>
 
         <!-- ## LOCATION / MAP ##################################################################################### -->
@@ -39,24 +39,22 @@
         <div class="location">
           <div class="input-label">{{'Location' | translate}}:</div>
 
-          <google-map
-              center='vm.map.center'
-              zoom='vm.map.zoom'
-              draggable='true'
-              options='vm.map.options'
-              >
-            <marker
-                coords='vm.map.markercoords'
-                icon='getMarkerIcon()'
-                idKey='1'
-                >
-              <marker-label content="vm.activity.name[getAvailableTranslationLanguageKey(vm.activity.name)]"
-                            anchor="22 0"
-                            class="marker-labels marker-label-category-{{vm.activity.category.main}}"
-                  />
-            </marker>
+          <ui-gmap-google-map
+            center='vm.map.center'
+            zoom='vm.map.zoom'
+            draggable='true'
+            options='vm.map.options'
+            >
 
-          </google-map>
+            <ui-gmap-marker
+              coords='vm.map.markercoords'
+              icon='getMarkerIcon()'
+              idKey='1'
+              options="{labelContent: vm.activity.name[getAvailableTranslationLanguageKey(vm.activity.name)], labelAnchor:'22 0', labelClass: 'marker-labels marker-label-category-' + vm.activity.category.main }"
+              >
+            </ui-gmap-marker>
+
+          </ui-gmap-google-map>
 
         </div>
 
@@ -64,13 +62,13 @@
 
         <div class="img-block img-block-right"
              ng-show="vm.activity.images.length > 0"
-            >
+          >
           <cloudinaryimage ng-repeat="image in vm.activity.images"
                            data-publicid="{{image.public_id}}"
                            data-format="{{image.format}}"
                            data-width="375"
                            data-height="225"
-              >
+            >
           </cloudinaryimage>
         </div>
 

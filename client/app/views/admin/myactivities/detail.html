@@ -53,7 +53,7 @@
           </span>
           <!--CHANGED-->
           <span
-           ng-show="changeStateCtrl.changes === true"
+            ng-show="changeStateCtrl.changes === true"
             >
             <p>
               {{'this activity is under review but still published' | translate }}
@@ -192,24 +192,25 @@
         <div class="location">
           <div class="input-label">{{'Location' | translate}}:</div>
 
-          <google-map
+          <ui-gmap-google-map
             center='map.center'
             zoom='map.zoom'
             draggable='true'
             options='map.options'
             >
-            <marker
+
+            <ui-gmap-marker
               coords='map.markercoords'
               icon='getMarkerIcon()'
               idKey='1'
+              options="{
+              labelContent: activity.name[getAvailableTranslationLanguageKey(activity.name)],
+              labelAnchor:'22 0', labelClass: 'marker-labels marker-label-category-'+activity.category.main
+              }"
               >
-              <marker-label content="activity.name[getAvailableTranslationLanguageKey(activity.name)]"
-                            anchor="22 0"
-                            class="marker-labels marker-label-category-{{activity.category.main}}"
-                />
-            </marker>
+            </ui-gmap-marker>
 
-          </google-map>
+          </ui-gmap-google-map>
 
         </div>
 

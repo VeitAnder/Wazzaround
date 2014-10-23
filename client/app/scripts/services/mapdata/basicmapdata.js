@@ -20,6 +20,10 @@ angular.module('anorakApp')
         });
       };
 
+      this.translateSearchLocation = function () {
+        return $filter('translate')('Your current search location');
+      };
+
       var setMapCenter = function (position) {
         map.center.latitude = position.coords.latitude;
         map.center.longitude = position.coords.longitude;
@@ -31,7 +35,7 @@ angular.module('anorakApp')
           defer.resolve(null);
         } else {
           geocoder = new google.maps.Geocoder();
-          geocoder.geocode({ 'address': address, 'region': 'it' }, function (results, status) {
+          geocoder.geocode({'address': address, 'region': 'it'}, function (results, status) {
             if (status === "OK") {
               return defer.resolve(results[0].geometry.location);
             } else {
@@ -220,6 +224,7 @@ angular.module('anorakApp')
           "longitude": 8.01177978515625,
           "latitude": 45.12199086176226
         },
+        centerMarkerTitle: self.translateSearchLocation,
         zoom: 9,
         markericon: "/img/mapicons/marker-sports.svg",
         templatedInfoWindow: {
@@ -260,7 +265,7 @@ angular.module('anorakApp')
         var latlng = new google.maps.LatLng(latitude, longitude);
 
         geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+        geocoder.geocode({'latLng': latlng}, function (results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
             if (results[1]) {
               deferred.resolve(results[1].formatted_address);
@@ -277,7 +282,7 @@ angular.module('anorakApp')
 
       this.getGoogleAddressAutoCompletionList = function (viewValue) {
         var params = {address: viewValue, sensor: false, language: 'en'};
-        return $http.get('https://maps.googleapis.com/maps/api/geocode/json', { params: params })
+        return $http.get('https://maps.googleapis.com/maps/api/geocode/json', {params: params})
           .then(function (res) {
             return res.data.results;
           });
@@ -404,6 +409,9 @@ angular.module('anorakApp')
       // when language changes globally, reset also in directive
       $rootScope.$on('$translateChangeSuccess', function () {
         self.setCalDaysOptions();
+
+        self.translateSearchLocation();
+
       });
 
       this.calDaysOptionsSelected = {
