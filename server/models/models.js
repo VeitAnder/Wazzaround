@@ -2,9 +2,8 @@
 
 var models = function () {
 
-  if (typeof window === 'undefined') {
-//    var CryptoJS = require("crypto-js");
-  }
+  //if (typeof window === 'undefined') {
+  //}
 
   var model = require('modelizer');
 
@@ -144,7 +143,7 @@ var models = function () {
       ]
     },
 
-    // TODO security: der user könnte das hier schon auf true setzten
+    // TODO security: der user könnte das hier schon auf true setzen
     published: Attr(Type.boolean, Attr.default(false)),
     unreviewedChanges: Attr(Type.number, Attr.default(0)),
     denied: Attr(Type.boolean, Attr.default(false)),

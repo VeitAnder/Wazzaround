@@ -259,17 +259,27 @@ UserModel.operationImpl("getMyPromotedUsers", function (params, req) {
   return UserModel.find({
     _id: req.user._id
   })
-    .then(function (user) {
-      console.log("currentUser", user);
+    .then(function (users) {
       var acquiredprovidersQ = [];
-      user.promotion.acquiredproviders.forEach(function (acquiredproviders) {
-        acquiredprovidersQ.push(acquiredproviders.load());
+      users[0].promotion.acquiredproviders.forEach(function (acquiredprovider) {
+        acquiredprovidersQ.push(acquiredprovider.load());
       });
 
-      return Q.all(acquiredprovidersQ)
-        .then(function () {
-          console.log("later", user);
-          return user;
-        });
+      return Q.all(acquiredprovidersQ);
+    })
+    .then(function (acquiredproviders) {
+
+      // only return not sensitive data
+      return _.map(acquiredproviders, function (acquiredprovider) {
+        return {
+          email: acquiredprovider.email,
+          profile: {
+            firstName: acquiredprovider.profile.firstName,
+            lastName: acquiredprovider.profile.lastName,
+            tel: acquiredprovider.profile.tel,
+            mobile: acquiredprovider.profile.mobile
+          }
+        };
+      });
     });
 });

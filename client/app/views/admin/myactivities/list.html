@@ -23,14 +23,14 @@
          ng-repeat="activity in activities"
          ng-class="{denied : activity.denied, published : activity.published}"
          data-ng-click="open(activity)"
-        >
+      >
 
       <div class="activity cell first">
         <cloudinaryimage data-publicid="{{activity.images[0].public_id}}"
                          data-format="{{activity.images[0].format}}"
                          data-width="50"
                          data-height="50"
-            >
+          >
         </cloudinaryimage>
         {{activity.name | languageselect}}
       </div>
@@ -38,9 +38,9 @@
         {{activity.category.main | translate}}
       </div>
       <div class="category-sub cell">
-              <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}
-                <br>
-              </span>
+        <span ng-repeat="subcat in activity.category.subs">{{subcat.key | translate}}
+          <br>
+        </span>
       </div>
 
       <div class="location cell">
@@ -56,19 +56,18 @@
           <!-- DENIED = unpublished + denied -->
           <span ng-switch-when="false">
             <span
-                ng-if="activity.denied"
-                class="label label-danger"
-                >
+              ng-if="activity.denied"
+              class="label label-danger"
+              >
               {{'denied' | translate}}
             </span>
 
             <span ng-switch="activity.unreviewedChanges > 0">
 
-
               <!-- NEW = unpublished + unreviewedChanges + not denied -->
               <span ng-switch-when="true"
                     ng-if="!activity.denied"
-                  >
+                >
 
                 <span class="label label-info">
                   {{'under review' | translate}}
@@ -102,3 +101,4 @@
 
   </div>
 </div>
+

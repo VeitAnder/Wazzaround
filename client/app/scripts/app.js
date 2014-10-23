@@ -180,19 +180,6 @@ angular.module('anorakApp')
         resolve: {
           promotionUserList: ['currentUser', function (currentUser) {
             return models.UserModel.getMyPromotedUsers();
-            //return currentUser.load()
-            //  .then(function (currentUser) {
-            //  });
-
-            //return currentUser.load()
-            //  .then(function (currentUser) {
-            //    console.log("currentUser", currentUser);
-            //    var acquiredprovidersQ = [];
-            //    currentUser.user.promotion.acquiredproviders.forEach(function (acquiredproviders) {
-            //      acquiredprovidersQ.push(acquiredproviders.load());
-            //    });
-            //    return Q.all(acquiredprovidersQ);
-            //  });
           }]
         }
       })
@@ -268,7 +255,7 @@ angular.module('anorakApp')
         resolve: {     // TODO shall be included in Operator of Activitymodel!
           activity: ['$route', 'models', function ($route, models) {
             return models.ActivityModel.get($route.current.params.id);
-          }],
+          }]
         }
       })
       .when('/payment', {
