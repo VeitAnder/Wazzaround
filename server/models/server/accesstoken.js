@@ -71,6 +71,8 @@ AccesstokenModel.operationImpl("setNewPassword", function (params, req) {
       if (user.email === params.email) {
         // reset password
         user.password = params.password;
+        // der user hat seine E-Mail implizit validiert weil er den Passwort-Reset Link in seinem E-Mailaccount klicken konnte
+        user.emailconfirmed = true;
         return user.save();
       } else {
         throw new Error("Authorization went wrong, accesstoken and user dont match");

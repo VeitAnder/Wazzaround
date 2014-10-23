@@ -174,6 +174,28 @@ angular.module('anorakApp')
           }]
         }
       })
+      .when('/admin/promotion/', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'PromotionIndexCtrl',
+        resolve: {
+          promotionUserList: ['currentUser', function (currentUser) {
+            return models.UserModel.getMyPromotedUsers();
+            //return currentUser.load()
+            //  .then(function (currentUser) {
+            //  });
+
+            //return currentUser.load()
+            //  .then(function (currentUser) {
+            //    console.log("currentUser", currentUser);
+            //    var acquiredprovidersQ = [];
+            //    currentUser.user.promotion.acquiredproviders.forEach(function (acquiredproviders) {
+            //      acquiredprovidersQ.push(acquiredproviders.load());
+            //    });
+            //    return Q.all(acquiredprovidersQ);
+            //  });
+          }]
+        }
+      })
       .when('/admin/bookings/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminBookingsCtrl',
@@ -390,3 +412,4 @@ angular.module('anorakApp')
       autoclose: 1
     });
   }]);
+

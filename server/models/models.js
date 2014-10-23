@@ -75,6 +75,7 @@ var models = function () {
 
     currentUser: Factory(),
     getProviders: Factory(),
+    getMyPromotedUsers : Operation(),
 
     getProfile: Operation(),
     enteredpromocode: Attr(Type.string)
@@ -85,11 +86,7 @@ var models = function () {
     acquiredproviders: RefArray(UserModel)
   });
 
-  // @TODO
-  // wenn promocode bei der Registrierung eingegeben wurde, beim user mit promocode in acquiredproviders hinzufügen
-
   UserModel.attrObj("promotion", PromotionModel);
-
 
   var EventModel = new model("events", {
     start: Attr(Type.date),

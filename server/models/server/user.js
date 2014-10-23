@@ -5,6 +5,7 @@
 var Q = require('q');
 var ObjectId = require('mongojs').ObjectId;
 var moment = require('moment');
+var _ = require('lodash');
 
 var models = require('../models.js');
 var UserModel = require('../models.js').UserModel;
@@ -26,7 +27,7 @@ UserModel.readFilter(function (req) {
 
   if (req.user.userType === 'admin') return true;  // allow admin to access all users
 
-  return {_id: ObjectId(req.user._id) };  // filter for only your documents (your user id)
+  return {_id: ObjectId(req.user._id)};  // filter for only your documents (your user id)
 });
 
 function checkRequiredFieldsForUserType(userDoc) {
@@ -162,8 +163,14 @@ var addUserToAcquiredProvidersOfPromocodeOwner = function (user, promocode) {
         return new Error("More than one owner of the promocode " + promocode);
       } else if (promocodeowners.length === 1) {
 
+        promocodeowners[0].promotion.acquiredproviders.push({
+          _reference: user._id
+        });
 
-//        promocodeowners[0].promotion.createAcquiredproviders(user);
+        // sicherstellen, dass der Promocode nur einmal angegeben werden kann
+        promocodeowners[0].promotion.acquiredproviders = _.uniq(promocodeowners[0].promotion.acquiredproviders, function (reference) {
+          return reference._reference.toString();
+        });
 
         return promocodeowners[0].save();
       } else {
@@ -233,4 +240,36 @@ UserModel.factoryImpl("getProviders", function (params, req) {
       }
     ]
   });
+});
+
+UserModel.operationImpl("getMyPromotedUsers", function (params, req) {
+  var deferred = Q.defer();
+  if (!req.isAuthenticated()) {
+    var err = new Error("Not authorized");
+    err.statusCode = 401;
+    deferred.reject(err);
+    return deferred.promise;
+  } else if (req.user.userType !== 'admin' && req.user.userType !== 'provider') {
+    var err = new Error("Not allowed");
+    err.statusCode = 405;
+    deferred.reject(err);
+    return deferred.promise;
+  }
+
+  return UserModel.find({
+    _id: req.user._id
+  })
+    .then(function (user) {
+      console.log("currentUser", user);
+      var acquiredprovidersQ = [];
+      user.promotion.acquiredproviders.forEach(function (acquiredproviders) {
+        acquiredprovidersQ.push(acquiredproviders.load());
+      });
+
+      return Q.all(acquiredprovidersQ)
+        .then(function () {
+          console.log("later", user);
+          return user;
+        });
+    });
 });
