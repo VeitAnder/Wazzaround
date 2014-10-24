@@ -32,6 +32,5 @@ var useCSRFProtection = function (app) {
 
 module.exports = {
   "allowCors": allowCors,
-  "switchToHTTPS": switchToHTTPS,
   "useCSRFProtection": useCSRFProtection
 };
