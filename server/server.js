@@ -71,7 +71,6 @@ security.initialize();                                        // Add a Mongo str
 app.use(cacheControl);
 
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "developmentmodulus") {
-  require("./servermodules/security.js").switchToHTTPS(app);
   require("./servermodules/security.js").useCSRFProtection(app);
 }
 

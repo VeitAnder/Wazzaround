@@ -17,18 +17,6 @@ var allowCors = function (app) {
   });
 };
 
-var switchToHTTPS = function (app) {
-  // always fall back to production settings when relying on unreliable process.env.NODE_ENV  !
-  app.use(function (req, res, next) {
-    var schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
-    if (schema === 'http') {
-      res.redirect('https://' + req.headers.host + req.url);
-    } else {
-      next();
-    }
-  });
-};
-
 var useCSRFProtection = function (app) {
   var csrfValue = function (req) {
 
