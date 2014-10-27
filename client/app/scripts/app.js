@@ -58,7 +58,14 @@ angular.module('anorakApp').constant('I18NMESSAGES', {
 });
 
 angular.module('anorakApp')
-  .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $translateProvider) {
+  .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $translateProvider, $compileProvider) {
+
+    // disable debugInfos except on localhost
+    if (window.location.hostname === "localhost") {
+      $compileProvider.debugInfoEnabled(true);
+    } else {
+      $compileProvider.debugInfoEnabled(false);
+    }
 
     $locationProvider.html5Mode((function () {
       return !!(window.history && history.pushState);
