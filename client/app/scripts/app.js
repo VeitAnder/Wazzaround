@@ -42,7 +42,8 @@ angular.module('anorakApp', [
   'directives.customvalidation',
   'ui.keypress',
   'pascalprecht.translate',
-  'ngStorage'
+  'ngStorage',
+  'ng-currency'
 ]);
 
 angular.module('anorakApp').constant('I18NMESSAGES', {
@@ -330,7 +331,7 @@ angular.module('anorakApp')
     $translateProvider.useLocalStorage();
 
   })
-  .run(function ($rootScope, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate, translationutils, $window) {
+  .run(function ($rootScope, $locale, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate, translationutils, $window) {
     $rootScope.debug = debug;
     $rootScope.models = models;
     var checkRouteForAuthorization;
@@ -344,6 +345,9 @@ angular.module('anorakApp')
     });
 
     moment.locale($translate.use());  // setup moment language
+
+    console.log("$translate.use()", $translate.use());
+    console.log("$locale", $locale);
 
     checkRouteForAuthorization = function () {
 

@@ -406,7 +406,7 @@
                         </div>
 
                         <div class="event-quantity cell">{{::event.quantity}}x</div>
-                        <div class="event-price cell">{{::event.price}}</div>
+                        <div class="event-price cell">{{::event.price | currency }}</div>
                         <div class="listaction cell">
                           <a class="btn btn-mini btn-ordinary"
                              ng-click="startEventEdit(event)">
@@ -465,12 +465,13 @@
                                 {{'helptext activity price' | translate}}
                               </div>
 
-                              <input type="number"
+                              <input type="text"
                                      class="form-control"
                                      ng-model="event.price"
                                      id="price"
                                      name="price"
                                      min="0"
+                                     ng-currency
                                      placeholder="{{'Price in €' | translate}}"
                                      required
                                   />

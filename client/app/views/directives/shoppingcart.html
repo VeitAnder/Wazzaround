@@ -82,7 +82,7 @@
           </div>
 
           <div class="shoppingcart-item-price">
-            € {{item.price}}
+            {{item.price | currency}}
           </div>
         </div>
 
@@ -103,7 +103,7 @@
     <span class="description">
       {{ 'Subtotal' | translate }}
     </span>
-    <span class="value">€ {{shoppingcart.getTotal().price}}</span>
+    <span class="value">{{shoppingcart.getTotal().price | currency}}</span>
   </div>
 
 </ng-form>
