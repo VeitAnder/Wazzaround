@@ -14,6 +14,7 @@ angular.module('anorakApp')
     }
 
     $scope.login = function () {
+
       // dirty hack to grab password and email when autofilled by browser - #28
       // controller should never access DOM
       var password = CryptoJS.SHA256($("#password").val()).toString(CryptoJS.enc.Base64);
