@@ -8,8 +8,9 @@
             autocomplete="on"
             action=""
             method="post"
-            ng-submit="login()"
-            target="_self">
+            ng-submit="login($event)"
+            target="_self"
+        >
 
         <h2>{{ 'Account' | translate }}</h2>
 
@@ -70,7 +71,8 @@
         <div class="form-group form-group-btn">
           <button class="btn"
                   type="submit"
-            >{{ 'Login' | translate }}
+            >
+            {{ 'Login' | translate }}
           </button>
 
           <a ng-href="/#/registration"

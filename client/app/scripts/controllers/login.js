@@ -13,7 +13,8 @@ angular.module('anorakApp')
       $location.path('/admin/');
     }
 
-    $scope.login = function () {
+    $scope.login = function (event) {
+      event.preventDefault();
 
       // dirty hack to grab password and email when autofilled by browser - #28
       // controller should never access DOM
