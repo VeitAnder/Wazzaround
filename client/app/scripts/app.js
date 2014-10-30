@@ -347,9 +347,6 @@ angular.module('anorakApp')
 
     moment.locale($translate.use());  // setup moment language
 
-    console.log("$translate.use()", $translate.use());
-    console.log("$locale", $locale);
-
     checkRouteForAuthorization = function () {
 
       // if you try to access a admin route without being authenticated -> redirect to /login
