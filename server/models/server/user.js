@@ -16,6 +16,8 @@ var mail = require('../../lib/mail.js');
 
 var security = require('../../lib/security');
 
+var assert = require('assert');
+
 ///////////////////////
 // read/write filters
 
@@ -30,44 +32,33 @@ UserModel.readFilter(function (req) {
   return {_id: ObjectId(req.user._id)};  // filter for only your documents (your user id)
 });
 
-function checkRequiredFieldsForUserType(userDoc) {
-  if (userDoc.userType === 'provider') {
-    if (!userDoc.company || !userDoc.firstName || !userDoc.lastName || !userDoc.tel || !userDoc.contactperson.name || !userDoc.address || !userDoc.zip || !userDoc.city || !userDoc.country) {
-
-      return false;
-
-    } else {
-      return true;
-    }
-  }
-}
 
 UserModel.writeFilter(function (userDoc, req) {
   if (!req.isAuthenticated()) {
     return false;  // if not logged in don't allow write operations
   }
 
-  // TODO: hier mit orginal vergleichn!
-//  if(checkRequiredFieldsForUserType(userDoc) === false) {
-//    return false;
-//  }
+  if (req.user.userType === 'admin') return true;  // allow admin to access all users
 
-  // TODO: Asyncron und funktionier (noch) nicht
-  // fields that may not be overwritten, get from db and write to userdoc
-//  models.UserModel.find({email: userDoc.email})
-//    .then(function(user) {
-//      console.log("CHECK NEW FIELDS");
-//      userDoc.registrationdate = user.registrationdate;
-//      userDoc.lastlogindate = user.lastlogindate;
-//      userDoc.userType = user.userType;
-//    });
 
   // allow the user to save his own User Object
   if (userDoc._id.toString() === req.user._id.toString()) {
-    return true;
+
+    // get orginal user object
+    return UserModel.get(userDoc._id)
+      .then(function(userObj) {
+
+        // assure no changes in the following fields:
+
+        assert(userDoc.userType === userObj.userType, 'not allowed to change userType');
+        //assert(userDoc.acl.sales === userObj.acl.sales);
+
+        return true;
+      });
+  } else {
+    return false;  // else: filter failed -> access denied
   }
 
-  return false;  // else: filter failed -> access denied
 });
 
 ///////////////////////

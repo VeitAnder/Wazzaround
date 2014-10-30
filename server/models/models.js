@@ -69,8 +69,10 @@ var models = function () {
     logout: Operation(),
     register: Operation(),
 
-    // TODO: add security
     userType: Attr(Type.string, Type.enum('user', 'admin', 'provider'), Attr.default('user')),
+    acl : {
+      sales : Attr(Type.boolean, Attr.default(false))
+    },
 
     currentUser: Factory(),
     getProviders: Factory(),
