@@ -407,7 +407,8 @@ angular.module('anorakApp')
       $scope.state.actionlinkisopen = false;
     };
 
-    $scope.datePickerMinDate = moment(event.start).add('days', 1).toDate();
-    $scope.datePickerMaxDate = moment(event.start).add('years', 1).toDate();
+    // TODO - bessere Lösung für maxDate/minDate bei sich wiederholenden events finden - sollten auf event.start date basieren
+    $scope.datePickerMinDate = moment().add('days', 1).toDate();
+    $scope.datePickerMaxDate = moment().add('years', 1).toDate();
 
   });
