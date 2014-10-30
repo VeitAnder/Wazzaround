@@ -28,6 +28,7 @@ angular.module('anorakApp', [
   'ngCookies',
   'ngSanitize',
   'ngMessages',
+  'ui.bootstrap',
   'google-maps'.ns(),
   'mgcrea.ngStrap',
   'textAngular',

@@ -26,7 +26,7 @@
 
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-      >
+    >
 
   <title>reActure - find your activity</title>
 
@@ -39,10 +39,12 @@
 
   <!--fonts-->
   <link rel='stylesheet'
-        href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+        href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
+    >
   <link href='https://fonts.googleapis.com/css?family=Lato'
         rel='stylesheet'
-        type='text/css'>
+        type='text/css'
+    >
   <!--fonts end-->
 
   <meta name="apple-mobile-web-app-title"
@@ -55,7 +57,7 @@
 <body ng-controller="AppCtrl">
 
 <noscript
-    >
+  >
   <style type="text/css">
     .uservoice-custom {
       display: none;
@@ -64,14 +66,17 @@
     body {
       width: 100%;
       min-width: 100%;
-      padding:30px;
-      padding-top:0px;
+      padding: 30px;
+      padding-top: 0px;
     }
   </style>
 
   <img src="/img/reacture_logo.png"/>
   <p>
-    <strong>Please turn on JavaScript. <br/> Thank you!</strong>
+    <strong>Please turn on JavaScript.
+      <br/>
+            Thank you!
+    </strong>
   </p>
 
   <p>
@@ -111,7 +116,7 @@
     }
 
     function A(a, b) {
-      return!!~("" + a).indexOf(b)
+      return !!~("" + a).indexOf(b)
     }
 
     function B(a, b, d) {
@@ -119,7 +124,7 @@
         var f = b[a[e]];
         if (f !== c)return d === !1 ? a[e] : z(f, "function") ? f.bind(d || b) : f
       }
-      return!1
+      return !1
     }
 
     var d = "2.7.1", e = {}, f = !0, g = b.documentElement, h = "modernizr", i = b.createElement(h), j = i.style, k, l = {}.toString, m = " -webkit- -moz- -o- -ms- ".split(" "), n = {svg: "http://www.w3.org/2000/svg"}, o = {}, p = {}, q = {}, r = [], s = r.slice, t, u = function (a, c, d, e) {
@@ -147,11 +152,11 @@
       return e
     }), o.touch = function () {
       var c;
-      return"ontouchstart"in a || a.DocumentTouch && b instanceof DocumentTouch ? c = !0 : u(["@media (", m.join("touch-enabled),("), h, ")", "{#modernizr{top:9px;position:absolute}}"].join(""), function (a) {
+      return "ontouchstart"in a || a.DocumentTouch && b instanceof DocumentTouch ? c = !0 : u(["@media (", m.join("touch-enabled),("), h, ")", "{#modernizr{top:9px;position:absolute}}"].join(""), function (a) {
         c = a.offsetTop === 9
       }), c
     }, o.svg = function () {
-      return!!b.createElementNS && !!b.createElementNS(n.svg, "svg").createSVGRect
+      return !!b.createElementNS && !!b.createElementNS(n.svg, "svg").createSVGRect
     };
     for (var C in o)w(o, C) && (t = C.toLowerCase(), e[t] = o[C](), r.push((e[t] ? "" : "no-") + t));
     return e.addTest = function (a, b) {
@@ -240,7 +245,8 @@
 <script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/angular-messages/angular-messages.js"></script>
-<script src="bower_components/angular-i18n/angular-locale_de.js"></script> <!-- settings for currency formating -->
+<script src="bower_components/angular-i18n/angular-locale_de.js"></script>
+<!-- settings for currency formating -->
 <script src="bower_components/angular-translate/angular-translate.js"></script>
 <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
 <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
@@ -267,6 +273,8 @@
 <script src="bower_components/assert/assert.js"></script>
 <script src="bower_components/ngstorage/ngStorage.js"></script>
 <script src="bower_components/ng-currency/dist/ng-currency.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -363,10 +371,10 @@
 
 <script type="text/javascript">
   angular.module('anorakApp')
-      .factory('APP_CLIENTINFO', function () {
-        "use strict";
-        return APP_CLIENTINFO;
-      });
+    .factory('APP_CLIENTINFO', function () {
+      "use strict";
+      return APP_CLIENTINFO;
+    });
 </script>
 
 <script type="text/javascript">
@@ -383,7 +391,7 @@
       (i[r].q = i[r].q || []).push(arguments)
     }, i[r].l = 1 * new Date();
     a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
+      m = s.getElementsByTagName(o)[0];
     a.async = 1;
     a.src = g;
     m.parentNode.insertBefore(a, m)
@@ -450,7 +458,7 @@
 
 <div class="uservoice-custom small"
      data-uv-trigger
-    >
+  >
   <a href="mailto:dev@reacture.com">
     <span class="icon"></span>
     <span class="txt">{{ 'Contact our support' | translate }}!</span>

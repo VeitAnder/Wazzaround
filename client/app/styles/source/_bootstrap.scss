@@ -41,11 +41,11 @@ $container-lg:                 $container-large-desktop;
 @import "bootstrap-sass/lib/_grid.scss";
 //@import "bootstrap-sass/lib/tables";
 //@import "bootstrap-sass/lib/forms";
-//@import "bootstrap-sass/lib/buttons";
+@import "bootstrap-sass/lib/buttons";
 //
 //// Components
 //@import "bootstrap-sass/lib/component-animations";
-//@import "bootstrap-sass/lib/glyphicons";
+@import "bootstrap-sass/lib/glyphicons";
 @import "bootstrap-sass/lib/dropdowns";
 //@import "bootstrap-sass/lib/button-groups";
 @import "bootstrap-sass/lib/input-groups";

@@ -3,40 +3,41 @@
 // import the good parts of the great compass framework for backward compatibility reasons
 @import './compasscompatibility/_compasslib';
 
-
 /*
  * aio_feedit
  * z-index space:
  * 10000 - 11000
- * 
+ *
  * normal styles z-index
  * 0-10000
  */
 
 $baseurl: "reacture.com";
 
-$outline: false; //outine block level elements
-
-
-
+$outline: false;
+//outine block level elements
 
 // C O N S T A N T S
 // ############################################################################################################################
 // ############################################################################################################################
 // ############################################################################################################################
 
-$bu: 15px; //Base unit
-
+$bu: 15px;
+//Base unit
 
 // F O N T   S I Z E S
 // ############################################################################################################################
 // ############################################################################################################################
 
-$fs: 16px;  // Font-size
+$fs: 16px;
+// Font-size
 
-$font-size_small_factor: 0.75; // = 12px
-$font-size_smallbutton_factor: 0.875; // = 14px
-$font-size_large_factor: 1.25; // = 20px
+$font-size_small_factor: 0.75;
+// = 12px
+$font-size_smallbutton_factor: 0.875;
+// = 14px
+$font-size_large_factor: 1.25;
+// = 20px
 $font-weight_extrabold: 800;
 $font-weight_bold: 600;
 $font-weight_light: 200;
@@ -45,24 +46,27 @@ $line-height_factor: 1.4;
 $line-height_headline-factor: 1.2;
 
 // Headline factor ( e.g. $fs*$font-size_h1_factor / $fs*$font-size_h1_factor*$line-height_factor )
-$font-size_h1_factor: 4.375; // = 70px
-$font-size_h2_factor: 3.125; // = 50px
-$font-size_h3_factor: 2.250; // = 36px
-$font-size_h4_factor: 1.500; // = 24px
-$font-size_h5_factor: 1.250; // = 20px
-$font-size_h6_factor: 1.000; // = 16px
-
+$font-size_h1_factor: 4.375;
+// = 70px
+$font-size_h2_factor: 3.125;
+// = 50px
+$font-size_h3_factor: 2.250;
+// = 36px
+$font-size_h4_factor: 1.500;
+// = 24px
+$font-size_h5_factor: 1.250;
+// = 20px
+$font-size_h6_factor: 1.000;
+// = 16px
 
 // Media queries factor
 $fs-md: 0.85;
 $fs-sm: 0.85;
 $fs-nocol: 0.85;
 
-
 // MOBILE FONT SIZES
 // ############################################################################################################################
 $fs_mobile: 12px;
-
 
 // S E P E R A T O R S   &   B O R D E R S
 // ############################################################################################################################
@@ -74,52 +78,51 @@ $seperator-width: 1px;
 $border-style: solid;
 $border-width: 1px;
 
-$border-radius_mini:  2px;
+$border-radius_mini: 2px;
 $border-radius_small: 3px;
-$border-radius      : 6px;
+$border-radius: 6px;
 $border-radius_large: 9px;
 
 $image_border_padding: 0;
 $image_border_width: $border-width;
 $image_border_style: solid;
 
-
-
-
 // T R A N S I T I O N S
 // ############################################################################################################################
 // ############################################################################################################################
 
-$transition-duration : 0.25s;
-$transition-function : ease-in-out;
+$transition-duration: 0.25s;
+$transition-function: ease-in-out;
 
-$animation           : true; // 'true' or 'false'
-
+$animation: true;
+// 'true' or 'false'
 
 // B E H A V I O U R S
 // ############################################################################################################################
 // ############################################################################################################################
 
-$hd               : true;// 'true' or 'false'
-
+$hd: true;
+// 'true' or 'false'
 
 // T E M P L A T E
 // ############################################################################################################################
 // ############################################################################################################################
 // ############################################################################################################################
 
-$pagewidth: 940px; // = Content Width
+$pagewidth: 940px;
+// = Content Width
 
-$pagepadding: 0; // Pageblock Padding Left/right -> pagepadding*2 + pagewidth dürfen maximal 1000 px gross sein
+$pagepadding: 0;
+// Pageblock Padding Left/right -> pagepadding*2 + pagewidth dürfen maximal 1000 px gross sein
 
-$pagetype: fullwidth; // 'page' or 'fullwidth'
+$pagetype: fullwidth;
+// 'page' or 'fullwidth'
 
 //$pagemargin defines top/bottom margin of .page container
-$pagemargin: 0px; 
-@if $pagetype == page{
+$pagemargin: 0px;
+@if $pagetype == page {
   $pagemargin: 30px; // is only needed for $pagetype: page;
 }
-
 
 $pagelayout-colspace: 20px;
 
@@ -132,10 +135,9 @@ $shoppingcart-rightside-width: 330px;
 $shoppingcart-toggle-width: 40px;
 $footer-height: 50px;
 
-*{
+* {
   @include box-sizing(border-box);
 }
-
 
 // F O N T S
 // ############################################################################################################################
@@ -144,23 +146,20 @@ $footer-height: 50px;
 
 $sysfont_01: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-$webfont_01: chunkfive-webfont; // filename in 'fonts'
-
-
-
+$webfont_01: chunkfive-webfont;
+// filename in 'fonts'
 
 // I M A G E S   &   D E S I G N
 // ############################################################################################################################
 // ############################################################################################################################
 // ############################################################################################################################
 
-
 // LOGO
 // ############################################################################################################################
 // ############################################################################################################################
 
-$width_logo  : 250px;
-$height_logo : 56px;
+$width_logo: 250px;
+$height_logo: 56px;
 
 // SPRITES
 // ############################################################################################################################
@@ -193,7 +192,6 @@ $img_path: '/img/';
   background-repeat: $repeat;
 }
 
-
 @mixin img($file, $x, $y, $repeat) {
   .svg & {
     background-image: url('#{$img_path}#{$file}.svg');
@@ -205,15 +203,10 @@ $img_path: '/img/';
   background-repeat: $repeat;
 }
 
-
-
-
-
-
-*[ng-click]{
+*[ng-click] {
   @include user-select(none);
-  &:hover{
-    cursor:pointer;
+  &:hover {
+    cursor: pointer;
   }
 }
 
@@ -222,7 +215,18 @@ img {
   vertical-align: middle;
 }
 
-
-
 // welcome to the party bootsrap
 @import "_bootstrap";
+
+//overrule bootstrap-disable events
+// @TODO - cleaner overrule of this bootsrap behaviour
+&.disabled,
+&[disabled],
+fieldset[disabled] &,
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  cursor: auto;
+  //  https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
+  pointer-events: auto; // Future-proof disabling of clicks
+}
