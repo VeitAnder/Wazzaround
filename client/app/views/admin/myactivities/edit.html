@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row"
          ng-class="{deletemode:state.actionlinkisopen}"
-        >
+      >
       <div class="col-sm-12">
 
         <h2>
@@ -34,7 +34,7 @@
         <form name="valForm"
               class="activity-edit"
               novalidate
-            >
+          >
 
           <fieldset>
             <legend>{{'Global Activity Info' | translate}}:</legend>
@@ -52,16 +52,16 @@
                      placeholder="i.e. Quad Tours (250ccm, 550ccm, 750ccm)"
                      ng-model="activity.name[getInputLanguage()]"
                      required
-                  >
+                >
 
               <ng-messages
-                  for="valForm.activityname.$error"
-                  ng-show="state.submitted"
-                  >
+                for="valForm.activityname.$error"
+                ng-show="state.submitted"
+                >
                 <ng-message
-                    when="required"
-                    class="alert alert-error"
-                    >
+                  when="required"
+                  class="alert alert-error"
+                  >
                   {{'Please enter the name of the activity/activities.' | translate}}
                 </ng-message>
               </ng-messages>
@@ -79,25 +79,25 @@
                       ng-model="activity.category.main"
                       ng-change="onMainCategoryChanged()"
                       required
-                  >
+                >
                 <option disabled="disabled">{{'Select Main Category' | translate}}</option>
                 <option
-                    ng-repeat="category in categories"
-                    value="{{category.key}}"
-                    ng-selected="activity.category.main === category.key"
-                    >
+                  ng-repeat="category in categories"
+                  value="{{category.key}}"
+                  ng-selected="activity.category.main === category.key"
+                  >
                   {{category.key | translate}}
                 </option>
               </select>
 
               <ng-messages
-                  for="valForm.categoryMain.$error"
-                  ng-show="state.submitted"
-                  >
+                for="valForm.categoryMain.$error"
+                ng-show="state.submitted"
+                >
                 <ng-message
-                    when="required"
-                    class="alert alert-error"
-                    >
+                  when="required"
+                  class="alert alert-error"
+                  >
                   {{'Please select a category.' | translate}}
                 </ng-message>
               </ng-messages>
@@ -106,19 +106,19 @@
 
             <div class="form-group"
                  data-ng-show="activity.category.main"
-                >
+              >
               <div class="input-label">{{'Sub Category' | translate}}</div>
 
               <div
-                  class="checkbox"
-                  ng-repeat="subcategory in vm.subcategories"
-                  >
+                class="checkbox"
+                ng-repeat="subcategory in vm.subcategories"
+                >
                 <label>{{subcategory.key | translate}}
                   <input type="checkbox"
                          ng-model="subcategory.selected"
                          ng-change="onSubCategoryChanged()"
                          ng-disabled="!subcategory.selected && activity.category.subs.length >= 2"
-                      />
+                    />
                 </label>
               </div>
 
@@ -136,22 +136,22 @@
             <div class="form-group">
               <label>{{'Short Description' | translate}}</label>
               <input
-                  maxlength="80"
-                  class="form-control"
-                  ng-model="activity.shortdescription[getInputLanguage()]"
-                  name="shortdescription"
-                  id="shortdescription"
-                  required
-                  />
+                maxlength="80"
+                class="form-control"
+                ng-model="activity.shortdescription[getInputLanguage()]"
+                name="shortdescription"
+                id="shortdescription"
+                required
+                />
 
               <ng-messages
-                  for="valForm.shortdescription.$error"
-                  ng-show="state.submitted"
-                  >
+                for="valForm.shortdescription.$error"
+                ng-show="state.submitted"
+                >
                 <ng-message
-                    when="required"
-                    class="alert alert-error"
-                    >
+                  when="required"
+                  class="alert alert-error"
+                  >
                   {{'Please enter a shortdescription.' | translate}}
                 </ng-message>
               </ng-messages>
@@ -167,30 +167,30 @@
               </div>
 
               <textarea
-                  class="form-control"
-                  ng-model="activity.description[getInputLanguage()]"
-                  name="description"
-                  rows="10"
-                  ng-minlength="150"
-                  required
-                  >
+                class="form-control"
+                ng-model="activity.description[getInputLanguage()]"
+                name="description"
+                rows="10"
+                ng-minlength="150"
+                required
+                >
               </textarea>
 
               <ng-messages
-                  for="valForm.description.$error"
-                  ng-show="state.submitted"
-                  >
+                for="valForm.description.$error"
+                ng-show="state.submitted"
+                >
                 <ng-message
-                    when="required"
-                    class="alert alert-error"
-                    >
+                  when="required"
+                  class="alert alert-error"
+                  >
                   {{'Please enter a description.' | translate}}
                 </ng-message>
 
                 <ng-message
-                    when="minlength"
-                    class="alert alert-error"
-                    >
+                  when="minlength"
+                  class="alert alert-error"
+                  >
                   {{'Please enter a description which is at least 150 characters long.' | translate}}
                 </ng-message>
               </ng-messages>
@@ -200,26 +200,26 @@
             <imageselector class="form-group img-selector">
               <label>{{'Images' | translate}}</label>
               <imagewrap
-                  data-ng-repeat="image in activity.images"
-                  >
+                data-ng-repeat="image in activity.images"
+                >
                 <cloudinaryimage data-publicid="{{image.public_id}}"
                                  data-format="{{image.format}}"
                                  data-width="200"
                                  data-height="115"
 
-                    >
+                  >
                 </cloudinaryimage>
                 <div class="img-edit">
                   <a class="delete"
                      ng-click="removeImage(image, $index)"
-                      >
+                    >
                     <span>{{'delete' | translate}}</span>
                   </a>
 
                   <a class="maketeaserimage"
                      ng-hide="$index === 0"
                      ng-click="makeTeaserImage($index)"
-                      >
+                    >
                     <span>{{'maketeaser' | translate}}</span>
                   </a>
 
@@ -317,14 +317,14 @@
               <div class="bookableitem bookableitem-add"
                    ng-repeat="(idx, bookableItem) in activity.bookableItems"
                    ng-class="{deletemode: bookableItem.deletemode }"
-                  >
+                >
 
                 <div class="bookableitem-header">
                   <ng-form name="bookableItemForm">
 
                     <div
-                        class="buttonbar buttonbar-top"
-                        >
+                      class="buttonbar buttonbar-top"
+                      >
 
                       <a ng-click="bookableItem.deletemode = true"
                          ng-show="!bookableItem.deletemode"
@@ -336,12 +336,12 @@
                         {{'Delete bookable item with all events?' | translate}}
                         <a ng-click="removeItem(activity, idx)"
                            class="btn btn-alert btn-mini space-left"
-                            >{{'yes, delete' | translate}}
+                          >{{'yes, delete' | translate}}
                         </a>
 
                         <a ng-click="bookableItem.deletemode = false"
                            class="btn btn-mini space-left"
-                            >{{'no' | translate}}
+                          >{{'no' | translate}}
                         </a>
 
                       </div>
@@ -366,7 +366,7 @@
                              id="itemDescription"
                              name="itemDescription"
                              required
-                          >
+                        >
                       <span ng-show="bookableItemForm.itemDescription.$invalid && (bookableItemForm.itemDescription.$dirty || state.submitted)"
                             class="alert alert-error">
                         {{'Please enter a description.' | translate}}
@@ -394,7 +394,7 @@
 
                     <eventrow class="event-row"
                               ng-repeat="(idx,event) in bookableItem.events"
-                        >
+                      >
 
                       <!--use ng-if to refresh one-time bound data after event edit -->
                       <eventview ng-if="event.mode != 'edit' && event.mode != 'new'">
@@ -422,7 +422,7 @@
                       <!--use ng-if to refresh one-time bound data after event edit -->
                       <eventedit class="eventedit"
                                  ng-if="event.mode == 'edit' || event.mode == 'new'"
-                          >
+                        >
 
                         <ng-form name="eventForm">
 
@@ -446,11 +446,11 @@
                                      ng-model="event.quantity"
                                      min="1"
                                      required
-                                  >
+                                >
 
                               <span ng-show="eventForm.quantity.$invalid && (eventForm.quantity.$dirty || state.submitted || eventForm.submitted)"
                                     class="alert alert-error"
-                                  >
+                                >
                                 {{'error message event number' | translate}}
                               </span>
 
@@ -474,7 +474,7 @@
                                      ng-currency
                                      placeholder="{{'Price in €' | translate}}"
                                      required
-                                  />
+                                />
 
                               <span ng-show="eventForm.price.$invalid && (eventForm.price.$dirty || state.submitted || eventForm.submitted)"
                                     class="alert alert-error">
@@ -494,7 +494,7 @@
                                'switch-off': !event.repeating,
                                'switch-on': event.repeating
                                }"
-                                >
+                              >
                               <div class="switch-label">
                                 <h6 class="no-margin-bottom no-margin-top">
                                   {{'recurring Event' | translate}}
@@ -503,7 +503,7 @@
                               <input type="checkbox"
                                      ng-model="event.repeating"
                                      style="display:none;"
-                                  >
+                                >
                               <div class="switch">
                                 <span class="switch-label-i"></span>
                                 <span class="switch-label-o"></span>
@@ -519,109 +519,109 @@
                                 translate }}
                               </div>
 
-                              <div class="form-group-inline form-group-inline-5050">
-                                <div class="form-group">
+                              <div class="form-group">
+                                <label>
+                                  {{'events on these weekdays' | translate }}
+                                </label>
+
+                                <div class="checkbox">
                                   <label>
-                                    {{'events on these weekdays' | translate }}
+                                    <input type="checkbox"
+                                           ng-model="event.dayOfWeek.day1">
+                                    {{'Mon' | translate}}
                                   </label>
-
-                                  <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox"
-                                             ng-model="event.dayOfWeek.day1">
-                                      {{'Mon' | translate}}
-                                    </label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox"
-                                             ng-model="event.dayOfWeek.day2">
-                                      {{'Tue' | translate}}
-                                    </label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox"
-                                             ng-model="event.dayOfWeek.day3">
-                                      {{'Wed' | translate}}
-                                    </label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox"
-                                             ng-model="event.dayOfWeek.day4">
-                                      {{'Thu' | translate}}
-                                    </label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox"
-                                             ng-model="event.dayOfWeek.day5">
-                                      {{'Fri' | translate}}
-                                    </label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox"
-                                             ng-model="event.dayOfWeek.day6">
-                                      {{'Sat' | translate}}
-                                    </label>
-                                  </div>
-                                  <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox"
-                                             ng-model="event.dayOfWeek.day0"
-                                             ng-required="!isAtLeastOneWeekdaySelected(event) && event.repeating"
-                                          >
-                                      {{'Sun' | translate}}
-                                    </label>
-                                  </div>
-
-                                  <br/>
-
-                                  <span ng-show="(state.submitted || eventForm.submitted) && !isAtLeastOneWeekdaySelected(event)"
-                                        class="alert alert-error"
+                                </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox"
+                                           ng-model="event.dayOfWeek.day2">
+                                    {{'Tue' | translate}}
+                                  </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox"
+                                           ng-model="event.dayOfWeek.day3">
+                                    {{'Wed' | translate}}
+                                  </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox"
+                                           ng-model="event.dayOfWeek.day4">
+                                    {{'Thu' | translate}}
+                                  </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox"
+                                           ng-model="event.dayOfWeek.day5">
+                                    {{'Fri' | translate}}
+                                  </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox"
+                                           ng-model="event.dayOfWeek.day6">
+                                    {{'Sat' | translate}}
+                                  </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox"
+                                           ng-model="event.dayOfWeek.day0"
+                                           ng-required="!isAtLeastOneWeekdaySelected(event) && event.repeating"
                                       >
-                                    {{'Please select at least one day for repeating event.' | translate}}
-                                  </span>
+                                    {{'Sun' | translate}}
+                                  </label>
+                                </div>
+
+                                <br/>
+
+                                <span ng-show="(state.submitted || eventForm.submitted) && !isAtLeastOneWeekdaySelected(event)"
+                                      class="alert alert-error"
+                                  >
+                                  {{'Please select at least one day for repeating event.' | translate}}
+                                </span>
+
+                              </div>
+
+                              <div
+                                class="form-group date-until"
+                                >
+                                <label for="dateuntil">{{'recurring event until' | translate }}</label>
+
+                                {{ event.endrepeatDate | momentjs:{format: "ddd, MMM D YYYY"} }}
+                                <div style="min-height:290px;">
+                                  <datepicker
+                                    ng-model="event.endrepeatDate"
+                                    show-weeks="true"
+                                    ng-required="event.repeating"
+                                    data-min-date="datePickerMinDate"
+                                    data-max-date="datePickerMaxDate"
+                                    id="dateuntil"
+                                    name="dateuntil"
+                                    >
+                                  </datepicker>
 
                                 </div>
 
-                                <div class="form-group date-until first">
-                                  <label for="dateuntil">{{'recurring event until' | translate }}</label>
-                                  <input
-                                      bs-datepicker
-                                      type="text"
-                                      class="form-control"
-                                      ng-model="event.endrepeatDate"
-                                      data-min-date="{{event.start}}"
-                                      data-max-date="{{ moment(event.start).add('years', 1).toDate() }}"
-                                      data-autoclose="1"
-                                      placeholder="{{'Date' | translate}}"
-                                      id="dateuntil"
-                                      name="dateuntil"
-                                      ng-required="event.repeating"
-                                      >
-
-                                  <span ng-show="(state.submitted || eventForm.submitted) && eventForm.dateuntil.$error.required"
-                                        class="alert alert-error"
-                                      >
-                                    {{'Please select a date until which the repeating events should be created' |
-                                    translate}}
-                                  </span>
-                                </div>
+                                <span ng-show="(state.submitted || eventForm.submitted) && eventForm.dateuntil.$error.required"
+                                      class="alert alert-error"
+                                  >
+                                  {{'Please select a date until which the repeating events should be created' |
+                                  translate}}
+                                </span>
                               </div>
 
                             </div>
                           </div>
 
-                          <!-- REPEATING EVENT end -->
-
                           <div class="buttonbar">
                             <a class="btn btn-small"
                                ng-click="createEventSeries(bookableItem, event, eventForm);"
                                ng-class="{disabled: eventForm.$invalid}"
-                                >
+                              >
 
                               <span ng-show="!event.repeating">
                                 {{'save event' | translate}}
@@ -637,14 +637,14 @@
                             <a ng-show="event.mode === 'new'"
                                ng-click="removeEvent(bookableItem, $index)"
                                class="space-left"
-                                >
+                              >
                               {{'cancel' | translate}}
                             </a>
 
                             <a ng-show="event.mode !== 'new'"
                                ng-click="cancelEventEdit(event)"
                                class="space-left"
-                                >
+                              >
                               {{'cancel' | translate}}
                             </a>
 
@@ -689,15 +689,15 @@
 
             <div class="cell">
               <action-confirmation-link
-                  ng-show="!isNewMode()"
+                ng-show="!isNewMode()"
 
-                  action="delete()"
-                  label="{{'delete' | translate}}"
-                  confirmation-label="{{'yes, delete' | translate}}"
-                  confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
-                  cancel-label="{{'no' | translate}}"
-                  is-open="state.actionlinkisopen"
-                  >
+                action="delete()"
+                label="{{'delete' | translate}}"
+                confirmation-label="{{'yes, delete' | translate}}"
+                confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
+                cancel-label="{{'no' | translate}}"
+                is-open="state.actionlinkisopen"
+                >
               </action-confirmation-link>
             </div>
 
@@ -705,12 +705,12 @@
               <button class="btn"
                       ng-click="save()"
                       ng-class="{disabled: valForm.$invalid || !additionalFormChecks()}"
-                  >
+                >
                 {{'save' | translate}}
               </button>
               <a class="cancel"
                  ng-click="cancel()"
-                  >
+                >
                 {{'cancel' | translate}}
               </a>
 
@@ -720,7 +720,7 @@
           <div ng-show="(valForm.$invalid || !additionalFormChecks() ) && state.submitted"
                class="alert alert-error align-right"
                style="float:right;"
-              >
+            >
             {{'Form can not be saved. Please fill in all required form fields first.' | translate}}
           </div>
 

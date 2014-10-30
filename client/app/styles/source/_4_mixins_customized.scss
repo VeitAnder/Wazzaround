@@ -3195,60 +3195,6 @@ label + .language-tabs {
   }
 }
 
-.datepicker {
-  min-width: 300px;
-  padding: 10px;
-  button {
-    &.btn-block {
-      display: block;
-      width: 100%;
-    }
-    &.pull-right, &.pull-left {
-      width: 30px;
-      height: 20px;
-      @include sprite_icons(-13px, -58px, no-repeat);
-    }
-    &.pull-left {
-      @include transform(rotate(180deg));
-    }
-  }
-}
-
-.timepicker {
-  padding: 10px;
-  button.btn-default {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  .glyphicon-chevron-down, .glyphicon-chevron-up {
-    display: block;
-    width: 30px;
-    height: 20px;
-    @include sprite_icons(-13px, -58px, no-repeat);
-    @include transform(rotate(90deg));
-  }
-  .glyphicon-chevron-up {
-    @include transform(rotate(270deg));
-  }
-}
-
-.datepicker.dropdown-menu button {
-  outline: 0;
-  border: 0
-}
-
-.datepicker.dropdown-menu tbody {
-  height: 180px
-}
-
-.datepicker.dropdown-menu tbody button {
-  padding: 6px
-}
-
-.datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
-  height: 65px
-}
-
 // https://github.com/fraywing/textAngular/wiki/Getting-Started
 .ta-editor {
   min-height: 150px;
@@ -3881,13 +3827,13 @@ filterbar {
     label {
       display: none;
     }
-    .input-group{
+    .input-group {
       margin-bottom: 0;
     }
     input {
       width: 100%;
     }
-    .input-group-addon{
+    .input-group-addon {
       background-color: $color_white;
       border-color: $color_input_border;
     }
@@ -3911,7 +3857,7 @@ filterbar {
   margin-bottom: $fs*2.0;
 }
 
-.filterbar-noresults{
+.filterbar-noresults {
   text-align: center;
   margin-top: $fs*2.0;
 }

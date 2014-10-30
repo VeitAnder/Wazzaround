@@ -12,8 +12,7 @@ angular.module('anorakApp')
 
   })
   .controller('AdminMyactivitiesEditCtrl', function ($scope, APP_CONFIG, $http, $location, $route, $rootScope, $translate, currentUser, $timeout) {
-    $scope.vm = {
-    };
+    $scope.vm = {};
 
     $translate('Your unsaved data will be lost if you leave this page')
       .then(function (leavepagequestion) {
@@ -72,8 +71,8 @@ angular.module('anorakApp')
       deleteinprogress: false
     };
 
-    $scope.start = { time: moment().hours(9).minute(0).toDate() };
-    $scope.end = { time: moment().hours(22).minute(0).toDate() };
+    $scope.start = {time: moment().hours(9).minute(0).toDate()};
+    $scope.end = {time: moment().hours(22).minute(0).toDate()};
 
     $scope.setTime = function (dateString, time) {
       var date = moment(dateString);
@@ -108,7 +107,6 @@ angular.module('anorakApp')
     };
 
     $scope.createEventSeries = function (item, event, eventForm) {
-
       eventForm.submitted = true;
 
       if (eventForm.$invalid) {
@@ -180,6 +178,8 @@ angular.module('anorakApp')
     };
 
     $scope.createEvent = function (bookableItem) {
+      console.log("createEvent");
+
       var event = bookableItem.createEvents();
       event.start = new Date();
       event.end = moment(event.start).add('hours', 1).toDate();
@@ -245,7 +245,7 @@ angular.module('anorakApp')
     };
 
     $scope.updateVmSubCategories = function () {
-      var maincategory = _.find($scope.categories, { 'key': $scope.activity.category.main });
+      var maincategory = _.find($scope.categories, {'key': $scope.activity.category.main});
       if (maincategory) {
         $scope.vm.subcategories = maincategory.sub;
 
@@ -406,5 +406,9 @@ angular.module('anorakApp')
     $scope.onActionLinkCancel = function () {
       $scope.state.actionlinkisopen = false;
     };
+
+    // TODO - bessere Lösung für maxDate/minDate bei sich wiederholenden events finden - sollten auf event.start date basieren
+    $scope.datePickerMinDate = moment().add('days', 1).toDate();
+    $scope.datePickerMaxDate = moment().add('years', 1).toDate();
 
   });

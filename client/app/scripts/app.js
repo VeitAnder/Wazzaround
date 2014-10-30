@@ -28,6 +28,7 @@ angular.module('anorakApp', [
   'ngCookies',
   'ngSanitize',
   'ngMessages',
+  'ui.bootstrap',
   'google-maps'.ns(),
   'mgcrea.ngStrap',
   'textAngular',
@@ -345,9 +346,6 @@ angular.module('anorakApp')
     });
 
     moment.locale($translate.use());  // setup moment language
-
-    console.log("$translate.use()", $translate.use());
-    console.log("$locale", $locale);
 
     checkRouteForAuthorization = function () {
 
