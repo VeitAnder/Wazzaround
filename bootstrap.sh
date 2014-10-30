@@ -32,6 +32,7 @@ cd /vagrant;\
 ./install.sh\
 "
 
+echo ""
 echo ":-) Done (-:"
 echo "Login with:"
 echo "$ vagrant ssh"

@@ -17,7 +17,7 @@ cd ..
 # install packages on client and server
 echo "\n\ninstalling npm packages on server..."
 cd server
-npm install
+npm install 
 echo "installing npm packages on server done."
 
 echo "\n\ninstalling npm packages on client..."
@@ -26,5 +26,5 @@ npm install
 echo "\n\ninstalling npm packages on client done."
 
 echo "\n\ninstalling bower packages on client..."
-bower install --config.interactive=false
+bower install --config.interactive=false --allow-root
 echo "\n\ninstalling bower packages on client done."
