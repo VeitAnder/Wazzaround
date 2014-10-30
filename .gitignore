@@ -2,5 +2,6 @@
 .idea
 productionbackups
 .DS_Store
+.vagrant
 
 client/app/styles/main.css
