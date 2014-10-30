@@ -77,10 +77,6 @@ var pay = function (bookingObj, paymentToken, amount_int, currency) {
 
 };
 
-/**
- *  TODO:
- *   - Der Client rechnet zur Zeit den gesamt Betrag aus
- */
 
 BookingModel.operationImpl("checkout", function (params, req) {
   console.log("In checkout()", params);
@@ -91,6 +87,8 @@ BookingModel.operationImpl("checkout", function (params, req) {
 
   var booking = BookingModel.create();
 
+  var priceSum = 0;
+
   return Q()
     .then(function () {
 
@@ -100,6 +98,7 @@ BookingModel.operationImpl("checkout", function (params, req) {
         checkAvailableBookings.push(
           models.ActivityModel.get(ObjectId(booking.activity))
             .then(function (activity) {
+              priceSum += activity.getChild(booking.event).price;
               if (booking.quantity > activity.getChild(booking.event).availableQuantity)
                 throw new Error("There are not enough events available for booking");
             })
@@ -109,6 +108,13 @@ BookingModel.operationImpl("checkout", function (params, req) {
 
       return Q.all(checkAvailableBookings);
     }).then(function () {
+
+      // überprüfe den Preis auf dem server
+      var priceInt = Math.floor(priceSum * 100);
+      if (priceInt !== params.payment.amount_int) {
+        // der server hat einen anderen preis bestimmt
+        throw new Error("invalid price amount_int");
+      }
 
       return booking.save();
 

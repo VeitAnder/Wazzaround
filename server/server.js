@@ -17,7 +17,9 @@ var logger = require('./lib/logger.js');
 
 var cacheControl = require('./lib/cacheControl');
 
-var app = express();
+// export express
+var app = module.exports = express();
+
 app.use(compress());                                // enable gzip compression for res.send()
 
 logger.info("Node environment: NODE_ENV=%s", process.env.NODE_ENV);
@@ -87,5 +89,11 @@ if (process.env.PORT) {
 } else {
   serverport = config.server.listenPort;
 }
-app.listen(serverport);
-logger.info('Reacture App Server - listening on port: ' + serverport);
+
+// start the server if `$ node server.js`
+if (require.main === module) {
+  app.listen(serverport, function(err) {
+    logger.info('Reacture App Server - listening on port: ' + serverport);
+  });
+}
+
