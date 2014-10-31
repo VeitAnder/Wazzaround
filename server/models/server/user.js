@@ -34,22 +34,21 @@ UserModel.readFilter(function (req) {
 
 
 UserModel.writeFilter(function (userDoc, req) {
+  // if not logged in don't allow write operations
   if (!req.isAuthenticated()) {
-    return false;  // if not logged in don't allow write operations
+    return false;
   }
 
-  if (req.user.userType === 'admin') return true;  // allow admin to access all users
+  // allow admin to access all users
+  if (req.user.userType === 'admin') return true;
 
-
-  // allow the user to save his own User Object
+  // allow the user to only save his own User Object
   if (userDoc._id.toString() === req.user._id.toString()) {
 
     // get orginal user object
     return UserModel.get(userDoc._id)
       .then(function(userObj) {
-
-        // assure no changes in the following fields:
-
+        // assure no changes in the following fields of your own user object:
         assert(userDoc.userType === userObj.userType, 'not allowed to change userType');
         //assert(userDoc.acl.sales === userObj.acl.sales);
 
