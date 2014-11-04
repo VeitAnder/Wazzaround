@@ -18,7 +18,7 @@
         <form name="valForm"
               class="standardform activity-edit"
               novalidate
-            >
+          >
 
           <div class="formdata-display">
             <div class="input-label">
@@ -38,7 +38,7 @@
                      class="input-block-level"
                      required
                      placeholder="{{ 'Your first name' | translate }}"
-                  >
+                >
 
               <span ng-show="showError('firstname', 'required')"
                     class="alert alert-error">{{'Please enter your first name' | translate}}
@@ -54,7 +54,7 @@
                      class="input-block-level"
                      required
                      placeholder="{{ 'Your last name' | translate }}"
-                  >
+                >
 
               <span ng-show="showError('lastname', 'required')"
                     class="alert alert-error">{{'Please enter your last name' | translate}}
@@ -110,6 +110,7 @@
 
           <div class="form-group form-group-helptext">
             <label for="company">{{'Company' | translate}}</label>
+
             <div aiotoggleitem
                  toggleitemlabel="{{'helptext' | translate}}"
                  class="aiotoggleitem">
@@ -121,7 +122,7 @@
                    class="input-block-level"
                    required
                    placeholder="{{ 'Your company' | translate }}"
-                >
+              >
 
             <span ng-show="showError('company', 'required')"
                   class="alert alert-error">{{'Please enter your company' | translate}}
@@ -137,7 +138,7 @@
                    class="input-block-level"
                    required
                    placeholder="{{ 'Your mobile telephone number' | translate }}"
-                >
+              >
 
             <span ng-show="showError('mobile', 'required')"
                   class="alert alert-error">{{'Please enter your mobile telephone number' | translate}}
@@ -151,7 +152,7 @@
                    ng-model="user.profile.tel"
                    class="input-block-level"
                    placeholder="{{ 'Your telephone number' | translate }}"
-                >
+              >
 
             <span ng-show="showError('tel', 'required')"
                   class="alert alert-error">{{'Please enter your telephone number' | translate}}
@@ -166,11 +167,12 @@
                    ng-model="user.profile.fax"
                    class="input-block-level"
                    placeholder="{{ 'Your fax number' | translate }}"
-                >
+              >
           </div>
 
           <div class="form-group form-group-helptext">
             <label for="contactpersonname">{{'Name of contact person' | translate}}</label>
+
             <div aiotoggleitem
                  toggleitemlabel="{{'helptext' | translate}}"
                  class="aiotoggleitem">
@@ -182,7 +184,7 @@
                    class="input-block-level"
                    placeholder="{{ 'Name of contact person' | translate }}"
                    required
-                >
+              >
 
             <span ng-show="showError('contactpersonname', 'required')"
                   class="alert alert-error">{{'Please enter the name of the contact person' | translate}}
@@ -196,7 +198,7 @@
                    ng-model="user.profile.uid"
                    class="input-block-level"
                    placeholder="{{ 'Your UID number' | translate }}"
-                >
+              >
           </div>
 
           <div class="divider">
@@ -211,7 +213,7 @@
                    class="input-block-level"
                    required
                    placeholder="{{ 'Your address' | translate }}"
-                >
+              >
 
             <span ng-show="showError('address', 'required')"
                   class="alert alert-error">{{'Please enter your address' | translate}}
@@ -228,7 +230,7 @@
                      class="input-block-level"
                      required
                      placeholder="{{ 'Your zip code' | translate }}"
-                  >
+                >
 
               <span ng-show="showError('zip', 'required')"
                     class="alert alert-error">{{'Please enter your zip code' | translate}}
@@ -244,7 +246,7 @@
                      class="input-block-level"
                      required
                      placeholder="{{ 'Your city' | translate }}"
-                  >
+                >
 
               <span ng-show="showError('city', 'required')"
                     class="alert alert-error">{{'Please enter your city' | translate}}
@@ -265,7 +267,7 @@
                    ng-options="country as country.name for country in Countrylist.get()"
                    value="{{user.profile.country.name}}"
                    bs-typeahead
-                >
+              >
 
             <span ng-show="showError('country', 'required')"
                   class="alert alert-error">{{'Please enter your country' | translate}}
@@ -281,6 +283,22 @@
               {{user.promotion.promocode}}
             </div>
           </div>
+
+
+          <div class="form-group" ng-if="user.userType === 'admin'">
+
+            <div class="input-label">
+              {{'Salesman' | translate}}
+            </div>
+            <div class="input-content">
+              <pre>{{user.acl.sales}}</pre>
+              <form name="salesForm">
+                <input type="radio" ng-model="user.acl.sales" ng-value='true'>{{yes | translate}}<br/>
+                <input type="radio" ng-model="user.acl.sales" ng-value='false'>{{no | translate}}<br/>
+              </form>
+            </div>
+          </div>
+
 
           <!--
                     <fieldset>
@@ -454,6 +472,7 @@
              ng-show="valForm.$invalid">
             <b>{{'Please fill out the form correctly' | translate}}</b>
           </p>
+
           <p class="alert alert-error"
              ng-show="state.savesuccess === false">
             <b>{{'Your changes could not be saved, there was an error' | translate}}</b>
@@ -463,7 +482,7 @@
             <a class="btn"
                ng-class="{disabled: valForm.$invalid}"
                ng-click="saveUserProfile()"
-                >
+              >
               {{'save user data' | translate}}
             </a>
 

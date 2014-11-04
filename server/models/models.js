@@ -242,9 +242,14 @@ var models = function () {
       tel: Attr(Type.string)
     },
 
-    bookedQuantity: Operation({    // wie oft wurde das Event gebucht
+    bookedQuantity: Operation({    // wie oft wurde ein best. Event gebucht
       event: Attr(Type.objectid)
-    })  // returns { quantity : X }
+    }),  // returns { quantity : X }
+
+    // price for this booking
+    totalPrice: Method(function () {
+      return this.event.price * this.quantity;
+    })
 
     // gebucht ist das Event wenn, state = 'booked' oder state = 'pending' und date < 15min
   });

@@ -252,7 +252,33 @@ UserModel.operationImpl("getMyPromotedUsers", function (params, req) {
     .then(function (users) {
       var acquiredprovidersQ = [];
       users[0].promotion.acquiredproviders.forEach(function (acquiredprovider) {
-        acquiredprovidersQ.push(acquiredprovider.load());
+        acquiredprovidersQ.push(
+          acquiredprovider.load()
+            .then(function(acquiredprovider) {
+
+              if (req.user.acl.sales) {
+                return models.BookedEventModel.find({"activity_owner._reference": acquiredprovider._id})
+                  .then(function (bookedEvents) {
+                    return {
+                      provider: acquiredprovider,
+                      bookedEvents: bookedEvents.map(function(event) {
+                        return {
+                          date : event.date,
+                          price : event.getChild(event.event._link).price * event.quantity  // fix: modelizer bug
+                        }
+                      })
+                    }
+                  });
+              } else {
+                // no access to the booked events if the user has no sales acls
+                return {
+                  provider: acquiredprovider,
+                  bookedEvents: null
+                }
+              }
+
+            })
+        );
       });
 
       return Q.all(acquiredprovidersQ);
@@ -262,13 +288,14 @@ UserModel.operationImpl("getMyPromotedUsers", function (params, req) {
       // only return not sensitive data
       return _.map(acquiredproviders, function (acquiredprovider) {
         return {
-          email: acquiredprovider.email,
+          email: acquiredprovider.provider.email,
           profile: {
-            firstName: acquiredprovider.profile.firstName,
-            lastName: acquiredprovider.profile.lastName,
-            tel: acquiredprovider.profile.tel,
-            mobile: acquiredprovider.profile.mobile
-          }
+            firstName: acquiredprovider.provider.profile.firstName,
+            lastName: acquiredprovider.provider.profile.lastName,
+            tel: acquiredprovider.provider.profile.tel,
+            mobile: acquiredprovider.provider.profile.mobile
+          },
+          bookedEvents : acquiredprovider.bookedEvents
         };
       });
     });

@@ -23,7 +23,7 @@ npm install -g npm -q
 apt-get install mongodb -y -q
 
 # install project dependencys
-npm install -g grunt gulp bower -q
+npm install -g grunt grunt-cli gulp bower npm-check-updates -q
 
 # execute as vagrant user
 sudo -u vagrant -H bash -c "\

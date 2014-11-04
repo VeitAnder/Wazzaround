@@ -24,7 +24,7 @@
 
           <div class="listrow"
                ng-repeat="bookedEvent in bookedEvents"
-              >
+            >
 
             <div class="bookingdate cell first">
               {{bookedEvent.date | momentjs:{format: "ddd, MMM Do YY"} }}
@@ -37,7 +37,7 @@
                                data-format="{{bookedEvent.activityCopy.images[0].format}}"
                                data-width="50"
                                data-height="50"
-                  >
+                >
               </cloudinaryimage>
               <span class="activityname">
                 <a href="/#/admin/myactivities/{{bookedEvent.activity._reference}}/">
@@ -50,6 +50,10 @@
               <span class="activityquantity">
                 {{ 'Quantity' | translate }}:
                 {{ bookedEvent.quantity }}
+              </span>
+              <span class="revenue">
+                {{ 'Revenue' | translate }}:
+                {{ bookedEvent.totalPrice() | currency }}
               </span>
             </div>
 

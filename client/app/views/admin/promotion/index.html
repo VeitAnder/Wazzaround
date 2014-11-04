@@ -14,8 +14,12 @@
           <div class="activity cell first">
             {{ 'E-mail' | translate }}
           </div>
-          <div class="activity cell last">
+          <div class="activity cell">
             {{ 'Name' | translate }}
+          </div>
+
+          <div class="activity cell last">
+            {{ 'Bookings' | translate }}
           </div>
         </div>
 
@@ -27,9 +31,17 @@
               {{user.email}}
             </div>
 
-            <div class="cell last">
+            <div class="cell">
               {{user.profile.firstName}}
               {{user.profile.lastName}}
+            </div>
+
+            <div class="cell last" ng-if="currentUser.user.acl.sales">
+              <ul>
+                <li ng-repeat="event in user.bookedEvents">
+                   Booked at {{event.data | momentjs:{format: "ddd, MMM Do YY"} }} for {{event.price | currency}}
+                </li>
+              </ul>
             </div>
           </div>
         </div>

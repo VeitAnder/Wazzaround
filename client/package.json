@@ -1,10 +1,12 @@
 {
   "name": "anorak",
   "version": "0.54.0",
+  "description": "Back end server for reacture",
   "dependencies": {
     "compression": "1.1.0",
     "serve-favicon": "2.1.4"
   },
+  "private": true,
   "devDependencies": {
     "connect-livereload": "0.4.0",
     "express": "4.9.4",
@@ -71,5 +73,9 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anorakio/reacture.git"
   }
 }
