@@ -23,7 +23,16 @@ npm install -g npm -q
 apt-get install mongodb -y -q
 
 # install project dependencys
-npm install -g grunt grunt-cli gulp bower npm-check-updates -q
+npm install grunt -g
+npm install grunt-cli -g
+npm install gulp -g
+npm install npm-check-updates -g
+npm install bower -g
+npm install yo -g
+npm install generator-webapp -g
+npm install generator-angular -g
+npm install modulus -g
+npm install supervisor -g
 
 # execute as vagrant user
 sudo -u vagrant -H bash -c "\
