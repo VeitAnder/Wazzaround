@@ -258,6 +258,15 @@ angular.module('anorakApp')
           }]
         }
       })
+      .when('/admin/provider/:id/edit/', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'AdminProfileEditCtrl',
+        resolve: {
+          currentUser: ['$route', 'models', function ($route, models) {
+            return models.UserModel.get($route.current.params.id);
+          }]
+        }
+      })
       .when('/activities/:id/', {
         templateUrl: 'views/page_basetemplate.html',
         controller: 'ActivityPageCtrl',
@@ -301,9 +310,9 @@ angular.module('anorakApp')
 // DO NOT ENABLE - Causes CORS trouble with google maps
 // $httpProvider.defaults.withCredentials = true;
 
-    // Translation source is this Google Spreadsheet:
-    // https://docs.google.com/spreadsheets/d/10o5NKCAckc2rIaLX1dKMnh2VAT66yK9UpzGDAK8wwx8/edit#gid=424150697
-    // Google-User: reactureapp@gmail.com
+// Translation source is this Google Spreadsheet:
+// https://docs.google.com/spreadsheets/d/10o5NKCAckc2rIaLX1dKMnh2VAT66yK9UpzGDAK8wwx8/edit#gid=424150697
+// Google-User: reactureapp@gmail.com
     $translateProvider.useStaticFilesLoader({
       prefix: '/scripts/translations/locale-',
       suffix: '.json?' + APP_CLIENTINFO.version
@@ -325,14 +334,15 @@ angular.module('anorakApp')
       'it_IT': 'it'
     })
       .determinePreferredLanguage();
-    // hint: en_us and en_US are different, is a case-sensitive check bug in angular-translate
-    // is fixed in https://github.com/angular-translate/angular-translate/issues/431
-    // but not released yet
+// hint: en_us and en_US are different, is a case-sensitive check bug in angular-translate
+// is fixed in https://github.com/angular-translate/angular-translate/issues/431
+// but not released yet
     $translateProvider.fallbackLanguage('en');
     $translateProvider.useLocalStorage();
 
   })
-  .run(function ($rootScope, $locale, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate, translationutils, $window) {
+  .
+  run(function ($rootScope, $locale, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate, translationutils, $window) {
     $rootScope.debug = debug;
     $rootScope.models = models;
     var checkRouteForAuthorization;

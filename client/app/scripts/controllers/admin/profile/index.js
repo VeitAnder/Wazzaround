@@ -14,7 +14,8 @@ angular.module('anorakApp')
 
   })
 
-  .controller('AdminProfileEditCtrl', function ($scope, currentUser, models, $location, $timeout, Countrylist) {
+  .controller('AdminProfileEditCtrl', function ($scope, currentUser, models, $location, $timeout, Countrylist, $window) {
+    var returnPath = $window.location.pathname.split("edit")[0];
 
     $scope.getPagePartial = function () {
       return 'views/admin/profile/edit.html';
@@ -34,7 +35,7 @@ angular.module('anorakApp')
           .then(function (asdf) {
             debug("Saved user", asdf);
             $timeout(function () {
-              $location.path("/admin/profile");
+              $location.path(returnPath);
             });
           })
           .fail(function (err) {
@@ -43,6 +44,12 @@ angular.module('anorakApp')
           });
 
       }
+    };
+
+    $scope.cancel = function () {
+      $timeout(function () {
+        $location.path(returnPath);
+      });
     };
 
     /**

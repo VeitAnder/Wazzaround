@@ -7,6 +7,14 @@
 
       <div ng-include="'views/admin/profile/list.html'"></div>
 
+      <div class="buttonbar buttonbar-default">
+        <a class="btn"
+          ng-click="editProfile()"
+          >
+          {{'Edit your Profile' | translate}}
+        </a>
+      </div>
+
       <h3>Activities of {{provider.profile.company}}</h3>
 
       <all-activities-list></all-activities-list>
