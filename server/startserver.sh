@@ -9,7 +9,7 @@
 SCRIPTPATH=`dirname $0`
 
 # set NODE_ENV to development, on nodejitsu development is called beta
-export NODE_ENV=developmentlocalhost
+export NODE_ENV=local
 
 export maintainancemode=false
 
