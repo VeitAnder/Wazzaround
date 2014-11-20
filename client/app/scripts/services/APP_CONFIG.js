@@ -20,7 +20,8 @@ angular.module('anorakApp')
         cloudinary : {
           cloud_name: 'www-reacture-com',
           api_key: '162329319871877'
-        }
+        },
+        paymillPublicKey : '744618362999c5386cdc5e61fee63d2c'  // test key
       };
     } else if ($window.location.hostname === "reactureappdev-10669.onmodulus.net" || $window.location.hostname === "dev.reacture.anorak.io") {
       // development server
@@ -35,7 +36,8 @@ angular.module('anorakApp')
         cloudinary : {
           cloud_name: 'www-reacture-com',
           api_key: '162329319871877'
-        }
+        },
+        paymillPublicKey : '744618362999c5386cdc5e61fee63d2c'  // test key
       };
     } else {
       // localhost dev
@@ -52,7 +54,8 @@ angular.module('anorakApp')
         cloudinary : {
           cloud_name: 'www-reacture-com',
           api_key: '162329319871877'
-        }
+        },
+        paymillPublicKey : '744618362999c5386cdc5e61fee63d2c'  // test key
       };
     }
 
