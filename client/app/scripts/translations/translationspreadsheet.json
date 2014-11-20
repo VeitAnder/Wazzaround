@@ -2116,6 +2116,42 @@
   },
   {
     "Description": "",
+    "key": "Promotioncode",
+    "en": "Promotioncode",
+    "de": "Promotion-Code",
+    "it": "Promotioncode",
+    "fr": "Promotioncode",
+    "sp": "Promotioncode"
+  },
+  {
+    "Description": "",
+    "key": "Salesman",
+    "en": "Salesman",
+    "de": "Verkäufer",
+    "it": "Salesman",
+    "fr": "Salesman",
+    "sp": "Salesman"
+  },
+  {
+    "Description": "",
+    "key": "Userrole",
+    "en": "User role",
+    "de": "Benuzterrolle",
+    "it": "User role",
+    "fr": "User role",
+    "sp": "User role"
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
+  },
+  {
+    "Description": "",
     "key": "Your location",
     "en": "Your location ...",
     "de": "Dein Ort ...",
@@ -3697,5 +3733,14 @@
     "it": "Promotioncode",
     "fr": "Promotioncode",
     "sp": "Promotioncode"
+  },
+  {
+    "Description": "",
+    "key": "Only x items are available",
+    "en": "Only {{quantity}} items are available",
+    "de": "Es sind nur {{quantity}} Stück verfügbar",
+    "it": "Only {{quantity}} items are available",
+    "fr": "Only {{quantity}} items are available",
+    "sp": "Only {{quantity}} items are available"
   }
 ]

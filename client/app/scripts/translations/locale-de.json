@@ -222,6 +222,9 @@
   "Please enter the name of the contact person": "Bitte geben Sie den Namen des Ansprechpartners / der Ansprechpartnerin ein",
   "UID optional": "UID optional",
   "Your UID number": "Ihre UID Nummer",
+  "Promotioncode": "Promotioncode",
+  "Salesman": "Verkäufer",
+  "Userrole": "Benuzterrolle",
   "Your location": "Dein Ort ...",
   "Find": "Suchen!",
   "From": "Von",
@@ -395,5 +398,5 @@
   "Orders will be possible soon": "Bestellungen sind derzeit noch nicht möglich! Dieses Feature wird bald aktiviert.",
   "helptext autotranslation": "Die Aktivität wird automatisch in die anderen Sprachen übersetzt. Änderungen in den anderen Sprachen werden durch die automatische Übersetzung überschrieben.",
   "one year": "ein Jahr",
-  "Promotioncode": "Promotioncode"
+  "Only x items are available": "Es sind nur {{quantity}} Stück verfügbar"
 }

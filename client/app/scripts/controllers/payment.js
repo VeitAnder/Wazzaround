@@ -80,6 +80,8 @@ angular.module('anorakApp')
 
       console.log("submitPayment", payment.card, payment.profile, shoppingcart.getTotal());
 
+      console.log("amount_int", this.amount_int);
+
       paymill.createToken({
         number: payment.card.number,            // required, ohne Leerzeichen und Bindestriche
         exp_month: payment.card.expiry_month,   // required

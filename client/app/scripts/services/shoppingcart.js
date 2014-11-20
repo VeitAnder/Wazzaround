@@ -65,7 +65,7 @@ angular.module('anorakApp')
         num: Object.keys(this.storage.theShoppingCart).length,
         price: _.reduce(this.storage.theShoppingCart, function (res, value, key) {
           assert(value.price !== undefined, "price missing for item in the shoppingcart");
-          assert(value.quantity, "quantity missing for item in the shoppingcart");
+          //assert(value.quantity, "quantity missing for item in the shoppingcart");
 
           return res + value.price * value.quantity;
         }, 0 /* init value */)

@@ -222,6 +222,9 @@
   "Please enter the name of the contact person": "Si prega d'inserire un nome di un contatto",
   "UID optional": "P.IVA opzionale",
   "Your UID number": "Il vostro P.IVA",
+  "Promotioncode": "Promotioncode",
+  "Salesman": "Salesman",
+  "Userrole": "User role",
   "Your location": "La tua posizione",
   "Find": "Trovare",
   "From": "Di",
@@ -395,5 +398,5 @@
   "Orders will be possible soon": "Orders are not possible yet. This feature will be available soon!",
   "helptext autotranslation": "The activity will be automatically translated to the other languages. Changes in the other languages will be overwritten by the auto translation. ",
   "one year": "un anno",
-  "Promotioncode": "Promotioncode"
+  "Only x items are available": "Only {{quantity}} items are available"
 }
