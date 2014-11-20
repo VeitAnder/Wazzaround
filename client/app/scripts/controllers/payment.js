@@ -14,11 +14,11 @@ angular.module('anorakApp')
     });
 
   })
-  .controller('PaymentCtrl', function ($scope, models, shoppingcart, APP_CONFIG) {
+  .controller('PaymentCtrl', function ($scope, $window, models, shoppingcart, APP_CONFIG) {
     var payment = this;
 
     //// set public API key for Paymill according to the config
-    window.PAYMILL_PUBLIC_KEY = APP_CONFIG.paymillPublicKey;
+    $window.PAYMILL_PUBLIC_KEY = APP_CONFIG.paymillPublicKey;
     console.log("using PAYMILL_PUBLIC_KEY", window.PAYMILL_PUBLIC_KEY);
 
     this.state = 'form';
