@@ -137,7 +137,7 @@ module.exports = function (grunt) {
   grunt.registerTask('releasedevelopment', ['releasebasetask']);
 
   // buildfast for development
-  grunt.registerTask('buildfast', ['buildemailtemplates', 'jshint']);
+  grunt.registerTask('build', ['buildemailtemplates', 'jshint']);
 
   grunt.registerTask('timestamp', function () {
     grunt.log.subhead(Date());
