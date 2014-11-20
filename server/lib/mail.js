@@ -167,12 +167,12 @@ Handlebars.registerHelper('filetypeending', function (file, block) {
   }
 });
 
-templatestore = require('../templates/compiledtemplates.js');
+templatestore = require('../templates/compiled/compiledtemplates.js');
 
 send = function (mail) {
   var deferred = Q.defer();
 
-  mail.postmarkmail.HtmlBody = templatestore['templates/default.handlebars'](mail.data);
+  mail.postmarkmail.HtmlBody = templatestore['default.handlebars.html'](mail.data);
 
   postmark.send(mail.postmarkmail, function (error, success) {
     if (error) {
