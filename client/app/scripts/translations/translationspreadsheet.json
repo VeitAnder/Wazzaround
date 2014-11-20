@@ -2116,6 +2116,42 @@
   },
   {
     "Description": "",
+    "key": "Promotioncode",
+    "en": "Promotioncode",
+    "de": "Promotion-Code",
+    "it": "Promotioncode",
+    "fr": "Promotioncode",
+    "sp": "Promotioncode"
+  },
+  {
+    "Description": "",
+    "key": "Salesman",
+    "en": "Salesman",
+    "de": "Verkäufer",
+    "it": "Salesman",
+    "fr": "Salesman",
+    "sp": "Salesman"
+  },
+  {
+    "Description": "",
+    "key": "Userrole",
+    "en": "User role",
+    "de": "Benuzterrolle",
+    "it": "User role",
+    "fr": "User role",
+    "sp": "User role"
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
+  },
+  {
+    "Description": "",
     "key": "Your location",
     "en": "Your location ...",
     "de": "Dein Ort ...",

@@ -9,16 +9,16 @@
         >
       </div>
 
-      <div class="">
+      <div class="promotion-list">
         <div class="listheader">
-          <div class="activity cell first">
+          <div class="email cell first">
             {{ 'E-mail' | translate }}
           </div>
-          <div class="activity cell">
+          <div class="name cell">
             {{ 'Name' | translate }}
           </div>
 
-          <div class="activity cell last">
+          <div class="bookings cell last">
             {{ 'Bookings' | translate }}
           </div>
         </div>
@@ -27,16 +27,16 @@
           <div class="listrow"
                ng-repeat="user in promotionUserList"
             >
-            <div class="cell first">
+            <div class="email cell first">
               {{user.email}}
             </div>
 
-            <div class="cell">
+            <div class="name cell">
               {{user.profile.firstName}}
               {{user.profile.lastName}}
             </div>
 
-            <div class="cell last" ng-if="currentUser.user.acl.sales">
+            <div class="bookings cell last" ng-if="currentUser.user.acl.sales">
               <ul>
                 <li ng-repeat="event in user.bookedEvents">
                    Booked at {{event.data | momentjs:{format: "ddd, MMM Do YY"} }} for {{event.price | currency}}

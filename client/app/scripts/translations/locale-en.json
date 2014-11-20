@@ -222,6 +222,9 @@
   "Please enter the name of the contact person": "Please enter the name of the contact person",
   "UID optional": "UID optional",
   "Your UID number": "Your UID number",
+  "Promotioncode": "Promotioncode",
+  "Salesman": "Salesman",
+  "Userrole": "User role",
   "Your location": "Your location ...",
   "Find": "Find!",
   "From": "From",
@@ -394,6 +397,5 @@
   "Contact our support": "Contact our support",
   "Orders will be possible soon": "Orders are not possible yet. This feature will be available soon!",
   "helptext autotranslation": "The activity will be automatically translated to the other languages. Changes in the other languages will be overwritten by the auto translation. ",
-  "one year": "one year",
-  "Promotioncode": "Promotioncode"
+  "one year": "one year"
 }

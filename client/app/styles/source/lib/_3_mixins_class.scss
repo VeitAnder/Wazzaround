@@ -975,7 +975,7 @@ button.btn, .btn, a.btn {
     li {
       margin: 0 0 $fs*0.5 0;
       padding: 0 0 0 $fs*1.0;
-      @include sprite_icons(-25px, -57px, no-repeat);
+      @include sprite_icons(-225px, -182px, no-repeat);
       list-style: none;
 
       ul {
@@ -2068,6 +2068,9 @@ input[type="checkbox"]:focus {
 
 .form-group-btn {
   vertical-align: baseline;
+  &> *{
+    vertical-align: baseline;
+  }
 }
 
 @mixin input-label {
@@ -2562,10 +2565,14 @@ $switch-border-radius: 5px;
   background-color: $color_grey_15;
   @include border-radius($border-radius_small);
   padding: 10px;
+  min-height: $switch-height + (2 * 10px);
   margin-bottom: $fs*0.5;
   overflow: hidden;
   &:last-child {
     margin-bottom: 0;
+  }
+  h6{
+    color: $color_grey;
   }
   .switch-label {
     @include box-sizing(border-box);

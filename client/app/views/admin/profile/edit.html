@@ -63,6 +63,45 @@
             </div>
           </div>
 
+
+          <div class="form-group">
+            <div class="input-label">
+              {{'Promotioncode' | translate}}
+            </div>
+            <div class="input-content promocode">
+              {{user.promotion.promocode}}
+            </div>
+          </div>
+
+          <div class="form-group"
+               ng-if="user.userType === 'admin'">
+
+            <label class="switch-element switch-element-right"
+                   data-ng-class="{
+                               'switch-off': !user.acl.sales,
+                               'switch-on': user.acl.sales
+                               }"
+              >
+              <div class="switch-label">
+                <h6 class="no-margin-bottom no-margin-top">
+                  {{'Salesman' | translate}}
+                </h6>
+              </div>
+              <input type="checkbox"
+                     ng-model="user.acl.sales"
+                     style="display:none;"
+                >
+              <div class="switch">
+                <span class="switch-label-i"></span>
+                <span class="switch-label-o"></span>
+                <span class="switch-btn"></span>
+              </div>
+
+            </label>
+
+          </div>
+
+
           <!--
           <div class="form-group-inline form-group-inline-7525">
                       <div class="form-group">
@@ -275,37 +314,6 @@
 
           </div>
 
-          <div class="form-group">
-            <div class="input-label">
-              {{'Promotioncode' | translate}}
-            </div>
-            <div class="input-content">
-              {{user.promotion.promocode}}
-            </div>
-          </div>
-
-          <div class="form-group"
-               ng-if="user.userType === 'admin'">
-
-            <div class="input-label">
-              {{'Salesman' | translate}}
-            </div>
-            <div class="input-content">
-              <pre>{{user.acl.sales}}</pre>
-              <form name="salesForm">
-                <input type="radio"
-                       ng-model="user.acl.sales"
-                       ng-value='true'>
-                {{yes | translate}}
-                <br/>
-                <input type="radio"
-                       ng-model="user.acl.sales"
-                       ng-value='false'>
-                {{no | translate}}
-                <br/>
-              </form>
-            </div>
-          </div>
 
           <!--
                     <fieldset>
