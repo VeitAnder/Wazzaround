@@ -8,9 +8,6 @@
 #set scriptpath
 SCRIPTPATH=`dirname $0`
 
-# set NODE_ENV to development, on nodejitsu development is called beta
-export NODE_ENV=developmentlocalhost
-
 export maintainancemode=false
 
 sh ${SCRIPTPATH}/startserver_main.sh
