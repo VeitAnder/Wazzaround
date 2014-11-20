@@ -211,7 +211,9 @@ send = function (mail) {
 };
 exports.send = send;
 
-exports.sendResetPasswordMail = function (user, token) {
+exports.sendResetPasswordMail = function (user, token, langKey) {
+  languageKey = langKey;
+
   //E-Mail Body
   var sendmessage = {
     data: {
@@ -226,7 +228,7 @@ exports.sendResetPasswordMail = function (user, token) {
     postmarkmail: {
       "From": config.postmark.from,
       "To": user.email,
-      "Subject": "Reacture - reset your password",
+      "Subject": "reacture – " + translations[languageKey]['Reset your password'],
       "Tag": "resetpassword",
       "ReplyTo": config.postmark.replyto
     }

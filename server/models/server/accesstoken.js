@@ -39,7 +39,7 @@ AccesstokenModel.operationImpl("sendReactivation", function (params, req) {
     })
 
     .then(function (tokenObj) {
-      return mail.sendResetPasswordMail(tokenObj.user.ref(), tokenObj.token);
+      return mail.sendResetPasswordMail(tokenObj.user.ref(), tokenObj.token, params.languageKey);
     })
 
     .then(function () {

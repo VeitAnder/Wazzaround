@@ -12,7 +12,7 @@ angular.module('anorakApp')
     };
   })
 
-  .controller('ForgotPasswordCtrl', function ($scope, $location, $http, APP_CONFIG, $window, models, $route) {
+  .controller('ForgotPasswordCtrl', function ($scope, $location, $http, APP_CONFIG, $window, models, $route, $translate) {
     'use strict';
 
     $scope.user = {};
@@ -27,7 +27,7 @@ angular.module('anorakApp')
       $scope.status.error = null;
 
       if ($scope.valForm.$valid) {
-        models.AccesstokenModel.sendReactivation({ email: $scope.user.email })
+        models.AccesstokenModel.sendReactivation({ email: $scope.user.email, languageKey: $translate.use() })
           .then(function (status) {
             $scope.status.passwordrequestsuccess = true;
             console.log("Requested pwd reset link", status);

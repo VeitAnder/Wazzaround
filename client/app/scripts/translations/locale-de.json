@@ -403,5 +403,9 @@
   "Only x items are available": "Es sind nur {{quantity}} Stück verfügbar",
   "Amount has to be a number": "Amount has to be a number",
   "Amount has to be defined": "Amount has to be defined",
-  "You have to order at least one item": "You have to order at least one item"
+  "You have to order at least one item": "You have to order at least one item",
+  "You want to reset your Password": "Sie möchten Ihr Passwort zurücksetzen?",
+  "Please click the following link": "Bitte klicken Sie den folgenden Link",
+  "Reset your password": "Ihr Passwort zurücksetzen",
+  "Your Reacture Team": "Dein Reacture Team"
 }

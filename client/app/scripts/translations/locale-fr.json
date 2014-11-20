@@ -12,7 +12,7 @@
   "italiano": "italiano",
   "francais": "francais",
   "helptext legend": "Ce signal/symbole vous aidera en remplissant le formulaire suivant",
-  "registration confirmation message 1": "Please confirm your e-mail address",
+  "registration confirmation message 1": "Se il vous plaît confirmer votre adresse e -mail",
   "registration confirmation message 2": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration",
   "helptext": "L'accessibilité",
   "helptext activity name": "Donnez un nom à l'activité qui décrit ce que tu offres",
@@ -403,5 +403,9 @@
   "Only x items are available": "Only {{quantity}} items are available",
   "Amount has to be a number": "Amount has to be a number",
   "Amount has to be defined": "Amount has to be defined",
-  "You have to order at least one item": "You have to order at least one item"
+  "You have to order at least one item": "You have to order at least one item",
+  "You want to reset your Password": "You want to reset your Password?",
+  "Please click the following link": "Please click the following link",
+  "Reset your password": "Reset your password",
+  "Your Reacture Team": "Your Reacture Team"
 }

@@ -130,9 +130,9 @@
     "key": "registration confirmation message 1",
     "en": "Please confirm your e-mail address",
     "de": "Bitte bestätigen Sie Ihre E-Mail Adresse",
-    "it": "Please confirm your e-mail address",
-    "fr": "Please confirm your e-mail address",
-    "sp": "Please confirm your e-mail address"
+    "it": "Prego confermare indirizzo e-mail",
+    "fr": "Se il vous plaît confirmer votre adresse e -mail",
+    "sp": "Por favor confirme su dirección de correo electrónico"
   },
   {
     "Description": "",
@@ -3769,5 +3769,41 @@
     "it": "You have to order at least one item",
     "fr": "You have to order at least one item",
     "sp": "You have to order at least one item"
+  },
+  {
+    "Description": "",
+    "key": "You want to reset your Password",
+    "en": "You want to reset your Password?",
+    "de": "Sie möchten Ihr Passwort zurücksetzen?",
+    "it": "You want to reset your Password?",
+    "fr": "You want to reset your Password?",
+    "sp": "You want to reset your Password?"
+  },
+  {
+    "Description": "",
+    "key": "Please click the following link",
+    "en": "Please click the following link",
+    "de": "Bitte klicken Sie den folgenden Link",
+    "it": "Please click the following link",
+    "fr": "Please click the following link",
+    "sp": "Please click the following link"
+  },
+  {
+    "Description": "",
+    "key": "Reset your password",
+    "en": "Reset your password",
+    "de": "Ihr Passwort zurücksetzen",
+    "it": "Reset your password",
+    "fr": "Reset your password",
+    "sp": "Reset your password"
+  },
+  {
+    "Description": "",
+    "key": "Your Reacture Team",
+    "en": "Your Reacture Team",
+    "de": "Dein Reacture Team",
+    "it": "Your Reacture Team",
+    "fr": "Your Reacture Team",
+    "sp": "Your Reacture Team"
   }
 ]
