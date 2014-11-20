@@ -4,7 +4,7 @@
   font-stretch: normal;
   font-size: 14px;
   line-height: 17px;
-  color: #5f6a6d;
+  color: #666;
 }
 
 #templateBody {
@@ -14,7 +14,7 @@
   -webkit-border-radius: 12px;
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
-  background-color: #ECEEEE;
+  background-color: #f0f0f0;
   margin: 0;
 }
 
@@ -61,7 +61,7 @@ a {
   font-stretch: normal;
   font-size: 14px;
   line-height: 17px;
-  color: #259DB5;
+  color: #85C900;
 }
 
 h2 {
@@ -70,7 +70,7 @@ h2 {
   font-stretch: normal;
   font-size: 35px;
   line-height: 42px;
-  color: #949c9e;
+  color: #b3b3b3;
 }
 
 h3{
@@ -87,7 +87,7 @@ p, td, .font-normal, .td-planlist-span {
   font-stretch: normal;
   font-size: 14px;
   line-height: 17px;
-  color: #5f6a6d;
+  color: #666;
 }
 
 th, .font-bold, .th-planlist, strong {
@@ -112,7 +112,7 @@ strong.small{
   font-stretch: normal;
   font-size: 14px;
   line-height: 17px;
-  color: #5f6a6d;
+  color: #666;
 }
 
 .text-align-center {
@@ -128,178 +128,9 @@ strong.small{
   width: 100%;
 }
 
-.table-alert{
-  background-color: #f7d9d9;
-}
-
-.table-alert h3{
-  color: #c70000;
-}
-
 .tr-seperator td {
-  background-color: #ECEEEE;
+  background-color: #EEE;
   height: 7px;
-}
-
-.th-planlist {
-  padding: 10px 5px;
-  background-color: #28373C;
-  text-align: left;
-  color: #FFFFFF;
-  border-left: 1px solid #5f6a6d;
-}
-
-.th-planlist.text-align-center {
-  text-align: center;
-}
-
-.th-planlist.first {
-  padding-left: 10px;
-  border-left: none;
-  border-top-left-radius: 3px;
-  -moz-border-top-left-radius: 3px;
-  -webkit-border-top-left-radius: 3px;
-  -ms-border-top-left-radius: 3px;
-  -o-border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  -moz-border-bottom-left-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -ms-border-bottom-left-radius: 3px;
-  -o-border-bottom-left-radius: 3px;
-}
-
-.th-planlist.last {
-  padding-right: 10px;
-  border-top-right-radius: 3px;
-  -moz-border-top-right-radius: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -ms-border-top-right-radius: 3px;
-  -o-border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  -moz-border-bottom-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  -ms-border-bottom-right-radius: 3px;
-  -o-border-bottom-right-radius: 3px;
-}
-
-.td-planlist-cols {
-  padding: 10px 5px;
-  background-color: #FFFFFF;
-  border-left: 1px solid #def0f4;
-}
-
-.td-planlist-cols.index{
-  padding: 10px 3px;
-}
-
-.td-planlist-cols.topfirst {
-  padding-left: 10px;
-  border-left: none;
-  border-top-left-radius: 3px;
-  -moz-border-top-left-radius: 3px;
-  -webkit-border-top-left-radius: 3px;
-  -ms-border-top-left-radius: 3px;
-  -o-border-top-left-radius: 3px;
-}
-
-.td-planlist-cols.toplast {
-  padding-right: 10px;
-  border-top-right-radius: 3px;
-  -moz-border-top-right-radius: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -ms-border-top-right-radius: 3px;
-  -o-border-top-right-radius: 3px;
-}
-
-.td-planlist-cols.even {
-  background-color: #f4fafb;
-}
-
-.td-planlist-cols.number {
-  font-family: 'HelveticaNeueBold', 'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'HelveticaNeue', 'Helvetica Neue', 'TeXGyreHerosBold', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
-  font-weight: 600;
-}
-
-.td-planlist {
-  padding: 10px 5px;
-  background-color: #FFFFFF;
-  text-align: left;
-}
-
-.td-planlist.text-align-center {
-  text-align: center;
-}
-
-.td-planlist.topfirst {
-  padding-left: 10px;
-  border-top-left-radius: 3px;
-  -moz-border-top-left-radius: 3px;
-  -webkit-border-top-left-radius: 3px;
-  -ms-border-top-left-radius: 3px;
-  -o-border-top-left-radius: 3px;
-}
-
-.td-planlist.toplast {
-  padding-right: 10px;
-  border-top-right-radius: 3px;
-  -moz-border-top-right-radius: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -ms-border-top-right-radius: 3px;
-  -o-border-top-right-radius: 3px;
-}
-
-.td-planlist.bottomfirst {
-  padding-left: 10px;
-  border-bottom-left-radius: 3px;
-  -moz-border-bottom-left-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -ms-border-bottom-left-radius: 3px;
-  -o-border-bottom-left-radius: 3px;
-}
-
-.td-planlist.bottomlast {
-  padding-right: 10px;
-  border-bottom-right-radius: 3px;
-  -moz-border-bottom-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  -ms-border-bottom-right-radius: 3px;
-  -o-border-bottom-right-radius: 3px;
-}
-
-.td-planlist.alert {
-  padding: 7px 10px;
-  border-top: 1px solid #ECEEEE;
-  text-align: center;
-}
-
-.td-planlist.alert.pending {
-  background-image: url(https://app.planfred.com/static/img/email/revision-approval-bg.png);
-  background-color: #ffcc33;
-}
-
-.td-planlist.alert.approved {
-  background-image: url(https://app.planfred.com/static/img/email/revision-approval-approved-bg.png);
-  background-color: #32B432;
-}
-
-.td-planlist.alert.rejected {
-  background-image: url(https://app.planfred.com/static/img/email/revision-approval-rejected-bg.png);
-  background-color: #c70000;
-}
-
-.td-planlist .alert-innerwrap {
-  padding: 2px 8px;
-  background-color: #FFFFFF;
-  border-radius: 9px;
-  text-align: center;
-}
-
-.td-planlist.files {
-  border-top: 1px solid #ECEEEE;
-}
-
-.td-planlist.files p {
-  color: #949c9e;
 }
 
 .label {
@@ -318,36 +149,6 @@ strong.small{
   font-stretch: normal;
   font-size: 11px;
   line-height: 14px;
-}
-
-.label.index {
-  background-color: #259DB5;
-  text-transform: uppercase;
-}
-
-.label.revision{
-  background-color: #e87f4b;
-  font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
-  font-weight: 400;
-}
-
-.label.pdf {
-  background-color: #d3206d;
-  text-transform: uppercase;
-}
-
-.label.dwg {
-  background-color: #c29508;
-  text-transform: uppercase;
-}
-
-.label.dwg.filemissing, .label.pdf.filemissing{
-  background-color: #cacdce;
-}
-
-.label.role {
-  font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
-  font-weight: 400;
 }
 
 .table-download {
