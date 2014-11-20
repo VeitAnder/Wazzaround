@@ -24,23 +24,23 @@
     >
 
   {{#each bookingData.bookedEvents}}
-  <tr class="tr-seperator-top">
-    <td colspan="3"
-        class="first last">
-      <h4 class="margin-0">{{translate item.description }}</h4>
-    </td>
-  </tr>
-  <tr>
-    <td class="first">
-      {{dateFormat event.start}}
-    </td>
-    <td class="text-align-center">
-      {{bookedEvent.quantity}}x
-    </td>
-    <td class="last text-align-right">
-      {{numeral event.price format="0,00"}} €
-    </td>
-  </tr>
+    <tr class="tr-seperator-top">
+      <td colspan="3"
+          class="first last">
+        <h4 class="margin-0">{{translate item.description }}</h4>
+      </td>
+    </tr>
+    <tr>
+      <td class="first">
+        {{dateFormat event.start}}
+      </td>
+      <td class="text-align-center">
+        {{bookedEvent.quantity}}x
+      </td>
+      <td class="last text-align-right">
+        {{numeral event.price format="0,00"}} €
+      </td>
+    </tr>
   {{/each}}
 
   <tr class="tr-subtotal">
@@ -49,8 +49,7 @@
     </td>
     <td class="last text-align-right">
       <strong>
-        {{numeral bookingData.amount format="0,00"}}
-        €
+        {{numeral bookingData.amount format="0,00"}} €
       </strong>
     </td>
   </tr>
