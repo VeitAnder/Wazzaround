@@ -2,13 +2,25 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <h2>{{'Providers Overview' | translate}}</h2>
+      <h2>{{'Activity Providers Overview' | translate}}</h2>
 
-      <div>
-        Filter:
-        <input type="text"
-               ng-model="query">
-      </div>
+      <filterbar>
+        <div class="textsearch">
+          <label for="filterbarquery">
+            {{'Full text search' | translate }}:
+          </label>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-search"></i>
+            </span>
+            <input type="text"
+                   ng-model="query"
+                   id="filterbarquery"
+                   class="form-control"
+              >
+          </div>
+        </div>
+      </filterbar>
 
       <div class="providers-list enable_hover">
         <div class="listheader">
@@ -30,7 +42,7 @@
           <div class="listrow"
                ng-repeat="provider in providers | filter:query"
                ng-click="handleItemClick(provider)"
-              >
+            >
 
             <div class="company cell first">
               {{provider.profile.company}}
@@ -45,7 +57,6 @@
         </div>
 
       </div>
-
 
     </div>
   </div>

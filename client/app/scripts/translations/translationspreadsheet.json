@@ -532,21 +532,21 @@
   },
   {
     "Description": "",
-    "key": "",
-    "en": "",
-    "de": "",
-    "it": "",
-    "fr": "",
-    "sp": ""
+    "key": "Activity Providers Overview",
+    "en": "Activity Providers Overview",
+    "de": "Aktivitätsanbieter im Überblick",
+    "it": "Activity Providers Overview",
+    "fr": "Activity Providers Overview",
+    "sp": "Activity Providers Overview"
   },
   {
     "Description": "",
-    "key": "",
-    "en": "",
-    "de": "",
-    "it": "",
-    "fr": "",
-    "sp": ""
+    "key": "Full text search",
+    "en": "Full text search",
+    "de": "Volltextsuche",
+    "it": "Full text search",
+    "fr": "Full text search",
+    "sp": "Full text search"
   },
   {
     "Description": "",
@@ -3742,5 +3742,32 @@
     "it": "Only {{quantity}} items are available",
     "fr": "Only {{quantity}} items are available",
     "sp": "Only {{quantity}} items are available"
+  },
+  {
+    "Description": "",
+    "key": "Amount has to be a number",
+    "en": "Amount has to be a number",
+    "de": "Amount has to be a number",
+    "it": "Amount has to be a number",
+    "fr": "Amount has to be a number",
+    "sp": "Amount has to be a number"
+  },
+  {
+    "Description": "",
+    "key": "Amount has to be defined",
+    "en": "Amount has to be defined",
+    "de": "Amount has to be defined",
+    "it": "Amount has to be defined",
+    "fr": "Amount has to be defined",
+    "sp": "Amount has to be defined"
+  },
+  {
+    "Description": "",
+    "key": "You have to order at least one item",
+    "en": "You have to order at least one item",
+    "de": "You have to order at least one item",
+    "it": "You have to order at least one item",
+    "fr": "You have to order at least one item",
+    "sp": "You have to order at least one item"
   }
 ]

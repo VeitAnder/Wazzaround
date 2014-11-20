@@ -3821,12 +3821,24 @@ activitystatearea {
   }
 }
 
+
 filterbar {
-  display: block;
   position: relative;
-  @include border-top-radius($border-radius);
-  background-color: $color_grey_15;
+  display: block;
   padding: 15px;
+  margin-bottom: $fs*2.0;
+  @include border-radius($border-radius);
+  background-color: $color_grey_15;
+
+  &.filterbar-top{
+    @include border-bottom-radius(0);
+    margin-bottom: 0;
+    .textsearch {
+      label {
+        display: none;
+      }
+    }
+  }
 
   .checkboxsearch-selectbar {
     display: table;
@@ -3848,7 +3860,7 @@ filterbar {
     width: 1%;
     vertical-align: top;
     label {
-      display: none;
+      line-height: 100%!important;
     }
     .input-group {
       margin-bottom: 0;

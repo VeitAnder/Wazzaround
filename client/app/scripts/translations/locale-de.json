@@ -50,6 +50,8 @@
   "Please enter the month of the expiry date": "Bitte geben Sie das Monat des Ablaufdatums ein",
   "Please enter a valid number year": "Bitte geben Sie eine gültige, 4-stellige Zahl ein",
   "Please enter the year of the expiry date": "Bitte geben Sie das Jahr des Ablaufdatums ein",
+  "Activity Providers Overview": "Aktivitätsanbieter im Überblick",
+  "Full text search": "Volltextsuche",
   "Bookings": "Buchungs-Übersicht",
   "Booking date": "Buchungs-Datum",
   "Booked by": "Gebucht von",
@@ -398,5 +400,8 @@
   "Orders will be possible soon": "Bestellungen sind derzeit noch nicht möglich! Dieses Feature wird bald aktiviert.",
   "helptext autotranslation": "Die Aktivität wird automatisch in die anderen Sprachen übersetzt. Änderungen in den anderen Sprachen werden durch die automatische Übersetzung überschrieben.",
   "one year": "ein Jahr",
-  "Only x items are available": "Es sind nur {{quantity}} Stück verfügbar"
+  "Only x items are available": "Es sind nur {{quantity}} Stück verfügbar",
+  "Amount has to be a number": "Amount has to be a number",
+  "Amount has to be defined": "Amount has to be defined",
+  "You have to order at least one item": "You have to order at least one item"
 }
