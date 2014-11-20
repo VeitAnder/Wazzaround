@@ -42,7 +42,7 @@ echo "build clientapp"
 grunt --gruntfile ${SCRIPTPATH}/../client/gruntFile.js build
 
 # build server
-grunt buildfast
+grunt build
 
 # launch node server
 echo "\n\nlaunch node server via 'grunt supervise'"

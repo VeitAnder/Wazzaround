@@ -22,7 +22,7 @@ echo "\n\ngrunt version used:"
 grunt --version
 
 # build server
-grunt buildfast
+grunt build
 
 # launch node server
 echo "\n\nlaunch node server via 'grunt supervise'"
