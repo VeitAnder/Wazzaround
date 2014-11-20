@@ -8,6 +8,7 @@
 }
 
 #templateBody {
+  width: 100%;
   max-width: 800px;
   border-radius: 12px;
   -moz-border-radius: 12px;
@@ -128,6 +129,12 @@ strong.small {
 .text-align-center {
   text-align: center;
 }
+.text-align-right {
+  text-align: right;
+}
+.text-align-left {
+  text-align: left;
+}
 
 .table-layout {
   margin-top: 30px;
@@ -174,6 +181,15 @@ strong.small {
 }
 
 .table-shoppingcart td{
+  padding: 10px;
+}
+
+td.first{
+  padding-left: 0;
+}
+
+td.last{
+  padding-right: 0;
 }
 
 .tr-seperator-top td{
