@@ -38,7 +38,7 @@
       {{bookedEvent.quantity}}x
     </td>
     <td class="last text-align-right">
-      {{item.price}} €
+      {{numeral event.price format="0,00"}} €
     </td>
   </tr>
   {{/each}}
@@ -46,13 +46,10 @@
   <tr class="tr-subtotal">
     <td colspan="2">
       <strong>{{translations 'Subtotal'}}</strong>
-    <td colspan="2"
-        class="first">
-      <strong>Subtotal</strong>
     </td>
     <td class="last text-align-right">
       <strong>
-        {{numeral bookingData.amount format="0.00"}}
+        {{numeral bookingData.amount format="0,00"}}
         €
       </strong>
     </td>

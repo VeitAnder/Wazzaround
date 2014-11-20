@@ -211,35 +211,6 @@ send = function (mail) {
 };
 exports.send = send;
 
-exports.sendProjectInvitationMailToUnconfirmedAccount = function (userwhoinvitesparticipant, userAccountOfParticipant, project, newpassword) {
-  var sendmessage = {
-    data: {
-      invitee: userAccountOfParticipant,
-      user: userwhoinvitesparticipant.toJSON(),
-      project: project,
-      version: config.api.apiversion,
-      template: {
-        projectinvitation: true
-      }
-    },
-    postmarkmail: {
-      "From": config.postmark.from,
-      "To": userAccountOfParticipant.email,
-      "Subject": "reacture – Projekteinladung",
-      "Tag": "projectinvitation",
-      "ReplyTo": userwhoinvitesparticipant.email
-    }
-  };
-
-  //if account has not been confirmed yet, include confirmation link
-  sendmessage.data.template.includeactivationlink = true;
-  sendmessage.data.activationurl = config.host + config.api.apiversion + "userregistrations/confirmuserregistration/" + userAccountOfParticipant.accountconfirmationtoken + "/";
-  //also include new password:
-  sendmessage.data.password = newpassword;
-
-  return send(sendmessage);
-};
-
 exports.sendResetPasswordMail = function (user, token) {
   //E-Mail Body
   var sendmessage = {
@@ -247,6 +218,7 @@ exports.sendResetPasswordMail = function (user, token) {
       user: user,
       token: token,
       resetpwdurl: config.clienthost + "registration/forgotpassword/" + token + "/" + user.email + "/",
+      translations: translations,
       template: {
         resetpassword: true
       }
@@ -269,6 +241,7 @@ exports.sendActivationTokenEmail = function (token) {
     data: {
       user: token.user.ref(),
       activationurl: config.host + config.api.apiversion + "users/" + token.user.ref()._id + "/activate/" + token._id + "/" + token.token + "/",
+      translations: translations,
       template: {
         accountactivationtoken: true
       }
@@ -293,7 +266,6 @@ exports.sendBookingConfirmationEmail = function (booking) {
     data: {
       bookingData: booking,
       translations: translations,
-      languageKey: languageKey,
       template: {
         bookingconfirmation: true
       }
