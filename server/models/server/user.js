@@ -136,7 +136,7 @@ UserModel.operationImpl("register", function (params, req) {
 
     })
     .spread(function (tokenObj, promocodeowner) {
-      return mail.sendActivationTokenEmail(tokenObj);
+      return mail.sendActivationTokenEmail(tokenObj, params.languageKey);
     })
     .then(function () {  // if save was ok
       return {status: "ok"};

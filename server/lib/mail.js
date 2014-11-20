@@ -2,7 +2,17 @@ var config = require('../config.js');
 
 var postmark = require('postmark')(config.postmark.apikey);
 var Q = require('q');
+
+// setup numeral
 var numeral = require('numeral');
+var numeralDE = require('numeral/languages/de');
+numeralDE.delimiters.thousands = '.';
+numeral.language('de', numeralDE);
+numeral.language('de');
+
+// example
+// numeral(1024).format('0,0.00');
+
 var moment = require('moment-timezone');
 var Handlebars,
   templatestore,
@@ -159,7 +169,7 @@ Handlebars.registerHelper('dateFormat', function (context, block) {
 //  moment syntax example: numeral(100).format('0.0,00')
 //  usage: {{numeral amount format="0.0,00"}}
 Handlebars.registerHelper('numeral', function (number, block) {
-  var f = block.hash.format || "0.0,00";
+  var f = block.hash.format || "0,0.00 $";
   return numeral(number).format(f);
 });
 
@@ -237,7 +247,9 @@ exports.sendResetPasswordMail = function (user, token, langKey) {
   return send(sendmessage);
 };
 
-exports.sendActivationTokenEmail = function (token) {
+exports.sendActivationTokenEmail = function (token, langKey) {
+  languageKey = langKey;
+
   //E-Mail Body
   var sendmessage = {
     data: {
@@ -251,7 +263,7 @@ exports.sendActivationTokenEmail = function (token) {
     postmarkmail: {
       "From": config.postmark.from,
       "To": token.user.ref().email,
-      "Subject": "reacture – Bestätigung der Registrierung",
+      "Subject": "reacture – " + translations[languageKey]['Confirmation of your Registration'],
       "Tag": "accountactivationtoken",
       "ReplyTo": config.postmark.replyto
     }

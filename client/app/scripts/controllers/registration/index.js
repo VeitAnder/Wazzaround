@@ -28,7 +28,7 @@ angular.module('anorakApp')
       if ($scope.valForm.$valid) {
         user = angular.copy($scope.registrant);
         user.password = CryptoJS.SHA256($scope.registrant.password).toString(CryptoJS.enc.Base64);
-        models.UserModel.register(user)
+        models.UserModel.register(user, languageKey)
           .then(function () {
             $timeout(function () {
               $scope.state.registrationsuccess = true;
@@ -58,6 +58,7 @@ angular.module('anorakApp')
       }
       return showerror;
     };
+
 
   }
 );
