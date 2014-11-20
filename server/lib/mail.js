@@ -2,6 +2,7 @@ var config = require('../config.js');
 
 var postmark = require('postmark')(config.postmark.apikey);
 var Q = require('q');
+var numeral = require('numeral');
 var moment = require('moment-timezone');
 var Handlebars,
   templatestore,
@@ -151,6 +152,15 @@ Handlebars.registerHelper('dateFormat', function (context, block) {
   return moment(context).tz("Europe/Vienna").format(f); //had to remove Date(context)
 });
 
+//  format numbers using numeral.js
+//  http://numeraljs.com/
+//  moment syntax example: numeral(100).format('0.0,00')
+//  usage: {{numeral amount format="0.0,00"}}
+Handlebars.registerHelper('numeral', function (number, block) {
+  var f = block.hash.format || "0.0,00";
+  return numeral(number).format(f);
+});
+
 Handlebars.registerHelper('host', function (context, block) {
   return config.host;
 });
@@ -165,6 +175,11 @@ Handlebars.registerHelper('filetypeending', function (file, block) {
   if (file !== undefined && file.filename !== undefined) {
     return file.filename.split('.').pop();
   }
+});
+
+var languageKey = "en";
+Handlebars.registerHelper('translate', function (text, block) {
+  return text[languageKey];
 });
 
 templatestore = require('../templates/compiled/compiledtemplates.js');
@@ -261,10 +276,12 @@ exports.sendActivationTokenEmail = function (token) {
 };
 
 exports.sendBookingConfirmationEmail = function (booking) {
+  languageKey = booking.languageKey;
+
   //E-Mail Body
   var sendmessage = {
     data: {
-      booking: booking,
+      bookingData: booking,
       template: {
         bookingconfirmation: true
       }

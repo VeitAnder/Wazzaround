@@ -9,7 +9,7 @@
 //};
 
 angular.module('anorakApp')
-  .factory('shoppingcart', function shoppingcart(models, $localStorage) {
+  .factory('shoppingcart', function shoppingcart(models, $localStorage, $translate) {
 
     // AngularJS will instantiate a singleton by calling "new" on this function
 
@@ -90,7 +90,8 @@ angular.module('anorakApp')
           'amount_int': Math.floor(this.getTotal().price * 100),
           'currency': 'EUR'
         },
-        'profile': profile
+        'profile': profile,
+        'languageKey': $translate.use()
       });
     };
 

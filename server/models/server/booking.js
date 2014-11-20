@@ -93,6 +93,7 @@ BookingModel.operationImpl("checkout", function (params, req) {
   assert(params.bookings && Array.isArray(params.bookings), "you need to provide a bookings-array");
   assert(params.payment, "you need to provide payment informations");
   assert(params.profile, "you need to provide a profile");
+  assert(params.languageKey, "you need to provide a languageKey");
 
   var booking = BookingModel.create();
 
@@ -198,11 +199,14 @@ BookingModel.operationImpl("checkout", function (params, req) {
 
       var bookingdata = {
         booking: booking,
+        ammount : booking.payment.amount_int / 100,
+        languageKey: params.languageKey,
         bookedEvents: []
       };
 
       bookedEvents.forEach(function (bookedEvent) {
         bookingdata.bookedEvents.push({
+          bookedEvent : bookedEvent,
           item: bookedEvent.item.ref(),
           event: bookedEvent.event.ref(),
           activity: bookedEvent.activity.ref()

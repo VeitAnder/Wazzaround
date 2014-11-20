@@ -28,6 +28,7 @@
     "node-logentries": "0.1.4",
     "node-uuid": "1.4.1",
     "nodetime": "0.8.15",
+    "numeral": "^1.5.3",
     "passport": "0.2.1",
     "passport-local": "1.0.0",
     "paymill-node": "0.1.2",
