@@ -7,6 +7,43 @@ var moment = require('moment-timezone');
 var Handlebars,
   templatestore,
   send;
+/*
+
+var translations = {
+  de : require('');
+};
+
+
+var trans = {
+  'hallo welt': {
+    de: {
+      "hallo welt"
+    },
+    it: 'holla'
+  }
+}
+
+
+trans[key].de
+
+
+
+
+var trans = {
+  de: {
+    "hello world": "hallo welt"
+  },
+  en: {
+
+  }
+}
+
+trans[lang][key]
+
+*/
+
+
+
 
 // moment.js language configuration
 // language : german (de)
@@ -159,6 +196,10 @@ Handlebars.registerHelper('dateFormat', function (context, block) {
 Handlebars.registerHelper('numeral', function (number, block) {
   var f = block.hash.format || "0.0,00";
   return numeral(number).format(f);
+});
+
+Handlebars.registerHelper('readableid', function (objectid, block) {
+  return objectid.toString().match(/.{1,4}/g).join("-");
 });
 
 Handlebars.registerHelper('host', function (context, block) {

@@ -8,7 +8,7 @@
 </h2>
 <p>
   <strong>
-    Order ID: {{bookingData.booking._id}}
+    Order ID: {{readableid bookingData.booking._id}}
   </strong>
 </p>
 
@@ -33,7 +33,7 @@
         {{dateFormat event.start}}
       </td>
       <td>
-        1x
+        {{bookedEvent.quantity}}x
       </td>
       <td>
         {{item.price}} €
@@ -48,7 +48,7 @@
     </td>
     <td>
       <strong>
-        {{numeral bookingData.booking.payment.amount_int format="0.00"}}
+        {{numeral bookingData.amount format="0.00"}}
         €
       </strong>
     </td>

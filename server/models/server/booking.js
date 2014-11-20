@@ -199,7 +199,7 @@ BookingModel.operationImpl("checkout", function (params, req) {
 
       var bookingdata = {
         booking: booking,
-        ammount : booking.payment.amount_int / 100,
+        amount : booking.payment.amount_int / 100,
         languageKey: params.languageKey,
         bookedEvents: []
       };
