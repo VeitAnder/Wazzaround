@@ -19,23 +19,24 @@
     class="table-shoppingcart"
     border="0"
     cellpadding="0"
-    cellspacing="10"
+    cellspacing="0"
+    width="100%"
     >
 
   {{#each bookingData.bookedEvents}}
     <tr class="tr-seperator-top">
-      <td colspan="3">
-        <h4>{{translate item.description }}</h4>
+      <td colspan="3" class="first last">
+        <h4 class="margin-0">{{translate item.description }}</h4>
       </td>
     </tr>
     <tr>
-      <td>
+      <td class="first">
         {{dateFormat event.start}}
       </td>
-      <td>
+      <td class="text-align-center">
         {{bookedEvent.quantity}}x
       </td>
-      <td>
+      <td class="last text-align-right">
         {{item.price}} €
       </td>
     </tr>
@@ -43,10 +44,10 @@
 
 
   <tr class="tr-subtotal">
-    <td colspan="2">
+    <td colspan="2" class="first">
       <strong>Subtotal</strong>
     </td>
-    <td>
+    <td class="last text-align-right">
       <strong>
         {{numeral bookingData.amount format="0.00"}}
         €
@@ -60,12 +61,10 @@
   <strong>Name:</strong>
   {{bookingData.booking.profile.firstName}}
   {{bookingData.booking.profile.lastName}}
-</p>
-<p>
+<br />
   <strong>E-mail:</strong>
   {{bookingData.booking.profile.email}}
-</p>
-<p>
+<br />
   <strong>Telephone:</strong>
   {{bookingData.booking.profile.tel}}
 </p>
