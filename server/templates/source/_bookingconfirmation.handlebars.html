@@ -4,16 +4,16 @@
       media="all">
 
 <h2>
-  Payment Confirmation
+  {{translations 'Payment Confirmation'}}
 </h2>
 <p>
   <strong>
-    Order ID: {{readableid bookingData.booking._id}}
+    {{translations 'Order ID'}}: {{readableid bookingData.booking._id}}
   </strong>
 </p>
 
 <h3>
-  Shopping Cart
+  {{translations 'Shopping cart'}}
 </h3>
 <table
     class="table-shoppingcart"
@@ -44,7 +44,7 @@
 
   <tr class="tr-subtotal">
     <td colspan="2">
-      <strong>Subtotal</strong>
+      <strong>{{translations 'Subtotal'}}</strong>
     </td>
     <td>
       <strong>
@@ -55,17 +55,17 @@
   </tr>
 </table>
 
-<h3>Personal data</h3>
+<h3>{{translations 'Personal data'}}</h3>
 <p>
-  <strong>Name:</strong>
+  <strong>{{translations 'Name'}}:</strong>
   {{bookingData.booking.profile.firstName}}
   {{bookingData.booking.profile.lastName}}
 </p>
 <p>
-  <strong>E-mail:</strong>
+  <strong>{{translations 'E-mail'}}:</strong>
   {{bookingData.booking.profile.email}}
 </p>
 <p>
-  <strong>Telephone:</strong>
+  <strong>{{translations 'Telephone'}}:</strong>
   {{bookingData.booking.profile.tel}}
 </p>

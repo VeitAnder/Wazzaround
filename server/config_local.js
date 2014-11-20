@@ -2,7 +2,7 @@ var config = {
   host: "http://localhost:3000/",
   clienthost: "http://localhost:9000/",
   mongo: {
-    local : true,
+    local: true,
     host: 'localhost',
     dbName: 'reactureappdev'                                // The name of database that contains the security information
   },
@@ -57,6 +57,12 @@ var config = {
   },
   paymill: {
     PAYMILL_PRIVATE_KEY: '34e632de2eb8de9a92caea85fab7f380'
+  },
+  translations: {
+    de: require('../client/app/scripts/translations/locale-de.json'),
+    en: require('../client/app/scripts/translations/locale-en.json'),
+    fr: require('../client/app/scripts/translations/locale-fr.json'),
+    it: require('../client/app/scripts/translations/locale-it.json')
   }
 };
 

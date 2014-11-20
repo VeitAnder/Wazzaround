@@ -58,6 +58,12 @@ var config = {
   },
   paymill: {
     PAYMILL_PRIVATE_KEY: '34e632de2eb8de9a92caea85fab7f380'
+  },
+  translations: {
+    de: require(__dirname + '/clientapp/scripts/translations/locale-de.json'),
+    en: require(__dirname + '/clientapp/scripts/translations/locale-en.json'),
+    fr: require(__dirname + '/clientapp/scripts/translations/locale-fr.json'),
+    it: require(__dirname + '/clientapp/scripts/translations/locale-it.json')
   }
 };
 

@@ -7,43 +7,8 @@ var moment = require('moment-timezone');
 var Handlebars,
   templatestore,
   send;
-/*
 
-var translations = {
-  de : require('');
-};
-
-
-var trans = {
-  'hallo welt': {
-    de: {
-      "hallo welt"
-    },
-    it: 'holla'
-  }
-}
-
-
-trans[key].de
-
-
-
-
-var trans = {
-  de: {
-    "hello world": "hallo welt"
-  },
-  en: {
-
-  }
-}
-
-trans[lang][key]
-
-*/
-
-
-
+var translations = config.translations;
 
 // moment.js language configuration
 // language : german (de)
@@ -223,6 +188,10 @@ Handlebars.registerHelper('translate', function (text, block) {
   return text[languageKey];
 });
 
+Handlebars.registerHelper('translations', function (key, block) {
+  return translations[languageKey][key];
+});
+
 templatestore = require('../templates/compiled/compiledtemplates.js');
 
 send = function (mail) {
@@ -323,6 +292,8 @@ exports.sendBookingConfirmationEmail = function (booking) {
   var sendmessage = {
     data: {
       bookingData: booking,
+      translations: translations,
+      languageKey: languageKey,
       template: {
         bookingconfirmation: true
       }
@@ -330,7 +301,7 @@ exports.sendBookingConfirmationEmail = function (booking) {
     postmarkmail: {
       "From": config.postmark.from,
       "To": booking.booking.profile.email,
-      "Subject": "reacture – Bestätigung ihrer Buchung",
+      "Subject": "reacture – " + translations[languageKey]['Payment Confirmation'],
       "Tag": "accountactivationtoken",
       "ReplyTo": config.postmark.replyto
     }

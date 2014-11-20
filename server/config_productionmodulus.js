@@ -61,6 +61,12 @@ var config = {
   },
   paymill: {
     PAYMILL_PRIVATE_KEY: '8b5c021ffff613bfd461c524c0caa41c'  // paymill private live key!
+  },
+  translations: {
+    de: require(__dirname + '/clientapp/scripts/translations/locale-de.json'),
+    en: require(__dirname + '/clientapp/scripts/translations/locale-en.json'),
+    fr: require(__dirname + '/clientapp/scripts/translations/locale-fr.json'),
+    it: require(__dirname + '/clientapp/scripts/translations/locale-it.json')
   }
 };
 
