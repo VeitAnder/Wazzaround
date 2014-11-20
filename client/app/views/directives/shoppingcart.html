@@ -1,20 +1,20 @@
 <ng-form
-    name="shoppingcartForm"
-    >
+  name="shoppingcartForm"
+  >
   <div class="shoppingcart-header">
     <h3
-        ng-hide="state.confirmationview"
-        >
+      ng-hide="state.confirmationview"
+      >
       <strong>
         {{shoppingcart.getTotal().num}}
         <span
-            ng-show="shoppingcart.getTotal().num > 1 || shoppingcart.getTotal().num === 0"
-            >
+          ng-show="shoppingcart.getTotal().num > 1 || shoppingcart.getTotal().num === 0"
+          >
           {{ 'Activities' | translate }}
         </span>
         <span
-            ng-show="shoppingcart.getTotal().num === 1"
-            >
+          ng-show="shoppingcart.getTotal().num === 1"
+          >
           {{ 'Activity' | translate }}
         </span>
       </strong>
@@ -24,32 +24,31 @@
   <div class="shoppingcart-content"
        ng-repeat="item in shoppingcart.getCart()">
     <ng-form
-        name="shoppingcartItemForm"
-        novalidate
-        >
+      name="shoppingcartItemForm"
+      novalidate
+      >
       <!--SHOPPINGCART ITEM #1-->
       <div class="shoppingcart-item"
            data-ng-class="{
       'category-sports' : item.category === 'sports',
       'category-culture' : item.category === 'culture',
-      'category-wellness' : item.category === 'wellness',
+      'category-wellness' : item.category === 'wellness'
     }">
 
         <cloudinaryimage
-            ng-if="!state.confirmationview"
-            data-publicid="{{item.image.public_id}}"
-            data-format="{{item.image.format}}"
-            data-width="100"
-            data-height="60"
-            >
+          ng-if="!state.confirmationview"
+          data-publicid="{{item.image.public_id}}"
+          data-format="{{item.image.format}}"
+          data-width="100"
+          data-height="60"
+          >
         </cloudinaryimage>
-
 
         <h4>
           <span
-              ng-hide="state.confirmationview"
-              class="icon"
-              ></span>
+            ng-hide="state.confirmationview"
+            class="icon"
+            ></span>
           <strong>
             {{item.description[translationutils.getAvailableTranslationLanguageKey(item.description)] }}
           </strong>
@@ -70,12 +69,40 @@
                    min="1"
                    max="{{item.availableQuantity}}"
                    required
-                   defaultvalue="1"
+              >
+
+            <ng-messages
+              for="shoppingcartItemForm.shoppingcartItemAmount1.$error"
+              >
+              <ng-message
+                when="min"
+                class="alert alert-error"
                 >
+                {{ 'You have to order at least one item' | translate }}
+              </ng-message>
+              <ng-message
+                when="max"
+                class="alert alert-error"
+                >
+                {{ 'Only x items are available' | translate:{quantity:item.availableQuantity} }}
+              </ng-message>
+              <ng-message
+                when="number"
+                class="alert alert-error"
+                >
+                {{ 'Amount has to be a number' | translate }}
+              </ng-message>
+              <ng-message
+                when="required"
+                class="alert alert-error"
+                >
+                {{ 'Amount has to be defined' | translate }}
+              </ng-message>
+            </ng-messages>
 
             <span
-                ng-show="state.confirmationview"
-                >
+              ng-show="state.confirmationview"
+              >
               {{item.quantity}}x
             </span>
 

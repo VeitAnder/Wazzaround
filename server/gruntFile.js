@@ -6,12 +6,15 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-env');
+  grunt.loadNpmTasks('grunt-email-builder');
+  grunt.loadNpmTasks('grunt-replace');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Project configuration.
   grunt.initConfig({
-    env : {
+    env: {
       testing: {
-        NODE_ENV : 'testing',
+        NODE_ENV: 'testing',
         DEST: 'temp'
       }
     },
@@ -43,17 +46,55 @@ module.exports = function (grunt) {
         '!models/**/*.js'
       ]
     },
-
     handlebars: {
       compile: {
         options: {
           namespace: "JST",
-          node: true
+          node: true,
+          processName: function (filePath) {
+            return filePath.replace(/^.*[\\\/]/, '');
+          }
         },
         files: {
-          "templates/compiledtemplates.js": "templates/**/*.handlebars"
+          "templates/compiled/compiledtemplates.js": "_temp/templates/source/**/*.handlebars.html"
         }
       }
+    },
+    emailBuilder: {
+      inline: {
+        options: {
+          encodeSpecialChars: false
+        },
+        files: [{
+          expand: true,
+          src: ['templates/source/**/*.handlebars.html'],
+          dest: '_temp/'
+        }]
+      }
+    },
+    replace: {
+      fixhandlebarsinclude: {
+        options: {
+          patterns: [{
+            match: /{{&gt;/g,
+            replacement: function () {
+              return '{{>'; // replaces "foo" to "bar"
+            }
+          }
+          ]
+        },
+        files: [
+          {
+            expand: true,
+            flatten: true,
+            src: ['_temp/templates/source/default.handlebars.html'],
+            dest: '_temp/templates/source/'
+          }
+        ]
+      }
+    },
+    clean: {
+      temp: ["_temp/"]
     },
     jasmine_node: {
       specNameMatcher: "spec", // load only specs containing specNameMatcher
@@ -90,17 +131,20 @@ module.exports = function (grunt) {
   });
 
   // release builds
-  grunt.registerTask('releasebasetask', ['handlebars', 'jshint']);
+  grunt.registerTask('releasebasetask', ['buildemailtemplates', 'jshint']);
   grunt.registerTask('release', ['releasebasetask']);
   grunt.registerTask('releasepatch', ['releasebasetask']);
   grunt.registerTask('releasedevelopment', ['releasebasetask']);
 
   // buildfast for development
-  grunt.registerTask('buildfast', ['handlebars', 'jshint']);
+  grunt.registerTask('build', ['buildemailtemplates', 'jshint']);
 
   grunt.registerTask('timestamp', function () {
     grunt.log.subhead(Date());
   });
+
+  // buildemailtemplates
+  grunt.registerTask('buildemailtemplates', ['emailBuilder', 'replace', 'handlebars', 'clean']);
 
   grunt.registerTask('supervise', function () {
     this.async();

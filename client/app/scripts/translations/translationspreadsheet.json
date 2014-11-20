@@ -3733,5 +3733,14 @@
     "it": "Promotioncode",
     "fr": "Promotioncode",
     "sp": "Promotioncode"
+  },
+  {
+    "Description": "",
+    "key": "Only x items are available",
+    "en": "Only {{quantity}} items are available",
+    "de": "Es sind nur {{quantity}} Stück verfügbar",
+    "it": "Only {{quantity}} items are available",
+    "fr": "Only {{quantity}} items are available",
+    "sp": "Only {{quantity}} items are available"
   }
 ]

@@ -397,5 +397,6 @@
   "Contact our support": "Kontaktieren Sie unseren Support",
   "Orders will be possible soon": "Bestellungen sind derzeit noch nicht möglich! Dieses Feature wird bald aktiviert.",
   "helptext autotranslation": "Die Aktivität wird automatisch in die anderen Sprachen übersetzt. Änderungen in den anderen Sprachen werden durch die automatische Übersetzung überschrieben.",
-  "one year": "ein Jahr"
+  "one year": "ein Jahr",
+  "Only x items are available": "Es sind nur {{quantity}} Stück verfügbar"
 }

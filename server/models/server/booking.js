@@ -98,9 +98,13 @@ BookingModel.operationImpl("checkout", function (params, req) {
         checkAvailableBookings.push(
           models.ActivityModel.get(ObjectId(booking.activity))
             .then(function (activity) {
-              priceSum += activity.getChild(booking.event).price;
+              priceSum += activity.getChild(booking.event).price * booking.quantity;
               if (booking.quantity > activity.getChild(booking.event).availableQuantity)
                 throw new Error("There are not enough events available for booking");
+              if (booking.quantity < 1)
+                throw new Error("Quantity has to be > 0");
+              if (booking.quantity % 1 !== 0)
+                throw new Error("Quantity has to be an integer value");
             })
         );
 

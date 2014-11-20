@@ -21,7 +21,7 @@ angular.module('anorakApp')
           cloud_name: 'www-reacture-com',
           api_key: '162329319871877'
         },
-        paymillPublicKey : '744618362999c5386cdc5e61fee63d2c'  // test key
+        paymillPublicKey : '8a8394c246a5a1360146a947ae7c07d7'  // public live key!
       };
     } else if ($window.location.hostname === "reactureappdev-10669.onmodulus.net" || $window.location.hostname === "dev.reacture.anorak.io") {
       // development server
