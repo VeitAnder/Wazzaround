@@ -104,6 +104,7 @@
     "Q": true,
     "CryptoJS": true,
     "assert": true,
-    "models": true
+    "models": true,
+    "paymill": true
   }
 }

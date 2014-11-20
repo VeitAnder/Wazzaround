@@ -25,7 +25,7 @@ angular.module('anorakApp')
 
     this.submitEnabled = true;
     this.states = {
-      submitted : false
+      submitted: false
     };
 
     this.errorMsg;
@@ -69,25 +69,24 @@ angular.module('anorakApp')
 
     this.profile = {};
     this.card = {};
-    this.amount_int = Math.floor(shoppingcart.getTotal().price * 100);
 
     this.submitPayment = function (event) {
+      var amount_int = Math.floor(shoppingcart.getTotal().price * 100);
+
       payment.states.submitted = true;
 
       if (!this.isPaymentFormValid()) return;
       if (payment.submitEnabled === false) return;
       payment.submitEnabled = false;
 
-      console.log("submitPayment", payment.card, payment.profile, shoppingcart.getTotal());
-
-      console.log("amount_int", this.amount_int);
+      //console.log("submitPayment", payment.card, payment.profile, shoppingcart.getTotal());
 
       paymill.createToken({
         number: payment.card.number,            // required, ohne Leerzeichen und Bindestriche
         exp_month: payment.card.expiry_month,   // required
         exp_year: payment.card.expiry_year,     // required, vierstellig z.B. "2016"
         cvc: payment.card.cvc,                  // required
-        amount_int: payment.amount_int,         // required, integer, z.B. "15" für 0,15 Euro
+        amount_int: amount_int,         // required, integer, z.B. "15" für 0,15 Euro
         currency: 'EUR',                        // required, ISO 4217 z.B. "EUR" od. "GBP"
         cardholder: payment.card.name           // optional
       }, PaymillResponseHandler);    // Antwort vom Server
