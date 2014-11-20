@@ -259,3 +259,24 @@ exports.sendActivationTokenEmail = function (token) {
 
   return send(sendmessage);
 };
+
+exports.sendBookingConfirmationEmail = function (booking) {
+  //E-Mail Body
+  var sendmessage = {
+    data: {
+      booking: booking,
+      template: {
+        bookingconfirmation: true
+      }
+    },
+    postmarkmail: {
+      "From": config.postmark.from,
+      "To": booking.booking.profile.email,
+      "Subject": "reacture – Bestätigung ihrer Buchung",
+      "Tag": "accountactivationtoken",
+      "ReplyTo": config.postmark.replyto
+    }
+  };
+
+  return send(sendmessage);
+};

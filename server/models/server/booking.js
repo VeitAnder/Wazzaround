@@ -12,6 +12,8 @@ var BookingModel = require('../models.js').BookingModel;
 
 var config = require('../../config');
 
+var mail = require('../../lib/mail.js');
+
 function assert(condition, message) {
   if (!condition) {
     console.log('Assertion failed', message);
@@ -59,7 +61,15 @@ var pay = function (bookingObj, paymentToken, amount_int, currency) {
         amount: amount_int,
         currency: currency,
         payment: payment.data.id,
-        description: JSON.stringify({bookingId: bookingObj._id, profile: { firstName: bookingObj.profile.firstName, lastName: bookingObj.profile.lastName, email: bookingObj.profile.email, tel: bookingObj.profile.tel} })
+        description: JSON.stringify({
+          bookingId: bookingObj._id,
+          profile: {
+            firstName: bookingObj.profile.firstName,
+            lastName: bookingObj.profile.lastName,
+            email: bookingObj.profile.email,
+            tel: bookingObj.profile.tel
+          }
+        })
       });
     })
     .then(function (transaction) {
@@ -76,7 +86,6 @@ var pay = function (bookingObj, paymentToken, amount_int, currency) {
     });
 
 };
-
 
 BookingModel.operationImpl("checkout", function (params, req) {
   console.log("In checkout()", params);
@@ -165,12 +174,11 @@ BookingModel.operationImpl("checkout", function (params, req) {
               bookedEvent.bookingProfile.email = booking.profile.email;
               bookedEvent.bookingProfile.tel = booking.profile.tel;
 
-
               bookedEvent.activity.setObject(activity);
               bookedEvent.activity_owner = activity.owner;
 
-              bookedEvent.item._link = ObjectId(bookingEvent.item);
-              bookedEvent.event._link = ObjectId(bookingEvent.event);
+              bookedEvent.item.set(activity, {_id: bookingEvent.item});
+              bookedEvent.event.set(activity, {_id: bookingEvent.event});
 
               bookedEvent.quantity = bookingEvent.quantity;
 
@@ -183,7 +191,26 @@ BookingModel.operationImpl("checkout", function (params, req) {
 
       return Q.all(bookingPromises);
     })
-    .then(function () {
+    .then(function (bookedEvents) {
+      // send checkout confirmation email to user
+
+      console.log("bookedEvents", bookedEvents);
+
+      var bookingdata = {
+        booking: booking,
+        bookedEvents: []
+      };
+
+      bookedEvents.forEach(function (bookedEvent) {
+        bookingdata.bookedEvents.push({
+          item: bookedEvent.item.ref(),
+          event: bookedEvent.event.ref(),
+          activity: bookedEvent.activity.ref()
+        });
+      });
+
+      mail.sendBookingConfirmationEmail(bookingdata);
+
       return {
         state: "ok",
         bookingId: booking._id

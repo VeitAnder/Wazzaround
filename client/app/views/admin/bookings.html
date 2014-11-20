@@ -7,10 +7,7 @@
       <div class="bookings-list">
         <div class="listheader">
           <div class="bookingdate cell first">
-            {{'Booking date' | translate}}
-          </div>
-          <div class="bookingnumber cell">
-            {{'#' | translate}}
+            {{'Booking date' | translate}}/{{'#' | translate}}
           </div>
           <div class="activity cell">
             {{'Activity' | translate}}
@@ -28,9 +25,8 @@
 
             <div class="bookingdate cell first">
               {{bookedEvent.date | momentjs:{format: "ddd, MMM Do YY"} }}
-            </div>
-            <div class="bookingnumber cell">
-              {{ bookedEvent.booking_id }}
+              <br/>
+              {{ bookedEvent.booking_id | readableid}}
             </div>
             <div class="activity cell">
               <cloudinaryimage data-publicid="{{bookedEvent.activityCopy.images[0].public_id}}"
