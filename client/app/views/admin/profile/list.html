@@ -19,6 +19,31 @@
   </div>
 </div>
 
+<div class="formdata-display">
+
+  <div class="input-label">
+    {{'Promotioncode' | translate}}
+  </div>
+  <div class="input-content promocode">
+    {{user.promotion.promocode}}
+  </div>
+</div>
+
+
+<div class="formdata-display"
+     ng-if="user.acl.sales">
+
+  <div class="input-label">
+    {{'Userrole' | translate}}
+  </div>
+  <div class="input-content">
+    <h5 class="no-margin-top">
+      <span class="label label-info label-lg">
+        {{'Salesman' | translate}}
+      </span>
+    </h5>  </div>
+</div>
+
 <!--      <div class="formdata-display">
         <div class="input-label">
           {{'language' | translate}}
@@ -95,26 +120,6 @@
     </div>
     <div class="input-content">
       {{user.profile.contactperson.name}}
-    </div>
-  </div>
-
-  <div class="formdata-display">
-
-    <div class="input-label">
-      {{'Promotioncode' | translate}}
-    </div>
-    <div class="input-content">
-      {{user.promotion.promocode}}
-    </div>
-  </div>
-
-  <div class="formdata-display" ng-if="user.acl.sales">
-
-    <div class="input-label">
-      {{'Salesman' | translate}}
-    </div>
-    <div class="input-content">
-      {{'true' | translate}}
     </div>
   </div>
 

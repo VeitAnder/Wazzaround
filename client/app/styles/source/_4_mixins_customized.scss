@@ -797,6 +797,7 @@ eventedit {
   }
 }
 
+
 .event-new-repeat {
   overflow: visible;
   @include clearfix;
@@ -3027,6 +3028,28 @@ $img-selector-teasertxtheight: 32px;
   .lastname {
     width: (100%) / 3;
   }
+}
+
+.promotion-list{
+  .cell {
+    @include ellipsis(none);
+    white-space: normal;
+  }
+  .email{
+    width: (100%) / 3;
+  }
+  .name{
+    width: (100%) / 3;
+  }
+  .bookings{
+    width: (100%) / 3;
+  }
+}
+
+.promocode{
+  text-transform: uppercase;
+  font-weight: $font-weight_bold;
+  color: $color_green;
 }
 
 @mixin language-flags {
