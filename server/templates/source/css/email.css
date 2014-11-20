@@ -73,12 +73,22 @@ h2 {
   color: #b3b3b3;
 }
 
-h3{
+h3 {
   font-family: 'HelveticaNeueBold', 'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'HelveticaNeue', 'Helvetica Neue', 'TeXGyreHerosBold', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
   font-weight: 600;
   font-stretch: normal;
   font-size: 18px;
   line-height: 21px;
+  color: #85C900;
+}
+
+h4 {
+  font-family: 'HelveticaNeueLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
+  font-weight: 300;
+  font-stretch: normal;
+  font-size: 18px;
+  line-height: 21px;
+  color: #b3b3b3;
 }
 
 p, td, .font-normal, .td-planlist-span {
@@ -98,7 +108,7 @@ th, .font-bold, .th-planlist, strong {
   line-height: 17px;
 }
 
-strong.small{
+strong.small {
   font-family: 'HelveticaNeueBold', 'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'HelveticaNeue', 'Helvetica Neue', 'TeXGyreHerosBold', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
   font-weight: 600;
   font-stretch: normal;
@@ -161,6 +171,18 @@ strong.small{
 .table-download.ontop {
   margin-top: 25px;
   margin-bottom: 25px;
+}
+
+.table-shoppingcart td{
+}
+
+.tr-seperator-top td{
+  border-top: 1px dotted #85C900;
+}
+
+.tr-subtotal td{
+  border-top: 1px solid #85C900;
+  border-bottom: 3px solid #85C900;
 }
 
 .emailButton {
