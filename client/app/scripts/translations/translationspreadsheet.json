@@ -3814,5 +3814,41 @@
     "it": "Confirmation of your Registration",
     "fr": "Confirmation of your Registration",
     "sp": "Confirmation of your Registration"
+  },
+  {
+    "Description": "",
+    "key": "Only one click and your registration is completed successfully",
+    "en": "Only one click and your registration is completed successfully",
+    "de": "Nur noch ein Klick und Ihre Registrierung ist erfolgreich abgeschlossen",
+    "it": "Only one click and your registration is completed successfully",
+    "fr": "Only one click and your registration is completed successfully",
+    "sp": "Only one click and your registration is completed successfully"
+  },
+  {
+    "Description": "",
+    "key": "To activate your account please click the following link",
+    "en": "To activate your account please click the following link",
+    "de": "Zum Aktivieren Ihres Accounts klicken Sie bitte auf folgenden Link",
+    "it": "To activate your account please click the following link",
+    "fr": "To activate your account please click the following link",
+    "sp": "To activate your account please click the following link"
+  },
+  {
+    "Description": "",
+    "key": "activation email hint",
+    "en": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!",
+    "de": "Ist die Registrierung nicht in Ihrem Namen gemacht worden, können Sie diese Nachricht ignorieren – In diesem Fall verfällt die Registrierung!",
+    "it": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!",
+    "fr": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!",
+    "sp": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!"
+  },
+  {
+    "Description": "",
+    "key": "Activate my account now",
+    "en": "Activate my account now",
+    "de": "Meinen Account jetzt aktivieren",
+    "it": "Activate my account now",
+    "fr": "Activate my account now",
+    "sp": "Activate my account now"
   }
 ]

@@ -7,16 +7,26 @@ this["JST"] = this["JST"] || {};
 Handlebars.registerPartial("accountactivationtoken.handlebars", Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
+  var buffer = "", stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, functionType="function";
 
 
-  buffer += "<html style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\"><body style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n\n<h2 style=\"color: #b3b3b3; font-family: 'HelveticaNeueLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 35px; font-stretch: normal; font-weight: 300; line-height: 42px;\">\n  Nur noch ein Klick und Ihre Registrierung ist erfolgreich abgeschlossen!\n</h2>\n\n<p style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n  Zum Aktivieren Ihres Accounts klicken Sie bitte auf folgenden Link:\n  <br style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n  <a href=\"";
+  buffer += "<html style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\"><body style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n\n<h2 style=\"color: #b3b3b3; font-family: 'HelveticaNeueLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 35px; font-stretch: normal; font-weight: 300; line-height: 42px;\">\n  "
+    + escapeExpression((helper = helpers.translations || (depth0 && depth0.translations),options={hash:{},data:data},helper ? helper.call(depth0, "Only one click and your registration is completed successfully", options) : helperMissing.call(depth0, "translations", "Only one click and your registration is completed successfully", options)))
+    + "!\n</h2>\n\n<p style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n  "
+    + escapeExpression((helper = helpers.translations || (depth0 && depth0.translations),options={hash:{},data:data},helper ? helper.call(depth0, "Account", options) : helperMissing.call(depth0, "translations", "Account", options)))
+    + ":\n  <br style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n  <strong style=\"color: #666; font-family: 'HelveticaNeueBold', 'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'HelveticaNeue', 'Helvetica Neue', 'TeXGyreHerosBold', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 600; line-height: 17px;\">\n    "
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.user)),stack1 == null || stack1 === false ? stack1 : stack1.email)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\n  </strong>\n</p>\n\n<p style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n  "
+    + escapeExpression((helper = helpers.translations || (depth0 && depth0.translations),options={hash:{},data:data},helper ? helper.call(depth0, "To activate your account please click the following link", options) : helperMissing.call(depth0, "translations", "To activate your account please click the following link", options)))
+    + ":\n\n</p>\n\n<table class=\"emailButton shadow-2px\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"-moz-border-radius: 6px; -ms-border-radius: 6px; -o-border-radius: 6px; -webkit-border-radius: 6px; background-color: #85C900; border-bottom: 2px solid #CCCCCC; border-radius: 6px; color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n  <tr style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n    <td align=\"center\" valign=\"middle\" class=\"emailButtonContent\" style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px; padding: 20px 30px;\">\n      <a href=\"";
   if (helper = helpers.activationurl) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.activationurl); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" style=\"color: #85C900; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n    Meinen Account ("
-    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.user)),stack1 == null || stack1 === false ? stack1 : stack1.email)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + ") jetzt aktivieren\n  </a>\n</p>\n\n<p style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n  Ist die Registrierung nicht in Ihrem Namen gemacht worden, können Sie diese Nachricht ignorieren – In diesem Fall\n  verfällt die Registrierung!\n</p>\n</body></html>";
+    + "\" style=\"color: #FFFFFF; display: block; font-family: 'HelveticaNeueBold', 'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'HelveticaNeue', 'Helvetica Neue', 'TeXGyreHerosBold', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 18px; font-stretch: normal; font-weight: 600; line-height: 21px; text-decoration: none;\">\n        "
+    + escapeExpression((helper = helpers.translations || (depth0 && depth0.translations),options={hash:{},data:data},helper ? helper.call(depth0, "Activate my account now", options) : helperMissing.call(depth0, "translations", "Activate my account now", options)))
+    + "\n      </a>\n    </td>\n  </tr>\n</table>\n\n<p class=\"small\" style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 11px; font-stretch: normal; font-weight: 400; line-height: 14px;\">\n  "
+    + escapeExpression((helper = helpers.translations || (depth0 && depth0.translations),options={hash:{},data:data},helper ? helper.call(depth0, "activation email hint", options) : helperMissing.call(depth0, "translations", "activation email hint", options)))
+    + "\n</p>\n</body></html>";
   return buffer;
   }));
 
@@ -75,24 +85,6 @@ function program1(depth0,data) {
   return buffer;
   }));
 
-Handlebars.registerPartial("mailbounce.handlebars", Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
-
-
-  buffer += "<html style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\"><body style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n\n<h2 style=\"color: #b3b3b3; font-family: 'HelveticaNeueLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 35px; font-stretch: normal; font-weight: 300; line-height: 42px;\">\nFehler beim Email senden\n</h2>\n\n<p style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\nSie haben mit reacture an ";
-  if (helper = helpers.receiver) { stack1 = helper.call(depth0, {hash:{},data:data}); }
-  else { helper = (depth0 && depth0.receiver); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
-  buffer += escapeExpression(stack1)
-    + " ein Email gesendet, das nicht erfolgreich zugestellt werden konnte.\nMöglicherweise ist die Emailadresse falsch, bitte überprüfen Sie sie.\nDer Grund warum dieses Email nicht zugestellt werden konnte, ist:<br style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n";
-  if (helper = helpers.reason) { stack1 = helper.call(depth0, {hash:{},data:data}); }
-  else { helper = (depth0 && depth0.reason); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
-  buffer += escapeExpression(stack1)
-    + "\n</p>\n\n\n\n\n\n\n\n\n</body></html>";
-  return buffer;
-  }));
-
 Handlebars.registerPartial("resetpassword.handlebars", Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -103,13 +95,13 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     + escapeExpression((helper = helpers.translations || (depth0 && depth0.translations),options={hash:{},data:data},helper ? helper.call(depth0, "You want to reset your Password", options) : helperMissing.call(depth0, "translations", "You want to reset your Password", options)))
     + "\n</h2>\n\n<p style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n  "
     + escapeExpression((helper = helpers.translations || (depth0 && depth0.translations),options={hash:{},data:data},helper ? helper.call(depth0, "Please click the following link", options) : helperMissing.call(depth0, "translations", "Please click the following link", options)))
-    + "\n  <a href=\"";
+    + "\n</p>\n\n<table class=\"emailButton shadow-2px\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"-moz-border-radius: 6px; -ms-border-radius: 6px; -o-border-radius: 6px; -webkit-border-radius: 6px; background-color: #85C900; border-bottom: 2px solid #CCCCCC; border-radius: 6px; color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n  <tr style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n    <td align=\"center\" valign=\"middle\" class=\"emailButtonContent\" style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px; padding: 20px 30px;\">\n      <a href=\"";
   if (helper = helpers.resetpwdurl) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.resetpwdurl); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" style=\"color: #85C900; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n    "
+    + "\" style=\"color: #FFFFFF; display: block; font-family: 'HelveticaNeueBold', 'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'HelveticaNeue', 'Helvetica Neue', 'TeXGyreHerosBold', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 18px; font-stretch: normal; font-weight: 600; line-height: 21px; text-decoration: none;\">\n        "
     + escapeExpression((helper = helpers.translations || (depth0 && depth0.translations),options={hash:{},data:data},helper ? helper.call(depth0, "Reset your password", options) : helperMissing.call(depth0, "translations", "Reset your password", options)))
-    + ".\n  </a>\n</p>\n<p style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n  "
+    + ".\n      </a>\n    </td>\n  </tr>\n</table>\n\n\n<p style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 14px; font-stretch: normal; font-weight: 400; line-height: 17px;\">\n  "
     + escapeExpression((helper = helpers.translations || (depth0 && depth0.translations),options={hash:{},data:data},helper ? helper.call(depth0, "Your reActure Team", options) : helperMissing.call(depth0, "translations", "Your reActure Team", options)))
     + "\n</p>\n</body></html>";
   return buffer;
@@ -143,16 +135,6 @@ function program3(depth0,data) {
 function program5(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n              ";
-  stack1 = self.invokePartial(partials['mailbounce.handlebars'], 'mailbounce.handlebars', depth0, helpers, partials, data);
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n              ";
-  return buffer;
-  }
-
-function program7(depth0,data) {
-  
-  var buffer = "", stack1;
   buffer += "\n                ";
   stack1 = self.invokePartial(partials['bookingconfirmation.handlebars'], 'bookingconfirmation.handlebars', depth0, helpers, partials, data);
   if(stack1 || stack1 === 0) { buffer += stack1; }
@@ -171,10 +153,7 @@ function program7(depth0,data) {
   stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.template)),stack1 == null || stack1 === false ? stack1 : stack1.accountactivationtoken), {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n\n              ";
-  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.template)),stack1 == null || stack1 === false ? stack1 : stack1.mailbounce), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n\n              ";
-  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.template)),stack1 == null || stack1 === false ? stack1 : stack1.bookingconfirmation), {hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data});
+  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 && depth0.template)),stack1 == null || stack1 === false ? stack1 : stack1.bookingconfirmation), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n\n              <!-- E-Mail content end-->\n\n            </td>\n          </tr>\n        </table>\n        <p class=\"small\" style=\"color: #666; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 11px; font-stretch: normal; font-weight: 400; line-height: 14px;\">\n          reActure – FIND YOUR ACTIVITY\n          <a href=\"http://www.reacture.com\" class=\"small\" style=\"color: #85C900; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: 11px; font-stretch: normal; font-weight: 400; line-height: 14px;\">\n            www.reacture.com\n          </a>.\n        </p>\n      </td>\n    </tr>\n  </table>\n</center>\n\n\n\n\n</body></html>";
   return buffer;

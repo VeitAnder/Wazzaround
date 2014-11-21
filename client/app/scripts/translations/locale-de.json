@@ -408,5 +408,9 @@
   "Please click the following link": "Bitte klicken Sie den folgenden Link",
   "Reset your password": "Ihr Passwort zurücksetzen",
   "Your Reacture Team": "Dein Reacture Team",
-  "Confirmation of your Registration": "Bestätigung der Registrierung"
+  "Confirmation of your Registration": "Bestätigung der Registrierung",
+  "Only one click and your registration is completed successfully": "Nur noch ein Klick und Ihre Registrierung ist erfolgreich abgeschlossen",
+  "To activate your account please click the following link": "Zum Aktivieren Ihres Accounts klicken Sie bitte auf folgenden Link",
+  "activation email hint": "Ist die Registrierung nicht in Ihrem Namen gemacht worden, können Sie diese Nachricht ignorieren – In diesem Fall verfällt die Registrierung!",
+  "Activate my account now": "Meinen Account jetzt aktivieren"
 }

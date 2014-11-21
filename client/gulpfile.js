@@ -18,7 +18,7 @@ var LIVERELOAD_PORT = 35729;
 
 gulp.task('sass', function () {
   return gulp.src('./app/styles/*.scss')
-    .pipe(sass({ errLogToConsole: true }))
+    .pipe(sass({errLogToConsole: true}))
     .pipe(gulp.dest('./app/styles'))
     .pipe(refresh(lrserver));
 });
@@ -91,7 +91,7 @@ gulp.task('clientdist', ['server'], function () {
   app.listen(SERVER_PORT);
 });
 
-gulp.task('openbrowser', function(){
+gulp.task('openbrowser', function () {
   open("http://localhost:9000");
 });
 

@@ -9,16 +9,18 @@ var numeralDE = require('numeral/languages/de');
 numeralDE.delimiters.thousands = '.';
 numeral.language('de', numeralDE);
 numeral.language('de');
-
 // example
 // numeral(1024).format('0,0.00');
 
 var moment = require('moment-timezone');
 var Handlebars,
-  templatestore,
   send;
+var templatestore = require('../templates/compiled/compiledtemplates.js');
 
+// translations
 var translations = config.translations;
+// set default Language to en
+var languageKey = "en";
 
 // moment.js language configuration
 // language : german (de)
@@ -193,7 +195,6 @@ Handlebars.registerHelper('filetypeending', function (file, block) {
   }
 });
 
-var languageKey = "en";
 Handlebars.registerHelper('translate', function (text, block) {
   return text[languageKey];
 });
@@ -201,8 +202,6 @@ Handlebars.registerHelper('translate', function (text, block) {
 Handlebars.registerHelper('translations', function (key, block) {
   return translations[languageKey][key];
 });
-
-templatestore = require('../templates/compiled/compiledtemplates.js');
 
 send = function (mail) {
   var deferred = Q.defer();
@@ -230,7 +229,6 @@ exports.sendResetPasswordMail = function (user, token, langKey) {
       user: user,
       token: token,
       resetpwdurl: config.clienthost + "registration/forgotpassword/" + token + "/" + user.email + "/",
-      translations: translations,
       template: {
         resetpassword: true
       }
@@ -255,7 +253,6 @@ exports.sendActivationTokenEmail = function (token, langKey) {
     data: {
       user: token.user.ref(),
       activationurl: config.host + config.api.apiversion + "users/" + token.user.ref()._id + "/activate/" + token._id + "/" + token.token + "/",
-      translations: translations,
       template: {
         accountactivationtoken: true
       }
@@ -279,7 +276,6 @@ exports.sendBookingConfirmationEmail = function (booking) {
   var sendmessage = {
     data: {
       bookingData: booking,
-      translations: translations,
       template: {
         bookingconfirmation: true
       }

@@ -408,5 +408,9 @@
   "Please click the following link": "Please click the following link",
   "Reset your password": "Reset your password",
   "Your Reacture Team": "Your Reacture Team",
-  "Confirmation of your Registration": "Confirmation of your Registration"
+  "Confirmation of your Registration": "Confirmation of your Registration",
+  "Only one click and your registration is completed successfully": "Only one click and your registration is completed successfully",
+  "To activate your account please click the following link": "To activate your account please click the following link",
+  "activation email hint": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!",
+  "Activate my account now": "Activate my account now"
 }
