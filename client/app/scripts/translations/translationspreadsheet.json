@@ -344,11 +344,11 @@
   {
     "Description": "",
     "key": "Subtotal",
-    "en": "Subtotal",
-    "de": "Zwischensumme",
-    "it": "Totale parziale",
-    "fr": "Sous-total",
-    "sp": "Total parcial"
+    "en": "Amount",
+    "de": "Summe",
+    "it": "Totale",
+    "fr": "total",
+    "sp": "Total"
   },
   {
     "Description": "",
@@ -3539,9 +3539,9 @@
   {
     "Description": "",
     "key": "Payment Confirmation",
-    "en": "Payment Confirmation",
-    "de": "Bezahlungsbestätigung",
-    "it": "Conferma di pagamento",
+    "en": "Booking Confirmation",
+    "de": "Buchungsbestätigung",
+    "it": "Conferma di prenotazione",
     "fr": "Confirmation de payment",
     "sp": "Confirmación de pago"
   },
@@ -3904,5 +3904,23 @@
     "it": "Activate my account now",
     "fr": "Activate my account now",
     "sp": "Activate my account now"
+  },
+  {
+    "Description": "",
+    "key": "Next step",
+    "en": "Next step?",
+    "de": "Was ist der nächste Schritt?",
+    "it": "Next step?",
+    "fr": "Next step?",
+    "sp": "Next step?"
+  },
+  {
+    "Description": "",
+    "key": "Next step information",
+    "en": "The Activity-Providers will contact you soon via E-mail or telephone to provide further details like e.g. the meeting point ",
+    "de": "Der Aktivitätenabieter wird Ihnen bald weitere Detailinformationen bezüglich Ihrer Buchung vie E-Mail oder per Telefon zukommen lassen.",
+    "it": "The Activity-Providers will contact you soon via E-mail or telephone to provide further details like e.g. the meeting point ",
+    "fr": "The Activity-Providers will contact you soon via E-mail or telephone to provide further details like e.g. the meeting point ",
+    "sp": "The Activity-Providers will contact you soon via E-mail or telephone to provide further details like e.g. the meeting point "
   }
 ]

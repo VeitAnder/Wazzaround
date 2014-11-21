@@ -291,3 +291,34 @@ exports.sendBookingConfirmationEmail = function (booking) {
 
   return send(sendmessage);
 };
+
+exports.sendBookingConfirmationEmailToProviders = function (booking) {
+  languageKey = booking.languageKey;
+
+  // Split all bookedEvents into single emails
+  booking.bookedEvents.forEach(function (bookedEvent) {
+    //E-Mail Body
+    var sendmessage = {
+      data: {
+        bookingData: booking,
+        bookedEvent: bookedEvent,
+        template: {
+          bookingconfirmationtoprovider: true
+        }
+      },
+      postmarkmail: {
+        "From": config.postmark.from,
+        "To": "test@planfredapp.com",
+        "Subject": "reacture – " + translations[languageKey]['Payment Confirmation'],
+        "Tag": "accountactivationtoken",
+        "ReplyTo": config.postmark.replyto
+      }
+    };
+
+    bookedEvent.activity.owner.load()
+      .then(function (owner) {
+        sendmessage.postmarkmail.To = owner.email;
+        send(sendmessage);
+      });
+  });
+};

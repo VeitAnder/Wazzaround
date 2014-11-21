@@ -195,18 +195,16 @@ BookingModel.operationImpl("checkout", function (params, req) {
     .then(function (bookedEvents) {
       // send checkout confirmation email to user
 
-      console.log("bookedEvents", bookedEvents);
-
       var bookingdata = {
         booking: booking,
-        amount : booking.payment.amount_int / 100,
+        amount: booking.payment.amount_int / 100,
         languageKey: params.languageKey,
         bookedEvents: []
       };
 
       bookedEvents.forEach(function (bookedEvent) {
         bookingdata.bookedEvents.push({
-          bookedEvent : bookedEvent,
+          bookedEvent: bookedEvent,
           item: bookedEvent.item.ref(),
           event: bookedEvent.event.ref(),
           activity: bookedEvent.activity.ref()
@@ -214,6 +212,8 @@ BookingModel.operationImpl("checkout", function (params, req) {
       });
 
       mail.sendBookingConfirmationEmail(bookingdata);
+
+      mail.sendBookingConfirmationEmailToProviders(bookingdata);
 
       return {
         state: "ok",

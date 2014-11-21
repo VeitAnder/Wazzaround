@@ -30,7 +30,7 @@
   "Do you want to delete the entire activity": "Vuoi cancellare questa attività comprese tutti i suoi eventi?",
   "Checkout": "Checkout",
   "in shopping cart": "Nel carrello della spesa",
-  "Subtotal": "Totale parziale",
+  "Subtotal": "Totale",
   "Shopping cart": "Carrello della spesa",
   "Payment options": "Opzioni di pagamento",
   "Available Creditcards": "Carte disponibili",
@@ -377,7 +377,7 @@
   "Please accept the reacture affiliate agreement": "si prega di accettare le condizioni generali di Reacture",
   "Affiliate agreement": "Condizioni Generali di vendita Reacture",
   "Payment": "Pagamento",
-  "Payment Confirmation": "Conferma di pagamento",
+  "Payment Confirmation": "Conferma di prenotazione",
   "Set Location": "Localizzare l'evento",
   "Form can not be saved. Please fill in all required form fields first.": "Modulo non salvabile. Compilare tutti i campi richiesti",
   "There are more events available": "Diverse attività disponibili",
@@ -416,5 +416,7 @@
   "Only one click and your registration is completed successfully": "Only one click and your registration is completed successfully",
   "To activate your account please click the following link": "Per attivare l'account clicca sul link seguente",
   "activation email hint": "Se la registrazione è stata fatta da qualcun altro, basta ignorare questo messaggio. La registrazione scade automaticamente!",
-  "Activate my account now": "Activate my account now"
+  "Activate my account now": "Activate my account now",
+  "Next step": "Next step?",
+  "Next step information": "The Activity-Providers will contact you soon via E-mail or telephone to provide further details like e.g. the meeting point "
 }

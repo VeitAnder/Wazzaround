@@ -30,7 +30,7 @@
   "Do you want to delete the entire activity": "Voulez-vous supprimer cette activité, compris tous ses événements?",
   "Checkout": "Checkout",
   "in shopping cart": "Dans le panier",
-  "Subtotal": "Sous-total",
+  "Subtotal": "total",
   "Shopping cart": "Panier",
   "Payment options": "Options de paiement",
   "Available Creditcards": "Cartes de crédit disponibles",
@@ -416,5 +416,7 @@
   "Only one click and your registration is completed successfully": "Only one click and your registration is completed successfully",
   "To activate your account please click the following link": "Pour activer votre compte se il vous plaît cliquer sur le lien suivant",
   "activation email hint": "Si l'enregistrement a été fait par quelqu'un d'autre, ignorez ce message. L'enregistrement prendra fin automatiquement!",
-  "Activate my account now": "Activate my account now"
+  "Activate my account now": "Activate my account now",
+  "Next step": "Next step?",
+  "Next step information": "The Activity-Providers will contact you soon via E-mail or telephone to provide further details like e.g. the meeting point "
 }
