@@ -139,9 +139,9 @@
     "key": "registration confirmation message 2",
     "en": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration",
     "de": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
-    "it": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration",
-    "fr": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration",
-    "sp": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration"
+    "it": "Abbiamo inviato una e-mail con un link di conferma . Prego controllare la casella di posta elettronica per completare la registrazione",
+    "fr": "Nous vous avons envoyé un e-mail avec un lien de confirmation . Se il vous plaît vérifier votre boîte de réception afin de compléter l'enregistrement",
+    "sp": "Le hemos enviado un correo electrónico con un enlace de confirmación . Por favor, revise su bandeja de entrada por completar el registro"
   },
   {
     "Description": "",
@@ -2119,8 +2119,8 @@
     "key": "Promotioncode",
     "en": "Promotioncode",
     "de": "Promotion-Code",
-    "it": "Promotioncode",
-    "fr": "Promotioncode",
+    "it": "Codice Promozionale",
+    "fr": "code de promotion",
     "sp": "Promotioncode"
   },
   {
@@ -2128,8 +2128,8 @@
     "key": "Salesman",
     "en": "Salesman",
     "de": "Verkäufer",
-    "it": "Salesman",
-    "fr": "Salesman",
+    "it": "Venditore",
+    "fr": "vendeur",
     "sp": "Salesman"
   },
   {
@@ -2137,8 +2137,8 @@
     "key": "Userrole",
     "en": "User role",
     "de": "Benuzterrolle",
-    "it": "User role",
-    "fr": "User role",
+    "it": "ruolo utente",
+    "fr": "rôle d'utilisateur",
     "sp": "User role"
   },
   {
@@ -2298,7 +2298,7 @@
     "Description": "",
     "key": "Edit your Profile",
     "en": "Edit your Profile",
-    "de": "Profil editieren",
+    "de": "Ihr Profil editieren",
     "it": "Modifica il tuo profilo",
     "fr": "Modifier Votre profil",
     "sp": "Modificar vuestro perfil"
@@ -2614,8 +2614,8 @@
     "key": "close category filter",
     "en": "Close Category Filter",
     "de": "Kategorie-Filter schließen",
-    "it": "Close Filter",
-    "fr": "Close Filter",
+    "it": "chiudere filtro",
+    "fr": "ferme filtre",
     "sp": "Close Filter"
   },
   {
@@ -2623,8 +2623,8 @@
     "key": "open category filter",
     "en": "Open Category Filter",
     "de": "Kategorie-Filter öffnen",
-    "it": "category filter",
-    "fr": "category filter",
+    "it": "filtro categorie",
+    "fr": "filtre catégorie",
     "sp": "category filter"
   },
   {
@@ -3730,8 +3730,8 @@
     "key": "Promotioncode",
     "en": "Promotioncode",
     "de": "Promotioncode",
-    "it": "Promotioncode",
-    "fr": "Promotioncode",
+    "it": "Codice promozionale",
+    "fr": "code de promotion",
     "sp": "Promotioncode"
   },
   {
@@ -3739,8 +3739,8 @@
     "key": "Only x items are available",
     "en": "Only {{quantity}} items are available",
     "de": "Es sind nur {{quantity}} Stück verfügbar",
-    "it": "Only {{quantity}} items are available",
-    "fr": "Only {{quantity}} items are available",
+    "it": "Solo {{quantity}} artioli sono disponibili",
+    "fr": "Seulement {{quantity}} articles sont disponibles",
     "sp": "Only {{quantity}} items are available"
   },
   {
@@ -3748,8 +3748,8 @@
     "key": "Amount has to be a number",
     "en": "Amount has to be a number",
     "de": "Bitte eine gültige Anzahl eingeben",
-    "it": "Amount has to be a number",
-    "fr": "Amount has to be a number",
+    "it": "Quantitativo deve essere un numero",
+    "fr": "Quantité doit être un numéro",
     "sp": "Amount has to be a number"
   },
   {
@@ -3757,8 +3757,8 @@
     "key": "Amount has to be defined",
     "en": "Amount has to be defined",
     "de": "Bitte eine gültige Anzahl eingeben",
-    "it": "Amount has to be defined",
-    "fr": "Amount has to be defined",
+    "it": "Quantité doit être défini",
+    "fr": "Quantité doit être défini",
     "sp": "Amount has to be defined"
   },
   {
@@ -3766,8 +3766,8 @@
     "key": "You have to order at least one item",
     "en": "You have to order at least one item",
     "de": "Sie müssen mindestens 1 Stück bestellen",
-    "it": "You have to order at least one item",
-    "fr": "You have to order at least one item",
+    "it": "Dovete ordinare almeno un elemento",
+    "fr": "Vous devez commander au moins un élément",
     "sp": "You have to order at least one item"
   },
   {
@@ -3775,8 +3775,8 @@
     "key": "You want to reset your Password",
     "en": "You want to reset your Password?",
     "de": "Sie möchten Ihr Passwort zurücksetzen?",
-    "it": "You want to reset your Password?",
-    "fr": "You want to reset your Password?",
+    "it": "Si desidera reimpostare la password?",
+    "fr": "Vous souhaitez réinitialiser votre mot de passe?",
     "sp": "You want to reset your Password?"
   },
   {
@@ -3784,8 +3784,8 @@
     "key": "Please click the following link",
     "en": "Please click the following link",
     "de": "Bitte klicken Sie den folgenden Link",
-    "it": "Please click the following link",
-    "fr": "Please click the following link",
+    "it": "Si prega di fare clic sul link seguente",
+    "fr": "Se il vous plaît cliquer sur le lien suivant",
     "sp": "Please click the following link"
   },
   {
@@ -3793,8 +3793,8 @@
     "key": "Reset your password",
     "en": "Reset your password",
     "de": "Ihr Passwort zurücksetzen",
-    "it": "Reset your password",
-    "fr": "Reset your password",
+    "it": "Reimposta la password",
+    "fr": "Reimposta la mot de passe",
     "sp": "Reset your password"
   },
   {
@@ -3802,8 +3802,8 @@
     "key": "Your Reacture Team",
     "en": "Your Reacture Team",
     "de": "Dein Reacture Team",
-    "it": "Your Reacture Team",
-    "fr": "Your Reacture Team",
+    "it": "Il vostro team Reacture",
+    "fr": "Votre équipe Reacture",
     "sp": "Your Reacture Team"
   },
   {
@@ -3811,8 +3811,8 @@
     "key": "Confirmation of your Registration",
     "en": "Confirmation of your Registration",
     "de": "Bestätigung der Registrierung",
-    "it": "Confirmation of your Registration",
-    "fr": "Confirmation of your Registration",
+    "it": "Conferma della Registrazione",
+    "fr": "Confirmation de votre inscription",
     "sp": "Confirmation of your Registration"
   },
   {
@@ -3829,8 +3829,8 @@
     "key": "To activate your account please click the following link",
     "en": "To activate your account please click the following link",
     "de": "Zum Aktivieren Ihres Accounts klicken Sie bitte auf folgenden Link",
-    "it": "To activate your account please click the following link",
-    "fr": "To activate your account please click the following link",
+    "it": "Per attivare l'account clicca sul link seguente",
+    "fr": "Pour activer votre compte se il vous plaît cliquer sur le lien suivant",
     "sp": "To activate your account please click the following link"
   },
   {
@@ -3838,8 +3838,8 @@
     "key": "activation email hint",
     "en": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!",
     "de": "Ist die Registrierung nicht in Ihrem Namen gemacht worden, können Sie diese Nachricht ignorieren – In diesem Fall verfällt die Registrierung!",
-    "it": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!",
-    "fr": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!",
+    "it": "Se la registrazione è stata fatta da qualcun altro, basta ignorare questo messaggio. La registrazione scade automaticamente!",
+    "fr": "Si l'enregistrement a été fait par quelqu'un d'autre, ignorez ce message. L'enregistrement prendra fin automatiquement!",
     "sp": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!"
   },
   {
