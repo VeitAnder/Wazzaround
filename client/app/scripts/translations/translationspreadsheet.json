@@ -3747,7 +3747,7 @@
     "Description": "",
     "key": "Amount has to be a number",
     "en": "Amount has to be a number",
-    "de": "Amount has to be a number",
+    "de": "Bitte eine gültige Anzahl eingeben",
     "it": "Amount has to be a number",
     "fr": "Amount has to be a number",
     "sp": "Amount has to be a number"
@@ -3756,7 +3756,7 @@
     "Description": "",
     "key": "Amount has to be defined",
     "en": "Amount has to be defined",
-    "de": "Amount has to be defined",
+    "de": "Bitte eine gültige Anzahl eingeben",
     "it": "Amount has to be defined",
     "fr": "Amount has to be defined",
     "sp": "Amount has to be defined"
@@ -3765,7 +3765,7 @@
     "Description": "",
     "key": "You have to order at least one item",
     "en": "You have to order at least one item",
-    "de": "You have to order at least one item",
+    "de": "Sie müssen mindestens 1 Stück bestellen",
     "it": "You have to order at least one item",
     "fr": "You have to order at least one item",
     "sp": "You have to order at least one item"
