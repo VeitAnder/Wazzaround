@@ -13,15 +13,15 @@ angular.module('anorakApp')
     };
 
   })
-
-  .controller('AdminProfileEditCtrl', function ($scope, currentUser, models, $location, $timeout, Countrylist, $window) {
-    var returnPath = $window.location.pathname.split("edit")[0];
-
+  .controller('AdminProfileEditPageCtrl', function ($scope, userResolve) {
     $scope.getPagePartial = function () {
       return 'views/admin/profile/edit.html';
     };
 
-    $scope.user = currentUser.user;
+    $scope.user = userResolve;
+  })
+  .controller('AdminProfileEditCtrl', function ($scope, models, $location, $timeout, Countrylist, $window) {
+    var returnPath = $window.location.pathname.split("edit")[0];
 
     $scope.state = {
       submitted: false

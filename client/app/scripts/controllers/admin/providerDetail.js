@@ -12,7 +12,7 @@ angular.module('anorakApp')
 
     $scope.editProfile = function () {
       $timeout(function () {
-        $location.path("/admin/provider/" + $route.current.params.id + "/edit/");
+        $location.path("/admin/provider/" + provider._id + "/edit/");
       });
     };
 

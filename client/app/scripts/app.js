@@ -230,10 +230,14 @@ angular.module('anorakApp')
       })
       .when('/admin/profile/edit', {
         templateUrl: 'views/admin/admin_basetemplate.html',
-        controller: 'AdminProfileEditCtrl',
+        controller: 'AdminProfileEditPageCtrl',
         resolve: {
-          currentUser: ['currentUser', function (currentUser) {
-            return currentUser.load();
+          userResolve: ['currentUser', '$q', function (currentUser, $q) {
+            var defer = $q.defer();
+            currentUser.load().then(function (data) {
+              defer.resolve(data.user);
+            });
+            return defer.promise;
           }]
         }
       })
@@ -260,9 +264,9 @@ angular.module('anorakApp')
       })
       .when('/admin/provider/:id/edit/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
-        controller: 'AdminProfileEditCtrl',
+        controller: 'AdminProfileEditPageCtrl',
         resolve: {
-          currentUser: ['$route', 'models', function ($route, models) {
+          userResolve: ['$route', 'models', function ($route, models) {
             return models.UserModel.get($route.current.params.id);
           }]
         }

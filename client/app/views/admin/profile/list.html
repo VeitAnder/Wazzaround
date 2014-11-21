@@ -29,9 +29,9 @@
   </div>
 </div>
 
-
 <div class="formdata-display"
-     ng-if="user.acl.sales">
+     ng-show="user.acl.sales"
+  >
 
   <div class="input-label">
     {{'Userrole' | translate}}
@@ -41,7 +41,8 @@
       <span class="label label-info label-lg">
         {{'Salesman' | translate}}
       </span>
-    </h5>  </div>
+    </h5>
+  </div>
 </div>
 
 <!--      <div class="formdata-display">
