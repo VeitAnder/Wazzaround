@@ -532,12 +532,21 @@
   },
   {
     "Description": "",
-    "key": "Activity Providers Overview",
-    "en": "Activity Providers Overview",
-    "de": "Aktivitätsanbieter im Überblick",
-    "it": "Activity Providers Overview",
-    "fr": "Activity Providers Overview",
-    "sp": "Activity Providers Overview"
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
   },
   {
     "Description": "",
@@ -550,12 +559,12 @@
   },
   {
     "Description": "",
-    "key": "",
-    "en": "",
-    "de": "",
-    "it": "",
-    "fr": "",
-    "sp": ""
+    "key": "My Acquired Providers",
+    "en": "My acquired providers",
+    "de": "Meine aquirierten Provider",
+    "it": "My acquired providers",
+    "fr": "My acquired providers",
+    "sp": "My acquired providers"
   },
   {
     "Description": "",
@@ -2293,6 +2302,51 @@
     "it": "Administrate all Activities",
     "fr": "Gérer tous les activités",
     "sp": "Administrar todas las actividades"
+  },
+  {
+    "Description": "",
+    "key": "All activities",
+    "en": "All activities",
+    "de": "Alle Aktivitäten",
+    "it": "Tous activités",
+    "fr": "Tous les activités",
+    "sp": "Todas las actividades"
+  },
+  {
+    "Description": "",
+    "key": "Activity Providers Overview",
+    "en": "Activity Providers Overview",
+    "de": "Aktivitätsanbieter im Überblick",
+    "it": "Activity Providers Overview",
+    "fr": "Activity Providers Overview",
+    "sp": "Activity Providers Overview"
+  },
+  {
+    "Description": "",
+    "key": "All providers",
+    "en": "All Providers",
+    "de": "Alle Aktivitätenanbieter",
+    "it": "All Providers",
+    "fr": "Tous les providers",
+    "sp": "All Providers"
+  },
+  {
+    "Description": "",
+    "key": "Admin area",
+    "en": "Admin area",
+    "de": "Admin-Bereich",
+    "it": "Admin area",
+    "fr": "Admin area",
+    "sp": "Admin area"
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
   },
   {
     "Description": "",

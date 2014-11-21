@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <h2>{{'Activity Providers Overview' | translate}}</h2>
+      <h2>
+        {{'All providers' | translate}}
+      </h2>
 
       <filterbar>
         <div class="textsearch">
@@ -26,13 +28,13 @@
         <div class="listheader">
 
           <div class="company cell first">
-            Company
+            {{ 'Company' | translate }}
           </div>
-          <div class="firstname cell">
-            First name
+          <div class="email cell first">
+            {{ 'E-mail' | translate }}
           </div>
-          <div class="lastname cell last">
-            Last name
+          <div class="name cell">
+            {{ 'Name' | translate }}
           </div>
 
         </div>
@@ -47,10 +49,11 @@
             <div class="company cell first">
               {{provider.profile.company}}
             </div>
+            <div class="email cell first">
+              {{provider.email}}
+            </div>
             <div class="firstname cell">
               {{provider.profile.firstName}}
-            </div>
-            <div class="lastname cell last">
               {{provider.profile.lastName}}
             </div>
           </div>

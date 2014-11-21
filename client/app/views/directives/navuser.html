@@ -17,16 +17,6 @@
       </a>
     </li>
 
-    <li
-      ng-show="currentUser.user.userType === 'admin'"
-      >
-      <a href="/#/admin/allactivities">
-        <span>
-          {{'Admin All Activities' | translate}}
-        </span>
-      </a>
-    </li>
-
     <li>
       <a href="/#/admin/profile">
         <span>
@@ -52,17 +42,31 @@
         </span>
       </a>
     </li>
+  </ul>
 
-    <li
-      ng-show="currentUser.user.userType === 'admin'"
-      >
-      <a href="/#/admin/providers">
+  <h6
+    ng-show="currentUser.user.userType === 'admin'"
+    >
+    {{'Admin area' | translate}}
+  </h6>
+  <ul
+    ng-show="currentUser.user.userType === 'admin'"
+    >
+    <li>
+      <a href="/#/admin/activities">
         <span>
-          {{'Providers Overview' | translate}}
+          {{'All activities' | translate}}
         </span>
       </a>
     </li>
 
+    <li>
+      <a href="/#/admin/providers">
+        <span>
+          {{'All providers' | translate}}
+        </span>
+      </a>
+    </li>
   </ul>
   <loginstatus></loginstatus>
 </nav>

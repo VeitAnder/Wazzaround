@@ -9,6 +9,6 @@ angular.module('anorakApp')
     $scope.providers = providers;
 
     $scope.handleItemClick = function (item) {
-      $location.path("/admin/provider/" + item._id + "/");
+      $location.path("/admin/providers/" + item._id + "/");
     };
   });

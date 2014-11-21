@@ -201,7 +201,7 @@ angular.module('anorakApp')
           }]
         }
       })
-      .when('/admin/allactivities', {
+      .when('/admin/activities', {
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminAllactivitiesCtrl',
         resolve: {
@@ -210,7 +210,7 @@ angular.module('anorakApp')
           }]
         }
       })
-      .when('/admin/allactivities/:id/', {
+      .when('/admin/activities/:id/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminMyactivitiesDetailCtrl',
         resolve: {
@@ -250,7 +250,7 @@ angular.module('anorakApp')
           }]
         }
       })
-      .when('/admin/provider/:id', {
+      .when('/admin/providers/:id', {
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'ProviderDetailCtrl',
         resolve: {
@@ -262,7 +262,7 @@ angular.module('anorakApp')
           }]
         }
       })
-      .when('/admin/provider/:id/edit/', {
+      .when('/admin/providers/:id/edit/', {
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminProfileEditPageCtrl',
         resolve: {

@@ -3016,13 +3016,13 @@ $img-selector-teasertxtheight: 32px;
     @include ellipsis(none);
     white-space: normal;
   }
+  .email {
+    width: (100%) / 3;
+  }
   .company {
     width: (100%) / 3;
   }
-  .firstname {
-    width: (100%) / 3;
-  }
-  .lastname {
+  .name {
     width: (100%) / 3;
   }
 }

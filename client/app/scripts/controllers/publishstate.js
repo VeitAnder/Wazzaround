@@ -17,7 +17,7 @@ angular.module('anorakApp')
     this.adminActivityFilter = new adminActivityFilter();
 
     this.open = function (activity) {
-      $location.path("/admin/allactivities/" + activity._id + "/");
+      $location.path("/admin/activities/" + activity._id + "/");
     };
 
   });
