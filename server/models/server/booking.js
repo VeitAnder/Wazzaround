@@ -62,14 +62,8 @@ var pay = function (bookingObj, paymentToken, amount_int, currency) {
         currency: currency,
         payment: payment.data.id,
         description: JSON.stringify({
-          bookingId: bookingObj._id,
-          profile: {
-            firstName: bookingObj.profile.firstName,
-            lastName: bookingObj.profile.lastName,
-            email: bookingObj.profile.email,
-            tel: bookingObj.profile.tel
-          }
-        })
+          bookingId: bookingObj._id
+        }) // description has a max length of 127 chars - so only id fits in (paymill error 40402 RESPONSE_DATA_INPUT_USAGE_TOO_LONG: usage field too long) !! -> https://app.asana.com/0/16075887606903/20894991803239
       });
     })
     .then(function (transaction) {
