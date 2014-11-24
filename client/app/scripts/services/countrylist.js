@@ -31,29 +31,8 @@ angular.module('anorakApp')
       return countryArray[$translate.use()];
     };
 
-    var validateCountrySelection = function (countryModel) {
-      if (!angular.isObject(countryModel)) {
-        throw new Error("validateCountrySelection in Countrylist service needs to be passed an reference to a model object, not to a primitive");
-      }
-      // check for country object via .code attribute
-      if (!countryModel.country.code) {
-        var country = _.find(getCountrylist(), function (country) {
-          return country.name.toLowerCase() === countryModel.country.toLowerCase();
-        });
-
-        if (country) {
-          countryModel.country = country;
-        }
-        else {
-          // no valid selection - reset input
-          countryModel.country = "";
-        }
-      }
-    };
-
     return {
-      get: getCountrylist,
-      validateCountrySelection: validateCountrySelection
+      get: getCountrylist
     };
 
   });
