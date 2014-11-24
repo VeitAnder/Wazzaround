@@ -292,27 +292,58 @@
 
             </div>
           </div>
+          <!--ng-blur="Countrylist.validateCountrySelection(state.selectedCountry)"-->
+          <!--
+                    <div class="form-group">
+                      <label for="country">{{'Country' | translate}}</label>
+                      <input name="country"
+                             id="country"
+                             class="input-block-level"
+                             ng-model="state.selectedCountry"
+                             required
+                             placeholder="{{ 'Your country' | translate }}"
+                             ng-options="country.name as country.name for country in Countrylist.get()"
+                             bs-typeahead
+                        >
+
+                      <span ng-show="showError('country', 'required')"
+                            class="alert alert-error">{{'Please enter your country' | translate}}
+                      </span>
+
+                    </div>
+                    $select
+                    {{$select}}
+
+                    <h3>Selectize theme</h3>
+
+                    <p>Selected: {{user.profile.country}}</p>-->
 
           <div class="form-group">
             <label for="country">{{'Country' | translate}}</label>
-            <input name="country"
-                   id="country"
-                   ng-model="user.profile.country"
-                   class="input-block-level"
-                   required
-                   placeholder="{{ 'Your country' | translate }}"
-                   ng-blur="Countrylist.validateCountrySelection(user.profile)"
-                   ng-options="country as country.name for country in Countrylist.get()"
-                   value="{{user.profile.country.name}}"
-                   bs-typeahead
+            <ui-select ng-model="user.profile.country"
+                       theme="selectize"
+                       ng-disabled="disabled"
+                       reset-search-input="false"
+                       style="width: 300px;"
               >
 
-            <span ng-show="showError('country', 'required')"
+              <ui-select-match
+                placeholder="Select or search a country in the list..."
+                >
+                {{$select.selected.name}}
+              </ui-select-match>
+
+              <ui-select-choices repeat="country in Countrylist.get() | filter: $select.search">
+                <span ng-bind-html="country.name | highlight: $select.search"></span>
+                <small ng-bind-html="country.code | highlight: $select.search"></small>
+              </ui-select-choices>
+            </ui-select>
+
+            <span ng-show="!isCountryValid() && state.submitted"
                   class="alert alert-error">{{'Please enter your country' | translate}}
             </span>
 
           </div>
-
           <!--
                     <fieldset>
                       <legend>{{'Personal data' | translate}}:</legend>
@@ -482,7 +513,7 @@
           -->
 
           <p class="alert alert-error"
-             ng-show="valForm.$invalid">
+             ng-show="!isEntireFormValid() && state.submitted">
             <b>{{'Please fill out the form correctly' | translate}}</b>
           </p>
 
@@ -493,7 +524,7 @@
 
           <div class="form-group form-group-btn">
             <a class="btn"
-               ng-class="{disabled: valForm.$invalid}"
+               ng-class="{disabled: !isEntireFormValid()}"
                ng-click="saveUserProfile()"
               >
               {{'save user data' | translate}}

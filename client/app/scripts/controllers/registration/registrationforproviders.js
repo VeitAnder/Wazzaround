@@ -13,7 +13,11 @@ angular.module('anorakApp')
       $location.path('/admin/');
     }
 
-    $scope.registrant = {};
+    $scope.registrant = {
+      profile: {
+        country: {}
+      }
+    };
 
     $scope.state = {
       submitted: false,
@@ -26,7 +30,7 @@ angular.module('anorakApp')
 
       $scope.state.submitted = true;
 
-      if ($scope.valForm.$valid) {
+      if ($scope.isEntireFormValid()) {
 
         // TODO remove monkey patch to prefill fax and uid
         if (!$scope.registrant.profile.fax) {
@@ -58,6 +62,10 @@ angular.module('anorakApp')
       }
     };
 
+    $scope.isEntireFormValid = function () {
+      return $scope.valForm.$valid && $scope.isCountryValid();
+    };
+
     /**
      * Whether to show an error message for the specified error
      * @param {string} fieldName The name of the field on the form, of which we want to know whether to show the error
@@ -74,5 +82,9 @@ angular.module('anorakApp')
     };
 
     $scope.Countrylist = Countrylist;
+
+    $scope.isCountryValid = function () {
+      return $scope.registrant.profile.country.code;
+    };
 
   });

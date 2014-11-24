@@ -22,6 +22,7 @@ angular.module('anorakApp')
   })
   .controller('AdminProfileEditCtrl', function ($scope, models, $location, $timeout, Countrylist, $window) {
     var returnPath = $window.location.pathname.split("edit")[0];
+    $scope.Countrylist = Countrylist;
 
     $scope.state = {
       submitted: false
@@ -30,10 +31,9 @@ angular.module('anorakApp')
     $scope.saveUserProfile = function () {
       $scope.state.submitted = true;
 
-      if ($scope.valForm.$valid) {
+      if ($scope.isEntireFormValid()) {
         $scope.user.save()
-          .then(function (asdf) {
-            debug("Saved user", asdf);
+          .then(function () {
             $timeout(function () {
               $location.path(returnPath);
             });
@@ -52,6 +52,10 @@ angular.module('anorakApp')
       });
     };
 
+    $scope.isEntireFormValid = function () {
+      return $scope.valForm.$valid && $scope.isCountryValid();
+    };
+
     /**
      * Whether to show an error message for the specified error
      * @param {string} fieldName The name of the field on the form, of which we want to know whether to show the error
@@ -67,5 +71,8 @@ angular.module('anorakApp')
       return showerror;
     };
 
-    $scope.Countrylist = Countrylist;
+    $scope.isCountryValid = function () {
+      return $scope.user.profile.country.code;
+    };
+
   });

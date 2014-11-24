@@ -29,6 +29,7 @@ angular.module('anorakApp', [
   'ngSanitize',
   'ngMessages',
   'ui.bootstrap',
+  'ui.select',
   'google-maps'.ns(),
   'mgcrea.ngStrap',
   'textAngular',
@@ -60,7 +61,9 @@ angular.module('anorakApp').constant('I18NMESSAGES', {
 });
 
 angular.module('anorakApp')
-  .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $translateProvider, $compileProvider) {
+  .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $translateProvider, $compileProvider, uiSelectConfig) {
+
+    uiSelectConfig.theme = 'bootstrap';
 
     // disable debugInfos except on localhost
     if (window.location.hostname === "localhost") {

@@ -8,7 +8,7 @@
               name="valForm"
               novalidate
               ng-hide="state.registrationsuccess"
-            >
+          >
 
           <h2>{{'Account' | translate}}</h2>
 
@@ -33,7 +33,7 @@
                    autofocus
                    ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
                    placeholder="{{'Your e-mail address' | translate}}"
-                >
+              >
 
             <span ng-show="showError('email', 'required')"
                   class="alert alert-error">{{'Please enter your e-mail address.' | translate}}
@@ -54,7 +54,7 @@
                    password-validate
                    class="input-block-level"
                    placeholder="{{'Define your password' | translate}}"
-                >
+              >
             <div class="contentbox pwdvalidation">
               <h6>{{'Password must meet the following requirements:' | translate}}</h6>
               <ul>
@@ -87,7 +87,7 @@
                    repeat-password="password"
                    required
                    placeholder="{{'Retype your password' | translate}}"
-                >
+              >
 
             <span ng-show="showError('passwordRepeat', 'required')"
                   class="alert alert-error">{{'Please retype the password.' | translate}}
@@ -110,7 +110,7 @@
                      class="input-block-level"
                      required
                      placeholder="{{ 'Your first name' | translate }}"
-                  >
+                >
 
               <span ng-show="showError('firstname', 'required')"
                     class="alert alert-error">{{'Please enter your first name' | translate}}
@@ -126,7 +126,7 @@
                      class="input-block-level"
                      required
                      placeholder="{{ 'Your last name' | translate }}"
-                  >
+                >
 
               <span ng-show="showError('lastname', 'required')"
                     class="alert alert-error">{{'Please enter your last name' | translate}}
@@ -152,7 +152,7 @@
                    class="input-block-level"
                    required
                    placeholder="{{ 'Your company' | translate }}"
-                >
+              >
 
             <span ng-show="showError('company', 'required')"
                   class="alert alert-error">{{'Please enter your company' | translate}}
@@ -168,7 +168,7 @@
                    class="input-block-level"
                    required
                    placeholder="{{ 'Your mobile telephone number' | translate }}"
-                >
+              >
 
             <span ng-show="showError('mobile', 'required')"
                   class="alert alert-error">{{'Please enter your mobile telephone number' | translate}}
@@ -182,7 +182,7 @@
                    ng-model="registrant.profile.tel"
                    class="input-block-level"
                    placeholder="{{ 'Your telephone number' | translate }}"
-                >
+              >
 
             <!--            <span ng-show="showError('tel', 'required')"
                               class="alert alert-error">{{'Please enter your telephone number' | translate}}
@@ -196,7 +196,7 @@
                    ng-model="registrant.profile.fax"
                    class="input-block-level"
                    placeholder="{{ 'Your fax number' | translate }}"
-                >
+              >
           </div>
 
           <div class="form-group form-group-helptext">
@@ -212,7 +212,7 @@
                    class="input-block-level"
                    placeholder="{{ 'Name of contact person' | translate }}"
                    required
-                >
+              >
 
             <span ng-show="showError('contactpersonname', 'required')"
                   class="alert alert-error">{{'Please enter the name of the contact person' | translate}}
@@ -242,7 +242,7 @@
                    class="input-block-level"
                    required
                    placeholder="{{ 'Your address' | translate }}"
-                >
+              >
 
             <span ng-show="showError('address', 'required')"
                   class="alert alert-error">{{'Please enter your address' | translate}}
@@ -259,7 +259,7 @@
                      class="input-block-level"
                      required
                      placeholder="{{ 'Your zip code' | translate }}"
-                  >
+                >
 
               <span ng-show="showError('zip', 'required')"
                     class="alert alert-error">{{'Please enter your zip code' | translate}}
@@ -275,7 +275,7 @@
                      class="input-block-level"
                      required
                      placeholder="{{ 'Your city' | translate }}"
-                  >
+                >
 
               <span ng-show="showError('city', 'required')"
                     class="alert alert-error">{{'Please enter your city' | translate}}
@@ -286,18 +286,25 @@
 
           <div class="form-group">
             <label for="country">{{'Country' | translate}}</label>
-            <input name="country"
-                   id="country"
-                   ng-model="registrant.profile.country"
-                   class="input-block-level"
-                   required
-                   placeholder="{{ 'Your country' | translate }}"
-                   ng-blur="Countrylist.validateCountrySelection(registrant.profile)"
-                   ng-options="country as country.name for country in Countrylist.get()"
-                   bs-typeahead
+            <ui-select ng-model="registrant.profile.country"
+                       theme="selectize"
+                       ng-disabled="disabled"
+                       reset-search-input="false"
+                       style="width: 300px;"
+              >
+              <ui-select-match
+                placeholder="Select or search a country in the list..."
                 >
+                {{$select.selected.name}}
+              </ui-select-match>
 
-            <span ng-show="showError('country', 'required')"
+              <ui-select-choices repeat="country in Countrylist.get() | filter: $select.search">
+                <span ng-bind-html="country.name | highlight: $select.search"></span>
+                <small ng-bind-html="country.code | highlight: $select.search"></small>
+              </ui-select-choices>
+            </ui-select>
+
+            <span ng-show="!isCountryValid() && state.submitted"
                   class="alert alert-error">{{'Please enter your country' | translate}}
             </span>
 
@@ -310,9 +317,8 @@
                    ng-model="registrant.enteredpromocode"
                    class="input-block-level"
                    placeholder="{{ 'Promocode' | translate }}"
-                >
+              >
           </div>
-
 
           <div class="form-group emphasis">
             <div class="checkbox">
@@ -322,7 +328,7 @@
                        ng-model="registrant.acceptlegalnotes"
                        required
                        type="checkbox"
-                    />
+                  />
               </label>
             </div>
 
@@ -406,7 +412,7 @@
 
           <div class="form-group form-group-btn">
             <button class="btn"
-                    ng-class="{disabled: valForm.$invalid}"
+                    ng-class="{disabled: !isEntireFormValid()}"
                     type="submit"
                     ng-click="register()">{{'Register' | translate}}
             </button>
@@ -418,22 +424,22 @@
 
           <div class="alert alert-error"
                ng-show="state.registrationfailed"
-              >
+            >
             {{state.errormessage | translate}}
           </div>
 
-          <div ng-show="valForm.$invalid && state.submitted"
+          <div ng-show="!isEntireFormValid() && state.submitted"
                class="alert alert-error align-right"
-              >
+            >
             {{'Form can not be saved. Please fill in all required form fields first.' | translate}}
           </div>
 
         </form>
 
         <confirmation-mail-sent-message
-            ng-show="state.registrationsuccess"
-            ng-include="'views/registration/_confirmation-mail-sent-message.html'"
-            >
+          ng-show="state.registrationsuccess"
+          ng-include="'views/registration/_confirmation-mail-sent-message.html'"
+          >
         </confirmation-mail-sent-message>
 
       </div>
