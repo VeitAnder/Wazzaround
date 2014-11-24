@@ -28,13 +28,16 @@ var setupStaticAssetsServer = function (app, maxAge, extconfig) {
     maxAgeStaticAssets = maxAge;
   }
 
-  app.use("/bower_components", express.static(config.server.distFolder + "/bower_components", {maxAge: maxAgeStaticAssets, etag: false }));
-  app.use("/fonts", express.static(config.server.distFolder + "/fonts", {maxAge: maxAgeStaticAssets, etag: false }));
-  app.use("/img", express.static(config.server.distFolder + "/img", {maxAge: maxAgeStaticAssets, etag: false }));
-  app.use("/styles", express.static(config.server.distFolder + "/styles", {maxAge: maxAgeStaticAssets, etag: false }));
-  app.use("/scripts", express.static(config.server.distFolder + "/scripts", {maxAge: maxAgeStaticAssets, etag: false }));
-  app.use("/views", express.static(config.server.distFolder + "/views", {maxAge: maxAgeStaticAssets, etag: false }));
-  app.use("/favicon", express.static(config.server.distFolder + "/favicon", {maxAge: maxAgeStaticAssets, etag: false }));
+  app.use("/bower_components", express.static(config.server.distFolder + "/bower_components", {
+    maxAge: maxAgeStaticAssets,
+    etag: false
+  }));
+  app.use("/fonts", express.static(config.server.distFolder + "/fonts", {maxAge: maxAgeStaticAssets, etag: false}));
+  app.use("/img", express.static(config.server.distFolder + "/img", {maxAge: maxAgeStaticAssets, etag: false}));
+  app.use("/styles", express.static(config.server.distFolder + "/styles", {maxAge: maxAgeStaticAssets, etag: false}));
+  app.use("/scripts", express.static(config.server.distFolder + "/scripts", {maxAge: maxAgeStaticAssets, etag: false}));
+  app.use("/views", express.static(config.server.distFolder + "/views", {maxAge: maxAgeStaticAssets, etag: false}));
+  app.use("/favicon", express.static(config.server.distFolder + "/favicon", {maxAge: maxAgeStaticAssets, etag: false}));
 
   // error handling for not available static assets eg. /img/notavailable.png
   handle404 = function (req, res) {
@@ -82,7 +85,7 @@ var setupMaintenanceMode = function (app, extconfig) {
   if (process.env.maintainancemode === "true") {
     app.all('/*', function (req, res) {
       // Just send the maintenance.html
-      res.sendfile('maintainance.html', { root: config.server.distFolder });
+      res.sendfile('maintainance.html', {root: config.server.distFolder});
     });
   }
 };
@@ -100,7 +103,7 @@ var serveClient = function (app) {
 // enables HTML5Mode by forwarding missing files to the index.html
   app.all('/*', function (req, res) {
     // Just send the index.html for other files to support HTML5Mode
-    res.sendFile('index.html', { root: config.server.distFolder, maxAge: 0 });
+    res.sendFile('index.html', {root: config.server.distFolder, maxAge: 0});
   });
 
 };

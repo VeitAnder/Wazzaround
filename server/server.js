@@ -30,6 +30,8 @@ app.use(logger.expressLogger);
 require("./servermodules/security.js").allowCors(app);
 require("./servermodules/serveclient.js").setupStaticAssetsServer(app, (86400000 * 365));
 
+require("./servermodules/serveclient.js").setupMaintenanceMode(app);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
@@ -92,7 +94,7 @@ if (process.env.PORT) {
 
 // start the server if `$ node server.js`
 if (require.main === module) {
-  app.listen(serverport, function(err) {
+  app.listen(serverport, function (err) {
     logger.info('Reacture App Server - listening on port: ' + serverport);
   });
 }
