@@ -328,7 +328,7 @@
               >
 
               <ui-select-match
-                placeholder="Select or search a country in the list..."
+                placeholder="{{'Please enter a country' | translate}}"
                 >
                 {{$select.selected.name}}
               </ui-select-match>
@@ -340,7 +340,7 @@
             </ui-select>
 
             <span ng-show="!isCountryValid() && state.submitted"
-                  class="alert alert-error">{{'Please enter your country' | translate}}
+                  class="alert alert-error">{{'Please enter a country' | translate}}
             </span>
 
           </div>

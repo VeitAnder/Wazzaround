@@ -2089,6 +2089,15 @@
   },
   {
     "Description": "",
+    "key": "Please enter a country",
+    "en": "Please enter a country",
+    "de": "Bitte geben Sie ein Land ein",
+    "it": "Si prega d'inserire il paese",
+    "fr": "Veuillez insérer le nom de pays",
+    "sp": "Se ruega inroducir el nombre de país"
+  },
+  {
+    "Description": "",
     "key": "Name of contact person",
     "en": "Name of contact person",
     "de": "Name der Ansprechperson",
