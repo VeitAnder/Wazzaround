@@ -82,7 +82,7 @@ angular.module('anorakApp')
         templateUrl: 'views/index.html',
         controller: 'indexCtrl',
         resolve: {
-          categories: ['models', 'currentUser', function (models) {
+          categories: ['models', function (models) {
             return models.CategoryModel.all();
           }],
           resolveCurrentUser: ['currentUser', function (currentUser) {
