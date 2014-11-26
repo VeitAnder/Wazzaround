@@ -553,18 +553,18 @@
     "key": "Full text search",
     "en": "Full text search",
     "de": "Volltextsuche",
-    "it": "Full text search",
-    "fr": "Full text search",
-    "sp": "Full text search"
+    "it": "Ricerca a testo integrale",
+    "fr": "Recherche plein texte",
+    "sp": "Búsqueda de texto completo"
   },
   {
     "Description": "",
     "key": "My Acquired Providers",
     "en": "My acquired providers",
     "de": "Meine aquirierten Provider",
-    "it": "My acquired providers",
-    "fr": "My acquired providers",
-    "sp": "My acquired providers"
+    "it": "I miei fornitori acquisiti",
+    "fr": "Mes prestataires acquis",
+    "sp": "Mis proveedores adquiridos"
   },
   {
     "Description": "",
@@ -2147,7 +2147,7 @@
     "en": "Salesman",
     "de": "Verkäufer",
     "it": "Venditore",
-    "fr": "vendeur",
+    "fr": "Vendeur",
     "sp": "Salesman"
   },
   {
@@ -2326,8 +2326,8 @@
     "key": "Activity Providers Overview",
     "en": "Activity Providers Overview",
     "de": "Aktivitätsanbieter im Überblick",
-    "it": "Activity Providers Overview",
-    "fr": "Activity Providers Overview",
+    "it": "Fornitori di Attività - Panoramica",
+    "fr": "Fournisseurs d'activité - Aperçu",
     "sp": "Activity Providers Overview"
   },
   {
@@ -2335,8 +2335,8 @@
     "key": "All providers",
     "en": "All Providers",
     "de": "Alle Aktivitätenanbieter",
-    "it": "All Providers",
-    "fr": "Tous les providers",
+    "it": "Tutti i fornitori",
+    "fr": "Tous les prestataires",
     "sp": "All Providers"
   },
   {
@@ -2452,8 +2452,8 @@
     "key": "approve",
     "en": "approve",
     "de": "bestätigen",
-    "it": "approve",
-    "fr": "approve",
+    "it": "approvare",
+    "fr": "approuver",
     "sp": "approve"
   },
   {
@@ -2461,8 +2461,8 @@
     "key": "deny",
     "en": "deny",
     "de": "ablehnen",
-    "it": "deny",
-    "fr": "deny",
+    "it": "rifiutare",
+    "fr": "refuser",
     "sp": "deny"
   },
   {
@@ -2470,8 +2470,8 @@
     "key": "changed",
     "en": "changed",
     "de": "geändert",
-    "it": "changed",
-    "fr": "changed",
+    "it": "modificato",
+    "fr": "modifié",
     "sp": "changed"
   },
   {
@@ -2479,8 +2479,8 @@
     "key": "new",
     "en": "new",
     "de": "neu",
-    "it": "New",
-    "fr": "New",
+    "it": "nuovo",
+    "fr": "nouveau",
     "sp": "New"
   },
   {
@@ -2488,8 +2488,8 @@
     "key": "denied",
     "en": "denied",
     "de": "abgelehnt",
-    "it": "denied",
-    "fr": "denied",
+    "it": "negato",
+    "fr": "dénié",
     "sp": "denied"
   },
   {
@@ -2497,8 +2497,8 @@
     "key": "under review",
     "en": "under review",
     "de": "wird überprüft",
-    "it": "under review",
-    "fr": "under review",
+    "it": "in fase di revisione",
+    "fr": "sous revue",
     "sp": "under review"
   },
   {
@@ -2524,8 +2524,8 @@
     "key": "published",
     "en": "Published",
     "de": "Veröffentlicht",
-    "it": "Published",
-    "fr": "Published",
+    "it": "Pubblicato",
+    "fr": "publié",
     "sp": "Published"
   },
   {
@@ -2533,8 +2533,8 @@
     "key": "unpublished",
     "en": "Unpublished",
     "de": "Nicht veröffentlicht",
-    "it": "Unpublished",
-    "fr": "Unpublished",
+    "it": "Non pubblicato",
+    "fr": "Non publié",
     "sp": "Unpublished"
   },
   {
@@ -2542,8 +2542,8 @@
     "key": "Denied activity",
     "en": "Denied activity",
     "de": "Abgelehnte Aktivität",
-    "it": "Denied activity",
-    "fr": "Denied activity",
+    "it": "attività negata",
+    "fr": "refusé activité",
     "sp": "Denied activity"
   },
   {
@@ -2551,8 +2551,8 @@
     "key": "New activity – Please review",
     "en": "New activity – Please review",
     "de": "Neue Aktivität – bitte überprüfen!",
-    "it": "New activity – Please review",
-    "fr": "New activity – Please review",
+    "it": "Nuova attività - Rivedere",
+    "fr": "Nouvelle activité - Se il vous plaît examiner",
     "sp": "New activity – Please review"
   },
   {
@@ -2560,8 +2560,8 @@
     "key": "Changed activity – Please review",
     "en": "Changed activity – Please review",
     "de": "Geänderte Aktivität – bitte überprüfen!",
-    "it": "Changed activity – Please review",
-    "fr": "Changed activity – Please review",
+    "it": "Attività modificata - Rivedere",
+    "fr": "L'activité changé - Se il vous plaît examiner",
     "sp": "Changed activity – Please review"
   },
   {
@@ -2569,8 +2569,8 @@
     "key": "this activity is under review and not published yet",
     "en": "This activity is under review and not published yet!",
     "de": "Diese Aktivität wird gerade überprüft und ist derzeit nicht veröffentlicht!",
-    "it": "This activity is under review and not published yet!",
-    "fr": "This activity is under review and not published yet!",
+    "it": "Questa attività è in fase di revisione e non ancora pubblicato!",
+    "fr": "Cette activité est à l'étude et non encore paru!",
     "sp": "This activity is under review and not published yet!"
   },
   {
@@ -2578,8 +2578,8 @@
     "key": "this activity was denied and is not published",
     "en": "This activity was denied and is not published!",
     "de": "Diese Aktivität wurde abgelehnt und ist nicht veröffentlicht!",
-    "it": "This activity was denied and is not published!",
-    "fr": "This activity was denied and is not published!",
+    "it": "Tale attività è stata negata e non è pubblicato!",
+    "fr": "Cette activité a été rejetée et ne est pas publié!",
     "sp": "This activity was denied and is not published!"
   },
   {
@@ -2587,8 +2587,8 @@
     "key": "this activity is published",
     "en": "This activity is published!",
     "de": "Diese Aktivität ist veröffentlicht!",
-    "it": "This activity is published!",
-    "fr": "This activity is published!",
+    "it": "Questa attività è pubblicato!",
+    "fr": "Cette activité est publié!",
     "sp": "This activity is published!"
   },
   {
@@ -2596,8 +2596,8 @@
     "key": "this activity is under review but still published",
     "en": "This activity is under review but still published!",
     "de": "Diese Aktivität wird gerade überprüft, ist aber noch veröffentlicht!",
-    "it": "This activity is under review but still published!",
-    "fr": "This activity is under review but still published!",
+    "it": "Questa attività è in fase di revisione, ma ancora pubblicato!",
+    "fr": "Cette activité est en cours d'examen, mais encore publié!",
     "sp": "This activity is under review but still published!"
   },
   {
@@ -2605,8 +2605,8 @@
     "key": "no results",
     "en": "No results found",
     "de": "Keine Ergebnisse gefunden",
-    "it": "No results found",
-    "fr": "No results found",
+    "it": "Nessun risultato trovato",
+    "fr": "Aucun résultat",
     "sp": "No results found"
   },
   {
@@ -2614,8 +2614,8 @@
     "key": "changed activities",
     "en": "Changed activities",
     "de": "Geänderte Aktivitäten",
-    "it": "Changed activities",
-    "fr": "Changed activities",
+    "it": "Attività modificato",
+    "fr": "Activité changé",
     "sp": "Changed activities"
   },
   {
@@ -2623,8 +2623,8 @@
     "key": "denied activities",
     "en": "Denied activities",
     "de": "Abgelehnte Aktivitäten",
-    "it": "Denied activities",
-    "fr": "Denied activities",
+    "it": "Attività negato",
+    "fr": "Activités rejetées",
     "sp": "Denied activities"
   },
   {
@@ -2632,8 +2632,8 @@
     "key": "all",
     "en": "All",
     "de": "Alle",
-    "it": "All",
-    "fr": "All",
+    "it": "Tutto",
+    "fr": "Tous",
     "sp": "All"
   },
   {
@@ -2641,8 +2641,8 @@
     "key": "reset all filters",
     "en": "Reset all filters",
     "de": "Alle Filter zurücksetzen",
-    "it": "Reset all filters",
-    "fr": "Reset all filters",
+    "it": "Resettare tutti i filtri",
+    "fr": "Réinitialiser les filtres",
     "sp": "Reset all filters"
   },
   {
@@ -3910,8 +3910,8 @@
     "key": "Activate my account now",
     "en": "Activate my account now",
     "de": "Meinen Account jetzt aktivieren",
-    "it": "Activate my account now",
-    "fr": "Activate my account now",
+    "it": "Attivare ora il mio account.",
+    "fr": "Maintenant activer mon compte.",
     "sp": "Activate my account now"
   },
   {
@@ -3919,8 +3919,8 @@
     "key": "Next step",
     "en": "What now?",
     "de": "Wie geht es weiter?",
-    "it": "Next step?",
-    "fr": "Next step?",
+    "it": "Qual è il prossimo passo?",
+    "fr": "Quelle est la prochaine étape?",
     "sp": "Next step?"
   },
   {
@@ -3928,8 +3928,8 @@
     "key": "Next step information",
     "en": "We have transmitted your booking to the activity provider. Below you'll find your booking details and your reservation number. We have also sent you a confirmation via email. If you need any help contact our support 24/7!",
     "de": "Wir haben dem Anbieter die Buchung übermittelt. Untenstehend findest Du eine Zusammenfassung Deiner Buchungsdaten sowie Deine Buchungsnummer. Außerdem haben wir Dir per Email eine Buchungsbestätigung zugeschickt. Wenn Du Hilfe brauchst kontaktiere jederzeit unseren 24h Support!",
-    "it": "The Activity-Providers will contact you soon via E-mail or telephone to provide further details like e.g. the meeting point ",
-    "fr": "The Activity-Providers will contact you soon via E-mail or telephone to provide further details like e.g. the meeting point ",
+    "it": "Abbiamo comunicato la prenotazione al gestore. \nQui sotto trovi un riepilogo dei dati della tua prenotazione e il numero della stessa.\nInoltre ti abbiamo inviato tramite e-mail una conferma della tua prenotazione. Se hai bisogno di aiuto, contatta in ogni momento il nostro staff di supporto, disponibile 24 ore su 24!",
+    "fr": "Nous avons transmis votre réservation au prestataire. Veuillez trouver ci-dessous le résumé des coordonnées de votre réservation ainsi que votre numéro de réservation. De plus, nous vous avons envoyé par e-mail une confirmation de réservation. Si vous avez besoin d'assistance, n'hésitez pas à contacter, à tout moment de la journée, notre service clients !",
     "sp": "The Activity-Providers will contact you soon via E-mail or telephone to provide further details like e.g. the meeting point "
   }
 ]
