@@ -28,6 +28,7 @@ var initModelizer = function (app, db) {
   db.collection("activities").ensureIndex({"location": "2d"});
   db.collection("activities").ensureIndex({"bookableItems.events.start": 1});
   db.collection("activities").ensureIndex({"published": 1});
+  db.collection("bookedEvents").ensureIndex({"event._link": 1});
 
 //  models.UserModel.connection(connector);
 //  models.UserModel.express(app);
