@@ -24,6 +24,10 @@ var initModelizer = function (app, db) {
   // importing our models
   var models = require('../models/models.js');
 
+  // ensure indexes in here
+  db.collection("activities").ensureIndex({"location": "2d"});
+  db.collection("activities").ensureIndex({"bookableItems.events.start": 1});
+  db.collection("activities").ensureIndex({"published": 1});
 
 //  models.UserModel.connection(connector);
 //  models.UserModel.express(app);
@@ -47,13 +51,12 @@ var initModelizer = function (app, db) {
 //  require('../models/server/event');
 
   // load all files in directory
-  require("fs").readdirSync(__dirname +"/../models/server/").forEach(function(file) {
+  require("fs").readdirSync(__dirname + "/../models/server/").forEach(function (file) {
     require("../models/server/" + file);
   });
 
 };
 
-
 module.exports = {
-  initModelizer : initModelizer
+  initModelizer: initModelizer
 };
