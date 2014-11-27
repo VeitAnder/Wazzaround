@@ -29,5 +29,6 @@ npm install
 echo "\n\n installing npm packages on client done."
 
 echo -e "\n\ninstalling bower packages on client..."
+rm -R app/bower_components
 bower install --config.interactive=false --allow-root
 echo -e "\n\ninstalling bower packages on client done."
