@@ -61,7 +61,7 @@ ActivityModel.afterReadFilter(function (obj) {
     _.forEach(item.events, function (event) {
 
       promises.push(
-        models.BookedEventModel.find({"event._link": ObjectId(event._id)})  // find alle Buchungen zu einem Event
+        models.BookedEventModel.find({"event._link": event._id})  // find alle Buchungen zu einem Event
           .then(function (bookedEvents) {
             var bookedQuantity = 0;
             _.forEach(bookedEvents, function (bookedEvent) {
