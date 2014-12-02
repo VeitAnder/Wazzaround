@@ -419,5 +419,23 @@
   "activation email hint": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!",
   "Activate my account now": "Activate my account now",
   "Next step": "What now?",
-  "Next step information": "We have transmitted your booking to the activity provider. Below you'll find your booking details and your reservation number. We have also sent you a confirmation via email. If you need any help contact our support 24/7!"
+  "Next step information": "We have transmitted your booking to the activity provider. Below you'll find your booking details and your reservation number. We have also sent you a confirmation via email. If you need any help contact our support 24/7!",
+  "Event Provider details": "Event Provider details",
+  "What is my": "What is my",
+  "What is my Providers Name": "What is my Providers Name",
+  "I want to contact the provider by mail": "I want to contact the provider by mail",
+  "I want to contact the provider by phone": "I want to contact the provider by phone",
+  "I want to contact Reacture": "I want to contact Reacture",
+  "Your Booking Details": "Your Booking Details",
+  "Event Name": "Event Name",
+  "When do i have to be there": "When do i have to be there",
+  "Where do i meet my activity provider": "Where do i meet my activity provider",
+  "Have fun and enjoy": "Have fun and enjoy",
+  "Your Reacture Booking Team": "Your Reacture Booking Team",
+  "Hello": "Hi",
+  "congratulations": "congratulations",
+  "We have transmitted your booking to the activity provider and charged your credit card with": "We have transmitted your booking to the activity provider and charged your credit card with {{amount}} {{currency}}",
+  "bookingconfirmation customer paragraph1": "You don’t have to do anything – just get to the indicated meeting point and bring this email with you – your activity provider is expecting you! ",
+  "bookingconfirmation customer paragraph2": "Just in case your plans change or you need to contact the activity provider for any other reason you can always call the provider or email your provider directly. ",
+  "bookingconfirmation customer paragraph3": "If you experience any trouble with your booking, the provider or if you have questions regarding your invoice don´t hesitate to contact our support anytime."
 }

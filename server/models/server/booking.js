@@ -205,7 +205,7 @@ BookingModel.operationImpl("checkout", function (params, req) {
         });
       });
 
-      mail.sendBookingConfirmationEmail(bookingdata);
+      mail.sendBookingConfirmationEmailToCustomer(bookingdata);
 
       mail.sendBookingConfirmationEmailToProviders(bookingdata);
 

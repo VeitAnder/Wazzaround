@@ -4,7 +4,7 @@ angular.module('anorakApp')
   .filter('languageselect', function ($translate) {
     return function (inputobj) {
       var translated = "";
-      if (inputobj){
+      if (inputobj) {
         if (inputobj[$translate.use()]) {
           translated = inputobj[$translate.use()];
         } else {
@@ -14,6 +14,8 @@ angular.module('anorakApp')
             translated = inputobj.de;
           } else if (inputobj.it) {
             translated = inputobj.it;
+          } else if (inputobj.fr) {
+            translated = inputobj.fr;
           }
         }
       }

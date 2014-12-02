@@ -3931,5 +3931,167 @@
     "it": "Abbiamo comunicato la prenotazione al gestore. \nQui sotto trovi un riepilogo dei dati della tua prenotazione e il numero della stessa.\nInoltre ti abbiamo inviato tramite e-mail una conferma della tua prenotazione. Se hai bisogno di aiuto, contatta in ogni momento il nostro staff di supporto, disponibile 24 ore su 24!",
     "fr": "Nous avons transmis votre réservation au prestataire. Veuillez trouver ci-dessous le résumé des coordonnées de votre réservation ainsi que votre numéro de réservation. De plus, nous vous avons envoyé par e-mail une confirmation de réservation. Si vous avez besoin d'assistance, n'hésitez pas à contacter, à tout moment de la journée, notre service clients !",
     "sp": "The Activity-Providers will contact you soon via E-mail or telephone to provide further details like e.g. the meeting point "
+  },
+  {
+    "Description": "",
+    "key": "Event Provider details",
+    "en": "Event Provider details",
+    "de": "Ihr Provider Details",
+    "it": "Informazioni relative al tuo organizzatore",
+    "fr": "Les détails de votre prestataire",
+    "sp": "Event Provider details"
+  },
+  {
+    "Description": "",
+    "key": "What is my",
+    "en": "What is my",
+    "de": "Was ist meine",
+    "it": "Qual è il mio",
+    "fr": "Quel est l'identifiant",
+    "sp": "What is my"
+  },
+  {
+    "Description": "",
+    "key": "What is my Providers Name",
+    "en": "What is my Providers Name",
+    "de": "Wie ist der Name meines Anbieters",
+    "it": "Qual è il nome del mio gestore",
+    "fr": "Quel est le nom de mon prestataire",
+    "sp": "What is my Providers Name"
+  },
+  {
+    "Description": "",
+    "key": "I want to contact the provider by mail",
+    "en": "I want to contact the provider by mail",
+    "de": "Ich möchte den Provder per E-Mail kontaktieren",
+    "it": "Vorrei contattare il gestore tramite e-mail",
+    "fr": "Je souhaite contacter le prestataire par e-mail",
+    "sp": "I want to contact the provider by mail"
+  },
+  {
+    "Description": "",
+    "key": "I want to contact the provider by phone",
+    "en": "I want to contact the provider by phone",
+    "de": "Ich möchte den Provder telefonisch kontaktieren",
+    "it": "Vorrei contattare il gestore telefonicamente",
+    "fr": "Je souhaite contacter le prestataire par téléphone",
+    "sp": "I want to contact the provider by phone"
+  },
+  {
+    "Description": "",
+    "key": "I want to contact Reacture",
+    "en": "I want to contact Reacture",
+    "de": "Ich möchte Reacture kontaktieren",
+    "it": "Vorrei contattare Reacture",
+    "fr": "Je souhaite contacter Reacture",
+    "sp": "I want to contact Reacture"
+  },
+  {
+    "Description": "",
+    "key": "Your Booking Details",
+    "en": "Your Booking Details",
+    "de": "Ihre Aktivität Details",
+    "it": "Informazioni relative all'attività",
+    "fr": "Les détails de votre activité",
+    "sp": "Your Booking Details"
+  },
+  {
+    "Description": "",
+    "key": "Event Name",
+    "en": "Event Name",
+    "de": "Name der Aktivität",
+    "it": "Nome dell'attività",
+    "fr": "Nom de l'activité",
+    "sp": "Event Name"
+  },
+  {
+    "Description": "",
+    "key": "When do i have to be there",
+    "en": "When do i have to be there",
+    "de": "Wann muss ich am Treffpunkt sein",
+    "it": "Quando devo trovarmi al punto di incontro",
+    "fr": "Quand dois-je être au point de rendez-vous",
+    "sp": "When do i have to be there"
+  },
+  {
+    "Description": "",
+    "key": "Where do i meet my activity provider",
+    "en": "Where do i meet my activity provider",
+    "de": "Wo treffe ich mich mit meinem Anbieter",
+    "it": "Dove mi incontro con il mio gestore",
+    "fr": "Où dois-je rencontrer mon prestataire",
+    "sp": "Where do i meet my activity provider"
+  },
+  {
+    "Description": "",
+    "key": "Have fun and enjoy",
+    "en": "Have fun and enjoy",
+    "de": "Viel Spaß bei Deiner Aktivität",
+    "it": "Ti auguriamo buon divertimento",
+    "fr": "Amusez-vous bien avec votre activité",
+    "sp": "Have fun and enjoy"
+  },
+  {
+    "Description": "",
+    "key": "Your Reacture Booking Team",
+    "en": "Your Reacture Booking Team",
+    "de": "Dein Reacture Team",
+    "it": "Il tuo team Reacture",
+    "fr": "Votre équipe de Reacture",
+    "sp": "Your Reacture Booking Team"
+  },
+  {
+    "Description": "",
+    "key": "Hello",
+    "en": "Hi",
+    "de": "Hallo",
+    "it": "Ciao",
+    "fr": "Bonjour",
+    "sp": "Hola"
+  },
+  {
+    "Description": "",
+    "key": "congratulations",
+    "en": "congratulations",
+    "de": "herzlichen Glückwunsch",
+    "it": "congratulazioni",
+    "fr": "Toutes nos félicitations",
+    "sp": "congratulations"
+  },
+  {
+    "Description": "",
+    "key": "We have transmitted your booking to the activity provider and charged your credit card with",
+    "en": "We have transmitted your booking to the activity provider and charged your credit card with {{amount}} {{currency}}",
+    "de": "Wir haben Deine Buchung an den Anbieter übermittelt und deine Kreditkarte mit {{amount}} {{currency}} belastet ",
+    "it": "Abbiamo inoltrato la tua prenotazione a organizzatore e abbiamo addebitato sulla tua carta di credito l'importo di  {{amount}} {{currency}} ",
+    "fr": "Nous avons transmis votre réservation a la prestataire et débité votre carte de crédit de la somme de {{amount}} {{currency}} ",
+    "sp": "We have transmitted your booking to the activity provider and charged your credit card with {{amount}} {{currency}} "
+  },
+  {
+    "Description": "",
+    "key": "bookingconfirmation customer paragraph1",
+    "en": "You don’t have to do anything – just get to the indicated meeting point and bring this email with you – your activity provider is expecting you! ",
+    "de": "ehne Dich zurück, Du mußt nichts mehr tun! Komme einfach zum unten angegebenen Treffpunkt - Dein Aktivitätenanbieter erwartet Dich dort!  ",
+    "it": "Rilassati, non devi fare nient'altro! Recati semplicemente al punto di incontro sotto indicato – il tuo organizzatore di attività ti aspetta lì!",
+    "fr": "Détendez-vous, vous n'avez plus rien à faire ! Il vous suffit de venir à l'endroit indiqué ci-dessous, votre prestataire d'activité vous y attend !  ",
+    "sp": "You don’t have to do anything – just get to the indicated meeting point and bring this email with you – your activity provider is expecting you! "
+  },
+  {
+    "Description": "",
+    "key": "bookingconfirmation customer paragraph2",
+    "en": "Just in case your plans change or you need to contact the activity provider for any other reason you can always call the provider or email your provider directly. ",
+    "de": "Nur für den Fall, dass Du Deine Pläne änderst oder vorher noch Details direkt abklären möchtest kannst Du Dich jederzeit per Telefon oder E-Mail direkt an Deinen Provider wenden.  ",
+    "it": "Soltanto in caso di modifica dei tuoi piani o nel caso tu voglia chiarire in anticipo ulteriori dettagli, puoi rivolgerti in qualsiasi momento direttamente al tuo gestore, per telefono o per e-mail.",
+    "fr": "Au cas où vous seriez amené à modifier vos projets ou souhaiteriez clarifier directement quelques détails, vous pouvez, à tout moment, vous adresser à votre prestataire par téléphone ou par e-mail.",
+    "sp": "Just in case your plans change or you need to contact the activity provider for any other reason you can always call the provider or email your provider directly. "
+  },
+  {
+    "Description": "",
+    "key": "bookingconfirmation customer paragraph3",
+    "en": "If you experience any trouble with your booking, the provider or if you have questions regarding your invoice don´t hesitate to contact our support anytime.",
+    "de": "Wenn Du Fragen zu Deiner Reservierung, Deinem Anbieter oder Deiner Rechnung hast so wende Dich jederzeit an unseren Support. ",
+    "it": "Se hai domande relative alla tua prenotazione, al tuo gestore o alla tua fattura, rivolgiti in qualsiasi momento al nostro team di supporto.",
+    "fr": "Si vous avez des questions à propos de votre réservation, de votre prestataire ou de votre facture, n'hésitez pas à contacter notre service clients. ",
+    "sp": "If you experience any trouble with your booking, the provider or if you have questions regarding your invoice don´t hesitate to contact our support anytime."
   }
 ]

@@ -26,48 +26,7 @@ var languageKey = "en";
 // language : german (de)
 // author : lluchs : https://github.com/lluchs
 
-moment.locale('de', {
-  months: "Januar_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember".split("_"),
-  monthsShort: "Jan._Febr._Mrz._Apr._Mai_Jun._Jul._Aug._Sept._Okt._Nov._Dez.".split("_"),
-  weekdays: "Sonntag_Montag_Dienstag_Mittwoch_Donnerstag_Freitag_Samstag".split("_"),
-  weekdaysShort: "So._Mo._Di._Mi._Do._Fr._Sa.".split("_"),
-  weekdaysMin: "So_Mo_Di_Mi_Do_Fr_Sa".split("_"),
-  longDateFormat: {
-    LT: "H:mm U\\hr",
-    L: "DD.MM.YYYY",
-    LL: "D. MMMM YYYY",
-    LLL: "D. MMMM YYYY LT",
-    LLLL: "dddd, D. MMMM YYYY LT"
-  },
-  calendar: {
-    sameDay: "[Heute um] LT",
-    sameElse: "L",
-    nextDay: '[Morgen um] LT',
-    nextWeek: 'dddd [um] LT',
-    lastDay: '[Gestern um] LT',
-    lastWeek: '[letzten] dddd [um] LT'
-  },
-  relativeTime: {
-    future: "in %s",
-    past: "vor %s",
-    s: "ein paar Sekunden",
-    m: "einer Minute",
-    mm: "%d Minuten",
-    h: "einer Stunde",
-    hh: "%d Stunden",
-    d: "einem Tag",
-    dd: "%d Tagen",
-    M: "einem Monat",
-    MM: "%d Monaten",
-    y: "einem Jahr",
-    yy: "%d Jahren"
-  },
-  ordinal: '%d.',
-  week: {
-    dow: 1, // Monday is the first day of the week.
-    doy: 4  // The week that contains Jan 4th is the first week of the year.
-  }
-});
+moment.locale('en');
 
 moment.tz.add({
   "zones": {
@@ -166,6 +125,11 @@ Handlebars.registerHelper('dateFormat', function (context, block) {
   return moment(context).tz("Europe/Vienna").format(f); //had to remove Date(context)
 });
 
+// {{duration start end}}
+Handlebars.registerHelper('duration', function (start, end) {
+  return moment.duration(moment(start) - moment(end)).humanize();
+});
+
 //  format numbers using numeral.js
 //  http://numeraljs.com/
 //  moment syntax example: numeral(100).format('0.0,00')
@@ -183,24 +147,30 @@ Handlebars.registerHelper('host', function (context, block) {
   return config.host;
 });
 
-Handlebars.registerHelper('filename', function (file, block) {
-  if (file !== undefined && file.filename !== undefined) {
-    return file.filename;
-  }
-});
-
-Handlebars.registerHelper('filetypeending', function (file, block) {
-  if (file !== undefined && file.filename !== undefined) {
-    return file.filename.split('.').pop();
-  }
-});
-
 Handlebars.registerHelper('translate', function (text, block) {
-  return text[languageKey];
+  // translate translates documents from the DB, can't be sure that an translation exists so use fallbacks.
+  if (text[languageKey]) {
+    return text[languageKey];
+  } else if (text.en) {
+    return text.en;
+  } else if (text.de) {
+    return text.de;
+  } else if (text.it) {
+    return text.it;
+  } else if (text.fr) {
+    return text.fr;
+  }
 });
 
 Handlebars.registerHelper('translations', function (key, block) {
-  return translations[languageKey][key];
+  if (block.hash) {
+    // interpolate hash keys
+    var template = Handlebars.compile(translations[languageKey][key]);
+    var context = block.hash;
+    return template(context);
+  } else {
+    return translations[languageKey][key];
+  }
 });
 
 send = function (mail) {
@@ -269,27 +239,42 @@ exports.sendActivationTokenEmail = function (token, langKey) {
   return send(sendmessage);
 };
 
-exports.sendBookingConfirmationEmail = function (booking) {
+exports.sendBookingConfirmationEmailToCustomer = function (booking) {
+  var populateActivityOwnersPromises = [];
+
   languageKey = booking.languageKey;
 
-  //E-Mail Body
-  var sendmessage = {
-    data: {
-      bookingData: booking,
-      template: {
-        bookingconfirmation: true
-      }
-    },
-    postmarkmail: {
-      "From": config.postmark.from,
-      "To": booking.booking.profile.email,
-      "Subject": "reacture – " + translations[languageKey]['Payment Confirmation'],
-      "Tag": "accountactivationtoken",
-      "ReplyTo": config.postmark.replyto
-    }
-  };
+  // populate activity.owner in bookedEvent.activity
+  // @TODO use modelizer for this
+  booking.bookedEvents.forEach(function (bookedEvent) {
+    populateActivityOwnersPromises.push(
+      bookedEvent.activity.owner.load()
+        .then(function (owner) {
+          bookedEvent.activity.activityowner = owner;
+        })
+    );
+  });
 
-  return send(sendmessage);
+  return Q.all(populateActivityOwnersPromises)
+    .then(function () {
+      //E-Mail Body
+      var sendmessage = {
+        data: {
+          bookingData: booking,
+          template: {
+            bookingconfirmationtocustomer: true
+          }
+        },
+        postmarkmail: {
+          "From": config.postmark.from,
+          "To": booking.booking.profile.email,
+          "Subject": "reacture – " + translations[languageKey]['Payment Confirmation'],
+          "Tag": "accountactivationtoken",
+          "ReplyTo": config.postmark.replyto
+        }
+      };
+      return send(sendmessage);
+    });
 };
 
 exports.sendBookingConfirmationEmailToProviders = function (booking) {
