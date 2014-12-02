@@ -4,8 +4,9 @@
       media="all">
 
 <h2>
-  {{translations 'Hello'}} {{bookingData.booking.profile.firstName}} {{bookingData.booking.profile.lastName}}
-  , {{translations 'congratulations'}}!
+  {{translations 'Hello'}}
+  {{bookingData.booking.profile.firstName}} {{bookingData.booking.profile.lastName}},
+  {{translations 'congratulations'}}!
 </h2>
 <p>
   {{translations 'We have transmitted your booking to the activity provider and charged your credit card with' amount=bookingData.amount currency=bookingData.booking.payment.currency }}
@@ -95,7 +96,8 @@
         <br/>
         {{translations 'Event Name'}}: {{translate item.description }}
         <br/>
-        {{translations 'When do i have to be there'}}? {{dateFormat event.start}} ({{translations 'Duration'}}: {{duration event.start event.end}})
+        {{translations 'When do i have to be there'}}? {{dateFormat event.start}} ({{translations 'Duration'}}
+                                                                 : {{duration event.start event.end}})
         <br/>
         {{translations 'Where do i meet my activity provider'}}? {{activity.address}}
       </td>
