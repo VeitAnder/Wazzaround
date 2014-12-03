@@ -285,6 +285,7 @@ module.exports = function (grunt) {
                 '*.html',
                 'bower_components/**/*',
                 'img/mapicons/**/*.*',
+                'img/loading/**/*.*',
                 'img/email/**/*.*',
                 'favicon/*.*',
                 'fonts/*'
@@ -334,7 +335,7 @@ module.exports = function (grunt) {
         dist: [
           'sass:dist',
           'imagemin',
-          'svgmin',
+          //'svgmin', // svg-min causes problems with loading svgs
           'html2js'
         ]
       },
