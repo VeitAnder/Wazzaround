@@ -30,7 +30,7 @@ angular.module('anorakApp', [
   'ngMessages',
   'ui.bootstrap',
   'ui.select',
-  'google-maps'.ns(),
+  'uiGmapgoogle-maps',
   'mgcrea.ngStrap',
   'textAngular',
   'ui.keypress',
