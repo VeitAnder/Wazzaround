@@ -1,7 +1,7 @@
 {
   "name": "reacture-app-server",
   "description": "Back end server for reacture",
-  "version": "0.59.6",
+  "version": "0.59.7",
   "private": true,
   "dependencies": {
     "URIjs": "1.14.0",
