@@ -23,7 +23,10 @@ angular.module('anorakApp')
         },
         paymillPublicKey: '8a8394c246a5a1360146a947ae7c07d7',  // public live key!
         logentries: (function () {
-          LE.init('494b5c55-c781-46fe-bf1c-7a333925a72f');
+          LE.init({
+            token: '494b5c55-c781-46fe-bf1c-7a333925a72f',
+            catchall: true
+          });
         })()
       };
     } else if ($window.location.hostname === "reactureappdev-10669.onmodulus.net" || $window.location.hostname === "dev.reacture.anorak.io") {
@@ -42,7 +45,10 @@ angular.module('anorakApp')
         },
         paymillPublicKey: '744618362999c5386cdc5e61fee63d2c',  // test key
         logentries: (function () {
-          LE.init('d706eeab-a959-4342-86b7-657cb7212922');
+          LE.init({
+            token: 'd706eeab-a959-4342-86b7-657cb7212922',
+            catchall: true
+          });
         })()
       };
     } else {
@@ -63,7 +69,10 @@ angular.module('anorakApp')
         },
         paymillPublicKey: '744618362999c5386cdc5e61fee63d2c',  // test key
         logentries: (function () {
-          //LE.init('d706eeab-a959-4342-86b7-657cb7212922');
+/*          LE.init({
+            token: '',
+            catchall: true
+          });*/
         })()
       };
     }
