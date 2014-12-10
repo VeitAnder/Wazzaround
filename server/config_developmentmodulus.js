@@ -43,8 +43,8 @@ var config = {
     }
   },
   logging: {
-    using_logentries_service: false,
-    logentries_token: '',
+    using_logentries_service: true,
+    logentries_token: '8c496f2b-d0d9-4d67-a253-d0f6165e30ed',
     level: 'silly',
     colorize: true
   },

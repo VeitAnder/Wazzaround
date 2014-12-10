@@ -2148,7 +2148,7 @@
     "de": "Verkäufer",
     "it": "Venditore",
     "fr": "Vendeur",
-    "sp": "Salesman"
+    "sp": "Vendedor"
   },
   {
     "Description": "",
@@ -2157,7 +2157,7 @@
     "de": "Benuzterrolle",
     "it": "ruolo utente",
     "fr": "rôle d'utilisateur",
-    "sp": "User role"
+    "sp": "rol de usario"
   },
   {
     "Description": "",
@@ -2328,7 +2328,7 @@
     "de": "Aktivitätsanbieter im Überblick",
     "it": "Fornitori di Attività - Panoramica",
     "fr": "Fournisseurs d'activité - Aperçu",
-    "sp": "Activity Providers Overview"
+    "sp": "Vision general de las actividades"
   },
   {
     "Description": "",
@@ -2337,7 +2337,7 @@
     "de": "Alle Aktivitätenanbieter",
     "it": "Tutti i fornitori",
     "fr": "Tous les prestataires",
-    "sp": "All Providers"
+    "sp": "todos los proveedores"
   },
   {
     "Description": "",
@@ -2454,7 +2454,7 @@
     "de": "bestätigen",
     "it": "approvare",
     "fr": "approuver",
-    "sp": "approve"
+    "sp": "aprobar"
   },
   {
     "Description": "",
@@ -2463,7 +2463,7 @@
     "de": "ablehnen",
     "it": "rifiutare",
     "fr": "refuser",
-    "sp": "deny"
+    "sp": "denegar"
   },
   {
     "Description": "",
@@ -2472,7 +2472,7 @@
     "de": "geändert",
     "it": "modificato",
     "fr": "modifié",
-    "sp": "changed"
+    "sp": "cambiado"
   },
   {
     "Description": "",
@@ -2481,7 +2481,7 @@
     "de": "neu",
     "it": "nuovo",
     "fr": "nouveau",
-    "sp": "New"
+    "sp": "nuevo"
   },
   {
     "Description": "",
@@ -2490,7 +2490,7 @@
     "de": "abgelehnt",
     "it": "negato",
     "fr": "dénié",
-    "sp": "denied"
+    "sp": "negado"
   },
   {
     "Description": "",
@@ -2499,7 +2499,7 @@
     "de": "wird überprüft",
     "it": "in fase di revisione",
     "fr": "sous revue",
-    "sp": "under review"
+    "sp": "en revisión"
   },
   {
     "Description": "",
@@ -2526,7 +2526,7 @@
     "de": "Veröffentlicht",
     "it": "Pubblicato",
     "fr": "publié",
-    "sp": "Published"
+    "sp": "Publicado"
   },
   {
     "Description": "",
@@ -2535,7 +2535,7 @@
     "de": "Nicht veröffentlicht",
     "it": "Non pubblicato",
     "fr": "Non publié",
-    "sp": "Unpublished"
+    "sp": "Inédito"
   },
   {
     "Description": "",
@@ -2544,7 +2544,7 @@
     "de": "Abgelehnte Aktivität",
     "it": "attività negata",
     "fr": "refusé activité",
-    "sp": "Denied activity"
+    "sp": "actividad denegado"
   },
   {
     "Description": "",
@@ -2553,7 +2553,7 @@
     "de": "Neue Aktivität – bitte überprüfen!",
     "it": "Nuova attività - Rivedere",
     "fr": "Nouvelle activité - Se il vous plaît examiner",
-    "sp": "New activity – Please review"
+    "sp": "Nueva actividad - Escriba su valoración"
   },
   {
     "Description": "",
@@ -2562,7 +2562,7 @@
     "de": "Geänderte Aktivität – bitte überprüfen!",
     "it": "Attività modificata - Rivedere",
     "fr": "L'activité changé - Se il vous plaît examiner",
-    "sp": "Changed activity – Please review"
+    "sp": "Actividad Cambiado - Escriba su valoración"
   },
   {
     "Description": "",
@@ -2571,7 +2571,7 @@
     "de": "Diese Aktivität wird gerade überprüft und ist derzeit nicht veröffentlicht!",
     "it": "Questa attività è in fase di revisione e non ancora pubblicato!",
     "fr": "Cette activité est à l'étude et non encore paru!",
-    "sp": "This activity is under review and not published yet!"
+    "sp": "Esta actividad se encuentra en revisión y no es publicada."
   },
   {
     "Description": "",
@@ -2580,7 +2580,7 @@
     "de": "Diese Aktivität wurde abgelehnt und ist nicht veröffentlicht!",
     "it": "Tale attività è stata negata e non è pubblicato!",
     "fr": "Cette activité a été rejetée et ne est pas publié!",
-    "sp": "This activity was denied and is not published!"
+    "sp": "Esta actividad fue denegada y no está publicada!"
   },
   {
     "Description": "",
@@ -2589,7 +2589,7 @@
     "de": "Diese Aktivität ist veröffentlicht!",
     "it": "Questa attività è pubblicato!",
     "fr": "Cette activité est publié!",
-    "sp": "This activity is published!"
+    "sp": "Esta actividad es publicada!"
   },
   {
     "Description": "",
@@ -2598,7 +2598,7 @@
     "de": "Diese Aktivität wird gerade überprüft, ist aber noch veröffentlicht!",
     "it": "Questa attività è in fase di revisione, ma ancora pubblicato!",
     "fr": "Cette activité est en cours d'examen, mais encore publié!",
-    "sp": "This activity is under review but still published!"
+    "sp": "Esta actividad está en revisión, pero todavía publicada!"
   },
   {
     "Description": "",
@@ -2607,7 +2607,7 @@
     "de": "Keine Ergebnisse gefunden",
     "it": "Nessun risultato trovato",
     "fr": "Aucun résultat",
-    "sp": "No results found"
+    "sp": "Sin resultados"
   },
   {
     "Description": "",
@@ -2616,7 +2616,7 @@
     "de": "Geänderte Aktivitäten",
     "it": "Attività modificato",
     "fr": "Activité changé",
-    "sp": "Changed activities"
+    "sp": "Actividades modificadas"
   },
   {
     "Description": "",
@@ -2625,7 +2625,7 @@
     "de": "Abgelehnte Aktivitäten",
     "it": "Attività negato",
     "fr": "Activités rejetées",
-    "sp": "Denied activities"
+    "sp": "Actividades negadas"
   },
   {
     "Description": "",
@@ -2634,7 +2634,7 @@
     "de": "Alle",
     "it": "Tutto",
     "fr": "Tous",
-    "sp": "All"
+    "sp": "Todos"
   },
   {
     "Description": "",
@@ -2643,7 +2643,7 @@
     "de": "Alle Filter zurücksetzen",
     "it": "Resettare tutti i filtri",
     "fr": "Réinitialiser les filtres",
-    "sp": "Reset all filters"
+    "sp": "Borrar todos los filtros"
   },
   {
     "Description": "",
@@ -2679,7 +2679,7 @@
     "de": "Kategorie-Filter schließen",
     "it": "chiudere filtro",
     "fr": "ferme filtre",
-    "sp": "Close Filter"
+    "sp": "Cerrar Filtro"
   },
   {
     "Description": "",
@@ -2688,7 +2688,7 @@
     "de": "Kategorie-Filter öffnen",
     "it": "filtro categorie",
     "fr": "filtre catégorie",
-    "sp": "category filter"
+    "sp": "Filtros de categoría"
   },
   {
     "Description": "",
@@ -3794,7 +3794,7 @@
     "en": "Promotioncode",
     "de": "Promotioncode",
     "it": "Codice promozionale",
-    "fr": "code de promotion",
+    "fr": "Code de promotion",
     "sp": "Promotioncode"
   },
   {
@@ -4052,9 +4052,9 @@
   {
     "Description": "",
     "key": "congratulations",
-    "en": "congratulations",
-    "de": "herzlichen Glückwunsch",
-    "it": "congratulazioni",
+    "en": "Congratulations",
+    "de": "Herzlichen Glückwunsch",
+    "it": "Congratulazioni",
     "fr": "Toutes nos félicitations",
     "sp": "congratulations"
   },
@@ -4071,7 +4071,7 @@
     "Description": "",
     "key": "bookingconfirmation customer paragraph1",
     "en": "You don’t have to do anything – just get to the indicated meeting point and bring this email with you – your activity provider is expecting you! ",
-    "de": "ehne Dich zurück, Du mußt nichts mehr tun! Komme einfach zum unten angegebenen Treffpunkt - Dein Aktivitätenanbieter erwartet Dich dort!  ",
+    "de": "Lehne Dich zurück, Du mußt nichts mehr tun! Komme einfach zum unten angegebenen Treffpunkt - Dein Aktivitätenanbieter erwartet Dich dort!  ",
     "it": "Rilassati, non devi fare nient'altro! Recati semplicemente al punto di incontro sotto indicato – il tuo organizzatore di attività ti aspetta lì!",
     "fr": "Détendez-vous, vous n'avez plus rien à faire ! Il vous suffit de venir à l'endroit indiqué ci-dessous, votre prestataire d'activité vous y attend !  ",
     "sp": "You don’t have to do anything – just get to the indicated meeting point and bring this email with you – your activity provider is expecting you! "

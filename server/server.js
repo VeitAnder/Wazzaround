@@ -93,9 +93,9 @@ if (process.env.PORT) {
 }
 
 // start the server if `$ node server.js`
-if (require.main === module) {
-  app.listen(serverport, function (err) {
-    logger.info('Reacture App Server - listening on port: ' + serverport);
-  });
-}
+//if (require.main === module) {
+app.listen(serverport, function (err) {
+  logger.info('Reacture App Server - listening on port: ' + serverport);
+});
+//}
 

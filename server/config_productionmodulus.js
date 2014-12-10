@@ -46,8 +46,8 @@ var config = {
     }
   },
   logging: {
-    using_logentries_service: false,
-    logentries_token: '',
+    using_logentries_service: true,
+    logentries_token: '1caba297-53b0-4970-ad67-5d6a6426336c',
     level: 'silly',
     colorize: true
   },

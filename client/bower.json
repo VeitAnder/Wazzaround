@@ -33,7 +33,8 @@
     "ng-currency": "0.7.10",
     "angular-i18n": "1.3.5",
     "angular-bootstrap": "0.11.2",
-    "angular-ui-select": "~0.8.3"
+    "angular-ui-select": "~0.8.3",
+    "logentries": "~0.0.1"
   },
   "devDependencies": {
     "angular-mocks": "1.3.5",

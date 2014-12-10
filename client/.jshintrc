@@ -105,6 +105,7 @@
     "CryptoJS": true,
     "assert": true,
     "models": true,
-    "paymill": true
+    "paymill": true,
+    "LE": true // logentries.com client
   }
 }
