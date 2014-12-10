@@ -1,6 +1,6 @@
 {
   "name": "anorak",
-  "version": "0.59.1",
+  "version": "0.59.2",
   "description": "Back end server for reacture",
   "dependencies": {
     "compression": "1.2.1",
