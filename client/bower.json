@@ -2,23 +2,23 @@
   "name": "anorak",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "1.3.5",
-    "angular-animate": "1.3.5",
-    "angular-route": "1.3.5",
-    "angular-sanitize": "1.3.5",
-    "angular-cookies": "1.3.5",
-    "angular-messages": "1.3.5",
+    "angular": "1.3.8",
+    "angular-animate": "1.3.8",
+    "angular-route": "1.3.8",
+    "angular-sanitize": "1.3.8",
+    "angular-cookies": "1.3.8",
+    "angular-messages": "1.3.8",
     "ua-parser-js": "https://github.com/planmanager/ua-parser-js.git",
     "lodash": "2.4.1",
     "moment": "2.8.4",
     "spinjs": "2.0.1",
     "angular-ui-utils": "bower-keypress",
     "bourbon": "3.1.8",
-    "angular-google-maps": "2.0.11",
+    "angular-google-maps": "2.0.12",
     "q": "2.0.2",
     "angular-strap": "2.1.2",
     "textAngular": "1.2.1",
-    "jquery": "2.1.1",
+    "jquery": "2.1.3",
     "dropzone": "https://github.com/maximilianschmid/dropzone-patched.git",
     "cloudinary-client": "https://github.com/maximilianschmid/cloudinary-client.git",
     "angular-translate": "2.4.2",
@@ -31,20 +31,20 @@
     "angular-local-storage": "0.0.7",
     "ngstorage": "0.3.0",
     "ng-currency": "0.7.10",
-    "angular-i18n": "1.3.5",
+    "angular-i18n": "1.3.8",
     "angular-bootstrap": "0.11.2",
     "angular-ui-select": "~0.8.3",
     "logentries": "~0.0.1"
   },
   "devDependencies": {
-    "angular-mocks": "1.3.5",
-    "angular-scenario": "1.3.5"
+    "angular-mocks": "1.3.8",
+    "angular-scenario": "1.3.8"
   },
   "resolutions": {
     "angular-translate": "2.2.0",
     "angular-translate-storage-cookie": "2.2.0",
-    "angular": "1.3.5",
-    "angular-animate": "1.3.5",
+    "angular": "1.3.8",
+    "angular-animate": "1.3.8",
     "bootstrap": ">=3.0 <4.0"
   }
 }
