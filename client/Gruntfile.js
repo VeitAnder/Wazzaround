@@ -203,32 +203,6 @@ module.exports = function (grunt) {
           }
         }
       },
-
-      // The following *-min tasks produce minified files in the dist folder
-      imagemin: {
-        dist: {
-          files: [
-            {
-              expand: true,
-              cwd: '<%= yeoman.app %>/img',
-              src: '{,*/}*.{png,jpg,jpeg,gif}',
-              dest: '<%= yeoman.dist %>/img'
-            }
-          ]
-        }
-      },
-      svgmin: {
-        dist: {
-          files: [
-            {
-              expand: true,
-              cwd: '<%= yeoman.app %>/img',
-              src: '{,*/}*.svg',
-              dest: '<%= yeoman.dist %>/img'
-            }
-          ]
-        }
-      },
       htmlmin: {
         dist: {
           options: {
@@ -263,13 +237,6 @@ module.exports = function (grunt) {
         }
       },
 
-      // Replace Google CDN references
-      cdnify: {
-        dist: {
-          html: ['<%= yeoman.dist %>/*.html']
-        }
-      },
-
       // Copies remaining files to places other tasks can use
       copy: {
         dist: {
@@ -284,9 +251,7 @@ module.exports = function (grunt) {
                 '.htaccess',
                 '*.html',
                 'bower_components/**/*',
-                'img/mapicons/**/*.*',
-                'img/**/*.svg',
-                'img/email/**/*.*',
+                'img/**/*',
                 'favicon/*.*',
                 'fonts/*'
               ]
@@ -334,8 +299,6 @@ module.exports = function (grunt) {
         ],
         dist: [
           'sass:dist',
-          'imagemin',
-          //'svgmin', // svg-min causes problems with loading svgs
           'html2js'
         ]
       },
@@ -589,7 +552,6 @@ module.exports = function (grunt) {
     'ngAnnotate',
     'copy:translations',
     'copy:dist',
-//    'cdnify',
     'cssmin',
     'uglify',
     'rev',
