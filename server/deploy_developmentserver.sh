@@ -13,7 +13,6 @@ SCRIPTPATH=`dirname $0`
 
 MODULUS_USERNAME=reactureapp
 MODULUS_APPNAME=reactureappdev
-MODULUS_DEVELOPMENT_PASSWORD=sYpZo2TzWn4HAK
 
 echo "\n\nnode version used:"
 node --version
@@ -45,7 +44,7 @@ echo "When no modulus commmand is found in your path, install it via [sudo] npm 
 echo "Modulus deploy start"
 modulus logout
 echo "Login as $MODULUS_USERNAME and deploy $MODULUS_APPNAME:"
-modulus login --username $MODULUS_USERNAME  --password $MODULUS_DEVELOPMENT_PASSWORD
+modulus login --username $MODULUS_USERNAME
 modulus deploy -p $MODULUS_APPNAME
 modulus logout
 
