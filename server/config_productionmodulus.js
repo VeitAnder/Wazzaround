@@ -1,6 +1,6 @@
 var config = {
-  host: "https://www.reacture.com/",
-  clienthost: "https://www.reacture.com/",
+  host: "https://www.wazzaround.com/",
+  clienthost: "https://www.wazzaround.com/",
   mongo: {
     username: 'reactureapp',
     password: 'pDDbi6FYWsVUftsH9',
