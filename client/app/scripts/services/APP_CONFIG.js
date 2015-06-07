@@ -5,7 +5,7 @@ angular.module('anorakApp')
       globalconfig = {},
       apiversion = "/api/v1/";
 
-    if ($window.location.hostname.indexOf("wazzaround.com") >= 0 || $window.location.hostname === "reacture.com" || $window.location.hostname === "www.reacture.com" || $window.location.hostname === "beta.reacture.com" || $window.location.hostname === "reactureapp-11359.onmodulus.net") {
+    if ($window.location.hostname.indexOf("wazzaround.com") >= 0 || $window.location.hostname.indexOf("wwwwazzaroundcom.herokuapp.com") >= 0 || $window.location.hostname === "reacture.com" || $window.location.hostname === "www.reacture.com" || $window.location.hostname === "beta.reacture.com" || $window.location.hostname === "reactureapp-11359.onmodulus.net") {
       // PRODUCTION SERVER
       hostconfig = {
         AmazonS3Config: {
