@@ -5,3 +5,4 @@ productionbackups
 .vagrant
 
 client/app/styles/main.css
+node_modules

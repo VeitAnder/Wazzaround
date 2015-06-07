@@ -1,1 +1,1 @@
-../../../../server/node_modules/modelizer/browser-dist/modelizer.js
+../../../../node_modules/modelizer/browser-dist/modelizer.js

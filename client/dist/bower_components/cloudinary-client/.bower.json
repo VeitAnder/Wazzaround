@@ -1,0 +1,17 @@
+{
+  "name": "cloudinary-client",
+  "main": "./jquery.cloudinary.js",
+  "dependencies": {
+    "jquery": ">=1.9"
+  },
+  "homepage": "https://github.com/maximilianschmid/cloudinary-client",
+  "_release": "9c5f835134",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "9c5f8351344f527377f42ed77548a390e51fa3f5"
+  },
+  "_source": "https://github.com/maximilianschmid/cloudinary-client.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/maximilianschmid/cloudinary-client.git"
+}
