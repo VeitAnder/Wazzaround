@@ -40,7 +40,7 @@ app.set('json spaces', 2);
 
 if (process.env.NODE_ENV === "production") {
   app.get('/*', function (req, res, next) {
-    if (!req.headers.host.match(/^www\./)) {
+    if (!req.headers.host.match(/^www\./) && req.headers.host.indexOf("onmodulus.net") < 0 && req.headers.host.indexOf("herokuapp.com") < 0) {
       res.redirect(config.clienthost);
     } else {
       return next();
