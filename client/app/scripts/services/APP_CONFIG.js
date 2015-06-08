@@ -14,7 +14,7 @@ angular.module('anorakApp')
         },
         APIUrl: $window.location.protocol + "//" + $window.location.hostname + apiversion,
         debug: false,
-        modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/",
+        modelizerurl: "https://" + $window.location.hostname + "/",
         modelizerhost: $window.location.hostname,
         modelizerport: 443,
         cloudinary: {
@@ -38,7 +38,7 @@ angular.module('anorakApp')
         },
         APIUrl: $window.location.protocol + "//" + $window.location.hostname + apiversion,
         debug: false,
-        modelizerurl: $window.location.protocol + "//" + $window.location.hostname + "/",
+        modelizerurl: "https://" + $window.location.hostname + "/",
         cloudinary: {
           cloud_name: 'www-reacture-com',
           api_key: '162329319871877'
@@ -60,7 +60,7 @@ angular.module('anorakApp')
         },
         APIUrl: $window.location.protocol + "//" + $window.location.hostname + ":3000" + apiversion,
         debug: true,
-        modelizerurl: $window.location.protocol + "//" + $window.location.hostname + ":3000/",
+        modelizerurl: "http://" + $window.location.hostname + ":3000/",
         modelizerhost: $window.location.hostname,
         modelizerport: 3000,
         cloudinary: {
