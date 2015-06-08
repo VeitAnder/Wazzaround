@@ -12,7 +12,7 @@ angular.module('anorakApp')
           bucket: "",
           accesskey: ""
         },
-        APIUrl: $window.location.protocol + "//" + $window.location.hostname + apiversion,
+        APIUrl: "https://" + $window.location.hostname + apiversion,
         debug: false,
         modelizerurl: "https://" + $window.location.hostname + "/",
         modelizerhost: $window.location.hostname,
@@ -36,7 +36,7 @@ angular.module('anorakApp')
           bucket: "",
           accesskey: ""
         },
-        APIUrl: $window.location.protocol + "//" + $window.location.hostname + apiversion,
+        APIUrl: "https://" + $window.location.hostname + apiversion,
         debug: false,
         modelizerurl: "https://" + $window.location.hostname + "/",
         cloudinary: {
@@ -58,7 +58,7 @@ angular.module('anorakApp')
           bucket: "",
           accesskey: ""
         },
-        APIUrl: $window.location.protocol + "//" + $window.location.hostname + ":3000" + apiversion,
+        APIUrl: "http://" + $window.location.hostname + ":3000" + apiversion,
         debug: true,
         modelizerurl: "http://" + $window.location.hostname + ":3000/",
         modelizerhost: $window.location.hostname,
