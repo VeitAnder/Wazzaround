@@ -24,6 +24,11 @@ app.use(compress());                                // enable gzip compression f
 
 logger.info("Node environment: NODE_ENV=%s", process.env.NODE_ENV);
 
+//switch to https immediately
+if (config.security.switchToHttps === "true") {
+  require("./servermodules/security.js").switchToHTTPS(app);
+}
+
 // Apply Express Middleware Filters
 app.use(logger.expressLogger);
 

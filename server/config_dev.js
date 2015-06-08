@@ -10,7 +10,8 @@ var config = {
   security: {
     usersCollection: 'users',                                   // The name of the collection contains user information
     passwordencryptionalgorithm: 'aes256',                      // db password encryption algorithm
-    passwordencryptionkey: process.env.PASSWORD_ENCRYPTIONKEY        // password encryptionkey
+    passwordencryptionkey: process.env.PASSWORD_ENCRYPTIONKEY,        // password encryptionkey
+    switchToHttps: process.env.SWITCH_TO_HTTPS
   },
   server: {
     listenPort: 3000,                                           // The port on which the server is to listen (means that the app is at http://localhost:3000 for instance)

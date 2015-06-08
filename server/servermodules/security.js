@@ -17,6 +17,16 @@ var allowCors = function (app) {
   });
 };
 
+var switchToHTTPS = function (app) {
+  app.use(function (req, res, next) {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
+      res.redirect(301, 'https://' + req.headers.host + req.url);
+    } else {
+      next();
+    }
+  });
+};
+
 var useCSRFProtection = function (app) {
   var csrfValue = function (req) {
 
@@ -32,5 +42,6 @@ var useCSRFProtection = function (app) {
 
 module.exports = {
   "allowCors": allowCors,
+  "switchToHTTPS": switchToHTTPS,
   "useCSRFProtection": useCSRFProtection
 };
