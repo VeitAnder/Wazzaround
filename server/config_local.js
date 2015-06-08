@@ -11,13 +11,6 @@ var config = {
     passwordencryptionalgorithm: 'aes256',                      // db password encryption algorithm
     passwordencryptionkey: "EdJkKl$§$&-kjlk$ioi23a4t9T7"        // password encryptionkey
   },
-  amazons3: {
-//    S3_ACCESS_KEY: 'AKIAJVNTGQMMDTGWNI4A',
-//    S3_SECRET_KEY: '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',
-//    S3_BUCKET_NAME: 'planfredlocalhost',                             // bucket name and bucket URL have to match
-//    S3_BUCKET_URL: 'https://planfredlocalhost.s3.amazonaws.com',
-//    S3_REGION: "eu-west-1"
-  },
   server: {
     listenPort: 3000,                                           // The port on which the server is to listen (means that the app is at http://localhost:3000 for instance)
     securePort: 8433,                                           // The HTTPS port on which the server is to listen (means that the app is at https://localhost:8433 for instance)
