@@ -60,10 +60,10 @@ var config = {
     PAYMILL_PRIVATE_KEY: '34e632de2eb8de9a92caea85fab7f380'
   },
   translations: {
-    de: require('../client/scripts/translations/locale-de.json'),
-    en: require('../client/scripts/translations/locale-en.json'),
-    fr: require('../client/scripts/translations/locale-fr.json'),
-    it: require('../client/scripts/translations/locale-it.json')
+    de: require('../client/dist/scripts/translations/locale-de.json'),
+    en: require('../client/dist/scripts/translations/locale-en.json'),
+    fr: require('../client/dist/scripts/translations/locale-fr.json'),
+    it: require('../client/dist/scripts/translations/locale-it.json')
   }
 };
 
