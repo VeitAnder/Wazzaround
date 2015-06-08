@@ -26,102 +26,6 @@ module.exports = function (grunt) {
       },
 
       pkg: grunt.file.readJSON('package.json'),
-
-      // Watches files for changes and runs tasks based on the changed files
-      watch: {
-        js: {
-          files: ['<%= yeoman.app %>/scripts/**/*.js'],
-          tasks: ['newer:jshint:all'],
-          options: {
-            livereload: true
-          }
-        },
-        jsTest: {
-          files: ['test/spec/{,*/}*.js'],
-          tasks: ['newer:jshint:test', 'karma']
-        },
-        sass: {
-          files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
-          tasks: ['sass:server']
-        },
-        gruntfile: {
-          files: ['Gruntfile.js']
-        },
-        templates: {
-          files: ['<%= yeoman.app %>/views/**/{,*/}*.tpl.html', '<%= yeoman.app %>/views/**/{,*/}*.html'],
-          tasks: ['html2js']
-        },
-        livereload: {
-          options: {
-            livereload: '<%= connect.options.livereload %>'
-          },
-          files: [
-            '<%= yeoman.app %>/{,*/}*.html',
-            '<%= yeoman.app %>/styles/{,*/}*.css',
-            '<%= yeoman.app %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-          ]
-        }
-      },
-
-      // The actual grunt server settings
-      connect: {
-        options: {
-          port: 9000,
-          // Change this to '0.0.0.0' to access the server from outside.
-          hostname: '0.0.0.0',
-          livereload: 35729,
-          middleware: function (connect, options) {
-            // checkout https://github.com/gruntjs/grunt-contrib-connect/issues/30 for discussion on this implementation
-            var middlewares = [];
-            var directory = options.directory || options.base[options.base.length - 1];
-
-            if (!Array.isArray(options.base)) {
-              options.base = [options.base];
-            }
-
-            options.base.forEach(function (base) {
-              // Serve static files.
-              middlewares.push(connect.static(base));
-            });
-
-            // Make directory browse-able.
-            middlewares.push(connect.directory(directory));
-
-            // Handle 404
-            middlewares.push(function (req, res, next) {
-              res.end(grunt.file.read(options.base[options.base.length - 1] + '/index.html'));
-            });
-            return middlewares;
-          }
-        },
-        livereload: {
-          options: {
-            open: true,
-            base: [
-              '.tmp',
-              '<%= yeoman.app %>'
-            ]
-          }
-        },
-        test: {
-          options: {
-            port: 9001,
-            base: [
-              '.tmp',
-              'test',
-              '<%= yeoman.app %>'
-            ]
-          }
-        },
-        dist: {
-          options: {
-            base: [
-              '<%= yeoman.dist %>'
-            ]
-          }
-        }
-      },
-
       // Make sure code styles are up to par and there are no obvious mistakes
       jshint: {
         options: {
@@ -358,24 +262,6 @@ module.exports = function (grunt) {
           }
         }
       },
-      favicons: {
-        options: {
-          trueColor: true,
-          precomposed: true,
-          appleTouchBackgroundColor: '#ffffff',
-          coast: true,
-          firefox: true,
-          windowsTile: true,
-          tileBlackWhite: false,
-          tileColor: 'none',
-          html: '<%= yeoman.dist %>/index.html',
-          HTMLPrefix: '/favicon/'
-        },
-        icons: {
-          src: '<%= yeoman.app %>/favicon/original/favicon.png',
-          dest: '<%= yeoman.dist %>/favicon/'
-        }
-      },
       shell: {
         startserver: {
           command: ' sh ../server/startserver.sh &',
@@ -405,6 +291,9 @@ module.exports = function (grunt) {
           options: {
             async: true
           }
+        },
+        favicons: {
+          command: 'gulp favicons'
         }
       },
       replace: {
@@ -501,40 +390,6 @@ module.exports = function (grunt) {
     'convertgssjson'
   ]);
 
-  grunt.registerTask('serve', function (target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
-    }
-
-    grunt.task.run([
-      'clean:server',
-//      'bower-install', // creates mess with dependencies
-      'concurrent:server',
-      'connect:livereload',
-      'shell',
-      'watch'
-    ]);
-  });
-
-  grunt.registerTask('dev', function (target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
-    }
-
-    grunt.task.run([
-      'clean:server',
-//      'bower-install', // creates mess with dependencies
-      'concurrent:server',
-      'connect:livereload',
-      'watch'
-    ]);
-  });
-
-  grunt.registerTask('server', function () {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve']);
-  });
-
   grunt.registerTask('test', [
     'clean:server',
     'concurrent:test',
@@ -556,7 +411,8 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'shell:favicons'
   ]);
 
   grunt.registerTask('default', [
@@ -573,7 +429,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('release', [
     'build',
-    'favicons',
     'replace'
   ]);
 

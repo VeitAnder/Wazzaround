@@ -1,80 +1,136 @@
 "use strict";
 
 var gulp = require('gulp'),
-  refresh = require('gulp-livereload'),
   jshint = require('gulp-jshint'),
-  lrserver = require('tiny-lr')(),
   express = require('express'),
-  livereload = require('connect-livereload'),
   sass = require('gulp-sass'),
   concat = require('gulp-concat'),
   html2js = require('gulp-html2js'),
-  shell = require('gulp-shell'),
-  open = require('open');
+  browserSync = require('browser-sync'),
+  favicons = require('favicons');
 
 // Constants
-var SERVER_PORT = 9000;
-var LIVERELOAD_PORT = 35729;
+var SERVER_PORT = 8000;
+var clientpathdev = "./app/";
+var clientpathdist = "./dist/";
+
+// set env to local if not defined
+if (!process.env.NODE_ENV || process.env.NODE_ENV === "developmentlocalhost") {
+  console.log("process.env.NODE_ENV not properly set. Auto-Change to 'local' ");
+  process.env.NODE_ENV = "local";
+}
 
 gulp.task('sass', function () {
-  return gulp.src('./app/styles/*.scss')
+  return gulp.src(clientpathdev + 'styles/*.scss')
     .pipe(sass({errLogToConsole: true}))
-    .pipe(gulp.dest('./app/styles'))
-    .pipe(refresh(lrserver));
+    .pipe(gulp.dest(clientpathdev + 'styles'))
+    .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('lint', function () {
-  return gulp.src('./app/scripts/**/*.js')
+  return gulp.src(clientpathdev + 'scripts/**/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('html2js', function () {
-  console.log("html2js");
-
-  gulp.src('./app/views/**/*.html')
+  gulp.src(clientpathdev + 'views/**/*.html')
     .pipe(html2js({
       outputModuleName: 'templates.app',
-      useStrict: true
+      useStrict: true,
+      base: clientpathdev
     }))
     .pipe(concat('templates.js'))
-    .pipe(gulp.dest('./app/scripts'));
+    .pipe(gulp.dest(clientpathdev + 'scripts'));
 });
 
-// Serve tasks
+gulp.task('favicons', function () {
+  function generateFavicons(cb) {
+    favicons({
+      // I/O
+      files: {
+        src: './app/favicon/original/favicon.png',
+        dest: './dist/favicon/',
+        html: './dist/index.html'
+      },
+      icons: {
+        // Icon Types
+        android: true,
+        appleIcon: true,
+        appleStartup: false,
+        coast: true,
+        favicons: true,
+        firefox: true,
+        opengraph: true,
+        windows: true,
+        yandex: true
+      },
+      settings: {
+        // Miscellaneous
+        background: '#ffffff',
+        url: "https://www.wazzaround.com",
+        logging: true,
+        developerURL: "www.wazzaround.com",
+        developer: "anorak.io",
+        appName: "wazzaround",
+        appDescription: "wazzaround"
+      }
+    }, cb);
+  }
+
+  generateFavicons(function () {
+    // wrap typoscript
+    gulp.src("./dist/index.html")
+      .pipe(gulp.dest("./dist/"));
+
+  });
+});
+
 gulp.task('reload:html', function () {
-  return gulp.src('./app/**/*.html')
-    .pipe(refresh(lrserver));
+  return gulp.src(clientpathdev + 'index.html')
+    .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('watch', ['html2js'], function () {
-  gulp.watch('app/styles/**/*.scss', ['sass']);
-  gulp.watch('app/**/*.html', ['html2js', 'reload:html']);
-  gulp.watch(['app/**/*.js', '!app/scripts/templates.js'], ['reload:html']);
+  gulp.watch(clientpathdev + '/styles/**/*.scss', ['sass']);
+  gulp.watch(clientpathdev + '/views/**/*', ['html2js', 'reload:html']);
+  gulp.watch(clientpathdev + '/*.html', ['html2js', 'reload:html']);
+  gulp.watch([clientpathdev + '/**/*.js', '!' + clientpathdev + '/scripts/templates.js'], ['reload:html']);
 });
 
 gulp.task('server', [], function () {
   require("../server/server.js");
 });
 
-gulp.task('client', ['sass', 'watch'], function () {
+gulp.task('client', ['sass', 'html2js', 'watch', 'browser-sync'], function () {
   var app = express();
+
   var config = {
     server: {
-      distFolder: "./app"
+      distFolder: clientpathdev
     }
   };
-
-  app.use(livereload({
-    port: LIVERELOAD_PORT
-  }));
-
   require("../server/servermodules/serveclient.js").setupStaticAssetsServer(app, 0, config);
   require("../server/servermodules/serveclient.js").serveClient(app, config);
-
   app.listen(SERVER_PORT);
-  lrserver.listen(LIVERELOAD_PORT);
+});
+
+// Proxy to existing vhost (version 0.7.0 & greater)
+// https://github.com/shakyShane/gulp-browser-sync
+gulp.task('browser-sync', function () {
+  browserSync({
+    proxy: "localhost:8000",
+    port: 9000,
+    notify: false,
+    injectChanges: true,   // Don't try to inject, just do a page refresh
+    ghostMode: {  // Clicks, Scrolls & Form inputs on any device will be mirrored to all others.
+      clicks: false,
+      forms: false,
+      scroll: false
+    },
+    open: false
+  });
 });
 
 gulp.task('clientdist', ['server'], function () {
@@ -82,7 +138,7 @@ gulp.task('clientdist', ['server'], function () {
 
   var config = {
     server: {
-      distFolder: "./dist"
+      distFolder: clientpathdist
     }
   };
 
@@ -91,12 +147,8 @@ gulp.task('clientdist', ['server'], function () {
   app.listen(SERVER_PORT);
 });
 
-gulp.task('openbrowser', function () {
-  open("http://localhost:9000");
-});
-
 // alias task for old serve
 gulp.task('serve', ['client']);
 
 // just gulp, and entire app starts!
-gulp.task('default', ['sass', 'server', 'client', 'openbrowser']);
+gulp.task('default', ['sass', 'server', 'client']);
