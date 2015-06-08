@@ -16,15 +16,14 @@ cd ..
 
 # install packages on client and server
 echo -e "\n\ninstalling npm packages on server..."
-cd server
-npm install 
+npm install
 echo "installing npm packages on server done."
 echo "building server…"
 grunt build
 echo "build server done."
 
 echo -e "\n\ninstalling npm packages on client..."
-cd ../client/
+cd client/
 npm install
 echo "\n\n installing npm packages on client done."
 

@@ -13,7 +13,7 @@ angular.module('uiGmapgoogle-maps.directives.api.models.parent')
           @include ModelsWatcher
           constructor: (scope, element, attrs, ctrls, @gMap, @markersScope) ->
             super(scope, element, attrs, ctrls, $timeout, $compile, $http, $templateCache)
-            self = @
+
             @windows = new PropMap()
 
             @scopePropNames = ['coords', 'template', 'templateUrl', 'templateParameter',
@@ -42,16 +42,19 @@ angular.module('uiGmapgoogle-maps.directives.api.models.parent')
             @createChildScopesWindows()
 
           watchModels: (scope) =>
-            scope.$watch 'models', (newValue, oldValue) =>
+            #if there is a markersScope we only want to start our changes when markers is done
+            # therefore we wait on markerModelsUpdate to change
+            itemToWatch =  if @markersScope? then 'markerModelsUpdate' else 'models'
+            scope.$watch itemToWatch, (newValue, oldValue) =>
               #check to make sure that the newValue Array is really a set of new objects
               if not _.isEqual(newValue, oldValue) or @firstWatchModels
                 @firstWatchModels = false
-                if @doRebuildAll or @doINeedToWipe(newValue)
+                if @doRebuildAll or @doINeedToWipe(scope.models)
                   @rebuildAll(scope, true, true)
                 else
                   doScratch = @windows.length == 0
                   if @existingPieces?
-                    @existingPieces.then => @createChildScopesWindows doScratch
+                    _.last(@existingPieces._content).then => @createChildScopesWindows doScratch
                   else
                     @createChildScopesWindows doScratch
             , true
@@ -65,15 +68,13 @@ angular.module('uiGmapgoogle-maps.directives.api.models.parent')
                 @createChildScopesWindows() if doCreate
 
           onDestroy:(doDelete) =>
-            @destroyPromise().then =>
-              @cleanOnResolve _async.waitOrGo @, =>
-                @windows.each (model) =>
-                  model.destroy()
-                uiGmapPromise.resolve()
+            _async.promiseLock @, uiGmapPromise.promiseTypes.delete, undefined, undefined, =>
+              _async.each @windows.values(), (child) =>
+                child.destroy()
+              , false
               .then =>
                 delete @windows if doDelete
                 @windows = new PropMap()
-                @isClearing = false
 
           watchDestroy: (scope)=>
             scope.$on '$destroy', =>
@@ -101,7 +102,7 @@ angular.module('uiGmapgoogle-maps.directives.api.models.parent')
             modelsNotDefined = angular.isUndefined @linked.scope.models
 
             if modelsNotDefined and (@markersScope == undefined or (@markersScope?.markerModels == undefined or @markersScope?.models == undefined))
-              @$log.error('No models to create windows from! Need direct models or models derrived from markers!')
+              @$log.error('No models to create windows from! Need direct models or models derived from markers!')
               return
             if @gMap?
               #at the very least we need a Map, the marker is optional as we can create Windows without markers
@@ -136,37 +137,49 @@ angular.module('uiGmapgoogle-maps.directives.api.models.parent')
               @watchDestroy scope
             @setContentKeys(scope.models) #only setting content keys once per model array
 
-            @cleanOnResolve _async.waitOrGo @, =>
-              _async.each scope.models, (model) =>
-                gMarker = if hasGMarker then scope[modelsPropToIterate][[model[@idKey]]]?.gMarker else undefined
-#                throw 'Unable to get gMarker from scope!!' unless gMarker
-                @createWindow(model, gMarker, @gMap)
-            .then =>
-              @firstTime = false
+            return if @didQueueInitPromise(@,scope)
+
+            maybeCanceled = null
+            _async.promiseLock @, uiGmapPromise.promiseTypes.create, 'createAllNewWindows',
+              ((canceledMsg) -> maybeCanceled = canceledMsg), =>
+                _async.each scope.models, (model) =>
+                  gMarker = if hasGMarker then @getItem(scope, modelsPropToIterate, model[@idKey])?.gMarker else undefined
+                  unless maybeCanceled
+                    $log.error 'Unable to get gMarker from markersScope!' if not gMarker and @markersScope
+                    @createWindow(model, gMarker, @gMap)
+                  maybeCanceled
+                , _async.chunkSizeFrom scope.chunk
+                .then =>
+                  @firstTime = false
 
           pieceMealWindows: (scope, hasGMarker, modelsPropToIterate = 'models', isArray = true)=>
-            return if scope.$$destroyed or @isClearing
-            return if @updateInProgress()
-#            doChunk = if @existingPieces? then false else _async.defaultChunkSize
-            doChunk = _async.defaultChunkSize
+            return if scope.$$destroyed
+            maybeCanceled = null
+            payload = null
             @models = scope.models
+
             if scope? and scope.models? and scope.models.length > 0 and @windows.length > 0
-              @figureOutState @idKey, scope, @windows, @modelKeyComparison, (state) =>
-                payload = state
-                @cleanOnResolve _async.waitOrGo @, =>
+
+              _async.promiseLock @, uiGmapPromise.promiseTypes.update, 'pieceMeal', ((canceledMsg) -> maybeCanceled = canceledMsg), =>
+                uiGmapPromise.promise((=> @figureOutState @idKey, scope, @windows, @modelKeyComparison))
+                .then (state) =>
+                  payload = state
                   _async.each payload.removals, (child)=>
                     if child?
                       @windows.remove(child.id)
                       child.destroy(true) if child.destroy?
-                  ,false
-                  .then =>
-                    #add all adds via creating new ChildMarkers which are appended to @markers
-                    _async.each payload.adds, (modelToAdd) =>
-                      gMarker = scope[modelsPropToIterate].get(modelToAdd[@idKey])?.gMarker
-                      throw 'Gmarker undefined' unless gMarker
-                      @createWindow(modelToAdd, gMarker, @gMap)
-                    ,false
+                      maybeCanceled
+                  , _async.chunkSizeFrom scope.chunk
+                .then =>
+                  #add all adds via creating new ChildMarkers which are appended to @markers
+                  _async.each payload.adds, (modelToAdd) =>
+                    gMarker = @getItem(scope, modelsPropToIterate, modelToAdd[@idKey])?.gMarker
+                    throw 'Gmarker undefined' unless gMarker
+                    @createWindow(modelToAdd, gMarker, @gMap)
+                    maybeCanceled
+
             else
+              $log.debug('pieceMealWindows: rebuildAll')
               @rebuildAll(@scope, true, true)
 
           setContentKeys: (models)=>
@@ -184,7 +197,7 @@ angular.module('uiGmapgoogle-maps.directives.api.models.parent')
             fakeElement =
               html: =>
                 @interpolateContent(@linked.element.html(), model)
-            @DEFAULTS = if @markersScope then model[@optionsKey] or {} else @DEFAULTS
+            @DEFAULTS = @scopeOrModelVal(@optionsKey, @scope, model) or {}
             opts = @createWindowOptions gMarker, childScope, fakeElement.html(), @DEFAULTS
             child = new WindowChildModel model, childScope, opts, @isIconVisibleOnClick, gMap, @markersScope?.markerModels.get(model[@idKey])?.scope, fakeElement, false, true
 

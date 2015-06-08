@@ -2,11 +2,12 @@ angular.module('appMaps', ['uiGmapgoogle-maps'])
 
   .controller("mapCtrl", ["$scope", "uiGmapLogger", function ($scope, logger) {
     logger.doLog = true;
+    logger.currentLevel = logger.LEVELS.debug;
     var lastId = 1;
     var clusterThresh = 6;
 
     $scope.map = {
-      doCluster: false,
+      doCluster: true,
       options: {
         streetViewControl: false,
         panControl: false,
@@ -34,6 +35,10 @@ angular.module('appMaps', ['uiGmapgoogle-maps'])
         latitude: 0,
         longitude: 0
       },
+      //clusterOptions: {title: 'Hi I am a Cluster!', gridSize: 60, ignoreHidden: true, minimumClusterSize: 2,
+      //  imageExtension: 'png', imagePath: 'assets/images/cluster', imageSizes: [72]
+      //},
+      clusterOptions: {},
       zoom: 0
     };
 

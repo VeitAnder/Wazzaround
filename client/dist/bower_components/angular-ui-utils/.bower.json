@@ -5,11 +5,11 @@
     "angular": ">= 1.0.2"
   },
   "homepage": "https://github.com/angular-ui/ui-utils",
-  "_release": "4ecb3d946a",
+  "_release": "02963e332d",
   "_resolution": {
     "type": "branch",
     "branch": "bower-keypress",
-    "commit": "4ecb3d946aa7fb603886437cb7f04ff8133a669a"
+    "commit": "02963e332d0a863fadc722fad8d2550ab16ce482"
   },
   "_source": "git://github.com/angular-ui/ui-utils.git",
   "_target": "bower-keypress",

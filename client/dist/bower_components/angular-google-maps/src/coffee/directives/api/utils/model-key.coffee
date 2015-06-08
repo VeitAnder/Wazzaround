@@ -58,48 +58,12 @@ angular.module('uiGmapgoogle-maps.directives.api.utils')
               changes[prop] = now[prop]
             else if _.isObject(now[prop])
               # Recursion alert
-              c = @getChanges(now[prop], prev[prop])
+              c = @getChanges(now[prop], (if prev then prev[prop] else null))
               changes[prop] = c  unless _.isEmpty(c)
             else
               changes[prop] = now[prop]
         changes
 
-
-      # make sure that we don't trigger map updates too often. some events
-      # can be triggered a lot which could stall whole app
-      updateInProgress: () =>
-        now = new Date()
-        # two map updates can happen at least 250ms apart
-        delta = now - @lastUpdate
-        if delta <= 250
-          return true
-        if @inProgress
-          return true
-        @inProgress = true
-        @lastUpdate = now
-        return false
-
-      cleanOnResolve: (promise) =>
-        promise.catch =>
-          @existingPieces = undefined
-          @inProgress = false
-          uiGmapPromise.resolve()
-        .then =>
-          @existingPieces = undefined
-          @inProgress = false
-
-
-      destroyPromise: =>
-        @isClearing = true
-        d = $q.defer()
-        promise = d.promise
-        checkInProgress = =>
-          if @inProgress
-            $timeout checkInProgress, 500
-          else
-            d.resolve()
-        checkInProgress()
-        return promise
 
       # evaluate scope to scope.$parent (as long as isolate is false) with preference over models
       # this will allow for expressions and strings evals
@@ -118,8 +82,10 @@ angular.module('uiGmapgoogle-maps.directives.api.utils')
         scopeProp = scope[key]
 
         if _.isFunction scopeProp
-          return maybeWrap true, scopeProp(), doWrap
+          return maybeWrap true, scopeProp(model), doWrap
         if _.isObject scopeProp
+          return maybeWrap true, scopeProp, doWrap
+        unless _.isString scopeProp
           return maybeWrap true, scopeProp, doWrap
 
         modelKey = scopeProp #this should be the key pointing to what we need
@@ -141,4 +107,10 @@ angular.module('uiGmapgoogle-maps.directives.api.utils')
               childScope[name] = newValue
         childScope.model = model
 
+
+      destroy: (manualOverride = false) =>
+        if @scope? and not @scope?.$$destroyed and (@needToManualDestroy or manualOverride)
+          @scope.$destroy()
+        else
+          @clean()
 ]
