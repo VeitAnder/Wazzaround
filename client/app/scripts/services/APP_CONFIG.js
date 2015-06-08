@@ -29,7 +29,7 @@ angular.module('anorakApp')
           });
         })()
       };
-    } else if ($window.location.hostname === "reactureappdev-10669.onmodulus.net" || $window.location.hostname === "dev.reacture.anorak.io") {
+    } else if ($window.location.hostname.indexOf("devwwwwazzaroundcom.herokuapp.com") >= 0 ||  $window.location.hostname === "reactureappdev-10669.onmodulus.net" || $window.location.hostname === "dev.reacture.anorak.io") {
       // development server
       hostconfig = {
         AmazonS3Config: {

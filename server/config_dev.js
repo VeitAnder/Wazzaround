@@ -1,6 +1,6 @@
 var config = {
-  host: "https://reactureappdev-10669.onmodulus.net/",
-  clienthost: "https://reactureappdev-10669.onmodulus.net/",
+  host: "https://devwwwwazzaroundcom.herokuapp.com/",
+  clienthost: "https://devwwwwazzaroundcom.herokuapp.com/",
   mongo: {
     username: 'reactureapppdevonmodulus',
     password: 'T88XXE987987cfkKfits',
@@ -22,7 +22,7 @@ var config = {
   server: {
     listenPort: 3000,                                           // The port on which the server is to listen (means that the app is at http://localhost:3000 for instance)
     securePort: 8433,                                           // The HTTPS port on which the server is to listen (means that the app is at https://localhost:8433 for instance)
-    distFolder: './clientapp/',                               // The folder that contains the application files (note that the files are in a different repository) - relative to this file
+    distFolder: './client/dist/',                               // The folder that contains the application files (note that the files are in a different repository) - relative to this file
     cookieSecret: 'scMafaus3dfs4po03CrDAFd7fd45'                // The secret for encrypting the cookie
   },
   postmark: {
@@ -60,10 +60,10 @@ var config = {
     PAYMILL_PRIVATE_KEY: '34e632de2eb8de9a92caea85fab7f380'
   },
   translations: {
-    de: require('./clientapp/scripts/translations/locale-de.json'),
-    en: require('./clientapp/scripts/translations/locale-en.json'),
-    fr: require('./clientapp/scripts/translations/locale-fr.json'),
-    it: require('./clientapp/scripts/translations/locale-it.json')
+    de: require('../client/scripts/translations/locale-de.json'),
+    en: require('../client/scripts/translations/locale-en.json'),
+    fr: require('../client/scripts/translations/locale-fr.json'),
+    it: require('../client/scripts/translations/locale-it.json')
   }
 };
 

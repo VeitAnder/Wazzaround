@@ -8,10 +8,10 @@ if (!process.env.NODE_ENV) {
 
 if (process.env.NODE_ENV === "local") {
   config = require("./config_local.js");
-} else if (process.env.NODE_ENV === "developmentmodulus") {
-  config = require("./config_developmentmodulus.js");
+} else if (process.env.NODE_ENV === "dev") {
+  config = require("./config_dev.js");
 } else if (process.env.NODE_ENV === "production") {
-  config = require("./config_productionmodulus.js");
+  config = require("./config_production.js");
 } else {
   console.log("FATAL ERROR - process.env.NODE_ENV not properly set !!");
 }
