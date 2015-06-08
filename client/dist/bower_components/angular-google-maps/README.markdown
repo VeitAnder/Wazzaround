@@ -3,12 +3,15 @@
 > AngularJS directives for Google Maps
 
 
-[![Dependencies](https://david-dm.org/angular-ui/angular-google-maps.png)](https://david-dm.org/angular-ui/angular-google-maps)&nbsp; 
-[![Dependencies](https://david-dm.org/angular-ui/angular-google-maps/dev-status.png)](https://david-dm.org/angular-ui/angular-google-maps)&nbsp; 
-Master: [![Build Status](https://travis-ci.org/angular-ui/angular-google-maps.png?branch=master)](https://travis-ci.org/angular-ui/angular-google-maps)
-Develop: [![Build Status](https://travis-ci.org/angular-ui/angular-google-maps.png?branch=develop)](https://travis-ci.org/angular-ui/angular-google-maps)
+[![Dependencies](https://david-dm.org/angular-ui/angular-google-maps.svg)](https://david-dm.org/angular-ui/angular-google-maps)&nbsp; 
+[![Dependencies](https://david-dm.org/angular-ui/angular-google-maps/dev-status.svg)](https://david-dm.org/angular-ui/angular-google-maps)&nbsp; 
+Master: [![Build Status](https://travis-ci.org/angular-ui/angular-google-maps.svg?branch=master)](https://travis-ci.org/angular-ui/angular-google-maps)
+Develop: [![Build Status](https://travis-ci.org/angular-ui/angular-google-maps.svg?branch=develop)](https://travis-ci.org/angular-ui/angular-google-maps)
 
-[![Gitter chat](https://badges.gitter.im/angular-ui/angular-google-maps.png)](https://gitter.im/angular-ui/angular-google-maps)
+task board: [![Stories in Ready](https://badge.waffle.io/angular-ui/angular-google-maps.png?label=ready&title=Ready)](https://waffle.io/angular-ui/angular-google-maps)
+
+[![Gitter chat](https://badges.gitter.im/angular-ui/angular-google-maps.svg)](https://gitter.im/angular-ui/angular-google-maps)
+
 <img src="http://benschwarz.github.io/bower-badges/badge@2x.png?pkgname=angular-google-maps" width="130" height="30">&nbsp;
 
 ##Post 1.2.X:
@@ -25,7 +28,9 @@ If I have forgotten anything then it can be added here or to the website branch 
 - **ui-gmap** namespace which will be appended to all directives, services, and factories.
   - The main goal for this is to decrease conflicts with external libraries. The other major reason for this is to not conflict with svg definitions like polygon or marker.
 - **GoogleMapAPI**: Is Provider and a Promise at the same time. This allows you to load the Google Maps SDK asynchronously into the DOM. The provider itself is a promise when passed off to the controller. Thefore the API (google and angular-google-maps) is ready on GoogleMapApi.then callback. If your getting nulls on controllers or nulls on google maps objects then this is because you are trying to access things prior to them being initialized. For more details read the website and dig into the code base. Also if your having issues with GoogleMapAPI search closed issues as a lot has been asked about these issues on several closed tickets. Search issues, gitter, and the google plus community!
-- **Promise** Object - [Bluebirdjs](https://github.com/petkaantonov/bluebird) is a required dependency now (unless your using Chrome/Safari webkit , however even then nothing is garunteed). This is why you can get errors such as **Promise.resolve or .defer or etc .. undefined.**
+
+## 2.0.7+:
+- Bluebird & JQuery have been removed as dependencies, :clap:
 
 ## Getting started
 This is a directive for AngularJS `~1.0.7+, ~1.2.2+`.
@@ -43,7 +48,13 @@ To build the library after you made changes, simply run grunt:
 grunt
 ```
 
-If you get errors from `jshint`, just add the `--force` argument.
+If you get errors from `jshint` or specs, just add the `--force` argument.
+
+### Generating SourceMap(s)
+```shell
+grunt mappAll
+```
+This will generate source maps for development (angular-google-maps_dev_mapped.js) (non minified) and source maps to minified (angular-google-maps_dev_mapped.min.js) files. They each have their own corresponding map files.  To get the coinciding source files you will need to copy the generated `/tmp` directory (currently not under scc).
 
 ### Running the example
 To run the example page, just run

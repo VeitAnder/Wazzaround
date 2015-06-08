@@ -3,25 +3,27 @@
   - inject the draw function into a controllers scope so that controller can call the directive to draw on demand
   - draw function creates the DrawFreeHandChildModel which manages itself
 ###
-angular.module("google-maps.directives.api".ns())
-.factory 'ApiFreeDrawPolygons'.ns(), ["Logger".ns(), 'BaseObject'.ns(), "CtrlHandle".ns(), "DrawFreeHandChildModel".ns(),
-  ($log, BaseObject, CtrlHandle, DrawFreeHandChildModel) ->
+angular.module('uiGmapgoogle-maps.directives.api')
+.factory 'uiGmapApiFreeDrawPolygons', [
+  'uiGmapLogger', 'uiGmapBaseObject', 'uiGmapCtrlHandle', 'uiGmapDrawFreeHandChildModel', 'uiGmapLodash',
+  ($log, BaseObject, CtrlHandle, DrawFreeHandChildModel, uiGmapLodash) ->
     class FreeDrawPolygons extends BaseObject
       @include CtrlHandle
       restrict: 'EMA'
       replace: true
-      require: '^' + 'GoogleMap'.ns()
+      require: '^' + 'uiGmapGoogleMap'
       scope:
         polygons: '='
         draw: '='
+        revertmapoptions: '='
 
       link: (scope, element, attrs, ctrl) =>
         @mapPromise(scope, ctrl).then (map) =>
-          return $log.error "No polygons to bind to!" unless scope.polygons
-          return $log.error "Free Draw Polygons must be of type Array!" unless _.isArray scope.polygons
-          freeHand = new DrawFreeHandChildModel(map, scope.originalMapOpts)
+          return $log.error 'No polygons to bind to!' unless scope.polygons
+          return $log.error 'Free Draw Polygons must be of type Array!' unless _.isArray scope.polygons
+          freeHand = new DrawFreeHandChildModel map, scope.revertmapoptions
           listener = undefined
-          scope.draw = () ->
+          scope.draw = ->
             #clear watch only watch when we are finished drawing/engaging
             listener?()
             freeHand.engage(scope.polygons).then ->
@@ -33,7 +35,7 @@ angular.module("google-maps.directives.api".ns())
                   if firstTime
                     firstTime = false
                     return
-                  removals = _.differenceObjects oldValue, newValue
+                  removals = uiGmapLodash.differenceObjects oldValue, newValue
                   removals.forEach (p) ->
                     p.setMap null
 ]

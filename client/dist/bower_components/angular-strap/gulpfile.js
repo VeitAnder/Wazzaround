@@ -102,20 +102,21 @@ gulp.task('open:pages', function(){
 
 // WATCH
 //
+
 var watch = require('gulp-watch');
 gulp.task('watch:docs', function() {
-  watch({glob: docs.scripts, gaze: {cwd: docs.cwd}}, function(files) {
+  watch(docs.scripts, {cwd: docs.cwd}, function(files) {
     return files.pipe(connect.reload());
   });
-  watch({glob: docs.watch.styles, gaze: {cwd: docs.cwd}}, function(files) {
+  watch(docs.watch.styles, {cwd: docs.cwd}, function(files) {
     return gulp.start('styles:docs');
   });
-  watch({glob: [docs.index, docs.views], gaze: {cwd: docs.cwd}}, function(files) {
+  watch([docs.index, docs.views], {cwd: docs.cwd}, function(files) {
     return files.pipe(connect.reload());
   });
 });
 gulp.task('watch:dev', function() {
-  watch({glob: src.scripts, gaze: {cwd: src.cwd}}, function(files) {
+  watch(src.scripts, {cwd: src.cwd}, function(files) {
     return files.pipe(connect.reload());
   });
 });
@@ -418,21 +419,33 @@ gulp.task('karma:travis', ['templates:test'], function() {
     singleRun: true
   }, function(code) {
     gutil.log('Karma has exited with ' + code);
+    process.exit(code);
     // gulp.src('test/coverage/**/lcov.info')
     //   .pipe(coveralls())
     //   .on('end', function() {
     //     process.exit(code);
     //   });
   });
-
 });
-
+gulp.task('karma:travis~1.2.0', ['templates:test'], function() {
+  karma.start({
+    configFile: path.join(__dirname, 'test/~1.2.0/karma.conf.js'),
+    browsers: ['PhantomJS'],
+    reporters: ['dots'],
+    singleRun: true
+  }, function(code) {
+    gutil.log('Karma has exited with ' + code);
+    process.exit(code);
+  });
+});
 
 // COPY
 //
 gulp.task('copy:pages', function() {
   gulp.src(['favicon.ico', docs.images], {cwd: docs.cwd, base: docs.cwd})
     .pipe(gulp.dest(docs.dist));
+  gulp.src('**/*.js', {cwd: src.dist, base: src.dist})
+    .pipe(gulp.dest(path.join(docs.dist, src.dist)));
 });
 
 

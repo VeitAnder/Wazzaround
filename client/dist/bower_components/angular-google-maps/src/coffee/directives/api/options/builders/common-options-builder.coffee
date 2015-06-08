@@ -1,7 +1,8 @@
-angular.module("google-maps.directives.api.options.builders".ns())
-.service "CommonOptionsBuilder".ns(),
-[ "BaseObject".ns(), "Logger".ns(), (BaseObject, $log) ->
-  class CommonOptionsBuilder extends BaseObject
+angular.module('uiGmapgoogle-maps.directives.api.options.builders')
+.service 'uiGmapCommonOptionsBuilder',
+[ 'uiGmapBaseObject', 'uiGmapLogger', 'uiGmapModelKey', (BaseObject, $log, ModelKey) ->
+
+  class CommonOptionsBuilder extends ModelKey
     props: [
       'clickable'
       'draggable'
@@ -11,19 +12,20 @@ angular.module("google-maps.directives.api.options.builders".ns())
     ]
     buildOpts: (customOpts = {}, forEachOpts = {}) =>
       unless @scope
-        $log.error "this.scope not defined in CommonOptionsBuilder can not buildOpts"
+        $log.error 'this.scope not defined in CommonOptionsBuilder can not buildOpts'
         return
       unless @map
-        $log.error "this.map not defined in CommonOptionsBuilder can not buildOpts"
+        $log.error 'this.map not defined in CommonOptionsBuilder can not buildOpts'
         return
       hasModel = _(@scope).chain().keys().contains('model').value()
       model = if hasModel then @scope.model else @scope #handle plurals
 
+      stroke = @scopeOrModelVal 'stroke', @scope, model
       opts = angular.extend customOpts, @DEFAULTS,
         map: @map
-        strokeColor: model.stroke?.color
-        strokeOpacity: model.stroke?.opacity
-        strokeWeight: model.stroke?.weight
+        strokeColor: stroke?.color
+        strokeOpacity: stroke?.opacity
+        strokeWeight: stroke?.weight
 
       angular.forEach angular.extend(forEachOpts,
           clickable: true
@@ -34,7 +36,8 @@ angular.module("google-maps.directives.api.options.builders".ns())
           visible: true
           zIndex: 0
       ), (defaultValue, key) =>
-        if angular.isUndefined model[key] or model[key] is null
+        val = @scopeOrModelVal key, @scope, model
+        if angular.isUndefined val
           opts[key] = defaultValue
         else
           opts[key] = model[key]

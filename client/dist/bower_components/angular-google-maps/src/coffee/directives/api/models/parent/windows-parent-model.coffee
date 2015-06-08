@@ -1,14 +1,14 @@
 ###
 	WindowsChildModel generator where there are many ChildModels to a parent.
 ###
-angular.module("google-maps.directives.api.models.parent".ns())
-.factory "WindowsParentModel".ns(),
-  ["IWindowParentModel".ns(), "ModelsWatcher".ns(),
-    "PropMap".ns(), "WindowChildModel".ns(),
-    "Linked".ns(), "_async".ns(), "Logger".ns(),
-    '$timeout', '$compile', '$http', '$templateCache', '$interpolate',
+angular.module('uiGmapgoogle-maps.directives.api.models.parent')
+.factory 'uiGmapWindowsParentModel',
+  ['uiGmapIWindowParentModel', 'uiGmapModelsWatcher',
+    'uiGmapPropMap', 'uiGmapWindowChildModel',
+    'uiGmapLinked', 'uiGmap_async', 'uiGmapLogger',
+    '$timeout', '$compile', '$http', '$templateCache', '$interpolate','uiGmapPromise',
     (IWindowParentModel, ModelsWatcher, PropMap, WindowChildModel, Linked, _async, $log,
-      $timeout, $compile, $http, $templateCache, $interpolate,) ->
+      $timeout, $compile, $http, $templateCache, $interpolate,uiGmapPromise) ->
         class WindowsParentModel extends IWindowParentModel
           @include ModelsWatcher
           constructor: (scope, element, attrs, ctrls, @gMap, @markersScope) ->
@@ -34,31 +34,12 @@ angular.module("google-maps.directives.api.models.parent".ns())
 
           go: (scope) =>
             @watchOurScope(scope)
-#            @watchModels @markersScope if @markersScope?
             @doRebuildAll = if @scope.doRebuildAll? then @scope.doRebuildAll else false
             scope.$watch 'doRebuildAll', (newValue, oldValue) =>
               if (newValue != oldValue)
                 @doRebuildAll = newValue
 
             @createChildScopesWindows()
-          #watch this scope(Parent to all WindowModels), these updates reflect expression / Key changes
-          #thus they need to be pushed to all the children models so that they are bound to the correct objects / keys
-#          watch: (scope, name, nameKey) =>
-#            scope.$watch name, (newValue, oldValue) =>
-##              if (newValue != oldValue)
-#              return unless newValue
-#              @[nameKey] = if typeof newValue == 'function' then newValue() else newValue
-#              _async.waitOrGo @, =>
-#                _async.each @windows.values(), (m) =>
-#                  model = if @markersScope? then m.model else m
-#                  if _.isString newValue
-#                    val = if @[nameKey] == 'self' then model else model?[@[nameKey]]
-#                  else
-#                    val = newValue #object or function
-#                  m.scope[name] = val
-#                ,false
-##              .then =>
-##                @existingPieces = undefined
 
           watchModels: (scope) =>
             scope.$watch 'models', (newValue, oldValue) =>
@@ -80,17 +61,22 @@ angular.module("google-maps.directives.api.models.parent".ns())
             @windows.length > 0 and newValueIsEmpty
 
           rebuildAll: (scope, doCreate, doDelete) =>
-            _async.waitOrGo @, =>
-              _async.each @windows.values(), (model) =>
-                model.destroy()
-              .then => #handle done callBack
+              @onDestroy(doDelete).then =>
+                @createChildScopesWindows() if doCreate
+
+          onDestroy:(doDelete) =>
+            @destroyPromise().then =>
+              @cleanOnResolve _async.waitOrGo @, =>
+                @windows.each (model) =>
+                  model.destroy()
+                uiGmapPromise.resolve()
+              .then =>
                 delete @windows if doDelete
                 @windows = new PropMap()
-                @createChildScopesWindows() if doCreate
-                Promise.resolve()
+                @isClearing = false
 
           watchDestroy: (scope)=>
-            scope.$on "$destroy", =>
+            scope.$on '$destroy', =>
               @firstWatchModels = true
               @firstTime = true
               @rebuildAll(scope, false, true)
@@ -99,7 +85,6 @@ angular.module("google-maps.directives.api.models.parent".ns())
             _.each @scopePropNames, (name) =>
               nameKey = name + 'Key'
               @[nameKey] = if typeof scope[name] == 'function' then scope[name]() else scope[name]
-#              @watch(scope, name, nameKey)
 
           createChildScopesWindows: (isCreatingFromScratch = true) =>
             ###
@@ -116,7 +101,7 @@ angular.module("google-maps.directives.api.models.parent".ns())
             modelsNotDefined = angular.isUndefined @linked.scope.models
 
             if modelsNotDefined and (@markersScope == undefined or (@markersScope?.markerModels == undefined or @markersScope?.models == undefined))
-              @$log.error("No models to create windows from! Need direct models or models derrived from markers!")
+              @$log.error('No models to create windows from! Need direct models or models derrived from markers!')
               return
             if @gMap?
               #at the very least we need a Map, the marker is optional as we can create Windows without markers
@@ -151,37 +136,36 @@ angular.module("google-maps.directives.api.models.parent".ns())
               @watchDestroy scope
             @setContentKeys(scope.models) #only setting content keys once per model array
 
-            _async.waitOrGo @, =>
+            @cleanOnResolve _async.waitOrGo @, =>
               _async.each scope.models, (model) =>
                 gMarker = if hasGMarker then scope[modelsPropToIterate][[model[@idKey]]]?.gMarker else undefined
-#                throw "Unable to get gMarker from scope!!" unless gMarker
+#                throw 'Unable to get gMarker from scope!!' unless gMarker
                 @createWindow(model, gMarker, @gMap)
-            .then => #handle done callBack
+            .then =>
               @firstTime = false
 
           pieceMealWindows: (scope, hasGMarker, modelsPropToIterate = 'models', isArray = true)=>
-            doChunk = if @existingPieces? then false else _async.defaultChunkSize
+            return if scope.$$destroyed or @isClearing
+            return if @updateInProgress()
+#            doChunk = if @existingPieces? then false else _async.defaultChunkSize
+            doChunk = _async.defaultChunkSize
             @models = scope.models
             if scope? and scope.models? and scope.models.length > 0 and @windows.length > 0
               @figureOutState @idKey, scope, @windows, @modelKeyComparison, (state) =>
                 payload = state
-                _async.waitOrGo @, =>
+                @cleanOnResolve _async.waitOrGo @, =>
                   _async.each payload.removals, (child)=>
                     if child?
                       @windows.remove(child.id)
                       child.destroy(true) if child.destroy?
-                  ,doChunk
+                  ,false
                   .then =>
                     #add all adds via creating new ChildMarkers which are appended to @markers
                     _async.each payload.adds, (modelToAdd) =>
-                      gMarker = scope[modelsPropToIterate][modelToAdd[@idKey]]?.gMarker
-                      throw "Gmarker undefined" unless gMarker
+                      gMarker = scope[modelsPropToIterate].get(modelToAdd[@idKey])?.gMarker
+                      throw 'Gmarker undefined' unless gMarker
                       @createWindow(modelToAdd, gMarker, @gMap)
-                    ,doChunk
-                .then =>
-                  @existingPieces = undefined
-                .catch (e) =>
-                  $log.error "Error while pieceMealing Windows!"
+                    ,false
             else
               @rebuildAll(@scope, true, true)
 
@@ -202,10 +186,10 @@ angular.module("google-maps.directives.api.models.parent".ns())
                 @interpolateContent(@linked.element.html(), model)
             @DEFAULTS = if @markersScope then model[@optionsKey] or {} else @DEFAULTS
             opts = @createWindowOptions gMarker, childScope, fakeElement.html(), @DEFAULTS
-            child = new WindowChildModel model, childScope, opts, @isIconVisibleOnClick, gMap, @markersScope?.markerModels[model[@idKey]]?.scope, fakeElement, false, true
+            child = new WindowChildModel model, childScope, opts, @isIconVisibleOnClick, gMap, @markersScope?.markerModels.get(model[@idKey])?.scope, fakeElement, false, true
 
             unless model[@idKey]?
-              @$log.error("Window model has no id to assign a child to. This is required for performance. Please assign id, or redirect id to a different key.")
+              @$log.error('Window model has no id to assign a child to. This is required for performance. Please assign id, or redirect id to a different key.')
               return
             @windows.put(model[@idKey], child)
             child

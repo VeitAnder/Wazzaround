@@ -130,18 +130,18 @@
     "key": "registration confirmation message 1",
     "en": "Please confirm your e-mail address",
     "de": "Bitte bestätigen Sie Ihre E-Mail Adresse",
-    "it": "Please confirm your e-mail address",
-    "fr": "Please confirm your e-mail address",
-    "sp": "Please confirm your e-mail address"
+    "it": "Prego confermare indirizzo e-mail",
+    "fr": "Se il vous plaît confirmer votre adresse e -mail",
+    "sp": "Por favor confirme su dirección de correo electrónico"
   },
   {
     "Description": "",
     "key": "registration confirmation message 2",
     "en": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration",
     "de": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
-    "it": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration",
-    "fr": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration",
-    "sp": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration"
+    "it": "Abbiamo inviato una e-mail con un link di conferma . Prego controllare la casella di posta elettronica per completare la registrazione",
+    "fr": "Nous vous avons envoyé un e-mail avec un lien de confirmation . Se il vous plaît vérifier votre boîte de réception afin de compléter l'enregistrement",
+    "sp": "Le hemos enviado un correo electrónico con un enlace de confirmación . Por favor, revise su bandeja de entrada por completar el registro"
   },
   {
     "Description": "",
@@ -344,11 +344,11 @@
   {
     "Description": "",
     "key": "Subtotal",
-    "en": "Subtotal",
-    "de": "Zwischensumme",
-    "it": "Totale parziale",
-    "fr": "Sous-total",
-    "sp": "Total parcial"
+    "en": "Amount",
+    "de": "Summe",
+    "it": "Totale",
+    "fr": "total",
+    "sp": "Total"
   },
   {
     "Description": "",
@@ -550,12 +550,21 @@
   },
   {
     "Description": "",
-    "key": "",
-    "en": "",
-    "de": "",
-    "it": "",
-    "fr": "",
-    "sp": ""
+    "key": "Full text search",
+    "en": "Full text search",
+    "de": "Volltextsuche",
+    "it": "Ricerca a testo integrale",
+    "fr": "Recherche plein texte",
+    "sp": "Búsqueda de texto completo"
+  },
+  {
+    "Description": "",
+    "key": "My Acquired Providers",
+    "en": "My acquired providers",
+    "de": "Meine aquirierten Provider",
+    "it": "I miei fornitori acquisiti",
+    "fr": "Mes prestataires acquis",
+    "sp": "Mis proveedores adquiridos"
   },
   {
     "Description": "",
@@ -2080,6 +2089,15 @@
   },
   {
     "Description": "",
+    "key": "Please enter a country",
+    "en": "Please enter a country",
+    "de": "Bitte geben Sie ein Land ein",
+    "it": "Si prega d'inserire il paese",
+    "fr": "Veuillez insérer le nom de pays",
+    "sp": "Se ruega inroducir el nombre de país"
+  },
+  {
+    "Description": "",
     "key": "Name of contact person",
     "en": "Name of contact person",
     "de": "Name der Ansprechperson",
@@ -2113,6 +2131,42 @@
     "it": "Il vostro P.IVA",
     "fr": "Votre numéro VAT",
     "sp": "Su partida IVA"
+  },
+  {
+    "Description": "",
+    "key": "Promotioncode",
+    "en": "Promotioncode",
+    "de": "Promotion-Code",
+    "it": "Codice Promozionale",
+    "fr": "code de promotion",
+    "sp": "Promotioncode"
+  },
+  {
+    "Description": "",
+    "key": "Salesman",
+    "en": "Salesman",
+    "de": "Verkäufer",
+    "it": "Venditore",
+    "fr": "Vendeur",
+    "sp": "Vendedor"
+  },
+  {
+    "Description": "",
+    "key": "Userrole",
+    "en": "User role",
+    "de": "Benuzterrolle",
+    "it": "ruolo utente",
+    "fr": "rôle d'utilisateur",
+    "sp": "rol de usario"
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
   },
   {
     "Description": "",
@@ -2260,9 +2314,54 @@
   },
   {
     "Description": "",
+    "key": "All activities",
+    "en": "All activities",
+    "de": "Alle Aktivitäten",
+    "it": "Tous activités",
+    "fr": "Tous les activités",
+    "sp": "Todas las actividades"
+  },
+  {
+    "Description": "",
+    "key": "Activity Providers Overview",
+    "en": "Activity Providers Overview",
+    "de": "Aktivitätsanbieter im Überblick",
+    "it": "Fornitori di Attività - Panoramica",
+    "fr": "Fournisseurs d'activité - Aperçu",
+    "sp": "Vision general de las actividades"
+  },
+  {
+    "Description": "",
+    "key": "All providers",
+    "en": "All Providers",
+    "de": "Alle Aktivitätenanbieter",
+    "it": "Tutti i fornitori",
+    "fr": "Tous les prestataires",
+    "sp": "todos los proveedores"
+  },
+  {
+    "Description": "",
+    "key": "Admin area",
+    "en": "Admin area",
+    "de": "Admin-Bereich",
+    "it": "Admin area",
+    "fr": "Admin area",
+    "sp": "Admin area"
+  },
+  {
+    "Description": "",
+    "key": "",
+    "en": "",
+    "de": "",
+    "it": "",
+    "fr": "",
+    "sp": ""
+  },
+  {
+    "Description": "",
     "key": "Edit your Profile",
     "en": "Edit your Profile",
-    "de": "Profil editieren",
+    "de": "Ihr Profil editieren",
     "it": "Modifica il tuo profilo",
     "fr": "Modifier Votre profil",
     "sp": "Modificar vuestro perfil"
@@ -2353,54 +2452,54 @@
     "key": "approve",
     "en": "approve",
     "de": "bestätigen",
-    "it": "approve",
-    "fr": "approve",
-    "sp": "approve"
+    "it": "approvare",
+    "fr": "approuver",
+    "sp": "aprobar"
   },
   {
     "Description": "",
     "key": "deny",
     "en": "deny",
     "de": "ablehnen",
-    "it": "deny",
-    "fr": "deny",
-    "sp": "deny"
+    "it": "rifiutare",
+    "fr": "refuser",
+    "sp": "denegar"
   },
   {
     "Description": "",
     "key": "changed",
     "en": "changed",
     "de": "geändert",
-    "it": "changed",
-    "fr": "changed",
-    "sp": "changed"
+    "it": "modificato",
+    "fr": "modifié",
+    "sp": "cambiado"
   },
   {
     "Description": "",
     "key": "new",
     "en": "new",
     "de": "neu",
-    "it": "New",
-    "fr": "New",
-    "sp": "New"
+    "it": "nuovo",
+    "fr": "nouveau",
+    "sp": "nuevo"
   },
   {
     "Description": "",
     "key": "denied",
     "en": "denied",
     "de": "abgelehnt",
-    "it": "denied",
-    "fr": "denied",
-    "sp": "denied"
+    "it": "negato",
+    "fr": "dénié",
+    "sp": "negado"
   },
   {
     "Description": "",
     "key": "under review",
     "en": "under review",
     "de": "wird überprüft",
-    "it": "under review",
-    "fr": "under review",
-    "sp": "under review"
+    "it": "in fase di revisione",
+    "fr": "sous revue",
+    "sp": "en revisión"
   },
   {
     "Description": "",
@@ -2425,126 +2524,126 @@
     "key": "published",
     "en": "Published",
     "de": "Veröffentlicht",
-    "it": "Published",
-    "fr": "Published",
-    "sp": "Published"
+    "it": "Pubblicato",
+    "fr": "publié",
+    "sp": "Publicado"
   },
   {
     "Description": "",
     "key": "unpublished",
     "en": "Unpublished",
     "de": "Nicht veröffentlicht",
-    "it": "Unpublished",
-    "fr": "Unpublished",
-    "sp": "Unpublished"
+    "it": "Non pubblicato",
+    "fr": "Non publié",
+    "sp": "Inédito"
   },
   {
     "Description": "",
     "key": "Denied activity",
     "en": "Denied activity",
     "de": "Abgelehnte Aktivität",
-    "it": "Denied activity",
-    "fr": "Denied activity",
-    "sp": "Denied activity"
+    "it": "attività negata",
+    "fr": "refusé activité",
+    "sp": "actividad denegado"
   },
   {
     "Description": "",
     "key": "New activity – Please review",
     "en": "New activity – Please review",
     "de": "Neue Aktivität – bitte überprüfen!",
-    "it": "New activity – Please review",
-    "fr": "New activity – Please review",
-    "sp": "New activity – Please review"
+    "it": "Nuova attività - Rivedere",
+    "fr": "Nouvelle activité - Se il vous plaît examiner",
+    "sp": "Nueva actividad - Escriba su valoración"
   },
   {
     "Description": "",
     "key": "Changed activity – Please review",
     "en": "Changed activity – Please review",
     "de": "Geänderte Aktivität – bitte überprüfen!",
-    "it": "Changed activity – Please review",
-    "fr": "Changed activity – Please review",
-    "sp": "Changed activity – Please review"
+    "it": "Attività modificata - Rivedere",
+    "fr": "L'activité changé - Se il vous plaît examiner",
+    "sp": "Actividad Cambiado - Escriba su valoración"
   },
   {
     "Description": "",
     "key": "this activity is under review and not published yet",
     "en": "This activity is under review and not published yet!",
     "de": "Diese Aktivität wird gerade überprüft und ist derzeit nicht veröffentlicht!",
-    "it": "This activity is under review and not published yet!",
-    "fr": "This activity is under review and not published yet!",
-    "sp": "This activity is under review and not published yet!"
+    "it": "Questa attività è in fase di revisione e non ancora pubblicato!",
+    "fr": "Cette activité est à l'étude et non encore paru!",
+    "sp": "Esta actividad se encuentra en revisión y no es publicada."
   },
   {
     "Description": "",
     "key": "this activity was denied and is not published",
     "en": "This activity was denied and is not published!",
     "de": "Diese Aktivität wurde abgelehnt und ist nicht veröffentlicht!",
-    "it": "This activity was denied and is not published!",
-    "fr": "This activity was denied and is not published!",
-    "sp": "This activity was denied and is not published!"
+    "it": "Tale attività è stata negata e non è pubblicato!",
+    "fr": "Cette activité a été rejetée et ne est pas publié!",
+    "sp": "Esta actividad fue denegada y no está publicada!"
   },
   {
     "Description": "",
     "key": "this activity is published",
     "en": "This activity is published!",
     "de": "Diese Aktivität ist veröffentlicht!",
-    "it": "This activity is published!",
-    "fr": "This activity is published!",
-    "sp": "This activity is published!"
+    "it": "Questa attività è pubblicato!",
+    "fr": "Cette activité est publié!",
+    "sp": "Esta actividad es publicada!"
   },
   {
     "Description": "",
     "key": "this activity is under review but still published",
     "en": "This activity is under review but still published!",
     "de": "Diese Aktivität wird gerade überprüft, ist aber noch veröffentlicht!",
-    "it": "This activity is under review but still published!",
-    "fr": "This activity is under review but still published!",
-    "sp": "This activity is under review but still published!"
+    "it": "Questa attività è in fase di revisione, ma ancora pubblicato!",
+    "fr": "Cette activité est en cours d'examen, mais encore publié!",
+    "sp": "Esta actividad está en revisión, pero todavía publicada!"
   },
   {
     "Description": "",
     "key": "no results",
     "en": "No results found",
     "de": "Keine Ergebnisse gefunden",
-    "it": "No results found",
-    "fr": "No results found",
-    "sp": "No results found"
+    "it": "Nessun risultato trovato",
+    "fr": "Aucun résultat",
+    "sp": "Sin resultados"
   },
   {
     "Description": "",
     "key": "changed activities",
     "en": "Changed activities",
     "de": "Geänderte Aktivitäten",
-    "it": "Changed activities",
-    "fr": "Changed activities",
-    "sp": "Changed activities"
+    "it": "Attività modificato",
+    "fr": "Activité changé",
+    "sp": "Actividades modificadas"
   },
   {
     "Description": "",
     "key": "denied activities",
     "en": "Denied activities",
     "de": "Abgelehnte Aktivitäten",
-    "it": "Denied activities",
-    "fr": "Denied activities",
-    "sp": "Denied activities"
+    "it": "Attività negato",
+    "fr": "Activités rejetées",
+    "sp": "Actividades negadas"
   },
   {
     "Description": "",
     "key": "all",
     "en": "All",
     "de": "Alle",
-    "it": "All",
-    "fr": "All",
-    "sp": "All"
+    "it": "Tutto",
+    "fr": "Tous",
+    "sp": "Todos"
   },
   {
     "Description": "",
     "key": "reset all filters",
     "en": "Reset all filters",
     "de": "Alle Filter zurücksetzen",
-    "it": "Reset all filters",
-    "fr": "Reset all filters",
-    "sp": "Reset all filters"
+    "it": "Resettare tutti i filtri",
+    "fr": "Réinitialiser les filtres",
+    "sp": "Borrar todos los filtros"
   },
   {
     "Description": "",
@@ -2578,18 +2677,18 @@
     "key": "close category filter",
     "en": "Close Category Filter",
     "de": "Kategorie-Filter schließen",
-    "it": "Close Filter",
-    "fr": "Close Filter",
-    "sp": "Close Filter"
+    "it": "chiudere filtro",
+    "fr": "ferme filtre",
+    "sp": "Cerrar Filtro"
   },
   {
     "Description": "",
     "key": "open category filter",
     "en": "Open Category Filter",
     "de": "Kategorie-Filter öffnen",
-    "it": "category filter",
-    "fr": "category filter",
-    "sp": "category filter"
+    "it": "filtro categorie",
+    "fr": "filtre catégorie",
+    "sp": "Filtros de categoría"
   },
   {
     "Description": "",
@@ -3449,9 +3548,9 @@
   {
     "Description": "",
     "key": "Payment Confirmation",
-    "en": "Payment Confirmation",
-    "de": "Bezahlungsbestätigung",
-    "it": "Conferma di pagamento",
+    "en": "Booking Confirmation",
+    "de": "Buchungsbestätigung",
+    "it": "Conferma di prenotazione",
     "fr": "Confirmation de payment",
     "sp": "Confirmación de pago"
   },
@@ -3694,8 +3793,305 @@
     "key": "Promotioncode",
     "en": "Promotioncode",
     "de": "Promotioncode",
-    "it": "Promotioncode",
-    "fr": "Promotioncode",
+    "it": "Codice promozionale",
+    "fr": "Code de promotion",
     "sp": "Promotioncode"
+  },
+  {
+    "Description": "",
+    "key": "Only x items are available",
+    "en": "Only {{quantity}} items are available",
+    "de": "Es sind nur {{quantity}} Stück verfügbar",
+    "it": "Solo {{quantity}} artioli sono disponibili",
+    "fr": "Seulement {{quantity}} articles sont disponibles",
+    "sp": "Only {{quantity}} items are available"
+  },
+  {
+    "Description": "",
+    "key": "Amount has to be a number",
+    "en": "Amount has to be a number",
+    "de": "Bitte eine gültige Anzahl eingeben",
+    "it": "Quantitativo deve essere un numero",
+    "fr": "Quantité doit être un numéro",
+    "sp": "Amount has to be a number"
+  },
+  {
+    "Description": "",
+    "key": "Amount has to be defined",
+    "en": "Amount has to be defined",
+    "de": "Bitte eine gültige Anzahl eingeben",
+    "it": "Quantité doit être défini",
+    "fr": "Quantité doit être défini",
+    "sp": "Amount has to be defined"
+  },
+  {
+    "Description": "",
+    "key": "You have to order at least one item",
+    "en": "You have to order at least one item",
+    "de": "Sie müssen mindestens 1 Stück bestellen",
+    "it": "Dovete ordinare almeno un elemento",
+    "fr": "Vous devez commander au moins un élément",
+    "sp": "You have to order at least one item"
+  },
+  {
+    "Description": "",
+    "key": "You want to reset your Password",
+    "en": "You want to reset your Password?",
+    "de": "Sie möchten Ihr Passwort zurücksetzen?",
+    "it": "Si desidera reimpostare la password?",
+    "fr": "Vous souhaitez réinitialiser votre mot de passe?",
+    "sp": "You want to reset your Password?"
+  },
+  {
+    "Description": "",
+    "key": "Please click the following link",
+    "en": "Please click the following link",
+    "de": "Bitte klicken Sie den folgenden Link",
+    "it": "Si prega di fare clic sul link seguente",
+    "fr": "Se il vous plaît cliquer sur le lien suivant",
+    "sp": "Please click the following link"
+  },
+  {
+    "Description": "",
+    "key": "Reset your password",
+    "en": "Reset your password",
+    "de": "Ihr Passwort zurücksetzen",
+    "it": "Reimposta la password",
+    "fr": "Reimposta la mot de passe",
+    "sp": "Reset your password"
+  },
+  {
+    "Description": "",
+    "key": "Your Reacture Team",
+    "en": "Your Reacture Team",
+    "de": "Dein Reacture Team",
+    "it": "Il vostro team Reacture",
+    "fr": "Votre équipe Reacture",
+    "sp": "Your Reacture Team"
+  },
+  {
+    "Description": "",
+    "key": "Confirmation of your Registration",
+    "en": "Confirmation of your Registration",
+    "de": "Bestätigung der Registrierung",
+    "it": "Conferma della Registrazione",
+    "fr": "Confirmation de votre inscription",
+    "sp": "Confirmation of your Registration"
+  },
+  {
+    "Description": "",
+    "key": "Only one click and your registration is completed successfully",
+    "en": "Only one click and your registration is completed successfully",
+    "de": "Nur noch ein Klick und Ihre Registrierung ist erfolgreich abgeschlossen",
+    "it": "Only one click and your registration is completed successfully",
+    "fr": "Only one click and your registration is completed successfully",
+    "sp": "Only one click and your registration is completed successfully"
+  },
+  {
+    "Description": "",
+    "key": "To activate your account please click the following link",
+    "en": "To activate your account please click the following link",
+    "de": "Zum Aktivieren Ihres Accounts klicken Sie bitte auf folgenden Link",
+    "it": "Per attivare l'account clicca sul link seguente",
+    "fr": "Pour activer votre compte se il vous plaît cliquer sur le lien suivant",
+    "sp": "To activate your account please click the following link"
+  },
+  {
+    "Description": "",
+    "key": "activation email hint",
+    "en": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!",
+    "de": "Ist die Registrierung nicht in Ihrem Namen gemacht worden, können Sie diese Nachricht ignorieren – In diesem Fall verfällt die Registrierung!",
+    "it": "Se la registrazione è stata fatta da qualcun altro, basta ignorare questo messaggio. La registrazione scade automaticamente!",
+    "fr": "Si l'enregistrement a été fait par quelqu'un d'autre, ignorez ce message. L'enregistrement prendra fin automatiquement!",
+    "sp": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!"
+  },
+  {
+    "Description": "",
+    "key": "Activate my account now",
+    "en": "Activate my account now",
+    "de": "Meinen Account jetzt aktivieren",
+    "it": "Attivare ora il mio account.",
+    "fr": "Maintenant activer mon compte.",
+    "sp": "Activate my account now"
+  },
+  {
+    "Description": "",
+    "key": "Next step",
+    "en": "What now?",
+    "de": "Wie geht es weiter?",
+    "it": "Qual è il prossimo passo?",
+    "fr": "Quelle est la prochaine étape?",
+    "sp": "Next step?"
+  },
+  {
+    "Description": "",
+    "key": "Next step information",
+    "en": "We have transmitted your booking to the activity provider. Below you'll find your booking details and your reservation number. We have also sent you a confirmation via email. If you need any help contact our support 24/7!",
+    "de": "Wir haben dem Anbieter die Buchung übermittelt. Untenstehend findest Du eine Zusammenfassung Deiner Buchungsdaten sowie Deine Buchungsnummer. Außerdem haben wir Dir per Email eine Buchungsbestätigung zugeschickt. Wenn Du Hilfe brauchst kontaktiere jederzeit unseren 24h Support!",
+    "it": "Abbiamo comunicato la prenotazione al gestore. \nQui sotto trovi un riepilogo dei dati della tua prenotazione e il numero della stessa.\nInoltre ti abbiamo inviato tramite e-mail una conferma della tua prenotazione. Se hai bisogno di aiuto, contatta in ogni momento il nostro staff di supporto, disponibile 24 ore su 24!",
+    "fr": "Nous avons transmis votre réservation au prestataire. Veuillez trouver ci-dessous le résumé des coordonnées de votre réservation ainsi que votre numéro de réservation. De plus, nous vous avons envoyé par e-mail une confirmation de réservation. Si vous avez besoin d'assistance, n'hésitez pas à contacter, à tout moment de la journée, notre service clients !",
+    "sp": "The Activity-Providers will contact you soon via E-mail or telephone to provide further details like e.g. the meeting point "
+  },
+  {
+    "Description": "",
+    "key": "Event Provider details",
+    "en": "Event Provider details",
+    "de": "Ihr Provider Details",
+    "it": "Informazioni relative al tuo organizzatore",
+    "fr": "Les détails de votre prestataire",
+    "sp": "Event Provider details"
+  },
+  {
+    "Description": "",
+    "key": "What is my",
+    "en": "What is my",
+    "de": "Was ist meine",
+    "it": "Qual è il mio",
+    "fr": "Quel est l'identifiant",
+    "sp": "What is my"
+  },
+  {
+    "Description": "",
+    "key": "What is my Providers Name",
+    "en": "What is my Providers Name",
+    "de": "Wie ist der Name meines Anbieters",
+    "it": "Qual è il nome del mio gestore",
+    "fr": "Quel est le nom de mon prestataire",
+    "sp": "What is my Providers Name"
+  },
+  {
+    "Description": "",
+    "key": "I want to contact the provider by mail",
+    "en": "I want to contact the provider by mail",
+    "de": "Ich möchte den Provder per E-Mail kontaktieren",
+    "it": "Vorrei contattare il gestore tramite e-mail",
+    "fr": "Je souhaite contacter le prestataire par e-mail",
+    "sp": "I want to contact the provider by mail"
+  },
+  {
+    "Description": "",
+    "key": "I want to contact the provider by phone",
+    "en": "I want to contact the provider by phone",
+    "de": "Ich möchte den Provder telefonisch kontaktieren",
+    "it": "Vorrei contattare il gestore telefonicamente",
+    "fr": "Je souhaite contacter le prestataire par téléphone",
+    "sp": "I want to contact the provider by phone"
+  },
+  {
+    "Description": "",
+    "key": "I want to contact Reacture",
+    "en": "I want to contact Reacture",
+    "de": "Ich möchte Reacture kontaktieren",
+    "it": "Vorrei contattare Reacture",
+    "fr": "Je souhaite contacter Reacture",
+    "sp": "I want to contact Reacture"
+  },
+  {
+    "Description": "",
+    "key": "Your Booking Details",
+    "en": "Your Booking Details",
+    "de": "Ihre Aktivität Details",
+    "it": "Informazioni relative all'attività",
+    "fr": "Les détails de votre activité",
+    "sp": "Your Booking Details"
+  },
+  {
+    "Description": "",
+    "key": "Event Name",
+    "en": "Event Name",
+    "de": "Name der Aktivität",
+    "it": "Nome dell'attività",
+    "fr": "Nom de l'activité",
+    "sp": "Event Name"
+  },
+  {
+    "Description": "",
+    "key": "When do i have to be there",
+    "en": "When do i have to be there",
+    "de": "Wann muss ich am Treffpunkt sein",
+    "it": "Quando devo trovarmi al punto di incontro",
+    "fr": "Quand dois-je être au point de rendez-vous",
+    "sp": "When do i have to be there"
+  },
+  {
+    "Description": "",
+    "key": "Where do i meet my activity provider",
+    "en": "Where do i meet my activity provider",
+    "de": "Wo treffe ich mich mit meinem Anbieter",
+    "it": "Dove mi incontro con il mio gestore",
+    "fr": "Où dois-je rencontrer mon prestataire",
+    "sp": "Where do i meet my activity provider"
+  },
+  {
+    "Description": "",
+    "key": "Have fun and enjoy",
+    "en": "Have fun and enjoy",
+    "de": "Viel Spaß bei Deiner Aktivität",
+    "it": "Ti auguriamo buon divertimento",
+    "fr": "Amusez-vous bien avec votre activité",
+    "sp": "Have fun and enjoy"
+  },
+  {
+    "Description": "",
+    "key": "Your Reacture Booking Team",
+    "en": "Your Reacture Booking Team",
+    "de": "Dein Reacture Team",
+    "it": "Il tuo team Reacture",
+    "fr": "Votre équipe de Reacture",
+    "sp": "Your Reacture Booking Team"
+  },
+  {
+    "Description": "",
+    "key": "Hello",
+    "en": "Hi",
+    "de": "Hallo",
+    "it": "Ciao",
+    "fr": "Bonjour",
+    "sp": "Hola"
+  },
+  {
+    "Description": "",
+    "key": "congratulations",
+    "en": "Congratulations",
+    "de": "Herzlichen Glückwunsch",
+    "it": "Congratulazioni",
+    "fr": "Toutes nos félicitations",
+    "sp": "congratulations"
+  },
+  {
+    "Description": "",
+    "key": "We have transmitted your booking to the activity provider and charged your credit card with",
+    "en": "We have transmitted your booking to the activity provider and charged your credit card with {{amount}} {{currency}}",
+    "de": "Wir haben Deine Buchung an den Anbieter übermittelt und deine Kreditkarte mit {{amount}} {{currency}} belastet ",
+    "it": "Abbiamo inoltrato la tua prenotazione a organizzatore e abbiamo addebitato sulla tua carta di credito l'importo di  {{amount}} {{currency}} ",
+    "fr": "Nous avons transmis votre réservation a la prestataire et débité votre carte de crédit de la somme de {{amount}} {{currency}} ",
+    "sp": "We have transmitted your booking to the activity provider and charged your credit card with {{amount}} {{currency}} "
+  },
+  {
+    "Description": "",
+    "key": "bookingconfirmation customer paragraph1",
+    "en": "You don’t have to do anything – just get to the indicated meeting point and bring this email with you – your activity provider is expecting you! ",
+    "de": "Lehne Dich zurück, Du mußt nichts mehr tun! Komme einfach zum unten angegebenen Treffpunkt - Dein Aktivitätenanbieter erwartet Dich dort!  ",
+    "it": "Rilassati, non devi fare nient'altro! Recati semplicemente al punto di incontro sotto indicato – il tuo organizzatore di attività ti aspetta lì!",
+    "fr": "Détendez-vous, vous n'avez plus rien à faire ! Il vous suffit de venir à l'endroit indiqué ci-dessous, votre prestataire d'activité vous y attend !  ",
+    "sp": "You don’t have to do anything – just get to the indicated meeting point and bring this email with you – your activity provider is expecting you! "
+  },
+  {
+    "Description": "",
+    "key": "bookingconfirmation customer paragraph2",
+    "en": "Just in case your plans change or you need to contact the activity provider for any other reason you can always call the provider or email your provider directly. ",
+    "de": "Nur für den Fall, dass Du Deine Pläne änderst oder vorher noch Details direkt abklären möchtest kannst Du Dich jederzeit per Telefon oder E-Mail direkt an Deinen Provider wenden.  ",
+    "it": "Soltanto in caso di modifica dei tuoi piani o nel caso tu voglia chiarire in anticipo ulteriori dettagli, puoi rivolgerti in qualsiasi momento direttamente al tuo gestore, per telefono o per e-mail.",
+    "fr": "Au cas où vous seriez amené à modifier vos projets ou souhaiteriez clarifier directement quelques détails, vous pouvez, à tout moment, vous adresser à votre prestataire par téléphone ou par e-mail.",
+    "sp": "Just in case your plans change or you need to contact the activity provider for any other reason you can always call the provider or email your provider directly. "
+  },
+  {
+    "Description": "",
+    "key": "bookingconfirmation customer paragraph3",
+    "en": "If you experience any trouble with your booking, the provider or if you have questions regarding your invoice don´t hesitate to contact our support anytime.",
+    "de": "Wenn Du Fragen zu Deiner Reservierung, Deinem Anbieter oder Deiner Rechnung hast so wende Dich jederzeit an unseren Support. ",
+    "it": "Se hai domande relative alla tua prenotazione, al tuo gestore o alla tua fattura, rivolgiti in qualsiasi momento al nostro team di supporto.",
+    "fr": "Si vous avez des questions à propos de votre réservation, de votre prestataire ou de votre facture, n'hésitez pas à contacter notre service clients. ",
+    "sp": "If you experience any trouble with your booking, the provider or if you have questions regarding your invoice don´t hesitate to contact our support anytime."
   }
 ]
