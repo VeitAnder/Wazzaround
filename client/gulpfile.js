@@ -96,7 +96,7 @@ gulp.task('watch', ['html2js'], function () {
   gulp.watch(clientpathdev + '/styles/**/*.scss', ['sass']);
   gulp.watch(clientpathdev + '/views/**/*', ['html2js', 'reload:html']);
   gulp.watch(clientpathdev + '/*.html', ['html2js', 'reload:html']);
-  gulp.watch([clientpathdev + '/**/*.js', '!' + clientpathdev + '/scripts/templates.js'], ['reload:html']);
+  gulp.watch([clientpathdev + '/scripts/**/*.js', '!' + clientpathdev + '/scripts/templates.js'], ['reload:html']);
 });
 
 gulp.task('server', [], function () {
