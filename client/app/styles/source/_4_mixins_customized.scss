@@ -2540,7 +2540,7 @@ $filter-category-arrow-width: 65px;
   // CATEGORY SPORTS
   &.filter-category-sports {
     .filter-category-header {
-      background-image: url(../../img/filtericon_sport.png);
+      background-image: url(#{$img_path}filtericon_sport.png);
       background-position: 15px 17px;
 
     }
@@ -2550,7 +2550,7 @@ $filter-category-arrow-width: 65px;
   // CATEGORY CULTURE
   &.filter-category-culture {
     .filter-category-header {
-      background-image:  url(../../img/filtericon_culture.png);
+      background-image:  url(#{$img_path}img/filtericon_culture.png);
       background-position: 15px 23px;
     }
   }
@@ -2559,7 +2559,7 @@ $filter-category-arrow-width: 65px;
   // CATEGORY WELLNESS
   &.filter-category-wellness {
     .filter-category-header {
-      background-image:  url(../../img/filtericon_wellness.png);
+      background-image:  url(#{$img_path}img/filtericon_wellness.png);
       background-position: 15px 20px;
     }
   }
