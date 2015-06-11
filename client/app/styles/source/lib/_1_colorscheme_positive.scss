@@ -24,6 +24,7 @@ $color_black_25: lighten($color_black, 75%);
 $color_black_15: lighten($color_black, 85%);
 
 
+// old green color
 $color_green: #85C900;
 $color_green_75: #a4d740; // 75%
 $color_green_50: #c2e480; // 50%
@@ -31,6 +32,14 @@ $color_green_25: #e0f1bf; // 25%
 $color_green_15: #edf7d9; // 15%
 $color_green_05: #f9fcf2; // 5%
 $color_green_k15: #71ab00; // +15% black
+
+/*$color_green: #585858;
+$color_green_75: #828282; // 75%
+$color_green_50: #acacac; // 50%
+$color_green_25: #d5d5d5; // 25%
+$color_green_15: #e6e6e6; // 15%
+$color_green_05: #f6f6f6; // 5%
+$color_green_k15: #4b4b4b; // +15% black*/
 
 $color_green_l5: lighten($color_green, 5%);
 $color_green_75_l5: lighten($color_green_75, 5%);
@@ -40,24 +49,13 @@ $color_green_25_l5: lighten($color_green_25, 5%);
 $color_green_05_l5: lighten($color_green_05, 5%);
 $color_green_k15_l5: lighten($color_green_k15, 5%);
 
-$color_00: lighten($color_green, 50%);
-$color_01: lighten($color_green, 40%);
-$color_02: lighten($color_green, 30%);
-$color_03: lighten($color_green, 20%);
-$color_04: lighten($color_green, 10%);
-$color_06: darken($color_green, 10%);
-$color_07: darken($color_green, 20%);
-$color_08: darken($color_green, 30%);
-$color_09: darken($color_green, 40%);
-
-
-$color_grey: #666;
-$color_grey_75: #8c8c8c; // 75%
-$color_grey_50: #b3b3b3; // 50%
-$color_grey_25: #d9d9d9; // 25%
-$color_grey_15: #e8e8e8; // 15%
-$color_grey_05: #f7f7f7; // 5%
-$color_grey_k15: #575757; //+15% black
+$color_grey: #585858;
+$color_grey_75: #828282; // 75%
+$color_grey_50: #acacac; // 50%
+$color_grey_25: #d5d5d5; // 25%
+$color_grey_15: #e6e6e6; // 15%
+$color_grey_05: #f6f6f6; // 5%
+$color_grey_k15: #4b4b4b; //+15% black
 
 $color_grey_l5: lighten($color_grey, 5%);
 $color_grey_75_l5: lighten($color_grey_75, 5%);
@@ -69,6 +67,19 @@ $color_grey_k15_l5: lighten($color_grey_k15, 5%);
 
 $color_grey_15_d5: darken($color_grey_15, 5%);
 $color_grey_75_d10: darken($color_grey_75, 10%);
+
+
+$color_00: lighten($color_grey, 50%);
+$color_01: lighten($color_grey, 40%);
+$color_02: lighten($color_grey, 30%);
+$color_03: lighten($color_grey, 20%);
+$color_04: lighten($color_grey, 10%);
+$color_06: darken($color_grey, 10%);
+$color_07: darken($color_grey, 20%);
+$color_08: darken($color_grey, 30%);
+$color_09: darken($color_grey, 40%);
+
+
 
 $color_11: lighten($color_grey, 45%);
 $color_12: lighten($color_grey, 30%);
@@ -90,7 +101,7 @@ $color_18: darken($color_grey, 30%);
 $color_19: darken($color_grey, 40%);
 
 
-$color_red: #C83C19; //full tone red
+$color_red: #ff0000; //full tone red
 $color_red_15: #f7d9d9; //15%
 $color_red_50: #e49e8c; //50%
 $color_red_75: #d66d53; //75%
@@ -106,13 +117,16 @@ $color_lightblue_75: #53c0d6; //75%
 $color_lightblue_l5: lighten($color_red, 5%);
 
 
-$color_sports: #C83C19; //100%
+$color_sports: $color_red; //100%
+$color_sports_arrowcolor: #ff6828;
 $color_sports_l5: lighten($color_sports, 5%);
 
-$color_culture: #1970C8; //100%
+$color_culture: #643cfa; //100%
+$color_culture_arrowcolor: #aa96ff;
 $color_culture_l5: lighten($color_culture, 5%);
 
-$color_wellness: #bc913d; //100%
+$color_wellness: #73c800; //100%
+$color_wellness_arrowcolor: #a0e632;
 $color_wellness_l5: lighten($color_wellness, 5%);
 
 
@@ -127,8 +141,8 @@ $color_wellness_l5: lighten($color_wellness, 5%);
 $color_background: $color_white; //=$color_footer_anorak_background
 $color_text: $color_grey;
 
-$color_link: $color_green;
-$color_link_hover: $color_green_75;
+$color_link: $color_grey;
+$color_link_hover: $color_grey_75;
 
 $color_notification_background: #ffffb1;
 $color_notification_text: #7e7e56;
@@ -136,7 +150,7 @@ $color_notification_text: #7e7e56;
 $color_alert_background: $color_notification_background;
 $color_alert_text: $color_notification_text;
 $color_error_background: $color_red_15;
-$color_error_text: $color_red;
+$color_error_text: $color_white;
 $color_info_background: $color_lightblue_15;
 $color_info_text: $color_lightblue_75;
 $color_success_background: $color_green_15;
@@ -151,14 +165,14 @@ $color_header_background: $color_white;
 
 $color_header_innerwrap_background: $color_header_background;
 
-$color_header_border: $color_green;
-$color_header_border_hover: $color_green_75;
+$color_header_border: $color_grey;
+$color_header_border_hover: $color_grey_75;
 
 $color_header_text: $color_text;
 
 $color_header_link: $color_link;
 $color_header_link_hover: $color_link_hover;
-$color_header_link_active: $color_green;
+$color_header_link_active: $color_grey;
 
 
 // MAIN COLORS
@@ -179,11 +193,11 @@ $color_main_seperator: $color_grey_50;
 
 $color_main_text: $color_text;
 $color_main_text_highlight: $color_grey;
-$color_main_h1: $color_green;
+$color_main_h1: $color_grey;
 $color_main_h2: $color_grey_50;
-$color_main_h3: $color_green;
+$color_main_h3: $color_grey;
 $color_main_h4: $color_grey_50;
-$color_main_h5: $color_green;
+$color_main_h5: $color_grey;
 $color_main_h6: $color_grey_50;
 
 $color_main_link: $color_link;
@@ -223,8 +237,8 @@ $color_nav1_text: $color_grey_75;
 
 $color_nav1_link: $color_grey_75;
 $color_nav1_link_hover: $color_nav1_link;
-$color_nav1_link_active: $color_green;
-$color_nav1_link_active_hover: $color_green;
+$color_nav1_link_active: $color_grey;
+$color_nav1_link_active_hover: $color_grey_50;
 
 //.submenu
 $color_nav2_link: $color_white;
@@ -236,9 +250,9 @@ $color_nav2_level01_link_current: $color_grey_k15_l5;
 $color_nav2_level01_link_active: $color_grey_k15_l5;
 $color_nav2_level01_border: $color_grey_50;
 $color_nav2_level01_link: $color_grey;
-$color_nav2_level01_link_hover: $color_green;
+$color_nav2_level01_link_hover: $color_grey_50;
 
-$color_nav2_level02_border: $color_green;
+$color_nav2_level02_border: $color_grey_50;
 $color_nav2_level02_link: $color_nav2_level01_link;
 $color_nav2_level02_link_hover: $color_nav2_level01_link_hover;
 $color_nav2_level02_link_active: $color_nav2_level01_link_active;
@@ -246,7 +260,7 @@ $color_nav2_level02_background: $color_nav2_level01_background;
 $color_nav2_level02_background_hover: $color_nav2_level01_background_hover;
 $color_nav2_level02_background_active: $color_nav2_level01_background_active;
 
-$color_nav2_level03_border: $color_green;
+$color_nav2_level03_border: $color_grey_50;
 $color_nav2_level03_background: $color_nav2_level02_background;
 $color_nav2_level03_background_active: $color_nav2_level02_background_active;
 
@@ -269,19 +283,19 @@ $color_input_background_active: $color_white;
 
 $color_input_border: $color_grey_50;
 $color_input_border_hover: $color_grey_50_l5;
-$color_input_border_active: $color_green;
+$color_input_border_active: $color_grey;
 $color_input_text: $color_text;
 $color_input_text_inactive: $color_grey_50;
 
 $color_button_text: $color_white;
-$color_button_background: $color_green;
-$color_button_border: $color_green;
+$color_button_background: $color_grey;
+$color_button_border: $color_grey;
 $color_button_text_hover: $color_white;
-$color_button_background_hover: $color_green_75;
-$color_button_border_hover: $color_green_75;
-$color_button_background_active: $color_green;
+$color_button_background_hover: $color_grey_75;
+$color_button_border_hover: $color_grey_75;
+$color_button_background_active: $color_grey;
 $color_button_text_active: $color_white;
-$color_button_border_active: $color_green;
+$color_button_border_active: $color_grey;
 
 
 $color_form_background: $color_02;
@@ -294,28 +308,28 @@ $color_form_label: $color_grey_50;
 // SITEMAP COLORS
 // ############################################################################################################################
 
-$color_sitemap_level01_background: $color_green;
+$color_sitemap_level01_background: $color_grey;
 $color_sitemap_level01_background_hover: $color_grey;
-$color_sitemap_level01_border: $color_green;
+$color_sitemap_level01_border: $color_grey;
 $color_sitemap_level01_border_hover: $color_grey;
 $color_sitemap_level01_text: $color_white;
 $color_sitemap_level01_text_hover: $color_white;
 
 $color_sitemap_level02_background: $color_white;
 $color_sitemap_level02_background_hover: $color_02;
-$color_sitemap_level02_border: $color_green;
+$color_sitemap_level02_border: $color_grey;
 $color_sitemap_level02_text: $color_07;
 $color_sitemap_level02_text_hover: $color_grey;
 
 $color_sitemap_level03_background: $color_white;
 $color_sitemap_level03_background_hover: $color_01;
 $color_sitemap_level03_background_hover2: $color_01;
-$color_sitemap_level03_border: $color_green;
+$color_sitemap_level03_border: $color_grey;
 $color_sitemap_level03_text: $color_08;
 $color_sitemap_level03_text_hover: $color_08;
 $color_sitemap_level03_text_hover2: $color_grey;
 
-$color_sitemap_level04_background: $color_green;
+$color_sitemap_level04_background: $color_grey;
 $color_sitemap_level04_border: $color_sitemap_level02_border;
 $color_sitemap_level04_text: $color_01;
 

@@ -241,7 +241,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: $fs*$font-size_h5_factor*$line-height_factor;
   color: $color_text;
   strong {
-    color: $color_green;
+    color: $color_grey;
   }
 }
 
@@ -360,7 +360,7 @@ a.link-download {
     background: $color_button_background;
     color: $color_button_text;
     border-color: $color_button_border;
-    outline-color: $color_green_75;
+    outline-color: $color_grey_75;
   }
 
   &[disabled="disabled"], &.disabled {
@@ -393,13 +393,13 @@ button.btn, .btn, a.btn {
     }
   }
   &.btn-primary {
-    background-color: $color_green;
+    background-color: $color_grey;
     color: $color_white;
     span {
       color: $color_white;
     }
     &:hover {
-      background-color: $color_green;
+      background-color: $color_grey;
     }
   }
 
@@ -416,15 +416,15 @@ button.btn, .btn, a.btn {
     border-color: $color_grey_50;
     color: $color_grey_75;
     &:hover {
-      background-color: $color_green;
-      border-color: $color_green;
+      background-color: $color_grey;
+      border-color: $color_grey;
       color: $color_white;
     }
     .bookableitem-body & {
       background-color: transparent;
       &:hover {
-        background-color: $color_green;
-        border-color: $color_green;
+        background-color: $color_grey;
+        border-color: $color_grey;
         color: $color_white;
       }
     }
@@ -474,13 +474,13 @@ button.btn, .btn, a.btn {
   }
 
   &.btn-negative {
-    color: $color_green;
+    color: $color_grey;
     background-color: $color_white;
     border-color: $color_white;
     font-weight: $font-weight_bold;
     &:hover {
-      background-color: $color_green_15;
-      border-color: $color_green_15;
+      background-color: $color_grey_15;
+      border-color: $color_grey_15;
     }
   }
 
@@ -563,7 +563,7 @@ button.btn, .btn, a.btn {
 @mixin icon_small_success {
   @include icon_small;
   background-position: -47px -21px;
-  background-color: $color_green;
+  background-color: $color_grey;
 }
 
 @mixin icon_large_add {
@@ -626,7 +626,7 @@ button.btn, .btn, a.btn {
   @include button_icon;
   @include sprite_icons(-95px, 5px, no-repeat);
   &:hover {
-    background-color: $color_green;
+    background-color: $color_grey;
   }
   span {
     display: none;
@@ -648,7 +648,7 @@ button.btn, .btn, a.btn {
   @include button_icon_large;
   @include sprite_icons(-90px, 10px, no-repeat);
   &:hover {
-    background-color: $color_green;
+    background-color: $color_grey;
   }
   span {
     display: none;
@@ -815,9 +815,9 @@ button.btn, .btn, a.btn {
     }
   }
   &:hover {
-    color: $color_green;
+    color: $color_grey;
     span {
-      background-color: $color_green;
+      background-color: $color_grey;
     }
   }
 }
@@ -1250,10 +1250,10 @@ button.btn, .btn, a.btn {
     margin-top: 0;
   }
   &.contentbox-green {
-    background-color: $color_green;
+    background-color: $color_grey;
     color: $color_white;
     h1, h2, h3, h4, h5, h6 {
-      color: $color_green_15;
+      color: $color_grey_15;
     }
     .btn {
       border-color: $color_grey;
@@ -1499,7 +1499,7 @@ section {
   }
   &.section-green {
     border: none;
-    background-color: $color_green_15;
+    background-color: $color_grey_15;
   }
   &.section-map {
     border: none;
@@ -2019,7 +2019,7 @@ input[type="checkbox"]:focus {
     margin: 30px 0;
     padding: 10px 15px;
     @include border-radius($border-radius);
-    background-color: $color_green_15;
+    background-color: $color_grey_15;
   }
 }
 
@@ -2121,7 +2121,7 @@ input[type="checkbox"]:focus {
     input {
       display: none;
       &:checked + span {
-        background-color: $color_green;
+        background-color: $color_grey;
         color: $color_white;
       }
     }
@@ -2230,7 +2230,7 @@ legend {
 @mixin checkbox-selected {
   border-color: $color_white;
   @include sprite_icons(-47px, -22px, no-repeat);
-  background-color: $color_green;
+  background-color: $color_grey;
   box-shadow: none;
 }
 
@@ -2328,18 +2328,18 @@ legend {
   @include pie-clearfix;
   clear: both;
   font-weight: $font-weight_bold;
-  color: $color_green;
-  @include border(bottom, $color_green);
+  color: $color_grey;
+  @include border(bottom, $color_grey);
   border-bottom-width: 2px;
 
   &.sortable {
     :hover {
       cursor: pointer;
-      background-color: $color_green_75;
+      background-color: $color_grey_75;
     }
     .active {
       color: $color_white;
-      background-color: $color_green_k15;
+      background-color: $color_grey_k15;
     }
   }
   .cell {
@@ -2415,7 +2415,7 @@ legend {
   .enable_hover & {
     @include hovercursor;
     &:hover {
-      background-color: $color_green_15 !important;
+      background-color: $color_grey_15 !important;
       .cell {
         border-color: $color_grey_50;
         background-color: transparent;

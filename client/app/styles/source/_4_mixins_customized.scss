@@ -160,8 +160,8 @@ body:before {
       background-color: transparent;
       color: $color_white;
       &:hover {
-        color: $color_green;
-        border-color: $color_green;
+        color: $color_grey;
+        border-color: $color_grey;
         background-color: rgba($color_white, 0.25);
       }
     }
@@ -700,7 +700,7 @@ eventrow {
     }
     h6 {
       margin: 0;
-      color: $color_green;
+      color: $color_grey;
       display: inline;
     }
     .event-item-quantity {
@@ -766,7 +766,7 @@ eventedit {
   }
 
   .event-end-block {
-    background-color: $color_green_50;
+    background-color: $color_grey_50;
     color: $color_grey;
     @include font-size_small;
     text-align: center;
@@ -886,18 +886,18 @@ eventedit {
   }
   &.selected {
     color: $color_white;
-    background-color: $color_green_75;
+    background-color: $color_grey_75;
     .numberofitems {
-      color: $color_green;
-      background-color: $color_green_25;
+      color: $color_grey;
+      background-color: $color_grey_25;
     }
     @include box-shadow_2px-inset-bgcolor;
     &:hover {
-      background-color: $color_green_75_l5;
+      background-color: $color_grey_75_l5;
     }
     .checkbox-tag {
       @include checkbox-selected;
-      border-color: $color_green;
+      border-color: $color_grey;
     }
   }
 }
@@ -1061,7 +1061,7 @@ activitybarstripe {
   }
 
   .activity-nav {
-    background-color: $color_white;
+    background-color: $color_grey_05;
     width: 65px;
     height: 65px;
     padding: 20px;
@@ -1122,9 +1122,9 @@ activitybarstripe {
 
   .activitydetailactive {
     .activity-detail-toggle {
-      background-color: $color_red;
+      background-color: $color_green_50;
       .visual-button {
-        background-color: $color_red;
+        background-color: $color_green_50;
         span {
           @include transform(rotate(90deg));
         }
@@ -1229,7 +1229,7 @@ activitybarstripe {
     position: static;
     display: table-cell;
     background-position: -45px 6px;
-    background-color: $color_green;
+    background-color: $color_grey;
   }
 }
 
@@ -1430,7 +1430,7 @@ shoppingcartbar {
 }
 
 .shoppingcart-element {
-  background-color: $color_green;
+  background-color: $color_grey;
   padding: $bu*2.0 $bu*1.0;
   @include color-white;
   .buttonbar {
@@ -1451,7 +1451,7 @@ shoppingcartbar {
     width: $shoppingcart-toggle-width;
     height: $shoppingcart-toggle-width;
     @include border-left-radius($border-radius_small);
-    background-color: $color_green;
+    background-color: $color_grey;
     @include sprite_icons(-141px, 15px, no-repeat);
     text-align: right;
     padding: 0 3px;
@@ -1483,7 +1483,7 @@ shoppingcartbar {
 
 .shoppingcart-item {
   position: relative;
-  @include seperator(top, $color_green_50);
+  @include seperator(top, $color_grey_50);
   padding: $fs*0.75 0;
   h4 {
     font-size: $fs;
@@ -1526,7 +1526,7 @@ shoppingcartbar {
   }
   img {
     @include border-image-mini;
-    border-color: $color_green_50;
+    border-color: $color_grey_50;
     width: 100px;
     height: auto;
     float: left;
@@ -1574,8 +1574,8 @@ shoppingcartbar {
 
 .shoppingcart-subtotal {
   padding: $fs*0.5 0;
-  border-top: 1px solid $color_green_50;
-  border-bottom: 3px solid $color_green_50;
+  border-top: 1px solid $color_grey_50;
+  border-bottom: 3px solid $color_grey_50;
   font-weight: $font-weight_bold;
   @include clearfix;
   .description, .value {
@@ -1610,7 +1610,7 @@ $payment-triangle-size: 60px;
     display: block;
     margin-bottom: -($payment-triangle-size/2);
     margin-left: -($payment-triangle-size/2);
-    @include triangle($payment-triangle-size, $color_green_15, down);
+    @include triangle($payment-triangle-size, $color_grey_15, down);
   }
 }
 
@@ -2440,16 +2440,23 @@ $filter-category-arrow-width: 65px;
 
     &.filter-category-sports {
       .filter-category-arrow {
-        background-color: $color_sports;
+        background-color: $color_sports_arrowcolor;
       }
       .filter-category-header:hover {
         .filter-category-arrow {
-          background-color: $color_sports_l5;
+          background-color: $color_sports_arrowcolor;
         }
       }
       .filter-category-sub.selected {
         .checkbox {
           background-color: $color_sports;
+        }
+      }
+
+      .filter-category-header {
+        background-color: $color_sports;
+        &:hover {
+          background-color: $color_sports_l5;
         }
       }
     }
@@ -2460,11 +2467,11 @@ $filter-category-arrow-width: 65px;
 
     &.filter-category-culture {
       .filter-category-arrow {
-        background-color: $color_culture;
+        background-color: $color_culture_arrowcolor;
       }
       .filter-category-header:hover {
         .filter-category-arrow {
-          background-color: $color_culture_l5;
+          background-color: $color_culture_arrowcolor;
         }
       }
       .filter-category-sub.selected {
@@ -2472,6 +2479,14 @@ $filter-category-arrow-width: 65px;
           background-color: $color_culture;
         }
       }
+
+      .filter-category-header {
+        background-color: $color_culture;
+        &:hover {
+          background-color: $color_culture_l5;
+        }
+      }
+
     }
 
     // CATEGORY CULTURE end
@@ -2480,16 +2495,23 @@ $filter-category-arrow-width: 65px;
 
     &.filter-category-wellness {
       .filter-category-arrow {
-        background-color: $color_wellness;
+        background-color: $color_wellness_arrowcolor;
       }
       .filter-category-header:hover {
         .filter-category-arrow {
-          background-color: $color_wellness_l5;
+          background-color: $color_wellness_arrowcolor;
         }
       }
       .filter-category-sub.selected {
         .checkbox {
           background-color: $color_wellness;
+        }
+      }
+
+      .filter-category-header {
+        background-color: $color_wellness;
+        &:hover {
+          background-color: $color_wellness_l5;
         }
       }
     }
@@ -2642,7 +2664,7 @@ $filter-category-arrow-width: 65px;
 
     &.active {
       color: $color_white;
-      background-color: $color_green;
+      background-color: $color_grey;
       cursor: default;
       &:hover {
         color: $color_white;
@@ -2818,14 +2840,14 @@ $img-selector-teasertxtheight: 32px;
 
 .admin-section {
   @include border(right, $color_main_border);
-  background-color: $color_green;
+  background-color: $color_grey;
   width: $col-left-width;
   float: left;
   clear: both;
   @include teaser-textformat;
   a, a:link {
     padding-left: 35px;
-    color: $color_green_25;
+    color: $color_grey_25;
   }
 }
 
@@ -3055,7 +3077,7 @@ $img-selector-teasertxtheight: 32px;
 .promocode {
   text-transform: uppercase;
   font-weight: $font-weight_bold;
-  color: $color_green;
+  color: $color_grey;
 }
 
 @mixin language-flags {
@@ -3212,9 +3234,9 @@ label + .language-tabs {
     padding: 0;
     &.active {
       a {
-        background-color: $color_green_75;
+        background-color: $color_grey_75;
         &:hover {
-          background-color: $color_green_75;
+          background-color: $color_grey_75;
         }
       }
     }

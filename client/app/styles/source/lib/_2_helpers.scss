@@ -476,23 +476,23 @@ $break-low-screen: 850px;
 
 @mixin gradient_lightblue {
   // needs latest Compass, add '@import "compass"' to your scss
-  background-color: $color_green_15; // Old browsers
+  background-color: $color_grey_15; // Old browsers
   // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top, rgba($color_white, 1) 0%, rgba($color_green_15, 1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_white, 1) 0%, rgba($color_grey_15, 1) 100%));
 }
 
 @mixin gradient_lightblue_reverse {
   // needs latest Compass, add '@import "compass"' to your scss
-  background-color: $color_green_15; // Old browsers
+  background-color: $color_grey_15; // Old browsers
   // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top, rgba($color_green_25, 1) 0%, rgba($color_white, 1) 50%));
+  @include background-image(linear-gradient(top, rgba($color_grey_25, 1) 0%, rgba($color_white, 1) 50%));
 }
 
 @mixin gradient_lightblue2 {
   // needs latest Compass, add '@import "compass"' to your scss
-  background-color: $color_green_25; // Old browsers
+  background-color: $color_grey_25; // Old browsers
   // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
   @include background-image(linear-gradient(top, rgba($color_white, 1) 0%, rgba($color_03, 1) 100%));
@@ -500,18 +500,18 @@ $break-low-screen: 850px;
 
 @mixin gradient_blue {
   // needs latest Compass, add '@import "compass"' to your scss
-  background-color: $color_green; // Old browsers
+  background-color: $color_grey; // Old browsers
   // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top, rgba($color_green, 1) 0%, rgba($color_green_k15, 1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_grey, 1) 0%, rgba($color_grey_k15, 1) 100%));
 }
 
 @mixin gradient_blue_hover {
   // needs latest Compass, add '@import "compass"' to your scss
-  background-color: $color_green_l5; // Old browsers
+  background-color: $color_grey_l5; // Old browsers
   // IE9 SVG, needs conditional override of 'filter' to 'none'
   $experimental-support-for-svg: true;
-  @include background-image(linear-gradient(top, rgba($color_green_l5, 1) 0%, rgba($color_green_k15_l5, 1) 100%));
+  @include background-image(linear-gradient(top, rgba($color_grey_l5, 1) 0%, rgba($color_grey_k15_l5, 1) 100%));
 }
 
 @mixin gradient_grey {
