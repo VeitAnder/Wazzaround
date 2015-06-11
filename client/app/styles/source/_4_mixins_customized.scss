@@ -2422,6 +2422,7 @@ $filter-category-arrow-width: 65px;
   margin-bottom: 10px;
   @include border-radius($border-radius);
   @include user-select(none);
+
   &.active {
     .filter-category-header {
       background-color: $color_grey;
@@ -2535,17 +2536,49 @@ $filter-category-arrow-width: 65px;
       }
     }
   }
+
+  // CATEGORY SPORTS
+  &.filter-category-sports {
+    .filter-category-header {
+      background-image: url(../../img/filtericon_sport.png);
+      background-position: 15px 17px;
+
+    }
+  }
+  // CATEGORY SPORTS end
+
+  // CATEGORY CULTURE
+  &.filter-category-culture {
+    .filter-category-header {
+      background-image:  url(../../img/filtericon_culture.png);
+      background-position: 15px 23px;
+    }
+  }
+  // CATEGORY CULTURE end
+
+  // CATEGORY WELLNESS
+  &.filter-category-wellness {
+    .filter-category-header {
+      background-image:  url(../../img/filtericon_wellness.png);
+      background-position: 15px 20px;
+    }
+  }
+  // CATEGORY WELLNESS end
+
   .filter-category-header {
     position: relative;
     //@include box-sizing(border-box);
     background-color: $color_grey_50;
     padding: $bu/1.5 $bu;
+    padding-left: 70px;
     padding-right: $filter-category-arrow-width + $bu;
     min-height: $filter-category-arrow-width;
+    background-repeat: no-repeat;
     @include border-radius($border-radius);
     h4 {
       margin: 0;
       color: $color_white;
+      font-size: 18px;
     }
     p {
       margin: 0;
@@ -2572,6 +2605,7 @@ $filter-category-arrow-width: 65px;
       background-color: $color_grey_50_l5;
       @include hovercursor;
     }
+
   }
   .filter-category-body {
     .innerwrap {
@@ -2630,7 +2664,7 @@ $filter-category-arrow-width: 65px;
       @include font-size_small;
     }
     .filter-category-header {
-      padding-left: 10px;
+      padding-left: 70px;
       padding-right: 10px;
       h4 {
         font-size: $fs*$font-size_h5_factor;
