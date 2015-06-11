@@ -797,7 +797,6 @@ eventedit {
   }
 }
 
-
 .event-new-repeat {
   overflow: visible;
   @include clearfix;
@@ -2915,6 +2914,16 @@ $img-selector-teasertxtheight: 32px;
 }
 
 .form-mapsearch {
+  .location {
+    width: 100%;
+  }
+
+  .input-group-btn {
+    button {
+      width: 100%;
+    }
+
+  }
   .form-group {
     float: left;
     margin-bottom: 0;
@@ -3027,23 +3036,23 @@ $img-selector-teasertxtheight: 32px;
   }
 }
 
-.promotion-list{
+.promotion-list {
   .cell {
     @include ellipsis(none);
     white-space: normal;
   }
-  .email{
+  .email {
     width: (100%) / 3;
   }
-  .name{
+  .name {
     width: (100%) / 3;
   }
-  .bookings{
+  .bookings {
     width: (100%) / 3;
   }
 }
 
-.promocode{
+.promocode {
   text-transform: uppercase;
   font-weight: $font-weight_bold;
   color: $color_green;
@@ -3818,7 +3827,6 @@ activitystatearea {
   }
 }
 
-
 filterbar {
   position: relative;
   display: block;
@@ -3827,7 +3835,7 @@ filterbar {
   @include border-radius($border-radius);
   background-color: $color_grey_15;
 
-  &.filterbar-top{
+  &.filterbar-top {
     @include border-bottom-radius(0);
     margin-bottom: 0;
     .textsearch {
@@ -3857,7 +3865,7 @@ filterbar {
     width: 1%;
     vertical-align: top;
     label {
-      line-height: 100%!important;
+      line-height: 100% !important;
     }
     .input-group {
       margin-bottom: 0;
