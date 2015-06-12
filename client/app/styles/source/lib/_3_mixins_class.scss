@@ -1256,8 +1256,8 @@ button.btn, .btn, a.btn {
       color: $color_grey_15;
     }
     .btn {
-      border-color: $color_grey;
-      background-color: $color_grey;
+      border-color: $color_grey_50;
+      background-color: $color_grey_50;
       &:hover {
         border-color: $color_grey_75;
         background-color: $color_grey_75;
