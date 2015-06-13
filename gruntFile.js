@@ -1,14 +1,7 @@
 module.exports = function (grunt) {
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-jasmine-node');
-  grunt.loadNpmTasks('grunt-contrib-handlebars');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-bump');
-  grunt.loadNpmTasks('grunt-env');
-  grunt.loadNpmTasks('grunt-email-builder');
-  grunt.loadNpmTasks('grunt-replace');
-  grunt.loadNpmTasks('grunt-contrib-clean');
+  // Load grunt tasks automatically
+  require('load-grunt-tasks')(grunt);
 
   // Project configuration.
   grunt.initConfig({
@@ -60,27 +53,14 @@ module.exports = function (grunt) {
         }
       }
     },
-    emailBuilder: {
-      inline: {
-        options: {
-          encodeSpecialChars: false
-        },
-        files: [{
-          expand: true,
-          src: ['server/templates/source/**/*.handlebars.html'],
-          dest: '_temp/'
-        }]
-      }
-    },
     replace: {
       fixhandlebarsinclude: {
         options: {
-          patterns: [{
-            match: /{{&gt;/g,
-            replacement: function () {
-              return '{{>'; // replaces "foo" to "bar"
+          patterns: [
+            {
+              match: /{{&gt;/g,
+              replacement: '{{>'
             }
-          }
           ]
         },
         files: [
@@ -93,24 +73,24 @@ module.exports = function (grunt) {
         ]
       }
     },
+    // Copies remaining files to places other tasks can use
+    copy: {
+      textmailtemplates: {
+        files: [
+          {
+            expand: true,
+            dot: true,
+            cwd: 'server/templates/source/',
+            dest: '_temp/server/templates/source/',
+            src: [
+              '**/*.txt.handlebars.html'
+            ]
+          }
+        ]
+      }
+    },
     clean: {
       temp: ["_temp/"]
-    },
-    jasmine_node: {
-      specNameMatcher: "spec", // load only specs containing specNameMatcher
-      match: '.',
-      matchall: false,
-      extensions: 'js',
-      projectRoot: ".",
-      requirejs: false,
-      forceExit: true,
-      jUnit: {
-        report: false,
-        savePath: ".",
-        useDotNotation: true,
-        consolidate: true
-      }
-      //all: ['test/']
     },
     bump: {
       // checkout https://npmjs.org/package/grunt-bump for options
@@ -126,6 +106,16 @@ module.exports = function (grunt) {
         push: true,
         pushTo: 'origin',
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' // options to use with '$ git describe'
+      }
+    },
+    shell: {
+      options: {
+        stdout: true,
+        stderr: true,
+        failOnError: true
+      },
+      inlinecss: {
+        command: 'gulp inlinecss'
       }
     }
   });
@@ -144,13 +134,11 @@ module.exports = function (grunt) {
   });
 
   // buildemailtemplates
-  grunt.registerTask('buildemailtemplates', ['emailBuilder', 'replace', 'handlebars', 'clean']);
+  grunt.registerTask('buildemailtemplates', ['shell:inlinecss', 'copy', 'handlebars', 'clean']);
 
   grunt.registerTask('supervise', function () {
     this.async();
     require('supervisor').run(['server.js']);
   });
-
-  grunt.registerTask('test', ['env:testing', 'jasmine_node']);
 
 };
