@@ -201,7 +201,7 @@ angular.module('anorakApp')
       var map = {
         searchAddress: "",
         searchStartDate: startDate,
-        searchEndDate: moment(startDate).add(1, 'year').toDate(),
+        searchEndDate: moment(startDate).add(1, 'years').toDate(),
         bounds: {
           northeast: {
             latitude: 0,
