@@ -2270,9 +2270,9 @@
   {
     "\n": "",
     "key": "Qty",
-    "en": "Qty.",
-    "de": "Menge",
-    "it": "Quantità",
+    "en": "Quantity available",
+    "de": "Verfügbare Anzahl",
+    "it": "Quantità disponibile",
     "fr": "Quantité",
     "sp": "Cantidad"
   },
@@ -2315,9 +2315,9 @@
   {
     "\n": "",
     "key": "All activities",
-    "en": "All activities",
+    "en": "All Activities",
     "de": "Alle Aktivitäten",
-    "it": "Tous activités",
+    "it": "Tutte le attivitá",
     "fr": "Tous les activités",
     "sp": "Todas las actividades"
   },
@@ -2443,8 +2443,8 @@
     "key": "unpublish",
     "en": "unpublish",
     "de": "auf privat setzen",
-    "it": "Annullare la pubblicazione",
-    "fr": "Annuler la publication",
+    "it": "annullare la pubblicazione",
+    "fr": "annuler la publication",
     "sp": "Anular la publicación"
   },
   {
@@ -3136,8 +3136,8 @@
     "key": "Bookable item description placeholder",
     "en": "i.e. 4 hours tour (500ccm)",
     "de": "z.B. 4 Stunden Tour (500ccm)",
-    "it": "Per esempio 4 ore tour (500ccm)",
-    "fr": "Par exemple 4 heures de tour",
+    "it": "Per esempio: Tour di quattro ore, Aperitivo incluso",
+    "fr": "Par exemple tour de 4 heures",
     "sp": "Por ejemplo 4 horas de tour"
   },
   {
@@ -3154,7 +3154,7 @@
     "key": "Bank",
     "en": "Bank",
     "de": "Bank",
-    "it": "Banka",
+    "it": "Banca",
     "fr": "Banque",
     "sp": "Banco"
   },
@@ -3163,7 +3163,7 @@
     "key": "Name of your Bank",
     "en": "Name of your Bank",
     "de": "Name of your Bank",
-    "it": "Nome del vostro Bank",
+    "it": "Nome della vostra banca",
     "fr": "Nom de Votre banque",
     "sp": "Nombre de su banco"
   },
@@ -3172,7 +3172,7 @@
     "key": "Please enter the name of your Bank",
     "en": "Please enter the name of your Bank",
     "de": "Please enter the name of your Bank",
-    "it": "Si prega di inserire il nome del vostro Bank",
+    "it": "Si prega di inserire il nome della vostra banca",
     "fr": "Veuillez insérer le nom de Votre banque",
     "sp": "Se ruega introducir el nombre de su banco"
   },
@@ -3305,8 +3305,8 @@
   {
     "\n": "",
     "key": "activities found",
-    "en": "activities found",
-    "de": "activities found",
+    "en": "Activities found",
+    "de": "Aktivitäten gefunden",
     "it": "Attività trovate",
     "fr": "Activités trouvées",
     "sp": "Actividades encontradas"
@@ -3360,9 +3360,9 @@
     "\n": "",
     "key": "All dates from activity",
     "en": "All dates from activity",
-    "de": "All dates from activity",
-    "it": "Si prega di compilare correttamente il modulo",
-    "fr": "Veuillez bien remplir le formulaire",
+    "de": "Alle Termine für diese Aktivität",
+    "it": "Tutte gli appuntamenti per l´attivitá",
+    "fr": "Tous les activités",
     "sp": "Se ruega rellenar el formulario correctamente"
   },
   {
@@ -3459,7 +3459,7 @@
     "\n": "",
     "key": "close",
     "en": "close",
-    "de": "schließen",
+    "de": "Schließen",
     "it": "Chiudersi",
     "fr": "Fermer",
     "sp": "Cerrar"
@@ -3477,7 +3477,7 @@
     "\n": "",
     "key": "Find your activity",
     "en": "Find your activity",
-    "de": "Find your activity",
+    "de": "Aktivität finden",
     "it": "Trovare un'attività",
     "fr": "Trouver Votre activité",
     "sp": "Buscar una actividad"
@@ -3523,8 +3523,8 @@
     "key": "Please accept the reacture affiliate agreement",
     "en": "Please accept the wazzaround affiliate agreement.",
     "de": "Bitte stimmen Sie den Bedingungen des wazzaround Partnervertrages zu.",
-    "it": "si prega di accettare le condizioni generali di wazzaround",
-    "fr": "veuillez accepter les conditions générales de vente de wazzaround",
+    "it": "Si prega di accettare le condizioni generali di wazzaround",
+    "fr": "Veuillez accepter les conditions générales de vente de wazzaround",
     "sp": "Rogamos que acepte las condiciones genrale de wazzaround"
   },
   {
@@ -3702,8 +3702,8 @@
     "\n": "",
     "key": "events on these weekdays",
     "en": "Events on these weekdays",
-    "de": "Termine an diesen Wochentagen",
-    "it": "Eventi della settimana",
+    "de": "Termin findet an diesen Wochentagen statt",
+    "it": "Evento si ripete questi giorni della settimana",
     "fr": "Evénements de la semaine",
     "sp": "Eventos de la semana"
   },
@@ -3756,7 +3756,7 @@
     "\n": "",
     "key": "Contact our support",
     "en": "Contact our support",
-    "de": "Kontaktieren Sie unseren Support",
+    "de": "Nehmen Sie Kontakt auf",
     "it": "Contatta il nostro supporto",
     "fr": "Contactez notre support",
     "sp": "Pòngase en contacto con nuestro apoyo"

@@ -88,7 +88,7 @@ angular.module('anorakApp')
       var end = moment(eventEndDate);
 
       if (start.isAfter(end)) {
-        end = moment(start).add(1', hours');
+        end = moment(start).add(1, 'hours');
         return end.toDate();
 
       } else {

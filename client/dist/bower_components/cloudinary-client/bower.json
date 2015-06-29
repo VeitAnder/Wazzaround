@@ -1,8 +1,0 @@
-{
-  "name": "cloudinary-client",
-  "version": "0.0.1",
-  "main": "./jquery.cloudinary.js",
-  "dependencies": {
-  	"jquery": ">=1.9"
-  }
-}
