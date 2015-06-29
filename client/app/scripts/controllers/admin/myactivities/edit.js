@@ -136,15 +136,15 @@ angular.module('anorakApp')
 
       while (iteratorDate <= endrepeatDate) {
         // add new event
-        if (event.dayOfWeek['day' + moment(event.start).add('days', dayoffset).day()]) {  // Wochentag angehakt
+        if (event.dayOfWeek['day' + moment(event.start).add(dayoffset, 'days').day()]) {  // Wochentag angehakt
           var newEvent = item.createEvents();
-          newEvent.start = moment(event.start).add('days', dayoffset).toDate();
-          newEvent.end = moment(event.end).add('days', dayoffset).toDate();
+          newEvent.start = moment(event.start).add(dayoffset, 'days').toDate();
+          newEvent.end = moment(event.end).add(dayoffset, 'days').toDate();
           newEvent.quantity = event.quantity;
           newEvent.price = event.price;
         }
         dayoffset += 1;
-        iteratorDate.add('days', 1);
+        iteratorDate.add(1, 'days');
       }
 
       // disable event.repeating in original event
@@ -167,11 +167,11 @@ angular.module('anorakApp')
 
       while (iteratorDate <= endrepeatDate) {
         // add new event
-        if (event.dayOfWeek['day' + moment(event.start).add('days', dayoffset).day()]) {  // Wochentag angehakt
+        if (event.dayOfWeek['day' + moment(event.start).add(dayoffset, 'days').day()]) {  // Wochentag angehakt
           result.numberofevents++;
         }
         dayoffset += 1;
-        iteratorDate.add('days', 1);
+        iteratorDate.add(1, 'days');
       }
 
       return result;
@@ -182,7 +182,7 @@ angular.module('anorakApp')
 
       var event = bookableItem.createEvents();
       event.start = new Date();
-      event.end = moment(event.start).add('hours', 1).toDate();
+      event.end = moment(event.start).add(1, 'hours').toDate();
       bookableItem.events[bookableItem.events.length - 1].mode = 'new';
     };
 
@@ -408,7 +408,7 @@ angular.module('anorakApp')
     };
 
     // TODO - bessere Lösung für maxDate/minDate bei sich wiederholenden events finden - sollten auf event.start date basieren
-    $scope.datePickerMinDate = moment().add('days', 1).toDate();
-    $scope.datePickerMaxDate = moment().add('years', 1).toDate();
+    $scope.datePickerMinDate = moment().add(1, 'days').toDate();
+    $scope.datePickerMaxDate = moment().add(1, 'years').toDate();
 
   });
