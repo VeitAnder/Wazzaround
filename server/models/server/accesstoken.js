@@ -21,7 +21,7 @@ AccesstokenModel.writeFilter(function (obj, req) {
 AccesstokenModel.operationImpl("sendReactivation", function (params, req) {
   var tokenObj = models.AccesstokenModel.create();
   tokenObj.token = token(32);
-  tokenObj.expires = moment().add('days', 1).toDate();
+  tokenObj.expires = moment().add(1, 'days').toDate();
 
   return models.UserModel.find({ email: params.email })
     .then(function (users) {

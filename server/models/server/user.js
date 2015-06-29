@@ -72,7 +72,7 @@ UserModel.operationImpl("register", function (params, req) {
 
   var tokenObj = models.AccesstokenModel.create();
   tokenObj.token = token(32);
-  tokenObj.expires = moment().add('days', 1).toDate();
+  tokenObj.expires = moment().add(1, 'days').toDate();
 
   if (params.profile) {
     for (var i in params.profile) {
