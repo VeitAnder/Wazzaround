@@ -1,99 +1,97 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('activitylocationselector', function (activitybackendmap, $timeout) {
-    return {
-      templateUrl: 'views/directives/activitylocationselector.html',
-      restrict: 'E',
-      scope: {
-        "activity": "=activity"
-      },
-      compile: function compile(tElement, tAttrs, transclude) {
-        return {
-          pre: function preLink(scope, iElement, iAttrs, controller) {
+  .directive('activitylocationselector', function activitylocationselectorFactory(activitybackendmap, $timeout) {
 
-            scope.activitybackendmap = activitybackendmap;
+    var controller = function () {
+      var self = this;
 
-            scope.activitybackendmap.map.zoom = 9;
+      this.activitybackendmap = activitybackendmap;
 
-            // initialize map with data from activity
-            scope.activitybackendmap.map.center = {
-              "longitude": scope.activity.location.lng,
-              "latitude": scope.activity.location.lat
-            };
-            scope.activitybackendmap.map.clickedMarker = {
-              "longitude": scope.activity.location.lng,
-              "latitude": scope.activity.location.lat
-            };
+      this.activitybackendmap.map.zoom = 9;
 
-            scope.setAddressViaAddressfield = function () {
-              scope.activitybackendmap.geoCodeAddress(scope.activity.address)
-                .then(function (coords) {
-                  if (coords !== null) {
+      // initialize map with data from activity
+      this.activitybackendmap.map.center = {
+        "longitude": self.activity.location.lng,
+        "latitude": self.activity.location.lat
+      };
+      this.activitybackendmap.map.clickedMarker = {
+        "longitude": self.activity.location.lng,
+        "latitude": self.activity.location.lat
+      };
 
-                    scope.activity.location = {
-                      lng: coords.lng(),
-                      lat: coords.lat()
-                    };
+      this.setAddressViaAddressfield = function () {
+        self.activitybackendmap.geoCodeAddress(self.activity.address)
+          .then(function (coords) {
+            if (coords !== null) {
 
-                    $timeout(function () {
-                      scope.activitybackendmap.map.clickedMarker.latitude = coords.lat();
-                      scope.activitybackendmap.map.clickedMarker.longitude = coords.lng();
+              self.activity.location = {
+                lng: coords.lng(),
+                lat: coords.lat()
+              };
 
-                      scope.activitybackendmap.map.center.latitude = coords.lat();
-                      scope.activitybackendmap.map.center.longitude = coords.lng();
-                    });
-                  }
-                });
-            };
+              $timeout(function () {
+                self.activitybackendmap.map.clickedMarker.latitude = coords.lat();
+                self.activitybackendmap.map.clickedMarker.longitude = coords.lng();
 
-            scope.getGoogleAddressAutoCompletionList = function (viewValue) {
-              return activitybackendmap.getGoogleAddressAutoCompletionList(viewValue);
-            };
+                self.activitybackendmap.map.center.latitude = coords.lat();
+                self.activitybackendmap.map.center.longitude = coords.lng();
+              });
+            }
+          });
+      };
 
-            scope.activitybackendmap.map.events = {
-              click: function (mapModel, eventName, originalEventArgs) {
-                var e;
-                if (!originalEventArgs) {
-                  e = {
-                    latLng: {
-                      lat: function () {
-                        return scope.activitybackendmap.map.center.latitude;
-                      },
-                      lng: function () {
-                        return scope.activitybackendmap.map.center.longitude;
-                      }
-                    }
-                  };
-                } else {
-                  e = originalEventArgs[0];
+      this.getGoogleAddressAutoCompletionList = function (viewValue) {
+        return activitybackendmap.getGoogleAddressAutoCompletionList(viewValue);
+      };
+
+      this.activitybackendmap.map.events = {
+        click: function (mapModel, eventName, originalEventArgs) {
+          var e;
+          if (!originalEventArgs) {
+            e = {
+              latLng: {
+                lat: function () {
+                  return self.activitybackendmap.map.center.latitude;
+                },
+                lng: function () {
+                  return self.activitybackendmap.map.center.longitude;
                 }
-
-                $timeout(function () {
-                  scope.activitybackendmap.map.clickedMarker.latitude = e.latLng.lat();
-                  scope.activitybackendmap.map.clickedMarker.longitude = e.latLng.lng();
-                });
-
-                scope.activitybackendmap.findAddressForCoordinates(e.latLng.lat(), e.latLng.lng())
-                  .then(function (address) {
-                    $timeout(function () {
-                      scope.activity.address = address;
-                      scope.activity.location = {
-                        lng: e.latLng.lng(),
-                        lat: e.latLng.lat()
-                      };
-                    });
-                  });
               }
             };
-
-          },
-          post: function postLink(scope, iElement, iAttrs, controller) {
-
+          } else {
+            e = originalEventArgs[0];
           }
-        };
 
-      }
+          $timeout(function () {
+            self.activitybackendmap.map.clickedMarker.latitude = e.latLng.lat();
+            self.activitybackendmap.map.clickedMarker.longitude = e.latLng.lng();
+          });
+
+          self.activitybackendmap.findAddressForCoordinates(e.latLng.lat(), e.latLng.lng())
+            .then(function (address) {
+              $timeout(function () {
+                self.activity.address = address;
+                self.activity.location = {
+                  lng: e.latLng.lng(),
+                  lat: e.latLng.lat()
+                };
+              });
+            });
+        }
+      };
     };
 
-  });
+    var directiveDefinitionObject = {
+      restrict: 'E',
+      scope: {
+        "activity": "="
+      },
+      controller: controller,
+      controllerAs: 'ctrl',
+      bindToController: true, //required in 1.3+ with controllerAs
+      templateUrl: 'views/directives/activitylocationselector.html'
+    };
+    return directiveDefinitionObject;
+  }
+);

@@ -167,11 +167,11 @@ $break-low-screen: 850px;
 // ###########################################################################################################################
 
 @mixin sysfont_01 {
-  font-family: #{$sysfont_01};
+  font-family: $sysfont_01;
 }
 
 @mixin webfont_01 {
-  font-family: embeded-webfont_01, #{$sysfont_01};
+  font-family: embeded-webfont_01, $sysfont_01;
   letter-spacing: -0.03em;
 }
 
