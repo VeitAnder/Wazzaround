@@ -233,13 +233,6 @@ module.exports = function (grunt) {
       //   dist: {}
       // },
 
-      // Test settings
-      karma: {
-        unit: {
-          configFile: 'karma.conf.js',
-          singleRun: true
-        }
-      },
       html2js: {
         app: {
           options: {
@@ -390,12 +383,6 @@ module.exports = function (grunt) {
     'convertgssjson'
   ]);
 
-  grunt.registerTask('test', [
-    'clean:server',
-    'concurrent:test',
-    'connect:test',
-    'karma'
-  ]);
 
   grunt.registerTask('build', [
     'clean:dist',

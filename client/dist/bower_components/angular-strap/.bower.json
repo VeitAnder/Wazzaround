@@ -1,7 +1,7 @@
 {
   "name": "angular-strap",
   "description": "AngularStrap - AngularJS directives for Bootstrap",
-  "version": "2.1.2",
+  "version": "2.0.3",
   "keywords": [
     "angular",
     "bootstrap"
@@ -24,8 +24,8 @@
     }
   ],
   "main": [
-    "dist/angular-strap.js",
-    "dist/angular-strap.tpl.js"
+    "dist/angular-strap.min.js",
+    "dist/angular-strap.tpl.min.js"
   ],
   "ignore": [
     "docs",
@@ -33,30 +33,29 @@
     "CONTRIBUTING.md"
   ],
   "dependencies": {
-    "angular": "^1.2.21",
-    "bootstrap": "^3.2.0",
-    "angular-motion": "^0.3.3"
+    "angular": "~1.2.16",
+    "bootstrap": "~3.1.1"
   },
   "devDependencies": {
-    "angular-animate": "^1.2.21",
-    "angular-i18n": "^1.2.21",
-    "angular-mocks": "^1.2.21",
-    "angular-route": "^1.2.21",
-    "angular-sanitize": "^1.2.21",
-    "angular-scenario": "^1.2.21",
-    "highlightjs": "^8.0.0",
-    "jquery": "^2.1.1",
-    "font-awesome": "^4.1.0",
-    "fastclick": "^1.0.3",
-    "bootstrap-additions": "~0.2.3"
+    "angular-animate": "~1.2.16",
+    "angular-i18n": "~1.2.16",
+    "angular-mocks": "~1.2.16",
+    "angular-motion": "~0.3.1",
+    "angular-route": "~1.2.16",
+    "angular-sanitize": "~1.2.16",
+    "angular-scenario": "~1.2.16",
+    "fastclick": "~1.0.2",
+    "font-awesome": "~4.1.0",
+    "highlightjs": "~8.0.0",
+    "jquery": "~2.1.1"
   },
-  "_release": "2.1.2",
+  "_release": "2.0.3",
   "_resolution": {
     "type": "version",
-    "tag": "v2.1.2",
-    "commit": "b59924b9623bdf00c70691835e8d6cc54732bb39"
+    "tag": "v2.0.3",
+    "commit": "a65e89cf1cee5515fadfee029e930f05c1a2eb4a"
   },
   "_source": "git://github.com/mgcrea/angular-strap.git",
-  "_target": "2.1.2",
+  "_target": "2.0.3",
   "_originalSource": "angular-strap"
 }
