@@ -37,10 +37,22 @@ require("./servermodules/serveclient.js").setupStaticAssetsServer(app, (86400000
 
 require("./servermodules/serveclient.js").setupMaintenanceMode(app);
 
-app.use(bodyParser.json());
+// Fix Issue http://stackoverflow.com/questions/19917401/node-js-express-request-entity-too-large
+app.use(bodyParser.json({
+    limit: '50mb'
+  })
+);
 app.use(bodyParser.urlencoded({
-  extended: true
-}));
+    limit: '50mb',
+    extended: true
+  })
+);
+
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({
+//    extended: true
+//  })
+//);
 app.set('json spaces', 2);
 
 if (process.env.NODE_ENV === "production") {
