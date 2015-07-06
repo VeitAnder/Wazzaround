@@ -1,0 +1,13 @@
+{
+	"version": "1.0",
+	"name": "wazzaround",
+	"description": "wazzaround",
+	"icons": {
+		"60": "favicon\/firefox_app_60x60.png",
+		"128": "favicon\/firefox_app_128x128.png"
+	},
+	"developer": {
+		"name": "anorak.io",
+		"url": "www.wazzaround.com"
+	}
+}
