@@ -33,6 +33,12 @@ angular.module('anorakApp')
               scope.event.end = getEndDate().toDate();
             };
 
+            scope.$watch('event.start', function (newVal, oldVal) {
+              if (newVal !== oldVal) {
+                updateEndDate();
+              }
+            }, true);
+
             scope.$watch('event.durationdays', function (newVal, oldVal) {
               if (newVal !== oldVal) {
                 updateEndDate();
