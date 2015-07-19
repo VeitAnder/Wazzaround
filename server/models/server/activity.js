@@ -173,18 +173,6 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
           [params.to.lng, params.to.lat]
         ]
       }
-    },
-    bookableItems: {
-      $elemMatch: {
-        events: {
-          $elemMatch: {
-            start: {
-              '$gte': startDate,
-              '$lte': endDate
-            }
-          }
-        }
-      }
     }
   })
     .then(function (activities) {
