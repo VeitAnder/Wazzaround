@@ -31,8 +31,8 @@ ActivityModel.readFilter(function (req) {
     if (req.user.userType === 'provider') {
       return {
         "$or": [
-          { "published": true },
-          { "owner._reference": req.user._id }
+          {"published": true},
+          {"owner._reference": req.user._id}
         ]
       };
     }
@@ -165,29 +165,36 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
   var startDate = new Date(params.startDate);
   var endDate = new Date(params.endDate);
 
-  return models.ActivityModel.filtered_findQ({
-      location: {
-        '$geoWithin': {
-          '$box': [
-            [ params.from.lng, params.from.lat ],
-            [ params.to.lng, params.to.lat ]
-          ]
-        }
-      },
-      bookableItems: {
-        $elemMatch: {
-          events: {
-            $elemMatch: {
-              start: {
-                '$gte': startDate,
-                '$lte': endDate
-              }
+  return models.ActivityModel.find({
+    location: {
+      '$geoWithin': {
+        '$box': [
+          [params.from.lng, params.from.lat],
+          [params.to.lng, params.to.lat]
+        ]
+      }
+    },
+    bookableItems: {
+      $elemMatch: {
+        events: {
+          $elemMatch: {
+            start: {
+              '$gte': startDate,
+              '$lte': endDate
             }
           }
         }
       }
-    },
-    req);
+    }
+  })
+    .then(function (activities) {
+      console.log("activities", activities);
+      activities.forEach(function (activity) {
+        activity.bookableItems = [];
+      });
+
+      return activities;
+    });
 });
 
 ActivityModel.factoryImpl("byOwner", function (params, req) {
