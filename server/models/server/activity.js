@@ -176,10 +176,10 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
     }
   })
     .then(function (activities) {
-      console.log("activities", activities);
-      activities.forEach(function (activity) {
-        activity.bookableItems = [];
-      });
+      //console.log("activities", activities);
+      //activities.forEach(function (activity) {
+      //  activity.bookableItems = [];
+      //});
 
       return activities;
     });
