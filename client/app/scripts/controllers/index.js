@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, currentUser, mediaquery, $location, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates, $timeout) {
+  .controller('indexCtrl', function ($scope, $filter, currentUser, mediaquery, $location, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates, $timeout) {
     $scope.frontendmap = frontendmap;
 
     $scope.$on('$viewContentLoaded', function () {
@@ -15,7 +15,58 @@ angular.module('anorakApp')
 
     $scope.currentUser = currentUser;
 
-    $scope.states = {};
+    $scope.states = {
+      filteredactivities: frontendmap.map.markers
+    };
+
+    $scope.$watch(function () {
+        return frontendmap.map.markers;
+      },
+      function (newVal, oldVal) {
+        filterActivities();
+      },
+      true
+    );
+
+    $scope.$watch(function () {
+        return $scope.categories;
+      },
+      function (newVal, oldVal) {
+        filterActivities();
+      },
+      true
+    );
+
+    $scope.$watch(function () {
+        return $scope.states.selectedactivityid;
+      },
+      function (newVal, oldVal) {
+        filterActivities();
+      },
+      true
+    );
+
+    var filterActivities = function () {
+      var filter1 = _.filter(frontendmap.map.markers, function (activity) {
+        return $scope.selectedCategoryFilter(activity);
+      });
+      var filter2 = $filter("markercoordsfilter")(filter1);
+      var filter3 = $filter("adddistancetosearchlocation")(filter2);
+      var filter4 = _.sortBy(filter3, function (activity) {
+        return activity.distancetosearchlocation;
+      });
+
+      // mark active marker
+      filter4.forEach(function (activity) {
+        if (activity._id === $scope.states.selectedactivityid) {
+          activity.markerIconUrl = frontendmap.getMarkerIconActive(activity.category.main);
+        } else {
+          activity.markerIconUrl = frontendmap.getMarkerIcon(activity.category.main);
+        }
+      });
+
+      $scope.states.filteredactivities = filter4;
+    };
 
     $scope.categories = categories;
 
@@ -37,7 +88,7 @@ angular.module('anorakApp')
         // 2. nicht mehr existierende Keys in local storage
         var newCats = [];
         _.each(newKeys, function (newKey) {
-          newCats = newCats.concat(_.where(catsFromDB, { key: newKey }));
+          newCats = newCats.concat(_.where(catsFromDB, {key: newKey}));
         });
 
         var remainingCats = _.remove(catsFromLocalStorage, function (cat) {
@@ -146,17 +197,20 @@ angular.module('anorakApp')
       "zIndex": 1000
     };
 
-    $scope.onMarkerClicked = function (markerClicked) {
+    $scope.onMarkerClicked = function (markerClicked, event, activity) {
+      console.log("markerClicked, event, activity", markerClicked, event, activity);
+      markerClicked.icon = frontendmap.getMarkerIconActive(activity.category.main);
+
       if (mediaquery.isNoCols()) {
         // mobile handler
         $scope.$apply(function () {
-          $location.path("/activities/" + markerClicked._id);
+          $location.path("/activities/" + activity._id);
         });
       } else {
 
         //deselect all except clicked on
         _.each($scope.frontendmap.map.markers, function (marker) {
-          if (marker._id === markerClicked._id) {
+          if (marker._id === activity._id) {
             marker.showWindow = true;
             marker.selected = true;
           } else {
@@ -165,11 +219,9 @@ angular.module('anorakApp')
           }
         });
         $timeout(function () {
-          // set detail id
-          $scope.states.selectedactivityid = markerClicked._id;
           // open detail view of activity when marker got clicked
+          $scope.states.selectedactivityid = activity._id;
           $scope.states.activitydetailactive = true;
-          $scope.$apply();
         });
 
       }
@@ -218,7 +270,7 @@ angular.module('anorakApp')
     };
 
     $scope.getSubCategoriesForMainCategory = function (mainCat) {
-      return _.find($scope.categories, { "key": mainCat}).sub;
+      return _.find($scope.categories, {"key": mainCat}).sub;
     };
 
 // check if all subcategories of this maincategory are selected
@@ -262,7 +314,7 @@ angular.module('anorakApp')
     };
 
     $scope.areItemsInThisCategorySelected = function (category) {
-      if (_.where(category.sub, { 'selected': true }).length > 0) {
+      if (_.where(category.sub, {'selected': true}).length > 0) {
         return true;
       } else {
         return false;
@@ -310,7 +362,7 @@ angular.module('anorakApp')
 
       // now intersect the selectedSubCatsKeysArray with the activitySubCatsKeysArray
       // if the result has at least length === 1 we have a match, count it
-      var activitiesForThisMainCategory = _.where($scope.frontendmap.map.markers, { category: { main: category.key}});
+      var activitiesForThisMainCategory = _.where($scope.frontendmap.map.markers, {category: {main: category.key}});
       _.each(activitiesForThisMainCategory, function (activity) {
         var activitySubCatsKeysArray = _.map(activity.category.subs, 'key');
         var intersection = _.intersection(activitySubCatsKeysArray, selectedSubCatsKeysArray);
@@ -360,7 +412,8 @@ angular.module('anorakApp')
 //
 //
 
-    $scope.putIntoShoppingCart = function (activity, event) { };
+    $scope.putIntoShoppingCart = function (activity, event) {
+    };
 
     // when user changes language, reload controller so that all translations are correct
     // when language changes globally, reset also in directive
@@ -396,7 +449,7 @@ angular.module('anorakApp')
 
     $scope.selectnext = function () {
       //simple implementation - get index of current selected id
-      var index = _.findIndex($scope.states.filteredactivities, { '_id': $scope.getSelectedMarkerId() });
+      var index = _.findIndex($scope.states.filteredactivities, {'_id': $scope.getSelectedMarkerId()});
       var newindex = index + 1;
 
       if (newindex > $scope.states.filteredactivities.length - 1) {
@@ -415,7 +468,7 @@ angular.module('anorakApp')
 
     $scope.selectprev = function () {
       //simple implementation - get index of current selected id
-      var index = _.findIndex($scope.states.filteredactivities, { '_id': $scope.getSelectedMarkerId() });
+      var index = _.findIndex($scope.states.filteredactivities, {'_id': $scope.getSelectedMarkerId()});
       var newindex = index - 1;
 
       if (newindex < 0) {
@@ -457,16 +510,7 @@ angular.module('anorakApp')
     };
 
     $scope.lowestPriceOfSelectedActivity = function () {
-
-      var bookableItems = $scope.getSelectedActivity().bookableItems;
-
-      var min = _.min(
-        _.map(bookableItems, function (item) {
-          return _.min(item.events, 'price').price;
-        })
-      );
-
-      return min;
+      return $scope.getSelectedActivity().lowestPrice;
     };
 
     $scope.toggleFilterBlockOnMobiles = function () {

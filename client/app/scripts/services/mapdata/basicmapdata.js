@@ -7,7 +7,7 @@
  http://stackoverflow.com/questions/13619837/angular-js-inject-new-instance-of-class
  */
 angular.module('anorakApp')
-  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates, $timeout, $filter) {
+  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates, $timeout, $filter, APP_CONFIG) {
 
     var mapdata = function () {
       var self = this;
@@ -134,7 +134,7 @@ angular.module('anorakApp')
 
         //http://stackoverflow.com/questions/13928057/how-to-cancel-an-http-request-in-angularjs
         canceler = $q.defer();
-        return $http.get("http://localhost:3000/test/?query=" + JSON.stringify(query), {timeout: canceler.promise})
+        return $http.get(APP_CONFIG.modelizerurl + "quickfixapi/find/?query=" + JSON.stringify(query), {timeout: canceler.promise})
           .then(function (response) {
             return response.data;
           });

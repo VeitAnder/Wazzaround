@@ -5,6 +5,8 @@ process.on('uncaughtException', function (err) {
   console.log('Caught exception', err);
 });
 
+var _ = require('lodash');
+
 var express = require('express');
 var compress = require('compression');
 var cookieParser = require('cookie-parser');
@@ -98,7 +100,7 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "developme
 app.use('/' + config.api.apiversion + 'upload', require("./routes/upload.js"));
 app.use('/' + config.api.apiversion + 'users', require("./routes/users.js"))
 
-app.get('/test/', function (req, res, next) {
+app.get('/quickfixapi/find/', function (req, res, next) {
 
   var activities = db.collection('activities');
   var params = JSON.parse(req.query.query);
@@ -127,14 +129,28 @@ app.get('/test/', function (req, res, next) {
       }
     }
   })
-    .limit(10, function (err, docs) {
+    .limit(50, function (err, docs) {
       if (docs === null) {
         docs = [];
       } else {
-/*        // docs is an array of all the documents in mycollection
+
+        // get Lowest Price
+
+        var lowestPriceOfSelectedActivity = function (activity) {
+          var min = _.min(
+            _.map(activity.bookableItems, function (item) {
+              return _.min(item.events, 'price').price;
+            })
+          );
+          return min;
+        };
+
+        // docs is an array of all the documents in mycollection
         docs.forEach(function (doc) {
+          doc.lowestPrice = lowestPriceOfSelectedActivity(doc);
           doc.bookableItems = [];
-        });*/
+        });
+
       }
       res.status(200).send(docs);
     });

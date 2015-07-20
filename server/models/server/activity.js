@@ -187,7 +187,6 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
       }
     }
   })
-    .limit(5)
     .then(function (activities) {
       console.log("activities", activities);
       //activities.forEach(function (activity) {

@@ -1,12 +1,19 @@
 'use strict';
 
 angular.module('anorakApp')
-  .filter('markercoordsfilter', function () {
-    return function (m, config) {
-      _.each(m, function (marker) {
-        marker.longitude = marker.location.lng;
-        marker.latitude = marker.location.lat;
+  .filter('markercoordsfilter', function (translationutils) {
+    return function (activities, config) {
+      _.each(activities, function (activity) {
+        activity.longitude = activity.location.lng;
+        activity.latitude = activity.location.lat;
+
+        activity.markerOptions = {
+          labelContent: activity.name[translationutils.getAvailableTranslationLanguageKey(activity.name)],
+          labelAnchor: '22 0',
+          labelClass: 'marker-labels marker-label-category-' + activity.category.main
+        };
+
       });
-      return m;
+      return activities;
     };
   });
