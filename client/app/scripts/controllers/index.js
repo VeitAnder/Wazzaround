@@ -198,7 +198,6 @@ angular.module('anorakApp')
     };
 
     $scope.onMarkerClicked = function (markerClicked, event, activity) {
-      console.log("markerClicked, event, activity", markerClicked, event, activity);
       markerClicked.icon = frontendmap.getMarkerIconActive(activity.category.main);
 
       if (mediaquery.isNoCols()) {

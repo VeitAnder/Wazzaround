@@ -105,7 +105,6 @@ app.get('/quickfixapi/find/', function (req, res, next) {
   var activities = db.collection('activities');
   var params = JSON.parse(req.query.query);
 
-  console.log("params", params);
   // find everything
   activities.find({
     location: {
