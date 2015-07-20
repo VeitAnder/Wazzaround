@@ -130,8 +130,6 @@ angular.module('anorakApp')
           endDate: map.searchEndDate
         };
 
-        console.log("query", query, JSON.stringify(query));
-
         //http://stackoverflow.com/questions/13928057/how-to-cancel-an-http-request-in-angularjs
         canceler = $q.defer();
         return $http.get(APP_CONFIG.modelizerurl + "quickfixapi/find/?query=" + JSON.stringify(query), {timeout: canceler.promise})
