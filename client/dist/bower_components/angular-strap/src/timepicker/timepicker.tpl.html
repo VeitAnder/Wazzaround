@@ -3,16 +3,24 @@
   <thead>
     <tr class="text-center">
       <th>
-        <button tabindex="-1" type="button" class="btn btn-default pull-left" ng-click="$moveIndex(-1, 0)">
-          <i class="{{$iconUp}}"></i>
+        <button tabindex="-1" type="button" class="btn btn-default pull-left" ng-click="$arrowAction(-1, 0)">
+          <i class="{{ $iconUp }}"></i>
         </button>
       </th>
       <th>
         &nbsp;
       </th>
       <th>
-        <button tabindex="-1" type="button" class="btn btn-default pull-left" ng-click="$moveIndex(-1, 1)">
-          <i class="{{$iconUp}}"></i>
+        <button tabindex="-1" type="button" class="btn btn-default pull-left" ng-click="$arrowAction(-1, 1)">
+          <i class="{{ $iconUp }}"></i>
+        </button>
+      </th>
+      <th>
+        &nbsp;
+      </th>
+      <th>
+        <button ng-if="showSeconds" tabindex="-1" type="button" class="btn btn-default pull-left" ng-click="$arrowAction(-1, 2)">
+          <i class="{{ $iconUp }}"></i>
         </button>
       </th>
     </tr>
@@ -32,6 +40,14 @@
           <span ng-class="{'text-muted': row[1].muted}" ng-bind="row[1].label"></span>
         </button>
       </td>
+      <td>
+        <span ng-bind="i == midIndex ? timeSeparator : ' '"></span>
+      </td>
+      <td class="text-center">
+        <button tabindex="-1" ng-if="showSeconds && row[2].date" style="width: 100%" type="button" class="btn btn-default" ng-class="{'btn-primary': row[2].selected}" ng-click="$select(row[2].date, 2)" ng-disabled="row[2].disabled">
+          <span ng-class="{'text-muted': row[2].muted}" ng-bind="row[2].label"></span>
+        </button>
+      </td>
       <td ng-if="showAM">
         &nbsp;
       </td>
@@ -44,16 +60,24 @@
   <tfoot>
     <tr class="text-center">
       <th>
-        <button tabindex="-1" type="button" class="btn btn-default pull-left" ng-click="$moveIndex(1, 0)">
-          <i class="{{$iconDown}}"></i>
+        <button tabindex="-1" type="button" class="btn btn-default pull-left" ng-click="$arrowAction(1, 0)">
+          <i class="{{ $iconDown }}"></i>
         </button>
       </th>
       <th>
         &nbsp;
       </th>
       <th>
-        <button tabindex="-1" type="button" class="btn btn-default pull-left" ng-click="$moveIndex(1, 1)">
-          <i class="{{$iconDown}}"></i>
+        <button tabindex="-1" type="button" class="btn btn-default pull-left" ng-click="$arrowAction(1, 1)">
+          <i class="{{ $iconDown }}"></i>
+        </button>
+      </th>
+      <th>
+        &nbsp;
+      </th>
+      <th>
+        <button ng-if="showSeconds" tabindex="-1" type="button" class="btn btn-default pull-left" ng-click="$arrowAction(1, 2)">
+          <i class="{{ $iconDown }}"></i>
         </button>
       </th>
     </tr>

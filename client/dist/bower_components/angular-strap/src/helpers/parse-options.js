@@ -34,9 +34,18 @@ angular.module('mgcrea.ngStrap.helpers.parseOptions', [])
         $parseOptions.valuesFn = function(scope, controller) {
           return $q.when(valuesFn(scope, controller))
           .then(function(values) {
-            $parseOptions.$values = values ? parseValues(values, scope) : {};
+            if(!angular.isArray(values)) {
+              values = [];
+            }
+            $parseOptions.$values = values.length ? parseValues(values, scope) : [];
             return $parseOptions.$values;
           });
+        };
+
+        $parseOptions.displayValue = function(modelValue) {
+          var scope = {};
+          scope[valueName] = modelValue;
+          return displayFn(scope);
         };
 
         // Private functions
@@ -46,8 +55,8 @@ angular.module('mgcrea.ngStrap.helpers.parseOptions', [])
             var locals = {}, label, value;
             locals[valueName] = match;
             label = displayFn(scope, locals);
-            value = valueFn(scope, locals) || index;
-            return {label: label, value: value};
+            value = valueFn(scope, locals);
+            return {label: label, value: value, index: index};
           });
         }
 
