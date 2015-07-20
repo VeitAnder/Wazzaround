@@ -96,7 +96,49 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "developme
 }
 
 app.use('/' + config.api.apiversion + 'upload', require("./routes/upload.js"));
-app.use('/' + config.api.apiversion + 'users', require("./routes/users.js"));
+app.use('/' + config.api.apiversion + 'users', require("./routes/users.js"))
+
+app.get('/test/', function (req, res, next) {
+
+  var activities = db.collection('activities');
+  var params = JSON.parse(req.query.query);
+
+  console.log("params", params);
+  // find everything
+  activities.find({
+    location: {
+      '$geoWithin': {
+        '$box': [
+          [params.from.lng, params.from.lat],
+          [params.to.lng, params.to.lat]
+        ]
+      }
+    },
+    bookableItems: {
+      $elemMatch: {
+        events: {
+          $elemMatch: {
+            start: {
+              '$gte': new Date(params.startDate),
+              '$lte': new Date(params.endDate)
+            }
+          }
+        }
+      }
+    }
+  })
+    .limit(10, function (err, docs) {
+      if (docs === null) {
+        docs = [];
+      } else {
+/*        // docs is an array of all the documents in mycollection
+        docs.forEach(function (doc) {
+          doc.bookableItems = [];
+        });*/
+      }
+      res.status(200).send(docs);
+    });
+});
 
 require("./servermodules/serveclient.js").serveClient(app);
 

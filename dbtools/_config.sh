@@ -5,7 +5,7 @@ BACKUPLOCATION=./dumps
 
 SECRETCONFIGFILE_LOCAL=../server/config_local.js
 SECRETCONFIGFILE_DEV=../server/config_developmentmodulus.js
-SECRETCONFIGFILE_PRODUCTION=../server/config_productionmodulus.js
+SECRETCONFIGFILE_PRODUCTION=../server/config_production.js
 
 MONGOLAB_COLLECTIONS=(migration accesstokens activities bookedEvents bookings categories users)
 

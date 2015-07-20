@@ -87,10 +87,37 @@ angular.module('anorakApp')
       // find activities according to date that the user entered
       // there may be a start date and an end date or only one of them or none
       // find only activities that are within a northeast and southwest lat/lng
+
+      var canceler = $q.defer();
+
       var findActivities = function () {
 
-        // @TODO for Jonathan - abort filteredActivities request if new one is fired!
-        return models.ActivityModel.filteredActivities({
+        // later...
+        canceler.resolve();
+
+        /*                // @TODO for Jonathan - abort filteredActivities request if new one is fired!
+         return models.ActivityModel.filteredActivities({
+         from: {  //  <bottom left coordinates>   southwest
+         lng: map.bounds.southwest.longitude,
+         lat: map.bounds.southwest.latitude
+         },
+         to: {  //  <upper right coordinates>    northeast
+         lng: map.bounds.northeast.longitude,
+         lat: map.bounds.northeast.latitude
+         },
+         startDate: map.searchStartDate,
+         endDate: map.searchEndDate
+         })
+         .then(function (activities) {
+         console.log("activities", activities);
+         activities.forEach(function (activity) {
+         activity.bookableItems = [];
+         });
+
+         return activities;
+         });*/
+
+        var query = {
           from: {  //  <bottom left coordinates>   southwest
             lng: map.bounds.southwest.longitude,
             lat: map.bounds.southwest.latitude
@@ -101,11 +128,36 @@ angular.module('anorakApp')
           },
           startDate: map.searchStartDate,
           endDate: map.searchEndDate
-        })
-          .then(function (activities) {
-            return activities;
+        };
+
+        console.log("query", query, JSON.stringify(query));
+
+        //http://stackoverflow.com/questions/13928057/how-to-cancel-an-http-request-in-angularjs
+        canceler = $q.defer();
+        return $http.get("http://localhost:3000/test/?query=" + JSON.stringify(query), {timeout: canceler.promise})
+          .then(function (response) {
+            return response.data;
           });
       };
+
+      var promiseDebounce = function (fn, ctx) {
+        var pending = null;
+
+        function clear() {
+          pending = null;
+        }
+
+        return function () {
+          if (pending) {
+            return pending;
+          }
+          pending = fn.apply(ctx, arguments);
+          pending.then(clear, clear);
+          return pending;
+        };
+      };
+
+      var findActivitiesDebounced = promiseDebounce(findActivities);
 
       var onMapChange = function (googleMap) {
         // bounds contain northeast and southwest lat/lng which we will use to search activities within
@@ -123,7 +175,7 @@ angular.module('anorakApp')
         saveMapStateToUsersession();
 
         // look for activities within these bounds and in a date range from now until one year later
-        findActivities()
+        findActivitiesDebounced()
           .then(function (activities) {
             setMarkers(activities);
           })
@@ -177,7 +229,7 @@ angular.module('anorakApp')
         // setEndDateDependingOnStartDate();
         // setTimeOnStartAndEndDate();
 
-        findActivities()
+        findActivitiesDebounced()
           .then(function (activities) {
             setMarkers(activities);
           })
@@ -225,7 +277,7 @@ angular.module('anorakApp')
           "latitude": 45.12199086176226
         },
         centerMarkerTitle: self.translateSearchLocation,
-        zoom: 9,
+        zoom: 10,
         markericon: "/img/mapicons/marker-sports.svg",
         templatedInfoWindow: {
           coords: {
@@ -248,7 +300,9 @@ angular.module('anorakApp')
           panControl: false,
           overviewMapControl: false,
           mapTypeControl: false,
-          streetViewControl: false
+          streetViewControl: false,
+          minZoom: 9,
+          maxZoom: 15
         },
         events: {
           idle: onMapChange

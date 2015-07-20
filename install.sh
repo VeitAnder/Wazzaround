@@ -11,7 +11,7 @@ echo "to use other node version, checkout node version manager: nvm \n\n "
 
 echo -e "\n\nimport local database:"
 cd dbtools
-./mongoimport_local.sh ./dumps/local/
+#./mongoimport_local.sh ./dumps/local/
 cd ..
 
 # install packages on client and server

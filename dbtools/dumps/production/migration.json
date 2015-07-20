@@ -1,2 +1,4 @@
 { "id" : "users-adddisabledattribute", "_id" : { "$oid" : "543546723470dd0ae885ef3c" } }
 { "id" : "users-addemailconfirmed", "_id" : { "$oid" : "543546753470dd0ae885ef3d" } }
+{ "id" : "addpromocodetousers", "_id" : { "$oid" : "544ab24af497ad1da0eeaffb" } }
+{ "id" : "saleuser", "_id" : { "$oid" : "54735690bd05f8110dc54273" } }

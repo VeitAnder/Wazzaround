@@ -116,7 +116,7 @@
             events='frontendmap.map.events'
             options='frontendmap.map.options'
             >
-          <ui-gmap-marker
+<!--          <ui-gmap-marker
               ng-repeat="m in states.filteredactivities = (frontendmap.map.markers | filter:selectedCategoryFilter | adddistancetosearchlocation | orderBy:'distancetosearchlocation' | markercoordsfilter) track by m._id"
               coords='m'
               click='onMarkerClicked(m)'
@@ -126,13 +126,22 @@
               >
           </ui-gmap-marker>
 
-          <!--marker for clicked position can not put google.frontendmap.map.animations.BOUNCE , since it is not initialized yet-->
+          &lt;!&ndash;marker for clicked position can not put google.frontendmap.map.animations.BOUNCE , since it is not initialized yet&ndash;&gt;
           <ui-gmap-marker
               coords="frontendmap.map.centerMarker"
               options="{labelContent: frontendmap.map.centerMarkerTitle(), labelAnchor:'22 0', labelClass:'marker-labels marker-labels-your-location', draggable: true}"
               idKey='1'
               >
-          </ui-gmap-marker>
+          </ui-gmap-marker>-->
+
+
+<!--
+          <ui-gmap-markers
+              models="frontendmap.map.markers | filter:selectedCategoryFilter | adddistancetosearchlocation | orderBy:'distancetosearchlocation' | markercoordsfilter"
+              idKey='_id'
+              coords="'location'"
+              >
+          </ui-gmap-markers>-->
 
         </ui-gmap-google-map>
 
