@@ -13,6 +13,8 @@ angular.module('anorakApp')
         });
     });
 
+    $scope.$window = $window;
+
     $scope.currentUser = currentUser;
 
     $scope.states = {

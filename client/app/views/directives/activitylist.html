@@ -1,0 +1,18 @@
+<div
+    ng-repeat="activity in ctrl.activities"
+    class="category-{{activity.category.main}}"
+    >
+
+  <h5 class="title">
+    {{activity.name | languageselect}}
+  </h5>
+
+  <cloudinaryimage
+      data-publicid="{{activity.images[0].public_id}}"
+      data-format="{{activity.images[0].format}}"
+      data-width="400"
+      data-height="200"
+      >
+  </cloudinaryimage>
+
+</div>

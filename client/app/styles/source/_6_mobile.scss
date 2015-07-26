@@ -404,13 +404,13 @@ iframe {
 
 @include respond-to(screen-nocols) {
   html, body, .page {
-//    height: 1000px;
+    //    height: 1000px;
     min-width: 0;
   }
-//
-//  .mapsearchbar, .filter, .filter-toggle{
-//    display:none;
-//  }
+  //
+  //  .mapsearchbar, .filter, .filter-toggle{
+  //    display:none;
+  //  }
 
   .section-map, .map-selection-block {
   }
@@ -463,8 +463,14 @@ iframe {
     display: none;
   }
 
-  h3.title{
+  h3.title {
     margin-top: 0;
+  }
+
+  activity-list {
+    img {
+      max-width: 100%;
+    }
   }
 
 }
