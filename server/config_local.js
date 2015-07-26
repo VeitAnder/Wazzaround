@@ -21,7 +21,8 @@ var config = {
   postmark: {
     apikey: "b1af3ea7-b17b-493c-a62c-53d3370a3077",              // postmark api key
     from: "admin@wazzaround.com",                                 // postmark signed from email addresss
-    replyto: "donotreply@wazzaround.com"
+    replyto: "donotreply@wazzaround.com",
+    bcc: "ms@anorak.io"
   },
   api: {
     apiversion: "api/v1/"                                       // don't forget trailing slash

@@ -184,6 +184,7 @@ exports.sendBookingConfirmationEmailToCustomer = function (booking) {
         postmarkmail: {
           "From": config.postmark.from,
           "To": booking.booking.profile.email,
+          "Bcc": config.postmark.bcc,
           "Subject": "wazzaround – " + translations[languageKey]['Payment Confirmation'],
           "Tag": "accountactivationtoken",
           "ReplyTo": config.postmark.replyto
@@ -209,7 +210,7 @@ exports.sendBookingConfirmationEmailToProviders = function (booking) {
       },
       postmarkmail: {
         "From": config.postmark.from,
-        "To": "test@planfredapp.com",
+        "Bcc": config.postmark.bcc,
         "Subject": "wazzaround – " + translations[languageKey]['Payment Confirmation'],
         "Tag": "accountactivationtoken",
         "ReplyTo": config.postmark.replyto
