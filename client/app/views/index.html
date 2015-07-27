@@ -105,7 +105,9 @@
 
     </div>
 
-    <div class="map-wrap">
+    <div
+        class="map-wrap"
+        >
       <div class="map-innerwrap">
 
         <ui-gmap-google-map
@@ -284,7 +286,7 @@
 
     <activity-list
         activities="states.filteredactivities"
-        ng-if="$window.innerWidth < '768'"
+        ng-if="APP_CONFIG.mobile"
         >
     </activity-list>
 

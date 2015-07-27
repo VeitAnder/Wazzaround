@@ -1,3 +1,8 @@
+<p
+    ng-show="ctrl.activities.length > 0"
+    >
+  {{ctrl.activities.length}} {{ 'activities found' | translate }}
+</p>
 <div
     ng-repeat="activity in ctrl.activities"
     class="category-{{activity.category.main}}"
@@ -15,4 +20,51 @@
       >
   </cloudinaryimage>
 
+  <div class="activity-distance-element">
+    <div class="current-location"></div>
+    <div class="activity-distance-txt">
+      {{activity.distancetosearchlocation | mtokm }} km
+    </div>
+    <div class="activity-location"></div>
+  </div>
+
+  <div class="activity-price-min">
+    <div class="innerwrap">
+      <span class="smalltext">{{'starting from' | translate }}</span>
+      <span class="price">{{ activity.lowestPrice | currency }}</span>
+    </div>
+  </div>
+
+  <div class="currentactivity-txt">
+    <h5 class="category">
+      <div class="innerwrap">
+        {{activity.category.main | translate}}
+        <span class="category-sub"
+              ng-repeat="subcat in activity.category.subs">
+          / {{subcat.key | translate}}
+        </span>
+      </div>
+    </h5>
+
+    <h5 class="title">
+      {{activity.name | languageselect}}
+    </h5>
+
+    <div class="description multiline">
+      <div class="innerwrap">
+        {{activity.shortdescription[ctrl.translationutils.getAvailableTranslationLanguageKey(activity.shortdescription)]}}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="activitybar-noresult"
+     ng-show="ctrl.activities.length === 0"
+    >
+  <span class="icon"></span>
+  <h4>{{'No Activities found.' | translate}}</h4>
+
+  <p>{{'Zoom out the map or reset your filter settings.' | translate}}</p>
 </div>

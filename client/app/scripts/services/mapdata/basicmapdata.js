@@ -7,7 +7,7 @@
  http://stackoverflow.com/questions/13619837/angular-js-inject-new-instance-of-class
  */
 angular.module('anorakApp')
-  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates, $timeout, $filter, APP_CONFIG) {
+  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates, $timeout, $filter, APP_CONFIG, $window) {
 
     var mapdata = function () {
       var self = this;
@@ -300,7 +300,8 @@ angular.module('anorakApp')
           mapTypeControl: false,
           streetViewControl: false,
           minZoom: 9,
-          maxZoom: 15
+          maxZoom: 15,
+          draggable: !APP_CONFIG.mobile
         },
         events: {
           idle: onMapChange

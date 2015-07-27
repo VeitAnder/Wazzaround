@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('indexCtrl', function ($scope, $filter, currentUser, mediaquery, $location, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates, $timeout) {
+  .controller('indexCtrl', function ($scope, $filter, currentUser, mediaquery, $location, $window, $rootScope, categories, frontendmap, $route, $translate, Usersessionstates, $timeout, APP_CONFIG) {
     $scope.frontendmap = frontendmap;
 
     $scope.$on('$viewContentLoaded', function () {
@@ -14,6 +14,7 @@ angular.module('anorakApp')
     });
 
     $scope.$window = $window;
+    $scope.APP_CONFIG = APP_CONFIG;
 
     $scope.currentUser = currentUser;
 

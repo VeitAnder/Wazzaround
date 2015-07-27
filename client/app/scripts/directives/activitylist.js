@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('activityList', function activityListFactory() {
+  .directive('activityList', function activityListFactory(translationutils) {
 
     var controller = function () {
-
+       this.translationutils = translationutils;
     };
 
     var directiveDefinitionObject = {

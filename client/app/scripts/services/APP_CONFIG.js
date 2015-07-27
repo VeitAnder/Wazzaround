@@ -2,7 +2,11 @@ angular.module('anorakApp')
   .factory('APP_CONFIG', function ($window) {
     "use strict";
     var hostconfig = {},
-      globalconfig = {},
+      globalconfig = {
+        mobile: function () {
+          return $window.innerWidth < 768;
+        }()
+      },
       apiversion = "/api/v1/";
 
     if ($window.location.hostname.indexOf("wazzaround.com") >= 0 || $window.location.hostname.indexOf("wwwwazzaroundcom.herokuapp.com") >= 0 || $window.location.hostname === "reacture.com" || $window.location.hostname === "www.reacture.com" || $window.location.hostname === "beta.reacture.com" || $window.location.hostname === "reactureapp-11359.onmodulus.net") {
@@ -29,7 +33,7 @@ angular.module('anorakApp')
           });
         })()
       };
-    } else if ($window.location.hostname.indexOf("devwwwwazzaroundcom.herokuapp.com") >= 0 ||  $window.location.hostname === "reactureappdev-10669.onmodulus.net" || $window.location.hostname === "dev.reacture.anorak.io") {
+    } else if ($window.location.hostname.indexOf("devwwwwazzaroundcom.herokuapp.com") >= 0 || $window.location.hostname === "reactureappdev-10669.onmodulus.net" || $window.location.hostname === "dev.reacture.anorak.io") {
       // development server
       hostconfig = {
         AmazonS3Config: {
@@ -69,10 +73,10 @@ angular.module('anorakApp')
         },
         paymillPublicKey: '744618362999c5386cdc5e61fee63d2c',  // test key
         logentries: (function () {
-/*          LE.init({
-            token: '',
-            catchall: true
-          });*/
+          /*          LE.init({
+           token: '',
+           catchall: true
+           });*/
         })()
       };
     }
