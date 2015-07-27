@@ -1,68 +1,75 @@
-<p
-    ng-show="ctrl.activities.length > 0"
-    >
+<h4
+  ng-show="ctrl.activities.length > 0"
+  class="searchhits"
+  >
   {{ctrl.activities.length}} {{ 'activities found' | translate }}
-</p>
+</h4>
 <div
-    ng-repeat="activity in ctrl.activities"
-    class="category-{{activity.category.main}}"
+  ng-repeat="activity in ctrl.activities"
+  class="category-{{activity.category.main}}"
+  >
+
+  <div
+    class="activityheader"
     >
-
-  <h5 class="title">
-    {{activity.name | languageselect}}
-  </h5>
-
-  <cloudinaryimage
-      data-publicid="{{activity.images[0].public_id}}"
-      data-format="{{activity.images[0].format}}"
-      data-width="400"
-      data-height="200"
-      >
-  </cloudinaryimage>
-
-  <div class="activity-distance-element">
-    <div class="current-location"></div>
-    <div class="activity-distance-txt">
-      {{activity.distancetosearchlocation | mtokm }} km
-    </div>
-    <div class="activity-location"></div>
-  </div>
-
-  <div class="activity-price-min">
-    <div class="innerwrap">
-      <span class="smalltext">{{'starting from' | translate }}</span>
-      <span class="price">{{ activity.lowestPrice | currency }}</span>
-    </div>
-  </div>
-
-  <div class="currentactivity-txt">
-    <h5 class="category">
-      <div class="innerwrap">
-        {{activity.category.main | translate}}
-        <span class="category-sub"
-              ng-repeat="subcat in activity.category.subs">
-          / {{subcat.key | translate}}
-        </span>
-      </div>
-    </h5>
-
     <h5 class="title">
       {{activity.name | languageselect}}
     </h5>
 
-    <div class="description multiline">
-      <div class="innerwrap">
-        {{activity.shortdescription[ctrl.translationutils.getAvailableTranslationLanguageKey(activity.shortdescription)]}}
+    <div class="activity-distance-element-outerwrap">
+      <div class="activity-distance-element">
+        <div class="activity-distance-txt">
+          {{activity.distancetosearchlocation | mtokm }} km
+        </div>
       </div>
     </div>
-
   </div>
 
+  <div class="activitybody">
+
+    <cloudinaryimage
+      data-publicid="{{activity.images[0].public_id}}"
+      data-format="{{activity.images[0].format}}"
+      data-width="100"
+      data-height="100"
+      >
+    </cloudinaryimage>
+
+      <div class="activitycontent">
+        <h5 class="category">
+          <div class="innerwrap">
+            {{activity.category.main | translate}}
+            <span class="category-sub"
+                  ng-repeat="subcat in activity.category.subs">
+              / {{subcat.key | translate}}
+            </span>
+          </div>
+        </h5>
+
+        <div class="description multiline">
+          <div class="innerwrap">
+            {{activity.shortdescription[ctrl.translationutils.getAvailableTranslationLanguageKey(activity.shortdescription)]}}
+          </div>
+        </div>
+
+        <div class="activity-price-min">
+          <div class="innerwrap">
+            <span class="smalltext">{{'starting from' | translate }}</span>
+            <span class="price">{{ activity.lowestPrice | currency }}</span>
+          </div>
+        </div>
+        <button class="btn">
+          Book
+        </button>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <div class="activitybar-noresult"
      ng-show="ctrl.activities.length === 0"
-    >
+  >
   <span class="icon"></span>
   <h4>{{'No Activities found.' | translate}}</h4>
 

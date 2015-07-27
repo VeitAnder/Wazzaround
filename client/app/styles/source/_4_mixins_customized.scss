@@ -324,15 +324,6 @@ body:before {
   left: 0;
 }
 
-@include respond-to(screen-nocols) {
-  .map-wrap {
-    position: relative;
-    margin-left: 0px;
-    height: 300px;
-    clear: both;
-  }
-}
-
 .map-innerwrap {
   position: fixed;
   margin-left: $col-left-width;
@@ -1170,25 +1161,6 @@ activitybarstripe {
     width: 100px;
     margin: 0 $bu $bu 0;
     text-align: right;
-    .innerwrap {
-      display: inline-block;
-      padding: $fs*0.25 $fs*0.5;
-      color: $color_white;
-      background-color: $color_green;
-      @include border-radius($border-radius);
-    }
-    .price {
-      display: block;
-      font-weight: $font-weight_bold;
-      font-size: $fs*$font-size_h5_factor;
-      @include ellipsis(no-wrap);
-    }
-    .smalltext {
-      display: block;
-      @include font-size_small;
-      @include ellipsis(no-wrap);
-
-    }
   }
 
   .activity-distance-element {
@@ -1197,39 +1169,56 @@ activitybarstripe {
     top: 0;
     left: 0;
     margin: $bu 0 0 $bu;
-    min-height: 30px;
-    padding: 5px;
-    @include border-radius(15px);
     background-color: $color_white;
   }
+}
 
-  .current-location {
-    vertical-align: middle;
-    display: table-cell;
+.current-location {
+}
+
+.activity-distance-element {
+  min-height: 30px;
+  padding: 5px;
+  @include border-radius(15px);
+  background-color: $color_grey_15;
+}
+
+.activity-distance-txt {
+  color: $color_text;
+  font-weight: $font-weight_bold;
+  font-size: $fs*$font-size_small_factor;
+  border-right: 5px transparent solid;
+  max-width: 100%;
+  white-space: nowrap;
+  &:before{
+    content:"";
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: bottom;
     width: 20px;
-    max-height: 20px;
+    height: 20px;
     @include sprite_icons(-200px, 0, no-repeat);
   }
+}
 
-  .activity-distance-txt {
-    display: table-cell;
-    color: $color_text;
-    font-weight: $font-weight_bold;
-    font-size: $fs*$font-size_small_factor;
-    border-left: 5px transparent solid;
-    border-right: 5px transparent solid;
-    max-width: 100%;
-    white-space: nowrap;
+.activity-price-min {
+  .innerwrap {
+    display: inline-block;
+    padding: $fs*0.25 $fs*0.5;
+    color: $color_white;
+    background-color: $color_green;
+    @include border-radius($border-radius);
   }
-
-  .activity-location {
-    @include icon;
-    height: auto;
-    max-height: 20px;
-    position: static;
-    display: table-cell;
-    background-position: -45px 6px;
-    background-color: $color_grey;
+  .price {
+    display: block;
+    font-weight: $font-weight_bold;
+    font-size: $fs*$font-size_h5_factor;
+    @include ellipsis(no-wrap);
+  }
+  .smalltext {
+    display: block;
+    @include font-size_small;
+    @include ellipsis(no-wrap);
   }
 }
 
@@ -1256,6 +1245,11 @@ currentactivity {
     .currentactivity-body {
       border-color: $color_red;
     }
+  }
+  button{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
   }
 }
 

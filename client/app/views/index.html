@@ -209,13 +209,11 @@
                   </cloudinaryimage>
 
                   <div class="activity-distance-element">
-                    <div class="current-location"></div>
                     <div class="activity-distance-txt">
                       {{getSelectedActivity().distancetosearchlocation | mtokm }} km |
                       {{getIndexFilteredActivities(getSelectedActivity()) }} {{'of' | translate }}
                       {{states.filteredactivities.length}}
                     </div>
-                    <div class="activity-location"></div>
                   </div>
 
                   <div class="activity-price-min">
@@ -247,6 +245,11 @@
                       {{getSelectedActivity().shortdescription[getAvailableTranslationLanguageKey(getSelectedActivity().shortdescription)]}}
                     </div>
                   </div>
+
+                  <button class="btn">
+                    Book
+                  </button>
+
 
                 </div>
 

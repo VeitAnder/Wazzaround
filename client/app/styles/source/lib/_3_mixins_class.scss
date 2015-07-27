@@ -579,6 +579,7 @@ button.btn, .btn, a.btn {
 @mixin badge-category {
   display: inline-block;
   margin-top: 0;
+  margin-bottom: 10px;
   background-color: $color_grey;
   @include border-radius(($fs*$font-size_small_factor*$line-height_factor)*0.5 + 2px);
   padding: 2px $bu*0.5;

@@ -396,6 +396,11 @@ iframe {
   }
 }
 
+activity-list {
+  display: block;
+  padding: 15px;
+}
+
 // N O - C O L S   L A Y O U T
 // ###########################################################################################################################
 // ###########################################################################################################################
@@ -421,15 +426,18 @@ iframe {
       width: auto;
     }
     .map-wrap {
+      position: relative;
       margin: 0;
       bottom: 0;
+      height: 250px;
+      clear: both;
     }
     .map-innerwrap {
       display: block;
       position: relative;
       margin-left: 0;
       bottom: 0;
-      height: 300px;
+      height: 250px;
       margin-top: 0px;
     }
   }
@@ -463,14 +471,73 @@ iframe {
     display: none;
   }
 
+  activity-list {
+    & > div {
+      &:not(.activitybar-noresult) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        @include seperator(top, $color_main_seperator);
+      }
+    }
+
+    .activityheader {
+      margin-bottom: 5px;
+      .title {
+        display: table-cell;
+        width: 100%;
+      }
+      .activity-distance-element-outerwrap {
+        display: table-cell;
+        width: 100%;
+      }
+    }
+    .activitybody {
+      width: 100%;
+      cloudinaryimage {
+        display: table-cell;
+        img {
+          margin-right: 10px;
+        }
+      }
+      .activitycontent {
+        display: table-cell;
+        width: 100%;
+        vertical-align: top;
+      }
+      button {
+        float: right;
+      }
+    }
+
+    .category {
+      margin-bottom: 5px;
+    }
+    .activity-price-min {
+      display: inline-block;
+      .innerwrap {
+        padding: 0;
+        color: $color_green;
+        background-color: transparent;
+      }
+    }
+    .description {
+      margin-bottom: 5px;
+    }
+  }
+  .input-group-btn:last-child > .btn {
+    @include border-left-radius($border-radius_small);
+    //reset input-group-btn
+  }
+
   h3.title {
     margin-top: 0;
   }
 
-  activity-list {
-    img {
-      max-width: 100%;
-    }
+  .searchhits {
+    padding: 0.5rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: $font-weight_bold;
   }
-
 }

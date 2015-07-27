@@ -144,8 +144,8 @@ $break-low-screen: 850px;
 
 // Hello Web-Fonts :-)
 // Fonts-API
-// Simply use 
-// @include font; 
+// Simply use
+// @include font;
 // in your SCSS - that's it :-)
 // fonts generated with http://www.fontsquirrel.com/fontface/generator
 // font-embedding how-to: http://projekte.anorak.io.dyndns.info/projects/anorakio-typo3/wiki/FontEmbedding
@@ -287,8 +287,8 @@ $break-low-screen: 850px;
     .innerwrap, .innerwrap p {
       display: block; /* Fallback for non-webkit */
       display: -webkit-box;
-      line-height: $fs*$line-height_factor;
-      height: $fs*$line-height_factor*$lines-to-show + 1px; /* Fallback for non-webkit */
+      line-height: $fs*$line-height_headline-factor;
+      height: $fs*$line-height_headline-factor*$lines-to-show + 1px; /* Fallback for non-webkit */
       -webkit-line-clamp: $lines-to-show;
       -webkit-box-orient: vertical;
       overflow: hidden;
