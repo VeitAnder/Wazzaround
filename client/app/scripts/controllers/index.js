@@ -45,10 +45,21 @@ angular.module('anorakApp')
       },
       function (newVal, oldVal) {
         filterActivities();
+        emptyBookableItemsInOldSelectedActivityEvents(oldVal);
         updateSelectedActivityEvents(newVal);
       },
       true
     );
+
+    var emptyBookableItemsInOldSelectedActivityEvents = function (id) {
+      // return selected activity
+      var selectedactivity = _.find($scope.states.filteredactivities, function (activity) {
+        return activity._id === id;
+      });
+      if (selectedactivity) {
+        selectedactivity.bookableItems = [];
+      }
+    };
 
     var updateSelectedActivityEvents = function (id) {
       var selectedActivity = $scope.getSelectedActivity();
@@ -58,7 +69,7 @@ angular.module('anorakApp')
             selectedActivity.bookableItems = activity.bookableItems;
           });
       }
-    }
+    };
 
     var filterActivities = function () {
       var filter1 = _.filter(frontendmap.map.markers, function (activity) {
