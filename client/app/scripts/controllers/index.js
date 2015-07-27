@@ -45,9 +45,20 @@ angular.module('anorakApp')
       },
       function (newVal, oldVal) {
         filterActivities();
+        updateSelectedActivityEvents(newVal);
       },
       true
     );
+
+    var updateSelectedActivityEvents = function (id) {
+      var selectedActivity = $scope.getSelectedActivity();
+      if (selectedActivity) {
+        models.ActivityModel.get(id)
+          .then(function (activity) {
+            selectedActivity.bookableItems = activity.bookableItems;
+          });
+      }
+    }
 
     var filterActivities = function () {
       var filter1 = _.filter(frontendmap.map.markers, function (activity) {
