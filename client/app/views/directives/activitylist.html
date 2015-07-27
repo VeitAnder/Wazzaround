@@ -6,6 +6,7 @@
 <div
     ng-repeat="activity in ctrl.activities"
     class="category-{{activity.category.main}}"
+    ng-click="ctrl.goToDetailPage(activity)"
     >
 
   <h5 class="title">
