@@ -23,6 +23,7 @@ var config = {
     apikey: process.env.POSTMARK_APIKEY,             // postmark api key
     from: process.env.POSTMARK_FROM,                           // postmark signed from email addresss
     replyto: process.env.POSTMARK_REPLYTO,
+    bcc: process.env.POSTMARK_BCC
   },
   api: {
     apiversion: "api/v1/"                                       // don't forget trailing slash
