@@ -100,13 +100,15 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "developme
 app.use('/' + config.api.apiversion + 'upload', require("./routes/upload.js"));
 app.use('/' + config.api.apiversion + 'users', require("./routes/users.js"))
 
+/*
+ @TODO refactor out quickfixapi route into normal REST API when deprecating modelizer
+ */
 app.get('/quickfixapi/find/', function (req, res, next) {
 
   var activities = db.collection('activities');
   var params = JSON.parse(req.query.query);
 
-  // find everything
-  activities.find({
+  var query = {
     location: {
       '$geoWithin': {
         '$box': [
@@ -127,7 +129,34 @@ app.get('/quickfixapi/find/', function (req, res, next) {
         }
       }
     }
-  })
+  };
+
+  // find read filter
+  // allow global read access
+  // authorized users
+  if (req.isAuthenticated()) {
+    if (req.user.userType === 'user') {
+      query.published = true;
+    }
+
+    if (req.user.userType === 'provider') {
+      query.$or = [
+        {"published": true},
+        {"owner._reference": req.user._id}
+      ];
+    }
+
+    // kann alles lesen
+    //if (req.user.userType === 'admin') {
+    //}
+    // end authorized users
+  } else {
+    // für nicht eingeloggt user:
+    query.published = true;
+  }
+
+  // find everything
+  activities.find(query)
     .limit(50, function (err, docs) {
       if (docs === null) {
         docs = [];
