@@ -66,7 +66,9 @@ angular.module('anorakApp')
       if (selectedActivity) {
         models.ActivityModel.get(id)
           .then(function (activity) {
-            selectedActivity.bookableItems = activity.bookableItems;
+            $timeout(function () {
+              selectedActivity.bookableItems = activity.bookableItems;
+            });
           });
       }
     };
