@@ -7,6 +7,7 @@
 <div
   ng-repeat="activity in ctrl.activities"
   class="category-{{activity.category.main}}"
+  ng-click="ctrl.goToDetailPage(activity)"
   >
 
   <div
@@ -35,36 +36,36 @@
       >
     </cloudinaryimage>
 
-      <div class="activitycontent">
-        <h5 class="category">
-          <div class="innerwrap">
-            {{activity.category.main | translate}}
-            <span class="category-sub"
-                  ng-repeat="subcat in activity.category.subs">
-              / {{subcat.key | translate}}
-            </span>
-          </div>
-        </h5>
-
-        <div class="description multiline">
-          <div class="innerwrap">
-            {{activity.shortdescription[ctrl.translationutils.getAvailableTranslationLanguageKey(activity.shortdescription)]}}
-          </div>
+    <div class="activitycontent">
+      <h5 class="category">
+        <div class="innerwrap">
+          {{activity.category.main | translate}}
+          <span class="category-sub"
+                ng-repeat="subcat in activity.category.subs">
+            / {{subcat.key | translate}}
+          </span>
         </div>
+      </h5>
 
-        <div class="activity-price-min">
-          <div class="innerwrap">
-            <span class="smalltext">{{'starting from' | translate }}</span>
-            <span class="price">{{ activity.lowestPrice | currency }}</span>
-          </div>
+      <div class="description multiline">
+        <div class="innerwrap">
+          {{activity.shortdescription[ctrl.translationutils.getAvailableTranslationLanguageKey(activity.shortdescription)]}}
         </div>
-        <button class="btn">
-          Book
-        </button>
       </div>
 
+      <div class="activity-price-min">
+        <div class="innerwrap">
+          <span class="smalltext">{{'starting from' | translate }}</span>
+          <span class="price">{{ activity.lowestPrice | currency }}</span>
+        </div>
+      </div>
+      <button class="btn">
+        Book
+      </button>
     </div>
+
   </div>
+</div>
 </div>
 
 <div class="activitybar-noresult"

@@ -23,6 +23,10 @@ BookedEventModel.readFilter(function (req) {
     return false;
   }
 
+  if (req.user.userType === 'admin') {
+    return true;  // kann alles lesen
+  }
+
   return { "activity_owner._reference": req.user._id };  // allow activity owner to see his bookedEvents
 });
 

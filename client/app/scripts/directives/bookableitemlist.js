@@ -13,8 +13,9 @@ angular.module('anorakApp')
 
         var isItemEnabled = function (itemIdx) {
           if (!$scope.filter) return true;  // nicht filtern, wenn kein filter definiert ist
-
-          return $scope.filter.bookableItems[itemIdx].enabled();
+          if ($scope.filter.bookableItems[itemIdx]) {
+            return $scope.filter.bookableItems[itemIdx].enabled();
+          }
         };
 
         var isEventEnabled = function (event) {

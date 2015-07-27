@@ -21,39 +21,42 @@
 </div>
 
 <p class="align-right no-margin-top no-margin-bottom no-padding-bottom">
-  <a ng-href="/#/activities/{{getSelectedActivity()._id}}/">
-    <strong>{{'more information' | translate}}</strong>
+  {{'There are more events available' | translate}} …
+  <a class="btn btn-small"
+     ng-href="/#/activities/{{activity._id}}/"
+      >
+    {{ 'Show all Dates' | translate }}
   </a>
 </p>
 
 <div class="availability">
-  <div class="input-label">{{'Availability' | translate}}</div>
+  <div class="input-label">
+    {{'Availability' | translate}}
+  </div>
 
-  <!--<div ng-repeat="bookableItem in getSelectedActivity().bookableItems"-->
-  <!--class="event-list event-list-items">-->
+  <div ng-repeat="bookableItem in getSelectedActivity().bookableItems"
+       class="event-list event-list-items">
 
-  <!--<div ng-show="bookableitems.length === 0">-->
-  <!--<h5>{{'No events to display yet' | translate}}</h5>-->
-  <!--</div>-->
-
-  <!--<span class="event-item" ng-repeat="event in bookableItem.events | limitTo:3">-->
-  <!--<item activity="getSelectedActivity()"-->
-  <!--bookable-item="bookableItem"-->
-  <!--event="event"-->
-  <!--</item>-->
-  <!--</span>-->
-
-  <!--</div>-->
-<!--  <span ng-init="activity = getSelectedActivity()" >
-    <span ng-controller="EventListFilterCtrl">
-        <bookableitemlist
-            activity="getSelectedActivity()"
-            filter="filter"
-            limit="3"
-            >
-        </bookableitemlist>
+    <span class="event-item"
+          ng-repeat="event in bookableItem.events | limitTo:1">
+      <item activity="getSelectedActivity()"
+            bookable-item="bookableItem"
+            event="event"
+      </item>
     </span>
-  </span>-->
+
+  </div>
+  <span ng-init="activity = getSelectedActivity()">
+    <span ng-controller="EventListFilterCtrl">
+      <bookableitemlist
+          activity="getSelectedActivity()"
+          filter="filter"
+          limit="3"
+          >
+      </bookableitemlist>
+    </span>
+  </span>
+
 </div>
 
 <!--
