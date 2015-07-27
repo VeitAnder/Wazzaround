@@ -2323,6 +2323,15 @@
   },
   {
     "\n": "",
+    "key": "All Bookings",
+    "en": "All Bookings",
+    "de": "Alle Buchungen",
+    "it": "Tutti la prenotazione",
+    "fr": "Tous les réservations",
+    "sp": "Todas las actividades"
+  },
+  {
+    "\n": "",
     "key": "Activity Providers Overview",
     "en": "Activity Providers Overview",
     "de": "Aktivitätsanbieter im Überblick",
