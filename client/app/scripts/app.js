@@ -200,6 +200,15 @@ angular.module('anorakApp')
           }]
         }
       })
+      .when('/admin/allbookings/', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'AdminBookingsCtrl',
+        resolve: {
+          bookedEvents: ['models', function (models) {
+            return models.BookedEventModel.all();
+          }]
+        }
+      })
       .when('/admin/activities', {
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'AdminAllactivitiesCtrl',
