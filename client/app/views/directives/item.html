@@ -27,23 +27,28 @@
 <div class="event-item-body">
   <div class="event-date cell first">
     <span class="input-label">
-      <!--{{'Date' | translate}}/{{'Time' | translate}}:-->
-      {{'When' | translate}}:
+      {{'Date' | translate}}/{{'Time' | translate}}:
     </span>
-    {{ event.start | momentjs:{format: "ddd, MMM D YYYY"} }}, {{ event.start | momentjs:{format: "HH:mm"} }}
+    <span>
+      {{ event.start | momentjs:{format: "ddd, MMM D YYYY"} }}, {{ event.start | momentjs:{format: "HH:mm"} }}
+    </span>
   </div>
   <div class="event-duration cell">
     <span class="input-label">
       {{'Duration' | translate}}:
     </span>
-    {{ {start:event.start, end:event.end} | duration }}
+    <span>
+      {{ {start:event.start, end:event.end} | duration }}
+    </span>
   </div>
 
   <div class="event-price cell last">
     <span class="input-label">
       {{'Price' | translate}}:
     </span>
-    {{event.price | currency}}
+    <span>
+      {{event.price | currency}}
+    </span>
   </div>
 
 </div>
