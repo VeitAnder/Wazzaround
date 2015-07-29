@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('item', function () {
+  .directive('item', function (APP_CONFIG, $location) {
     return {
       templateUrl: 'views/directives/item.html',
       restrict: 'E',
@@ -12,6 +12,7 @@ angular.module('anorakApp')
       },
       controller: function ($scope, shoppingcart) {
         $scope.addToShoppingCart = function () {
+          console.log("addToShoppingCart");
           shoppingcart.add({
             eventId: $scope.event._id,
             bookableItemId: $scope.bookableItem._id,
@@ -25,6 +26,11 @@ angular.module('anorakApp')
             image: $scope.activity.images[0],
             availableQuantity: $scope.event.availableQuantity
           });
+
+          if (APP_CONFIG.mobile) {
+            $location.path("/payment/");
+          }
+
         };
 
       }
