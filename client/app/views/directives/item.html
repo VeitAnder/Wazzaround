@@ -27,7 +27,8 @@
 <div class="event-item-body">
   <div class="event-date cell first">
     <span class="input-label">
-      {{'Date' | translate}}/{{'Time' | translate}}:
+      <!--{{'Date' | translate}}/{{'Time' | translate}}:-->
+      {{'When' | translate}}:
     </span>
     {{ event.start | momentjs:{format: "ddd, MMM D YYYY"} }}, {{ event.start | momentjs:{format: "HH:mm"} }}
   </div>
