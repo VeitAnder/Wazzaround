@@ -1190,8 +1190,8 @@ activitybarstripe {
   border-right: 5px transparent solid;
   max-width: 100%;
   white-space: nowrap;
-  &:before{
-    content:"";
+  &:before {
+    content: "";
     display: inline-block;
     margin-right: 5px;
     vertical-align: bottom;
@@ -1246,12 +1246,14 @@ currentactivity {
       border-color: $color_red;
     }
   }
-  button{
+  button {
     position: absolute;
     bottom: 15px;
     right: 15px;
   }
 }
+
+
 
 activitybardetail {
   position: absolute;
@@ -1293,9 +1295,16 @@ activitybardetail {
   .title {
     margin-top: 0;
   }
+
   .availability {
     margin-top: $fs;
+    /*
+      bookable items list patch when list is too long
+    */
+    max-height: 30vh;
+    overflow-y: scroll;
   }
+
   @include respond-to(low-screen) {
     padding-bottom: $bu*2.0;
     h4 {
@@ -2544,7 +2553,7 @@ $filter-category-arrow-width: 65px;
   // CATEGORY CULTURE
   &.filter-category-culture {
     .filter-category-header {
-      background-image:  url(#{$img_path}filtericon_culture.png);
+      background-image: url(#{$img_path}filtericon_culture.png);
       background-position: 15px 23px;
     }
   }
@@ -2553,7 +2562,7 @@ $filter-category-arrow-width: 65px;
   // CATEGORY WELLNESS
   &.filter-category-wellness {
     .filter-category-header {
-      background-image:  url(#{$img_path}filtericon_wellness.png);
+      background-image: url(#{$img_path}filtericon_wellness.png);
       background-position: 15px 20px;
     }
   }
