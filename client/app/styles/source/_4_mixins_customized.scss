@@ -1253,8 +1253,6 @@ currentactivity {
   }
 }
 
-
-
 activitybardetail {
   position: absolute;
   bottom: -100%;
@@ -3978,4 +3976,9 @@ noscript {
     line-height: 1.5em;
     margin: 0;
   }
+}
+
+.provider-csv-download {
+  display: block;
+  margin-bottom: 10px;
 }

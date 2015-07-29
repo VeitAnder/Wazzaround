@@ -1,15 +1,15 @@
 @import "_4_mixins_customized";
 
-
 html {
   // Prevent Firefox Scrollbar Jump - http://davidwalsh.name/css-enhancements-user-experience
   overflow-y: scroll;
   background: $color_background;
 
-}//html
+}
 
+//html
 
-body{
+body {
   @include sysfont_01;
   background: $color_background;
   font-size: $fs;
@@ -25,36 +25,35 @@ body{
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 
-
-  @include respond-to(screen-md){
+  @include respond-to(screen-md) {
     font-size: $fs*$fs-md;
     line-height: $fs*$fs-md*$line-height_factor;
   }
 
-  @include respond-to(screen-sm){
+  @include respond-to(screen-sm) {
     font-size: $fs*$fs-sm;
     line-height: $fs*$fs-sm*$line-height_factor;
   }
 
-  @include respond-to(screen-nocols){
+  @include respond-to(screen-nocols) {
     font-size: $fs*$fs-nocol;
     line-height: $fs*$fs-nocol*$line-height_factor;
   }
 
-  @include respond-to(low-screen){
+  @include respond-to(low-screen) {
     font-size: $fs*$fs-sm;
     line-height: $fs*$fs-sm*$line-height_factor;
   }
 
-}//body
+}
 
-
+//body
 
 //for printing
-@page{
+@page {
   margin: 1.0cm 1.0cm 1.0cm 2.0cm;
 }
 
-.maintenancescreen{
-  margin:50px;
+.maintenancescreen {
+  margin: 50px;
 }
