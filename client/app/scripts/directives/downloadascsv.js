@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .directive('downloadAsCsv', function downloadAsCsvFactory() {
 
-    var controller = function ($element) {
+    var controller = ["$element", function ($element) {
 
 // prepare CSV data
       var csvData = [];
@@ -31,7 +31,7 @@ angular.module('anorakApp')
 
       $element.empty().append(link);
 
-    };
+    }];
 
     var directiveDefinitionObject = {
       restrict: 'E',
