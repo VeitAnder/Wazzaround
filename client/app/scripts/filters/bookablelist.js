@@ -8,7 +8,7 @@ angular.module('anorakApp')
 
       limit = limit || Number.MAX_VALUE;
 
-      for (var i=0; i<input.length && returned < limit; i++) {
+      for (var i = 0; i < input.length && returned < limit; i++) {
 
         // only if availabe
         if (input[i].event.availableQuantity > 0) {
@@ -18,5 +18,19 @@ angular.module('anorakApp')
       }
 
       return res;
+    };
+  })
+  .filter('filterEventsByDatesInFrontendMap', function (frontendmap) {
+    return function (input, limit) {
+      // filter events based on start and end date in map filter / frontendmap
+      input.forEach(function (eventsList) {
+        console.log("eventsList", eventsList);
+        eventsList.events = _.filter(eventsList.events, function (event) {
+          //return event.start > frontendmap.map.searchStartDate && event.end < frontendmap.map.searchEndDate;
+          return new Date(event.start) > new Date(frontendmap.map.searchStartDate) && new Date(event.end) < new Date(frontendmap.map.searchEndDate);
+        });
+      });
+
+      return input;
     };
   });

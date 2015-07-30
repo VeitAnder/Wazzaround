@@ -67,7 +67,8 @@ angular.module('anorakApp')
         models.ActivityModel.get(id)
           .then(function (activity) {
             $timeout(function () {
-              selectedActivity.bookableItems = activity.bookableItems;
+              // filter bookableItems based on dates in frontendmap
+              selectedActivity.bookableItems = $filter("filterEventsByDatesInFrontendMap")(activity.bookableItems);
             });
           });
       }
