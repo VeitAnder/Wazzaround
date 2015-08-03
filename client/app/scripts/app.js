@@ -77,6 +77,7 @@ angular.module('anorakApp')
      }()));*/
 
     $locationProvider.html5Mode(false);
+    $locationProvider.hashPrefix('!');
 
     //if no route specified, go to default route
     $routeProvider

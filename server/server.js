@@ -113,9 +113,9 @@ app.get('/sitemap.xml', function (req, res, next) {
     cacheTime: 600000,        // 600 sec - cache purge period
     urls: [
       {url: '/', changefreq: 'daily', priority: 1},
-      {url: '/#/why/', changefreq: 'monthly', priority: 0.7},
-      {url: '/#/workwithus/', changefreq: 'monthly', priority: 0.7},
-      {url: '/#/legalnotes/', changefreq: 'monthly', priority: 0.3}
+      {url: '/#!/why/', changefreq: 'monthly', priority: 0.7},
+      {url: '/#!/workwithus/', changefreq: 'monthly', priority: 0.7},
+      {url: '/#!/legalnotes/', changefreq: 'monthly', priority: 0.3}
     ]
   });
 
@@ -146,7 +146,7 @@ app.get('/sitemap.xml', function (req, res, next) {
     .then(function (activities) {
       return activities.map(function (activity) {
         return {
-          url: '/#/activities/' + activity._id.toString(),
+          url: '/#!/activities/' + activity._id.toString(),
           changefreq: 'daily',
           priority: 0.8
         };
