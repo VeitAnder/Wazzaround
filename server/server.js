@@ -19,8 +19,15 @@ var logger = require('./lib/logger.js');
 
 var cacheControl = require('./lib/cacheControl');
 
+// sitemap service;
+var sm = require('sitemap');
+var Q = require("q");
+
 // export express
 var app = module.exports = express();
+
+// prerender.io service
+app.use(require('prerender-node').set('prerenderToken', 'KINFE7SXJyJIWbZnFRiO'));
 
 app.use(compress());                                // enable gzip compression for res.send()
 
@@ -99,6 +106,65 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "developme
 
 app.use('/' + config.api.apiversion + 'upload', require("./routes/upload.js"));
 app.use('/' + config.api.apiversion + 'users', require("./routes/users.js"))
+
+app.get('/sitemap.xml', function (req, res, next) {
+  var sitemap = sm.createSitemap({
+    hostname: 'https://www.wazzaround.com',
+    cacheTime: 600000,        // 600 sec - cache purge period
+    urls: [
+      {url: '/', changefreq: 'daily', priority: 1},
+      {url: '/why/', changefreq: 'monthly', priority: 0.7},
+      {url: '/workwithus/', changefreq: 'monthly', priority: 0.7},
+      {url: '/legalnotes/', changefreq: 'monthly', priority: 0.3}
+    ]
+  });
+  /*
+   function getActivities() {
+   var deferred = Q.defer();
+
+   var activities = db.collection('activities');
+   var query = {
+   published: true
+   };
+   // find everything
+   activities.find(query, function (err, docs) {
+   if (err) {
+   deferred.reject(err);
+   }
+
+   if (docs === null) {
+   deferred.resolve = [];
+   } else {
+   deferred.resolve(docs);
+   }
+
+   });
+   return deferred.promise;
+   }
+
+   getActivities()
+   .then(function (activities) {
+   return activities.map(function (activity) {
+   return {
+   url: '/activities/' + activity._id.toString(),
+   changefreq: 'daily',
+   priority: 0.5
+   };
+   });
+   })
+   .then(function (urls) {
+   sitemap.urls = sitemap.urls.concat(urls);
+   sitemap.toXML(function (xml) {
+   res.header('Content-Type', 'application/xml');
+   res.send(xml);
+   });
+   });*/
+
+  sitemap.toXML(function (xml) {
+    res.header('Content-Type', 'application/xml');
+    res.send(xml);
+  });
+});
 
 /*
  @TODO refactor out quickfixapi route into normal REST API when deprecating modelizer
