@@ -72,9 +72,11 @@ angular.module('anorakApp')
       $compileProvider.debugInfoEnabled(false);
     }
 
-    $locationProvider.html5Mode((function () {
-      return !!(window.history && history.pushState);
-    }()));
+    /*    $locationProvider.html5Mode((function () {
+     return !!(window.history && history.pushState);
+     }()));*/
+
+    $locationProvider.html5Mode(false);
 
     //if no route specified, go to default route
     $routeProvider

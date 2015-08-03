@@ -113,57 +113,53 @@ app.get('/sitemap.xml', function (req, res, next) {
     cacheTime: 600000,        // 600 sec - cache purge period
     urls: [
       {url: '/', changefreq: 'daily', priority: 1},
-      {url: '/why/', changefreq: 'monthly', priority: 0.7},
-      {url: '/workwithus/', changefreq: 'monthly', priority: 0.7},
-      {url: '/legalnotes/', changefreq: 'monthly', priority: 0.3}
+      {url: '/#/why/', changefreq: 'monthly', priority: 0.7},
+      {url: '/#/workwithus/', changefreq: 'monthly', priority: 0.7},
+      {url: '/#/legalnotes/', changefreq: 'monthly', priority: 0.3}
     ]
   });
-  /*
-   function getActivities() {
-   var deferred = Q.defer();
 
-   var activities = db.collection('activities');
-   var query = {
-   published: true
-   };
-   // find everything
-   activities.find(query, function (err, docs) {
-   if (err) {
-   deferred.reject(err);
-   }
+  function getActivities() {
+    var deferred = Q.defer();
 
-   if (docs === null) {
-   deferred.resolve = [];
-   } else {
-   deferred.resolve(docs);
-   }
+    var activities = db.collection('activities');
+    var query = {
+      published: true
+    };
+    // find everything
+    activities.find(query, function (err, docs) {
+      if (err) {
+        deferred.reject(err);
+      }
 
-   });
-   return deferred.promise;
-   }
+      if (docs === null) {
+        deferred.resolve = [];
+      } else {
+        deferred.resolve(docs);
+      }
 
-   getActivities()
-   .then(function (activities) {
-   return activities.map(function (activity) {
-   return {
-   url: '/activities/' + activity._id.toString(),
-   changefreq: 'daily',
-   priority: 0.5
-   };
-   });
-   })
-   .then(function (urls) {
-   sitemap.urls = sitemap.urls.concat(urls);
-   sitemap.toXML(function (xml) {
-   res.header('Content-Type', 'application/xml');
-   res.send(xml);
-   });
-   });*/
+    });
+    return deferred.promise;
+  }
 
-  sitemap.toXML(function (xml) {
-    res.header('Content-Type', 'application/xml');
-    res.send(xml);
-  });
+  getActivities()
+    .then(function (activities) {
+      return activities.map(function (activity) {
+        return {
+          url: '/#/activities/' + activity._id.toString(),
+          changefreq: 'daily',
+          priority: 0.8
+        };
+      });
+    })
+    .then(function (urls) {
+      sitemap.urls = sitemap.urls.concat(urls);
+      sitemap.toXML(function (xml) {
+        res.header('Content-Type', 'application/xml');
+        res.send(xml);
+      });
+    });
+
 });
 
 /*
