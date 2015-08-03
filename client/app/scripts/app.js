@@ -356,8 +356,7 @@ angular.module('anorakApp')
     $translateProvider.useLocalStorage();
 
   })
-  .
-  run(function ($rootScope, $locale, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate, translationutils, $window) {
+  .run(function ($rootScope, $locale, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate, translationutils, $window) {
     $rootScope.debug = debug;
     $rootScope.models = models;
     var checkRouteForAuthorization;
@@ -369,6 +368,11 @@ angular.module('anorakApp')
     _.forEach(models, function (model) {  // setup connection for each model
       model.connection(connector);
     });
+
+    // set language based on search parameter
+    if ($location.search().lang === "de" || $location.search().lang === "en" || $location.search().lang === "it") {
+      $translate.use($location.search().lang);
+    }
 
     moment.locale($translate.use());  // setup moment language
 

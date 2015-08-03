@@ -108,14 +108,20 @@ app.use('/' + config.api.apiversion + 'upload', require("./routes/upload.js"));
 app.use('/' + config.api.apiversion + 'users', require("./routes/users.js"))
 
 app.get('/sitemap.xml', function (req, res, next) {
+  var lang = "en";
+
+  if (req.query.lang) {
+    lang = req.query.lang;
+  }
+
   var sitemap = sm.createSitemap({
     hostname: 'https://www.wazzaround.com',
     cacheTime: 600000,        // 600 sec - cache purge period
     urls: [
-      {url: '/', changefreq: 'daily', priority: 1},
-      {url: '/#!/why/', changefreq: 'monthly', priority: 0.7},
-      {url: '/#!/workwithus/', changefreq: 'monthly', priority: 0.7},
-      {url: '/#!/legalnotes/', changefreq: 'monthly', priority: 0.3}
+      {url: '/?lang=' + lang, changefreq: 'daily', priority: 1},
+      {url: '/#!/why/?lang=' + lang, changefreq: 'monthly', priority: 0.7},
+      {url: '/#!/workwithus/?lang=' + lang, changefreq: 'monthly', priority: 0.7},
+      {url: '/#!/legalnotes/?lang=' + lang, changefreq: 'monthly', priority: 0.3}
     ]
   });
 
@@ -146,7 +152,7 @@ app.get('/sitemap.xml', function (req, res, next) {
     .then(function (activities) {
       return activities.map(function (activity) {
         return {
-          url: '/#!/activities/' + activity._id.toString(),
+          url: '/#!/activities/' + activity._id.toString() + '/?lang=' + lang,
           changefreq: 'daily',
           priority: 0.8
         };
