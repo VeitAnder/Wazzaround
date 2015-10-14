@@ -1,4 +1,5 @@
-# www.wazzaround.com (formerly www.reacture.com)
+# www.wazzaround.com 
+### (formerly www.reacture.com)
 
 ## Technology Stack
 wazzaround.com is based on the MEAN Stack (https://en.wikipedia.org/wiki/MEAN_(software_bundle)) and is entirely written in ES5 JavaScript.
