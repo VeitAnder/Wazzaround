@@ -1,6 +1,6 @@
 [
   {
-    "\n": "REGISTRATION",
+    "go": "REGISTRATION",
     "key": "",
     "en": "",
     "de": "",
@@ -9,7 +9,7 @@
     "sp": ""
   },
   {
-    "\n": "Company",
+    "go": "Company",
     "key": "helptext registration company",
     "en": "Enter the name of the company or person offering this activity.",
     "de": "Gib den Namen der Firma oder der Person an, die diese Aktivität anbietet.",
@@ -18,7 +18,7 @@
     "sp": "Introducir el nombre de la empresa o el de la persona que ofrece el servicio"
   },
   {
-    "\n": "Name of contact person",
+    "go": "Name of contact person",
     "key": "helptext registration contact person",
     "en": "close filter",
     "de": "Gib uns den Namen der Person an, mit der wir unter der oben genannten Nummer in Kontakt treten können.",
@@ -27,7 +27,7 @@
     "sp": "Introducir el nombre del responsable de la empresa"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "language",
     "en": "Language",
     "de": "Sprache",
@@ -36,7 +36,7 @@
     "sp": "Lengua"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "currency",
     "en": "Currency",
     "de": "Währung",
@@ -45,7 +45,7 @@
     "sp": "Divisa"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "language for your activities",
     "en": "Language for your activities",
     "de": "Sprache Deiner Aktivitäten",
@@ -54,7 +54,7 @@
     "sp": "Lengua para su actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "currency for your activities",
     "en": "Currency for your activities",
     "de": "Währung Deiner Aktivitäten",
@@ -63,7 +63,7 @@
     "sp": "Divisa para su actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "please select the language for your activities",
     "en": "Please select the language for your activities",
     "de": "Bitte gib die Sprache für deine Aktivitäten ein",
@@ -72,7 +72,7 @@
     "sp": "Seleccione la lengua para su actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "please select the currency for your activities",
     "en": "Please select the currency for your activities",
     "de": "Bitte gib die Währung für deine Aktivitäten ein",
@@ -81,7 +81,7 @@
     "sp": "Seleccione a divisa para su actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "english",
     "en": "english",
     "de": "english",
@@ -90,7 +90,7 @@
     "sp": "inglés"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "deutsch",
     "en": "deutsch",
     "de": "deutsch",
@@ -99,7 +99,7 @@
     "sp": "alemán"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "italiano",
     "en": "italiano",
     "de": "italiano",
@@ -108,7 +108,7 @@
     "sp": "italiano"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "francais",
     "en": "francais",
     "de": "francais",
@@ -117,7 +117,7 @@
     "sp": "francés"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "helptext legend",
     "en": "This sign will support you filling out the following form.",
     "de": "Dieses Zeichen unterstützt Dich beim Ausfüllen des folgenden Formulars.",
@@ -126,7 +126,7 @@
     "sp": "Este simbolo os aiudarà en la compilaciòn del formulario siguiente"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "registration confirmation message 1",
     "en": "Please confirm your e-mail address",
     "de": "Bitte bestätigen Sie Ihre E-Mail Adresse",
@@ -135,7 +135,7 @@
     "sp": "Por favor confirme su dirección de correo electrónico"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "registration confirmation message 2",
     "en": "We have sent you an Email with a confirmation link. Please check your inbox in order to coplete registration",
     "de": "Wir haben Ihnen eine Bestätigungs E-Mail gesendet. Bitte klicken Sie auf den darin enthaltenen Link um die Registrierung erfolgreich abzuschließen!",
@@ -144,7 +144,7 @@
     "sp": "Le hemos enviado un correo electrónico con un enlace de confirmación . Por favor, revise su bandeja de entrada por completar el registro"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "",
     "en": "",
     "de": "",
@@ -153,7 +153,7 @@
     "sp": ""
   },
   {
-    "\n": "ACTIVITY",
+    "go": "ACTIVITY",
     "key": "",
     "en": "",
     "de": "",
@@ -162,7 +162,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "helptext",
     "en": "input hint",
     "de": "Eingabehilfe",
@@ -171,7 +171,7 @@
     "sp": "Accesibilidad"
   },
   {
-    "\n": "Name of Activity or Activities",
+    "go": "Name of Activity or Activities",
     "key": "helptext activity name",
     "en": "Give your activity a name! Choose a title that describes what you are offering.",
     "de": "Gib Deiner Aktivität einen Namen! Dieser sollte beschreiben, was Du anbietest.",
@@ -180,7 +180,7 @@
     "sp": "Dé un nombre a tu actividad para descibir lo que ofrece."
   },
   {
-    "\n": "Meeting spot of this activity",
+    "go": "Meeting spot of this activity",
     "key": "helptext activity meeting spot",
     "en": "Allows you to choose where you will meet your customers.",
     "de": "Gib an, wo Dich Deine Kunden treffen werden.",
@@ -189,7 +189,7 @@
     "sp": "Indique el punto de encuentro"
   },
   {
-    "\n": "Short Description",
+    "go": "Short Description",
     "key": "helptext activity short descricption",
     "en": "helptext activity short descricption",
     "de": "Hilfetext Aktivitäten ",
@@ -198,7 +198,7 @@
     "sp": "Breve decscripción de su actividad"
   },
   {
-    "\n": "Detailed description (min. 150 signs)",
+    "go": "Detailed description (min. 150 signs)",
     "key": "helptext activity description",
     "en": "Describe your activity! The more details you indicate , the more likely you will get bookings. Enter all information that may interest your customers. Does your city tour include a meal? Which languages do you speak? For how long have you been offering this activity? Do your customers need anything to bring with them (cloth, shoes, sleeping bag....)?",
     "de": "Beschreibe Deine Aktivität! Je mehr Details Du angibst, umso eher wirst Du Buchungen erhalten. Wichtig sind alle Informationen, die Deine Kunden interessieren könnten. Ist bei Deiner Stadttour ein Restaurantbesuch inkludiert? Sprichst Du mehrere Sprachen? Wie lange bist Du schon in Deinem Bereich tätig? Müssen Deine Kunden selbst etwas mitnehmen (Kleidung, Schuhe, Schlafsack...)? Prinzipiell gilt: Je mehr Infos umso besser für Dich und Deine Kunden!",
@@ -207,7 +207,7 @@
     "sp": "Describa su actividad. Introduzca la mayoría de detalles y las posibilidades de recibir reservas aumentarán. Introduzca todads la s informaciones que podrían interesar a tus clientes. Su vuelta de la ciudad incluye una comida? Qué lenguas habla? Desde cuanto tiempo abastece este servicio? Tus clientes necesitan traer algunas herramientas ( prendas, zapatos, saco de dormir..)?"
   },
   {
-    "\n": "What can be booked? Description",
+    "go": "What can be booked? Description",
     "key": "helptext activity item description",
     "en": "Describe in a short sentence, what exactly your customers can book.",
     "de": "Beschreibe in einem kurzen Satz, was genau Deine Kunden buchen können.",
@@ -216,7 +216,7 @@
     "sp": "Describa brevemente y precisamente lo que tus clientes pueden reservar"
   },
   {
-    "\n": "Start date",
+    "go": "Start date",
     "key": "helptext activity start date",
     "en": "Choose when this activity takes place for the first time.",
     "de": "Gib an, wann diese Aktivität das erste Mal stattfindet.",
@@ -225,7 +225,7 @@
     "sp": "Indica cuando tu actividad tendrá lugar"
   },
   {
-    "\n": "Start time",
+    "go": "Start time",
     "key": "helptext activity start time",
     "en": "Choose at what time your customers should meet you at the meeting point.",
     "de": "Gib an, um welche Uhrzeit Deine Kunden am Treffpunkt sein sollen.",
@@ -234,7 +234,7 @@
     "sp": "Indica el horario en el cual tus clientes tienen que llegar al punto de encuentro"
   },
   {
-    "\n": "End date",
+    "go": "End date",
     "key": "helptext activity end date",
     "en": "Enter the date your activity end. Normally it will end the same day, only hours later …",
     "de": "Gib an, wieviele Tage diese Aktivität dauert.",
@@ -243,7 +243,7 @@
     "sp": "Indica la fecha en la cual tu actividad termina."
   },
   {
-    "\n": "End time",
+    "go": "End time",
     "key": "helptext activity end time",
     "en": "Allows you to choose when your activity ends.",
     "de": "Gib an, wann Deine Aktivität endet.",
@@ -252,7 +252,7 @@
     "sp": "Decida cuando terminar su actividad"
   },
   {
-    "\n": "Quantity",
+    "go": "Quantity",
     "key": "helptext activity quantity",
     "en": "Allows you to choose how many clients can simultaneously book your activity.",
     "de": "Gib an, wieviele Kunden gleichzeitig Deine Aktivität buchen können.",
@@ -261,7 +261,7 @@
     "sp": "Permite decidir cuantas personas pueden reservar en el mismo tiempo tu actividad"
   },
   {
-    "\n": "Price",
+    "go": "Price",
     "key": "helptext activity price",
     "en": "Allows you to choose how much your activity costs.",
     "de": "Gib an, wieviel Deine Aktivität kostet.",
@@ -270,7 +270,7 @@
     "sp": "Permite introducir el precio"
   },
   {
-    "\n": "repeating Event",
+    "go": "repeating Event",
     "key": "helptext activity repeating",
     "en": "Tell us until when this event should be repeated.",
     "de": "Gib an, bis wann sich dieses Event automatisch wiederholen soll.",
@@ -279,7 +279,7 @@
     "sp": "Permite saber hasta cuando este evento se puede repetir"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Do you want to delete the entire activity",
     "en": "Do you want to delete this activity including all its events?",
     "de": "Möchten Sie diese Aktivität samt allen Events wirklich löschen?",
@@ -288,7 +288,7 @@
     "sp": "Quieres borrar esta actividad y sus eventos?"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "",
     "en": "",
     "de": "",
@@ -297,7 +297,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "",
     "en": "",
     "de": "",
@@ -306,7 +306,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "",
     "en": "",
     "de": "",
@@ -315,7 +315,7 @@
     "sp": ""
   },
   {
-    "\n": "Shopping Cart",
+    "go": "Shopping Cart",
     "key": "",
     "en": "",
     "de": "",
@@ -324,7 +324,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Checkout",
     "en": "Checkout",
     "de": "Zur Kasse",
@@ -333,7 +333,7 @@
     "sp": "Checkout"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "in shopping cart",
     "en": "in shopping cart",
     "de": "Im Warenkorb",
@@ -342,7 +342,7 @@
     "sp": "en el carrito de la compra"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Subtotal",
     "en": "Amount",
     "de": "Summe",
@@ -351,7 +351,7 @@
     "sp": "Total"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Shopping cart",
     "en": "Shopping cart",
     "de": "Warenkorb",
@@ -360,7 +360,7 @@
     "sp": "carrito de la compra"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Payment options",
     "en": "Payment options",
     "de": "Zahlungsmodalitäten",
@@ -369,7 +369,7 @@
     "sp": "Opciones de pago"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Available Creditcards",
     "en": "Available Creditcards",
     "de": "Verfügbare Kreditkarten",
@@ -378,7 +378,7 @@
     "sp": "Tarjetas de crédito disponibles"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Card number",
     "en": "Card number",
     "de": "Kartennummer",
@@ -387,7 +387,7 @@
     "sp": "Número de tarjeta"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "CVC",
     "en": "CVC",
     "de": "CVC",
@@ -396,7 +396,7 @@
     "sp": "CVC"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Holdername",
     "en": "Holdername",
     "de": "Name auf der Kreditkarte",
@@ -405,7 +405,7 @@
     "sp": "titular de la tarjeta de crédito"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Expiry date month",
     "en": "Expiry date (MM)",
     "de": "Gültig bis (MM)",
@@ -414,7 +414,7 @@
     "sp": "Fecha de caducidad (MM)"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Expiry date year",
     "en": "Expiry date (YYYY)",
     "de": "Gültig bis (JJJJ)",
@@ -423,7 +423,7 @@
     "sp": "Fecha de caducidad (AAAA)"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Send booking",
     "en": "Send booking",
     "de": "Buchung absenden",
@@ -432,7 +432,7 @@
     "sp": "Envie su reserva"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter a valid card number",
     "en": "Please enter a valid card number",
     "de": "Bitte geben Sie eine gültige Kartennummer ein",
@@ -441,7 +441,7 @@
     "sp": "Introduzca un número de tarjeta válido"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your card number",
     "en": "Please enter your card number",
     "de": "Bitte geben Sie Ihre Kartennummer ein",
@@ -450,7 +450,7 @@
     "sp": "Introduzca su número de tarjeta"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter a valid CVC",
     "en": "Please enter a valid verification number (CVC)",
     "de": "Bitte geben Sie eine gültige Prüfnummer (CVC) ein",
@@ -459,7 +459,7 @@
     "sp": "Introduzca un número de verificación válido (CVC)"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your CVC",
     "en": "Please enter your verification number (CVC)",
     "de": "Bitte geben Sie Ihre Prüfnummer (CVC) ein",
@@ -468,7 +468,7 @@
     "sp": "Introduzca su número de verificación"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter a valid holdername",
     "en": "Please enter a valid holdername",
     "de": "Bitte geben Sie eine gültigen Namen ein",
@@ -477,7 +477,7 @@
     "sp": "Introduzca el nombre válido del titular de la tarjeta"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your holdername",
     "en": "Please enter your holdername",
     "de": "Bitte geben Sie den Namen der auf der Kreditkarte steht ein",
@@ -486,7 +486,7 @@
     "sp": "Introduzca el nombre del titular de la tarjeta de crédito"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter a valid number month",
     "en": "Please enter a valid number (MM)",
     "de": "Bitte geben Sie eine gültige, 2-stellige Zahl ein",
@@ -495,7 +495,7 @@
     "sp": "Introduzca un número válido para el més"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter the month of the expiry date",
     "en": "Please enter the month of the expiry date",
     "de": "Bitte geben Sie das Monat des Ablaufdatums ein",
@@ -504,7 +504,7 @@
     "sp": "Introduzca el mes de la fecha de caducidad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter a valid number year",
     "en": "Please enter a valid number year",
     "de": "Bitte geben Sie eine gültige, 4-stellige Zahl ein",
@@ -513,7 +513,7 @@
     "sp": "Introduzca un número válido para el año"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter the year of the expiry date",
     "en": "Please enter the year of the expiry date",
     "de": "Bitte geben Sie das Jahr des Ablaufdatums ein",
@@ -522,7 +522,7 @@
     "sp": "Introduzca el año de la fecha de caducidad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "",
     "en": "",
     "de": "",
@@ -531,7 +531,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "",
     "en": "",
     "de": "",
@@ -540,7 +540,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "",
     "en": "",
     "de": "",
@@ -549,7 +549,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Full text search",
     "en": "Full text search",
     "de": "Volltextsuche",
@@ -558,7 +558,7 @@
     "sp": "Búsqueda de texto completo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "My Acquired Providers",
     "en": "My acquired providers",
     "de": "Meine aquirierten Provider",
@@ -567,7 +567,7 @@
     "sp": "Mis proveedores adquiridos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "",
     "en": "",
     "de": "",
@@ -576,7 +576,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Bookings",
     "en": "Bookings",
     "de": "Buchungs-Übersicht",
@@ -585,7 +585,7 @@
     "sp": "Reservas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Booking date",
     "en": "Booking date",
     "de": "Buchungs-Datum",
@@ -594,7 +594,7 @@
     "sp": "Fecha de reserva"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Booked by",
     "en": "Booked by",
     "de": "Gebucht von",
@@ -603,7 +603,7 @@
     "sp": "Reservadi por"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Why reacture",
     "en": "Why wazzaround?",
     "de": "Warum wazzaround?",
@@ -612,7 +612,7 @@
     "sp": "Por qué wazzaround?"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Work with us",
     "en": "Work with us",
     "de": "Arbeiten Sie mit uns",
@@ -621,7 +621,7 @@
     "sp": "Trabaja con nosotros"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "get active",
     "en": "… get active!",
     "de": "… get active!",
@@ -630,7 +630,7 @@
     "sp": "Activate!"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Contact",
     "en": "Contact & Impressum",
     "de": "Kontakt & Impressum",
@@ -639,7 +639,7 @@
     "sp": "Contactanos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please choose",
     "en": "Please choose",
     "de": "Bitte wählen Sie",
@@ -648,7 +648,7 @@
     "sp": "Le rogamos que eliga"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "sports",
     "en": "Sports & Activities",
     "de": "Sport & Aktivitäten",
@@ -657,7 +657,7 @@
     "sp": "Deporte & Actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "wellness",
     "en": "Wellness & Relax",
     "de": "Wellness & Entspannung",
@@ -666,7 +666,7 @@
     "sp": "Bienestar & Relajación"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Sports and Activities",
     "en": "Sports & Activities",
     "de": "Sport & Aktivitäten",
@@ -675,7 +675,7 @@
     "sp": "Deporte & actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "of",
     "en": "of",
     "de": "von",
@@ -684,7 +684,7 @@
     "sp": "de"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Select all",
     "en": "Select all",
     "de": "Alle auswählen",
@@ -693,7 +693,7 @@
     "sp": "Seleccionar todo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Deselect all",
     "en": "Deselect all",
     "de": "Keine auswählen",
@@ -702,7 +702,7 @@
     "sp": "Deseleccionar todo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "culture",
     "en": "Culture & Taste",
     "de": "Kultur & Genuss",
@@ -711,7 +711,7 @@
     "sp": "Cultura & Gusto"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Wellness & Relax",
     "en": "Wellness & Relax",
     "de": "Wellness & Entspannung",
@@ -720,7 +720,7 @@
     "sp": "Bienestar & Relajación"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Show all",
     "en": "Show all",
     "de": "Alle anzeigen",
@@ -729,7 +729,7 @@
     "sp": "Muestre todo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Hide all",
     "en": "Hide all",
     "de": "Keine anzeigen",
@@ -738,7 +738,7 @@
     "sp": "Esconda todo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Offered by",
     "en": "Offered by:",
     "de": "Angeboten von:",
@@ -747,7 +747,7 @@
     "sp": "Ofrecido por:"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Availability",
     "en": "Availability:",
     "de": "Verfügbarkeit:",
@@ -756,7 +756,7 @@
     "sp": "Disponibilidad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Next available Dates",
     "en": "Next available Dates",
     "de": "Nächste Verfügbarkeit",
@@ -765,7 +765,7 @@
     "sp": "Proximas fechas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Book",
     "en": "Book",
     "de": "Buchen",
@@ -774,7 +774,7 @@
     "sp": "Reserve"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Prev",
     "en": "Prev",
     "de": "Früher",
@@ -783,7 +783,7 @@
     "sp": "Antes"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Show all Dates",
     "en": "Show all Dates",
     "de": "Alle Termine anzeigen",
@@ -792,7 +792,7 @@
     "sp": "Muestre todas las fechas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Next",
     "en": "Next",
     "de": "Später",
@@ -801,16 +801,16 @@
     "sp": "Más tarde"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "next day",
     "en": "next day",
     "de": "nächster Tag",
-    "it": "prossimo gionro",
+    "it": "prossimo giorno",
     "fr": "jour prochain",
     "sp": "dia sigiuente"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "trekkingbikinghiking",
     "en": "Trekking, Biking, Hiking",
     "de": "Trekking, Biking, Hiking",
@@ -819,7 +819,7 @@
     "sp": "Trekking, bici, escalada"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "adventure",
     "en": "Adventure",
     "de": "Abenteuer",
@@ -828,7 +828,7 @@
     "sp": "Aventura"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "yogapilates",
     "en": "Yoga, Pilates & Fitness",
     "de": "Yoga, Pilates & Fitness",
@@ -837,7 +837,7 @@
     "sp": "Yoga, Pilates & Fitness"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "fulldayactivities",
     "en": "Full day activities",
     "de": "Ganztagsaktivitäten",
@@ -846,7 +846,7 @@
     "sp": "Jornada comleta de actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "watersports",
     "en": "Water Sports",
     "de": "Wassersport",
@@ -855,7 +855,7 @@
     "sp": "Deportes acuaticos/ nauticos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "wintersports",
     "en": "Winter Sports",
     "de": "Wintersport",
@@ -864,7 +864,7 @@
     "sp": "Deportes invernales"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "motorizedsports",
     "en": "Motorized Sports",
     "de": "Motorsport",
@@ -873,7 +873,7 @@
     "sp": "Deportes motorizados"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "extremesports",
     "en": "Extreme Sports",
     "de": "Extremsport",
@@ -882,7 +882,7 @@
     "sp": "Deportes extremos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Trekking, Biking, Hiking",
     "en": "Trekking, Biking, Hiking",
     "de": "Trekking, Biking, Hiking",
@@ -891,7 +891,7 @@
     "sp": "Trekking, bici, escalada"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Yoga & Pilates",
     "en": "Yoga, Pilates & Fitness",
     "de": "Yoga, Pilates & Fitness",
@@ -900,7 +900,7 @@
     "sp": "Yoga, pilate & Fitness"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Water Sports",
     "en": "Water Sports",
     "de": "Wassersport",
@@ -909,7 +909,7 @@
     "sp": "Deportes acuaticos/ nauticos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Motorized Sports",
     "en": "Motorized Sports",
     "de": "Motorsport",
@@ -918,7 +918,7 @@
     "sp": "Deportes motorizados"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Adventure",
     "en": "Adventure",
     "de": "Abenteuer",
@@ -927,7 +927,7 @@
     "sp": "Aventura"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Full day activities",
     "en": "Full day activities",
     "de": "Ganztagsaktivitäten",
@@ -936,7 +936,7 @@
     "sp": "Jornada completa de actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Winter Sports",
     "en": "Winter Sports",
     "de": "Wintersport",
@@ -945,7 +945,7 @@
     "sp": "Deportes invernales"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Extreme Sports",
     "en": "Extreme Sports",
     "de": "Extremsport",
@@ -954,16 +954,16 @@
     "sp": "Deportes extremos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "degustations",
-    "en": "Degustations: Wine & Food & Cigars",
-    "de": "Verkostungen: Wein & Delikatessen & Zigarren",
-    "it": "Degustazioni: Vino & Cibo & Sigari",
-    "fr": "Dégustations: Vin & nourriture & cigares",
+    "en": "Degustations: Wine & Gourmet",
+    "de": "Verkostungen: Wein & Gourmet",
+    "it": "Degustazioni: Vino & Gourmet",
+    "fr": "Dégustations: Vin & gourmet",
     "sp": "Degustaciones:vino & comida & habanos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "guidedtours",
     "en": "Guided Tours",
     "de": "Führungen",
@@ -972,7 +972,7 @@
     "sp": "Excursiónes guiadas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "forfree",
     "en": "Activity for free",
     "de": "Gratisaktivitäten",
@@ -981,7 +981,7 @@
     "sp": "Actividades gratuitas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "animalsports",
     "en": "Animal Sports",
     "de": "Tiersport",
@@ -990,7 +990,7 @@
     "sp": "Actividades con animales"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "competition",
     "en": "Competitions",
     "de": "Wettbewerbe",
@@ -999,7 +999,7 @@
     "sp": "Competiciones"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "moredays",
     "en": "More days",
     "de": "Mehrtägig",
@@ -1008,7 +1008,7 @@
     "sp": "Más dÍas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "beautyandestetica",
     "en": "Beatuy + Aesthetics",
     "de": "Schönheit + Äesthetik",
@@ -1017,7 +1017,7 @@
     "sp": "Belleza+Estética"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "fullday",
     "en": "Full day",
     "de": "Ganztägig",
@@ -1026,7 +1026,7 @@
     "sp": "un día"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "coursesandlearning",
     "en": "Courses + Learing",
     "de": "Kurse + Lernen",
@@ -1035,7 +1035,7 @@
     "sp": "Cursos+aprendizaje"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "exhibitionsandfairs",
     "en": "Exhibitions & Fairs",
     "de": "Ausstellungen & Messen",
@@ -1044,7 +1044,7 @@
     "sp": "Exposiciones+ Ferias"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "operaandtheater",
     "en": "Opera & Theater",
     "de": "Oper & Theater",
@@ -1053,7 +1053,7 @@
     "sp": "Opera+Teatro"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "musicandfilm",
     "en": "Music & Film",
     "de": "Musik & Film",
@@ -1062,7 +1062,7 @@
     "sp": "Música+Peliculas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Degustations: Wine & Food & Cigars",
     "en": "Degustations: Wine & Food & Cigars",
     "de": "Verkostungen: Wein & Delikatessen & Zigarren",
@@ -1071,7 +1071,7 @@
     "sp": "Degustaciones:vino & comida & habanos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Exhibitions & Fairs",
     "en": "Exhibitions & Fairs",
     "de": "Ausstellungen & Messen",
@@ -1080,7 +1080,7 @@
     "sp": "Exposiciones+ Ferias"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Music & Film",
     "en": "Music & Film",
     "de": "Musik & Film",
@@ -1089,7 +1089,7 @@
     "sp": "Música+Peliculas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Guided Tours",
     "en": "Guided Tours",
     "de": "Führungen",
@@ -1098,7 +1098,7 @@
     "sp": "Exursiónes guiadas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Opera & Theater",
     "en": "Opera & Theater",
     "de": "Oper & Theater",
@@ -1107,7 +1107,7 @@
     "sp": "Opera+Teatro"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "massages",
     "en": "Massages",
     "de": "Massagen",
@@ -1116,7 +1116,7 @@
     "sp": "Masajes"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "medicaltreatments",
     "en": "Medical Treatments",
     "de": "Medizinische Behanldungen",
@@ -1125,7 +1125,7 @@
     "sp": "Tratamientos médicos específicos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "beauty",
     "en": "Beauty",
     "de": "Schönheit",
@@ -1134,7 +1134,7 @@
     "sp": "Belleza"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "spaandsauna",
     "en": "Spa & Sauna",
     "de": "Spa & Sauna",
@@ -1143,7 +1143,7 @@
     "sp": "Spa & Sauna"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Massages",
     "en": "Massages",
     "de": "Massagen",
@@ -1152,7 +1152,7 @@
     "sp": "Masajes"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Beauty",
     "en": "Beauty",
     "de": "Schönheit",
@@ -1161,7 +1161,7 @@
     "sp": "Belleza"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Medical Treatments",
     "en": "Medical Treatments",
     "de": "Medizinische Behanldungen",
@@ -1170,7 +1170,7 @@
     "sp": "Tratamientos médicos específicos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Spa & Sauna",
     "en": "Spa & Sauna",
     "de": "Spa & Sauna",
@@ -1179,7 +1179,7 @@
     "sp": "Spa & Sauna"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your current search location",
     "en": "Your current search location",
     "de": "Ihre Suchposition",
@@ -1188,7 +1188,7 @@
     "sp": "Su posición actual"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "You want to put",
     "en": "You want to put",
     "de": "Sie wollen",
@@ -1197,7 +1197,7 @@
     "sp": "Quieres poner"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "your Activities",
     "en": "your activities",
     "de": "Ihre Aktivitäten",
@@ -1206,7 +1206,7 @@
     "sp": "Vos actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "to reacture",
     "en": "to wazzaround",
     "de": "auf wazzaround stellen",
@@ -1215,7 +1215,7 @@
     "sp": "A wazzaround"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Account",
     "en": "Your account",
     "de": "Benutzerkonto",
@@ -1224,7 +1224,7 @@
     "sp": "Cuenta"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Login",
     "en": "Login",
     "de": "Login",
@@ -1233,7 +1233,7 @@
     "sp": "Entrar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Password",
     "en": "Password",
     "de": "Passwort",
@@ -1242,7 +1242,7 @@
     "sp": "Contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Not registered",
     "en": "Register as Customer",
     "de": "Noch nicht registriert?",
@@ -1251,7 +1251,7 @@
     "sp": "Ya registrado?"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Not registered as Provider",
     "en": "Register as activity provider now!",
     "de": "Jetzt als Aktivitäten-Anbieter registrieren!",
@@ -1260,7 +1260,7 @@
     "sp": "Registráte ahora como proveedor de actividades!"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Forgot password",
     "en": "Forgot password?",
     "de": "Passwort vergessen?",
@@ -1269,7 +1269,7 @@
     "sp": "Has olvidado tu contraseña?"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your e-mail address",
     "en": "Your e-mail address",
     "de": "Ihre E-Mail Adresse",
@@ -1278,7 +1278,7 @@
     "sp": "Su correo electrónico"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your password",
     "en": "Your password",
     "de": "Ihr Passwort",
@@ -1287,7 +1287,7 @@
     "sp": "Su contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Invalid Password",
     "en": "Invalid password",
     "de": "Ungültiges Passwort",
@@ -1296,7 +1296,7 @@
     "sp": "Contraseña no válida"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "User not found",
     "en": "This user does not exist",
     "de": "Dieser User existiert nicht",
@@ -1305,7 +1305,7 @@
     "sp": "No válido"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Shopping Cart",
     "en": "Shopping Cart",
     "de": "Warenkorb",
@@ -1314,7 +1314,7 @@
     "sp": "Mi carrito de la compra"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Why reacture reasons",
     "en": "wazzaround is a great platform for offering and finding activities around you.",
     "de": "wazzaround ist eine großartige Plattform um Aktivitäten rund um Ihre Location zu finden oder anzubieten.",
@@ -1323,7 +1323,7 @@
     "sp": "wazzaround es una grande plataforma para ofrecer y paraencontrar las actividades que te rodean."
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Register",
     "en": "Register now",
     "de": "Jetzt registrieren",
@@ -1332,7 +1332,7 @@
     "sp": "Registráte"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Quality",
     "en": "Quality",
     "de": "Qualität",
@@ -1341,7 +1341,7 @@
     "sp": "Calidad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "online and offline",
     "en": "online and offline",
     "de": "im online und offline",
@@ -1350,7 +1350,7 @@
     "sp": "en línea y fuera de línea"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "marketing",
     "en": "marketing",
     "de": "Marketing",
@@ -1359,7 +1359,7 @@
     "sp": "Marketing"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "International",
     "en": "International",
     "de": "Internationale",
@@ -1368,7 +1368,7 @@
     "sp": "International"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Plattform",
     "en": "Plattform",
     "de": "Plattform",
@@ -1377,7 +1377,7 @@
     "sp": "Plataforma"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "One-Stop Philosophy",
     "en": "One-Stop Philosophy",
     "de": "One-Stop Philosophie",
@@ -1386,7 +1386,7 @@
     "sp": "La filosofía one-stop"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Local",
     "en": "Local",
     "de": "Lokal",
@@ -1395,7 +1395,7 @@
     "sp": "Regional"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Get",
     "en": "Get",
     "de": "Erhalten Sie",
@@ -1404,7 +1404,7 @@
     "sp": "Recibe"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "instant bookings",
     "en": "instant bookings",
     "de": "sofortige Buchungen",
@@ -1413,7 +1413,7 @@
     "sp": "reserva rápida"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "from",
     "en": "from",
     "de": "von",
@@ -1422,7 +1422,7 @@
     "sp": "desde"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "period of time",
     "en": "period of time",
     "de": "Zeitraum",
@@ -1431,7 +1431,7 @@
     "sp": "período de tiempo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "potential clients",
     "en": "potential clients",
     "de": "potentiellen KundInnen",
@@ -1440,7 +1440,7 @@
     "sp": "clientes potenciales"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "in your area",
     "en": "in your area",
     "de": "in Ihrer Umgebung",
@@ -1449,7 +1449,7 @@
     "sp": "en tu región"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "No fixed costs",
     "en": "No fixed costs",
     "de": "Keine Fixkosten",
@@ -1458,7 +1458,7 @@
     "sp": "Ningún coste fijo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "provision based model",
     "en": "provision based model",
     "de": "provisionsbasiertes Modell",
@@ -1467,7 +1467,7 @@
     "sp": "modelo de comisiòn"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "No reservation costs",
     "en": "No reservation costs",
     "de": "Keine Reservierungskosten",
@@ -1476,7 +1476,7 @@
     "sp": "Ningun coste de reserva"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Secure",
     "en": "Secure",
     "de": "Sicheres",
@@ -1485,7 +1485,7 @@
     "sp": "Seguridad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "booking",
     "en": "booking",
     "de": "Buchen",
@@ -1494,7 +1494,7 @@
     "sp": "Reserva"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Quality managment",
     "en": "Quality managment",
     "de": "Qualitätsmanagement",
@@ -1503,7 +1503,7 @@
     "sp": "Gestión de la calidad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "through administrated rating system",
     "en": "through administrated rating system",
     "de": "durch ein administriertes Bewertungssystem",
@@ -1512,7 +1512,7 @@
     "sp": "administrado por el sistema de clasificación"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Registration",
     "en": "Registration",
     "de": "Registrierung",
@@ -1521,7 +1521,7 @@
     "sp": "Registro"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your e-mail address.",
     "en": "Please enter your e-mail address",
     "de": "Bitte geben Sie Ihre E-Mail Adresse ein",
@@ -1530,7 +1530,7 @@
     "sp": "Se ruega agregar el correo electrónico"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter a valid e-mail address.",
     "en": "Please enter a valid e-mail address",
     "de": "Bitte geben Sie eine gültige E-Mail Adresse ein",
@@ -1539,7 +1539,7 @@
     "sp": "Se ruega agregar un correo electrónico válido"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Password must meet the following requirements:",
     "en": "Password must meet the following requirements:",
     "de": "Das Passwort muss folgende Kriterien erfüllen:",
@@ -1548,7 +1548,7 @@
     "sp": "La contraseña debe contener por lo menos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "At least",
     "en": "At least",
     "de": "Mindestens",
@@ -1557,7 +1557,7 @@
     "sp": "Por lo menos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "one uppercase letter",
     "en": "one uppercase letter",
     "de": "ein Großbuchstabe",
@@ -1566,7 +1566,7 @@
     "sp": "una letra mayúscula"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "one number",
     "en": "one number",
     "de": "eine Zahl",
@@ -1575,7 +1575,7 @@
     "sp": "un número"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "8 characters long",
     "en": "8 characters long",
     "de": "eine Länge von 8",
@@ -1584,7 +1584,7 @@
     "sp": "8 carácteres"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Retype Password",
     "en": "Retype Password",
     "de": "Passwort wiederholen",
@@ -1593,7 +1593,7 @@
     "sp": "Repetir contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please retype the password.",
     "en": "Please retype the password",
     "de": "Bitte geben Sie das Passwort nochmals ein",
@@ -1602,7 +1602,7 @@
     "sp": "Repita su contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "The passwords have to match.",
     "en": "The passwords have to match",
     "de": "Die Passwörter müssen übereinstimmen",
@@ -1611,7 +1611,7 @@
     "sp": "Las contraseñas tienen que corresponder"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "back to login",
     "en": "back to login",
     "de": "Zurück zum Login",
@@ -1620,7 +1620,7 @@
     "sp": "Vuelve a la conexión"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "User already exists",
     "en": "User already exists",
     "de": "Dieser User existiert bereits",
@@ -1629,7 +1629,7 @@
     "sp": "Este usuario ya existe"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Enter your new password",
     "en": "Enter your new password",
     "de": "Geben Sie Ihr neues Passwort ein",
@@ -1638,7 +1638,7 @@
     "sp": "Introduzca su nueva contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "New Password",
     "en": "New Password",
     "de": "Neues Passwort",
@@ -1647,7 +1647,7 @@
     "sp": "Nueva contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Password must meet the following requirements",
     "en": "Password must meet the following requirements:",
     "de": "Das Passwort muss folgende Kriterien erfüllen:",
@@ -1656,7 +1656,7 @@
     "sp": "La contraseña debe satisfacher los siguientes criterios"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Repeat new password",
     "en": "Repeat new password",
     "de": "Passwort wiederholen",
@@ -1665,7 +1665,7 @@
     "sp": "Repetir la contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Passwords dont match",
     "en": "Passwords don't match",
     "de": "Die Passwörter stimmen nicht überein",
@@ -1674,7 +1674,7 @@
     "sp": "Las contraseñas no corresponden"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please fill out this field",
     "en": "Please fill out this field",
     "de": "Bitte füllen Sie dieses Feld aus",
@@ -1683,7 +1683,7 @@
     "sp": "Se ruega rellenar este espacio"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Save new password",
     "en": "Save new password",
     "de": "Neues Passwort speichern",
@@ -1692,7 +1692,7 @@
     "sp": "Guardar nueva contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "The new password was successfully saved",
     "en": "The new password was successfully saved.",
     "de": "Das neue Passwort wurde erfolgreich gespeichert.",
@@ -1701,7 +1701,7 @@
     "sp": "La nueva contraseña ha sido guardada"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "An error happened. The new password could not be saved",
     "en": "An error happened. The new password could not be saved.",
     "de": "Es gab einen Fehler. Das neue Passwort konnte nicht erfolgreich gespeichert werden.",
@@ -1710,7 +1710,7 @@
     "sp": "Ha ocurrido un error. Imposible guardar su contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "password requirements",
     "en": "The password has to contain at least one capital letter, one number and has to have a minimum length of 8.",
     "de": "Das Passwort muss zumindest einen Großbuchstaben und eine Zahl enthalten, und aus mindestens 8 Zeichen bestehen.",
@@ -1719,7 +1719,7 @@
     "sp": "Su contraseña tiene que contener por lo menos una letra mayúscula, un número, y un largo mínimo de 8 carácteres"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your new password",
     "en": "Your new password",
     "de": "Ihr neues Passwort",
@@ -1728,7 +1728,7 @@
     "sp": "Su nueva contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Retype your new password",
     "en": "Retype your new password",
     "de": "Wiederholen Sie Ihr neues Passwort",
@@ -1737,7 +1737,7 @@
     "sp": "Repetir la contraseña nueva"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Retype your password",
     "en": "Retype your password",
     "de": "Geben Sie Ihr Passwort nochmals ein",
@@ -1746,7 +1746,7 @@
     "sp": "Repetir contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Define your password",
     "en": "Enter your password",
     "de": "Geben Sie Ihr Passwort ein",
@@ -1755,7 +1755,7 @@
     "sp": "introducir una contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Request a link to reset your password",
     "en": "Request a link to reset your password",
     "de": "Link zum Zurücksetzen des Passworts anfordern",
@@ -1764,7 +1764,7 @@
     "sp": "Petición de enlace para resetar su contraseña"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "The link to reset your password was successfully sent to",
     "en": "The link to reset your password was successfully sent to",
     "de": "Der Link zum Zurücksetzen des Passworts wurde erfolgreich gesendet an",
@@ -1773,7 +1773,7 @@
     "sp": "El enlace para resetar su contraseña ha sido enviado con éxito a"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "This user does not exist. Check if the email address is correct",
     "en": "This user does not exist. Check if the email address is correct.",
     "de": "Dieser Account existiert nicht. Überprüfen Sie, ob die E-Mail Adresse stimmt.",
@@ -1782,7 +1782,7 @@
     "sp": "El account no existe. Verifique su correo elctrónico"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "An error happened. The email to reset your password could not be sent",
     "en": "An error happened. The email to reset your password could not be sent.",
     "de": "Es gab einen Fehler. Der Link zum Zurücksetzen Ihres Passworts konnte nicht versendet werden",
@@ -1791,7 +1791,7 @@
     "sp": "Ha ocurrido un error. El correo electrónico para replantear la contraseña no ha sido enviado"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Registration for Activity Providers",
     "en": "Registration for Activity Providers",
     "de": "Registrierung für AktivitätsanbieterInnen",
@@ -1800,7 +1800,7 @@
     "sp": "Registro para proveedores de actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Company",
     "en": "Company",
     "de": "Firma",
@@ -1809,7 +1809,7 @@
     "sp": "Actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your company",
     "en": "Your company",
     "de": "Ihre Firma",
@@ -1818,7 +1818,7 @@
     "sp": "Su actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your company",
     "en": "Please enter your company",
     "de": "Bitte geben Sie Ihre Firma ein",
@@ -1827,7 +1827,7 @@
     "sp": "Rogamos que introduzca el nombre de su actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "First name",
     "en": "First Name",
     "de": "Vorname",
@@ -1836,7 +1836,7 @@
     "sp": "Nombre"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your first name",
     "en": "Your first name",
     "de": "Ihr Vorname",
@@ -1845,7 +1845,7 @@
     "sp": "Su nombre"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your first name",
     "en": "Please enter your first name",
     "de": "Bitte geben Sie Ihren Vornamen ein",
@@ -1854,7 +1854,7 @@
     "sp": "Rogamos que introduzca su nombre"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Last name",
     "en": "Last name",
     "de": "Nachname",
@@ -1863,7 +1863,7 @@
     "sp": "Apellido"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Name",
     "en": "Name",
     "de": "Name",
@@ -1872,7 +1872,7 @@
     "sp": "Nombre"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your last name",
     "en": "Your last name",
     "de": "Ihr Nachname",
@@ -1881,7 +1881,7 @@
     "sp": "Su apellido"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your last name",
     "en": "Please enter your last name",
     "de": "Bitte geben Sie Ihren Nachnamen ein",
@@ -1890,7 +1890,7 @@
     "sp": "Rogamos que introduzca su apellido"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "E-mail",
     "en": "E-mail",
     "de": "E-Mail",
@@ -1899,7 +1899,7 @@
     "sp": "E-Mail"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Telephone",
     "en": "Telephone",
     "de": "Telefon",
@@ -1908,7 +1908,7 @@
     "sp": "Teléfono"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your telephone number",
     "en": "Your telephone number",
     "de": "Ihre Telefonnummer",
@@ -1917,7 +1917,7 @@
     "sp": "Su número de teléfono"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your telephone number",
     "en": "Please enter your telephone number",
     "de": "Bitte geben Sie Ihre Telefonnummer ein",
@@ -1926,7 +1926,7 @@
     "sp": "Se ruega introducir el número de teléfono"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Mobile Telephone",
     "en": "Cellphone",
     "de": "Mobil-Telefon",
@@ -1935,7 +1935,7 @@
     "sp": "Móvil"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your mobile telephone number",
     "en": "Your cellphone number",
     "de": "Ihre Mobil-Tefelonnummer",
@@ -1944,7 +1944,7 @@
     "sp": "Su móvil"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your mobile telephone number",
     "en": "Please enter your cellphone number",
     "de": "Bitte geben Sie Ihre Mobil-Telefonnummer ein",
@@ -1953,7 +1953,7 @@
     "sp": "Se ruega introcir el número de móvil"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Fax",
     "en": "Fax",
     "de": "Fax",
@@ -1962,7 +1962,7 @@
     "sp": "Fax"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your fax number",
     "en": "Your fax number",
     "de": "Ihre Faxnummer",
@@ -1971,7 +1971,7 @@
     "sp": "Su número de fax"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your fax number",
     "en": "Please enter your fax number",
     "de": "Bitte geben Sie Ihre Faxnummer ein",
@@ -1980,7 +1980,7 @@
     "sp": "Se ruega introducir el número de fax"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Address",
     "en": "Address",
     "de": "Adresse",
@@ -1989,7 +1989,7 @@
     "sp": "Dirección"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your address",
     "en": "Your address",
     "de": "Ihre Adresse",
@@ -1998,7 +1998,7 @@
     "sp": "Su dirección"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your address",
     "en": "Please enter your address",
     "de": "Bitte geben Sie Ihre Adresse ein",
@@ -2007,7 +2007,7 @@
     "sp": "Se ruega introducir la dirección"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Zip",
     "en": "Zip",
     "de": "Postleitzahl",
@@ -2016,7 +2016,7 @@
     "sp": "Código postal"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your zip code",
     "en": "Your zip code",
     "de": "Ihre Postleitzahl",
@@ -2025,7 +2025,7 @@
     "sp": "Su código postal"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your zip code",
     "en": "Please enter your zip code",
     "de": "Bitte geben Sie Ihre Postleitzahl ein",
@@ -2034,7 +2034,7 @@
     "sp": "Se ruega introducir el código postal"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "City",
     "en": "City",
     "de": "Stadt",
@@ -2043,7 +2043,7 @@
     "sp": "Ciudad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your city",
     "en": "Your city",
     "de": "Ihre Stadt",
@@ -2052,7 +2052,7 @@
     "sp": "Tu ciudad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your city",
     "en": "Please enter your city",
     "de": "Bitte geben Sie Ihre Stadt ein",
@@ -2061,7 +2061,7 @@
     "sp": "Se ruega introducir el nombre de su ciudad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Country",
     "en": "Country",
     "de": "Land",
@@ -2070,7 +2070,7 @@
     "sp": "País"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your country",
     "en": "Your country",
     "de": "Ihr Land",
@@ -2079,7 +2079,7 @@
     "sp": "Su país"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your country",
     "en": "Please enter your country",
     "de": "Bitte geben Sie Ihr Land ein",
@@ -2088,7 +2088,7 @@
     "sp": "Se ruega inroducir el nombre de su país"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter a country",
     "en": "Please enter a country",
     "de": "Bitte geben Sie ein Land ein",
@@ -2097,7 +2097,7 @@
     "sp": "Se ruega inroducir el nombre de país"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Name of contact person",
     "en": "Name of contact person",
     "de": "Name der Ansprechperson",
@@ -2106,7 +2106,7 @@
     "sp": "Nombre de un contacto"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter the name of the contact person",
     "en": "Please enter the name of the contact person",
     "de": "Bitte geben Sie den Namen des Ansprechpartners / der Ansprechpartnerin ein",
@@ -2115,7 +2115,7 @@
     "sp": "Se ruega introducir el nombre de un contacto"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "UID optional",
     "en": "UID optional",
     "de": "UID optional",
@@ -2124,7 +2124,7 @@
     "sp": "Partida IVA (facultativo)"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your UID number",
     "en": "Your UID number",
     "de": "Ihre UID Nummer",
@@ -2133,7 +2133,7 @@
     "sp": "Su partida IVA"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Promotioncode",
     "en": "Promotioncode",
     "de": "Promotion-Code",
@@ -2142,7 +2142,7 @@
     "sp": "Promotioncode"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Salesman",
     "en": "Salesman",
     "de": "Verkäufer",
@@ -2151,7 +2151,7 @@
     "sp": "Vendedor"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Userrole",
     "en": "User role",
     "de": "Benuzterrolle",
@@ -2160,7 +2160,7 @@
     "sp": "rol de usario"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "",
     "en": "",
     "de": "",
@@ -2169,7 +2169,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your location",
     "en": "Your location ...",
     "de": "Dein Ort ...",
@@ -2178,7 +2178,7 @@
     "sp": "Tu posición"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Find",
     "en": "Find!",
     "de": "Finden!",
@@ -2187,7 +2187,7 @@
     "sp": "Encontrar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "From",
     "en": "From",
     "de": "Von",
@@ -2196,7 +2196,7 @@
     "sp": "De"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "until",
     "en": "until",
     "de": "Bis",
@@ -2205,7 +2205,7 @@
     "sp": "Al"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Until",
     "en": "Until",
     "de": "Bis",
@@ -2214,7 +2214,7 @@
     "sp": "Al"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "No events to display yet",
     "en": "No events to display yet",
     "de": "Noch keine Events zum Anzeigen vorhanden",
@@ -2223,7 +2223,7 @@
     "sp": "No hay eventos para visualizar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Event",
     "en": "Event",
     "de": "Event",
@@ -2232,7 +2232,7 @@
     "sp": "Evento"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Date",
     "en": "Date",
     "de": "Datum",
@@ -2241,7 +2241,7 @@
     "sp": "Fecha"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Time",
     "en": "Time",
     "de": "Zeit",
@@ -2250,7 +2250,7 @@
     "sp": "Hora"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Duration",
     "en": "Duration",
     "de": "Dauer",
@@ -2259,7 +2259,7 @@
     "sp": "Duración"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Duration in hours",
     "en": "Duration in hours",
     "de": "Dauer in Stunden",
@@ -2268,7 +2268,7 @@
     "sp": "Duración en horas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Qty",
     "en": "Quantity available",
     "de": "Verfügbare Anzahl",
@@ -2277,7 +2277,7 @@
     "sp": "Cantidad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Logout",
     "en": "Logout",
     "de": "Logout",
@@ -2286,7 +2286,7 @@
     "sp": "Desconexión"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "add Image",
     "en": "add Image",
     "de": "Bild hinzufügen",
@@ -2295,7 +2295,7 @@
     "sp": "Añadir imagenes"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "My Activities",
     "en": "My Activities",
     "de": "Meine Aktivitäten",
@@ -2304,7 +2304,7 @@
     "sp": "Mis actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Admin All Activities",
     "en": "Administrate all Activities",
     "de": "Administration aller Aktivitäten",
@@ -2313,7 +2313,7 @@
     "sp": "Administrar todas las actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "All activities",
     "en": "All Activities",
     "de": "Alle Aktivitäten",
@@ -2322,7 +2322,7 @@
     "sp": "Todas las actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "All Bookings",
     "en": "All Bookings",
     "de": "Alle Buchungen",
@@ -2331,7 +2331,7 @@
     "sp": "Todas las actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Activity Providers Overview",
     "en": "Activity Providers Overview",
     "de": "Aktivitätsanbieter im Überblick",
@@ -2340,7 +2340,7 @@
     "sp": "Vision general de las actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "All providers",
     "en": "All Providers",
     "de": "Alle Aktivitätenanbieter",
@@ -2349,7 +2349,7 @@
     "sp": "todos los proveedores"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Admin area",
     "en": "Admin area",
     "de": "Admin-Bereich",
@@ -2358,7 +2358,7 @@
     "sp": "Admin area"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "",
     "en": "",
     "de": "",
@@ -2367,7 +2367,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Edit your Profile",
     "en": "Edit your Profile",
     "de": "Ihr Profil editieren",
@@ -2376,7 +2376,7 @@
     "sp": "Modificar vuestro perfil"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Publish Activities",
     "en": "Publish Activities",
     "de": "Aktivitäten veröffentlichen",
@@ -2385,7 +2385,7 @@
     "sp": "Publicar actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "This is the admin/allActivities view",
     "en": "This is the admin/allActivities view.",
     "de": "Das ist die Admin / Alle Aktivitäten Ansicht.",
@@ -2394,7 +2394,7 @@
     "sp": "Esta es la página de la administración/ de todad las actividades"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Activity",
     "en": "Activity",
     "de": "Aktivität",
@@ -2403,7 +2403,7 @@
     "sp": "Actividades encontradas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Activities",
     "en": "Activities",
     "de": "Aktivitäten",
@@ -2412,7 +2412,7 @@
     "sp": "actividades encontradas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Main Category",
     "en": "Main Category",
     "de": "Hauptkategorie",
@@ -2421,7 +2421,7 @@
     "sp": "Categoría principal"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Sub Category",
     "en": "Sub Category",
     "de": "Subkategorie",
@@ -2430,7 +2430,7 @@
     "sp": "Subcategoría"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Location",
     "en": "Location",
     "de": "Ort",
@@ -2439,7 +2439,7 @@
     "sp": "Localisación"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "publish",
     "en": "publish",
     "de": "veröffentlichen",
@@ -2448,7 +2448,7 @@
     "sp": "Publicar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "unpublish",
     "en": "unpublish",
     "de": "auf privat setzen",
@@ -2457,7 +2457,7 @@
     "sp": "Anular la publicación"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "approve",
     "en": "approve",
     "de": "bestätigen",
@@ -2466,7 +2466,7 @@
     "sp": "aprobar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "deny",
     "en": "deny",
     "de": "ablehnen",
@@ -2475,7 +2475,7 @@
     "sp": "denegar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "changed",
     "en": "changed",
     "de": "geändert",
@@ -2484,7 +2484,7 @@
     "sp": "cambiado"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "new",
     "en": "new",
     "de": "neu",
@@ -2493,7 +2493,7 @@
     "sp": "nuevo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "denied",
     "en": "denied",
     "de": "abgelehnt",
@@ -2502,7 +2502,7 @@
     "sp": "negado"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "under review",
     "en": "under review",
     "de": "wird überprüft",
@@ -2511,7 +2511,7 @@
     "sp": "en revisión"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "This activity is published",
     "en": "This activity is published!",
     "de": "Diese Aktivität wurde veröffentlicht!",
@@ -2520,7 +2520,7 @@
     "sp": "Su actividad ha sido publicada"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "This activity is not published yet",
     "en": "This activity is not published yet!",
     "de": "Diese Aktivität wurde noch nicht veröffentlicht!",
@@ -2529,7 +2529,7 @@
     "sp": "Tu actividad aún no ha sido publicada"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "published",
     "en": "Published",
     "de": "Veröffentlicht",
@@ -2538,7 +2538,7 @@
     "sp": "Publicado"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "unpublished",
     "en": "Unpublished",
     "de": "Nicht veröffentlicht",
@@ -2547,7 +2547,7 @@
     "sp": "Inédito"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Denied activity",
     "en": "Denied activity",
     "de": "Abgelehnte Aktivität",
@@ -2556,7 +2556,7 @@
     "sp": "actividad denegado"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "New activity – Please review",
     "en": "New activity – Please review",
     "de": "Neue Aktivität – bitte überprüfen!",
@@ -2565,7 +2565,7 @@
     "sp": "Nueva actividad - Escriba su valoración"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Changed activity – Please review",
     "en": "Changed activity – Please review",
     "de": "Geänderte Aktivität – bitte überprüfen!",
@@ -2574,7 +2574,7 @@
     "sp": "Actividad Cambiado - Escriba su valoración"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "this activity is under review and not published yet",
     "en": "This activity is under review and not published yet!",
     "de": "Diese Aktivität wird gerade überprüft und ist derzeit nicht veröffentlicht!",
@@ -2583,7 +2583,7 @@
     "sp": "Esta actividad se encuentra en revisión y no es publicada."
   },
   {
-    "\n": "",
+    "go": "",
     "key": "this activity was denied and is not published",
     "en": "This activity was denied and is not published!",
     "de": "Diese Aktivität wurde abgelehnt und ist nicht veröffentlicht!",
@@ -2592,7 +2592,7 @@
     "sp": "Esta actividad fue denegada y no está publicada!"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "this activity is published",
     "en": "This activity is published!",
     "de": "Diese Aktivität ist veröffentlicht!",
@@ -2601,7 +2601,7 @@
     "sp": "Esta actividad es publicada!"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "this activity is under review but still published",
     "en": "This activity is under review but still published!",
     "de": "Diese Aktivität wird gerade überprüft, ist aber noch veröffentlicht!",
@@ -2610,7 +2610,7 @@
     "sp": "Esta actividad está en revisión, pero todavía publicada!"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "no results",
     "en": "No results found",
     "de": "Keine Ergebnisse gefunden",
@@ -2619,7 +2619,7 @@
     "sp": "Sin resultados"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "changed activities",
     "en": "Changed activities",
     "de": "Geänderte Aktivitäten",
@@ -2628,7 +2628,7 @@
     "sp": "Actividades modificadas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "denied activities",
     "en": "Denied activities",
     "de": "Abgelehnte Aktivitäten",
@@ -2637,7 +2637,7 @@
     "sp": "Actividades negadas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "all",
     "en": "All",
     "de": "Alle",
@@ -2646,7 +2646,7 @@
     "sp": "Todos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "reset all filters",
     "en": "Reset all filters",
     "de": "Alle Filter zurücksetzen",
@@ -2655,7 +2655,7 @@
     "sp": "Borrar todos los filtros"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "",
     "en": "",
     "de": "",
@@ -2664,7 +2664,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Administration overview",
     "en": "Administration overview",
     "de": "Administrations-Übersicht",
@@ -2673,7 +2673,7 @@
     "sp": "Panorámica de la administración"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "delete",
     "en": "delete",
     "de": "Löschen",
@@ -2682,7 +2682,7 @@
     "sp": "Borrar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "close category filter",
     "en": "Close Category Filter",
     "de": "Kategorie-Filter schließen",
@@ -2691,7 +2691,7 @@
     "sp": "Cerrar Filtro"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "open category filter",
     "en": "Open Category Filter",
     "de": "Kategorie-Filter öffnen",
@@ -2700,7 +2700,7 @@
     "sp": "Filtros de categoría"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "",
     "en": "",
     "de": "",
@@ -2709,7 +2709,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Company offering this activity",
     "en": "Company offering this activity:",
     "de": "Anbietende Firma:",
@@ -2718,7 +2718,7 @@
     "sp": "Empresa que ofrece la actividad/ el servicio"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "back to my activities",
     "en": "Go to 'My Activities'",
     "de": "Gehe zu \"Meine Aktivitäten\"",
@@ -2727,7 +2727,7 @@
     "sp": "Vuelva a \"mis actividades\""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "edit",
     "en": "edit",
     "de": "Bearbeiten",
@@ -2736,7 +2736,7 @@
     "sp": "Modificar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please create bookable events.",
     "en": "Please create bookable events.",
     "de": "Bitte erstellen Sie buchbare Events.",
@@ -2745,7 +2745,7 @@
     "sp": "Se ruega introducir eventos que se puedan reservar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter the name of the activity/activities.",
     "en": "Please enter the name of the activity/activities.",
     "de": "Bitte laden Sie ein Bild hoch.",
@@ -2754,7 +2754,7 @@
     "sp": "Se ruega introducir el nombre de la actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter the name of your company.",
     "en": "Please enter the name of your company.",
     "de": "Bitte geben Sie den/die Namen der Aktivität/en ein.",
@@ -2763,7 +2763,7 @@
     "sp": "Se ruega introducir el nombre de la empresa"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please upload an image.",
     "en": "Please upload an image",
     "de": "Bitte laden Sie ein Bild hoch",
@@ -2772,7 +2772,7 @@
     "sp": "Se ruega cargar una imágen"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "save event",
     "en": "Save event",
     "de": "Termin speichern",
@@ -2781,7 +2781,7 @@
     "sp": "Guarde el evento"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "create repeating events",
     "en": "Create {{numberofevents}} events",
     "de": "Erzeuge {{numberofevents}} Termine",
@@ -2790,7 +2790,7 @@
     "sp": "Cree {{numberofevents}} eventos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "New activity",
     "en": "New activity",
     "de": "Neue Aktivität",
@@ -2799,7 +2799,7 @@
     "sp": "Nueva actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Global Activity Info",
     "en": "Global Activity Info",
     "de": "Daten der Aktivität",
@@ -2808,7 +2808,7 @@
     "sp": "Informaciones generales sobre la actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Name of Activity or Activities",
     "en": "Name of Activity or Activities",
     "de": "Bezeichnung der Aktivität/en",
@@ -2817,7 +2817,7 @@
     "sp": "Nombre de la actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Meeting spot of this activity",
     "en": "Meeting spot of this activity",
     "de": "Treffpunkt für diese Aktivität",
@@ -2826,7 +2826,7 @@
     "sp": "Punto de encuentro para esta actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Enter address of meeting spot",
     "en": "Enter address of meeting spot",
     "de": "Geben Sie die Adresse des Treffpunktes ein",
@@ -2835,7 +2835,7 @@
     "sp": "Se ruega introducir la dirección del punto de encuentro"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Submit address",
     "en": "Save address",
     "de": "Adresse speichern",
@@ -2844,7 +2844,7 @@
     "sp": "Evíe la dirección"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Click in map to reposition location of activity",
     "en": "Click in map to reposition location of activity",
     "de": "Klicken Sie in die Karte, um den Ort der Aktivität anzupassen",
@@ -2853,7 +2853,7 @@
     "sp": "Clique sobre el mapa para relocalizar la actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Select Main Category",
     "en": "Select Main Category",
     "de": "Hauptkategorie auswählen",
@@ -2862,7 +2862,7 @@
     "sp": "Eliga la categoría principal"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "You can choose 2 Subcategories at most",
     "en": "You can choose 2 Subcategories at most!",
     "de": "Sie können höchstens 2 Subkategorien auswählen!",
@@ -2871,7 +2871,7 @@
     "sp": "Se pueden elegir dos categorías como máximo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "You must choose at least 1 Subcategory",
     "en": "You must choose at least 1 Subcategory!",
     "de": "Sie müssen mindestens 1 Subkategorie auswählen!",
@@ -2880,7 +2880,7 @@
     "sp": "Hace falta elegir por lo menos una subcategoría"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Description",
     "en": "Description",
     "de": "Beschreibung",
@@ -2889,7 +2889,7 @@
     "sp": "Descripción"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Detailed description",
     "en": "Detailed description (min. 150 signs)",
     "de": "Ausführliche Beschreibung (min. 150 Zeichen)",
@@ -2898,7 +2898,7 @@
     "sp": "Descripción detallada (mínimo 150 palabras)"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Images",
     "en": "Images",
     "de": "Bilder",
@@ -2907,7 +2907,7 @@
     "sp": "Imágenes"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "What can be booked",
     "en": "What can be booked?",
     "de": "Was kann man buchen?",
@@ -2916,7 +2916,7 @@
     "sp": "Qué se puede reservar?"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "create a new event",
     "en": "Create a new event",
     "de": "Erstellen Sie ein neues Ereignis",
@@ -2925,16 +2925,16 @@
     "sp": "Crear un evento nuevo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "create a bookable item",
     "en": "Create a bookable Item",
     "de": "Erstellen Sie einen buchbaren Artikel",
-    "it": "Creare un elemento prenotabile",
+    "it": "Crea un evento",
     "fr": "Créer un événement réservable",
     "sp": "Crear un evento que se pueda reservar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Price in €",
     "en": "Price in €",
     "de": "Preis in €",
@@ -2943,7 +2943,7 @@
     "sp": "Precio en €"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Price",
     "en": "Price",
     "de": "Preis",
@@ -2952,7 +2952,7 @@
     "sp": "Precio"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Delete Item",
     "en": "Delete Item",
     "de": "Event löschen",
@@ -2961,7 +2961,7 @@
     "sp": "Elimina"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Schedule Event",
     "en": "Schedule Event",
     "de": "Zeitpunkte an denen das Event stattfindet",
@@ -2970,25 +2970,25 @@
     "sp": "Programa de eventos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Add Event",
     "en": "Add Event",
     "de": "Termin hinzufügen",
-    "it": "Creare un evento",
+    "it": "Creare un appuntamento per l´evento",
     "fr": "Créez un événement",
     "sp": "Crear un evento"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Add new Event",
     "en": "Add new Event",
     "de": "Neuen Termin hinzufügen",
-    "it": "Creare nuovo evento",
+    "it": "Creare nuovo appuntamento",
     "fr": "Créez un nouveau événement",
     "sp": "Crear un evento nuevo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Quantity",
     "en": "Quantity",
     "de": "Menge",
@@ -2997,7 +2997,7 @@
     "sp": "Cantidad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "recurring Event",
     "en": "Recurring Event",
     "de": "Wiederkehrender Termin",
@@ -3006,7 +3006,7 @@
     "sp": "Repetir el evento"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Mon",
     "en": "Mon",
     "de": "Mo",
@@ -3015,7 +3015,7 @@
     "sp": "Lunes"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Tue",
     "en": "Tue",
     "de": "Di",
@@ -3024,7 +3024,7 @@
     "sp": "Martes"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Wed",
     "en": "Wed",
     "de": "Mi",
@@ -3033,7 +3033,7 @@
     "sp": "Miércoles"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Thu",
     "en": "Thu",
     "de": "Do",
@@ -3042,7 +3042,7 @@
     "sp": "Jueves"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Fri",
     "en": "Fri",
     "de": "Fr",
@@ -3051,7 +3051,7 @@
     "sp": "Viernes"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Sat",
     "en": "Sat",
     "de": "Sa",
@@ -3060,7 +3060,7 @@
     "sp": "Sábado"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Sun",
     "en": "Sun",
     "de": "So",
@@ -3069,7 +3069,7 @@
     "sp": "Domingo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "remove",
     "en": "remove",
     "de": "entfernen",
@@ -3078,7 +3078,7 @@
     "sp": "borrar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "save",
     "en": "save",
     "de": "speichern",
@@ -3087,7 +3087,7 @@
     "sp": "guardar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "cancel",
     "en": "cancel",
     "de": "abbrechen",
@@ -3096,7 +3096,7 @@
     "sp": "borrar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Enter company",
     "en": "Enter company",
     "de": "Firma eingeben",
@@ -3105,7 +3105,7 @@
     "sp": "Introducir empresa"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Access denied",
     "en": "Access denied!",
     "de": "Kein Zugriff!",
@@ -3114,7 +3114,7 @@
     "sp": "Acceso prohibido"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "add activity",
     "en": "add activity",
     "de": "Aktivität  hinzufügen",
@@ -3123,7 +3123,7 @@
     "sp": "Añadir actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Profile",
     "en": "User profile",
     "de": "Benutzerprofil",
@@ -3132,7 +3132,7 @@
     "sp": "Profilo del usuario"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Edit Profile",
     "en": "Edit user profile",
     "de": "Benutzerprofil editieren",
@@ -3141,7 +3141,7 @@
     "sp": "Modificar el profilo del usuario"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Bookable item description placeholder",
     "en": "i.e. 4 hours tour (500ccm)",
     "de": "z.B. 4 Stunden Tour (500ccm)",
@@ -3150,7 +3150,7 @@
     "sp": "Por ejemplo 4 horas de tour"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Bank account",
     "en": "Bank account",
     "de": "Bank account",
@@ -3159,7 +3159,7 @@
     "sp": "Cuenta corriente"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Bank",
     "en": "Bank",
     "de": "Bank",
@@ -3168,7 +3168,7 @@
     "sp": "Banco"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Name of your Bank",
     "en": "Name of your Bank",
     "de": "Name of your Bank",
@@ -3177,7 +3177,7 @@
     "sp": "Nombre de su banco"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter the name of your Bank",
     "en": "Please enter the name of your Bank",
     "de": "Please enter the name of your Bank",
@@ -3186,7 +3186,7 @@
     "sp": "Se ruega introducir el nombre de su banco"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "IBAN",
     "en": "IBAN",
     "de": "IBAN",
@@ -3195,7 +3195,7 @@
     "sp": "IBAN"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your IBAN",
     "en": "Your IBAN",
     "de": "Your IBAN",
@@ -3204,7 +3204,7 @@
     "sp": "Su IBAN"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your IBAN",
     "en": "Please enter your IBAN",
     "de": "Please enter your IBAN",
@@ -3213,7 +3213,7 @@
     "sp": "Se ruega introducir su IBAN"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "BIC",
     "en": "BIC",
     "de": "BIC",
@@ -3222,7 +3222,7 @@
     "sp": "BIC"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your BIC",
     "en": "Your BIC",
     "de": "Your BIC",
@@ -3231,7 +3231,7 @@
     "sp": "Su BIC"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter your BIC",
     "en": "Please enter your BIC",
     "de": "Please enter your BIC",
@@ -3240,7 +3240,7 @@
     "sp": "Se ruega introducir su BIC"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Account owner",
     "en": "Account owner",
     "de": "Account owner",
@@ -3249,7 +3249,7 @@
     "sp": "Propietario de la cuenta"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Name of account owner",
     "en": "Name of account owner",
     "de": "Name of account owner",
@@ -3258,7 +3258,7 @@
     "sp": "Nombre del propietario de la cuenta"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter the name of the account owner",
     "en": "Please enter the name of the account owner",
     "de": "Please enter the name of the account owner",
@@ -3267,7 +3267,7 @@
     "sp": "Se ruega introducir el nombre del propietario de la cuenta"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "yes, delete",
     "en": "yes, delete",
     "de": "ja, löschen",
@@ -3276,7 +3276,7 @@
     "sp": "si, borrar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "no",
     "en": "no",
     "de": "nein",
@@ -3285,7 +3285,7 @@
     "sp": "no"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Delete bookable item with all events?",
     "en": "Delete bookable item with all events?",
     "de": "Dieses Event und alle Daten löschen?",
@@ -3294,7 +3294,7 @@
     "sp": "Elimina todad la actividades que se pueden reservar?"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please select a location.",
     "en": "Please select a location.",
     "de": "Bitte wählen Sie einen Ort.",
@@ -3303,7 +3303,7 @@
     "sp": "Se ruega elegir una posición"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your unsaved data will be lost if you leave this page",
     "en": "Your unsaved data will be lost if you leave this page",
     "de": "Ihre ungespeicherten Daten gehen verloren wenn Sie diese Seite jetzt verlassen",
@@ -3312,7 +3312,7 @@
     "sp": "Sus datos aún no guardados serán eliminados si abandona esta página"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "activities found",
     "en": "Activities found",
     "de": "Aktivitäten gefunden",
@@ -3321,7 +3321,7 @@
     "sp": "Actividades encontradas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Personal data",
     "en": "Personal data",
     "de": "Persönliche Daten",
@@ -3330,7 +3330,7 @@
     "sp": "Datos personales"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Company data",
     "en": "Company data",
     "de": "Firmendaten",
@@ -3339,7 +3339,7 @@
     "sp": "Datos de la empresa"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your changes have been saved",
     "en": "Your changes have been saved",
     "de": "Ihre Änderungen wurden gespeichert",
@@ -3348,7 +3348,7 @@
     "sp": "Los datos están guardados"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your changes could not be saved",
     "en": "Your changes could not be saved",
     "de": "Ihre Änderungen konnten nicht gespeichert werden",
@@ -3357,7 +3357,7 @@
     "sp": "Los cambios han sido guardados"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please fill out the form correctly",
     "en": "Please fill out the form correctly",
     "de": "Bitte füllen Sie das Formular korrekt aus",
@@ -3366,7 +3366,7 @@
     "sp": "Los cambios no podían ser guardados"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "All dates from activity",
     "en": "All dates from activity",
     "de": "Alle Termine für diese Aktivität",
@@ -3375,7 +3375,7 @@
     "sp": "Se ruega rellenar el formulario correctamente"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "endBeforeStart",
     "en": "The end date is before the start date",
     "de": "Das Event-Ende liegt vor dem Event-Start",
@@ -3384,7 +3384,7 @@
     "sp": "La fecha de fin está antes la del comienzo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Map view",
     "en": "Map view",
     "de": "Kartenansicht",
@@ -3393,7 +3393,7 @@
     "sp": "Vista del mapa"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "No Activities found.",
     "en": "No Activities found.",
     "de": "Keine Aktivitäten gefunden.",
@@ -3402,7 +3402,7 @@
     "sp": "Ninguna actividad encontrada"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Zoom out the map or reset your filter settings.",
     "en": "Zoom out the map or reset your filter settings.",
     "de": "Verkleinern Sie die Karte oder setzen Sie Ihre Filter-Einstellungen zurück.",
@@ -3411,7 +3411,7 @@
     "sp": "Empequeñece el mapa o replantea los criterios de busqueda"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Recurring events will have the same starting time and duration as above",
     "en": "Recurring events will have the same starting time and duration as above",
     "de": "Wiederkehrende Termine haben die gleiche Startzeit und Dauer",
@@ -3420,7 +3420,7 @@
     "sp": "Los eventos que se repiten harán la misma fecha de comienzo y la misma duración del sobredicho"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please select at least one day for repeating event.",
     "en": "Please select at least one day for recurring event.",
     "de": "Bitte wählen Sie mindestens einen Tag aus",
@@ -3429,7 +3429,7 @@
     "sp": "Elegir por lo menos una fecha para los eventos que se repiten"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "create event until",
     "en": "Create events until this date",
     "de": "Termine bis zu diesem Datum erzeugen",
@@ -3438,7 +3438,7 @@
     "sp": "Crear un evento hasta esta fecha"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please select a date until which the repeating events should be created",
     "en": "Please select a date until which the recurring events should be created",
     "de": "Bitte wählen Sie ein Datum bis zu welchem die sich wiederholenden Events angelegt werden sollen",
@@ -3447,7 +3447,7 @@
     "sp": "Elegir una fecha hasta la cual los eventos que se repiten pueden ser creados"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "starting from",
     "en": "starting from",
     "de": "Preise ab",
@@ -3456,7 +3456,7 @@
     "sp": "Comienzo desde"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Info & Booking",
     "en": "Info & Booking",
     "de": "Info & Buchen",
@@ -3465,7 +3465,7 @@
     "sp": "Informaciones y reservas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "close",
     "en": "close",
     "de": "Schließen",
@@ -3474,7 +3474,7 @@
     "sp": "Cerrar"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "maketeaser",
     "en": "Use as teaser image",
     "de": "Als Teaser-Bild verwenden",
@@ -3483,7 +3483,7 @@
     "sp": "Usar como imagen publicitaria"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Find your activity",
     "en": "Find your activity",
     "de": "Aktivität finden",
@@ -3492,7 +3492,7 @@
     "sp": "Buscar una actividad"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter a description.",
     "en": "Please enter a description.",
     "de": "Bitte geben Sie eine Beschreibung ein",
@@ -3501,7 +3501,7 @@
     "sp": "Se ruega introducir una descripción"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please enter a short description.",
     "en": "Please enter a short description.",
     "de": "Bitte geben Sie eine Kurzbeschreibung ein.",
@@ -3510,7 +3510,7 @@
     "sp": "Introducir una descripción breve"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "more information",
     "en": "more information",
     "de": "weitere Informationen",
@@ -3519,7 +3519,7 @@
     "sp": "sucesivas informaciones"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "I accept the reacture affiliate agreement",
     "en": "I accept the wazzaround affiliate agreement.",
     "de": "Ich stimme den Bedingungen des wazzaround Partnervertrages zu.",
@@ -3528,7 +3528,7 @@
     "sp": "Acepto las condiciones de wazzaround para los partners afiliados"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please accept the reacture affiliate agreement",
     "en": "Please accept the wazzaround affiliate agreement.",
     "de": "Bitte stimmen Sie den Bedingungen des wazzaround Partnervertrages zu.",
@@ -3537,7 +3537,7 @@
     "sp": "Rogamos que acepte las condiciones genrale de wazzaround"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Affiliate agreement",
     "en": "Affiliate agreement",
     "de": "Partnervertrag",
@@ -3546,7 +3546,7 @@
     "sp": "Condiciones generales de venta wazzaround"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Payment",
     "en": "Payment",
     "de": "Bezahlung",
@@ -3555,7 +3555,7 @@
     "sp": "Pago"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Payment Confirmation",
     "en": "Booking Confirmation",
     "de": "Buchungsbestätigung",
@@ -3564,7 +3564,7 @@
     "sp": "Confirmación de pago"
   },
   {
-    "\n": "Activity Edit set location",
+    "go": "Activity Edit set location",
     "key": "Set Location",
     "en": "Set Location",
     "de": "Ort setzen",
@@ -3573,7 +3573,7 @@
     "sp": "Localizar el evento"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Form can not be saved. Please fill in all required form fields first.",
     "en": "Form can not be saved. Please fill in all required form fields first.",
     "de": "Formular kann nicht gespeichert werden. Bitte füllen Sie alle markierten Felder aus",
@@ -3582,7 +3582,7 @@
     "sp": "Formulario no salvable. Rellenar todos los espacios pedidos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "There are more events available",
     "en": "There are more events available",
     "de": "Es sind weitere Events verfügbar",
@@ -3591,7 +3591,7 @@
     "sp": "Varias actividades disponibles"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "credit card",
     "en": "Credit card",
     "de": "Kreditkarte",
@@ -3600,7 +3600,7 @@
     "sp": "Tarjeta de crédito"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Order ID",
     "en": "Order ID",
     "de": "Buchungsnummer",
@@ -3609,7 +3609,7 @@
     "sp": "ID orden"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Legal Notes",
     "en": "Legal Notes",
     "de": "Impressum",
@@ -3618,7 +3618,7 @@
     "sp": "Notas legales"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "… still",
     "en": "… still",
     "de": "… noch",
@@ -3627,7 +3627,7 @@
     "sp": "...todavía"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "available!",
     "en": "available!",
     "de": "verfügbar!",
@@ -3636,7 +3636,7 @@
     "sp": "disponile"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "… booked up!",
     "en": "… booked up!",
     "de": "… ausgebucht!",
@@ -3645,7 +3645,7 @@
     "sp": "Està lleno"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "event start",
     "en": "Event start",
     "de": "Terminstart",
@@ -3654,7 +3654,7 @@
     "sp": "Comienzo del evento"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "event duration",
     "en": "Event duration",
     "de": "Dauer des Termins",
@@ -3663,7 +3663,7 @@
     "sp": "Duración del evento"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "days",
     "en": "Days",
     "de": "Tage",
@@ -3672,7 +3672,7 @@
     "sp": "Días"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "hours",
     "en": "Hours",
     "de": "Stunden",
@@ -3681,7 +3681,7 @@
     "sp": "Horas"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "minutes",
     "en": "Minutes",
     "de": "Minuten",
@@ -3690,7 +3690,7 @@
     "sp": "Minutos"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "this event ends on",
     "en": "This event ends on",
     "de": "Dieser Termin endet am",
@@ -3699,7 +3699,7 @@
     "sp": "El evento acaba el"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "recurring event until",
     "en": "Recurring event until",
     "de": "Wiederkehrender Termin bis",
@@ -3708,7 +3708,7 @@
     "sp": "El evento se repite hasta el"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "events on these weekdays",
     "en": "Events on these weekdays",
     "de": "Termin findet an diesen Wochentagen statt",
@@ -3717,7 +3717,7 @@
     "sp": "Eventos de la semana"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "error message event duration days",
     "en": "Enter a number (max.365)",
     "de": "Nummer eingeben (max.365)",
@@ -3726,7 +3726,7 @@
     "sp": "Introducir un nùmero (max.365)"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "error message event duration hours",
     "en": "Enter a number (max.23)",
     "de": "Nummer eingeben (max.23)",
@@ -3735,7 +3735,7 @@
     "sp": "Introducir un nùmero (max.23)"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "error message event duration minutes",
     "en": "Enter a number (max.59)",
     "de": "Nummer eingeben (max.59)",
@@ -3744,7 +3744,7 @@
     "sp": "Introducir un nùmero (max.59)"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "error message negative number",
     "en": "Enter a number (min.0)",
     "de": "Nummer eingeben (min.0)",
@@ -3753,7 +3753,7 @@
     "sp": "Introducir un numero (min.0)"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "error message event number",
     "en": "Please enter a number",
     "de": "Bitte geben Sie eine Nummer ein",
@@ -3762,7 +3762,7 @@
     "sp": "Por favor, introduzca un nùmero"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Contact our support",
     "en": "Contact our support",
     "de": "Nehmen Sie Kontakt auf",
@@ -3771,7 +3771,7 @@
     "sp": "Pòngase en contacto con nuestro apoyo"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Orders will be possible soon",
     "en": "Orders are not possible yet. This feature will be available soon!",
     "de": "Bestellungen sind derzeit noch nicht möglich! Dieses Feature wird bald aktiviert.",
@@ -3780,7 +3780,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "helptext autotranslation",
     "en": "The activity will be automatically translated to the other languages. Changes in the other languages will be overwritten by the auto translation. ",
     "de": "Die Aktivität wird automatisch in die anderen Sprachen übersetzt. Änderungen in den anderen Sprachen werden durch die automatische Übersetzung überschrieben.",
@@ -3789,7 +3789,7 @@
     "sp": ""
   },
   {
-    "\n": "",
+    "go": "",
     "key": "one year",
     "en": "one year",
     "de": "ein Jahr",
@@ -3798,7 +3798,7 @@
     "sp": "one year"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Promotioncode",
     "en": "Promotioncode",
     "de": "Promotioncode",
@@ -3807,7 +3807,7 @@
     "sp": "Promotioncode"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Only x items are available",
     "en": "Only {{quantity}} items are available",
     "de": "Es sind nur {{quantity}} Stück verfügbar",
@@ -3816,7 +3816,7 @@
     "sp": "Only {{quantity}} items are available"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Amount has to be a number",
     "en": "Amount has to be a number",
     "de": "Bitte eine gültige Anzahl eingeben",
@@ -3825,7 +3825,7 @@
     "sp": "Amount has to be a number"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Amount has to be defined",
     "en": "Amount has to be defined",
     "de": "Bitte eine gültige Anzahl eingeben",
@@ -3834,7 +3834,7 @@
     "sp": "Amount has to be defined"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "You have to order at least one item",
     "en": "You have to order at least one item",
     "de": "Sie müssen mindestens 1 Stück bestellen",
@@ -3843,7 +3843,7 @@
     "sp": "You have to order at least one item"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "You want to reset your Password",
     "en": "You want to reset your Password?",
     "de": "Sie möchten Ihr Passwort zurücksetzen?",
@@ -3852,7 +3852,7 @@
     "sp": "You want to reset your Password?"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Please click the following link",
     "en": "Please click the following link",
     "de": "Bitte klicken Sie den folgenden Link",
@@ -3861,7 +3861,7 @@
     "sp": "Please click the following link"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Reset your password",
     "en": "Reset your password",
     "de": "Ihr Passwort zurücksetzen",
@@ -3870,7 +3870,7 @@
     "sp": "Reset your password"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your Reacture Team",
     "en": "Your wazzaround Team",
     "de": "Dein wazzaround Team",
@@ -3879,7 +3879,7 @@
     "sp": "Your wazzaround Team"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Confirmation of your Registration",
     "en": "Confirmation of your Registration",
     "de": "Bestätigung der Registrierung",
@@ -3888,7 +3888,7 @@
     "sp": "Confirmation of your Registration"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Only one click and your registration is completed successfully",
     "en": "Only one click and your registration is completed successfully",
     "de": "Nur noch ein Klick und Ihre Registrierung ist erfolgreich abgeschlossen",
@@ -3897,7 +3897,7 @@
     "sp": "Only one click and your registration is completed successfully"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "To activate your account please click the following link",
     "en": "To activate your account please click the following link",
     "de": "Zum Aktivieren Ihres Accounts klicken Sie bitte auf folgenden Link",
@@ -3906,7 +3906,7 @@
     "sp": "To activate your account please click the following link"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "activation email hint",
     "en": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!",
     "de": "Ist die Registrierung nicht in Ihrem Namen gemacht worden, können Sie diese Nachricht ignorieren – In diesem Fall verfällt die Registrierung!",
@@ -3915,7 +3915,7 @@
     "sp": "If the registration was done by someone else, just ignore this message. The registration will expire automatically!"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Activate my account now",
     "en": "Activate my account now",
     "de": "Meinen Account jetzt aktivieren",
@@ -3924,7 +3924,7 @@
     "sp": "Activate my account now"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Next step",
     "en": "What now?",
     "de": "Wie geht es weiter?",
@@ -3933,7 +3933,7 @@
     "sp": "Next step?"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Next step information",
     "en": "We have transmitted your booking to the activity provider. Below you'll find your booking details and your reservation number. We have also sent you a confirmation via email. If you need any help contact our support 24/7!",
     "de": "Wir haben dem Anbieter die Buchung übermittelt. Untenstehend findest Du eine Zusammenfassung Deiner Buchungsdaten sowie Deine Buchungsnummer. Außerdem haben wir Dir per Email eine Buchungsbestätigung zugeschickt. Wenn Du Hilfe brauchst kontaktiere jederzeit unseren 24h Support!",
@@ -3942,7 +3942,7 @@
     "sp": "The Activity-Providers will contact you soon via E-mail or telephone to provide further details like e.g. the meeting point "
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Event Provider details",
     "en": "Event Provider details",
     "de": "Ihr Provider Details",
@@ -3951,7 +3951,7 @@
     "sp": "Event Provider details"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "What is my",
     "en": "What is my",
     "de": "Was ist meine",
@@ -3960,7 +3960,7 @@
     "sp": "What is my"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "What is my Providers Name",
     "en": "What is my Providers Name",
     "de": "Wie ist der Name meines Anbieters",
@@ -3969,7 +3969,7 @@
     "sp": "What is my Providers Name"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "I want to contact the provider by mail",
     "en": "I want to contact the provider by mail",
     "de": "Ich möchte den Provider per E-Mail kontaktieren",
@@ -3978,7 +3978,7 @@
     "sp": "I want to contact the provider by mail"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "I want to contact the provider by phone",
     "en": "I want to contact the provider by phone",
     "de": "Ich möchte den Provider telefonisch kontaktieren",
@@ -3987,7 +3987,7 @@
     "sp": "I want to contact the provider by phone"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "I want to contact Reacture",
     "en": "I want to contact wazzaround",
     "de": "Ich möchte wazzaround kontaktieren",
@@ -3996,7 +3996,7 @@
     "sp": "I want to contact wazzaround"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your Booking Details",
     "en": "Your Booking Details",
     "de": "Ihre Aktivität Details",
@@ -4005,7 +4005,7 @@
     "sp": "Your Booking Details"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Event Name",
     "en": "Event Name",
     "de": "Name der Aktivität",
@@ -4014,7 +4014,7 @@
     "sp": "Event Name"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "When do i have to be there",
     "en": "When do i have to be there",
     "de": "Wann muss ich am Treffpunkt sein",
@@ -4023,7 +4023,7 @@
     "sp": "When do i have to be there"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Where do i meet my activity provider",
     "en": "Where do i meet my activity provider",
     "de": "Wo treffe ich mich mit meinem Anbieter",
@@ -4032,7 +4032,7 @@
     "sp": "Where do i meet my activity provider"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Have fun and enjoy",
     "en": "Have fun and enjoy",
     "de": "Viel Spaß bei Deiner Aktivität",
@@ -4041,7 +4041,7 @@
     "sp": "Have fun and enjoy"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Your Reacture Booking Team",
     "en": "Your wazzaround Booking Team",
     "de": "Dein wazzaround Team",
@@ -4050,7 +4050,7 @@
     "sp": "Your wazzaround Booking Team"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "Hello",
     "en": "Hi",
     "de": "Hallo",
@@ -4059,7 +4059,7 @@
     "sp": "Hola"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "congratulations",
     "en": "Congratulations",
     "de": "Herzlichen Glückwunsch",
@@ -4068,7 +4068,7 @@
     "sp": "congratulations"
   },
   {
-    "\n": "",
+    "go": "",
     "key": "We have transmitted your booking to the activity provider and charged your credit card with",
     "en": "We have transmitted your booking to the activity provider and charged your credit card with {{amount}} {{currency}}",
     "de": "Wir haben Deine Buchung an den Anbieter übermittelt und deine Kreditkarte mit {{amount}} {{currency}} belastet ",
@@ -4077,7 +4077,7 @@
     "sp": "We have transmitted your booking to the activity provider and charged your credit card with {{amount}} {{currency}} "
   },
   {
-    "\n": "",
+    "go": "",
     "key": "bookingconfirmation customer paragraph1",
     "en": "You don’t have to do anything – just get to the indicated meeting point and bring this email with you – your activity provider is expecting you! ",
     "de": "Lehne Dich zurück, Du mußt nichts mehr tun! Komme einfach zum unten angegebenen Treffpunkt - Dein Aktivitätenanbieter erwartet Dich dort!  ",
@@ -4086,7 +4086,7 @@
     "sp": "You don’t have to do anything – just get to the indicated meeting point and bring this email with you – your activity provider is expecting you! "
   },
   {
-    "\n": "",
+    "go": "",
     "key": "bookingconfirmation customer paragraph2",
     "en": "Just in case your plans change or you need to contact the activity provider for any other reason you can always call the provider or email your provider directly. ",
     "de": "Nur für den Fall, dass Du Deine Pläne änderst oder vorher noch Details direkt abklären möchtest kannst Du Dich jederzeit per Telefon oder E-Mail direkt an Deinen Provider wenden.  ",
@@ -4095,7 +4095,7 @@
     "sp": "Just in case your plans change or you need to contact the activity provider for any other reason you can always call the provider or email your provider directly. "
   },
   {
-    "\n": "",
+    "go": "",
     "key": "bookingconfirmation customer paragraph3",
     "en": "If you experience any trouble with your booking, the provider or if you have questions regarding your invoice don´t hesitate to contact our support anytime.",
     "de": "Wenn Du Fragen zu Deiner Reservierung, Deinem Anbieter oder Deiner Rechnung hast so wende Dich jederzeit an unseren Support. ",
