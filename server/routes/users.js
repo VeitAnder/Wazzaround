@@ -37,7 +37,7 @@ router.get('/:id/activate/:tokenid/:token/', function (req, res, next) {
       return security.login(req);
     })
     .then(function () {
-      res.status(200).redirect("/admin/myactivities/");
+      res.status(200).redirect("/#!/admin/myactivities/new/");
     })
     .fail(function (err) {
       res.send(err.message);
