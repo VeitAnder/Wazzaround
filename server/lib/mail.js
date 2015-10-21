@@ -114,7 +114,7 @@ exports.sendResetPasswordMail = function (user, token, langKey) {
     data: {
       user: user,
       token: token,
-      resetpwdurl: config.clienthost + "registration/forgotpassword/" + token + "/" + user.email + "/",
+      resetpwdurl: config.clienthost + "#!/registration/forgotpassword/" + token + "/" + user.email + "/",
       template: {
         resetpassword: true
       }
