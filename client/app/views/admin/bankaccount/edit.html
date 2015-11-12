@@ -1,4 +1,4 @@
-<div ng-controller="AdminProfileEditCtrl">
+<div ng-controller="AdminBankAccountEditCtrl">
 
   <div class="container">
     <div class="row">
@@ -15,9 +15,10 @@
 
         <div class="divider"></div>
 
-        <form name="valForm"
-              class="standardform activity-edit"
-              novalidate
+        <form
+            name="valForm"
+            class="standardform activity-edit"
+            novalidate
         >
 
           <div class="formdata-display">
@@ -76,6 +77,7 @@
             <h4>
               {{'Paypal' | translate}}
             </h4>
+
             <div class="form-group">
               <label for="bank">{{'Paypal email' | translate}}</label>
               <input name="paypalemail"
@@ -102,6 +104,7 @@
             <h4>
               {{'Bank account' | translate}}
             </h4>
+
             <div class="form-group">
               <label for="bank">{{'Bank name' | translate}}</label>
               <input name="bank"
@@ -192,7 +195,9 @@
 
           <div class="form-group form-group-btn">
             <a class="btn"
-               ng-class="{disabled: !isEntireFormValid()}"
+               ng-class="{
+                 disabled: !isEntireFormValid()
+               }"
                ng-click="save()"
             >
               {{'save user data' | translate}}

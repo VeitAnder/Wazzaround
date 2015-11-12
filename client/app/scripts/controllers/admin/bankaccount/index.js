@@ -20,9 +20,8 @@ angular.module('anorakApp')
 
     $scope.user = userResolve;
   })
-  .controller('AdminBankAccountEditCtrl', function ($scope, models, $location, $timeout, Countrylist) {
+  .controller('AdminBankAccountEditCtrl', function ($scope, models, $location, $timeout) {
     var returnPath = $location.path().split("edit")[0];
-    $scope.Countrylist = Countrylist;
 
     $scope.state = {
       submitted: false

@@ -36,23 +36,6 @@ w
   </div>
 </div>
 
-<!--      <div class="formdata-display">
-        <div class="input-label">
-          {{'language' | translate}}
-        </div>
-        <div class="input-content">
-          {{user.language}}
-        </div>
-      </div>
-      <div class="formdata-display">
-        <div class="input-label">
-          {{'currency' | translate}}
-        </div>
-        <div class="input-content">
-          {{user.currency}}
-        </div>
-      </div>-->
-
 <div ng-show="user.userType === 'provider' || user.userType === 'admin'">
 
   <h4>{{'Company data' | translate}}:</h4>
@@ -116,3 +99,6 @@ w
   </div>
 
 </div>
+
+<h4>{{'Bank Account' | translate}}</h4>
+<div ng-include="'views/admin/bankaccount/userbankaccountdetails.html'"></div>
