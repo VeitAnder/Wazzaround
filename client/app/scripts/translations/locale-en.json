@@ -449,5 +449,7 @@
   "Please enter your iban": "Please enter your iban",
   "Bic": "Bic",
   "Please enter your bic": "Please enter your bic",
-  "Name of the account owner": "Name of the account owner"
+  "Name of the account owner": "Name of the account owner",
+  "Booking ends hours before event start": "Booking ends hours before event start",
+  "helptext activity hoursbookablebeforstart": "Hours before the event start until booking is allowed"
 }

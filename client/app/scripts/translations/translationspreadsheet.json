@@ -4219,5 +4219,23 @@
     "it": "Please enter the name of the account owner",
     "fr": "Please enter the name of the account owner",
     "sp": "Please enter the name of the account owner"
+  },
+  {
+    "go": "",
+    "key": "Booking ends hours before event start",
+    "en": "Booking ends hours before event start",
+    "de": "Buchungen sind nur bis zu Stunden vor dem Event möglich",
+    "it": "Booking ends hours before event start",
+    "fr": "Booking ends hours before event start",
+    "sp": "Booking ends hours before event start"
+  },
+  {
+    "go": "",
+    "key": "helptext activity hoursbookablebeforstart",
+    "en": "Hours before the event start until booking is allowed",
+    "de": "Stunden vor dem Event-Start bis zu dem Buchungen möglich sind",
+    "it": "Hours before the event start until booking is allowed",
+    "fr": "Hours before the event start until booking is allowed",
+    "sp": "Hours before the event start until booking is allowed"
   }
 ]

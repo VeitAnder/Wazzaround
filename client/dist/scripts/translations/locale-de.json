@@ -449,5 +449,7 @@
   "Please enter your iban": "Bitte geben Sie Ihre IBAN Nummer ein",
   "Bic": "Bic",
   "Please enter your bic": "Bitte geben Sie Ihre BIC Nummer ein",
-  "Name of the account owner": "Name des Kontoinhabers"
+  "Name of the account owner": "Name des Kontoinhabers",
+  "Booking ends hours before event start": "Buchungen sind nur bis zu Stunden vor dem Event möglich",
+  "helptext activity hoursbookablebeforstart": "Stunden vor dem Event-Start bis zu dem Buchungen möglich sind"
 }
