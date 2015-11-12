@@ -3982,3 +3982,14 @@ noscript {
   display: block;
   margin-bottom: 10px;
 }
+
+selectbankingtype {
+  input {
+    width: auto !important;
+    box-shadow: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
