@@ -76,11 +76,28 @@ if (process.env.NODE_ENV === "production") {
 
 // init mongodb database connection
 var mongojs = require('mongojs');
-if (config.mongo.local) {
-  var db = mongojs('mongodb://127.0.0.1:27017/' + config.mongo.dbName);
-} else {
-  var db = mongojs('mongodb://' + config.mongo.username + ':' + config.mongo.password + '@' + config.mongo.host + ':' + config.mongo.port + '/' + config.mongo.dbName);
-}
+var db;
+
+(function () {
+  var authMechanism;
+
+  if (process.env.NODE_ENV === "dev") {
+    //MongoDB 3.0
+    authMechanism = 'ScramSHA1';
+  } else {
+    // Mongodb 2.6
+    authMechanism = 'MongoCR';
+  }
+
+  db = mongojs(
+    'mongodb://' + config.mongo.username + ':' + config.mongo.password + '@' + config.mongo.host + ':' + config.mongo.port + '/' + config.mongo.dbName,
+    [],
+    {
+      authMechanism: authMechanism
+    }
+  );
+})();
+
 app.use(cookieParser());
 app.use(cookieParser(config.server.cookieSecret));            // Hash cookies with this secret
 app.use(cookieSession({

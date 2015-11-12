@@ -20,7 +20,7 @@
     "modelizer": "0.5.5",
     "moment": "2.10.3",
     "moment-timezone": "0.4.0",
-    "mongojs": "0.14.1",
+    "mongojs": "1.4.1",
     "morgan": "1.3.1",
     "multiparty": "3.3.2",
     "node-logentries": "0.1.4",
