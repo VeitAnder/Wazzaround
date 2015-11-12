@@ -27,7 +27,7 @@ BookedEventModel.readFilter(function (req) {
     return true;  // kann alles lesen
   }
 
-  return { "activity_owner._reference": req.user._id };  // allow activity owner to see his bookedEvents
+  return {"activity_owner._reference": req.user._id};  // allow activity owner to see his bookedEvents
 });
 
 BookedEventModel.writeFilter(function (obj, req) {
@@ -52,6 +52,6 @@ BookedEventModel.operationImpl("bookedQuantity", function (params, req) {
         quantity += bookedEvent.quantity;
       });
 
-      return {'quantity': quantity };
+      return {'quantity': quantity};
     });
 });

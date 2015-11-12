@@ -11,6 +11,7 @@ var ActivityModel = require('../models.js').ActivityModel;
 
 var Q = require('q');
 var _ = require('lodash');
+var moment = require('moment');
 
 var translationutil = require('../../lib/translation');
 
@@ -119,6 +120,17 @@ ActivityModel.writeFilter(function (doc, req) {
     doc.owner._reference = req.user._id;
   }
 
+  // calculate
+
+  // auto-calculate bookingEndsAt date time stamp
+  doc.bookableItems.forEach(function (bookableItem) {
+    if (bookableItem.events) {
+      bookableItem.events.forEach(function (event) {
+        event.bookingEndsAt = moment(event.start).subtract(event.bookingEndsHoursBeforeStart, 'hours').toDate();
+      });
+    }
+  });
+
   var translateBookableItems = function (bookableItems) {
     var translationPromises = [];
     _.forEach(bookableItems, function (bookableitem) {
@@ -129,11 +141,11 @@ ActivityModel.writeFilter(function (doc, req) {
 
   // translate the activity before writing document
   return Q.all(_.flatten([
-    translationutil.translate(doc.name, doc.inputlanguage),
-    translationutil.translate(doc.description, doc.inputlanguage),
-    translationutil.translate(doc.shortdescription, doc.inputlanguage),
-    translateBookableItems(doc.bookableItems)
-  ]))
+      translationutil.translate(doc.name, doc.inputlanguage),
+      translationutil.translate(doc.description, doc.inputlanguage),
+      translationutil.translate(doc.shortdescription, doc.inputlanguage),
+      translateBookableItems(doc.bookableItems)
+    ]))
     .fail(function (err) {
       return err;
     });
@@ -166,27 +178,27 @@ ActivityModel.factoryImpl("filteredActivities", function (params, req) {
   var endDate = new Date(params.endDate);
 
   return models.ActivityModel.find({
-    location: {
-      '$geoWithin': {
-        '$box': [
-          [params.from.lng, params.from.lat],
-          [params.to.lng, params.to.lat]
-        ]
-      }
-    },
-    bookableItems: {
-      $elemMatch: {
-        events: {
-          $elemMatch: {
-            start: {
-              '$gte': startDate,
-              '$lte': endDate
+      location: {
+        '$geoWithin': {
+          '$box': [
+            [params.from.lng, params.from.lat],
+            [params.to.lng, params.to.lat]
+          ]
+        }
+      },
+      bookableItems: {
+        $elemMatch: {
+          events: {
+            $elemMatch: {
+              start: {
+                '$gte': startDate,
+                '$lte': endDate
+              }
             }
           }
         }
       }
-    }
-  })
+    })
     .then(function (activities) {
       console.log("activities", activities);
       //activities.forEach(function (activity) {

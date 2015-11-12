@@ -94,6 +94,8 @@ var models = function () {
   UserModel.attrObj("promotion", PromotionModel);
 
   var EventModel = new model("events", {
+    bookingEndsAt: Attr(Type.date), // auto-calculated at write-filter time from bookingEndsHoursBeforeStart
+    bookingEndsHoursBeforeStart: Attr(Type.number, Attr.default(1)),
     start: Attr(Type.date),
     end: Attr(Type.date),
     quantity: Attr(Type.number),

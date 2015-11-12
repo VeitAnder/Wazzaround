@@ -1,0 +1,27 @@
+<div
+    class="form-group form-group-helptext"
+>
+
+  <label for="hoursbookablebeforstart">
+    {{'Booking ends hours before event start' | translate}}
+  </label>
+
+  <div aiotoggleitem
+       toggleitemlabel="{{'helptext' | translate}}"
+       class="aiotoggleitem"
+  >
+    {{'helptext activity hoursbookablebeforstart' | translate}}
+  </div>
+
+  <input
+      type="number"
+      class="form-control"
+      style="text-align:left;"
+      id="hoursbookablebeforstart"
+      name="hoursbookablebeforstart"
+      ng-model="ctrl.event.bookingEndsHoursBeforeStart"
+      min="0"
+      placeholder="{{'hours' | translate}}"
+      required
+  />
+</div>
