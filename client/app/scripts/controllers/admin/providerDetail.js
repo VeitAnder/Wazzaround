@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('ProviderDetailCtrl', function ($scope, provider, activities, $timeout, $route, $location) {
+  .controller('ProviderDetailCtrl', function ($scope, provider, activities, $timeout, $route, $location, currentUser) {
     $scope.getPagePartial = function () {
       return 'views/admin/providerDetail.html';
     };
@@ -9,6 +9,8 @@ angular.module('anorakApp')
     $scope.provider = provider;
     $scope.user = provider;
     $scope.activities = activities;
+
+    $scope.currentUser = currentUser;
 
     $scope.editProfile = function () {
       $timeout(function () {

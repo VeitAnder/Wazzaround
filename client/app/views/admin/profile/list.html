@@ -22,7 +22,7 @@ w
 
 <div class="formdata-display"
      ng-show="user.acl.sales"
-  >
+>
 
   <div class="input-label">
     {{'Userrole' | translate}}
@@ -100,5 +100,9 @@ w
 
 </div>
 
-<h4>{{'Bank Account' | translate}}</h4>
-<div ng-include="'views/admin/bankaccount/userbankaccountdetails.html'"></div>
+<div
+    ng-if="currentUser.user.userType === 'admin'"
+>
+  <h4>{{'Bank Account' | translate}}</h4>
+  <div ng-include="'views/admin/bankaccount/userbankaccountdetails.html'"></div>
+</div>
