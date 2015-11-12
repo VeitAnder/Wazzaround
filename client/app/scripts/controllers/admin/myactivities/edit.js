@@ -138,6 +138,7 @@ angular.module('anorakApp')
         // add new event
         if (event.dayOfWeek['day' + moment(event.start).add(dayoffset, 'days').day()]) {  // Wochentag angehakt
           var newEvent = item.createEvents();
+          newEvent.bookingEndsHoursBeforeStart = event.bookingEndsHoursBeforeStart;
           newEvent.start = moment(event.start).add(dayoffset, 'days').toDate();
           newEvent.end = moment(event.end).add(dayoffset, 'days').toDate();
           newEvent.quantity = event.quantity;

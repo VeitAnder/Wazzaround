@@ -438,5 +438,18 @@
   "We have transmitted your booking to the activity provider and charged your credit card with": "We have transmitted your booking to the activity provider and charged your credit card with {{amount}} {{currency}}",
   "bookingconfirmation customer paragraph1": "You don’t have to do anything – just get to the indicated meeting point and bring this email with you – your activity provider is expecting you! ",
   "bookingconfirmation customer paragraph2": "Just in case your plans change or you need to contact the activity provider for any other reason you can always call the provider or email your provider directly. ",
-  "bookingconfirmation customer paragraph3": "If you experience any trouble with your booking, the provider or if you have questions regarding your invoice don´t hesitate to contact our support anytime."
+  "bookingconfirmation customer paragraph3": "If you experience any trouble with your booking, the provider or if you have questions regarding your invoice don´t hesitate to contact our support anytime.",
+  "Please select your banking type": "Please select your banking type",
+  "Paypal": "Paypal",
+  "Paypal email": "Paypal email",
+  "Please enter your paypal email": "Please enter your paypal email",
+  "Bank name": "Bank name",
+  "Please enter your bank": "Please enter your bank",
+  "Iban": "Iban",
+  "Please enter your iban": "Please enter your iban",
+  "Bic": "Bic",
+  "Please enter your bic": "Please enter your bic",
+  "Name of the account owner": "Name of the account owner",
+  "Booking ends hours before event start": "Booking ends hours before event start",
+  "helptext activity hoursbookablebeforstart": "Hours before the event start until booking is allowed"
 }

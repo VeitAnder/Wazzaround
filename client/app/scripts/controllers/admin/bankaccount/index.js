@@ -1,49 +1,47 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminProfilePageCtrl', function ($scope, currentUser, $location) {
+  .controller('AdminBankAccountPageCtrl', function ($scope, currentUser, $location) {
     $scope.getPagePartial = function () {
-      return 'views/admin/profile/index.html';
+      return 'views/admin/bankaccount/index.html';
     };
 
     $scope.user = currentUser.user;
 
     $scope.edit = function () {
-      $location.path("/admin/profile/edit");
+      $location.path("/admin/bankaccount/edit");
     };
 
   })
-  .controller('AdminProfileEditPageCtrl', function ($scope, userResolve) {
+  .controller('AdminBankAccountEditPageCtrl', function ($scope, userResolve) {
     $scope.getPagePartial = function () {
-      return 'views/admin/profile/edit.html';
+      return 'views/admin/bankaccount/edit.html';
     };
 
     $scope.user = userResolve;
   })
-  .controller('AdminProfileEditCtrl', function ($scope, models, $location, $timeout, Countrylist) {
+  .controller('AdminBankAccountEditCtrl', function ($scope, models, $location, $timeout) {
     var returnPath = $location.path().split("edit")[0];
-    $scope.Countrylist = Countrylist;
 
     $scope.state = {
       submitted: false
     };
 
-    $scope.saveUserProfile = function () {
+    $scope.save = function () {
       $scope.state.submitted = true;
-
-      if ($scope.isEntireFormValid()) {
-        $scope.user.save()
-          .then(function () {
-            $timeout(function () {
-              $location.path(returnPath);
-            });
-          })
-          .fail(function (err) {
-            debug("Could not save user profile", err);
-            $scope.state.savesuccess = false;
-          });
-
+      if (!$scope.isEntireFormValid()) {
+        return;
       }
+      $scope.user.save()
+        .then(function () {
+          $timeout(function () {
+            $location.path(returnPath);
+          });
+        })
+        .fail(function (err) {
+          debug("Could not save user profile", err);
+          $scope.state.savesuccess = false;
+        });
     };
 
     $scope.cancel = function () {
@@ -53,7 +51,7 @@ angular.module('anorakApp')
     };
 
     $scope.isEntireFormValid = function () {
-      return $scope.valForm.$valid && $scope.isCountryValid();
+      return $scope.valForm.$valid;
     };
 
     /**
@@ -70,9 +68,4 @@ angular.module('anorakApp')
       }
       return showerror;
     };
-
-    $scope.isCountryValid = function () {
-      return $scope.user.profile.country.code;
-    };
-
   });
