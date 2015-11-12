@@ -252,6 +252,28 @@ angular.module('anorakApp')
           }]
         }
       })
+      .when('/admin/bankaccount', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'AdminBankAccountPageCtrl',
+        resolve: {
+          currentUser: ['currentUser', function (currentUser) {
+            return currentUser.load();
+          }]
+        }
+      })
+      .when('/admin/bankaccount/edit', {
+        templateUrl: 'views/admin/admin_basetemplate.html',
+        controller: 'AdminBankAccountEditPageCtrl',
+        resolve: {
+          userResolve: ['currentUser', '$q', function (currentUser, $q) {
+            var defer = $q.defer();
+            currentUser.load().then(function (data) {
+              defer.resolve(data.user);
+            });
+            return defer.promise;
+          }]
+        }
+      })
       .when('/admin/providers', {
         templateUrl: 'views/admin/admin_basetemplate.html',
         controller: 'ProvidersCtrl',

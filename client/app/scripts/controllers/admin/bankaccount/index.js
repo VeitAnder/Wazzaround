@@ -1,26 +1,26 @@
 'use strict';
 
 angular.module('anorakApp')
-  .controller('AdminProfilePageCtrl', function ($scope, currentUser, $location) {
+  .controller('AdminBankAccountPageCtrl', function ($scope, currentUser, $location) {
     $scope.getPagePartial = function () {
-      return 'views/admin/profile/index.html';
+      return 'views/admin/bankaccount/index.html';
     };
 
     $scope.user = currentUser.user;
 
     $scope.edit = function () {
-      $location.path("/admin/profile/edit");
+      $location.path("/admin/bankaccount/edit");
     };
 
   })
-  .controller('AdminProfileEditPageCtrl', function ($scope, userResolve) {
+  .controller('AdminBankAccountEditPageCtrl', function ($scope, userResolve) {
     $scope.getPagePartial = function () {
-      return 'views/admin/profile/edit.html';
+      return 'views/admin/bankaccount/edit.html';
     };
 
     $scope.user = userResolve;
   })
-  .controller('AdminProfileEditCtrl', function ($scope, models, $location, $timeout, Countrylist) {
+  .controller('AdminBankAccountEditCtrl', function ($scope, models, $location, $timeout, Countrylist) {
     var returnPath = $location.path().split("edit")[0];
     $scope.Countrylist = Countrylist;
 

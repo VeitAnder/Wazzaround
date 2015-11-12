@@ -1,0 +1,63 @@
+<h4>{{'Personal data' | translate}}:</h4>
+
+<div class="formdata-display">
+  <div class="input-label">
+    {{'E-mail' | translate}}
+  </div>
+  <div class="input-content">
+    {{user.email}}
+  </div>
+</div>
+
+<bankaccount
+    ng-if="user.preferredBankingAccount === 'bankaccount'"
+>
+  <div class="formdata-display">
+    <div class="input-label">
+      {{'Bank name' | translate}}
+    </div>
+    <div class="input-content">
+      {{user.bankaccount.bank}}
+    </div>
+  </div>
+
+  <div class="formdata-display">
+    <div class="input-label">
+      {{'Iban' | translate}}
+    </div>
+    <div class="input-content">
+      {{user.bankaccount.iban}}
+    </div>
+  </div>
+
+  <div class="formdata-display">
+    <div class="input-label">
+      {{ 'Bic' | translate }}
+    </div>
+    <div class="input-content">
+      {{user.bankaccount.bic}}
+    </div>
+  </div>
+
+  <div class="formdata-display">
+    <div class="input-label">
+      {{'Name of the account owner' | translate}}
+    </div>
+    <div class="input-content">
+      {{user.bankaccount.nameofaccountowner}}
+    </div>
+  </div>
+</bankaccount>
+
+<paypalaccount
+    ng-if="user.preferredBankingAccount === 'paypal'"
+>
+  <div class="formdata-display">
+    <div class="input-label">
+      {{'Paypal email' | translate}}
+    </div>
+    <div class="input-content">
+      {{user.paypal.email}}
+    </div>
+  </div>
+</paypalaccount>

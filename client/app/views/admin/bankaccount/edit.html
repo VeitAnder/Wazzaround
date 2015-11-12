@@ -1,0 +1,215 @@
+<div ng-controller="AdminProfileEditCtrl">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+        <h2>{{'Edit Bank Account' | translate}}</h2>
+
+        <div class="helptextlegend">
+          <i>?</i>
+          <span>
+            {{ 'helptext legend' | translate }}
+          </span>
+        </div>
+
+        <div class="divider"></div>
+
+        <form name="valForm"
+              class="standardform activity-edit"
+              novalidate
+        >
+
+          <div class="formdata-display">
+            <div class="input-label">
+              {{'E-mail' | translate}}
+            </div>
+            <div class="input-content">
+              {{user.email}}
+            </div>
+          </div>
+
+          <selectbankingtype
+              class="form-group"
+          >
+
+            <h4>
+              {{'Please select your banking type' | translate}}
+            </h4>
+
+            <label
+                for="preferbankaccount"
+            >
+              <span
+              >
+                {{'Bank account' | translate}}
+              </span>
+              <input
+                  type="radio"
+                  name="preferbankaccount"
+                  id="preferbankaccount"
+                  ng-model="user.preferredBankingAccount"
+                  value="bankaccount"
+              >
+            </label>
+
+            <label
+                for="preferpaypal"
+            >
+              <span>
+                {{'Paypal' | translate}}
+              </span>
+              <input
+                  type="radio"
+                  name="preferpaypal"
+                  id="preferpaypal"
+                  ng-model="user.preferredBankingAccount"
+                  value="paypal"
+              >
+            </label>
+            <br>
+          </selectbankingtype>
+
+          <paypal
+              ng-if="user.preferredBankingAccount === 'paypal'"
+          >
+            <h4>
+              {{'Paypal' | translate}}
+            </h4>
+            <div class="form-group">
+              <label for="bank">{{'Paypal email' | translate}}</label>
+              <input name="paypalemail"
+                     id="paypalemail"
+                     ng-model="user.paypal.email"
+                     class="input-block-level"
+                     required
+                     placeholder="{{ 'Paypal email' | translate }}"
+              >
+
+              <span
+                  ng-show="showError('paypalemail', 'required')"
+                  class="alert alert-error"
+              >
+                {{'Please enter your paypal email' | translate}}
+              </span>
+
+            </div>
+          </paypal>
+
+          <bankaccount
+              ng-if="user.preferredBankingAccount === 'bankaccount'"
+          >
+            <h4>
+              {{'Bank account' | translate}}
+            </h4>
+            <div class="form-group">
+              <label for="bank">{{'Bank name' | translate}}</label>
+              <input name="bank"
+                     id="bank"
+                     ng-model="user.bankaccount.bank"
+                     class="input-block-level"
+                     required
+                     placeholder="{{ 'Bank name' | translate }}"
+              >
+
+              <span
+                  ng-show="showError('bank', 'required')"
+                  class="alert alert-error"
+              >
+                {{'Please enter your bank' | translate}}
+              </span>
+
+            </div>
+
+            <div class="form-group">
+              <label for="iban">{{'Iban' | translate}}</label>
+              <input name="iban"
+                     id="iban"
+                     ng-model="user.bankaccount.iban"
+                     class="input-block-level"
+                     required
+                     placeholder="{{ 'Iban' | translate }}"
+              >
+
+              <span
+                  ng-show="showError('iban', 'required')"
+                  class="alert alert-error"
+              >
+                {{'Please enter your iban' | translate}}
+              </span>
+
+            </div>
+
+            <div class="form-group">
+              <label for="bic">{{'Bic' | translate}}</label>
+              <input name="bic"
+                     id="bic"
+                     ng-model="user.bankaccount.bic"
+                     class="input-block-level"
+                     required
+                     placeholder="{{ 'Bic' | translate }}"
+              >
+
+              <span
+                  ng-show="showError('bic', 'required')"
+                  class="alert alert-error"
+              >
+                {{'Please enter your bic' | translate}}
+              </span>
+
+            </div>
+
+            <div class="form-group">
+              <label for="bic">{{'Name of the account owner' | translate}}</label>
+              <input name="nameofaccountowner"
+                     id="nameofaccountowner"
+                     ng-model="user.bankaccount.nameofaccountowner"
+                     class="input-block-level"
+                     required
+                     placeholder="{{ 'Name of the account owner' | translate }}"
+              >
+
+              <span
+                  ng-show="showError('nameofaccountowner', 'required')"
+                  class="alert alert-error"
+              >
+                {{'Please enter the name of the account owner' | translate}}
+              </span>
+
+            </div>
+
+          </bankaccount>
+
+          <p class="alert alert-error"
+             ng-show="!isEntireFormValid() && state.submitted">
+            <b>{{'Please fill out the form correctly' | translate}}</b>
+          </p>
+
+          <p class="alert alert-error"
+             ng-show="state.savesuccess === false">
+            <b>{{'Your changes could not be saved, there was an error' | translate}}</b>
+          </p>
+
+          <div class="form-group form-group-btn">
+            <a class="btn"
+               ng-class="{disabled: !isEntireFormValid()}"
+               ng-click="saveUserProfile()"
+            >
+              {{'save user data' | translate}}
+            </a>
+
+            <a class="space-left"
+               ng-click="cancel()"
+            >
+              {{'cancel' | translate}}
+            </a>
+
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</div>

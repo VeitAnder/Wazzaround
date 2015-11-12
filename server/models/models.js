@@ -57,26 +57,30 @@ var models = function () {
       contactperson: {
         name: Attr(Type.string)
       }
-//      bankaccount: {
-//        bank: Attr(Type.string),
-//        iban: Attr(Type.string),
-//        bic: Attr(Type.string),
-//        nameofaccountowner: Attr(Type.string)
-//      }
     },
+    bankaccount: {
+      bank: Attr(Type.string, Attr.default('test')),
+      iban: Attr(Type.string),
+      bic: Attr(Type.string),
+      nameofaccountowner: Attr(Type.string)
+    },
+    paypal: {
+      email: Attr(Type.string)
+    },
+    preferredBankingAccount: Attr(Type.string, Type.enum('bankaccount', 'paypal'), Attr.default('bankaccount')),
 
     login: Operation(),
     logout: Operation(),
     register: Operation(),
 
     userType: Attr(Type.string, Type.enum('user', 'admin', 'provider'), Attr.default('user')),
-    acl : {
-      sales : Attr(Type.boolean, Attr.default(false))
+    acl: {
+      sales: Attr(Type.boolean, Attr.default(false))
     },
 
     currentUser: Factory(),
     getProviders: Factory(),
-    getMyPromotedUsers : Operation(),
+    getMyPromotedUsers: Operation(),
 
     getProfile: Operation(),
     enteredpromocode: Attr(Type.string)
