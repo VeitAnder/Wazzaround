@@ -59,7 +59,7 @@ var models = function () {
       }
     },
     bankaccount: {
-      bank: Attr(Type.string, Attr.default('test')),
+      bank: Attr(Type.string),
       iban: Attr(Type.string),
       bic: Attr(Type.string),
       nameofaccountowner: Attr(Type.string)

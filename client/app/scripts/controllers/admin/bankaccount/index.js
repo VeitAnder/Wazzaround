@@ -28,22 +28,21 @@ angular.module('anorakApp')
       submitted: false
     };
 
-    $scope.saveUserProfile = function () {
+    $scope.save = function () {
       $scope.state.submitted = true;
-
-      if ($scope.isEntireFormValid()) {
-        $scope.user.save()
-          .then(function () {
-            $timeout(function () {
-              $location.path(returnPath);
-            });
-          })
-          .fail(function (err) {
-            debug("Could not save user profile", err);
-            $scope.state.savesuccess = false;
-          });
-
+      if (!$scope.isEntireFormValid()) {
+        return;
       }
+      $scope.user.save()
+        .then(function () {
+          $timeout(function () {
+            $location.path(returnPath);
+          });
+        })
+        .fail(function (err) {
+          debug("Could not save user profile", err);
+          $scope.state.savesuccess = false;
+        });
     };
 
     $scope.cancel = function () {
@@ -53,7 +52,7 @@ angular.module('anorakApp')
     };
 
     $scope.isEntireFormValid = function () {
-      return $scope.valForm.$valid && $scope.isCountryValid();
+      return $scope.valForm.$valid;
     };
 
     /**
@@ -70,9 +69,4 @@ angular.module('anorakApp')
       }
       return showerror;
     };
-
-    $scope.isCountryValid = function () {
-      return $scope.user.profile.country.code;
-    };
-
   });
