@@ -243,7 +243,7 @@ app.get('/quickfixapi/find/', function (req, res, next) {
   // find everything
   activities.find(query)
     .limit(50, function (err, docs) {
-      if (docs === null) {
+      if (docs === null || docs === undefined) {
         docs = [];
       } else {
 

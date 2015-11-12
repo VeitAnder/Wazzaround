@@ -20,6 +20,17 @@ angular.module('anorakApp')
       return res;
     };
   })
+  .filter('removeBookingAlreadyEnded', function () {
+    return function (events) {
+      return events.filter(function (event) {
+        if (event.event.bookingEndsAt) {
+          return new Date(event.event.bookingEndsAt) > new Date();
+        } else {
+          return true;
+        }
+      });
+    };
+  })
   .filter('filterEventsByDatesInFrontendMap', function (frontendmap) {
     return function (input, limit) {
       // filter events based on start and end date in map filter / frontendmap

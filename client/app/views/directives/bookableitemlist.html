@@ -2,9 +2,10 @@
   <h5>Loading…</h5>
 </div>-->
 
-<div ng-repeat="event in sortedEvents | bookableList:limit"
-     class="event-list event-list-items">
-
+<div
+    ng-repeat="event in sortedEvents | removeBookingAlreadyEnded | bookableList:limit"
+    class="event-list event-list-items"
+>
   <div class="divider"
        ng-if="showDate($index, event.event.start)">
     <span>
@@ -14,10 +15,11 @@
   </div>
 
   <span class="event-item">
-    <item activity="event.activity"
-          bookable-item="event.bookableItem"
-          event="event.event"
-        >
+    <item
+        activity="event.activity"
+        bookable-item="event.bookableItem"
+        event="event.event"
+    >
     </item>
   </span>
 
@@ -27,7 +29,7 @@
   <p class="align-right">{{'There are more events available' | translate}} …
     <a class="btn btn-small"
        ng-href="/#!/activities/{{activity._id}}/"
-        >
+    >
       {{ 'Show all Dates' | translate }}
     </a>
   </p>

@@ -5,7 +5,7 @@
 </div>
 
 <h4 class="title"
-    >
+>
   {{getSelectedActivity().name | languageselect}}
 </h4>
 <h6 class="no-margin-top">
@@ -16,7 +16,7 @@
 <div class="description multiline">
   <div class="innerwrap"
        ng-bind-html="getSelectedActivity().description[getAvailableTranslationLanguageKey(getSelectedActivity().description)] | nohtml | linebreak"
-      >
+  >
   </div>
 </div>
 
@@ -24,7 +24,7 @@
   {{'There are more events available' | translate}} …
   <a class="btn btn-small"
      ng-href="/#!/activities/{{getSelectedActivity()._id}}/"
-      >
+  >
     {{ 'Show all Dates' | translate }}
   </a>
 </p>
@@ -38,10 +38,11 @@
        class="event-list event-list-items">
 
     <span class="event-item"
-          ng-repeat="event in bookableItem.events | limitTo:1">
-      <item activity="getSelectedActivity()"
-            bookable-item="bookableItem"
-            event="event"
+          ng-repeat="event in bookableItem.events | removeBookingAlreadyEnded | limitTo:1">
+      <item
+          activity="getSelectedActivity()"
+          bookable-item="bookableItem"
+          event="event"
       </item>
     </span>
 
@@ -52,7 +53,7 @@
           activity="getSelectedActivity()"
           filter="filter"
           limit="3"
-          >
+      >
       </bookableitemlist>
     </span>
   </span>
