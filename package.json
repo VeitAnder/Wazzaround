@@ -6,7 +6,7 @@
   "dependencies": {
     "URIjs": "1.16.1",
     "body-parser": "1.14.1",
-    "cloudinary": "1.2.6",
+    "cloudinary": "1.0.12",
     "compression": "1.6.0",
     "cookie-parser": "1.4.0",
     "cookie-session": "1.0.2",
