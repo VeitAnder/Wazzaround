@@ -382,7 +382,9 @@
 
                 <div class="bookableitem-body">
 
-                  <eventlistinlistedit class="event-list">
+                  <eventlistinlistedit
+                      class="event-list"
+                  >
 
                     <div class="event-header">
                       <div class="event-date cell">{{'Date' | translate}}</div>
@@ -435,61 +437,14 @@
                           >
                           </hoursbookablebeforestart>
 
-                          <div class="form-group-inline form-group-inline-5050">
-                            <div class="form-group form-group-helptext">
-                              <label for="quantity">{{'Quantity' | translate}}</label>
+                          <div class="divider"></div>
 
-                              <div aiotoggleitem
-                                   toggleitemlabel="{{'helptext' | translate}}"
-                                   class="aiotoggleitem">
-                                {{'helptext activity quantity' | translate}}
-                              </div>
 
-                              <input type="number"
-                                     class="form-control"
-                                     id="quantity"
-                                     name="quantity"
-                                     placeholder="{{'Quantity' | translate}}"
-                                     ng-model="event.quantity"
-                                     min="1"
-                                     required
-                              >
+                          <event-pricing
+                              event="event"
+                          >
+                          </event-pricing>
 
-                              <span ng-show="eventForm.quantity.$invalid && (eventForm.quantity.$dirty || state.submitted || eventForm.submitted)"
-                                    class="alert alert-error"
-                              >
-                                {{'error message event number' | translate}}
-                              </span>
-
-                            </div>
-
-                            <div class="form-group form-group-helptext">
-                              <label for="price">{{'Price in €' | translate}}</label>
-
-                              <div aiotoggleitem
-                                   toggleitemlabel="{{'helptext' | translate}}"
-                                   class="aiotoggleitem">
-                                {{'helptext activity price' | translate}}
-                              </div>
-
-                              <input type="text"
-                                     class="form-control"
-                                     ng-model="event.price"
-                                     id="price"
-                                     name="price"
-                                     min="0"
-                                     ng-currency
-                                     placeholder="{{'Price in €' | translate}}"
-                                     required
-                              />
-
-                              <span ng-show="eventForm.price.$invalid && (eventForm.price.$dirty || state.submitted || eventForm.submitted)"
-                                    class="alert alert-error">
-                                {{'error message event number' | translate}}
-                              </span>
-
-                            </div>
-                          </div>
 
                           <div class="divider"></div>
 

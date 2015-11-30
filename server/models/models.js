@@ -100,7 +100,12 @@ var models = function () {
     end: Attr(Type.date),
     quantity: Attr(Type.number),
     availableQuantity: VirualAttr(Type.number), // wird von afterReadFilter berechnet/aktualisiert
-    price: Attr(Type.number)
+    price: Attr(Type.number),
+    groupEvent: Attr(Type.boolean, Attr.default(false)),
+    groupMinPersons: Attr(Type.number),
+    groupMaxPersons: Attr(Type.number),
+    priceForGroupEvent: Attr(Type.number),
+    priceForAdditionalPerson: Attr(Type.number)
   });
 
   var BookableItemModel = new model("bookableItems", {

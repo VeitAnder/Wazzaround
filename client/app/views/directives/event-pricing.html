@@ -1,0 +1,269 @@
+<!-- REPEATING EVENT begin -->
+
+<div
+    class="event-new-repeat"
+
+>
+  <label
+      class="switch-element switch-element-right"
+      ng-class="{
+           'switch-off': !ctrl.event.groupEvent,
+           'switch-on': ctrl.event.groupEvent
+         }"
+  >
+    <div class="switch-label">
+      <h6
+          class="no-margin-bottom no-margin-top"
+      >
+        <span
+            ng-class="{
+              active: !ctrl.event.groupEvent
+            }"
+        >
+          {{'Single person event' | translate}}
+        </span>
+        /
+        <span
+            ng-class="{
+              active: ctrl.event.groupEvent
+            }"
+        >
+          {{'Group event' | translate}}
+        </span>
+
+      </h6>
+    </div>
+    <input
+        type="checkbox"
+        ng-model="ctrl.event.groupEvent"
+        style="display:none;"
+    >
+    <div class="switch">
+      <span class="switch-label-i"></span>
+      <span class="switch-label-o"></span>
+      <span class="switch-btn"></span>
+    </div>
+
+  </label>
+
+  <div
+      class="form-group-inline form-group-inline-5050"
+      ng-if="!ctrl.event.groupEvent"
+      ng-form="singlePriceForm"
+  >
+    <div class="form-group form-group-helptext">
+      <label for="quantity">
+        {{'Quantity' | translate}}
+      </label>
+
+      <div
+          aiotoggleitem
+          toggleitemlabel="{{'helptext' | translate}}"
+          class="aiotoggleitem"
+      >
+        {{'helptext activity quantity' | translate}}
+      </div>
+
+      <input type="number"
+             class="form-control"
+             id="quantity"
+             name="quantity"
+             placeholder="{{'Quantity' | translate}}"
+             ng-model="ctrl.event.quantity"
+             min="1"
+             required
+      >
+
+      <span ng-show="singlePriceForm.quantity.$invalid"
+            class="alert alert-error"
+      >
+        {{'error message event number' | translate}}
+      </span>
+
+    </div>
+
+    <div class="form-group form-group-helptext">
+      <label for="price">
+        {{'Price in €' | translate}}
+      </label>
+
+      <div aiotoggleitem
+           toggleitemlabel="{{'helptext' | translate}}"
+           class="aiotoggleitem"
+      >
+        {{'helptext activity price' | translate}}
+      </div>
+
+      <input type="text"
+             class="form-control"
+             ng-model="ctrl.event.price"
+             id="price"
+             name="price"
+             min="0"
+             ng-currency
+             placeholder="{{'Price in €' | translate}}"
+             required
+      />
+
+      <span ng-show="singlePriceForm.price.$invalid "
+            class="alert alert-error">
+        {{'error message event number' | translate}}
+      </span>
+
+    </div>
+
+  </div>
+
+  <div
+      ng-if="ctrl.event.groupEvent"
+      ng-form="groupEventForm"
+  >
+
+    <div class="form-group-inline form-group-inline-5050">
+
+      <div class="form-group form-group-helptext">
+        <label
+            for="groupminpersons"
+        >
+          {{'group min persons' | translate}}
+        </label>
+
+        <div
+            aiotoggleitem
+            toggleitemlabel="{{'helptext' | translate}}"
+            class="aiotoggleitem"
+        >
+          {{'helptext group min persons' | translate}}
+        </div>
+
+        <input
+            type="number"
+            class="form-control"
+            id="groupminpersons"
+            name="groupminpersons"
+            placeholder="{{'Min persons' | translate}}"
+            ng-model="ctrl.event.groupMinPersons"
+            ng-min="2"
+            required
+        >
+
+        <span
+            ng-show="groupEventForm.groupminpersons.$invalid "
+            class="alert alert-error"
+        >
+          {{'error message group min persons' | translate}}
+        </span>
+
+      </div>
+
+      <div class="form-group form-group-helptext">
+        <label
+            for="priceforgroupevent"
+        >
+          {{'Price for group event' | translate}}
+        </label>
+
+        <div
+            aiotoggleitem
+            toggleitemlabel="{{'helptext' | translate}}"
+            class="aiotoggleitem"
+        >
+          {{'helptext group min persons' | translate}}
+        </div>
+
+        <input
+            type="number"
+            class="form-control"
+            id="priceforgroupevent"
+            name="priceforgroupevent"
+            placeholder="{{'Price for group event' | translate}}"
+            ng-model="ctrl.event.priceForGroupEvent"
+            required
+        >
+
+        <span
+            ng-show="groupEventForm.priceForGroupEvent.$invalid "
+            class="alert alert-error"
+        >
+          {{'error message price for group event' | translate}}
+        </span>
+
+      </div>
+
+    </div>
+
+    <div class="form-group-inline form-group-inline-5050">
+
+      <div class="form-group form-group-helptext">
+        <label
+            for="groupmaxpersons"
+        >
+          {{'group max persons' | translate}}
+        </label>
+
+        <div
+            aiotoggleitem
+            toggleitemlabel="{{'helptext' | translate}}"
+            class="aiotoggleitem"
+        >
+          {{'helptext group max persons' | translate}}
+        </div>
+
+        <input
+            type="number"
+            class="form-control"
+            id="groupmaxpersons"
+            name="groupmaxpersons"
+            placeholder="{{'Max persons' | translate}}"
+            ng-model="ctrl.event.groupMaxPersons"
+            ng-min="2"
+            required
+        >
+
+        <span
+            ng-show="groupEventForm.groupmaxpersons.$invalid"
+            class="alert alert-error"
+        >
+          {{'error message group max persons' | translate}}
+        </span>
+
+      </div>
+
+      <div class="form-group form-group-helptext">
+        <label
+            for="priceforadditionalperson"
+        >
+          {{'Price for additional person' | translate}}
+        </label>
+
+        <div
+            aiotoggleitem
+            toggleitemlabel="{{'helptext' | translate}}"
+            class="aiotoggleitem"
+        >
+          {{'helptext price for additional persons' | translate}}
+        </div>
+
+        <input
+            type="number"
+            class="form-control"
+            id="priceforadditionalperson"
+            name="priceforadditionalperson"
+            placeholder="{{'Price for additional person' | translate}}"
+            ng-model="ctrl.event.priceForAdditionalPerson"
+            required
+        >
+
+        <span
+            ng-show="groupEventForm.priceForAdditionalPerson.$invalid"
+            class="alert alert-error"
+        >
+          {{'error message price for additional person' | translate}}
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
