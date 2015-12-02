@@ -1,0 +1,116 @@
+<ng-form
+    name="ctrl.shoppingcartItemForm"
+    novalidate
+>
+  <!--SHOPPINGCART ITEM #1-->
+  <div
+      class="shoppingcart-item"
+      ng-class="::{
+            'category-sports'   : ctrl.item.category === 'sports',
+            'category-culture'  : ctrl.item.category === 'culture',
+            'category-wellness' : ctrl.item.category === 'wellness'
+          }"
+  >
+    <cloudinaryimage
+        ng-if="!ctrl.confirmationview"
+        publicid="{{::ctrl.item.image.public_id}}"
+        format="{{::ctrl.item.image.format}}"
+        width="100"
+        height="60"
+    >
+    </cloudinaryimage>
+
+    <h4>
+      <span
+          ng-hide="ctrl.confirmationview"
+          class="icon"
+      >
+      </span>
+      <strong>
+        {{ctrl.item.description[ctrl.translationutils.getAvailableTranslationLanguageKey(ctrl.item.description)] }}
+      </strong>
+      / {{ {start:ctrl.item.start, end:ctrl.item.end} | duration }}
+    </h4>
+
+    <div
+        class="shoppingcart-item-details"
+    >
+      <div
+          class="shoppingcart-item-date"
+      >
+        {{ ctrl.item.start | momentjs:{format: "ddd, MMM Do YYYY"} }}
+      </div>
+      <div
+          class="shoppingcart-item-qty"
+      >
+        <input
+            type="number"
+            ng-hide="ctrl.confirmationview"
+            class="form-control input-mini"
+            id="shoppingcartItemAmount1"
+            name="shoppingcartItemAmount1"
+            ng-model="ctrl.item.quantity"
+            min="1"
+            max="{{ctrl.item.availableQuantity}}"
+            required
+        >
+
+        <ng-messages
+            for="shoppingcartItemForm.shoppingcartItemAmount1.$error"
+        >
+          <ng-message
+              when="min"
+              class="alert alert-error"
+          >
+            {{ 'You have to order at least one item' | translate }}
+          </ng-message>
+          <ng-message
+              when="max"
+              class="alert alert-error"
+          >
+            {{'Only x items are available' | translate:{quantity:ctrl.item.availableQuantity} }}
+          </ng-message>
+          <ng-message
+              when="number"
+              class="alert alert-error"
+          >
+            {{ 'Amount has to be a number' | translate }}
+          </ng-message>
+          <ng-message
+              when="required"
+              class="alert alert-error"
+          >
+            {{ 'Amount has to be defined' | translate }}
+          </ng-message>
+        </ng-messages>
+
+        <span
+            ng-show="ctrl.confirmationview"
+        >
+          {{ctrl.item.quantity}}x
+        </span>
+
+      </div>
+
+      <div
+          class="shoppingcart-item-price"
+      >
+        {{ctrl.item.price | currency}}
+      </div>
+    </div>
+
+    <div
+        class="txt-icon-delete"
+        ng-hide="ctrl.confirmationview"
+        ng-click="ctrl.shoppingcart.remove(ctrl.item)"
+    >
+      <span
+          class="hidden"
+      >
+        Delete item
+      </span>
+      <span></span>
+    </div>
+  </div>
+
+</ng-form>

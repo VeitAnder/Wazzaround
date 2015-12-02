@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('ajsCentermaxwith', function ($window) {
+  .directive('ajsCenterMaxWidth', function ($window) {
     return {
       restrict: 'A',
       link: function postLink(scope, element, attrs) {

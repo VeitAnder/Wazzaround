@@ -1,0 +1,43 @@
+<ng-form
+    name="shoppingcartForm"
+>
+  <div class="shoppingcart-header">
+    <h3
+        ng-hide="state.confirmationview"
+    >
+      <strong>
+        {{shoppingcart.getTotal().num}}
+        <span
+            ng-show="shoppingcart.getTotal().num > 1 || shoppingcart.getTotal().num === 0"
+        >
+          {{'Activities' | translate }}
+        </span>
+        <span
+            ng-show="shoppingcart.getTotal().num === 1"
+        >
+          {{'Activity' | translate }}
+        </span>
+      </strong>
+      {{'in shopping cart' | translate }}
+    </h3>
+  </div>
+  <div class="shoppingcart-content"
+       ng-repeat="item in shoppingcart.getCart()"
+  >
+    <shoppingcart-event-item
+        item="item"
+        confirmationview="state.confirmationview"
+    >
+    </shoppingcart-event-item>
+  </div>
+
+  <!--SHOPPINGCART ITEMS END-->
+
+  <div class="shoppingcart-subtotal">
+    <span class="description">
+      {{'Subtotal' | translate }}
+    </span>
+    <span class="value">{{shoppingcart.getTotal().price | currency}}</span>
+  </div>
+
+</ng-form>

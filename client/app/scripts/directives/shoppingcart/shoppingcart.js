@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .directive('shoppingcart', function (shoppingcart, translationutils) {
     return {
-      templateUrl: 'views/directives/shoppingcart.html',
+      templateUrl: 'views/directives/shoppingcart/shoppingcart.html',
       restrict: 'E',
       scope: {
         cart: '='
