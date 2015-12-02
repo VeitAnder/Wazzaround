@@ -23,7 +23,7 @@ angular.module('anorakApp')
   .filter('removeBookingAlreadyEnded', function () {
     return function (events) {
       return events.filter(function (event) {
-        if (event.event.bookingEndsAt) {
+        if (event && event.event && event.event.bookingEndsAt) {
           return new Date(event.event.bookingEndsAt) > new Date();
         } else {
           return true;
