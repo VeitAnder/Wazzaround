@@ -1,3 +1,7 @@
+<pre>
+ {{ctrl.item | json}}
+</pre>
+
 <ng-form
     name="ctrl.shoppingcartItemForm"
     novalidate
@@ -40,8 +44,10 @@
       >
         {{ ctrl.item.start | momentjs:{format: "ddd, MMM Do YYYY"} }}
       </div>
-      <div
+
+      <quantity-single-item
           class="shoppingcart-item-qty"
+          ng-if="!ctrl.item.groupEvent"
       >
         <input
             type="number"
@@ -90,13 +96,50 @@
           {{ctrl.item.quantity}}x
         </span>
 
-      </div>
+      </quantity-single-item>
+
+      <quantity-group-event-item
+          class="shoppingcart-item-qty"
+          ng-if="ctrl.item.groupEvent"
+      >
+        <div>
+          Group Event Quantity:
+
+           <!--@TODO - calculate total price based on group event data or single event data-->
+
+          min persons: {{ctrl.item.groupMinPersons}}
+          max persons: {{ctrl.item.groupMaxPersons}}
+
+          price for group event: {{ctrl.item.priceForGroupEvent}}
+          price for priceForAdditionalPerson: {{ctrl.item.priceForAdditionalPerson}}
+
+          additional persons:
+
+          <input
+              type="number"
+              ng-hide="ctrl.confirmationview"
+              class="form-control input-mini"
+              id="shoppingcarGroupEventAdditionalPersons"
+              name="shoppingcarGroupEventAdditionalPersons"
+              ng-model="ctrl.item.groupEventAdditionalPersons"
+              min="0"
+              max="{{ctrl.item.groupMaxPersons - ctrl.item.groupMinPersons}}"
+              required
+          >
+        </div>
+      </quantity-group-event-item>
+
+
+
 
       <div
           class="shoppingcart-item-price"
       >
         {{ctrl.item.price | currency}}
       </div>
+
+
+
     </div>
 
     <div

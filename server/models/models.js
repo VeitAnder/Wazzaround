@@ -98,7 +98,7 @@ var models = function () {
     bookingEndsHoursBeforeStart: Attr(Type.number, Attr.default(1)),
     start: Attr(Type.date),
     end: Attr(Type.date),
-    quantity: Attr(Type.number),
+    quantity: Attr(Type.number, Attr.default(1)),
     availableQuantity: VirualAttr(Type.number), // wird von afterReadFilter berechnet/aktualisiert
     price: Attr(Type.number),
     groupEvent: Attr(Type.boolean, Attr.default(false)),
@@ -259,6 +259,7 @@ var models = function () {
 
     // price for this booking
     totalPrice: Method(function () {
+      // @TODO - calculate total price based on group event data or single event data
       return this.event.price * this.quantity;
     })
 

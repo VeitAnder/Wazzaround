@@ -9,6 +9,7 @@ angular.module('anorakApp')
       vm.shoppingcart = shoppingcart;
       vm.translationutils = translationutils;
 
+      //implementations
     };
 
     var directiveDefinitionObject = {
@@ -23,7 +24,5 @@ angular.module('anorakApp')
       templateUrl: 'views/directives/shoppingcart/shoppingcart-event-item.html'
     };
     return directiveDefinitionObject;
-
-
 
   });

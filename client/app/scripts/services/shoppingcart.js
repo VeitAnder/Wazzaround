@@ -11,8 +11,6 @@
 angular.module('anorakApp')
   .factory('shoppingcart', function shoppingcart(models, $localStorage, $translate) {
 
-    // AngularJS will instantiate a singleton by calling "new" on this function
-
     var shoppingCart = function (storage) {
       this.storage = storage;
       this.states = {};
@@ -33,18 +31,6 @@ angular.module('anorakApp')
     shoppingCart.prototype.reset = function () {
       this.storage.theShoppingCart = {};
       this.storage.dictCounter = 0;
-    };
-
-    shoppingCart.prototype.add = function (item) {
-      assert(item.price !== undefined, "provide a price for the item");
-
-      if (this.storage.theShoppingCart[item.eventId]) {
-        this.storage.theShoppingCart[item.eventId].quantity += 1;
-        return;
-      }
-
-      this.storage.theShoppingCart[item.eventId] = item;
-      this.storage.dictCounter += 1;
     };
 
     shoppingCart.prototype.remove = function (item) {
@@ -74,14 +60,14 @@ angular.module('anorakApp')
 
     shoppingCart.prototype.checkout = function (paymentToken, profile) {
       var params = [];
-      for (var i in this.storage.theShoppingCart) {
+      _.each(this.storage.theShoppingCart, function (item) {
         params.push({
-          activity: this.storage.theShoppingCart[i].activityId,
-          item: this.storage.theShoppingCart[i].bookableItemId,
-          event: this.storage.theShoppingCart[i].eventId,
-          quantity: this.storage.theShoppingCart[i].quantity
+          activity: item.activityId,
+          item: item.bookableItemId,
+          event: item.eventId,
+          quantity: item.quantity
         });
-      }
+      });
 
       return models.BookingModel.checkout({
         'bookings': params,
@@ -96,12 +82,10 @@ angular.module('anorakApp')
     };
 
     shoppingCart.prototype.getCopy = function () {
-      var copy = new shoppingCart({
+      return new shoppingCart({
         theShoppingCart: angular.copy(this.storage.theShoppingCart),
         dictCounter: this.storage.dictCounter
       });
-
-      return copy;
     };
 
     return new shoppingCart($localStorage.$default({

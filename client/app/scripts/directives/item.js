@@ -12,7 +12,6 @@ angular.module('anorakApp')
       },
       controller: function ($scope, shoppingcart) {
         $scope.addToShoppingCart = function () {
-          console.log("addToShoppingCart");
           shoppingcart.add({
             eventId: $scope.event._id,
             bookableItemId: $scope.bookableItem._id,
@@ -24,7 +23,12 @@ angular.module('anorakApp')
             end: $scope.event.end,
             category: $scope.activity.category.main,
             image: $scope.activity.images[0],
-            availableQuantity: $scope.event.availableQuantity
+            availableQuantity: $scope.event.availableQuantity,
+            groupEvent: $scope.event.groupEvent,
+            groupMinPersons: $scope.event.groupMinPersons,
+            groupMaxPersons: $scope.event.groupMaxPersons,
+            priceForGroupEvent: $scope.event.priceForGroupEvent,
+            priceForAdditionalPerson: $scope.event.priceForAdditionalPerson
           });
 
           if (APP_CONFIG.mobile) {
