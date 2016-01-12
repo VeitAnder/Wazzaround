@@ -1,4 +1,6 @@
-<div data-ng-controller="MapsearchbarCtrl">
+<div
+    ng-controller="MapsearchbarCtrl"
+>
   <div class="form-mapsearch">
 
     <div class="location input-group input-group-lg">
@@ -13,8 +15,27 @@
              bs-typeahead
              ng-blur="searchActivities()"
              select-on-click
-          >
+      >
 
+    </div>
+
+    <div
+        class="input-group"
+        style="width:100%;"
+    >
+      <input
+          class="form-control"
+          style="width:25%; text-align: center;"
+          type="number"
+          ng-model="frontendmap.map.searchNumberOfPersons"
+          min="1"
+          placeholder="{{'Persons' | translate}}"
+      >
+      <span
+        style="padding: 0 0 0 10px;"
+      >
+        {{'Persons' | translate}}
+      </span>
     </div>
 
     <div class="form-group date-from">
@@ -26,12 +47,12 @@
              placeholder="{{'From' | translate}}"
              bs-datepicker
              autoclose="false"
-          >
+      >
     </div>
     <div class="form-group date-until">
       <select ng-model="calDaysOptionsSelected.selection"
               ng-options="o.days as o.text for o in calDaysOptions"
-          >
+      >
       </select>
       <!--
       <label>{{'until' | translate}}</label>
@@ -53,7 +74,7 @@
               ng-click="searchActivities()"
 
               focuson
-          >{{'Find' | translate}}
+      >{{'Find' | translate}}
       </button>
     </span>
 

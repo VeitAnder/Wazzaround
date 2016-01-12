@@ -98,7 +98,7 @@ var models = function () {
     bookingEndsHoursBeforeStart: Attr(Type.number, Attr.default(1)),
     start: Attr(Type.date),
     end: Attr(Type.date),
-    quantity: Attr(Type.number, Attr.default(1)),
+    quantity: Attr(Type.number, Attr.default(1)), // gets overwritten by afterReadFilter in case of groupEvent
     availableQuantity: VirualAttr(Type.number), // wird von afterReadFilter berechnet/aktualisiert
     price: Attr(Type.number),
     groupEvent: Attr(Type.boolean, Attr.default(false)),

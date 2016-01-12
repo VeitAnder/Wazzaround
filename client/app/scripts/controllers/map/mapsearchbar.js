@@ -28,6 +28,12 @@ angular.module('anorakApp')
       }
     }, true);
 
+    $scope.$watch('frontendmap.map.searchNumberOfPersons', function (newVal, oldVal) {
+      if (newVal !== oldVal) {
+        frontendmap.onSearchDateChange();
+      }
+    }, true);
+
     $scope.getGoogleAddressAutoCompletionList = function (viewValue) {
       return frontendmap.getGoogleAddressAutoCompletionList(viewValue);
     };

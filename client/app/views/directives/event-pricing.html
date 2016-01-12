@@ -160,7 +160,7 @@
         <label
             for="priceforgroupevent"
         >
-          {{'Price for group event' | translate}}
+          {{'Price for group event' | translate}} ({{ctrl.event.groupMinPersons}} {{'Persons' | translate}})
         </label>
 
         <div
@@ -198,7 +198,7 @@
         <label
             for="groupmaxpersons"
         >
-          {{'group max persons' | translate}}
+          {{'Group max persons' | translate}}
         </label>
 
         <div
@@ -214,7 +214,7 @@
             class="form-control"
             id="groupmaxpersons"
             name="groupmaxpersons"
-            placeholder="{{'Max persons' | translate}}"
+            placeholder="{{'Group max persons' | translate}}"
             ng-model="ctrl.event.groupMaxPersons"
             ng-min="2"
             required

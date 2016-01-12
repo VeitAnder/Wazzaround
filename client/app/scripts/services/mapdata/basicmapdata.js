@@ -7,7 +7,7 @@
  http://stackoverflow.com/questions/13619837/angular-js-inject-new-instance-of-class
  */
 angular.module('anorakApp')
-  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates, $timeout, $filter, APP_CONFIG, $window) {
+  .factory('basicmapdata', function ($rootScope, models, $q, $http, Usersessionstates, $timeout, $filter, APP_CONFIG) {
 
     var mapdata = function () {
       var self = this;
@@ -127,7 +127,8 @@ angular.module('anorakApp')
             lat: map.bounds.northeast.latitude
           },
           startDate: map.searchStartDate,
-          endDate: map.searchEndDate
+          endDate: map.searchEndDate,
+          numberOfPersons: map.searchNumberOfPersons
         };
 
         //http://stackoverflow.com/questions/13928057/how-to-cancel-an-http-request-in-angularjs
@@ -252,6 +253,7 @@ angular.module('anorakApp')
         searchAddress: "",
         searchStartDate: startDate,
         searchEndDate: moment(startDate).add(1, 'years').toDate(),
+        searchNumberOfPersons: 1,
         bounds: {
           northeast: {
             latitude: 0,
