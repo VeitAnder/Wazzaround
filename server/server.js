@@ -20,7 +20,7 @@ var logger = require('./lib/logger.js');
 var cacheControl = require('./lib/cacheControl');
 
 // sitemap service;
-var sm = require('sitemap');
+var sitemap = require('sitemap');
 var Q = require("q");
 
 // export express
@@ -131,7 +131,7 @@ app.get('/sitemap.xml', function (req, res, next) {
     lang = req.query.lang;
   }
 
-  var sitemap = sm.createSitemap({
+  var sm = sitemap.createSitemap({
     hostname: 'https://www.wazzaround.com',
     cacheTime: 600000,        // 600 sec - cache purge period
     urls: [
@@ -176,7 +176,7 @@ app.get('/sitemap.xml', function (req, res, next) {
       });
     })
     .then(function (urls) {
-      sitemap.urls = sitemap.urls.concat(urls);
+      sitemap.urls = sm.urls.concat(urls);
       sitemap.toXML(function (xml) {
         res.header('Content-Type', 'application/xml');
         res.send(xml);

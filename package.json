@@ -38,7 +38,7 @@
     "tokenator": "0.0.4",
     "ua-parser-js": "0.7.10",
     "winston": "0.8.x",
-    "sitemap": "1.4.1",
+    "sitemap": "1.5.0",
     "prerender-node": "2.2.0"
   },
   "devDependencies": {
