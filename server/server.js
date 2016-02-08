@@ -132,7 +132,7 @@ app.get('/sitemap.xml', function (req, res, next) {
   }
 
   var sm = sitemap.createSitemap({
-    hostname: 'https://www.wazzaround.com',
+    hostname: 'https://www.wazzaround.com/',
     cacheTime: 600000,        // 600 sec - cache purge period
     urls: [
       {url: '/?lang=' + lang, changefreq: 'daily', priority: 1},
@@ -176,8 +176,11 @@ app.get('/sitemap.xml', function (req, res, next) {
       });
     })
     .then(function (urls) {
-      sitemap.urls = sm.urls.concat(urls);
-      sitemap.toXML(function (xml) {
+      sm.urls = sm.urls.concat(urls);
+      sm.toXML(function (err, xml) {
+        if (err) {
+          res.status(500).end();
+        }
         res.header('Content-Type', 'application/xml');
         res.send(xml);
       });
