@@ -192,29 +192,60 @@ app.get('/quickfixapi/find/', function (req, res, next) {
 
   var activities = db.collection('activities');
   var params = JSON.parse(req.query.query);
+  var query;
 
-  var query = {
-    location: {
-      '$geoWithin': {
-        '$box': [
-          [params.from.lng, params.from.lat],
-          [params.to.lng, params.to.lat]
-        ]
-      }
-    },
-    bookableItems: {
-      $elemMatch: {
-        events: {
-          $elemMatch: {
-            start: {
-              '$gte': new Date(params.startDate),
-              '$lte': new Date(params.endDate)
+  // branch query into group events / single events query
+  if (params.numberOfPersons > 1) {
+
+    // Group events query branch
+
+    query = {
+      location: {
+        '$geoWithin': {
+          '$box': [
+            [params.from.lng, params.from.lat],
+            [params.to.lng, params.to.lat]
+          ]
+        }
+      },
+      bookableItems: {
+        $elemMatch: {
+          events: {
+            $elemMatch: {
+              start: {
+                '$gte': new Date(params.startDate),
+                '$lte': new Date(params.endDate)
+              }
             }
           }
         }
       }
-    }
-  };
+    };
+
+  } else {
+    query = {
+      location: {
+        '$geoWithin': {
+          '$box': [
+            [params.from.lng, params.from.lat],
+            [params.to.lng, params.to.lat]
+          ]
+        }
+      },
+      bookableItems: {
+        $elemMatch: {
+          events: {
+            $elemMatch: {
+              start: {
+                '$gte': new Date(params.startDate),
+                '$lte': new Date(params.endDate)
+              }
+            }
+          }
+        }
+      }
+    };
+  }
 
   // find read filter
   // allow global read access
