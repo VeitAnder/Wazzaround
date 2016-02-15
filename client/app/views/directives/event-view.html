@@ -1,0 +1,47 @@
+<div
+    class="event-date cell"
+>
+  {{ctrl.event.start | momentjs:{format: "ddd, MMM Do YYYY"} }}
+</div>
+<div
+    class="event-time cell"
+>
+  {{ctrl.event.start | momentjs:{format: "HH:mm"} }}
+</div>
+
+<div
+    class="event-duration cell"
+>
+  {{{start:ctrl.event.start, end:ctrl.event.end} | duration }}
+</div>
+
+<div
+    class="event-quantity cell"
+>{{::ctrl.event.quantity}}x
+</div>
+<div
+    class="event-price cell"
+>
+  {{::ctrl.event.price | currency }}
+</div>
+
+<div
+    class="listaction cell"
+>
+  <a
+      class="btn btn-mini btn-ordinary"
+      ng-click="ctrl.startEventEdit(ctrl.event)"
+  >
+    <span>
+      {{'edit' | translate}}
+    </span>
+  </a>
+  <a
+      class="btn btn-mini btn-alert btn-ordinary"
+      ng-click="ctrl.removeEvent(ctrl.bookableItem, ctrl.idx)"
+  >
+    <span>
+      {{'delete' | translate}}
+    </span>
+  </a>
+</div>

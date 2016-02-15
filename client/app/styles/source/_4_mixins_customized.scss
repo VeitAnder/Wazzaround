@@ -561,7 +561,7 @@ body:before {
     padding-top: 0;
     margin-top: 0;
   }
-  eventview {
+  event-view {
     border-color: $color_grey_50;
   }
 }
@@ -659,7 +659,7 @@ body:before {
 
 eventrow {
   display: block;
-  eventview {
+  event-view {
     @include divtable_row_small;
     .cell {
       &.listaction {

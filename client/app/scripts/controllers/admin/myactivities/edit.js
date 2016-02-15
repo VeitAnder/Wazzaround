@@ -194,10 +194,6 @@ angular.module('anorakApp')
       bookableItem.events[bookableItem.events.length - 1].mode = 'new';
     };
 
-    $scope.startEventEdit = function (event) {
-      event.originalState = angular.copy(event);
-      event.mode = 'edit';
-    };
 
     $scope.cancelEventEdit = function (event) {
       // restore original values
@@ -210,9 +206,7 @@ angular.module('anorakApp')
       event.mode = 'view';
     };
 
-    $scope.removeEvent = function (item, event_idx) {
-      item.events.splice(event_idx, 1);  // remove from array
-    };
+
 
     $scope.removeItem = function (activity, item_idx) {
       activity.bookableItems.splice(item_idx, 1);
