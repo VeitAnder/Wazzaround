@@ -199,9 +199,7 @@ app.get('/quickfixapi/find/', function (req, res, next) {
 
   // branch query into group events / single events query
   if (params.numberOfPersons > 1) {
-
     // Group events query branch
-
     query = {
       location: {
         '$geoWithin': {
@@ -218,6 +216,13 @@ app.get('/quickfixapi/find/', function (req, res, next) {
               start: {
                 '$gte': new Date(params.startDate),
                 '$lte': new Date(params.endDate)
+              },
+              groupEvent: true,
+              groupMinPersons: {
+                '$gte': params.numberOfPersons
+              },
+              groupMaxPersons: {
+                '$lte': params.numberOfPersons
               }
             }
           }
@@ -226,6 +231,7 @@ app.get('/quickfixapi/find/', function (req, res, next) {
     };
 
   } else {
+    // single events query branch
     query = {
       location: {
         '$geoWithin': {
