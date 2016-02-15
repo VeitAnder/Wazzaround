@@ -34,21 +34,25 @@
     {{'Availability' | translate}}
   </div>
 
-  <div ng-repeat="bookableItem in getSelectedActivity().bookableItems"
-       class="event-list event-list-items">
+  <div
+      ng-repeat="bookableItem in getSelectedActivity().bookableItems"
+      class="event-list event-list-items"
+  >
 
-    <span class="event-item"
-          ng-repeat="event in bookableItem.events | removeBookingAlreadyEnded | limitTo:1">
-      <item
-          activity="getSelectedActivity()"
-          bookable-item="bookableItem"
-          event="event"
-      </item>
-    </span>
+    <event-item-view
+        ng-repeat="event in bookableItem.events | removeBookingAlreadyEnded | limitTo:1"
+        activity="getSelectedActivity()"
+        bookable-item="bookableItem"
+        event="event"
+    </event-item-view>
 
   </div>
-  <span ng-init="activity = getSelectedActivity()">
-    <span ng-controller="EventListFilterCtrl">
+  <span
+      ng-init="activity = getSelectedActivity()"
+  >
+    <span
+        ng-controller="EventListFilterCtrl"
+    >
       <bookable-item-list
           activity="getSelectedActivity()"
           filter="filter"

@@ -657,7 +657,7 @@ body:before {
   @include divtable_header_small;
 }
 
-eventrow {
+event-row {
   display: block;
   event-view {
     @include divtable_row_small;
@@ -670,7 +670,7 @@ eventrow {
   }
 }
 
-.event-item {
+event-item-view {
   display: block;
   overflow: hidden;
   margin-bottom: $bu*0.5;

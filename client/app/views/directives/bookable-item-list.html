@@ -14,19 +14,20 @@
     </span>
   </div>
 
-  <span class="event-item">
-    <item
-        activity="event.activity"
-        bookable-item="event.bookableItem"
-        event="event.event"
-    >
-    </item>
-  </span>
+  <event-item-view
+      activity="event.activity"
+      bookable-item="event.bookableItem"
+      event="event.event"
+  >
+  </event-item-view>
 
 </div>
 
-<div ng-show="sortedEvents.length > limit">
-  <p class="align-right">{{'There are more events available' | translate}} …
+<div
+    ng-show="sortedEvents.length > limit"
+>
+  <p class="align-right">
+    {{'There are more events available' | translate}} …
     <a class="btn btn-small"
        ng-href="/#!/activities/{{activity._id}}/"
     >

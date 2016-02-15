@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('item', function (APP_CONFIG, $location) {
+  .directive('eventItemView', function eventItemViewDirective(APP_CONFIG, $location) {
     return {
-      templateUrl: 'views/directives/item.html',
+      templateUrl: 'views/directives/event-item-view.html',
       restrict: 'E',
       scope: {
         activity: '=',
