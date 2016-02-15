@@ -10,7 +10,7 @@
     </span>
     <span class="event-item-quantity bookedup"
           style="display: none;"
-        >
+    >
       {{'… booked up!' | translate}}
     </span>
   </div>
@@ -42,14 +42,11 @@
     </span>
   </div>
 
-  <div class="event-price cell last">
-    <span class="input-label">
-      {{'Price' | translate}}:
-    </span>
-    <span>
-      {{event.price | currency}}
-    </span>
-  </div>
+  <event-item-pricing-view
+      class="event-price cell last"
+      event="event"
+  >
+  </event-item-pricing-view>
 
 </div>
 
