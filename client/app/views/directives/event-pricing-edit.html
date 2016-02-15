@@ -251,13 +251,14 @@
         </div>
 
         <input
-            type="number"
+            type="text"
             class="form-control"
             id="priceforadditionalperson"
             name="priceforadditionalperson"
             placeholder="{{'Price for additional person' | translate}}"
             ng-model="ctrl.event.priceForAdditionalPerson"
             required
+            ng-currency
         >
 
         <span
