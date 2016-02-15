@@ -141,8 +141,15 @@ angular.module('anorakApp')
           newEvent.bookingEndsHoursBeforeStart = event.bookingEndsHoursBeforeStart;
           newEvent.start = moment(event.start).add(dayoffset, 'days').toDate();
           newEvent.end = moment(event.end).add(dayoffset, 'days').toDate();
+
+          // copy pricing data / group event data
           newEvent.quantity = event.quantity;
           newEvent.price = event.price;
+          newEvent.groupEvent = event.groupEvent;
+          newEvent.groupMinPersons = event.groupMinPersons;
+          newEvent.groupMaxPersons = event.groupMaxPersons;
+          newEvent.priceForGroupEvent = event.priceForGroupEvent;
+          newEvent.priceForAdditionalPerson = event.priceForAdditionalPerson;
         }
         dayoffset += 1;
         iteratorDate.add(1, 'days');
