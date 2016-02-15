@@ -248,7 +248,8 @@ app.get('/quickfixapi/find/', function (req, res, next) {
               start: {
                 '$gte': new Date(params.startDate),
                 '$lte': new Date(params.endDate)
-              }
+              },
+              groupEvent: false
             }
           }
         }
