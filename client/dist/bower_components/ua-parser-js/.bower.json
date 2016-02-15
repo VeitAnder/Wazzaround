@@ -1,0 +1,14 @@
+{
+  "name": "ua-parser-js",
+  "homepage": "https://github.com/faisalman/ua-parser-js",
+  "_release": "4541158c59",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "4541158c59781e88b112b321151f8f1f65e877a2"
+  },
+  "_source": "https://github.com/planmanager/ua-parser-js.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/planmanager/ua-parser-js.git",
+  "main": "src/ua-parser.js"
+}
