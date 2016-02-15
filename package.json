@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "URIjs": "1.16.1",
-    "body-parser": "1.14.2",
+    "body-parser": "1.15.0",
     "cloudinary": "1.0.12",
     "compression": "1.6.1",
     "cookie-parser": "1.4.1",
@@ -56,7 +56,7 @@
     "load-grunt-tasks": "3.4.0",
     "grunt-contrib-clean": "0.7.0",
     "grunt-contrib-copy": "0.8.2",
-    "gulp": "3.9.0",
+    "gulp": "3.9.1",
     "gulp-inline-css": "3.0.1",
     "gulp-jshint": "2.0.0"
   },
