@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('bookableitemlist', function (shoppingcart) {
+  .directive('bookableItemList', function bookableItemListDirective(shoppingcart) {
     return {
-      templateUrl: 'views/directives/bookableitemlist.html',
+      templateUrl: 'views/directives/bookable-item-list.html',
       restrict: 'E',
       scope: {
         activity: '=',

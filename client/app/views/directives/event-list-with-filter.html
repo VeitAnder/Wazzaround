@@ -13,7 +13,7 @@
                placeholder="{{'From' | translate}}"
                bs-datepicker
                autoclose="false"
-            >
+        >
       </div>
 
       <div class="form-group date-until">
@@ -21,7 +21,7 @@
         <select
             ng-model="filter.calDaysOptionsSelected.selection"
             ng-options="o.days as o.text for o in filter.calDaysOptions"
-            >
+        >
         </select>
         <!--
         <label>{{'until' | translate}}</label>
@@ -42,7 +42,7 @@
       <a class="bookableitem-tag"
          ng-click="filter.bookableItemsToggleAll()"
          ng-class="{selected: filter.bookableItemsIsAllSelected()}"
-          >
+      >
         <span class="checkbox-tag"></span>
         Show all
         <span class="numberofitems">{{filter.numAllEvents}}</span>
@@ -52,7 +52,7 @@
         <a class="bookableitem-tag"
            ng-click="filter.bookableItems[$index].toggle()"
            ng-class="{selected: filter.bookableItems[$index].enabled()}"
-            >
+        >
           <span class="checkbox-tag"></span>
           {{bookableItem.description | languageselect}}
           <span class="numberofitems">{{filter.bookableItems[$index].num}}</span>
@@ -62,9 +62,11 @@
     </div>
   </div>
 
-  <bookableitemlist activity="activity"
-                    filter="filter"
-                    limit="1000">
-  </bookableitemlist>
+  <bookable-item-list
+      activity="activity"
+      filter="filter"
+      limit="1000"
+  >
+  </bookable-item-list>
 
 </div>
