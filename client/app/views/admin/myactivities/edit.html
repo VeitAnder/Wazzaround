@@ -439,23 +439,22 @@
 
                           <div class="divider"></div>
 
-
                           <event-pricing
                               event="event"
                           >
                           </event-pricing>
-
 
                           <div class="divider"></div>
 
                           <!-- REPEATING EVENT begin -->
 
                           <div class="event-new-repeat">
-                            <label class="switch-element switch-element-right"
-                                   data-ng-class="{
-                               'switch-off': !event.repeating,
-                               'switch-on': event.repeating
-                               }"
+                            <label
+                                class="switch-element switch-element-right"
+                                ng-class="{
+                                  'switch-off': !event.repeating,
+                                  'switch-on': event.repeating
+                                }"
                             >
                               <div class="switch-label">
                                 <h6 class="no-margin-bottom no-margin-top">

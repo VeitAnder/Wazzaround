@@ -52,7 +52,9 @@
       ng-form="singlePriceForm"
   >
     <div class="form-group form-group-helptext">
-      <label for="quantity">
+      <label
+          for="quantity"
+      >
         {{'Quantity' | translate}}
       </label>
 
@@ -64,18 +66,20 @@
         {{'helptext activity quantity' | translate}}
       </div>
 
-      <input type="number"
-             class="form-control"
-             id="quantity"
-             name="quantity"
-             placeholder="{{'Quantity' | translate}}"
-             ng-model="ctrl.event.quantity"
-             min="1"
-             required
+      <input
+          type="number"
+          class="form-control"
+          id="quantity"
+          name="quantity"
+          placeholder="{{'Quantity' | translate}}"
+          ng-model="ctrl.event.quantity"
+          min="1"
+          required
       >
 
-      <span ng-show="singlePriceForm.quantity.$invalid"
-            class="alert alert-error"
+      <span
+          ng-show="singlePriceForm.quantity.$invalid"
+          class="alert alert-error"
       >
         {{'error message event number' | translate}}
       </span>
@@ -87,9 +91,10 @@
         {{'Price in €' | translate}}
       </label>
 
-      <div aiotoggleitem
-           toggleitemlabel="{{'helptext' | translate}}"
-           class="aiotoggleitem"
+      <div
+          aiotoggleitem
+          toggleitemlabel="{{'helptext' | translate}}"
+          class="aiotoggleitem"
       >
         {{'helptext activity price' | translate}}
       </div>
@@ -172,13 +177,14 @@
         </div>
 
         <input
-            type="number"
+            type="text"
             class="form-control"
             id="priceforgroupevent"
             name="priceforgroupevent"
             placeholder="{{'Price for group event' | translate}}"
             ng-model="ctrl.event.priceForGroupEvent"
             required
+            ng-currency
         >
 
         <span
