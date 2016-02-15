@@ -1,11 +1,15 @@
 'use strict';
 
 var models = function () {
+  var model;
 
-  //if (typeof window === 'undefined') {
-  //}
-
-  var model = require('modelizer');
+  // modelizer fork hack
+  if (typeof window === 'undefined') {
+    model = require('modelizerfork');
+  } else {
+    // in browser, modelizerfork is called modelizer (original non forked name)
+    model = require('modelizer');
+  }
 
   var Attr = model.Attr;
   var VirualAttr = model.VirtualAttr;

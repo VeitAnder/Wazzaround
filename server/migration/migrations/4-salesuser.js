@@ -6,7 +6,7 @@ var _ = require("lodash");
 
 var CryptoJS = require("crypto-js");
 
-var modelizer = require('modelizer');
+var modelizer = require('modelizerfork');
 var models = require("../../models/models.js");
 var mongojs = require('mongojs');
 // init a mongodb database connection

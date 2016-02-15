@@ -4,7 +4,7 @@ var config = require("../mm-config.js");
 var Q = require("Q");
 var _ = require("lodash");
 
-var modelizer = require('modelizer');
+var modelizer = require('modelizerfork');
 var models = require("../../models/models.js");
 var mongojs = require('mongojs');
 // init a mongodb database connection

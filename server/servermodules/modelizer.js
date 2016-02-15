@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var model = require('modelizer');
+var model = require('modelizerfork');
 
 var initModelizer = function (app, db) {
 

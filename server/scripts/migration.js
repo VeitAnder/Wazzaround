@@ -19,7 +19,7 @@ var repl = function(context) {
 var mongojs = require('mongojs');
 var ObjectId = mongojs.ObjectId;
 
-var modelizer = require('modelizer');
+var modelizer = require('modelizerfork');
 
 var models = require('../models/models');
 
