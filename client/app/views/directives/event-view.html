@@ -15,15 +15,10 @@
   {{{start:ctrl.event.start, end:ctrl.event.end} | duration }}
 </div>
 
-<div
-    class="event-quantity cell"
->{{::ctrl.event.quantity}}x
-</div>
-<div
-    class="event-price cell"
+<event-pricing-view
+    event="ctrl.event"
 >
-  {{::ctrl.event.price | currency }}
-</div>
+</event-pricing-view>
 
 <div
     class="listaction cell"

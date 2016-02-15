@@ -1,0 +1,27 @@
+<!--single price-->
+<div
+    ng-if="::!ctrl.event.groupEvent"
+    class="event-quantity cell"
+>
+  {{::ctrl.event.quantity}}x
+</div>
+<div
+    ng-if="::!ctrl.event.groupEvent"
+    class="event-price cell"
+>
+  {{::ctrl.event.price | currency }}
+</div>
+
+<!--group price-->
+<div
+    ng-if="::ctrl.event.groupEvent"
+    class="event-quantity cell"
+>
+  {{::ctrl.event.groupMinPersons }} / {{::ctrl.event.groupMaxPersons }}
+</div>
+<div
+    ng-if="::ctrl.event.groupEvent"
+    class="event-price cell"
+>
+  {{::ctrl.event.priceForGroupEvent | currency }} / {{::ctrl.event.priceForAdditionalPerson | currency }}
+</div>
