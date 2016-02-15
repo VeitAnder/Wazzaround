@@ -1877,7 +1877,8 @@ input, textarea {
   @include animation_all;
   @include input-placeholder($color_form_placeholder);
   outline: 0;
-  outline: thin dotted \9;
+  outline: thin dotted \9
+;
   /* IE6-9 */
 
   &:hover {
@@ -1915,7 +1916,8 @@ input[type="checkbox"] {
   *margin-top: 0;
   /* IE7 */
 
-  margin-top: 1px \9;
+  margin-top: 1px \9
+;
   /* IE8-9 */
 
   line-height: normal;
@@ -3189,3 +3191,9 @@ $switch-border-radius: 5px;
 }
 
 @include selectize;
+
+event-pricing {
+  .active {
+    color: $color_green;
+  }
+}

@@ -7,7 +7,9 @@ var gulp = require('gulp'),
   concat = require('gulp-concat'),
   html2js = require('gulp-html2js'),
   browserSync = require('browser-sync'),
-  favicons = require('favicons');
+  favicons = require('favicons'),
+  plumber = require('gulp-plumber'),
+  gutil = require('gulp-util');
 
 // Constants
 var SERVER_PORT = 8000;
@@ -22,6 +24,10 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === "developmentlocalhost") {
 
 gulp.task('sass', function () {
   return gulp.src(clientpathdev + 'styles/*.scss')
+    .pipe(plumber(function (error) {
+      gutil.log(gutil.colors.red(error.message));
+      this.emit('end');
+    }))
     .pipe(sass({errLogToConsole: true}))
     .pipe(gulp.dest(clientpathdev + 'styles'))
     .pipe(browserSync.reload({stream: true}));
