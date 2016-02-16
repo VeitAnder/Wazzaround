@@ -31,7 +31,7 @@ angular.module('anorakApp')
       controller: controller,
       controllerAs: 'ctrl',
       bindToController: true, //required in 1.3+ with controllerAs
-      templateUrl: 'views/directives/event-view.html'
+      templateUrl: 'components/event/event-view.html'
     };
     return directiveDefinitionObject;
 

@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .directive('eventItemView', function eventItemViewDirective(APP_CONFIG, $location) {
     return {
-      templateUrl: 'views/directives/event-item-view.html',
+      templateUrl: 'components/event/event-item-view.html',
       restrict: 'E',
       scope: {
         activity: '=',
