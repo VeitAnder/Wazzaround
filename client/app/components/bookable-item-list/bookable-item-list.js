@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .directive('bookableItemList', function bookableItemListDirective(shoppingcart) {
     return {
-      templateUrl: 'views/directives/bookable-item-list.html',
+      templateUrl: 'components/bookable-item-list/bookable-item-list.html',
       restrict: 'E',
       scope: {
         activity: '=',

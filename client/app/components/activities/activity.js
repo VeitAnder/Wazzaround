@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .controller('ActivityPageCtrl', function ($scope, activity, activitybackendmap) {
     $scope.getPagePartial = function () {
-      return 'views/activities/activity.html';
+      return 'components/activities/activity.html';
     };
 
     $scope.vm = {
