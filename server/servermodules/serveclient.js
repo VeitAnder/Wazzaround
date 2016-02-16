@@ -37,6 +37,7 @@ var setupStaticAssetsServer = function (app, maxAge, extconfig) {
   app.use("/styles", express.static(config.server.distFolder + "/styles", {maxAge: maxAgeStaticAssets, etag: false}));
   app.use("/scripts", express.static(config.server.distFolder + "/scripts", {maxAge: maxAgeStaticAssets, etag: false}));
   app.use("/views", express.static(config.server.distFolder + "/views", {maxAge: maxAgeStaticAssets, etag: false}));
+  app.use("/components", express.static(config.server.distFolder + "/components", {maxAge: maxAgeStaticAssets, etag: false }));
   app.use("/favicon", express.static(config.server.distFolder + "/favicon", {maxAge: maxAgeStaticAssets, etag: false}));
 
   // error handling for not available static assets eg. /img/notavailable.png
@@ -65,6 +66,10 @@ var setupStaticAssetsServer = function (app, maxAge, extconfig) {
   });
 
   app.use("/views", function (req, res) {
+    handle404(req, res);
+  });
+
+  app.use("/components", function (req, res) {
     handle404(req, res);
   });
 

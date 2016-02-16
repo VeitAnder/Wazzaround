@@ -34,14 +34,25 @@ gulp.task('sass', function () {
 });
 
 gulp.task('lint', function () {
-  return gulp.src(clientpathdev + 'scripts/**/*.js')
+  return gulp.src([
+      clientpathdev + 'scripts/**/*.js',
+      clientpathdev + 'components/**/*.js'
+    ])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'));
 });
 
+
 gulp.task('html2js', function () {
-  gulp.src(clientpathdev + 'views/**/*.html')
+  gulp.src([
+      clientpathdev + 'components/**/*.html',
+      clientpathdev + 'views/**/*.html'
+    ])
+    .pipe(plumber(function (error) {
+      gutil.log(gutil.colors.red(error.message));
+      this.emit('end');
+    }))
     .pipe(html2js({
       outputModuleName: 'templates.app',
       useStrict: true,
@@ -50,6 +61,20 @@ gulp.task('html2js', function () {
     .pipe(concat('templates.js'))
     .pipe(gulp.dest(clientpathdev + 'scripts'));
 });
+
+/*gulp.task('html2js', function () {
+  gulp.src([
+      clientpathdev + 'components/!**!/!*.html',
+      clientpathdev + 'views/!**!/!*.html'
+    ])
+    .pipe(html2js({
+      outputModuleName: 'templates.app',
+      useStrict: true,
+      base: clientpathdev
+    }))
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest(clientpathdev + 'scripts'));
+});*/
 
 gulp.task('favicons', function () {
   function generateFavicons(cb) {
@@ -100,9 +125,15 @@ gulp.task('reload:html', function () {
 
 gulp.task('watch', ['html2js'], function () {
   gulp.watch(clientpathdev + '/styles/**/*.scss', ['sass']);
-  gulp.watch(clientpathdev + '/views/**/*', ['html2js', 'reload:html']);
-  gulp.watch(clientpathdev + '/*.html', ['html2js', 'reload:html']);
-  gulp.watch([clientpathdev + '/scripts/**/*.js', '!' + clientpathdev + '/scripts/templates.js'], ['reload:html']);
+
+  gulp.watch([
+      clientpathdev + '/**/*.html',
+      clientpathdev + '/scripts/**/*.js',
+      clientpathdev + '/components/**/*.js',
+      '!' + clientpathdev + '/scripts/templates.js'
+    ],
+    ['html2js', 'reload:html']
+  );
 });
 
 gulp.task('server', [], function () {

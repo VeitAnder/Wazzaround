@@ -21,7 +21,7 @@ angular.module('anorakApp')
       controller: controller,
       controllerAs: 'ctrl',
       bindToController: true,
-      templateUrl: 'views/directives/shoppingcart/shoppingcart-event-item.html'
+      templateUrl: 'components/shoppingcart/shoppingcart-event-item.html'
     };
     return directiveDefinitionObject;
 

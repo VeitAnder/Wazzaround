@@ -3,7 +3,7 @@
 angular.module('anorakApp')
   .directive('shoppingcartbar', function (shoppingcart, $location, $timeout) {
     return {
-      templateUrl: 'views/directives/shoppingcart/shoppingcartbar.html',
+      templateUrl: 'components/shoppingcart/shoppingcartbar.html',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
 

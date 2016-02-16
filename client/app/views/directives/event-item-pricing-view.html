@@ -3,7 +3,7 @@
     ng-if="::!ctrl.event.groupEvent"
     class="input-label"
 >
-  {{'Price' | translate}}:
+  {{'Price single person' | translate}}:
 </span>
 <span
     ng-if="::!ctrl.event.groupEvent"
@@ -16,13 +16,13 @@
     ng-if="::ctrl.event.groupEvent"
     class="input-label"
 >
-  {{'Group' | translate}}: {{::ctrl.event.groupMinPersons }} / {{::ctrl.event.groupMaxPersons }}
+  {{'Group' | translate}}: {{::ctrl.event.groupMinPersons }} / {{'Max' | translate}}: {{::ctrl.event.groupMaxPersons }}
 </span>
 
 <span
     ng-if="::ctrl.event.groupEvent"
 >
-  {{'Price' | translate}}: {{::ctrl.event.priceForGroupEvent | currency }} / {{::ctrl.event.priceForAdditionalPerson | currency }}
+  {{'Price' | translate}}: {{::ctrl.event.priceForGroupEvent | currency }} / {{'Add. P.' | translate}}: {{::ctrl.event.priceForAdditionalPerson | currency }}
 </span>
 
 
