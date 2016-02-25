@@ -1,0 +1,19 @@
+{
+  "name": "dropzone",
+  "location": "maximilianschmid/dropzone-patched",
+  "description": "Dropzone is an easy to use drag'n'drop library. It supports image previews and shows nice progress bars.",
+  "homepage": "http://www.dropzonejs.com",
+  "main": [
+    "downloads/dropzone.js"
+  ],
+  "ignore": [],
+  "_release": "a5bbbaeaff",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a5bbbaeaff4fd94bdeab1f949bc63d31f49d35f9"
+  },
+  "_source": "https://github.com/maximilianschmid/dropzone-patched.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/maximilianschmid/dropzone-patched.git"
+}
