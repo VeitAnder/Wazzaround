@@ -204,8 +204,14 @@ app.get('/quickfixapi/find/', function (req, res, next) {
       location: {
         '$geoWithin': {
           '$box': [
-            [params.from.lng, params.from.lat],
-            [params.to.lng, params.to.lat]
+            [
+              params.from.lng,
+              params.from.lat
+            ],
+            [
+              params.to.lng,
+              params.to.lat
+            ]
           ]
         }
       },
@@ -217,13 +223,25 @@ app.get('/quickfixapi/find/', function (req, res, next) {
                 '$gte': new Date(params.startDate),
                 '$lte': new Date(params.endDate)
               },
-              groupEvent: true,
-              groupMinPersons: {
-                '$gte': params.numberOfPersons
-              },
-              groupMaxPersons: {
-                '$lte': params.numberOfPersons
-              }
+              $or: [
+                {
+                  groupEvent: true,
+                  groupMinPersons: {
+                    '$lte': params.numberOfPersons
+                  },
+                  groupMaxPersons: {
+                    '$gte': params.numberOfPersons
+                  }
+                },
+                {
+                  groupEvent: {
+                    $ne: true
+                  },
+                  quantity: {
+                    '$gte': params.numberOfPersons
+                  }
+                }
+              ]
             }
           }
         }
