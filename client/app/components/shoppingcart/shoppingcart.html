@@ -21,8 +21,9 @@
       {{'in shopping cart' | translate }}
     </h3>
   </div>
-  <div class="shoppingcart-content"
-       ng-repeat="item in shoppingcart.getCart()"
+  <div
+      class="shoppingcart-content"
+      ng-repeat="item in shoppingcart.getCart()"
   >
     <shoppingcart-event-item
         item="item"

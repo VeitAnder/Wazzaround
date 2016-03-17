@@ -5,7 +5,6 @@
 var Q = require('q');
 var ObjectId = require('mongojs').ObjectId;
 var _ = require('lodash');
-var util = require('util');
 
 var models = require('../models.js');
 var BookingModel = require('../models.js').BookingModel;
@@ -43,13 +42,13 @@ var pay = function (bookingObj, paymentToken, amount_int, currency) {
   console.log("in pay()", arguments);
 
   return Q()
-//    .then(function() {
-//      return Q.nfcall(paymill.clients.create, {  // ein client bei paymill anlegen (optional)
-//        email: bookingObj.profile.email,
-//        description : util.format('Client: %s, %s (tel: %s)',
-//          bookingObj.profile.lastName, bookingObj.profile.firstName, bookingObj.profile.tel)
-//      })
-//    })
+  //    .then(function() {
+  //      return Q.nfcall(paymill.clients.create, {  // ein client bei paymill anlegen (optional)
+  //        email: bookingObj.profile.email,
+  //        description : util.format('Client: %s, %s (tel: %s)',
+  //          bookingObj.profile.lastName, bookingObj.profile.firstName, bookingObj.profile.tel)
+  //      })
+  //    })
     .then(function () {
       return Q.nfcall(paymill.payments.create, {  // eine Zahlung anlegen
         token: paymentToken
@@ -91,43 +90,87 @@ BookingModel.operationImpl("checkout", function (params, req) {
 
   var booking = BookingModel.create();
 
-  var priceSum = 0;
-
   return Q()
     .then(function () {
-
       var checkAvailableBookings = [];
-
       _.forEach(params.bookings, function (booking) {
         checkAvailableBookings.push(
           models.ActivityModel.get(ObjectId(booking.activity))
             .then(function (activity) {
-              priceSum += activity.getChild(booking.event).price * booking.quantity;
-              if (booking.quantity > activity.getChild(booking.event).availableQuantity)
-                throw new Error("There are not enough events available for booking");
-              if (booking.quantity < 1)
-                throw new Error("Quantity has to be > 0");
-              if (booking.quantity % 1 !== 0)
-                throw new Error("Quantity has to be an integer value");
+              if (booking.quantity > activity.getChild(booking.event).availableQuantity) {
+                return Q.reject(new Error("There are not enough events available for booking"));
+              }
+              if (booking.quantity < 1) {
+                return Q.reject(new Error("Quantity has to be > 0"));
+              }
+              if (booking.quantity % 1 !== 0) {
+                return Q.reject(new Error("Quantity has to be an integer value"));
+              }
+
+              return Q.resolve();
             })
         );
-
       });
 
       return Q.all(checkAvailableBookings);
-    }).then(function () {
+    })
 
-      // überprüfe den Preis auf dem server
+    .then(function () {
+      // get the sum of booked events from database to validate against payment gateway amount
+      var bookingPrices = [];
+
+      function calculatePrice(event, booking) {
+        if (event.groupEvent) {
+          return groupEventPriceCalcutation(event, booking);
+        } else {
+          return singleEventPriceCalcutation(event, booking);
+        }
+
+        function groupEventPriceCalcutation(event, booking) {
+          var additionalPersonsPrice = 0;
+          var groupEventPrice = event.priceForGroupEvent;
+
+          if (booking.groupEventAdditionalPersons > 0) {
+            additionalPersonsPrice = event.priceForAdditionalPerson * booking.groupEventAdditionalPersons;
+          }
+
+          return groupEventPrice + additionalPersonsPrice;
+        }
+
+        function singleEventPriceCalcutation(event, booking) {
+          return event.price * booking.quantity;
+        }
+      }
+
+      _.forEach(params.bookings, function (booking) {
+        bookingPrices.push(
+          models.ActivityModel.get(ObjectId(booking.activity))
+            .then(function (activity) {
+              return Q.resolve(calculatePrice(activity.getChild(booking.event), booking));
+            })
+        );
+      });
+
+      return Q.all(bookingPrices)
+        .then(function (prices) {
+          var total = prices.reduce(function (aggr, price) {
+            aggr += price;
+            return aggr;
+          }, 0);
+          return Q.resolve(total);
+        });
+    })
+    .then(function (priceSum) {
+      // validate payment amount against database ammount
       var priceInt = Math.floor(priceSum * 100);
       if (priceInt !== params.payment.amount_int) {
-        // der server hat einen anderen preis bestimmt
-        throw new Error("invalid price amount_int");
+        // the price calculated from the db does not match the ammount booked on paymill
+        return Q.reject(new Error("invalid price amount_int"));
       }
 
       return booking.save();
-
-    }).then(function () {
-
+    })
+    .then(function () {
       // init profile
       booking.profile.firstName = params.profile.firstName;
       booking.profile.lastName = params.profile.lastName;
@@ -214,7 +257,7 @@ BookingModel.operationImpl("checkout", function (params, req) {
         bookingId: booking._id
       };
     })
-    .fail(function (err) {
+    .catch(function (err) {
       console.error(err);
       return {
         state: "err",

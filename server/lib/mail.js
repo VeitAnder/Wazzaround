@@ -23,7 +23,6 @@ var Handlebars,
 
 templatestore = require('../templates/compiled/compiledtemplates.js');
 
-
 var moment = require('moment-timezone');
 moment.locale(languageKey);
 
@@ -86,7 +85,6 @@ Handlebars.registerHelper('translations', function (key, block) {
     return translations[languageKey][key];
   }
 });
-
 
 send = function (mail) {
   var deferred = Q.defer();

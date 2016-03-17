@@ -42,9 +42,11 @@
       </div>
 
       <quantity-single-item
-          class="shoppingcart-item-qty"
           ng-if="!ctrl.item.groupEvent"
       >
+        <label for="shoppingcartItemAmount1">
+          Quantity:
+        </label>
         <input
             type="number"
             ng-hide="ctrl.confirmationview"
@@ -95,22 +97,29 @@
       </quantity-single-item>
 
       <quantity-group-event-item
-          class="shoppingcart-item-qty"
           ng-if="ctrl.item.groupEvent"
       >
         <div>
-          Group Event Quantity:
+          <label for="shoppingcartItemAmount2">
+            Quantity:
+          </label>
+          <input
+              type="number"
+              ng-hide="ctrl.confirmationview"
+              class="form-control input-mini"
+              id="shoppingcartItemAmount2"
+              name="shoppingcartItemAmount2"
+              ng-model="ctrl.item.quantity"
+              min="1"
+              max="{{ctrl.item.availableQuantity}}"
+              required
+              disabled
+          >
 
-          <!--@TODO - calculate total price based on group event data or single event data-->
-
-          min persons: {{ctrl.item.groupMinPersons}}
-          max persons: {{ctrl.item.groupMaxPersons}}
-
-          price for group event: {{ctrl.item.priceForGroupEvent}}
-          price for priceForAdditionalPerson: {{ctrl.item.priceForAdditionalPerson}}
-
-          additional persons:
-
+          <label for="shoppingcarGroupEventAdditionalPersons">
+            Additional Persons (max {{ctrl.item.groupMaxPersons - ctrl.item.groupMinPersons}}):
+            <br>Price per additional person: {{ctrl.item.priceForAdditionalPerson}} €
+          </label>
           <input
               type="number"
               ng-hide="ctrl.confirmationview"
@@ -120,15 +129,15 @@
               ng-model="ctrl.item.groupEventAdditionalPersons"
               min="0"
               max="{{ctrl.item.groupMaxPersons - ctrl.item.groupMinPersons}}"
-              required
           >
+
         </div>
       </quantity-group-event-item>
 
       <div
           class="shoppingcart-item-price"
       >
-        {{ctrl.item.price | currency}}
+        {{ctrl.shoppingcart.calculatePrice(ctrl.item) | currency}}
       </div>
 
     </div>

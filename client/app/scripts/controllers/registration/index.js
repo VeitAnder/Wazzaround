@@ -6,7 +6,7 @@ angular.module('anorakApp')
       return 'views/registration/index.html';
     };
   })
-  .controller('RegisterCtrl', function ($scope, $routeParams, $location, currentUser, models, $timeout) {
+  .controller('RegisterCtrl', function ($scope, $routeParams, $location, currentUser, models, $timeout, $translate) {
     // redirect to amin interface if user is logged in
     if (currentUser.authenticated) {
       $location.path('/admin/');
@@ -28,7 +28,8 @@ angular.module('anorakApp')
       if ($scope.valForm.$valid) {
         user = angular.copy($scope.registrant);
         user.password = CryptoJS.SHA256($scope.registrant.password).toString(CryptoJS.enc.Base64);
-        models.UserModel.register(user, languageKey)
+        user.languageKey = $translate.use();
+        models.UserModel.register(user)
           .then(function () {
             $timeout(function () {
               $scope.state.registrationsuccess = true;

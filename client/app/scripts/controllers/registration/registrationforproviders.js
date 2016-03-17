@@ -45,7 +45,7 @@ angular.module('anorakApp')
         user = angular.copy($scope.registrant);
         user.password = CryptoJS.SHA256($scope.registrant.password).toString(CryptoJS.enc.Base64);
         user.userType = "provider";
-        user.languageKey = $translate.use()
+        user.languageKey = $translate.use();
         models.UserModel.register(user)
           .then(function () {
             $timeout(function () {

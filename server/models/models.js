@@ -220,7 +220,8 @@ var models = function () {
           activity: Attr(Type.objectid),
           item: Attr(Type.objectid),
           event: Attr(Type.objectid),
-          quantity: Attr(Type.number)
+          quantity: Attr(Type.number),
+          groupEventAdditionalPersons: Attr(Type.number) // zusätzliche Personen bei Gruppenevent
         }
       ],
       profile: {
@@ -245,6 +246,7 @@ var models = function () {
     item: Link(ActivityModel, BookableItemModel),  // gebuchtes Item
     event: Link(ActivityModel, EventModel),         // gebuchtes Event
     quantity: Attr(Type.number),                       // gebuchte Menge
+    groupEventAdditionalPersons: Attr(Type.number),              // zusätzliche Personen bei Gruppenevent
 
     activityCopy: ActivityModel,  // kopie der Aktivität zum Buchungszeitpunkt
 
@@ -259,13 +261,7 @@ var models = function () {
 
     bookedQuantity: Operation({    // wie oft wurde ein best. Event gebucht
       event: Attr(Type.objectid)
-    }),  // returns { quantity : X }
-
-    // price for this booking
-    totalPrice: Method(function () {
-      // @TODO - calculate total price based on group event data or single event data
-      return this.event.price * this.quantity;
-    })
+    })  // returns { quantity : X }
 
     // gebucht ist das Event wenn, state = 'booked' oder state = 'pending' und date < 15min
   });

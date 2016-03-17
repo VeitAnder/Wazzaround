@@ -11,11 +11,35 @@
 angular.module('anorakApp')
   .factory('shoppingcart', function shoppingcart(models, $localStorage, $translate) {
 
+    function calculatePrice(item) {
+      if (item.groupEvent) {
+        return groupEventPriceCalcutation(item);
+      } else {
+        return singleEventPriceCalcutation(item);
+      }
+
+      function groupEventPriceCalcutation(item) {
+        var additionalPersonsPrice = 0;
+        var groupEventPrice = item.priceForGroupEvent;
+
+        if (item.groupEventAdditionalPersons > 0) {
+          additionalPersonsPrice = item.priceForAdditionalPerson * item.groupEventAdditionalPersons;
+        }
+
+        return groupEventPrice + additionalPersonsPrice;
+      }
+
+      function singleEventPriceCalcutation(item) {
+        return item.price * item.quantity;
+      }
+    }
+
     var shoppingCart = function (storage) {
       this.storage = storage;
       this.states = {};
     };
 
+    shoppingCart.prototype.calculatePrice = calculatePrice;
     shoppingCart.prototype.add = function (item) {
       assert(item.price !== undefined, "provide a price for the item");
 
@@ -52,8 +76,7 @@ angular.module('anorakApp')
         price: _.reduce(this.storage.theShoppingCart, function (res, value, key) {
           assert(value.price !== undefined, "price missing for item in the shoppingcart");
           //assert(value.quantity, "quantity missing for item in the shoppingcart");
-
-          return res + value.price * value.quantity;
+          return res + calculatePrice(value);
         }, 0 /* init value */)
       };
     };
@@ -62,6 +85,7 @@ angular.module('anorakApp')
       var params = [];
       _.each(this.storage.theShoppingCart, function (item) {
         params.push({
+          groupEventAdditionalPersons: item.groupEventAdditionalPersons,
           activity: item.activityId,
           item: item.bookableItemId,
           event: item.eventId,
