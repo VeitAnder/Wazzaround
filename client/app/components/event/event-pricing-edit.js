@@ -3,9 +3,22 @@
 angular.module('anorakApp')
   .directive('eventPricingEdit', function eventPricingEditDirective() {
 
-    var controller = function () {
+    var controller = function ($scope) {
       var vm = this;
 
+      // auto set quantity to 1 when group Event is activated
+      $scope.$watch(
+        function () {
+          return vm.event.groupEvent;
+        },
+        function (newVal, oldVal) {
+          if (newVal !== oldVal) {
+            if (newVal === true) {
+              vm.event.quantity = 1;
+            }
+          }
+        }
+      );
     };
 
     var directiveDefinitionObject = {
