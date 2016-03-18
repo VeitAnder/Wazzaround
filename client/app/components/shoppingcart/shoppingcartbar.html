@@ -13,6 +13,25 @@
     </div>
   </div>
 
+  <div
+      class="buttonbar"
+  >
+    <a
+        class="btn btn-negative disabled"
+        ng-hide="shoppingcart.getNumberOfItems() > 0"
+    >
+      {{ 'Checkout' | translate }}
+    </a>
+
+    <a
+        ng-click="gotoPaymentPage()"
+        class="btn btn-negative"
+        ng-show="shoppingcart.getNumberOfItems() > 0"
+    >
+      {{ 'Checkout' | translate }}
+    </a>
+  </div>
+
   <shoppingcart></shoppingcart>
 
   <div

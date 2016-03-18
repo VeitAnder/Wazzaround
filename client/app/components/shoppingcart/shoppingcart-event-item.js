@@ -9,7 +9,13 @@ angular.module('anorakApp')
       vm.shoppingcart = shoppingcart;
       vm.translationutils = translationutils;
 
+      vm.getGroupSize = getGroupSize;
+
       //implementations
+      function getGroupSize() {
+        return vm.item.groupMinPersons + vm.item.groupEventAdditionalPersons;
+      }
+
     };
 
     var directiveDefinitionObject = {

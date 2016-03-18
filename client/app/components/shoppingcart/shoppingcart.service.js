@@ -43,9 +43,15 @@ angular.module('anorakApp')
     shoppingCart.prototype.add = function (item) {
       assert(item.price !== undefined, "provide a price for the item");
 
-      if (this.storage.theShoppingCart[item.eventId]) {
+      // increase quantity only of single events if already in shopping cart
+      if (this.storage.theShoppingCart[item.eventId] && !item.groupEvent) {
         this.storage.theShoppingCart[item.eventId].quantity += 1;
         return;
+      }
+
+      // always set quantity to 1 for group event
+      if (item.groupEvent) {
+        item.quantity = 1;
       }
 
       this.storage.theShoppingCart[item.eventId] = item;

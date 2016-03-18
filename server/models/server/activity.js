@@ -71,11 +71,6 @@ ActivityModel.afterReadFilter(function (obj) {
               bookedQuantity += bookedEvent.quantity;
             });
 
-            // in case of group event, quantity is automatically 1
-            //if (event.groupEvent) {
-            //  event.quantity = 1;
-            //}
-
             event.availableQuantity = event.quantity - bookedQuantity;
           })
       );

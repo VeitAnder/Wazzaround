@@ -100,12 +100,22 @@
           ng-if="ctrl.item.groupEvent"
       >
         <div>
+          <group-event-description>
+            Infos zum Gruppenevent:
+            <br>
+            Gruppenevent ab {{ctrl.item.groupMinPersons}} Personen (Maximal {{ctrl.item.groupMaxPersons}} Personen)
+            <br>
+            Price: {{ctrl.item.price}}€ for a Group of {{ctrl.item.groupMinPersons}} persons
+            
+            <pre>
+             {{ctrl.item | json}}
+            </pre>
+          </group-event-description>
           <label for="shoppingcartItemAmount2">
             Quantity:
           </label>
           <input
               type="number"
-              ng-hide="ctrl.confirmationview"
               class="form-control input-mini"
               id="shoppingcartItemAmount2"
               name="shoppingcartItemAmount2"
@@ -117,12 +127,15 @@
           >
 
           <label for="shoppingcarGroupEventAdditionalPersons">
-            Additional Persons (max {{ctrl.item.groupMaxPersons - ctrl.item.groupMinPersons}}):
-            <br>Price per additional person: {{ctrl.item.priceForAdditionalPerson}} €
+            Additional Persons:
+            <br>
+            Price per additional person: {{ctrl.item.priceForAdditionalPerson}} €
+            <br>
+            <br>
+            Booked for a total number of {{ctrl.getGroupSize()}} persons
           </label>
           <input
               type="number"
-              ng-hide="ctrl.confirmationview"
               class="form-control input-mini"
               id="shoppingcarGroupEventAdditionalPersons"
               name="shoppingcarGroupEventAdditionalPersons"
