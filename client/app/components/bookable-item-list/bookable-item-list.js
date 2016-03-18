@@ -62,28 +62,39 @@ angular
 
           // dann nach datum sortieren
           sortedEvents = _.sortBy(sortedEvents, 'date');
-
           return sortedEvents;
         };
 
         $scope.sortedEvents = createSortedEvents();
 
-        $scope.$watch('filter', function (oldValue, newValue) {
-          $scope.sortedEvents = createSortedEvents();
-        }, true);
+        $scope.$watch(
+          'filter',
+          function (oldValue, newValue) {
+            $scope.sortedEvents = createSortedEvents();
+          },
+          true
+        );
 
-        $scope.$watch('activity', function (oldValue, newValue) {
-          $scope.sortedEvents = createSortedEvents();
-        });
+        $scope.$watch(
+          'activity',
+          function (oldValue, newValue) {
+            $scope.sortedEvents = createSortedEvents();
+          },
+          true
+        );
 
         var dateAt = [];
         $scope.showDate = function (idx, date) {
           dateAt[idx] = moment(date);
-          if (idx == 0) return true;
+          if (idx === 0) {
+            return true;
+          }
 
-          if (moment(date).diff(dateAt[idx - 1], 'days') >= 1) return true;
-          else return false;
+          if (moment(date).diff(dateAt[idx - 1], 'days') >= 1) {
+            return true;
+          }
 
+          return false;
         };
 
       }
