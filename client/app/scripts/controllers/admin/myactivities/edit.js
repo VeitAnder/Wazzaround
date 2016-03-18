@@ -148,7 +148,6 @@ angular.module('anorakApp')
           newEvent.groupEvent = event.groupEvent;
           newEvent.groupMinPersons = event.groupMinPersons;
           newEvent.groupMaxPersons = event.groupMaxPersons;
-          newEvent.priceForGroupEvent = event.priceForGroupEvent;
           newEvent.priceForAdditionalPerson = event.priceForAdditionalPerson;
         }
         dayoffset += 1;

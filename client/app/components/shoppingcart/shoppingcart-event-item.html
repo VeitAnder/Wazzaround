@@ -99,13 +99,17 @@
       <quantity-group-event-item
           ng-if="ctrl.item.groupEvent"
       >
+        
+        <pre>
+         {{ctrl.item | json}}
+        </pre>
         <div>
           <group-event-description>
-            Infos zum Gruppenevent:
+            Group event details:
             <br>
-            Gruppenevent ab {{ctrl.item.groupMinPersons}} Personen (Maximal {{ctrl.item.groupMaxPersons}} Personen)
+            Event for {{ctrl.item.groupMinPersons}} persons (Max. {{ctrl.item.groupMaxPersons}} persons)
             <br>
-            Price: {{ctrl.item.price}}€ for a Group of {{ctrl.item.groupMinPersons}} persons
+            {{ctrl.item.price}}€ for a group of {{ctrl.item.groupMinPersons}} persons
           </group-event-description>
           <label for="shoppingcartItemAmount2">
             Quantity:
@@ -123,12 +127,12 @@
           >
 
           <label for="shoppingcarGroupEventAdditionalPersons">
-            Additional Persons:
+            Additional persons:
             <br>
             Price per additional person: {{ctrl.item.priceForAdditionalPerson}} €
             <br>
             <br>
-            Booked for a total number of {{ctrl.getGroupSize()}} persons
+            Currently selected a total of {{ctrl.getGroupSize()}} persons
           </label>
           <input
               type="number"

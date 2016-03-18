@@ -20,13 +20,12 @@ angular.module('anorakApp')
 
       function groupEventPriceCalcutation(item) {
         var additionalPersonsPrice = 0;
-        var groupEventPrice = item.priceForGroupEvent;
 
         if (item.groupEventAdditionalPersons > 0) {
           additionalPersonsPrice = item.priceForAdditionalPerson * item.groupEventAdditionalPersons;
         }
 
-        return groupEventPrice + additionalPersonsPrice;
+        return item.price + additionalPersonsPrice;
       }
 
       function singleEventPriceCalcutation(item) {

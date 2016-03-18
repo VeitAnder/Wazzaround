@@ -108,7 +108,6 @@ var models = function () {
     groupEvent: Attr(Type.boolean, Attr.default(false)),
     groupMinPersons: Attr(Type.number),
     groupMaxPersons: Attr(Type.number),
-    priceForGroupEvent: Attr(Type.number),
     priceForAdditionalPerson: Attr(Type.number)
   });
 

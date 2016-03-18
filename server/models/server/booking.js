@@ -128,13 +128,12 @@ BookingModel.operationImpl("checkout", function (params, req) {
 
         function groupEventPriceCalcutation(event, booking) {
           var additionalPersonsPrice = 0;
-          var groupEventPrice = event.priceForGroupEvent;
 
           if (booking.groupEventAdditionalPersons > 0) {
             additionalPersonsPrice = event.priceForAdditionalPerson * booking.groupEventAdditionalPersons;
           }
 
-          return groupEventPrice + additionalPersonsPrice;
+          return event.price + additionalPersonsPrice;
         }
 
         function singleEventPriceCalcutation(event, booking) {

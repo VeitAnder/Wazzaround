@@ -13,7 +13,11 @@ angular.module('anorakApp')
 
       //implementations
       function getGroupSize() {
-        return vm.item.groupMinPersons + vm.item.groupEventAdditionalPersons;
+        if (vm.item.groupEventAdditionalPersons > 0) {
+          return vm.item.groupMinPersons + vm.item.groupEventAdditionalPersons;
+        } else {
+          return vm.item.groupMinPersons;
+        }
       }
 
     };

@@ -163,7 +163,7 @@
 
       <div class="form-group form-group-helptext">
         <label
-            for="priceforgroupevent"
+            for="price"
         >
           {{'Price for group event' | translate}} ({{ctrl.event.groupMinPersons}} {{'Persons' | translate}})
         </label>
@@ -179,16 +179,16 @@
         <input
             type="text"
             class="form-control"
-            id="priceforgroupevent"
-            name="priceforgroupevent"
+            id="price"
+            name="price"
             placeholder="{{'Price for group event' | translate}}"
-            ng-model="ctrl.event.priceForGroupEvent"
+            ng-model="ctrl.event.price"
             required
             ng-currency
         >
 
         <span
-            ng-show="groupEventForm.priceForGroupEvent.$invalid "
+            ng-show="groupEventForm.price.$invalid "
             class="alert alert-error"
         >
           {{'error message price for group event' | translate}}

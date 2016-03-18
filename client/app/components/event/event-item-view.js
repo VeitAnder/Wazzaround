@@ -27,7 +27,6 @@ angular.module('anorakApp')
             groupEvent: $scope.event.groupEvent,
             groupMinPersons: $scope.event.groupMinPersons,
             groupMaxPersons: $scope.event.groupMaxPersons,
-            priceForGroupEvent: $scope.event.priceForGroupEvent,
             priceForAdditionalPerson: $scope.event.priceForAdditionalPerson
           });
 
