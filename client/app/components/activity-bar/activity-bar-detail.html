@@ -1,0 +1,65 @@
+<div
+    class="txt-icon-delete"
+    ng-click="$ctrl.activitydetailactive = false"
+>
+  <span
+      class="hidden"
+  >
+    Close detail view
+  </span>
+  <span></span>
+</div>
+
+<h4
+    class="title"
+>
+  {{$ctrl.activity.name | languageselect}}
+</h4>
+<h6
+    class="no-margin-top"
+>
+  {{'Offered by' | translate}}
+  <activityowner
+      activity="$ctrl.activity"
+  >
+  </activityowner>
+</h6>
+
+<div
+    class="description multiline"
+>
+  <div
+      class="innerwrap"
+      ng-bind-html="$ctrl.activity.description[$ctrl.translationutils.getAvailableTranslationLanguageKey($ctrl.activity.description)] | nohtml | linebreak"
+  >
+  </div>
+</div>
+
+<p
+    class="align-right no-margin-top no-margin-bottom no-padding-bottom"
+>
+  {{'There are more events available' | translate}} …
+  <a
+      class="btn btn-small"
+      ng-href="/#!/activities/{{$ctrl.activity._id}}/"
+  >
+    {{ 'Show all Dates' | translate }}
+  </a>
+</p>
+
+<div
+    class="availability"
+>
+  <div
+      class="input-label"
+  >
+    {{'Availability' | translate}}
+  </div>
+
+  <bookable-item-list
+      activity="$ctrl.activity"
+      limit="1"
+  >
+  </bookable-item-list>
+
+</div>

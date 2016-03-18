@@ -14,16 +14,16 @@
       </div>
 
       <div class="filter"
-          >
+      >
         <span class="input-label">{{ 'Please choose' | translate }}:</span>
 
         <div class="filter-category filter-category-{{category.key}}"
              data-ng-class="{active: areItemsInThisCategorySelected(category), open: category.open }"
              ng-repeat="category in categories track by category._id"
-            >
+        >
           <div class="filter-category-header"
                data-ng-click="toggleFilter(category)"
-              >
+          >
             <h4>{{category.key | translate}}</h4>
 
             <p>{{numberOfSelectedFromCategory(category)}} {{ 'activities found' | translate }} </p>
@@ -34,30 +34,30 @@
           </div>
           <div class="filter-category-body"
                data-ng-show="category.open"
-              >
+          >
 
             <div class="filter-toggle">
               <div class="filter-toggle-show"
                    data-ng-class="{active: allSelectedFromCategory(category)}"
                    data-ng-click="selectAllFromCategory(category)"
-                  >
+              >
                 {{ 'Select all' | translate }}
               </div>
               <div class="filter-toggle-hide"
                    data-ng-class="{active: noneSelectedFromCategory(category)}"
                    data-ng-click="deSelectAllFromCategory(category)"
-                  >
+              >
                 {{ 'Deselect all' | translate }}
               </div>
             </div>
 
             <div
                 class="innerwrap"
-                >
+            >
               <div
                   class="div-row"
                   ng-repeat="subcategory in category.sub"
-                  >
+              >
 
                 <!--show only in pairs - even-->
                 <div data-ng-if="$index % 2 === 0">
@@ -65,7 +65,7 @@
                       class="filter-category-sub div-cell"
                       ng-class="{selected: category.sub[$index+0].selected}"
                       ng-click="toggleCategorySelection(category.sub[$index+0])"
-                      >
+                  >
                     <span class="checkbox inline"></span>
                     {{ category.sub[$index+0].key | translate }}
                   </div>
@@ -75,7 +75,7 @@
                       data-ng-if="category.sub[$index+1]"
                       ng-class="{selected: category.sub[$index+1].selected}"
                       ng-click="toggleCategorySelection(category.sub[$index+1])"
-                      >
+                  >
                     <span class="checkbox inline"></span>
                     {{ category.sub[$index+1].key | translate }}
                   </div>
@@ -90,16 +90,16 @@
 
       <div class="filter-toggle"
            ng-show="showfilterblock"
-          >
+      >
         <div class="filter-toggle-show"
              data-ng-class="{active: allSelected()}"
              data-ng-click="selectAllCategories()"
-            >{{ 'Show all' | translate }}
+        >{{ 'Show all' | translate }}
         </div>
         <div class="filter-toggle-hide"
              data-ng-class="{active: noneSelected()}"
              data-ng-click="deSelectAllCategories()"
-            >{{ 'Hide all' | translate }}
+        >{{ 'Hide all' | translate }}
         </div>
       </div>
 
@@ -107,7 +107,7 @@
 
     <div
         class="map-wrap"
-        >
+    >
       <div class="map-innerwrap">
 
         <ui-gmap-google-map
@@ -116,14 +116,14 @@
             draggable='true'
             events='frontendmap.map.events'
             options='frontendmap.map.options'
-            >
+        >
 
           <!--marker for clicked position can not put google.frontendmap.map.animations.BOUNCE , since it is not initialized yet-->
           <ui-gmap-marker
               coords="frontendmap.map.centerMarker"
               options="{labelContent: frontendmap.map.centerMarkerTitle(), labelAnchor:'22 0', labelClass:'marker-labels marker-labels-your-location', draggable: false}"
               idKey='1'
-              >
+          >
           </ui-gmap-marker>
 
           <ui-gmap-markers
@@ -135,7 +135,7 @@
               options="'markerOptions'"
 
               doRebuildAll="true"
-              >
+          >
           </ui-gmap-markers>
 
         </ui-gmap-google-map>
@@ -143,18 +143,22 @@
       </div>
       <!-- map-innerwrap-->
 
-      <activitybardetail
-          ajs-center-max-width
-          ng-class="{activitydetailactive: states.activitydetailactive}"
-          ng-show="states.filteredactivities.length > 0"
+      <activity-bar-detail
+          activity="getSelectedActivity()"
+          activitydetailactive="states.activitydetailactive"
           ng-if="states.activitydetailactive"
+          ajs-center-max-width
+          ng-class="{
+            activitydetailactive: states.activitydetailactive
+          }"
+          ng-show="states.filteredactivities.length > 0"
           class="category-{{getSelectedActivity().category.main}}"
-          >
-      </activitybardetail>
+      >
+      </activity-bar-detail>
 
       <activitybar
           ng-if="states.filteredactivities.length === 0"
-          >
+      >
         <div class="activitybar-noresult">
           <span class="icon"></span>
           <h4>{{'No Activities found.' | translate}}</h4>
@@ -166,27 +170,27 @@
       <!--use ng-if to avoid data binding error messages when getSelectedActivity() returns undefined in case of empty states.filteredactivities -->
       <activitybar
           ng-if="getSelectedActivity()"
-          >
+      >
 
         <activitybarstripe>
 
           <currentactivity
               ajs-center-max-width
               ng-class="{activitydetailactive: states.activitydetailactive}"
-              >
+          >
 
             <div class="activity-detail-toggle"
                  ng-click="toggleCurrentActivity()"
                  ng-class="{active: states.activitydetailactive}"
-                >
+            >
               <span
                   ng-hide="states.activitydetailactive"
-                  >
+              >
                 {{'Info & Booking' | translate}}
               </span>
               <span
                   ng-show="states.activitydetailactive"
-                  >
+              >
                 {{'close' | translate}}
               </span>
               <span class="visual-button">
@@ -197,7 +201,7 @@
             <div ng-show="states.filteredactivities.length > 0">
               <div class="currentactivity-body category-{{getSelectedActivity().category.main}}"
                    ng-click="toggleCurrentActivity()"
-                  >
+              >
 
                 <div class="currentactivity-img">
                   <cloudinaryimage
@@ -205,7 +209,7 @@
                       data-format="{{getSelectedActivity().images[0].format}}"
                       data-width="400"
                       data-height="200"
-                      >
+                  >
                   </cloudinaryimage>
 
                   <div class="activity-distance-element">
@@ -250,14 +254,13 @@
                     {{'Book' | translate}}
                   </button>
 
-
                 </div>
 
               </div>
 
               <a ng-click="selectprev()"
                  class="activitybar-item-prev"
-                  >
+              >
                 <div class="activity-nav activity-nav-prev">
                   <span class="hideme">previous activity</span>
                   <span></span>
@@ -266,7 +269,7 @@
 
               <a ng-click="selectnext()"
                  class="activitybar-item-next"
-                  >
+              >
                 <div class="activity-nav activity-nav-next">
                   <span class="hideme">next activity</span>
                   <span></span>
@@ -290,7 +293,7 @@
     <activity-list
         activities="states.filteredactivities"
         ng-if="APP_CONFIG.mobile"
-        >
+    >
     </activity-list>
 
     <div class="map-debug">

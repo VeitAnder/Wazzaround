@@ -1,15 +1,12 @@
-<!--<div ng-show="sortedEvents.length === 0">
-  <h5>Loading…</h5>
-</div>-->
-
 <div
-    ng-repeat="event in sortedEvents | removeBookingAlreadyEnded | bookableList:limit"
+    ng-repeat="event in sortedEvents | removeBookingAlreadyEnded | limitTo:limit"
     class="event-list event-list-items"
 >
-  <div class="divider"
-       ng-if="showDate($index, event.event.start)">
+  <div
+      class="divider"
+      ng-if="showDate($index, event.event.start)"
+  >
     <span>
-      <!--<strong>{{event.event.start | fromNow}}</strong>-->
       {{event.event.start | momentjs:{format: "ddd, MMM Do YY"} }}
     </span>
   </div>

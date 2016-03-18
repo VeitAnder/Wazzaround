@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12"
          ng-class="{deletemode: state.actionlinkisopen}"
-      >
+    >
       <h2>{{'Activities' | translate}}</h2>
 
       <!-- ## PUBLISH STATES AREA ################################################################################-->
@@ -38,7 +38,7 @@
         <!-- Message for PROVIDER only -->
         <div ng-show="currentUser.user.userType === 'provider'"
              class="activitystatedescription"
-          >
+        >
           <!--NEW-->
           <span ng-show="changeStateCtrl.activity === 'new'">
             <p>
@@ -53,8 +53,8 @@
           </span>
           <!--CHANGED-->
           <span
-            ng-show="changeStateCtrl.changes === true"
-            >
+              ng-show="changeStateCtrl.changes === true"
+          >
             <p>
               {{'this activity is under review but still published' | translate }}
             </p>
@@ -69,69 +69,69 @@
 
         <!-- Message for ADMIN only -->
         <div
-          ng-show="currentUser.user.userType === 'admin'"
-          class="activitystatedescription"
-          >
+            ng-show="currentUser.user.userType === 'admin'"
+            class="activitystatedescription"
+        >
           <!--NEW-->
           <span
-            ng-show="changeStateCtrl.activity === 'new'"
-            >
+              ng-show="changeStateCtrl.activity === 'new'"
+          >
             <p>{{'New activity – Please review' | translate }}</p>
             <button
-              class="btn btn-mini"
-              data-ng-click="changeStateCtrl.publish($event)"
-              >
+                class="btn btn-mini"
+                data-ng-click="changeStateCtrl.publish($event)"
+            >
               {{'publish' | translate}}
             </button>
             <button
-              class="btn btn-mini btn-alert"
-              data-ng-click="changeStateCtrl.deny($event)"
-              >
+                class="btn btn-mini btn-alert"
+                data-ng-click="changeStateCtrl.deny($event)"
+            >
               {{'deny' | translate}}
             </button>
           </span>
 
           <!--PUBLISHED-->
           <span
-            ng-show="changeStateCtrl.activity === 'published' && changeStateCtrl.changes === false"
-            >
+              ng-show="changeStateCtrl.activity === 'published' && changeStateCtrl.changes === false"
+          >
             <p>{{'this activity is published' | translate }}</p>
             <button
-              class="btn btn-mini btn-alert"
-              data-ng-click="changeStateCtrl.deny($event)"
-              >
+                class="btn btn-mini btn-alert"
+                data-ng-click="changeStateCtrl.deny($event)"
+            >
               {{'deny' | translate}}
             </button>
           </span>
 
           <!--CHANGED-->
           <span
-            ng-show="changeStateCtrl.changes === true"
-            >
+              ng-show="changeStateCtrl.changes === true"
+          >
             <p>{{'Changed activity – Please review' | translate }}</p>
             <button
-              class="btn btn-mini"
-              data-ng-click="changeStateCtrl.publish($event)"
-              >
+                class="btn btn-mini"
+                data-ng-click="changeStateCtrl.publish($event)"
+            >
               {{'publish' | translate}}
             </button>
             <button
-              class="btn btn-mini btn-alert"
-              data-ng-click="changeStateCtrl.deny($event)"
-              >
+                class="btn btn-mini btn-alert"
+                data-ng-click="changeStateCtrl.deny($event)"
+            >
               {{'deny' | translate}}
             </button>
           </span>
 
           <!--DENIED-->
           <span
-            ng-show="changeStateCtrl.activity === 'denied' && changeStateCtrl.changes === false"
-            >
+              ng-show="changeStateCtrl.activity === 'denied' && changeStateCtrl.changes === false"
+          >
             <p>{{'Denied activity' | translate }}</p>
             <button
-              class="btn btn-mini"
-              data-ng-click="changeStateCtrl.publish($event)"
-              >
+                class="btn btn-mini"
+                data-ng-click="changeStateCtrl.publish($event)"
+            >
               {{'publish' | translate}}
             </button>
           </span>
@@ -140,18 +140,18 @@
       </activitystatearea>
 
       <div
-        class="activity-detail detail-category-{{activity.category.main}}"
-        >
+          class="activity-detail detail-category-{{activity.category.main}}"
+      >
         <div class="buttonbar buttonbar-5050 buttonbar-top">
           <div class="cell">
             <action-confirmation-link
-              action="delete()"
-              label="{{'delete' | translate}}"
-              confirmation-label="{{'yes, delete' | translate}}"
-              confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
-              cancel-label="{{'no' | translate}}"
-              is-open="state.actionlinkisopen"
-              >
+                action="delete()"
+                label="{{'delete' | translate}}"
+                confirmation-label="{{'yes, delete' | translate}}"
+                confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
+                cancel-label="{{'no' | translate}}"
+                is-open="state.actionlinkisopen"
+            >
             </action-confirmation-link>
           </div>
           <div class="cell">
@@ -186,28 +186,28 @@
 
         <div class="description"
              ng-bind-html="activity.description[getAvailableTranslationLanguageKey(activity.description)] | nohtml | linebreak"
-          >
+        >
         </div>
 
         <div class="location">
           <div class="input-label">{{'Location' | translate}}:</div>
 
           <ui-gmap-google-map
-            center='map.center'
-            zoom='map.zoom'
-            draggable='true'
-            options='map.options'
-            >
+              center='map.center'
+              zoom='map.zoom'
+              draggable='true'
+              options='map.options'
+          >
 
             <ui-gmap-marker
-              coords='map.markercoords'
-              icon='getMarkerIcon()'
-              idKey='1'
-              options="{
+                coords='map.markercoords'
+                icon='getMarkerIcon()'
+                idKey='1'
+                options="{
               labelContent: activity.name[getAvailableTranslationLanguageKey(activity.name)],
               labelAnchor:'22 0', labelClass: 'marker-labels marker-label-category-'+activity.category.main
               }"
-              >
+            >
             </ui-gmap-marker>
 
           </ui-gmap-google-map>
@@ -216,90 +216,35 @@
 
         <div class="img-block img-block-right"
              ng-show="activity.images.length > 0"
-          >
+        >
           <cloudinaryimage ng-repeat="image in activity.images"
                            data-publicid="{{image.public_id}}"
                            data-format="{{image.format}}"
                            data-width="375"
                            data-height="225"
-            >
+          >
           </cloudinaryimage>
         </div>
 
         <div class="availability">
           <div class="input-label">{{'Availability' | translate}}</div>
 
-          <!--          <div class="availability-filter">
-                      <div class="form-group-inline form-group-inline-5050">
-                        <div class="form-group date-from">
-                          <label>{{'from' | translate}}</label>
-                          <input type="text"
-                                 class="form-control"
-                                 ng-model="frontendmap.map.searchStartDate"
-                                 data-min-date="{{search.minDate}}"
-                                 placeholder="{{'From' | translate}}"
-                                 bs-datepicker
-                                 autoclose="false"
-                              >
-                        </div>
-                        <div class="form-group date-until">
-                          <label>{{'until' | translate}}</label>
-                          <input type="text"
-                                 class="form-control"
-                                 ng-model="frontendmap.map.searchEndDate"
-                                 data-min-date="{{frontendmap.map.searchStartDate}}"
-                                 data-max-date="{{search.maxDate}}"
-                                 placeholder="{{'Until' | translate}}"
-                                 bs-datepicker
-                                 autoclose="false"
-                              >
-                        </div>
-                      </div>
-
-                      <div class="bookableitem-tags">
-                        <a class="bookableitem-tag"
-                           ng-click="selected1 = !selected1"
-                           ng-class="{selected: selected1}"
-                            >
-                          <span class="checkbox-tag"></span>
-                          Show all
-                          <span class="numberofitems">1</span>
-                        </a>
-
-                        <a class="bookableitem-tag"
-                           ng-click="selected2 = !selected2"
-                           ng-class="{selected: selected2}"
-                            >
-                          <span class="checkbox-tag"></span>
-                          Bookable Item A
-                          <span class="numberofitems">1</span>
-                        </a>
-                      </div>
-                    </div>
-
-                    <div class="divider">
-                      <span>
-                        <strong>Today</strong>
-                        (Tue, May 13 2014)
-                      </span>
-                    </div>-->
-
           <bookable-item-list
-            activity="activity"
-            >
+              activity="activity"
+          >
           </bookable-item-list>
 
         </div>
         <div class="buttonbar buttonbar-5050 margin-top">
           <div class="cell">
             <action-confirmation-link
-              action="delete()"
-              label="{{'delete' | translate}}"
-              confirmation-label="{{'yes, delete' | translate}}"
-              confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
-              cancel-label="{{'no' | translate}}"
-              is-open="state.actionlinkisopen"
-              >
+                action="delete()"
+                label="{{'delete' | translate}}"
+                confirmation-label="{{'yes, delete' | translate}}"
+                confirmation-description="{{'Do you want to delete the entire activity' | translate}}"
+                cancel-label="{{'no' | translate}}"
+                is-open="state.actionlinkisopen"
+            >
             </action-confirmation-link>
           </div>
           <div class="cell">
@@ -309,8 +254,8 @@
           </div>
         </div>
         <p
-          ng-hide="state.actionlinkisopen"
-          >
+            ng-hide="state.actionlinkisopen"
+        >
           <a class="text-link"
              href="/#!/admin/myactivities/">{{'back to my activities' | translate}}
           </a>

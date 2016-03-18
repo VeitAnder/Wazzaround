@@ -94,5 +94,4 @@ angular.module('anorakApp')
     };
     $scope.filter = new filter();
 
-
   });
