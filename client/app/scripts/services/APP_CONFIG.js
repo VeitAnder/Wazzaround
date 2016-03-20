@@ -81,7 +81,7 @@ angular.module('anorakApp')
     }
 
     // API_URL
-    if (hostconfig.API_PORT !== 80 || hostconfig.API_PORT !== 443) {
+    if (hostconfig.API_PORT !== 80 && hostconfig.API_PORT !== 443) {
       hostconfig.API_URL = 'http://' + $window.location.hostname + ':' + hostconfig.API_PORT + API_VERSION;
     } else {
       if (hostconfig.API_PORT === 443) {
