@@ -335,7 +335,7 @@ angular.module('anorakApp')
 
       // delete file from server implemented here
       // question is when to delete file from server??
-//      $http.delete(APP_CONFIG.APIUrl + 'upload/activityimage/' + image.public_id + "/",
+//      $http.delete(APP_CONFIG.API_URL + 'upload/activityimage/' + image.public_id + "/",
 //        {
 //          withCredentials: true
 //        }

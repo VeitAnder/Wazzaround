@@ -37,7 +37,7 @@ angular.module('services.authentication', ['services.authentication.current-user
       },
 
       login: function (email, password) {
-        var request = $http.post(APP_CONFIG.APIUrl + 'login', {email: email, password: password});
+        var request = $http.post(APP_CONFIG.API_URL + 'login', {email: email, password: password});
         return request.then(function (response) {
           updateCurrentUser(response.data.user);
           return currentUser.isAuthenticated();
@@ -50,7 +50,7 @@ angular.module('services.authentication', ['services.authentication.current-user
       },
 
       logout: function () {
-        $http.post(APP_CONFIG.APIUrl + 'logout').then(function () {
+        $http.post(APP_CONFIG.API_URL + 'logout').then(function () {
           // no need to clear currentUser due to reload of angular app
           // currentUser.clear();
           // redirect("/");
@@ -64,7 +64,7 @@ angular.module('services.authentication', ['services.authentication.current-user
         if (currentUser.isAuthenticated()) {
           return $q.when(currentUser);
         } else {
-          return $http.get(APP_CONFIG.APIUrl + 'current-user').then(function (response) {
+          return $http.get(APP_CONFIG.API_URL + 'current-user').then(function (response) {
             updateCurrentUser(response.data.user);
             return currentUser;
           });

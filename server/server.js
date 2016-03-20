@@ -191,7 +191,7 @@ app.get('/sitemap.xml', function (req, res, next) {
 /*
  @TODO refactor out quickfixapi route into normal REST API when deprecating modelizer
  */
-app.get('/quickfixapi/find/', function (req, res, next) {
+app.get('/' + config.api.apiversion + 'queryfast/activities/', function (req, res, next) {
 
   var activities = db.collection('activities');
   var params = JSON.parse(req.query.query);

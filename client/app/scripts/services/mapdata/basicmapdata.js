@@ -133,7 +133,7 @@ angular.module('anorakApp')
 
         //http://stackoverflow.com/questions/13928057/how-to-cancel-an-http-request-in-angularjs
         canceler = $q.defer();
-        return $http.get(APP_CONFIG.modelizerurl + "quickfixapi/find/?query=" + JSON.stringify(query), {timeout: canceler.promise, withCredentials: true})
+        return $http.get(APP_CONFIG.API_URL + "/queryfast/activities/?query=" + JSON.stringify(query), {timeout: canceler.promise, withCredentials: true})
           .then(function (response) {
             return response.data;
           });

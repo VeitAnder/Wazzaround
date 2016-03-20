@@ -34,7 +34,7 @@ angular.module('anorakApp')
         };
 
         myDropzone = new Dropzone('#dropzone', {
-          url: APP_CONFIG.APIUrl + "upload/activityimage/",
+          url: APP_CONFIG.API_URL + "upload/activityimage/",
           acceptedFiles: "image/*",
           withCredentials: true, // For CORS.
           params: {

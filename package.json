@@ -17,7 +17,7 @@
     "google-translate": "1.0.6",
     "handlebars": "4.0.5",
     "js-beautify": "1.6.2",
-    "modelizerfork": "0.6.0",
+    "modelizerfork": "1.0.0",
     "moment": "2.12.0",
     "moment-timezone": "0.5.2",
     "mongojs": "2.3.0",

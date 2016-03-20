@@ -1,6 +1,9 @@
+"use strict";
+
 angular.module('anorakApp')
   .factory('APP_CONFIG', function ($window) {
-    "use strict";
+    var API_VERSION = '/api/v1';
+
     var hostconfig = {},
       globalconfig = {
         mobile: function () {
@@ -16,11 +19,9 @@ angular.module('anorakApp')
           bucket: "",
           accesskey: ""
         },
-        APIUrl: "https://" + $window.location.hostname + apiversion,
+        API_PORT: 443,
+        API_VERSION: API_VERSION,
         debug: false,
-        modelizerurl: "https://" + $window.location.hostname + "/",
-        modelizerhost: $window.location.hostname,
-        modelizerport: 443,
         cloudinary: {
           cloud_name: 'www-reacture-com',
           api_key: '162329319871877'
@@ -40,9 +41,9 @@ angular.module('anorakApp')
           bucket: "",
           accesskey: ""
         },
-        APIUrl: "https://" + $window.location.hostname + apiversion,
+        API_PORT: 443,
+        API_VERSION: API_VERSION,
         debug: false,
-        modelizerurl: "https://" + $window.location.hostname + "/",
         cloudinary: {
           cloud_name: 'www-reacture-com',
           api_key: '162329319871877'
@@ -62,11 +63,9 @@ angular.module('anorakApp')
           bucket: "",
           accesskey: ""
         },
-        APIUrl: "http://" + $window.location.hostname + ":3000" + apiversion,
+        API_PORT: 3000,
+        API_VERSION: API_VERSION,
         debug: true,
-        modelizerurl: "http://" + $window.location.hostname + ":3000/",
-        modelizerhost: $window.location.hostname,
-        modelizerport: 3000,
         cloudinary: {
           cloud_name: 'www-reacture-com',
           api_key: '162329319871877'
@@ -79,6 +78,17 @@ angular.module('anorakApp')
            });*/
         })()
       };
+    }
+
+    // API_URL
+    if (hostconfig.API_PORT !== 80 || hostconfig.API_PORT !== 443) {
+      hostconfig.API_URL = 'http://' + $window.location.hostname + ':' + hostconfig.API_PORT + API_VERSION;
+    } else {
+      if (hostconfig.API_PORT === 443) {
+        hostconfig.API_URL = 'https://' + $window.location.hostname + API_VERSION;
+      } else {
+        hostconfig.API_URL = 'http://' + $window.location.hostname + API_VERSION;
+      }
     }
 
     angular.extend(globalconfig, hostconfig);

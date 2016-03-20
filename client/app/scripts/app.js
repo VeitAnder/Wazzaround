@@ -72,11 +72,11 @@ angular.module('anorakApp')
       $compileProvider.debugInfoEnabled(false);
     }
 
-    /*    $locationProvider.html5Mode((function () {
-     return !!(window.history && history.pushState);
-     }()));*/
+    $locationProvider.html5Mode((function () {
+      return !!(window.history && history.pushState);
+    }()));
 
-    $locationProvider.html5Mode(false);
+    // $locationProvider.html5Mode(false);
     $locationProvider.hashPrefix('!');
 
     //if no route specified, go to default route
@@ -356,20 +356,20 @@ angular.module('anorakApp')
     });
 
     $translateProvider.registerAvailableLanguageKeys(['en', 'de', 'it'], {
-      'en_US': 'en',
-      'en_us': 'en',
-      'en_UK': 'en',
-      'en_uk': 'en',
-      'de_DE': 'de',
-      'de_de': 'de',
-      'de_CH': 'de',
-      'de_ch': 'de',
-      'de_AT': 'de',
-      'de_at': 'de',
-      'IT_IT': 'it',
-      'it_it': 'it',
-      'it_IT': 'it'
-    })
+        'en_US': 'en',
+        'en_us': 'en',
+        'en_UK': 'en',
+        'en_uk': 'en',
+        'de_DE': 'de',
+        'de_de': 'de',
+        'de_CH': 'de',
+        'de_ch': 'de',
+        'de_AT': 'de',
+        'de_at': 'de',
+        'IT_IT': 'it',
+        'it_it': 'it',
+        'it_IT': 'it'
+      })
       .determinePreferredLanguage();
 // hint: en_us and en_US are different, is a case-sensitive check bug in angular-translate
 // is fixed in https://github.com/angular-translate/angular-translate/issues/431
@@ -379,64 +379,64 @@ angular.module('anorakApp')
 
   })
   .run(function ($rootScope, $locale, $log, debug, currentUser, $location, $route, APP_CONFIG, models, $translate, translationutils, $window) {
-    $rootScope.debug = debug;
-    $rootScope.models = models;
-    var checkRouteForAuthorization;
+      $rootScope.debug = debug;
+      $rootScope.models = models;
+      var checkRouteForAuthorization;
 
-    var Model = require('modelizer');
+      var Model = require('modelizer');
 //    var connector = Model.AngularConnector(APP_CONFIG.modelizerurl);
-    var connector = Model.ClientConnector(APP_CONFIG.modelizerhost, APP_CONFIG.modelizerport);
+      var connector = Model.ClientConnector($window.location.hostname, APP_CONFIG.API_PORT, APP_CONFIG.API_VERSION);
 
-    _.forEach(models, function (model) {  // setup connection for each model
-      model.connection(connector);
-    });
+      _.forEach(models, function (model) {  // setup connection for each model
+        model.connection(connector);
+      });
 
-    // set language based on search parameter
-    if ($location.search().lang === "de" || $location.search().lang === "en" || $location.search().lang === "it") {
-      $translate.use($location.search().lang);
+      // set language based on search parameter
+      if ($location.search().lang === "de" || $location.search().lang === "en" || $location.search().lang === "it") {
+        $translate.use($location.search().lang);
+      }
+
+      moment.locale($translate.use());  // setup moment language
+
+      checkRouteForAuthorization = function () {
+
+        // if you try to access a admin route without being authenticated -> redirect to /login
+        if (!currentUser.authenticated) {
+          if ($route.current.$$route.originalPath.match(/^\/admin/) || $route.current.$$route.originalPath.match(/^\/account/)) {
+            $rootScope.$apply(function () {
+              $location.path('/login');
+            });
+          }
+        }
+      };
+
+      $rootScope.currentUser = currentUser;
+      // load current User from server
+      // @TODO - content flickers as long as route has not been checked
+      currentUser.load()
+        .then(function () {
+          checkRouteForAuthorization();
+        })
+        .done();
+
+      $rootScope.$on('$routeChangeStart', function (event, next, current) {
+        // if you try to access the register route being authenticated -> redirect to /admin
+        if (currentUser.authenticated) {
+          if (next.$$route.originalPath.match(/^\/registration/)) {
+            $location.path('/admin');
+          }
+        }
+      });
+
+      $rootScope.$on('$routeChangeSuccess', function (event, next, current) {
+        $window.scrollTo(0, 0);
+      });
+
+      // service to determine available language in case of ng-model binding in view
+      $rootScope.getAvailableTranslationLanguageKey = translationutils.getAvailableTranslationLanguageKey;
+
     }
-
-    moment.locale($translate.use());  // setup moment language
-
-    checkRouteForAuthorization = function () {
-
-      // if you try to access a admin route without being authenticated -> redirect to /login
-      if (!currentUser.authenticated) {
-        if ($route.current.$$route.originalPath.match(/^\/admin/) || $route.current.$$route.originalPath.match(/^\/account/)) {
-          $rootScope.$apply(function () {
-            $location.path('/login');
-          });
-        }
-      }
-    };
-
-    $rootScope.currentUser = currentUser;
-    // load current User from server
-    // @TODO - content flickers as long as route has not been checked
-    currentUser.load()
-      .then(function () {
-        checkRouteForAuthorization();
-      })
-      .done();
-
-    $rootScope.$on('$routeChangeStart', function (event, next, current) {
-      // if you try to access the register route being authenticated -> redirect to /admin
-      if (currentUser.authenticated) {
-        if (next.$$route.originalPath.match(/^\/registration/)) {
-          $location.path('/admin');
-        }
-      }
-    });
-
-    $rootScope.$on('$routeChangeSuccess', function (event, next, current) {
-      $window.scrollTo(0, 0);
-    });
-
-    // service to determine available language in case of ng-model binding in view
-    $rootScope.getAvailableTranslationLanguageKey = translationutils.getAvailableTranslationLanguageKey;
-
-  }
-);
+  );
 
 // @TODO check logging if it is neccessary to start via DI?
 // DO not remove logging from DI list!
