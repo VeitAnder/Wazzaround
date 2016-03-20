@@ -43,7 +43,6 @@ gulp.task('lint', function () {
     .pipe(jshint.reporter('fail'));
 });
 
-
 gulp.task('html2js', function () {
   gulp.src([
       clientpathdev + 'components/**/*.html',
@@ -53,9 +52,10 @@ gulp.task('html2js', function () {
       gutil.log(gutil.colors.red(error.message));
       this.emit('end');
     }))
-    .pipe(html2js({
-      outputModuleName: 'templates.app',
+    .pipe(html2js('angular.js', {
+      name: 'templates.app',
       useStrict: true,
+      adapter: 'angular',
       base: clientpathdev
     }))
     .pipe(concat('templates.js'))
@@ -63,18 +63,18 @@ gulp.task('html2js', function () {
 });
 
 /*gulp.task('html2js', function () {
-  gulp.src([
-      clientpathdev + 'components/!**!/!*.html',
-      clientpathdev + 'views/!**!/!*.html'
-    ])
-    .pipe(html2js({
-      outputModuleName: 'templates.app',
-      useStrict: true,
-      base: clientpathdev
-    }))
-    .pipe(concat('templates.js'))
-    .pipe(gulp.dest(clientpathdev + 'scripts'));
-});*/
+ gulp.src([
+ clientpathdev + 'components/!**!/!*.html',
+ clientpathdev + 'views/!**!/!*.html'
+ ])
+ .pipe(html2js({
+ outputModuleName: 'templates.app',
+ useStrict: true,
+ base: clientpathdev
+ }))
+ .pipe(concat('templates.js'))
+ .pipe(gulp.dest(clientpathdev + 'scripts'));
+ });*/
 
 gulp.task('favicons', function () {
   function generateFavicons(cb) {
