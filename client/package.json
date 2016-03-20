@@ -1,6 +1,6 @@
 {
   "name": "anorak",
-  "version": "0.125.0",
+  "version": "0.126.0",
   "description": "Back end server for reacture",
   "dependencies": {
     "gulp-plumber": "^1.1.0",
