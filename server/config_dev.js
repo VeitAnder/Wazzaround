@@ -5,7 +5,8 @@ var config = {
     username: 'reactureapppdevonmodulus',
     password: process.env.MONGODB_PASSWORD,
     dbName: 'reactureappdevonmodulus',                                // The name of database that contains the security information
-    host: 'ds033679.mongolab.com:33679'                         // mongolab mongodb connection url
+    host: 'ds033679.mongolab.com',                         // mongolab mongodb connection url
+    port: 33679
   },
   security: {
     usersCollection: 'users',                                   // The name of the collection contains user information

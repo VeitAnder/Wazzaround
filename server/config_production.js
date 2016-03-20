@@ -5,10 +5,11 @@ var config = {
     username: 'reactureapp',
     password: process.env.MONGODB_PASSWORD,
     dbName: 'reactureapp',                                // The name of database that contains the security information
-    host: 'ds029780-a0.mongolab.com:29780,ds029780-a1.mongolab.com:29780',                         // mongolab mongodb connection url
-    dumpHost : "ds029780-a0.mongolab.com:29780",
-    readonlyuser : 'readonlyuser',
-    readonlypass : process.env.MONGODB_PASSWORD_READONLY
+    host: 'ds029780-a0.mongolab.com,ds029780-a1.mongolab.com',                         // mongolab mongodb connection url
+    port: 29780,
+    dumpHost: "ds029780-a0.mongolab.com:29780",
+    readonlyuser: 'readonlyuser',
+    readonlypass: process.env.MONGODB_PASSWORD_READONLY
   },
   security: {
     usersCollection: 'users',                                   // The name of the collection contains user information
