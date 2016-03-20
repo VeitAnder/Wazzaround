@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('anorakApp')
-  .directive('cloudinaryimage', function (APP_CONFIG, $timeout) {
+  .directive('cloudinaryimage', function (APP_CONFIG) {
     return {
       template: '<img ng-src="{{getCloudinaryurl()}}" ng-hide="states.noid"/> ',
       restrict: 'E',
@@ -16,12 +16,16 @@ angular.module('anorakApp')
           noid: false
         };
 
-        $.cloudinary.config({ cloud_name: APP_CONFIG.cloudinary.cloud_name, api_key: APP_CONFIG.cloudinary.api_key});
+        $.cloudinary.config({cloud_name: APP_CONFIG.cloudinary.cloud_name, api_key: APP_CONFIG.cloudinary.api_key});
         scope.getCloudinaryurl = function () {
           var url;
           if (scope.publicid !== "") {
             scope.states.noid = false;
-            url = $.cloudinary.url(scope.publicid + "." + scope.format, { width: scope.width, height: scope.height, crop: 'fill' });
+            url = $.cloudinary.url(scope.publicid + "." + scope.format, {
+              width: scope.width,
+              height: scope.height,
+              crop: 'fill'
+            });
           } else {
             scope.states.noid = true;
             url = "#";

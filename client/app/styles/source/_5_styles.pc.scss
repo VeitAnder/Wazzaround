@@ -58,7 +58,11 @@ body {
   margin: 50px;
 }
 
-
 .seocontent {
-  display:none;
+  display: none;
+}
+
+// TextAngular fix
+.ta-hidden-input {
+  display: none;
 }
