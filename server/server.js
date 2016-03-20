@@ -90,7 +90,7 @@ var db;
   }
 
   db = mongojs(
-    'mongodb://' + config.mongo.username + ':' + config.mongo.password + '@' + config.mongo.host + ':' + config.mongo.port + '/' + config.mongo.dbName,
+    'mongodb://' + config.mongo.username + ':' + config.mongo.password + '@' + config.mongo.host + '/' + config.mongo.dbName,
     [],
     {
       authMechanism: authMechanism
