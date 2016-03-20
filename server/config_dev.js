@@ -45,8 +45,8 @@ var config = {
     colorize: true
   },
   cloudinary: {
-    cloud_name: 'dqe7zmb1k',
-    api_key: '619226866778758',
+    cloud_name: 'www-reacture-com',
+    api_key: '162329319871877',
     api_secret: process.env.CLOUDINARY_API_SECRET,
   },
   google: {
