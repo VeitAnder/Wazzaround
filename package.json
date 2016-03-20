@@ -13,7 +13,7 @@
     "crypto-js": "3.1.6",
     "csurf": "1.8.3",
     "express": "4.13.4",
-    "google-translate": "^0.1.8",
+    "google-translate": "1.0.6",
     "handlebars": "4.0.5",
     "js-beautify": "1.6.2",
     "lodash": "3.10.1",
