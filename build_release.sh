@@ -9,6 +9,13 @@ SCRIPTPATH=`dirname $0`
 echo "\n\nnode version used:"
 node --version
 
+# https://blog.risingstack.com/node-js-security-checklist/
+echo "\n\naudit npm security via nsp"
+nsp check
+cd client
+nsp check
+cd ..
+
 # if no grunt found
 echo "When no grunt binary is found, install it via [sudo] npm install -g grunt-cli"
 echo "grunt binary path:"
